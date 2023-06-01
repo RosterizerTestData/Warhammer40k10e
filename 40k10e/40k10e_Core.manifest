@@ -1,0 +1,5045 @@
+{
+  "name": "40k10e",
+  "revision": "10.0.1",
+  "game": "Warhammer 40,000",
+  "genre": "sci-fi",
+  "publisher": "Games Workshop",
+  "url": "https://warhammer40000.com/",
+  "notes": "This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution.",
+  "wip": true,
+  "dependencies": [],
+  "manifest": {
+    "assetTaxonomy": {
+      "Ability": {
+        "aspects": {
+          "Visibility": "active"
+        },
+        "rules": {
+          "Error in this Ability’s text": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "ERROR",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
+      },
+      "Antiquity Relic": {
+        "templateClass": "Artificer Relic"
+      },
+      "Artificer Relic": {
+        "templateClass": "Crusade Relic"
+      },
+      "Battle Scar": {
+        "aspects": {
+          "Unique": true,
+          "Lock Qty": true,
+          "Rename": true
+        }
+      },
+      "Battle Trait": {
+        "aspects": {
+          "Unique": true,
+          "Lock Qty": true,
+          "Rename": true
+        },
+        "keywords": {
+          "Tags": []
+        }
+      },
+      "Crusade Relic": {
+        "aspects": {
+          "Unique": true
+        },
+        "keywords": {
+          "Tags": []
+        }
+      },
+      "Dedicated Transport": {
+        "templateClass": "Unit",
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          }
+        }
+      },
+      "Detachment": {
+        "stats": {
+          "HQ": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "crowned-skull"
+            ],
+            "statOrder": 1,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Troops": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "triangle-target"
+            ],
+            "statOrder": 3,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Elites": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "pirate-flag"
+            ],
+            "statOrder": 5,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Dedicated Transport": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "arrow-dunk"
+            ],
+            "statOrder": 13,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Fast Attack": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "power-lightning"
+            ],
+            "statOrder": 7,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Heavy Support": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "mine-explosion"
+            ],
+            "statOrder": 9,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Flyer": {
+            "statType": "numeric",
+            "value": null,
+            "icons": [
+              "bat-blade"
+            ],
+            "statOrder": 11,
+            "visibility": "active",
+            "tracked": true
+          },
+          "Command Cost": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": -1,
+            "visibility": "always",
+            "tracked": true
+          }
+        },
+        "rules": {
+          "1 Dedicated Transport allowed per INFANTRY": {
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Dedicated Transport",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Infantry"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "aspects": {
+          "Group Includes": true,
+          "Group Traits": true,
+          "Rename": true,
+          "Describe": true,
+          "Lock Qty": true,
+          "Unique": true
+        },
+        "allowed": {
+          "classifications": [
+            "HQ",
+            "Troops",
+            "Dedicated Transport",
+            "Elites",
+            "Fast Attack",
+            "Flyers",
+            "Heavy Support",
+            "Lords of War",
+            "Fortifications"
+          ]
+        },
+        "constraints": {
+          "none": [
+            "Mid-game"
+          ]
+        }
+      },
+      "Elites": {
+        "templateClass": "Unit"
+      },
+      "Fast Attack": {
+        "templateClass": "Unit"
+      },
+      "Flyers": {
+        "templateClass": "Unit"
+      },
+      "Fortifications": {
+        "templateClass": "Unit",
+        "removed": {
+          "stats": {
+            "Warlord": {}
+          }
+        }
+      },
+      "Heavy Support": {
+        "templateClass": "Unit"
+      },
+      "HQ": {
+        "templateClass": "Unit",
+        "text": ""
+      },
+      "In-game Stratagems": {
+        "aspects": {
+          "Visibility": "active",
+          "Order Traits A–Z": true
+        },
+        "text": "These Stratagems are available to use during a game. Pre-battle stratagems are available to add in the main army asset (similarly to detachments) OR in the unit that the stratagem would affect."
+      },
+      "Legendary Relic": {
+        "templateClass": "Artificer Relic"
+      },
+      "Lords of War": {
+        "templateClass": "Unit"
+      },
+      "Model": {
+        "stats": {
+          "Points": {
+            "value": null,
+            "format": "{v}",
+            "group": "Cost",
+            "groupOrder": -1,
+            "tracked": true,
+            "statType": "numeric"
+          },
+          "A": {
+            "value": 0,
+            "statOrder": 7,
+            "group": "Stats",
+            "statType": "term",
+            "visibility": "normal"
+          },
+          "BS": {
+            "format": "{v}+",
+            "value": 0,
+            "statOrder": 3,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 0,
+            "statOrder": 8,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "S": {
+            "value": 0,
+            "statOrder": 4,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "format": "{v}+",
+            "value": 0,
+            "statOrder": 9,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "T": {
+            "value": 0,
+            "statOrder": 5,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "W": {
+            "value": 0,
+            "statOrder": 6,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "WS": {
+            "format": "{v}+",
+            "value": 0,
+            "statOrder": 2,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "Base": {
+            "statType": "term",
+            "value": null,
+            "visibility": "active"
+          },
+          "M": {
+            "statType": "term",
+            "format": "{t}″",
+            "value": null,
+            "statOrder": 1,
+            "group": "Stats",
+            "visibility": "normal"
+          },
+          "Warlord": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": true
+          }
+        },
+        "aspects": {
+          "Type": "game piece"
+        },
+        "rules": {
+          "hideWarlordOption": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Order of Battle": {
+        "allowed": {
+          "classifications": [
+            "Requisition",
+            "Unit"
+          ]
+        },
+        "aspects": {
+          "Group Includes": true
+        },
+        "rules": {
+          "hide enclosed assets": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "OR",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "aspects",
+                    "Visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "active",
+                "iterations": 1
+              }
+            ]
+          },
+          "noPoints": {
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Points"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 0,
+                "iterations": 1
+              }
+            ]
+          },
+          "supplyUsedLimit": {
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Supply Limit",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "requisitionCalc": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Tally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "Requisition"
+                  ]
+                }
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Requisition Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "requisitionCalc",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "stats": {
+          "Supply Limit": {
+            "statType": "numeric",
+            "increment": {
+              "value": 1
+            },
+            "value": 50,
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false
+          },
+          "Power Level": {
+            "statType": "numeric",
+            "label": "Supply Used",
+            "value": 0,
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true
+          },
+          "Battle Tally": {
+            "value": 0,
+            "statType": "numeric",
+            "increment": {
+              "value": 1
+            },
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false
+          },
+          "Battles Won": {
+            "value": 0,
+            "statType": "numeric",
+            "increment": {
+              "value": 1
+            },
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false
+          },
+          "Requisition Points": {
+            "value": 5,
+            "statType": "numeric",
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true,
+            "max": 5
+          }
+        }
+      },
+      "Psychic Fortitude": {},
+      "Psychic Power": {
+        "aspects": {
+          "Visibility": "active",
+          "Lock Qty": true,
+          "Unique": true
+        }
+      },
+      "Relic": {
+        "templateClass": "Weapon"
+      },
+      "Relic Weapon": {
+        "templateClass": "Weapon"
+      },
+      "Requisition": {
+        "aspects": {
+          "Describe": true
+        }
+      },
+      "Stratagem": {
+        "stats": {
+          "Command Cost": {
+            "statType": "numeric",
+            "label": "CP",
+            "value": 0,
+            "visibility": "always"
+          }
+        },
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true,
+          "Group By": "Phase",
+          "Visibility": "active"
+        },
+        "rules": {
+          "There are multiples of this unique stratagem.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "{0string}"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "aspects",
+                    "Unique"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "There are multiples of this unique stratagem",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "max": 1,
+                "operator": "SUM",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        },
+        "text": "",
+        "keywords": {
+          "Phase": []
+        }
+      },
+      "Troops": {
+        "templateClass": "Unit",
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          },
+          "keywords": {
+            "Tags": []
+          }
+        }
+      },
+      "Unit": {
+        "stats": {
+          "Points": {
+            "value": 0,
+            "format": "{v}",
+            "group": "Cost",
+            "groupOrder": -1,
+            "tracked": true,
+            "statType": "numeric"
+          },
+          "A": {
+            "value": null,
+            "statOrder": 7,
+            "group": "Stats",
+            "statType": "term",
+            "visibility": "normal"
+          },
+          "BS": {
+            "format": "{v}+",
+            "value": null,
+            "statOrder": 3,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": null,
+            "statOrder": 8,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "S": {
+            "value": null,
+            "statOrder": 4,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "format": "{v}+",
+            "value": null,
+            "statOrder": 9,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "T": {
+            "value": null,
+            "statOrder": 5,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "W": {
+            "value": null,
+            "statOrder": 6,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "WS": {
+            "format": "{v}+",
+            "value": null,
+            "statOrder": 2,
+            "group": "Stats",
+            "statType": "numeric",
+            "visibility": "normal"
+          },
+          "Base": {
+            "statType": "term",
+            "value": null,
+            "visibility": "active"
+          },
+          "M": {
+            "statType": "term",
+            "format": "{t}″",
+            "value": null,
+            "statOrder": 1,
+            "group": "Stats",
+            "visibility": "normal"
+          },
+          "model": {
+            "value": null,
+            "statType": "term",
+            "visibility": "hidden"
+          },
+          "Power Level": {
+            "statType": "numeric",
+            "format": "{v}",
+            "value": 0,
+            "group": "Cost",
+            "groupOrder": -1,
+            "visibility": "always",
+            "tracked": true
+          },
+          "power1": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "power3": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "power2": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "power4": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "poweri": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Crusade Pts": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": true
+          },
+          "Rank": {
+            "value": "Battle-ready",
+            "statType": "rank",
+            "ranks": {
+              "Battle-ready": {
+                "order": 0
+              },
+              "Blooded": {
+                "order": 1,
+                "tracking": {}
+              },
+              "Battle-hardened": {
+                "order": 2,
+                "tracking": {}
+              },
+              "Heroic": {
+                "order": 3,
+                "tracking": {}
+              },
+              "Legendary": {
+                "order": 4,
+                "tracking": {}
+              }
+            },
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": false
+          },
+          "Experience": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false,
+            "increment": {
+              "value": 1
+            }
+          },
+          "Battle Honours": {
+            "value": 0,
+            "statType": "numeric",
+            "statOrder": 4,
+            "visibility": "normal",
+            "tracked": true
+          },
+          "minModels": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Psychic Power": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true
+          },
+          "Warlord": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": true
+          }
+        },
+        "keywords": {
+          "Source": [],
+          "Tags": [
+            "Units"
+          ],
+          "Faction": []
+        },
+        "rules": {
+          "use points": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Mode",
+                    "value"
+                  ]
+                ],
+                "value": "Points",
+                "operator": "AND",
+                "not": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "use power level": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Mode",
+                    "value"
+                  ]
+                ],
+                "value": "Power Level",
+                "operator": "AND",
+                "not": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "visibility"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "Points",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "adjust power": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "power1",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "power2",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "power3",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "power4",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "adjust power",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "adjust power",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "adjust power",
+                    "evals",
+                    "2",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "adjust power",
+                    "evals",
+                    "3",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "operator": "SUM",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 13,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "poweri",
+                  "value"
+                ],
+                "iterations": [
+                  "{self}",
+                  "rules",
+                  "adjust power",
+                  "evals",
+                  "4",
+                  "result",
+                  "integer"
+                ]
+              }
+            ]
+          },
+          "Incorrect number of models.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "{1string}",
+                    "quantity"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "stats",
+                  "{0string}",
+                  "max"
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "{0string}",
+                  "min"
+                ],
+                "operator": "SUM",
+                "not": false
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR",
+            "order": 12
+          },
+          "Error in this Unit’s text": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "ERROR",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "crusadePts": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Crusade Pts",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Battle Honours"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "crusadePtsPL11": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "value"
+                  ]
+                ],
+                "min": 11,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Crusade Pts",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Battle Honours"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "crusadeStats": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "Crusade Pts",
+                      "Experience",
+                      "Battle Honours",
+                      "Rank"
+                    ],
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "This unit has unspent traits.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "value"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "Battle Honours",
+                  "max"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "warning",
+            "evaluate": "OR",
+            "order": 22
+          },
+          "rank1": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ],
+                "max": 15,
+                "min": 6,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 21,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "Blooded",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 1,
+                "iterations": 1
+              }
+            ]
+          },
+          "rank2": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ],
+                "max": 30,
+                "min": 16,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 21,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "Battle-hardened",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 2,
+                "iterations": 1
+              }
+            ]
+          },
+          "rank3": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ],
+                "max": 50,
+                "min": 31,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 21,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "Heroic",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 3,
+                "iterations": 1
+              }
+            ]
+          },
+          "rank4": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ],
+                "min": 51,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 21,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "Legendary",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 4,
+                "iterations": 1
+              }
+            ]
+          },
+          "allowCharacterScarsTraits": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Character",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowMonsterScarsTraits": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Monster",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Monster",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowVehicleScarsTraits": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Vehicle",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowOtherBattleScars": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Monster",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Other Unit",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowScarsTraits": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Battle Scar",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Battle Trait",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowPsychicFortitudes": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Psychic Fortitude",
+                "iterations": 1
+              }
+            ]
+          },
+          "addBattleHonours": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Battle Trait",
+                      "Psychic Fortitude",
+                      "Weapon Enhancement"
+                    ]
+                  ]
+                ],
+                "operator": "SUM",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 20,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "addBattleHonours",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "Too many of this unit type in the army.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "{0string}"
+                  ]
+                ],
+                "max": [
+                  "{roster}",
+                  "tracked",
+                  "ruleOf"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "This unit is Understrength.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "{0string}",
+                    "value"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "stats",
+                  "minModels",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "minModels",
+                    "value"
+                  ]
+                ],
+                "value": 0,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "warlordTrait": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "Named",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Warlord Trait",
+                "iterations": 1
+              }
+            ]
+          },
+          "hideWarlordOption": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": true,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "hideWarlordOption",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "hideWarlordOption",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 25,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Warlord Trait",
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "aspects": {
+          "Type": "conceptual",
+          "Lock Qty": true,
+          "Rename": true
+        },
+        "removed": {
+          "stats": {}
+        },
+        "allowed": {
+          "classifications": [
+            "Stratagem"
+          ]
+        },
+        "constraints": {
+          "any": [
+            "Model Strat"
+          ]
+        }
+      },
+      "Upgrade": {
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "format": "+{v}",
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true
+          },
+          "Power Level": {
+            "statType": "numeric",
+            "format": "+{v}",
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true
+          }
+        }
+      },
+      "Wargear": {
+        "stats": {
+          "keyword?": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1
+              }
+            },
+            "visibility": "hidden"
+          }
+        },
+        "rules": {
+          "add keyword": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "keywords",
+                    "General"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "designation"
+                ],
+                "contains": true,
+                "operator": "AND",
+                "not": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "keyword?",
+                    "value"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 12,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "keywords",
+                    "General"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{self}",
+                  "designation"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "aspects": {
+          "Visibility": "always"
+        }
+      },
+      "Warlord Trait": {
+        "stats": {},
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
+        }
+      },
+      "Weapon": {
+        "stats": {
+          "Points": {
+            "value": null,
+            "format": "+{v}",
+            "group": "Cost",
+            "groupOrder": -1,
+            "tracked": true,
+            "statType": "numeric"
+          },
+          "Type": {
+            "value": null,
+            "statOrder": 2,
+            "visibility": "always",
+            "statType": "term"
+          },
+          "Range": {
+            "statType": "term",
+            "value": null,
+            "statOrder": 1,
+            "visibility": "always",
+            "dynamic": false,
+            "tracked": false
+          },
+          "AP": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 4,
+            "visibility": "always",
+            "dynamic": false,
+            "tracked": true
+          },
+          "D": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 5,
+            "visibility": "always",
+            "dynamic": false,
+            "tracked": true
+          },
+          "S": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 3,
+            "visibility": "always",
+            "dynamic": false,
+            "tracked": true
+          }
+        },
+        "aspects": {
+          "Visibility": "always"
+        },
+        "rules": {
+          "allowEnhancements": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Weapon Enhancement",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowMelee": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Range",
+                    "value"
+                  ]
+                ],
+                "value": "Melee",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Melee",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowRanged": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Range",
+                    "value"
+                  ]
+                ],
+                "value": "Melee",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Weapon Enhancement": {
+        "aspects": {
+          "Unique": true,
+          "Lock Qty": true,
+          "Rename": true
+        },
+        "keywords": {
+          "Tags": []
+        }
+      }
+    },
+    "assetCatalog": {
+      "Battle Scar§Angered Machine Spirit": {
+        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it.",
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Scar§Battle-weary": {
+        "text": "This unit cannot perform any actions or psychic actions, and it cannot gain more than 1 experience point at the end of a battle for any reason (any additional experience points gained are lost).",
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Scar§Blind in One Eye": {
+        "text": "You must re-roll hit rolls of 6 when resolving attacks made by **CHARACTER** models in this unit.",
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Scar§Chest Wound": {
+        "text": "Reduce the Wounds characteristic of one **CHARACTER** model in this unit by 1 (to a minimum of 1).",
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Scar§Crippled Limb": {
+        "text": "You must re-roll hit rolls of 6 when resolving attacks made by **MONSTER** models in this unit.",
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Scar§Crippling Injury": {
+        "text": "Subtract 2″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and charge rolls made for this unit.",
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Scar§Critical Wound": {
+        "text": "You must re-roll hit rolls of 6 when resolving attacks made by MONSTER models in this unit.",
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Scar§Deep Concussion": {
+        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it.",
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Scar§Deep Scars": {
+        "text": "This unit cannot perform any actions or psychic actions, and it cannot make Heroic Interventions.",
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Scar§Disgraced": {
+        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it.",
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Scar§Engine Fault": {
+        "text": "Subtract 2″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and charge rolls made for this unit.",
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Scar§Enraged and Unreasoning": {
+        "text": "If this unit has any aura abilities on its datasheet, the range of those aura abilities is reduced by 3″. If this reduces the range of an aura ability to 0\" or less, then the unit loses that aura ability while it has this Battle Scar. If this unit has no aura abilities on its datasheet, then it is unaffected by the aura abilities of any friendly units.",
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Scar§Fatigued": {
+        "text": "This unit cannot control objective markers. When determining which player controls an objective marker, ignore all models in this unit.",
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Scar§Fractured Skull": {
+        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it.",
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Scar§Loss of Reputation": {
+        "text": "If this unit has any aura abilities on its datasheet, the range of those aura abilities is reduced by 3″. If this reduces the range of an aura ability to 0″ or less, then the unit loses that aura ability while it has this Battle Scar. If this unit has no aura abilities on its datasheet, then it is unaffected by the aura abilities of any friendly units.",
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Scar§Lost Leg": {
+        "text": "Subtract 1″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and Charge rolls made for this unit.",
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Scar§Mark of Shame": {
+        "text": "This unit is unaffected by the aura abilities of any friendly units.",
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Scar§Shell Shock": {
+        "text": "Subtract 1 from this unit’s Leadership characteristic. In addition, subtract 1 from Combat Attrition tests taken for this unit.",
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Scar§Targeter’s Cracked": {
+        "text": "You must re-roll hit rolls of 6 when resolving attacks made by a **VEHICLE** model in this unit.",
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Scar§Tissue Damage": {
+        "text": "Subtract 1 from the Attacks characteristic of one **MONSTER** model in this unit (to a minimum of 1).",
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Scar§Vox Comms Destroyed": {
+        "text": "This unit is unaffected by the aura abilities of any friendly units.",
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Scar§Walking Wounded": {
+        "text": "Subtract 1″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and charge rolls made for this unit.",
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Scar§Weakened Armor": {
+        "text": "Each time this unit is hit by a weapon with a Strength characteristic of 8 or more, this unit suffers 1 mortal wound in addition to any normal damage.",
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Scar§Weapon Damaged": {
+        "text": "Select one weapon equipped by a **VEHICLE** model in this unit (if this unit has any ranged weapons, you must select one of them, and if any of those are Heavy, then you must select one of them). Subtract 1 from hit and wound rolls when resolving attacks with that weapon.",
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Apex Predator": {
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Trait§Armourbane": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Battle-tested": {
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Trait§Blessed Hull": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Cool-headed": {
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Trait§Deadly Charge": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Trait§Elite Crew": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Enhanced Engines": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Fleet of Foot": {
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Trait§Frenzied": {
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Trait§Grizzled": {
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Trait§Headhunters": {
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Battle Trait§Heroic Constitution": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Trait§Improved Shielding": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Inspiring Hero": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Trait§Regenerates": {
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Trait§Repair Systems": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        }
+      },
+      "Battle Trait§Resilient": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Trait§Swift and Agile": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Trait§Tactical Experience": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        }
+      },
+      "Battle Trait§Terrifying": {
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Trait§Thickened Hide": {
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Trait§Unstoppable": {
+        "keywords": {
+          "Tags": [
+            "Monster"
+          ]
+        }
+      },
+      "Battle Trait§Veteran Warriors": {
+        "keywords": {
+          "Tags": [
+            "Other Unit"
+          ]
+        }
+      },
+      "Detachment§Arks of Omen Detachment": {
+        "stats": {
+          "Lord of War": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true,
+            "max": 3
+          },
+          "Fortification": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true,
+            "max": 3
+          },
+          "Troops": {
+            "max": 9,
+            "value": 0
+          },
+          "Elites": {
+            "max": 3,
+            "value": 0
+          },
+          "Fast Attack": {
+            "max": 3,
+            "value": 0
+          },
+          "Heavy Support": {
+            "max": 3,
+            "value": 0
+          },
+          "Flyer": {
+            "max": 2,
+            "value": 0
+          },
+          "HQ": {
+            "icons": [
+              "crowned-skull"
+            ],
+            "min": 1,
+            "max": 3,
+            "value": 0
+          },
+          "Role": {
+            "statType": "rank",
+            "value": "Troops",
+            "ranks": {
+              "Troops": {
+                "order": 0
+              },
+              "Elites": {
+                "order": 1
+              },
+              "Fast Attack": {
+                "order": 2
+              },
+              "Heavy Support": {
+                "order": 3
+              },
+              "Lord of War": {
+                "order": 4
+              },
+              "Fortification": {
+                "order": 5
+              }
+            },
+            "group": "Options",
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Dedicated Transport": {
+            "value": 0,
+            "max": 0
+          }
+        },
+        "rules": {
+          "roleMins": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Role",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "{0string}",
+                    "min"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 3,
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "AoO"
+          ]
+        }
+      },
+      "Detachment§Auxiliary Support Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          },
+          "Unit": {
+            "value": 0,
+            "max": 1
+          },
+          "Hive Fleet": {
+            "value": "-"
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Battalion Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 3
+          },
+          "Fast Attack": {
+            "value": 0,
+            "max": 2
+          },
+          "Heavy Support": {
+            "value": 0,
+            "max": 2
+          },
+          "Flyer": {
+            "value": 0,
+            "max": 2
+          },
+          "HQ": {
+            "value": 0,
+            "min": 2,
+            "max": 3
+          },
+          "Troops": {
+            "value": 0,
+            "min": 3,
+            "max": 6
+          },
+          "Elites": {
+            "value": 0,
+            "max": 6
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Brigade Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 4
+          },
+          "Flyer": {
+            "value": 0,
+            "max": 2
+          },
+          "HQ": {
+            "value": 0,
+            "min": 3,
+            "max": 5
+          },
+          "Troops": {
+            "value": 0,
+            "min": 6,
+            "max": 12
+          },
+          "Elites": {
+            "value": 0,
+            "min": 3,
+            "max": 8
+          },
+          "Fast Attack": {
+            "value": 0,
+            "min": 3,
+            "max": 5
+          },
+          "Heavy Support": {
+            "value": 0,
+            "min": 3,
+            "max": 5
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Fortification Network": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          },
+          "Fortification": {
+            "value": 0,
+            "min": 1,
+            "max": 3
+          }
+        },
+        "allowed": {
+          "classifications": [
+            "Fortifications"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Outrider Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 3
+          },
+          "HQ": {
+            "value": 0,
+            "min": 1,
+            "max": 2
+          },
+          "Flyer": {
+            "value": 0,
+            "max": 2
+          },
+          "Troops": {
+            "value": 0,
+            "max": 3
+          },
+          "Elites": {
+            "value": 0,
+            "max": 2
+          },
+          "Heavy Support": {
+            "value": 0,
+            "max": 2
+          },
+          "Fast Attack": {
+            "value": 0,
+            "min": 3,
+            "max": 6
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Patrol Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          },
+          "HQ": {
+            "value": 0,
+            "min": 1,
+            "max": 2
+          },
+          "Troops": {
+            "value": 0,
+            "min": 1,
+            "max": 3
+          },
+          "Elites": {
+            "value": 0,
+            "max": 2
+          },
+          "Fast Attack": {
+            "value": 0,
+            "max": 2
+          },
+          "Heavy Support": {
+            "value": 0,
+            "max": 2
+          },
+          "Flyer": {
+            "value": 0,
+            "max": 2
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Spearhead Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 3
+          },
+          "HQ": {
+            "value": 0,
+            "min": 1,
+            "max": 2
+          },
+          "Fast Attack": {
+            "value": 0,
+            "max": 2
+          },
+          "Flyer": {
+            "value": 0,
+            "max": 2
+          },
+          "Troops": {
+            "value": 0,
+            "max": 3
+          },
+          "Elites": {
+            "value": 0,
+            "max": 2
+          },
+          "Heavy Support": {
+            "value": 0,
+            "min": 3,
+            "max": 6
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Super-Heavy Auxiliary Detachment": {
+        "stats": {
+          "Lord of War": {
+            "value": 0,
+            "min": 1,
+            "max": 1
+          },
+          "Command Cost": {
+            "value": 3
+          }
+        },
+        "allowed": {
+          "classifications": [
+            "Lords of War"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Super-Heavy Detachment": {
+        "stats": {
+          "Command Cost": {
+            "statType": "rank",
+            "ranks": {
+              "3": {
+                "order": 0,
+                "number": 3
+              },
+              "6": {
+                "order": 1,
+                "number": 6
+              }
+            },
+            "dynamic": true,
+            "tracked": true,
+            "value": 3
+          },
+          "Lord of War": {
+            "value": 0,
+            "min": 3,
+            "max": 5
+          }
+        },
+        "allowed": {
+          "classifications": [
+            "Lords of War"
+          ]
+        },
+        "rules": {
+          "You can only take TITANIC units if the Command Cost is 6.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "TITANIC"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Command Cost",
+                    "value"
+                  ]
+                ],
+                "value": 3,
+                "operator": "AND",
+                "not": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 5
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Supreme Command Detachment": {
+        "stats": {
+          "HQ": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Troops": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Elites": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Fast Attack": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Heavy Support": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Flyer": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Dedicated Transport": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Lord of War or HQ": {
+            "value": null,
+            "statType": "numeric",
+            "visibility": "active",
+            "tracked": true,
+            "min": 1,
+            "max": 1
+          },
+          "Command Cost": {
+            "statType": "numeric",
+            "value": null,
+            "tracked": true
+          }
+        },
+        "allowed": {
+          "classifications": [
+            "Lords of War",
+            "HQ"
+          ]
+        },
+        "rules": {
+          "Lord of War or HQ counts": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lord of War or HQ",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Unit"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "Command Cost refund": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Patrol Detachment",
+                      "Battalion Detachment",
+                      "Brigade Detachment"
+                    ]
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Patrol Detachment",
+                      "Battalion Detachment",
+                      "Brigade Detachment"
+                    ]
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Battalion Detachment",
+                      "Brigade Detachment"
+                    ]
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Brigade Detachment"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "Command Cost refund",
+                    "evals",
+                    [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "max": -2,
+                "operator": "SUM",
+                "not": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                }
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Command Cost",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "Command Cost refund",
+                  "evals",
+                  "4",
+                  "result",
+                  "integer"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "This detachment must contain your WARLORD": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "WARLORD"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR",
+            "order": 5
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "Detachment§Vanguard Detachment": {
+        "stats": {
+          "Command Cost": {
+            "value": 3,
+            "statType": "numeric",
+            "statOrder": -1,
+            "tracked": true
+          },
+          "HQ": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 1,
+            "visibility": "active",
+            "tracked": true,
+            "min": 1,
+            "max": 2
+          },
+          "Fast Attack": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 7,
+            "visibility": "active",
+            "tracked": true,
+            "max": 2
+          },
+          "Heavy Support": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 9,
+            "visibility": "active",
+            "tracked": true,
+            "max": 2
+          },
+          "Flyer": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 11,
+            "visibility": "active",
+            "tracked": true,
+            "max": 2
+          },
+          "Troops": {
+            "value": null,
+            "statType": "numeric",
+            "statOrder": 3,
+            "visibility": "active",
+            "tracked": true,
+            "max": 3
+          },
+          "Elites": {
+            "value": null,
+            "statType": "numeric",
+            "statOrder": 5,
+            "visibility": "active",
+            "tracked": true,
+            "min": 3,
+            "max": 6
+          }
+        },
+        "keywords": {
+          "Tags": [
+            "Ordinary"
+          ]
+        }
+      },
+      "In-game Stratagems§In-game Stratagems": {},
+      "Order of Battle§Order of Battle": {},
+      "Psychic Fortitude§Adamantium Will": {},
+      "Psychic Fortitude§Master of Lore": {},
+      "Psychic Fortitude§Psychic Might": {},
+      "Psychic Power§Smite": {
+        "text": "*Smite* has a warp charge value of 5. Add 1 to the warp charge value of this psychic power for each other attempt that has been made to *manifest* this power by a unit from your army in this phase, whether that attempt was successful or not. If manifested, the closest enemy unit within 18″ of and visible to the psyker suffers D3 *mortal wounds*. If the result of the *Psychic test* was 11 or more, that unit suffers D6 mortal wounds instead.\n\n**Warp Charge 5**: A Psychic test of 5+ is required to manifest *Smite*.\nWarp charge increases by 1 for each other attempt to manifest *Smite* made in this phase.\nIf manifested, closest visible enemy unit in 18″ suffers D3 mortal wounds.\nIf manifested with a Psychic test result of 11+, enemy instead suffers D6 mortal wounds."
+      },
+      "Requisition§Fresh Recruits": {},
+      "Requisition§Increase Supply Limit": {
+        "rules": {
+          "increaseSupplyLimit": {
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Power Level",
+                    "max"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 5,
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Requisition§Psychic Meditations": {},
+      "Requisition§Rearm and Resupply": {},
+      "Requisition§Relic": {},
+      "Requisition§Repair and Recuperate": {},
+      "Requisition§Specialist Reinforcements": {},
+      "Requisition§Warlord Trait": {},
+      "Roster§Army": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true,
+          "Describe": true,
+          "Rename": true,
+          "Type": "conceptual",
+          "Collapse": true
+        },
+        "stats": {
+          "Detachment": {
+            "value": 0,
+            "label": "Detachments",
+            "statType": "numeric",
+            "tracked": true
+          },
+          "Mode": {
+            "statType": "rank",
+            "value": "Points",
+            "ranks": {
+              "Points": {
+                "order": 0
+              },
+              "Power Level": {
+                "order": 1
+              }
+            },
+            "statOrder": 4,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Battle-forged": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "icons": [
+                  "cancel"
+                ]
+              },
+              "✓": {
+                "order": 1,
+                "icons": [
+                  "confirmed"
+                ]
+              }
+            }
+          },
+          "Command Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": -4,
+            "visibility": "hidden"
+          },
+          "Warlord Trait": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "dynamic": false,
+            "tracked": true,
+            "max": 1
+          },
+          "Power Level": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 2,
+            "group": "Cost",
+            "groupOrder": 0,
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true
+          },
+          "Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 2,
+            "group": "Cost",
+            "groupOrder": 0,
+            "visibility": "normal",
+            "dynamic": false,
+            "tracked": true
+          },
+          "Play": {
+            "statType": "rank",
+            "value": "Matched",
+            "ranks": {
+              "Open": {
+                "order": 0
+              },
+              "Matched": {
+                "order": 1
+              },
+              "Narrative": {
+                "order": 2
+              }
+            },
+            "statOrder": 4,
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false
+          },
+          "Mission": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Arks of Omen": {
+                "order": 1
+              }
+            },
+            "statOrder": 8,
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false
+          },
+          "Aircraft": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true
+          },
+          "Battle Size": {
+            "statType": "rank",
+            "increment": {},
+            "value": "Strike Force",
+            "ranks": {
+              "-": {
+                "order": 0,
+                "format": "-"
+              },
+              "Combat Patrol": {
+                "order": 1,
+                "format": "Combat Patrol",
+                "tracking": {
+                  "maxPowerLevel": 25,
+                  "maxPoints": 500,
+                  "maxDetachments": 2,
+                  "startingCP": 3,
+                  "Auxiliary Support Detachment": 2,
+                  "maxAircraft": 1,
+                  "ruleOf": 2
+                }
+              },
+              "Incursion": {
+                "order": 2,
+                "format": "Incursion",
+                "tracking": {
+                  "maxPowerLevel": 50,
+                  "maxPoints": 1000,
+                  "maxDetachments": 2,
+                  "startingCP": 6,
+                  "maxAircraft": 1,
+                  "ruleOf": 2
+                }
+              },
+              "Strike Force": {
+                "order": 3,
+                "format": "Strike Force",
+                "tracking": {
+                  "maxPowerLevel": 100,
+                  "maxPoints": 2000,
+                  "maxDetachments": 3,
+                  "startingCP": 12,
+                  "maxAircraft": 2,
+                  "ruleOf": 3
+                }
+              },
+              "Onslaught": {
+                "order": 4,
+                "format": "Onslaught",
+                "tracking": {
+                  "maxPowerLevel": 150,
+                  "maxPoints": 3000,
+                  "maxDetachments": 4,
+                  "startingCP": 18,
+                  "maxAircraft": 3
+                }
+              }
+            },
+            "statOrder": 3,
+            "visibility": "normal",
+            "dynamic": true,
+            "tracked": false
+          },
+          "Crusade Pts": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 4,
+            "group": "Cost",
+            "groupOrder": 0,
+            "visibility": "hidden",
+            "tracked": true
+          },
+          "Faction Group": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Imperium": {
+                "order": 1,
+                "term": "Imperium Faction"
+              },
+              "Chaos": {
+                "order": 2,
+                "term": "Chaos Faction"
+              },
+              "Aeldari": {
+                "order": 3,
+                "term": "Aeldari Faction"
+              },
+              "Xenos": {
+                "order": 4,
+                "term": "Xenos Faction"
+              }
+            },
+            "statOrder": 9,
+            "visibility": "hidden",
+            "dynamic": true
+          }
+        },
+        "allowed": {
+          "classifications": [
+            "Stratagem",
+            "Detachment"
+          ]
+        },
+        "rules": {
+          "Arks of Omen armies must be battle-forged": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "Arks of Omen",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle-forged",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR",
+            "order": 4
+          },
+          "battle-forged": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "quantity"
+                  ]
+                ],
+                "max": 0,
+                "operator": "SUM",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 2,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle-forged",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "✓",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Command Points",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "normal",
+                "iterations": 1
+              }
+            ]
+          },
+          "matchedCombatPatrol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Combat Patrol",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aircraft",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 1,
+                "iterations": 1
+              }
+            ]
+          },
+          "matchedIncursion": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Incursion",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aircraft",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 1,
+                "iterations": 1
+              }
+            ]
+          },
+          "matchedStrikeForce": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Strike Force",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aircraft",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 2,
+                "iterations": 1
+              }
+            ]
+          },
+          "matchedOnslaught": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Incursion",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 5,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aircraft",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 3,
+                "iterations": 1
+              }
+            ]
+          },
+          "modifyCommandPoints": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Command Cost"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                }
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 7,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Command Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "modifyCommandPoints",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "setMaxes": {
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxPowerLevel"
+                ],
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxPoints"
+                ],
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Detachment",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxDetachments"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "addOrderOfBattle": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Order of Battle§Order of Battle",
+                "iterations": 1
+              }
+            ]
+          },
+          "allowUnitsForOpen": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Open",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Unit",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Units",
+                "iterations": 1
+              }
+            ]
+          },
+          "calculateCommandPoints": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "order": 2,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Command Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "startingCP"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "usePowerLevel": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mode",
+                    "value"
+                  ]
+                ],
+                "value": "Power Level",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": null,
+                "iterations": 1
+              }
+            ]
+          },
+          "usePoints": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mode",
+                    "value"
+                  ]
+                ],
+                "value": "Points",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Power Level",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": null,
+                "iterations": 1
+              }
+            ]
+          },
+          "useCrusade": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Crusade Pts",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "always",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Faction Group",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "normal",
+                "iterations": 1
+              }
+            ]
+          },
+          "matchedMission": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Matched",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 3,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Faction Group",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "normal",
+                "iterations": 1
+              }
+            ]
+          },
+          "matchedArks": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "Arks of Omen",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 4,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Onslaught",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Combat Patrol",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Ordinary",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Detachment",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Detachment§Patrol Detachment",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Detachment§Super-Heavy Auxiliary Detachment",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Detachment§Arks of Omen Detachment",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Detachment",
+                    "max"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 2,
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Command Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 6,
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord Trait",
+                    "max"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": -1,
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "constraints": {
+          "any": [
+            "Ordinary",
+            "Pre-battle"
+          ],
+          "none": [
+            "Model Strat"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "In-game Stratagems§In-game Stratagems"
+          ]
+        }
+      },
+      "Stratagem§Heroic Support": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "Use this Stratagem before the battle, when you are mustering your army. If a [Detachment ability](https://wahapedia.ru/wh40k9ed/the-rules/core-rules/#Detachment-Abilities) (excluding [Gene-sect](https://wahapedia.ru/wh40k9ed/factions/genestealer-cults/#Gene-sect)) would limit the number of times you can include a unit in that [Detachment](https://wahapedia.ru/wh40k9ed/the-rules/core-rules/#Detachments) to 1, you can include a maximum of 2 of that unit in that Detachment instead. You can only use this Stratagem once.",
+        "keywords": {
+          "Tags": [
+            "AoO"
+          ]
+        },
+        "removed": {}
+      },
+      "Stratagem§Relic": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "Use this Stratagem before the battle, when you are mustering your army, after selecting your **WARLORD**. Select one **CHARACTER** model from your army that is not a named character; give that model one Relic (this must be a Relic they could have). You can only use this Stratagem once.",
+        "keywords": {
+          "Tags": [
+            "AoO",
+            "Model Strat"
+          ]
+        }
+      },
+      "Stratagem§Warlord Trait": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "Use this Stratagem before the battle, when you are mustering your army, after selecting your **WARLORD**. If your **WARLORD** is a **CHARACTER** model, determine a Warlord Trait for them (this must be a Warlord Trait they could have). If your **WARLORD** is a named character with access to more than one Warlord Trait, one use of this Stratagem gives all of those specified Warlord Traits to that **WARLORD**. You can only use this Stratagem once.",
+        "keywords": {
+          "Tags": [
+            "AoO",
+            "Model Strat"
+          ]
+        }
+      },
+      "Warlord Trait§Inspiring Leader": {
+        "text": "Add 1 to the Leadership characteristic of friendly units while they are within 6″ of this **WARLORD**."
+      },
+      "Weapon Enhancement§Accelerator": {
+        "keywords": {
+          "Tags": [
+            "Ranged"
+          ]
+        },
+        "text": "",
+        "rules": {
+          "add6toRange": {
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Range",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": "+6”",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Weapon Enhancement§Armour Piercing": {
+        "keywords": {
+          "Tags": [
+            "Ranged"
+          ]
+        },
+        "stats": {
+          "AP": {
+            "statType": "numeric",
+            "value": -1,
+            "visibility": "active",
+            "dynamic": false,
+            "tracked": true
+          }
+        }
+      },
+      "Weapon Enhancement§Auto-loader": {
+        "keywords": {
+          "Tags": [
+            "Ranged"
+          ]
+        },
+        "text": "When resolving an attack with this weapon, each unmodified hit roll of 6 scores one additional hit on the target."
+      },
+      "Weapon Enhancement§Brutal": {
+        "keywords": {
+          "Tags": [
+            "Melee"
+          ]
+        }
+      },
+      "Weapon Enhancement§Finely Balanced": {
+        "keywords": {
+          "Tags": [
+            "Melee"
+          ]
+        }
+      },
+      "Weapon Enhancement§Fleshbane": {
+        "keywords": {
+          "Tags": [
+            "Melee"
+          ]
+        }
+      },
+      "Weapon Enhancement§Heirloom": {
+        "keywords": {
+          "Tags": [
+            "Melee"
+          ]
+        }
+      },
+      "Weapon Enhancement§High Calibre": {
+        "keywords": {
+          "Tags": [
+            "Ranged"
+          ]
+        },
+        "stats": {
+          "S": {
+            "statType": "numeric",
+            "value": 1,
+            "visibility": "active",
+            "dynamic": false,
+            "tracked": true
+          }
+        }
+      },
+      "Weapon Enhancement§Improved Sights": {
+        "keywords": {
+          "Tags": [
+            "Ranged"
+          ]
+        },
+        "text": "When resolving an attack with this weapon, add 1 to the hit roll."
+      },
+      "Weapon Enhancement§Master-worked": {
+        "keywords": {
+          "Tags": [
+            "Ranged"
+          ]
+        },
+        "stats": {
+          "D": {
+            "statType": "numeric",
+            "value": 1,
+            "visibility": "active",
+            "dynamic": false,
+            "tracked": true
+          }
+        }
+      },
+      "Weapon Enhancement§Razor-edged": {
+        "keywords": {
+          "Tags": [
+            "Melee"
+          ]
+        }
+      },
+      "Weapon Enhancement§Shredder": {
+        "keywords": {
+          "Tags": [
+            "Melee"
+          ]
+        }
+      }
+    },
+    "gameModes": {},
+    "theme": {}
+  }
+}
