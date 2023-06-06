@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.0.1",
+  "revision": "10.0.2",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -33,6 +33,51 @@
             ],
             "failState": "error",
             "evaluate": "AND"
+          },
+          "Put x in Name": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "x",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "stats": {
+          "x": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
           }
         }
       },
@@ -702,39 +747,9 @@
             "tracked": true,
             "statType": "numeric"
           },
-          "A": {
-            "value": null,
-            "statOrder": 7,
-            "group": "Stats",
-            "statType": "term",
-            "visibility": "normal"
-          },
-          "BS": {
-            "format": "{v}+",
-            "value": null,
-            "statOrder": 3,
-            "group": "Stats",
-            "statType": "numeric",
-            "visibility": "normal"
-          },
           "Ld": {
             "value": null,
             "statOrder": 8,
-            "group": "Stats",
-            "statType": "numeric",
-            "visibility": "normal"
-          },
-          "S": {
-            "value": null,
-            "statOrder": 4,
-            "group": "Stats",
-            "statType": "numeric",
-            "visibility": "normal"
-          },
-          "Sv": {
-            "format": "{v}+",
-            "value": null,
-            "statOrder": 9,
             "group": "Stats",
             "statType": "numeric",
             "visibility": "normal"
@@ -749,14 +764,6 @@
           "W": {
             "value": null,
             "statOrder": 6,
-            "group": "Stats",
-            "statType": "numeric",
-            "visibility": "normal"
-          },
-          "WS": {
-            "format": "{v}+",
-            "value": null,
-            "statOrder": 2,
             "group": "Stats",
             "statType": "numeric",
             "visibility": "normal"
@@ -778,15 +785,6 @@
             "value": null,
             "statType": "term",
             "visibility": "hidden"
-          },
-          "Power Level": {
-            "statType": "numeric",
-            "format": "{v}",
-            "value": 0,
-            "group": "Cost",
-            "groupOrder": -1,
-            "visibility": "always",
-            "tracked": true
           },
           "power1": {
             "statType": "numeric",
@@ -893,6 +891,21 @@
             "visibility": "normal",
             "dynamic": true,
             "tracked": true
+          },
+          "OC": {
+            "statType": "term",
+            "value": null,
+            "statOrder": 9,
+            "group": "Stats",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "statType": "numeric",
+            "format": "{v}+",
+            "value": null,
+            "statOrder": 6,
+            "group": "Stats",
+            "visibility": "normal"
           }
         },
         "keywords": {
@@ -2459,14 +2472,6 @@
             "visibility": "always",
             "statType": "term"
           },
-          "Range": {
-            "statType": "term",
-            "value": null,
-            "statOrder": 1,
-            "visibility": "always",
-            "dynamic": false,
-            "tracked": false
-          },
           "AP": {
             "statType": "numeric",
             "value": null,
@@ -2489,6 +2494,32 @@
             "statOrder": 3,
             "visibility": "always",
             "dynamic": false,
+            "tracked": true
+          },
+          "A": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 2,
+            "visibility": "normal"
+          },
+          "Range": {
+            "statType": "term",
+            "value": null,
+            "statOrder": 0,
+            "visibility": "always"
+          },
+          "WS": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 0,
+            "visibility": "normal",
+            "tracked": true
+          },
+          "BS": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 1,
+            "visibility": "normal",
             "tracked": true
           }
         },
@@ -2612,6 +2643,204 @@
       }
     },
     "assetCatalog": {
+      "Ability§ANTI": {
+        "text": "*Certain weapons are the bane of a particular foe.* \\\n\\\nWeapons with **[ANTI-KEYWORD X+]** in their profile are \nknown as Anti weapons. Each time an attack is \nmade with such a weapon against a target with \nthe keyword after the word ‘Anti-’, an unmodified \nWound roll of ‘*x+*’ scores a Critical Wound. \n>Example: An attack made with an **[ANTI-VEHICLE 4+]**\nweapon will score a Critical Wound against – and \nso successfully wound – a **Vehicle** unit on an \nunmodified Wound roll of 4+, while an attack made \nwith an **[ANTI-PSYKER 2+]** weapon will score a Critical \nWound against – and so successfully wound – a \n**Psyker** unit on an unmodified Wound roll of 2+.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§ASSAULT": {
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        },
+        "text": "*Assault weapons fire so indiscriminately that they can \nbe shot from the hip as warriors dash forward.*\\\n\\\nWeapons with **[ASSAULT]** in their profile are known as \nAssault weapons. If a unit that Advanced this turn \ncontains any models equipped with Assault weapons, \nit is still eligible to shoot in this turn’s Shooting \nphase. When such a unit is selected to shoot, you \ncan only resolve attacks using Assault weapons its \nmodels are equipped with."
+      },
+      "Ability§BLAST": {
+        "text": "*High-explosives can fell several warriors in a single \nblast, but firing them where your comrades will get \ncaught in the ensuing detonation is simply unwise.* \\\n\\\nWeapons with **[BLAST]** in their profile are known as \nBlast weapons, and they make a random number of \nattacks. Each time you determine how many attacks \nare made with a Blast weapon, add 1 to the result for \nevery five models that were in the target unit when \nyou selected it as the target (rounding down). Blast \nweapons can never be used to make attacks against a \nunit that is within Engagement Range of one or more \nunits from the attacking model’s army (including its \nown unit). \n>***Example:*** If a weapon with the **[BLAST]** ability and \nan Attacks characteristic of 2D6 targets a unit that \ncontains 11 models, and the roll to determine how \nmany attacks are made is a 9, a total of 11 attacks \nwould be made against that unit.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§DEADLY DEMISE": {
+        "text": "*From detonating ammo stores to corrosive innards or \nfrenzied death throes, some targets are deadly even in defeat.*\\\n\\\nSome models have ‘Deadly Demise *x*’ listed in their \nabilities. When such a model is destroyed, roll one \nD6 before removing it from play (if such a model is a \n**Transport**, roll before any embarked models disembark). \nOn a 6, each unit within 6\" of that model suffers a number \nof mortal wounds denoted by ‘*x*’ (if this is a random \nnumber, roll separately for each unit within 6\").\n\n>***Example:*** A **Transport** model with the Deadly Demise D3 \nability is destroyed. Before any models disembark and \nbefore removing it from play, its controlling player rolls \none D6, getting a 6. There are three units within 6\" of that \ndestroyed model, so its controlling player rolls one D3 for \neach of them, inflicting mortal wounds accordingly.",
+        "keywords": {
+          "Tags": [],
+          "Keywords": [
+            "Model Ability"
+          ]
+        }
+      },
+      "Ability§DEVASTATING WOUNDS": {
+        "text": "*Some weapons can inflict strikes of such power that \nthey make a mockery of armour and can cleave \nthrough several foes.* \\\n\\\nWeapons with **[DEVASTATING WOUNDS]** in their profile \nare known as Devastating Wounds weapons. Each \ntime an attack is made with such a weapon, a Critical \nWound inflicts a number of mortal wounds on the \ntarget equal to the Damage characteristic of that \nweapon and the attack sequence ends.\n>***Example:*** An attack made with a Devastating \nWounds weapon with a Damage characteristic of \n2 scores a Critical Wound. Instead of allocating \nthe attack and making saving throws normally, the \ntarget suffers 2 mortal wounds.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§EXTRA ATTACKS": {
+        "text": "*Some warriors ride to battle atop trusty mounts that \ngore and trample nearby foes. Others wield combat \nweapons that deliver a frenzy of additional blows.* \\\n\nWeapons with **[EXTRA ATTACKS]** in their profile are \nknown as Extra Attacks weapons. Each time the \nbearer of such a weapon fights, it can make attacks \nwith that weapon in addition to the one it chooses \nto fight with. The number of attacks made with \nan Extra Attacks weapon cannot be modified by \nother rules.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§FEEL NO PAIN": {
+        "text": "*Some warriors refuse to be laid low, even by what should be fatal wounds.*\\\n\\\nSome models have ‘Feel No Pain *x*+’ listed in their abilities. \nEach time a model with this ability suffers damage and so \nwould lose a wound (including wounds lost due to mortal \nwounds), roll one D6: if the result is greater than or equal \nto the number denoted by ‘*x*’, that wound is ignored and is \nnot lost. If a model has more than one Feel No Pain ability, \nyou can only use one of those abilities each time that model \nsuffers damage and so would lose a wound.",
+        "stats": {},
+        "keywords": {
+          "Tags": [],
+          "Keywords": [
+            "Model Ability"
+          ]
+        }
+      },
+      "Ability§FIGHTS FIRST": {
+        "text": "*Some warriors attack with blinding speed, landing their \nblows before their foes can react.* \\\n\\\nUnits with this ability that are eligible to fight do so in the \nFights First step, provided every model in the unit has \nthis ability.",
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ]
+        }
+      },
+      "Ability§FIRING DECK": {
+        "text": "*Some transports have firing hatches, ports or \nplatforms from which embarked passengers \ncan shoot.*\\\n\\\nSome **Transport** models have ‘Firing Deck *x*’ \nlisted in their abilities. Each time such a model \nis selected to shoot in the Shooting phase, you \ncan select up to ‘*x*’ models embarked within it. \nThen, for each of those embarked models, you \ncan select one ranged weapon that embarked \nmodel is equipped with. Until that **Transport**\nmodel has resolved all of its attacks, it counts \nas being equipped with all of the weapons \nyou selected in this way, in addition to its \nother weapons.",
+        "keywords": {
+          "Tags": [],
+          "Keywords": [
+            "Model Ability"
+          ]
+        }
+      },
+      "Ability§HAZARDOUS": {
+        "text": "*Weapons powered by unstable and dangerous energy \nsources pose a substantial risk to the wielder every \ntime they are used.* \\\n\\\nWeapons with **[HAZARDOUS]** in their profile are known \nas Hazardous weapons. Each time a unit is selected \nto shoot or fight, if one or more models attack with \nHazardous weapons, then after that unit has resolved \nall of its attacks, you must take one Hazardous \ntest for each Hazardous weapon that was just used \nby rolling one D6. For each roll of 1, that test is \nfailed and one model in that unit equipped with \na Hazardous weapon is destroyed (selected by the \ncontrolling player), unless that model is a **Character**, \n**Monster** or **Vehicle**, in which case it suffers 3 \nmortal wounds instead. Note that if you selected a \n**Character** model in an Attached unit, the mortal \nwounds suffered must be allocated to that model \nfirst, even if there is another model in that unit that \nhas lost one or more wounds or has had attacks \nallocated to it this phase. \n>***Example:*** A unit of five models make five attacks \nwith ranged weapons with the **[HAZARDOUS]** ability. \nAfter the unit has finished shooting, its controlling \nplayer rolls five D6. One of the results is a 1, and as \nno models in the unit are Characters, Monsters or \nVehicles, one of those models is destroyed.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§HEAVY": {
+        "text": "*Heavy weapons are amongst the biggest guns on the \nbattlefield, but require bracing to fire at full effect and \nare unwieldy to bring to bear at close quarters.* \\\n\\\nWeapons with **[HEAVY]** in their profile are known \nas Heavy weapons. Each time an attack is made \nwith such a weapon, if the attacking model’s unit \nRemained Stationary this turn, add 1 to that attack’s \nHit roll.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§IGNORES COVER": {
+        "text": "*Some weapons are designed to root enemy formations \nout of entrenched positions.* \\\n\\\nWeapons with **[IGNORES COVER]** in their profile are \nknown as Ignores Cover weapons. Each time an \nattack is made with such a weapon, the target cannot \nhave the Benefit of Cover against that attack (pg 44).",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§INDIRECT FIRE": {
+        "text": "8Indirect fire weapons launch munitions over or around \nintervening obstacles – nowhere is safe from their fury.* \\\n\\\nWeapons with **[INDIRECT FIRE]** in their profile are \nknown as Indirect Fire weapons, and attacks can be \nmade with them even if the target is not visible to the \nattacking model. These attacks can destroy enemy \nmodels in a target unit even though none may have \nbeen visible to the attacking unit when you selected \nthat target. \\\n\\\nIf no models in a target unit are visible to the \nattacking unit when you select that target, then each \ntime a model in the attacking unit makes an attack \nagainst that target using an Indirect Fire weapon, \nsubtract 1 from that attack’s Hit roll and the target \nhas the Benefit of Cover against that attack (pg 44). \n\n>***Example:*** An enemy unit is targeted by an \nattacking model equipped with a weapon with the \n**[INDIRECT FIRE]** ability. No models in the target unit \nare visible to the attacking model, so when resolving \nthe attacks made with that weapon, subtract 1 \nfrom that attack’s Hit roll and each time an attack \nis allocated to a model in the target unit, it has the \nBenefit of Cover against that attack.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§LANCE": {
+        "text": "*Lance weapons are deadly on the charge.* \\\n\\\nWeapons with **[LANCE]** in their profile are known as \nLance weapons. Each time an attack is made with \nsuch a weapon, if the bearer made a Charge move \nthis turn, add 1 to that attack’s Wound roll.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§LETHAL HITS": {
+        "text": "*Some weapons can inflict fatal injuries on any foe, no \nmatter their resilience.* \\\n\\\nWeapons with **[LETHAL HITS]** in their profile are known \nas Lethal Hits weapons. Each time an attack is made \nwith such a weapon, a Critical Hit automatically \nwounds the target.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§LONE OPERATIVE": {
+        "text": "*Assassins and other covert agents are difficult to track and \npinpoint in the swirling maelstrom of battle.*\\\n\\\nUnless part of an Attached unit (see Leader, page 39), this \nunit can only be selected as the target of a ranged attack if \nthe attacking model is within 12\".",
+        "keywords": {
+          "Tags": [],
+          "Keywords": [
+            "Model Ability"
+          ]
+        }
+      },
+      "Ability§MELTA": {
+        "text": "*Melta weapons are powerful heat rays whose fury is \nmagnified at close range.* \\\n\\\nWeapons with **[MELTA X]** in their profile are known \nas Melta weapons. Each time an attack made \nwith such a weapon targets a unit within half that \nweapon’s range, that attack’s Damage characteristic is \nincreased by the amount denoted by ‘*x*’. \n>***Example:*** A model targets a unit that is within half \nrange of a weapon with a Damage characteristic \nof D6 and the **[MELTA 2]** ability. If that attack inflicts \ndamage on the target, it inflicts D6+2 damage.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§PISTOL": {
+        "text": "*Pistols can be wielded even at point-blank range.*\\\n\\\nWeapons with **[PISTOL]** in their profile are known as \nPistols. If a unit contains any models equipped with \nPistols, that unit is eligible to shoot in its controlling \nplayer’s Shooting phase even while it is within \nEngagement Range of one or more enemy units. \nWhen such a unit is selected to shoot, it can only \nresolve attacks using its Pistols and can only target \none of the enemy units it is within Engagement \nRange of. In such circumstances, a Pistol can target \nan enemy unit even if other friendly units are within \nEngagement Range of the same enemy unit.\\\n\\\nIf a model is equipped with one or more Pistols, \nunless it is a **Monster** or **Vehicle** model, it can either \nshoot with its Pistols or with all of its other ranged \nweapons. Declare whether such a model will shoot \nwith its Pistols or its other ranged weapons before \nselecting targets.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§PRECISION": {
+        "text": "*Precision attacks can pick high-value targets out in a \ncrowd, whether through the unerring aim of a sniper \nor the pinpoint accuracy of a blade-master’s strike.** \\\n\\\nWeapons with **[PRECISION]** in their profile are known \nas Precision weapons. Each time an attack made with \nsuch a weapon successfully wounds an Attached unit \n(pg 39), if a **Character** model in that unit is visible \nto the attacking model, the attacking model’s player \ncan choose to have that attack allocated to that \n**Character** model instead of following the normal \nattack sequence.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§RAPID FIRE": {
+        "text": "*Rapid fire weapons are capable of long-ranged \nprecision shots or controlled bursts at nearby targets.*\\\n\\\nWeapons with **[RAPID FIRE X]** in their profile are known \nas Rapid Fire weapons. Each time such a weapon \ntargets a unit within half that weapon’s range, the \nAttacks characteristic of that weapon is increased by \nthe amount denoted by ‘*x*’. \\\n\n>***Example:*** A model targets a unit that is within half \nrange of a weapon with an Attacks characteristic \nof 1 and the **[RAPID FIRE 1]** ability. That weapon \ntherefore makes two attacks at the target, and you \nmake two Hit rolls.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§STEALTH": {
+        "text": "*Some warriors are masters of disguise and concealment.*\\\n\\\nIf every model in a unit has this ability, then each time \na ranged attack is made against it, subtract 1 from that \nattack’s Hit roll.",
+        "keywords": {
+          "Tags": [],
+          "Keywords": [
+            "Model Ability"
+          ]
+        }
+      },
+      "Ability§SUSTAINED HITS": {
+        "text": "*Some weapons strike in a flurry of blows, tearing the \nfoe apart with relentless ferocity.* \\\n\\\nWeapons with **[SUSTAINED HITS X]** in their profile are \nknown as Sustained Hits weapons. Each time an \nattack is made with such a weapon, if a Critical Hit is \nrolled, that attack scores a number of additional hits \non the target as denoted by ‘*x*’. \n>***Example:*** A model makes an attack with a melee \nweapon with the **[SUSTAINED HITS 2]** ability. If the \nHit roll is an unmodified 6 (a Critical Hit), then \nthat attack scores a total of 3 hits on the target (1 \nfrom the successful Hit roll of 6, and 2 from the \n**[SUSTAINED HITS 2]** ability).",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§TORRENT": {
+        "text": "*Torrent weapons shoot clouds of fire, gas or other \nlethal substances that few foes can hope to evade.* \\\n\\\nWeapons with **[TORRENT]** in their profile are known \nas Torrent weapons. Each time an attack is made \nwith such a weapon, that attack automatically hits \nthe target.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§TWIN-LINKED": {
+        "text": "*Dual weapons are often grafted to the same targeting \nsystem for greater lethality.* \\\n\\\nWeapons with **[TWIN-LINKED]** in their profile are known \nas Twin-linked weapons. Each time an attack is \nmade with such a weapon, you can re-roll that \nattack’s Wound roll.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
       "Battle Scar§Angered Machine Spirit": {
         "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it.",
         "keywords": {
@@ -2972,735 +3201,45 @@
           ]
         }
       },
-      "Detachment§Arks of Omen Detachment": {
+      "Detachment§Basic Detachment": {
         "stats": {
-          "Lord of War": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "normal",
-            "dynamic": false,
-            "tracked": true,
-            "max": 3
-          },
-          "Fortification": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "normal",
-            "dynamic": false,
-            "tracked": true,
-            "max": 3
-          },
-          "Troops": {
-            "max": 9,
-            "value": 0
-          },
-          "Elites": {
-            "max": 3,
-            "value": 0
-          },
-          "Fast Attack": {
-            "max": 3,
-            "value": 0
-          },
-          "Heavy Support": {
-            "max": 3,
-            "value": 0
-          },
-          "Flyer": {
-            "max": 2,
-            "value": 0
-          },
+          "Command Cost": {},
           "HQ": {
+            "value": 0,
             "icons": [
               "crowned-skull"
             ],
-            "min": 1,
-            "max": 3,
-            "value": 0
-          },
-          "Role": {
-            "statType": "rank",
-            "value": "Troops",
-            "ranks": {
-              "Troops": {
-                "order": 0
-              },
-              "Elites": {
-                "order": 1
-              },
-              "Fast Attack": {
-                "order": 2
-              },
-              "Heavy Support": {
-                "order": 3
-              },
-              "Lord of War": {
-                "order": 4
-              },
-              "Fortification": {
-                "order": 5
-              }
-            },
-            "group": "Options",
-            "visibility": "normal",
-            "dynamic": true
-          },
-          "Dedicated Transport": {
-            "value": 0,
-            "max": 0
-          }
-        },
-        "rules": {
-          "roleMins": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Role",
-                    "value"
-                  ]
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": false
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "{0string}",
-                    "min"
-                  ]
-                ],
-                "actionType": "set",
-                "value": 3,
-                "iterations": 1
-              }
-            ]
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "AoO"
-          ]
-        }
-      },
-      "Detachment§Auxiliary Support Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 2
-          },
-          "Unit": {
-            "value": 0,
-            "max": 1
-          },
-          "Hive Fleet": {
-            "value": "-"
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Battalion Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 3
-          },
-          "Fast Attack": {
-            "value": 0,
-            "max": 2
-          },
-          "Heavy Support": {
-            "value": 0,
-            "max": 2
-          },
-          "Flyer": {
-            "value": 0,
-            "max": 2
-          },
-          "HQ": {
-            "value": 0,
-            "min": 2,
-            "max": 3
+            "min": 1
           },
           "Troops": {
             "value": 0,
-            "min": 3,
-            "max": 6
-          },
-          "Elites": {
-            "value": 0,
-            "max": 6
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Brigade Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 4
-          },
-          "Flyer": {
-            "value": 0,
-            "max": 2
-          },
-          "HQ": {
-            "value": 0,
-            "min": 3,
-            "max": 5
-          },
-          "Troops": {
-            "value": 0,
-            "min": 6,
-            "max": 12
-          },
-          "Elites": {
-            "value": 0,
-            "min": 3,
-            "max": 8
-          },
-          "Fast Attack": {
-            "value": 0,
-            "min": 3,
-            "max": 5
-          },
-          "Heavy Support": {
-            "value": 0,
-            "min": 3,
-            "max": 5
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Fortification Network": {
-        "stats": {
-          "Command Cost": {
-            "value": 1
-          },
-          "Fortification": {
-            "value": 0,
-            "min": 1,
-            "max": 3
-          }
-        },
-        "allowed": {
-          "classifications": [
-            "Fortifications"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Outrider Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 3
-          },
-          "HQ": {
-            "value": 0,
-            "min": 1,
-            "max": 2
-          },
-          "Flyer": {
-            "value": 0,
-            "max": 2
-          },
-          "Troops": {
-            "value": 0,
-            "max": 3
-          },
-          "Elites": {
-            "value": 0,
-            "max": 2
-          },
-          "Heavy Support": {
-            "value": 0,
-            "max": 2
-          },
-          "Fast Attack": {
-            "value": 0,
-            "min": 3,
-            "max": 6
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Patrol Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 2
-          },
-          "HQ": {
-            "value": 0,
-            "min": 1,
-            "max": 2
-          },
-          "Troops": {
-            "value": 0,
-            "min": 1,
-            "max": 3
-          },
-          "Elites": {
-            "value": 0,
-            "max": 2
-          },
-          "Fast Attack": {
-            "value": 0,
-            "max": 2
-          },
-          "Heavy Support": {
-            "value": 0,
-            "max": 2
-          },
-          "Flyer": {
-            "value": 0,
-            "max": 2
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Spearhead Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 3
-          },
-          "HQ": {
-            "value": 0,
-            "min": 1,
-            "max": 2
-          },
-          "Fast Attack": {
-            "value": 0,
-            "max": 2
-          },
-          "Flyer": {
-            "value": 0,
-            "max": 2
-          },
-          "Troops": {
-            "value": 0,
-            "max": 3
-          },
-          "Elites": {
-            "value": 0,
-            "max": 2
-          },
-          "Heavy Support": {
-            "value": 0,
-            "min": 3,
-            "max": 6
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Super-Heavy Auxiliary Detachment": {
-        "stats": {
-          "Lord of War": {
-            "value": 0,
-            "min": 1,
-            "max": 1
-          },
-          "Command Cost": {
-            "value": 3
-          }
-        },
-        "allowed": {
-          "classifications": [
-            "Lords of War"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Super-Heavy Detachment": {
-        "stats": {
-          "Command Cost": {
-            "statType": "rank",
-            "ranks": {
-              "3": {
-                "order": 0,
-                "number": 3
-              },
-              "6": {
-                "order": 1,
-                "number": 6
-              }
-            },
-            "dynamic": true,
-            "tracked": true,
-            "value": 3
-          },
-          "Lord of War": {
-            "value": 0,
-            "min": 3,
-            "max": 5
-          }
-        },
-        "allowed": {
-          "classifications": [
-            "Lords of War"
-          ]
-        },
-        "rules": {
-          "You can only take TITANIC units if the Command Cost is 6.": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "TITANIC"
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Command Cost",
-                    "value"
-                  ]
-                ],
-                "value": 3,
-                "operator": "AND",
-                "not": false
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 5
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Supreme Command Detachment": {
-        "stats": {
-          "HQ": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Troops": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Elites": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Fast Attack": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Heavy Support": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Flyer": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Dedicated Transport": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Lord of War or HQ": {
-            "value": null,
-            "statType": "numeric",
-            "visibility": "active",
-            "tracked": true,
-            "min": 1,
-            "max": 1
-          },
-          "Command Cost": {
-            "statType": "numeric",
-            "value": null,
-            "tracked": true
-          }
-        },
-        "allowed": {
-          "classifications": [
-            "Lords of War",
-            "HQ"
-          ]
-        },
-        "rules": {
-          "Lord of War or HQ counts": {
-            "evals": [],
-            "failState": "pass",
-            "evaluate": "OR",
-            "order": 5,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Lord of War or HQ",
-                    "value"
-                  ]
-                ],
-                "actionType": "set",
-                "value": [
-                  "{self}",
-                  "tally",
-                  "Unit"
-                ],
-                "iterations": 1
-              }
+            "icons": [
+              "triangle-target"
             ]
           },
-          "Command Cost refund": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Patrol Detachment",
-                      "Battalion Detachment",
-                      "Brigade Detachment"
-                    ]
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false,
-                "actionable": false
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Patrol Detachment",
-                      "Battalion Detachment",
-                      "Brigade Detachment"
-                    ]
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false,
-                "actionable": false
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Battalion Detachment",
-                      "Brigade Detachment"
-                    ]
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false,
-                "actionable": false
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Brigade Detachment"
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false,
-                "actionable": false
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "Command Cost refund",
-                    "evals",
-                    [
-                      "0",
-                      "1",
-                      "2",
-                      "3"
-                    ],
-                    "result",
-                    "truthy"
-                  ]
-                ],
-                "max": -2,
-                "operator": "SUM",
-                "not": false,
-                "equation": {
-                  "operator": "T*O",
-                  "value": -1
-                }
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "OR",
-            "order": 5,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Command Cost",
-                    "value"
-                  ]
-                ],
-                "actionType": "set",
-                "value": [
-                  "{self}",
-                  "rules",
-                  "Command Cost refund",
-                  "evals",
-                  "4",
-                  "result",
-                  "integer"
-                ],
-                "iterations": 1
-              }
+          "Elites": {
+            "value": 0,
+            "icons": [
+              "pirate-flag"
             ]
           },
-          "This detachment must contain your WARLORD": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "WARLORD"
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false
-              }
-            ],
-            "failState": "error",
-            "evaluate": "OR",
-            "order": 5
-          }
-        },
-        "keywords": {
-          "Tags": [
-            "Ordinary"
-          ]
-        }
-      },
-      "Detachment§Vanguard Detachment": {
-        "stats": {
-          "Command Cost": {
-            "value": 3,
-            "statType": "numeric",
-            "statOrder": -1,
-            "tracked": true
-          },
-          "HQ": {
-            "statType": "numeric",
-            "value": null,
-            "statOrder": 1,
-            "visibility": "active",
-            "tracked": true,
-            "min": 1,
-            "max": 2
-          },
           "Fast Attack": {
-            "statType": "numeric",
-            "value": null,
-            "statOrder": 7,
-            "visibility": "active",
-            "tracked": true,
-            "max": 2
+            "value": 0,
+            "icons": [
+              "power-lightning"
+            ]
           },
           "Heavy Support": {
-            "statType": "numeric",
-            "value": null,
-            "statOrder": 9,
-            "visibility": "active",
-            "tracked": true,
-            "max": 2
+            "value": 0,
+            "icons": [
+              "mine-explosion"
+            ]
           },
           "Flyer": {
-            "statType": "numeric",
-            "value": null,
-            "statOrder": 11,
-            "visibility": "active",
-            "tracked": true,
-            "max": 2
-          },
-          "Troops": {
-            "value": null,
-            "statType": "numeric",
-            "statOrder": 3,
-            "visibility": "active",
-            "tracked": true,
-            "max": 3
-          },
-          "Elites": {
-            "value": null,
-            "statType": "numeric",
-            "statOrder": 5,
-            "visibility": "active",
-            "tracked": true,
-            "min": 3,
-            "max": 6
+            "value": 0,
+            "icons": [
+              "bat-blade"
+            ]
           }
         },
         "keywords": {
