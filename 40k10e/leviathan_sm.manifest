@@ -1,0 +1,1938 @@
+{
+  "name": "Leviathan Space Marines",
+  "revision": "10.0.3",
+  "game": "Warhammer 40k",
+  "genre": "sci-fi",
+  "publisher": "Games Workshop",
+  "url": "",
+  "notes": "",
+  "wip": true,
+  "dependencies": [
+    {
+      "slug": "123456",
+      "name": "40k10e",
+      "game": "Warhammer 40,000"
+    }
+  ],
+  "manifest": {
+    "assetTaxonomy": {
+      "Weapon": {
+        "stats": {
+          "BS": {
+            "format": "{v}+"
+          },
+          "WS": {
+            "format": "{v}+"
+          }
+        }
+      }
+    },
+    "assetCatalog": {
+      "Ability§Ballistus Strike": {
+        "text": "Each time this model makes a ranged attack that targets a unit that is not Below Half-strength, you can re-roll the Hit roll."
+      },
+      "Ability§Damaged:": {
+        "stats": {
+          "keyword": {
+            "text": "While this model has {t}, each time this model makes an attack, subtract 1 from the Hit roll."
+          }
+        }
+      },
+      "Ability§Evade and Survive": {
+        "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit,\nif this unit is not within Engagement Range of one or more enemy units, it can make a Normal move."
+      },
+      "Ability§Feel No Pain": {
+        "rules": {
+          "put+InName": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 101,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": "+",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Ability§Infiltrators": {},
+      "Ability§Last Survivor": {
+        "text": "This model cannot be selected as your Warlord.",
+        "rules": {
+          "This model cannot be selected as your Warlord.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Warlord"
+                  ]
+                ],
+                "value": 0,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Ability§Oath of Moment": {},
+      "Ability§Priority Objective Identified (aura)": {
+        "text": "At the start of the first battle round, if your army contains one or more models with this ability, you can select one objective marker on the battlefield to be the Priority Objective. Until the end of the battle, while a friendly Adeptus Astartes unit is within 6\" of this model, each time a model in that unit makes an attack that targets an enemy unit that is within range of the Priority Target, re-roll a Wound roll of 1."
+      },
+      "Ability§Psychic": {
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
+      "Ability§Psychic Hood": {
+        "text": "While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks."
+      },
+      "Ability§Rites of Battle": {
+        "text": "Once per battle round, one unit from your army with this ability can be targeted by a Stratagem for 0CP, even if another unit from your army has already been targeted by that Stratagem this phase."
+      },
+      "Ability§Surgical Precision": {
+        "text": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability."
+      },
+      "Ability§The Imperium’s Sword": {
+        "text": "You can re-roll Charge rolls made for this model’s unit."
+      },
+      "Ability§Veil of Time (Psychic)": {
+        "text": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability."
+      },
+      "Ability§Vivispectrum": {
+        "text": "If this model’s unit destroys an enemy unit as the result of a melee attack, until the end of the battle, this model has an Objective Control characteristic of 9."
+      },
+      "Melee Weapon§Armoured feet": {
+        "stats": {
+          "Range": {
+            "value": null
+          },
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Vehicle"
+                },
+                "x": {
+                  "value": 3
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Melee Weapon§Chainfist": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Vehicle"
+                },
+                "x": {
+                  "value": 3
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "-2",
+            "statType": "term"
+          },
+          "D": {
+            "value": "2",
+            "statType": "term"
+          },
+          "Range": {
+            "value": null
+          }
+        }
+      },
+      "Melee Weapon§Close combat weapon": {
+        "stats": {
+          "Range": {
+            "value": null
+          },
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        }
+      },
+      "Melee Weapon§Force weapon": {
+        "stats": {
+          "Range": {
+            "value": null
+          },
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-1"
+          },
+          "D": {
+            "statType": "term",
+            "value": "D3"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Psychic"
+          ]
+        }
+      },
+      "Melee Weapon§Paired combat blades": {
+        "stats": {
+          "Range": {
+            "value": null
+          },
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Tyranids"
+                },
+                "x": {
+                  "value": 4
+                }
+              }
+            },
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": 1
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Melee Weapon§Power fist": {
+        "stats": {
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "-2",
+            "statType": "term"
+          },
+          "D": {
+            "value": "2",
+            "statType": "term"
+          },
+          "Range": {
+            "value": null
+          }
+        }
+      },
+      "Melee Weapon§Power weapon": {
+        "stats": {
+          "Range": {
+            "value": null
+          },
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-2"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        }
+      },
+      "Melee Weapon§Relic weapon": {
+        "stats": {
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "-2",
+            "statType": "term"
+          },
+          "D": {
+            "value": "2",
+            "statType": "term"
+          },
+          "Range": {
+            "value": null
+          }
+        }
+      },
+      "Melee Weapon§Thunder hammer": {
+        "stats": {
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "-2",
+            "statType": "term"
+          },
+          "D": {
+            "value": "2",
+            "statType": "term"
+          },
+          "Range": {
+            "value": null
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        }
+      },
+      "Melee Weapon§Twin lightning claws": {
+        "stats": {
+          "A": {
+            "value": null
+          },
+          "WS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "-2",
+            "statType": "term"
+          },
+          "D": {
+            "value": "1",
+            "statType": "term"
+          },
+          "Range": {
+            "value": null
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked"
+          ]
+        }
+      },
+      "Ranged Weapon§Absolvor bolt pistol": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "18"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-1"
+          },
+          "D": {
+            "statType": "term",
+            "value": "2"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        }
+      },
+      "Ranged Weapon§Assault cannon": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "24"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        }
+      },
+      "Ranged Weapon§Ballistus lascannon": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "48"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-3"
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6+1"
+          }
+        }
+      },
+      "Ranged Weapon§Ballistus missile launcher – frag": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "48"
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          },
+          "A": {
+            "statType": "term"
+          }
+        }
+      },
+      "Ranged Weapon§Ballistus missile launcher – krak": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "48"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-2"
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6"
+          }
+        }
+      },
+      "Ranged Weapon§Bolt pistol": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "12"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        }
+      },
+      "Ranged Weapon§Combi-weapon": {
+        "stats": {
+          "Range": {
+            "value": "24",
+            "statType": "term"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "0",
+            "statType": "term"
+          },
+          "D": {
+            "value": "1",
+            "statType": "term"
+          }
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Infantry"
+                },
+                "x": {
+                  "value": 4
+                }
+              }
+            },
+            "Ability§Devastating Wounds",
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": 1
+                }
+              }
+            }
+          ],
+          "included": []
+        },
+        "removed": {
+          "assets": {
+            "included": [
+              "Battle Trait§Apex Predator"
+            ]
+          }
+        }
+      },
+      "Ranged Weapon§Cyclone missile launcher – frag": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "36"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Blast"
+          ]
+        }
+      },
+      "Ranged Weapon§Cyclone missile launcher – krak": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "36"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-2"
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6"
+          }
+        }
+      },
+      "Ranged Weapon§Heavy flamer": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "12"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-1"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        }
+      },
+      "Ranged Weapon§Pyreblaster": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "12"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        }
+      },
+      "Ranged Weapon§Smite – focused witchfire": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "24"
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-2"
+          },
+          "D": {
+            "statType": "term",
+            "value": "D3"
+          },
+          "A": {
+            "statType": "term"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Hazardous",
+            "Ability§Psychic"
+          ]
+        }
+      },
+      "Ranged Weapon§Smite – witchfire": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "24"
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-1"
+          },
+          "D": {
+            "statType": "term",
+            "value": "D3"
+          },
+          "A": {
+            "statType": "term"
+          }
+        }
+      },
+      "Ranged Weapon§Sternguard bolt pistol": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "12"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Pistol"
+          ]
+        }
+      },
+      "Ranged Weapon§Sternguard bolt rifle": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "24"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-1"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Devastating Wounds",
+            "Ability§Heavy",
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": 1
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Ranged Weapon§Sternguard heavy bolter": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "36"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "-1"
+          },
+          "D": {
+            "statType": "term",
+            "value": "2"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Heavy",
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": 1
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Ranged Weapon§Storm bolter": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": 2
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "Range": {
+            "value": "24",
+            "statType": "term"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "value": "0",
+            "statType": "term"
+          },
+          "D": {
+            "value": "1",
+            "statType": "term"
+          }
+        }
+      },
+      "Ranged Weapon§Twin storm bolter": {
+        "stats": {
+          "Range": {
+            "statType": "term",
+            "value": "24"
+          },
+          "A": {
+            "value": null
+          },
+          "BS": {
+            "value": null
+          },
+          "S": {
+            "value": null
+          },
+          "AP": {
+            "statType": "term",
+            "value": "0"
+          },
+          "D": {
+            "statType": "term",
+            "value": "1"
+          }
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": 2
+                }
+              }
+            },
+            "Ability§Twin-linked"
+          ]
+        }
+      },
+      "Roster§Army": {},
+      "Unit§Apothecary Biologis": {
+        "stats": {
+          "M": {
+            "value": "5"
+          },
+          "T": {
+            "value": 6
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 5
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": "3"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Leader",
+            "Ability§Oath of Moment",
+            "Ability§Surgical Precision",
+            "Ability§Vivispectrum",
+            {
+              "item": "Ranged Weapon§Absolvor bolt pistol",
+              "stats": {
+                "A": {
+                  "value": 1
+                },
+                "BS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 5
+                }
+              }
+            },
+            {
+              "item": "Melee Weapon§Close combat weapon",
+              "stats": {
+                "A": {
+                  "value": 4
+                },
+                "WS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 4
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Keywords": [
+            "Apothecary Biologis",
+            "Character",
+            "Gravis",
+            "Imperium",
+            "Infantry"
+          ]
+        }
+      },
+      "Unit§Ballistus Dreadnought": {
+        "stats": {
+          "M": {
+            "value": "8"
+          },
+          "T": {
+            "value": 10
+          },
+          "Sv": {
+            "value": 2
+          },
+          "W": {
+            "value": 12
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": "4"
+          }
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Keywords": [
+            "Ballistus Dreadnought",
+            "Imperium",
+            "Vehicle",
+            "Walker"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "keyword": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "keyword": {
+                  "value": "1-4 wounds remaining"
+                }
+              }
+            },
+            {
+              "item": "Wargear§Ballistus Missile Launcher",
+              "assets": {
+                "traits": [
+                  {
+                    "item": "Ranged Weapon§Ballistus missile launcher – frag",
+                    "stats": {
+                      "A": {
+                        "value": "2D6"
+                      },
+                      "BS": {
+                        "value": 3
+                      },
+                      "S": {
+                        "value": 5
+                      }
+                    }
+                  },
+                  {
+                    "item": "Ranged Weapon§Ballistus missile launcher – krak",
+                    "stats": {
+                      "A": {
+                        "value": 2
+                      },
+                      "BS": {
+                        "value": 3
+                      },
+                      "S": {
+                        "value": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "item": "Ranged Weapon§Ballistus lascannon",
+              "stats": {
+                "A": {
+                  "value": 2
+                },
+                "BS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 12
+                }
+              }
+            },
+            {
+              "item": "Ranged Weapon§Twin storm bolter",
+              "stats": {
+                "A": {
+                  "value": 2
+                },
+                "BS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 4
+                }
+              }
+            },
+            {
+              "item": "Melee Weapon§Armoured feet",
+              "stats": {
+                "A": {
+                  "value": 5
+                },
+                "WS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 7
+                }
+              }
+            }
+          ]
+        }
+      },
+      "Unit§Captain (in Terminator Armour)": {
+        "stats": {
+          "M": {
+            "value": "5"
+          },
+          "T": {
+            "value": 5
+          },
+          "Sv": {
+            "value": 2
+          },
+          "W": {
+            "value": 6
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": "1"
+          },
+          "Ranged": {
+            "statType": "rank",
+            "value": "Storm bolter",
+            "ranks": {
+              "Storm bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Storm bolter"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Combi-weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Power fist"
+                  }
+                ]
+              },
+              "Relic shield": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Relic shield"
+                  }
+                ]
+              },
+              "Relic weapon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Relic weapon"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Thunder hammer"
+                  }
+                ]
+              },
+              "-": {
+                "order": 6
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Grenades": {
+            "value": "-",
+            "statType": "rank",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Auxiliary grenade launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "statOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Inv": {
+            "value": 4
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Relic weapon",
+            "ranks": {
+              "Relic weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Relic weapon"
+                  }
+                ]
+              },
+              "Chainfist": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chainfist"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Power fist"
+                  }
+                ]
+              },
+              "Relic shield": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Relic shield"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Thunder hammer"
+                  }
+                ]
+              },
+              "Twin lightning claws": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Twin lightning claws"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "twinLightningClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND"
+          },
+          "hideGrenades": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Power fist"
+                  ]
+                ],
+                "max": 0,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenades",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenades",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "twinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "notTwinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
+          },
+          "rangedShield": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged",
+                    "value"
+                  ]
+                ],
+                "value": "Relic shield",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Relic shield",
+                "iterations": 1
+              }
+            ]
+          },
+          "meleeShield": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Relic shield",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Relic shield",
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Captain",
+            "Character",
+            "Imperium",
+            "Infantry",
+            "Terminator"
+          ],
+          "Faction": [
+            "Adeptus Astartes"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Leader",
+            "Ability§Oath of Moment",
+            "Ability§Rites of Battle",
+            "Ability§The Imperium’s Sword"
+          ]
+        }
+      },
+      "Unit§Infernus Squad": {},
+      "Unit§Librarian (in Terminator Armour)": {
+        "stats": {
+          "M": {
+            "value": "5"
+          },
+          "T": {
+            "value": 5
+          },
+          "Sv": {
+            "value": 2
+          },
+          "W": {
+            "value": 5
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": "1"
+          },
+          "Inv": {
+            "value": 4
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": null,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Combi-weapon",
+                      "stats": {
+                        "A": {
+                          "value": 1
+                        },
+                        "BS": {
+                          "value": 4
+                        },
+                        "S": {
+                          "value": 4
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "Storm bolter": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Storm bolter",
+                      "stats": {
+                        "A": {
+                          "value": 2
+                        },
+                        "BS": {
+                          "value": 3
+                        },
+                        "S": {
+                          "value": 4
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Leader",
+            "Ability§Oath of Moment",
+            "Ability§Psychic Hood",
+            "Ability§Veil of Time (Psychic)",
+            {
+              "item": "Wargear§Smite",
+              "assets": {
+                "traits": [
+                  {
+                    "item": "Ranged Weapon§Smite – witchfire",
+                    "stats": {
+                      "A": {
+                        "value": "D6"
+                      },
+                      "BS": {
+                        "value": 3
+                      },
+                      "S": {
+                        "value": 5
+                      }
+                    }
+                  },
+                  {
+                    "item": "Ranged Weapon§Smite – focused witchfire",
+                    "stats": {
+                      "A": {
+                        "value": "D6"
+                      },
+                      "BS": {
+                        "value": 3
+                      },
+                      "S": {
+                        "value": 6
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "item": "Melee Weapon§Force weapon",
+              "stats": {
+                "A": {
+                  "value": 4
+                },
+                "WS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 6
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Character",
+            "Imperium",
+            "Infantry",
+            "Librarian",
+            "Psyker",
+            "Terminator,"
+          ],
+          "Faction": [
+            "Adeptus Astartes"
+          ]
+        }
+      },
+      "Unit§Lieutenant (with Combi-weapon)": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": 5
+                }
+              }
+            },
+            "Ability§Infiltrators",
+            "Ability§Lone Operative",
+            "Ability§Stealth",
+            "Ability§Oath of Moment",
+            "Ability§Priority Objective Identified (aura)",
+            "Ability§Evade and Survive",
+            "Ability§Last Survivor",
+            {
+              "item": "Ranged Weapon§Combi-weapon",
+              "stats": {
+                "A": {
+                  "value": 1
+                },
+                "BS": {
+                  "value": 3
+                },
+                "S": {
+                  "value": 4
+                }
+              }
+            },
+            {
+              "item": "Melee Weapon§Paired combat blades",
+              "stats": {
+                "A": {
+                  "value": 5
+                },
+                "WS": {
+                  "value": 2
+                },
+                "S": {
+                  "value": 4
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "M": {
+            "value": "6"
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 4
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": "1"
+          }
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Keywords": [
+            "Character",
+            "Grenades",
+            "Imperium",
+            "Infantry",
+            "Lieutenant with Combi-weapon",
+            "Phobos",
+            "Smoke"
+          ]
+        }
+      },
+      "Unit§Sternguard Veteran Squad": {},
+      "Unit§Terminator Squad": {},
+      "Wargear§Auxiliary grenade launcher": {
+        "stats": {
+          "keyword?": {
+            "value": "Grenades"
+          }
+        }
+      },
+      "Wargear§Ballistus Missile Launcher": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Ballistus missile launcher – frag",
+            "Ranged Weapon§Ballistus missile launcher – krak"
+          ]
+        }
+      },
+      "Wargear§Relic shield": {
+        "rules": {
+          "setToughness": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 7,
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Wargear§Smite": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Smite – witchfire",
+            "Ranged Weapon§Smite – focused witchfire"
+          ]
+        }
+      }
+    },
+    "gameModes": {},
+    "theme": {}
+  }
+}
