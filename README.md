@@ -1,11 +1,12 @@
-# WH40k10e Manifests
+# WH40k10e Manifest
 
-Use these URLs to import (and link) the manifest in Rosterizer in the manifest import dialog. Import the base 40k manifest first in order for dependencies to resolve automatically.
+If you're going to author stuff for 40k, it's wise to make it similar in structure to other elements of the 40k manifest.
 
-If you're going to author stuff for 40k, it's wise to make it similar in structure to other 40k manifests.
+## 40k10Core
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest
 
-## 40k10e  
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/40k10e/40k10e_Core.manifest
+### Space Marines
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
 
-## Leviathan SM
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Leviathan_SM/Leviathan_SM.manifest
+### Tyranids
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest
