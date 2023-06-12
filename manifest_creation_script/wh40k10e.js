@@ -9,14 +9,23 @@ let numberr = function(input){
   return null
 }
 let titleCase = function(sentence){
-  return sentence.toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
+  return sentence.toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ').replace(/^\s*(.*[^\s])*\s*$/,'$1')
 }
+const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain',
+                        'Fights First','Firing Deck','Hover','Infiltrators',
+                        'Invulnerable','Leader','Lone Operative','Scouts','Stealth',
+                        'Transport','Anti-','Assault','Blast','Devastating Wounds',
+                        'Extra Attacks','Hazardous','Heavy','Ignores Cover',
+                        'Indirect Fire','Lance','Lethal Hits','Melta','One Shot',
+                        'Pistol','Precision','Psychic','Rapid Fire','Sustained Hits',
+                        'Torrent','Twin-linked',];
 
 Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.1.2',
+    revision: '10.1.3',
+    name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
     publisher: 'Games Workshop',
@@ -90,7 +99,8 @@ Object.keys(window.data).forEach(key => {
             let abilityItem = {};
             let abilityAsset;
             if(abilityName.toLowerCase().includes('anti-')){
-              abilityItemKey = 'Ability§Anti-';
+              abilityName = 'Anti-';
+              abilityItemKey = 'Ability§'+abilityName;
               abilityAsset = {
                 item: abilityItemKey,
                 stats: {
@@ -99,6 +109,7 @@ Object.keys(window.data).forEach(key => {
                 }
               };
             }else if(new RegExp('[a-zA-z\s]* [0-9]').test(abilityName)){
+              abilityName = abilityName.replace(/([a-zA-z\s]*) [0-9]/,'$1');
               abilityItemKey = 'Ability§' + titleCase(keyword.match(/([a-zA-z\s]*) [0-9]/i)[1]);
               abilityAsset = {
                 item: abilityItemKey,
@@ -115,7 +126,7 @@ Object.keys(window.data).forEach(key => {
             manifest.manifest.assetCatalog[weaponKey].assets = manifest.manifest.assetCatalog[weaponKey].assets || {};
             manifest.manifest.assetCatalog[weaponKey].assets.traits = manifest.manifest.assetCatalog[weaponKey].assets.traits || [];
             manifest.manifest.assetCatalog[weaponKey].assets.traits.push(abilityAsset);
-            manifest.manifest.assetCatalog[abilityItemKey] = manifest.manifest.assetCatalog[abilityItemKey] || abilityItem;
+            if(!coreAbilityList.includes(titleCase(abilityName))) manifest.manifest.assetCatalog[abilityItemKey] = manifest.manifest.assetCatalog[abilityItemKey] || abilityItem;
           });
         });
         if(weapon.profiles.length === 1){
@@ -143,47 +154,82 @@ Object.keys(window.data).forEach(key => {
     
       // create all abilities
       datasheet.abilities.core.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+(ability.replace(/^\s*(.*[^\s])*\s*$/,'$1'))] = {
+        let abilityDesignation = (ability.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
+        if(abilityDesignation.indexOf('Deadly Demise') === 0) abilityDesignation = 'Deadly Demise';
+        if(abilityDesignation.indexOf('Feel No Pain') === 0) abilityDesignation = 'Feel No Pain';
+        if(abilityDesignation.indexOf('Firing Deck') === 0) abilityDesignation = 'Firing Deck';
+        if(abilityDesignation.indexOf('Scouts') === 0) abilityDesignation = 'Scouts';
+        if(!coreAbilityList.includes(abilityDesignation)) manifest.manifest.assetCatalog['Ability§'+abilityDesignation] = {
           keywords: {Keywords: ['Core']}
         }
       });
       datasheet.abilities.faction.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+(ability.replace(/^\s*(.*[^\s])*\s*$/,'$1'))] = {
+        manifest.manifest.assetCatalog['Ability§'+titleCase(ability)] = {
           keywords: {Keywords: ['Faction']}
         }
       });
       datasheet.abilities.primarch.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+(ability.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))] = {
+        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
           text: formatText(ability.description),
           keywords: {Keywords: ['Primarch']}
         }
       });
       datasheet.abilities.other.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+(ability.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))] = {
+        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
           text: formatText(ability.description),
           keywords: {Keywords: ['Other']}
         }
       });
       datasheet.abilities.special.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))] = {
+        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
           text: formatText(ability.description),
           keywords: {Keywords: ['Special']}
         }
       });
       datasheet.abilities.wargear.forEach(ability => {
-        manifest.manifest.assetCatalog['Wargear§'+(ability.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))] = {
+        manifest.manifest.assetCatalog['Wargear§'+titleCase(ability.name)] = {
           text: formatText(ability.description)
         }
       });
       // assign traits to units
       unit.assets = {}
       unit.assets.traits = [
-        ...(datasheet.abilities.core.map(ability => 'Ability§'+ability) || []),
-        ...(datasheet.abilities.faction.map(ability => 'Ability§'+ability) || []),
-        ...(datasheet.abilities.primarch.map(ability => 'Ability§'+ability.name) || []),
-        ...(datasheet.abilities.other.map(ability => 'Ability§'+ability.name) || []),
+        ...(datasheet.abilities.core.map(ability => {
+          if(ability.indexOf('Deadly Demise') === 0){
+            return {
+              item: 'Ability§Deadly Demise',
+              stats: {
+                x: {value: ability.match(/Deadly Demise (D*[0-9])/i)[1]},
+              }
+            }
+          }else if(ability.indexOf('Feel No Pain') === 0){
+            return {
+              item: 'Ability§Feel No Pain',
+              stats: {
+                x: {value: ability.match(/Feel No Pain ([0-9]\+)/i)[1]},
+              }
+            }
+          }else if(ability.indexOf('Firing Deck') === 0){
+            return {
+              item: 'Ability§Firing Deck',
+              stats: {
+                x: {value: ability.match(/Firing Deck ([0-9])/i)[1]},
+              }
+            }
+          }else if(ability.indexOf('Scouts') === 0){
+            return {
+              item: 'Ability§Scouts',
+              stats: {
+                x: {value: ability.match(/Scouts ([0-9]")/i)[1]},
+              }
+            }
+          }else return'Ability§'+titleCase(ability)
+        }) || []),
+        ...(datasheet.abilities.faction.map(ability => 'Ability§'+titleCase(ability)) || []),
+        ...(datasheet.abilities.primarch.map(ability => 'Ability§'+titleCase(ability.name)) || []),
+        ...(datasheet.abilities.other.map(ability => 'Ability§'+titleCase(ability.name)) || []),
         ...(datasheet.abilities.special.map(ability => 'Ability§'+titleCase(ability.name)) || []),
-        ...(datasheet.abilities.wargear.map(ability => 'Wargear§'+ability.name) || []),
+        ...(datasheet.abilities.wargear.map(ability => 'Wargear§'+titleCase(ability.name)) || []),
       ]
       delete a[i].abilities.core;
       delete a[i].abilities.faction;
@@ -386,7 +432,7 @@ Object.keys(window.data).forEach(key => {
       });
       if(!simpleSheet || !simpleWargear){
         // console.log(datasheet.wargear)
-        unit.text = 'ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n' + datasheet.loadout + '\n\n' + datasheet.wargear?.join('\n\n*') + unit.text;
+        unit.text = 'ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n' + datasheet.loadout + '\n\n' + datasheet.wargear?.join('\n\n*') + (unit.text || '');
         if(sampleLoadout){
           if(singleModelUnit){
             unit.stats.sampleLoadout = sampleLoadout;
