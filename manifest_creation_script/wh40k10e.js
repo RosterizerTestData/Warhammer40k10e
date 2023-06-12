@@ -15,7 +15,7 @@ let titleCase = function(sentence){
 let datasheets = window.data.datasheets;
 let manifest = {
   name: window.data.name,
-  revision: '10.1.0',
+  revision: '10.1.1',
   game: 'Warhammer 40k',
   genre: 'sci-fi',
   publisher: 'Games Workshop',
@@ -126,6 +126,30 @@ datasheets.forEach((datasheet,i,a) => {
   delete a[i].abilities.invul;
   delete a[i].abilities;
 
+  // create leader trait
+  if(datasheet.leader){
+    unit.assets = unit.assets || {};
+    unit.assets.traits = unit.assets.traits || [];
+    let leaderIndex = unit.assets.traits.findIndex(el => el === 'Ability§Leader' || el.item === 'Ability§Leader');
+    leaderIndex = leaderIndex === -1 ? unit.assets.traits.length : leaderIndex;
+    unit.assets.traits[leaderIndex] = {
+      item: 'Ability§Leader',
+      text: formatText(datasheet.leader.replace(/ ■/g,'\n\n*')),
+    };
+  }
+  delete a[i].leader;
+
+  // create transport trait
+  if(datasheet.transport){
+    unit.assets = unit.assets || {};
+    unit.assets.traits = unit.assets.traits || [];
+    unit.assets.traits.push({
+      item: 'Ability§Transport',
+      text: formatText(datasheet.transport.replace(/ ■/g,'\n\n*')),
+    });
+  }
+  delete a[i].transport;
+
   // set keywords
   unit.keywords = {
     Faction: datasheet.factions,
@@ -135,18 +159,6 @@ datasheets.forEach((datasheet,i,a) => {
   if(unit.keywords.Keywords.includes('Epic Hero')) unit.aspects = {Unique: true};
   delete a[i].factions;
   delete a[i].keywords;
-
-  // put leader ability into unit text
-  if(datasheet.leader){
-    unit.text = datasheet.leader.replace(/ ■/g,'\n\n*');
-  }
-  delete a[i].leader;
-
-  // put transport ability into unit text
-  if(datasheet.transport){
-    unit.text = datasheet.transport.replace(/ ■/g,'\n\n*');
-  }
-  delete a[i].transport;
 
   // weapons
   let weaponList = [];
@@ -226,7 +238,9 @@ datasheets.forEach((datasheet,i,a) => {
         manifest.manifest.assetCatalog[wargearKey] = {
           assets: {
             traits: weapon.profiles.map(profile => range[1] + ' Weapon§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
-          }
+          },
+          stats: {wargearName: {value: (weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')).replace(/^(.*) – .*/,'$1')}},
+          keywords: {Tags: ['Multi-weapon']}
         }
       }
     });

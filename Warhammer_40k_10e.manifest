@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.0.4",
+  "revision": "10.1.1",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -849,6 +849,11 @@
             "statType": "term",
             "value": "none",
             "visibility": "hidden"
+          },
+          "wargearName": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
           }
         },
         "rules": {
@@ -991,6 +996,43 @@
                   "{self}",
                   "stats",
                   "keyword?",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "renameWargear": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "wargearName",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "wargearName",
                   "value"
                 ],
                 "iterations": 1
@@ -1169,7 +1211,21 @@
             ]
           },
           "renameWeapon": {
-            "evals": [],
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "weaponName",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
             "failState": "pass",
             "evaluate": "AND",
             "actions": [
@@ -1390,6 +1446,7 @@
           ]
         }
       },
+      "Ability§Transport": {},
       "Ability§Twin-linked": {
         "text": "*Dual weapons are often grafted to the same targeting \nsystem for greater lethality.* \\\n\\\nWeapons with **[TWIN-LINKED]** in their profile are known \nas Twin-linked weapons. Each time an attack is \nmade with such a weapon, you can re-roll that \nattack’s Wound roll.",
         "keywords": {
