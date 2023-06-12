@@ -397,8 +397,19 @@ datasheets.forEach((datasheet,i,a) => {
     if(singleModelUnit){
       let wargearList = datasheet.loadout.replace(/(.*)\.$/,'$1').replace(/.*is equipped with: (.*)/,'$1').split('; ');
       wargearList.forEach(wargearName => {
-        let wargearIndex = weaponList.findIndex(weapon => weapon.toLowerCase().includes('—'+wargearName.toLowerCase()));
-        if(wargearIndex >= 0) unit.assets.traits.push(weaponList[wargearIndex])
+        let wargearLower = wargearName.toLowerCase();
+        let count = 1;
+        if (!isNaN(wargearLower.charAt(0))) {
+          // Multiple of the same weapon, assume single-digit number of them and final character is pluralisation
+          count = parseInt(wargearLower.charAt(0), 10);
+          wargearLower = wargearLower.substring(2, wargearLower.length - 1);
+        }
+        let wargearIndex = weaponList.findIndex(weapon => weapon.toLowerCase().includes('—'+wargearLower));
+        if (wargearIndex >= 0) {
+          for (i = 0; i < count; i++) {
+            unit.assets.traits.push(weaponList[wargearIndex]);
+          }
+        }
       });
     }
   }
