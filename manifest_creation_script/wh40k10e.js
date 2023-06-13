@@ -9,7 +9,7 @@ let numberr = function(input){
   return null
 }
 let titleCase = function(sentence){
-  return sentence.toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ').replace(/^\s*(.*[^\s])*\s*$/,'$1')
+  return sentence.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/\s+/g,' ').toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
 }
 const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain',
                         'Fights First','Firing Deck','Hover','Infiltrators',
@@ -24,7 +24,7 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.1.3',
+    revision: '10.0.4',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
@@ -399,18 +399,18 @@ Object.keys(window.data).forEach(key => {
       let simpleSheet = singleModelUnit;
       if(
         (
-          datasheet.wargear[0].indexOf('■ None') === 0
-          || datasheet.wargear[0].indexOf('■ All models') === 0
-          || datasheet.wargear[0].indexOf('■ All of the models') === 0
-          || datasheet.wargear[0].indexOf('■ This model') === 0
+          datasheet.wargear[0]?.indexOf('None') === 0
+          || datasheet.wargear[0]?.indexOf('All models') === 0
+          || datasheet.wargear[0]?.indexOf('All of the models') === 0
+          || datasheet.wargear[0]?.indexOf('This model') === 0
         )
-        && datasheet.wargear.length === 2
         && (
           datasheet.loadout.indexOf('This model is equipped') === 0
           || datasheet.loadout.indexOf('Every model is equipped') === 0
         )
       ) simpleSheet = true;
-      let simpleWargear = simpleSheet && datasheet.wargear[0].indexOf('■ None') === 0;
+      let simpleWargear = simpleSheet && datasheet.wargear[0].indexOf('None') === 0;
+      // console.log(datasheet.name,simpleSheet,simpleWargear,datasheet.wargear[0],comp)
       let sampleLoadout = weaponList.length ? {
         statType: 'rank',
         value: weaponList[0].match(/.*—(.*)/)[1],
@@ -446,24 +446,35 @@ Object.keys(window.data).forEach(key => {
           }
         }
       }else{
-        if(singleModelUnit){
-          let wargearList = datasheet.loadout.replace(/(.*)\.$/,'$1').replace(/.*is equipped with: (.*)/,'$1').split('; ');
-          wargearList.forEach(wargearName => {
-            let wargearLower = wargearName.toLowerCase();
-            let count = 1;
-            if (!isNaN(wargearLower.charAt(0))) {
-              // Multiple of the same weapon, assume single-digit number of them and final character is pluralisation
-              count = parseInt(wargearLower.charAt(0), 10);
-              wargearLower = wargearLower.substring(2, wargearLower.length - 1);
-            }
-            let wargearIndex = weaponList.findIndex(weapon => weapon.toLowerCase().includes('—'+wargearLower));
-            if (wargearIndex >= 0) {
-              for (i = 0; i < count; i++) {
+        let wargearList = datasheet.loadout.replace(/(.*)\.$/,'$1').replace(/.*is equipped with: (.*)/,'$1').split('; ');
+        wargearList.forEach(wargearName => {
+          let wargearLower = wargearName.toLowerCase();
+          let count = 1;
+          if (!isNaN(wargearLower.charAt(0))) {
+            // Multiple of the same weapon, assume single-digit number of them and final character is pluralisation
+            count = parseInt(wargearLower.charAt(0), 10);
+            wargearLower = wargearLower.substring(2, wargearLower.length - 1);
+          }
+          let wargearIndex = weaponList.findIndex(weapon => weapon.toLowerCase().includes('—'+wargearLower));
+          if (wargearIndex >= 0) {
+            for (i = 0; i < count; i++) {
+              if(singleModelUnit){
+                unit.assets = unit.assets || {};
+                unit.assets.traits = unit.assets.traits || [];
                 unit.assets.traits.push(weaponList[wargearIndex]);
+              }else{
+                comp.forEach(modelType => {
+                  let modelName = modelType[1]?.replace(/^\s*(.*[^\s])*\s*$/,'$1');
+                  let modelItemKey = 'Model§'+modelName;
+                  if(modelName === undefined) console.log('@#%#$T^#$^%#$%^#$%^',datasheet.name)
+                  manifest.manifest.assetCatalog[modelItemKey].assets = manifest.manifest.assetCatalog[modelItemKey].assets || {};
+                  manifest.manifest.assetCatalog[modelItemKey].assets.traits = manifest.manifest.assetCatalog[modelItemKey].assets.traits || [];
+                  manifest.manifest.assetCatalog[modelItemKey].assets.traits.push(weaponList[wargearIndex]);
+                });
               }
             }
-          });
-        }
+          }
+        });
       }
     }
   

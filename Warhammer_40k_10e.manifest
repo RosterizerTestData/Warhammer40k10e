@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.1",
+  "revision": "10.0.4",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -33,45 +33,6 @@
             ],
             "failState": "error",
             "evaluate": "AND"
-          },
-          "putKeywordInName": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "keyword",
-                    "value"
-                  ]
-                ],
-                "min": 1,
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 99,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "designation"
-                  ]
-                ],
-                "actionType": "modify",
-                "value": [
-                  "{self}",
-                  "stats",
-                  "keyword",
-                  "value"
-                ],
-                "iterations": 1
-              }
-            ]
           },
           "putXInName": {
             "evals": [
@@ -114,11 +75,6 @@
           }
         },
         "stats": {
-          "keyword": {
-            "statType": "term",
-            "value": null,
-            "visibility": "hidden"
-          },
           "x": {
             "statType": "term",
             "value": null,
@@ -464,7 +420,6 @@
             "evaluate": "AND"
           }
         },
-        "text": "",
         "keywords": {
           "Phase": []
         }
@@ -473,8 +428,7 @@
         "aspects": {
           "Visibility": "active",
           "Order Traits A–Z": true
-        },
-        "text": ""
+        }
       },
       "Unit": {
         "stats": {
@@ -1252,13 +1206,62 @@
     },
     "assetCatalog": {
       "Ability§Anti-": {
-        "text": "*Certain weapons are the bane of a particular foe.* \\\n\\\nWeapons with **[ANTI-KEYWORD X+]** in their profile are \nknown as Anti weapons. Each time an attack is \nmade with such a weapon against a target with \nthe keyword after the word ‘Anti-’, an unmodified \nWound roll of ‘*x+*’ scores a Critical Wound. \n>Example: An attack made with an **[ANTI-VEHICLE 4+]**\nweapon will score a Critical Wound against – and \nso successfully wound – a **Vehicle** unit on an \nunmodified Wound roll of 4+, while an attack made \nwith an **[ANTI-PSYKER 2+]** weapon will score a Critical \nWound against – and so successfully wound – a \n**Psyker** unit on an unmodified Wound roll of 2+.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         },
-        "rules": {}
+        "rules": {
+          "putKeywordInName": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "keyword",
+                    "value"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 99,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "keyword",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "stats": {
+          "keyword": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "x": {
+            "text": "An unmodified Wound roll of {t} against a target with the matching keyword scores a Critical Wound."
+          }
+        }
       },
       "Ability§Assault": {
         "keywords": {
@@ -1266,29 +1269,59 @@
             "Weapon Ability"
           ]
         },
-        "text": "*Assault weapons fire so indiscriminately that they can \nbe shot from the hip as warriors dash forward.*\\\n\\\nWeapons with **[ASSAULT]** in their profile are known as \nAssault weapons. If a unit that Advanced this turn \ncontains any models equipped with Assault weapons, \nit is still eligible to shoot in this turn’s Shooting \nphase. When such a unit is selected to shoot, you \ncan only resolve attacks using Assault weapons its \nmodels are equipped with."
+        "text": "Can be shot even if the bearer’s unit Advanced."
       },
       "Ability§Blast": {
-        "text": "*High-explosives can fell several warriors in a single \nblast, but firing them where your comrades will get \ncaught in the ensuing detonation is simply unwise.* \\\n\\\nWeapons with **[BLAST]** in their profile are known as \nBlast weapons, and they make a random number of \nattacks. Each time you determine how many attacks \nare made with a Blast weapon, add 1 to the result for \nevery five models that were in the target unit when \nyou selected it as the target (rounding down). Blast \nweapons can never be used to make attacks against a \nunit that is within Engagement Range of one or more \nunits from the attacking model’s army (including its \nown unit). \n>***Example:*** If a weapon with the **[BLAST]** ability and \nan Attacks characteristic of 2D6 targets a unit that \ncontains 11 models, and the roll to determine how \nmany attacks are made is a 9, a total of 11 attacks \nwould be made against that unit.",
+        "text": "* Add 1 to the Attacks characteristic for every five models in the target unit (rounding down).\n* Can never be used against a target that is within Engagement Range of any units from the attacking model’s army (including its own).",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         }
       },
-      "Ability§Damaged:": {},
-      "Ability§Deadly Demise": {
-        "text": "*From detonating ammo stores to corrosive innards or \nfrenzied death throes, some targets are deadly even in defeat.*\\\n\\\nSome models have ‘Deadly Demise *x*’ listed in their \nabilities. When such a model is destroyed, roll one \nD6 before removing it from play (if such a model is a \n**Transport**, roll before any embarked models disembark). \nOn a 6, each unit within 6\" of that model suffers a number \nof mortal wounds denoted by ‘*x*’ (if this is a random \nnumber, roll separately for each unit within 6\").\n\n>***Example:*** A **Transport** model with the Deadly Demise D3 \nability is destroyed. Before any models disembark and \nbefore removing it from play, its controlling player rolls \none D6, getting a 6. There are three units within 6\" of that \ndestroyed model, so its controlling player rolls one D3 for \neach of them, inflicting mortal wounds accordingly.",
+      "Ability§Damaged:": {
         "keywords": {
-          "Tags": [],
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        },
+        "stats": {
+          "x": {
+            "text": "While this model has {t} remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+          }
+        }
+      },
+      "Ability§Deadly Demise": {
+        "keywords": {
+          "Tags": [
+            "Core"
+          ],
           "Keywords": [
             "Model Ability"
           ]
+        },
+        "stats": {
+          "x": {
+            "text": "When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers {t} mortal wounds."
+          }
         }
       },
-      "Ability§Deep Strike": {},
+      "Ability§Deep Strike": {
+        "text": "* Unit can be set up in Reserves instead of on the battlefield.\n* Unit can be set up in your Reinforcements step, more than 9\" horizontally away from all enemy models.",
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        }
+      },
       "Ability§Devastating Wounds": {
-        "text": "*Some weapons can inflict strikes of such power that \nthey make a mockery of armour and can cleave \nthrough several foes.* \\\n\\\nWeapons with **[DEVASTATING WOUNDS]** in their profile \nare known as Devastating Wounds weapons. Each \ntime an attack is made with such a weapon, a Critical \nWound inflicts a number of mortal wounds on the \ntarget equal to the Damage characteristic of that \nweapon and the attack sequence ends.\n>***Example:*** An attack made with a Devastating \nWounds weapon with a Damage characteristic of \n2 scores a Critical Wound. Instead of allocating \nthe attack and making saving throws normally, the \ntarget suffers 2 mortal wounds.",
+        "text": "A Critical Wound inflicts mortal wounds equal to the weapon’s Damage characteristic, instead of any normal damage.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1296,7 +1329,7 @@
         }
       },
       "Ability§Extra Attacks": {
-        "text": "*Some warriors ride to battle atop trusty mounts that \ngore and trample nearby foes. Others wield combat \nweapons that deliver a frenzy of additional blows.* \\\n\nWeapons with **[EXTRA ATTACKS]** in their profile are \nknown as Extra Attacks weapons. Each time the \nbearer of such a weapon fights, it can make attacks \nwith that weapon in addition to the one it chooses \nto fight with. The number of attacks made with \nan Extra Attacks weapon cannot be modified by \nother rules.",
+        "text": "The bearer can attack with this weapon in addition to any other weapons it can make attacks with.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1304,34 +1337,48 @@
         }
       },
       "Ability§Feel No Pain": {
-        "text": "*Some warriors refuse to be laid low, even by what should be fatal wounds.*\\\n\\\nSome models have ‘Feel No Pain *x*+’ listed in their abilities. \nEach time a model with this ability suffers damage and so \nwould lose a wound (including wounds lost due to mortal \nwounds), roll one D6: if the result is greater than or equal \nto the number denoted by ‘*x*’, that wound is ignored and is \nnot lost. If a model has more than one Feel No Pain ability, \nyou can only use one of those abilities each time that model \nsuffers damage and so would lose a wound.",
-        "stats": {},
+        "stats": {
+          "x": {
+            "text": "Each time this model would lose a wound, roll one D6: if the result equals or exceeds {t}, that wound is not lost."
+          }
+        },
         "keywords": {
-          "Tags": [],
+          "Tags": [
+            "Core"
+          ],
           "Keywords": [
             "Model Ability"
           ]
         }
       },
       "Ability§Fights First": {
-        "text": "*Some warriors attack with blinding speed, landing their \nblows before their foes can react.* \\\n\\\nUnits with this ability that are eligible to fight do so in the \nFights First step, provided every model in the unit has \nthis ability.",
+        "text": "Units with this ability that are eligible to fight do so in the Fights First step, provided every model in the unit has this ability.",
         "keywords": {
           "Keywords": [
             "Model Ability"
+          ],
+          "Tags": [
+            "Core"
           ]
         }
       },
       "Ability§Firing Deck": {
-        "text": "*Some transports have firing hatches, ports or \nplatforms from which embarked passengers \ncan shoot.*\\\n\\\nSome **Transport** models have ‘Firing Deck *x*’ \nlisted in their abilities. Each time such a model \nis selected to shoot in the Shooting phase, you \ncan select up to ‘*x*’ models embarked within it. \nThen, for each of those embarked models, you \ncan select one ranged weapon that embarked \nmodel is equipped with. Until that **Transport**\nmodel has resolved all of its attacks, it counts \nas being equipped with all of the weapons \nyou selected in this way, in addition to its \nother weapons.",
         "keywords": {
-          "Tags": [],
+          "Tags": [
+            "Core"
+          ],
           "Keywords": [
             "Model Ability"
           ]
+        },
+        "stats": {
+          "x": {
+            "text": "Each time this Transport shoots, select one weapon from up to {t} models embarked within it; this Transport counts as being equipped with those weapons as well."
+          }
         }
       },
       "Ability§Hazardous": {
-        "text": "*Weapons powered by unstable and dangerous energy \nsources pose a substantial risk to the wielder every \ntime they are used.* \\\n\\\nWeapons with **[HAZARDOUS]** in their profile are known \nas Hazardous weapons. Each time a unit is selected \nto shoot or fight, if one or more models attack with \nHazardous weapons, then after that unit has resolved \nall of its attacks, you must take one Hazardous \ntest for each Hazardous weapon that was just used \nby rolling one D6. For each roll of 1, that test is \nfailed and one model in that unit equipped with \na Hazardous weapon is destroyed (selected by the \ncontrolling player), unless that model is a **Character**, \n**Monster** or **Vehicle**, in which case it suffers 3 \nmortal wounds instead. Note that if you selected a \n**Character** model in an Attached unit, the mortal \nwounds suffered must be allocated to that model \nfirst, even if there is another model in that unit that \nhas lost one or more wounds or has had attacks \nallocated to it this phase. \n>***Example:*** A unit of five models make five attacks \nwith ranged weapons with the **[HAZARDOUS]** ability. \nAfter the unit has finished shooting, its controlling \nplayer rolls five D6. One of the results is a 1, and as \nno models in the unit are Characters, Monsters or \nVehicles, one of those models is destroyed.",
+        "text": "After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead).",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1339,15 +1386,26 @@
         }
       },
       "Ability§Heavy": {
-        "text": "*Heavy weapons are amongst the biggest guns on the \nbattlefield, but require bracing to fire at full effect and \nare unwieldy to bring to bear at close quarters.* \\\n\\\nWeapons with **[HEAVY]** in their profile are known \nas Heavy weapons. Each time an attack is made \nwith such a weapon, if the attacking model’s unit \nRemained Stationary this turn, add 1 to that attack’s \nHit roll.",
+        "text": "Add 1 to Hit rolls if the bearer’s unit Remained Stationary this turn.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         }
       },
+      "Ability§Hover": {
+        "text": "When you are instructed to Declare Battle Formations, before doing anything else, you must first declare which models from your army with this ability will be in Hover mode.\n\nIf a model is in Hover mode, then until the end of the battle, its Move characteristic is changed to 20\", it loses the Aircraft keyword and it loses all associated rules for being an Aircraft model. Models in Hover mode do not start the battle in Reserves, but you can choose to place them into Strategic Reserves following the normal rules if you wish.",
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        }
+      },
       "Ability§Ignores Cover": {
-        "text": "*Some weapons are designed to root enemy formations \nout of entrenched positions.* \\\n\\\nWeapons with **[IGNORES COVER]** in their profile are \nknown as Ignores Cover weapons. Each time an \nattack is made with such a weapon, the target cannot \nhave the Benefit of Cover against that attack (pg 44).",
+        "text": "Each time an attack is made with this weapon, the target cannot have the Benefit of Cover against that attack.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1355,25 +1413,56 @@
         }
       },
       "Ability§Indirect Fire": {
-        "text": "8Indirect fire weapons launch munitions over or around \nintervening obstacles – nowhere is safe from their fury.* \\\n\\\nWeapons with **[INDIRECT FIRE]** in their profile are \nknown as Indirect Fire weapons, and attacks can be \nmade with them even if the target is not visible to the \nattacking model. These attacks can destroy enemy \nmodels in a target unit even though none may have \nbeen visible to the attacking unit when you selected \nthat target. \\\n\\\nIf no models in a target unit are visible to the \nattacking unit when you select that target, then each \ntime a model in the attacking unit makes an attack \nagainst that target using an Indirect Fire weapon, \nsubtract 1 from that attack’s Hit roll and the target \nhas the Benefit of Cover against that attack (pg 44). \n\n>***Example:*** An enemy unit is targeted by an \nattacking model equipped with a weapon with the \n**[INDIRECT FIRE]** ability. No models in the target unit \nare visible to the attacking model, so when resolving \nthe attacks made with that weapon, subtract 1 \nfrom that attack’s Hit roll and each time an attack \nis allocated to a model in the target unit, it has the \nBenefit of Cover against that attack.",
+        "text": "* Can target and make attacks against units that are not visible to the attacking unit.\n* If no models are visible in a target unit when\nit is selected, then when making an attack against that target with an Indirect Fire weapon, subtract 1 from that attack’s Hit roll and the target has the Benefit of Cover against that attack.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         }
       },
-      "Ability§Invulnerable": {},
+      "Ability§Infiltrators": {
+        "text": "During deployment, if every model in a unit has this ability, then when you set it up, it can be set up anywhere on the battlefield that is more than 9\" horizontally away from the enemy deployment zone and all enemy models.",
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        }
+      },
+      "Ability§Invulnerable": {
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        },
+        "text": "* Never modified by an attack’s AP.\n* The controlling player can choose to use either a model’s invulnerable save or its Save characteristic."
+      },
       "Ability§Lance": {
-        "text": "*Lance weapons are deadly on the charge.* \\\n\\\nWeapons with **[LANCE]** in their profile are known as \nLance weapons. Each time an attack is made with \nsuch a weapon, if the bearer made a Charge move \nthis turn, add 1 to that attack’s Wound roll.",
+        "text": "Each time an attack is made with this weapon, if the bearer made a Charge move this turn, add 1 to that attack’s Wound roll.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         }
       },
-      "Ability§Leader": {},
+      "Ability§Leader": {
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        },
+        "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units."
+      },
       "Ability§Lethal Hits": {
-        "text": "*Some weapons can inflict fatal injuries on any foe, no \nmatter their resilience.* \\\n\\\nWeapons with **[LETHAL HITS]** in their profile are known \nas Lethal Hits weapons. Each time an attack is made \nwith such a weapon, a Critical Hit automatically \nwounds the target.",
+        "text": "Each time an attack is made with this weapon, a Critical Hit automatically wounds the target.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1381,16 +1470,29 @@
         }
       },
       "Ability§Lone Operative": {
-        "text": "*Assassins and other covert agents are difficult to track and \npinpoint in the swirling maelstrom of battle.*\\\n\\\nUnless part of an Attached unit (see Leader, page 39), this \nunit can only be selected as the target of a ranged attack if \nthe attacking model is within 12\".",
+        "text": "Unless part of an Attached unit, this unit can only be selected as the target of a ranged attack if \nthe attacking model is within 12\".",
         "keywords": {
-          "Tags": [],
+          "Tags": [
+            "Core"
+          ],
           "Keywords": [
             "Model Ability"
           ]
         }
       },
       "Ability§Melta": {
-        "text": "*Melta weapons are powerful heat rays whose fury is \nmagnified at close range.* \\\n\\\nWeapons with **[MELTA X]** in their profile are known \nas Melta weapons. Each time an attack made \nwith such a weapon targets a unit within half that \nweapon’s range, that attack’s Damage characteristic is \nincreased by the amount denoted by ‘*x*’. \n>***Example:*** A model targets a unit that is within half \nrange of a weapon with a Damage characteristic \nof D6 and the **[MELTA 2]** ability. If that attack inflicts \ndamage on the target, it inflicts D6+2 damage.",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        },
+        "stats": {
+          "x": {
+            "text": "Increase the Damage by {t} when targeting units within half range."
+          }
+        }
+      },
+      "Ability§One Shot": {
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1398,7 +1500,7 @@
         }
       },
       "Ability§Pistol": {
-        "text": "*Pistols can be wielded even at point-blank range.*\\\n\\\nWeapons with **[PISTOL]** in their profile are known as \nPistols. If a unit contains any models equipped with \nPistols, that unit is eligible to shoot in its controlling \nplayer’s Shooting phase even while it is within \nEngagement Range of one or more enemy units. \nWhen such a unit is selected to shoot, it can only \nresolve attacks using its Pistols and can only target \none of the enemy units it is within Engagement \nRange of. In such circumstances, a Pistol can target \nan enemy unit even if other friendly units are within \nEngagement Range of the same enemy unit.\\\n\\\nIf a model is equipped with one or more Pistols, \nunless it is a **Monster** or **Vehicle** model, it can either \nshoot with its Pistols or with all of its other ranged \nweapons. Declare whether such a model will shoot \nwith its Pistols or its other ranged weapons before \nselecting targets.",
+        "text": "* Can be shot even if the bearer’s unit is within Engagement Range of enemy units, but must target one of those enemy units.\n* Cannot be shot alongside any other non-Pistol weapon (except by a Monster or Vehicle).",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
@@ -1406,49 +1508,93 @@
         }
       },
       "Ability§Precision": {
-        "text": "*Precision attacks can pick high-value targets out in a \ncrowd, whether through the unerring aim of a sniper \nor the pinpoint accuracy of a blade-master’s strike.** \\\n\\\nWeapons with **[PRECISION]** in their profile are known \nas Precision weapons. Each time an attack made with \nsuch a weapon successfully wounds an Attached unit \n(pg 39), if a **Character** model in that unit is visible \nto the attacking model, the attacking model’s player \ncan choose to have that attack allocated to that \n**Character** model instead of following the normal \nattack sequence.",
+        "text": "When targeting an Attached unit, the attacking model’s player can have the attack allocated to a Character model in that unit visible to the bearer.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         }
       },
-      "Ability§Rapid Fire": {
-        "text": "*Rapid fire weapons are capable of long-ranged \nprecision shots or controlled bursts at nearby targets.*\\\n\\\nWeapons with **[RAPID FIRE X]** in their profile are known \nas Rapid Fire weapons. Each time such a weapon \ntargets a unit within half that weapon’s range, the \nAttacks characteristic of that weapon is increased by \nthe amount denoted by ‘*x*’. \\\n\n>***Example:*** A model targets a unit that is within half \nrange of a weapon with an Attacks characteristic \nof 1 and the **[RAPID FIRE 1]** ability. That weapon \ntherefore makes two attacks at the target, and you \nmake two Hit rolls.",
+      "Ability§Psychic": {
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
+        },
+        "text": "If a Psychic weapon or ability causes any unit to suffer one or more wounds, each of those wounds is considered to have been inflicted by a Psychic Attack."
+      },
+      "Ability§Rapid Fire": {
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        },
+        "stats": {
+          "x": {
+            "text": "Increase the Attacks by {t} when targeting units within half range."
+          }
+        }
+      },
+      "Ability§Scouts": {
+        "text": "* If embarked in a Dedicated Transport, that Dedicated Transport can make this move instead.\n* Must end this move more than 9\" horizontally away from all enemy models.",
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        },
+        "stats": {
+          "x": {
+            "text": "* Unit can make a Normal move of up to {t} before the first turn begins."
+          }
         }
       },
       "Ability§Stealth": {
-        "text": "*Some warriors are masters of disguise and concealment.*\\\n\\\nIf every model in a unit has this ability, then each time \na ranged attack is made against it, subtract 1 from that \nattack’s Hit roll.",
+        "text": "If every model in a unit has this ability, then each time \na ranged attack is made against it, subtract 1 from that \nattack’s Hit roll.",
         "keywords": {
-          "Tags": [],
+          "Tags": [
+            "Core"
+          ],
           "Keywords": [
             "Model Ability"
           ]
         }
       },
       "Ability§Sustained Hits": {
-        "text": "*Some weapons strike in a flurry of blows, tearing the \nfoe apart with relentless ferocity.* \\\n\\\nWeapons with **[SUSTAINED HITS X]** in their profile are \nknown as Sustained Hits weapons. Each time an \nattack is made with such a weapon, if a Critical Hit is \nrolled, that attack scores a number of additional hits \non the target as denoted by ‘*x*’. \n>***Example:*** A model makes an attack with a melee \nweapon with the **[SUSTAINED HITS 2]** ability. If the \nHit roll is an unmodified 6 (a Critical Hit), then \nthat attack scores a total of 3 hits on the target (1 \nfrom the successful Hit roll of 6, and 2 from the \n**[SUSTAINED HITS 2]** ability).",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
+        },
+        "stats": {
+          "x": {
+            "text": "Each Critical Hit scores {t} additional hits on the target."
+          }
         }
       },
       "Ability§Torrent": {
-        "text": "*Torrent weapons shoot clouds of fire, gas or other \nlethal substances that few foes can hope to evade.* \\\n\\\nWeapons with **[TORRENT]** in their profile are known \nas Torrent weapons. Each time an attack is made \nwith such a weapon, that attack automatically hits \nthe target.",
+        "text": "Each time an attack is made with this weapon, that attack automatically hits the target.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
           ]
         }
       },
-      "Ability§Transport": {},
+      "Ability§Transport": {
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ],
+          "Tags": [
+            "Core"
+          ]
+        },
+        "text": "* A unit can embark within a friendly Transport if all of its models end a Normal, Advance or Fall Back move within 3\" of that Transport.\n* A unit cannot embark and disembark in the same phase.\n* Units that start your Movement phase embarked within a Transport can disembark this phase, provided their Transport has not Advanced or Fallen Back.\n* If a unit disembarks before its Transport moves, it can act normally.\n* If a unit disembarks after its Transport moves, it cannot move or charge this turn, but can otherwise act normally.\n* Disembarking units must be set up wholly within 3\" of their Transport and not within Engagement Range of any enemy models (or the unit cannot disembark).\n* Units that disembark this turn cannot Remain Stationary.\n* If a Transport is destroyed, any embarked units must disembark.\n* Roll one D6 for each model that disembarks: for each 1, that model’s unit suffers 1 mortal wound.\n* Until the start of its controlling player’s next Command phase, the disembarking unit\nis Battle-shocked.\n* Until the end of the turn, the disembarking unit counts as having made a Normal move, and cannot declare a charge.\n* Units disembarking a destroyed Transport that cannot be set up wholly within 3\" of it must perform an Emergency Disembarkation:\n  * Must be set up wholly within 6\" of it instead of wholly within 3\".\n  * Suffer 1 mortal wound for each roll of 1-3, instead of each roll of 1.\n  * Any disembarking model that cannot be set up is destroyed."
+      },
       "Ability§Twin-linked": {
-        "text": "*Dual weapons are often grafted to the same targeting \nsystem for greater lethality.* \\\n\\\nWeapons with **[TWIN-LINKED]** in their profile are known \nas Twin-linked weapons. Each time an attack is \nmade with such a weapon, you can re-roll that \nattack’s Wound roll.",
+        "text": "Each time an attack is made with this weapon, you can re-roll that attack’s Wound roll.",
         "keywords": {
           "Keywords": [
             "Weapon Ability"
