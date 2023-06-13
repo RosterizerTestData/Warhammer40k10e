@@ -8,5 +8,17 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warham
 ### Space Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
 
+### SM Black Templar
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templar.manifest
+
+### SM Blood Angels
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
+
+### SM Dark Angels
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
+
+### SM Space Wolves
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
+
 ### Tyranids
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest

@@ -24,13 +24,13 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.0.4',
+    revision: '10.0.5',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
     publisher: 'Games Workshop',
     url: 'https://warhammer40000.com',
-    notes: 'This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by[Game-Datacards](' + window.data[key].link + ')',
+    notes: 'This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](' + window.data[key].link + ')',
     wip: true,
     dependencies: [
       {
@@ -149,7 +149,13 @@ Object.keys(window.data).forEach(key => {
     if(datasheet.stats.length){
 
       // create blank unit
-      let unitKey = 'Unit§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
+      let unitClass = 'Unit';
+      if(datasheet.factions.includes('Adeptus Astartes')){
+        if(datasheet.keywords.includes('Character')) unitClass = 'Character';
+        else if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
+        else unitClass = 'Vehicle';
+      }
+      let unitKey = unitClass+'§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
       let unit = manifest.manifest.assetCatalog[unitKey] = {};
     
       // create all abilities
