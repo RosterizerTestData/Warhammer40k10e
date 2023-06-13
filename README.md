@@ -5,19 +5,40 @@ If you're going to author stuff for 40k, it's wise to make it similar in structu
 ## 40k10Core
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest
 
-### Space Marines
+### Chaos_Space_Marines
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifest
+
+### Chaos_Knights
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Knights.manifest
+
+### Chaos_Daemons
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Daemons.manifest
+
+### Death_Guard
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.manifest
+
+### Thousand_Sons
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.manifest
+
+### World_Eaters
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
+
+### Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
 
-### SM Black Templar
+### SM_Black_Templar
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templar.manifest
 
-### SM Blood Angels
+### SM_Blood_Angels
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
 
-### SM Dark Angels
+### SM_Dark_Angels
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
 
-### SM Space Wolves
+### SM_Deathwatch
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifest
+
+### SM_Space_Wolves
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
 
 ### Tyranids

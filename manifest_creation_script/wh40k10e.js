@@ -415,7 +415,7 @@ Object.keys(window.data).forEach(key => {
           || datasheet.loadout.indexOf('Every model is equipped') === 0
         )
       ) simpleSheet = true;
-      let simpleWargear = simpleSheet && datasheet.wargear[0].indexOf('None') === 0;
+      let simpleWargear = simpleSheet && (!datasheet.wargear || datasheet.wargear[0]?.indexOf('None') === 0);
       // console.log(datasheet.name,simpleSheet,simpleWargear,datasheet.wargear[0],comp)
       let sampleLoadout = weaponList.length ? {
         statType: 'rank',
