@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.0.9",
+  "revision": "10.0.10",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -654,6 +654,41 @@
               }
             ]
           },
+          "Too many of this unit type in the army.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "{0string}"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
           "maxQty": {
             "evals": [
               {
@@ -713,7 +748,7 @@
             ],
             "failState": "pass",
             "evaluate": "AND",
-            "order": 1,
+            "order": 5,
             "actions": [
               {
                 "paths": [
@@ -730,7 +765,7 @@
               }
             ]
           },
-          "Too many of this unit type in the army.": {
+          "cheatTally": {
             "evals": [
               {
                 "paths": [
@@ -742,28 +777,25 @@
                 "operator": "AND",
                 "not": false,
                 "actionable": false
-              },
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 4,
+            "actions": [
               {
                 "paths": [
                   [
-                    "{roster}",
+                    "{self}",
                     "tally",
                     "{0string}"
                   ]
                 ],
-                "max": [
-                  "{self}",
-                  "stats",
-                  "maxQty",
-                  "value"
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": true
+                "actionType": "set",
+                "value": 1,
+                "iterations": 1
               }
-            ],
-            "failState": "error",
-            "evaluate": "OR"
+            ]
           }
         },
         "aspects": {

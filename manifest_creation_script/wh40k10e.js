@@ -24,7 +24,7 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.0.9',
+    revision: '10.0.10',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
