@@ -24,7 +24,7 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.0.6',
+    revision: '10.0.7',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
@@ -229,7 +229,7 @@ Object.keys(window.data).forEach(key => {
             return {
               item: 'Ability§Scouts',
               stats: {
-                x: {value: ability.match(/Scouts ([0-9]")/i)[1]},
+                x: {value: ability.match(/Scouts ([0-9]")/i)[1].replace(/\"/g,'″')},
               }
             }
           }else return'Ability§'+titleCase(ability)
@@ -361,7 +361,7 @@ Object.keys(window.data).forEach(key => {
               unit.assets.included.push(modelAsset);
             }
           }
-          if(minQty != 1 || maxQty){
+          if(typeof minQty === 'number' && !isNaN(minQty) && (minQty != 1 || maxQty)){
             unit.allowed = unit.allowed || {};
             unit.allowed.items = unit.allowed.items || [];
             unit.allowed.items.push(modelItemKey);
