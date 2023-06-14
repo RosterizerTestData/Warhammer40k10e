@@ -5,6 +5,9 @@ If you're going to author stuff for 40k, it's wise to make it similar in structu
 ## 40k10Core
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest
 
+### Adepta_Sororitas
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.manifest
+
 ### Chaos_Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifest
 
