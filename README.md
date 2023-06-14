@@ -8,6 +8,24 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warham
 ### Adepta_Sororitas
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.manifest
 
+### Adeptus_Custodes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Custodes.manifest
+
+### Adeptus_Mechanicus
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Mechanicus.manifest
+
+### Astra_Militarum
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifest
+
+### Grey_Knights
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.manifest
+
+### Imperial_Agents
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Agents.manifest
+
+### Imperial_Knights
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.manifest
+
 ### Chaos_Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifest
 
