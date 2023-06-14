@@ -154,7 +154,7 @@ Object.keys(window.data).forEach(key => {
         if(datasheet.keywords.includes('Character')) unitClass = 'Character';
         else if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
         else unitClass = 'Vehicle';
-      }
+      }else console.log(datasheet.name,unitClass,datasheet.factions,datasheet.keywords)
       let unitKey = unitClass+'§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
       let unit = manifest.manifest.assetCatalog[unitKey] = {};
     
