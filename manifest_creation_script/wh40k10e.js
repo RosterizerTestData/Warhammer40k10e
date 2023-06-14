@@ -24,7 +24,7 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.0.7',
+    revision: '10.0.8',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
@@ -152,7 +152,8 @@ Object.keys(window.data).forEach(key => {
       let unitClass = 'Unit';
       if(datasheet.keywords.includes('Character')) unitClass = 'Character';
       if(datasheet.factions.includes('Adeptus Astartes')){
-        if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
+        if(datasheet.keywords.includes('Character')) unitClass = 'Character';
+        else if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
         else unitClass = 'Vehicle';
       }
       let unitKey = unitClass+'§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
