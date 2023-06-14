@@ -24,7 +24,7 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.0.8',
+    revision: '10.0.9',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
@@ -251,7 +251,7 @@ Object.keys(window.data).forEach(key => {
         unit.assets.traits.push({
           item: 'Ability§Damaged:',
           stats: {
-            keyword: {value: datasheet.abilities.damaged.range.toLowerCase()}
+            x: {value: datasheet.abilities.damaged.range.toLowerCase()}
           }
         })
       }
