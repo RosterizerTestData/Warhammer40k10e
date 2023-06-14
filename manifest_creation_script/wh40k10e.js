@@ -24,7 +24,7 @@ Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
   
   let manifest = {
-    revision: '10.0.5',
+    revision: '10.0.6',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
@@ -150,11 +150,11 @@ Object.keys(window.data).forEach(key => {
 
       // create blank unit
       let unitClass = 'Unit';
+      if(datasheet.keywords.includes('Character')) unitClass = 'Character';
       if(datasheet.factions.includes('Adeptus Astartes')){
-        if(datasheet.keywords.includes('Character')) unitClass = 'Character';
-        else if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
+        if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
         else unitClass = 'Vehicle';
-      }else console.log(datasheet.name,unitClass,datasheet.factions,datasheet.keywords)
+      }
       let unitKey = unitClass+'§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
       let unit = manifest.manifest.assetCatalog[unitKey] = {};
     
@@ -175,10 +175,13 @@ Object.keys(window.data).forEach(key => {
         }
       });
       datasheet.abilities.primarch.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
-          text: formatText(ability.description),
-          keywords: {Keywords: ['Primarch']}
-        }
+        unit.text = 'ERROR: this unit had some special abilities related to “' + ability.name + '” that must be added to the appropriate ability: \n\n' + ability.abilities.map(prAb => '* ' + prAb.name).join('\n');
+        ability.abilities.forEach(primarchAbility => {
+          manifest.manifest.assetCatalog['Ability§'+primarchAbility.name] = {
+            text: formatText(primarchAbility.description),
+            keywords: {Keywords: ['Primarch',titleCase(ability.name)]}
+          }
+        });
       });
       datasheet.abilities.other.forEach(ability => {
         manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
@@ -232,7 +235,6 @@ Object.keys(window.data).forEach(key => {
           }else return'Ability§'+titleCase(ability)
         }) || []),
         ...(datasheet.abilities.faction.map(ability => 'Ability§'+titleCase(ability)) || []),
-        ...(datasheet.abilities.primarch.map(ability => 'Ability§'+titleCase(ability.name)) || []),
         ...(datasheet.abilities.other.map(ability => 'Ability§'+titleCase(ability.name)) || []),
         ...(datasheet.abilities.special.map(ability => 'Ability§'+titleCase(ability.name)) || []),
         ...(datasheet.abilities.wargear.map(ability => 'Wargear§'+titleCase(ability.name)) || []),
@@ -371,9 +373,9 @@ Object.keys(window.data).forEach(key => {
               tracked: true,
               min: minQty || 0,
             }
-            if(maxQty) unit.stats[modelItemKey.split('§')[1]].max = maxQty;
+            if(maxQty || typeof minQty === 'number') unit.stats[modelItemKey.split('§')[1]].max = maxQty || minQty;
           }
-        })
+        });
       }else{
         // stats
         unit.stats = {
