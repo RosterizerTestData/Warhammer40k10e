@@ -935,7 +935,16 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Mutating Vortex (Aura)",
+            "description": "At the end of your Movement phase, roll one D6 for each enemy unit within 6\" of this model: on a 2-3, that unit suffers 1 mortal wound; on a 4-5, that unit suffers D3 mortal wounds; on a 6, that unit suffers D6 mortal wounds. Each enemy unit within range of this ability must then take a Battle-shock test."
+          },
+          {
+            "name": "Immaterial Flare (Aura)",
+            "description": "While a friendly Thousand Sons Psyker unit is within 6\" of this model, each time that unit uses a Ritual that specifies a range, you can double that range while resolving that Ritual."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
@@ -953,9 +962,86 @@ window.data.TS = {
           "name": "Mutalith Vortex Beast"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Warp vortex – blast",
+              "keywords": [
+                "blast"
+              ],
+              "range": "24\"",
+              "attacks": "D6+3",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "2"
+            },
+            {
+              "name": "Warp vortex – beam",
+              "keywords": [
+                "devastating wounds"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "18",
+              "ap": "-4",
+              "damage": "D6+6"
+            },
+            {
+              "name": "Warp vortex – torrent",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "2D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Betentacled maw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "15",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Mutalith claws",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "4"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Monster",
+        "Daemon",
+        "Chaos",
+        "Tzeentch",
+        "Mutalith Vortex Beast"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1399,7 +1485,12 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Regenerating Monstrosities",
+            "description": "At the start of each player’s Command phase, one model in this unit regains up to D3 lost wounds."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -1418,8 +1509,28 @@ window.data.TS = {
         }
       ],
       "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hideous mutations",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "D6+2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Beast",
+        "Chaos",
+        "Tzeentch",
+        "Spawn"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1451,7 +1562,12 @@ window.data.TS = {
           "value": "6+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Pawns of Fate",
+            "description": "Each time this unit destroys an enemy unit, roll one D6: on a 2+, you gain 1CP. When this unit is destroyed, roll one D6: on a 2+, you gain 1CP."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -1469,9 +1585,103 @@ window.data.TS = {
           "name": "Thousand Sons Cultists"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Cultist firearm",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Flamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Grenade launcher – frag",
+              "keywords": [
+                "blast"
+              ],
+              "range": "24\"",
+              "attacks": "D3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Grenade launcher – krak",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": [
+                "rapid fire 3"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Brutal assault weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Chaos",
+        "Tzeentch",
+        "Cultists"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1727,11 +1937,16 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Scuttling Walker",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over friendly Monster and Vehicle models and terrain features that are 4\" or less in height as if they were not there."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-5 WOUNDS REMAINING",
-          "description": "12\"    D6     N/A   5    -1    1 [IGNORES COVER, TORRENT, TWIN-LINKED]                                                             While this model has 1-5 wounds remaining, each time this Twin inferno heavy bolter                                                                         model makes an attack, subtract 1 from the Hit roll. 36\"     3     3+    5    -2    2 [SUSTAINED HITS 1, TWIN-LINKED]"
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
@@ -1745,9 +1960,157 @@ window.data.TS = {
           "name": "Thousand Sons Defiler"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Defiler cannon",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6+3",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Havoc launcher",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Reaper autocannon",
+              "keywords": [
+                "devastating wounds",
+                "sustained hits 1"
+              ],
+              "range": "36\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy flamer",
+              "keywords": []
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin inferno heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Defiler claws",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "16",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Defiler scourge",
+              "keywords": [
+                "extra attacks"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Daemon",
+        "Smoke",
+        "Chaos",
+        "Tzeentch",
+        "Defiler"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1777,7 +2140,12 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Blazing Salvoes",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
@@ -1795,9 +2163,76 @@ window.data.TS = {
           "name": "Thousand Sons Forgefiend"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Ectoplasma cannon",
+              "keywords": [
+                "blast"
+              ],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hades autocannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Forgefiend claws",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Forgefiend jaws",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Daemon",
+        "Chaos",
+        "Tzeentch",
+        "Forgefiend"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1828,7 +2263,16 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Arcane Knowledge Amidst Babbling Insanity (Aura)",
+            "description": "Each time a friendly Thousand Sons Psyker model within 9\" of this model is selected to use a Ritual, you gain 1 Cabal point."
+          },
+          {
+            "name": "Helbrute Fists",
+            "description": "If this model is equipped with two Helbrute fists, those weapons have the [TWIN-LINKED] ability."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -1846,9 +2290,214 @@ window.data.TS = {
           "name": "Thousand Sons Helbrute"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Helbrute plasma cannon",
+              "keywords": [
+                "blast",
+                "hazardous"
+              ],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Missile launcher – frag",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Missile launcher – krak",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": [
+                "melta 2"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin autocannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin inferno heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Helbrute fist",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Helbrute hammer",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Power scourge",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Chaos",
+        "Tzeentch",
+        "Helbrute"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1878,7 +2527,12 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Flame-wreathed",
+            "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
@@ -1896,9 +2550,67 @@ window.data.TS = {
           "name": "Thousand Sons Heldrake"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Baleflamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6+3",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hades autocannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heldrake claws",
+              "keywords": [
+                "anti-fly 2+",
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Aircraft",
+        "Fly",
+        "Daemon",
+        "Chaos",
+        "Tzeentch",
+        "Heldrake"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1928,11 +2640,16 @@ window.data.TS = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Assault Ramp",
+            "description": "Each time a unit disembarks from this Transport after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-5 WOUNDS REMAINING",
-          "description": "[SUSTAINED HITS 1, TWIN-LINKED] While this model has 1-5 wounds remaining, each time this MELEE WEAPONS                                           RANGE       A    WS   S    AP    D     model makes an attack, subtract 1 from the Hit roll. Armoured tracks                                             Melee   6    4+   8    0     1"
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
@@ -1946,9 +2663,113 @@ window.data.TS = {
           "name": "Thousand Sons Land Raider"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Havoc launcher",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Soulshatter lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin inferno heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Smoke",
+        "Chaos",
+        "Tzeentch",
+        "Land Raider"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -1977,7 +2798,12 @@ window.data.TS = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Prophetic Hunters",
+            "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
@@ -1995,9 +2821,64 @@ window.data.TS = {
           "name": "Thousand Sons Maulerfiend"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Magma cutter",
+              "keywords": [
+                "melta 2"
+              ],
+              "range": "6\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Lasher tendrils",
+              "keywords": [
+                "extra attacks"
+              ],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Maulerfiend fists",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-2",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Daemon",
+        "Chaos",
+        "Tzeentch",
+        "Maulerfiend"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -2028,11 +2909,16 @@ window.data.TS = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Annihilator",
+            "description": "Each time this model makes a ranged attack that targets a Monster or Vehicle unit, re-roll a Damage roll of 1."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
-          "description": "Predator twin lascannon [TWIN-LINKED]                        48\"    1    3+   14   -3   D6+1   While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. MELEE WEAPONS                                           RANGE       A    WS   S    AP    D Armoured tracks                                             Melee   3    4+   6    0     1"
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
@@ -2046,9 +2932,127 @@ window.data.TS = {
           "name": "Thousand Sons Predator Annihilator"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Havoc launcher",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno heavy bolter",
+              "keywords": [
+                "sustained hits 1"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Predator twin lascannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Smoke",
+        "Chaos",
+        "Tzeentch",
+        "Predator Annihilator"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -2079,11 +3083,16 @@ window.data.TS = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Destructor",
+            "description": "Each time this model makes a ranged attack that targets an Infantry unit, improve the Armour Penetration characteristic of that attack by 1."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
-          "description": "Predator autocannon [RAPID FIRE 2]                           48\"    4    3+   9    -1    3 While this model has 1-4 wounds remaining, each time this MELEE WEAPONS                                           RANGE       A    WS   S    AP    D     model makes an attack, subtract 1 from the Hit roll. Armoured tracks                                             Melee   3    4+   6    0     1"
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
@@ -2097,9 +3106,127 @@ window.data.TS = {
           "name": "Thousand Sons Predator Destructor"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Havoc launcher",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno heavy bolter",
+              "keywords": [
+                "sustained hits 1"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Predator autocannon",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "48\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Smoke",
+        "Chaos",
+        "Tzeentch",
+        "Predator Destructor"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -2129,7 +3256,12 @@ window.data.TS = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Self Repair",
+            "description": "At the start of your Command phase, this model regains 1 lost wound."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2147,9 +3279,82 @@ window.data.TS = {
           "name": "Thousand Sons Rhino"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Havoc launcher",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Smoke",
+        "Chaos",
+        "Tzeentch",
+        "Rhino"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -2500,7 +3705,12 @@ window.data.TS = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Siege Shield",
+            "description": "When making ranged attacks with its demolisher cannon, this model can target enemy units within Engagement Range of it (provided no other friendly units are also within Engagement Range of that enemy unit). In addition, when making ranged attacks, this model does not suffer the penalty to its Hit rolls for being within Engagement Range of one or more enemy units."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
@@ -2518,9 +3728,97 @@ window.data.TS = {
           "name": "Thousand Sons Vindicator"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Demolisher cannon",
+              "keywords": [
+                "blast"
+              ],
+              "range": "24\"",
+              "attacks": "D6+3",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Havoc launcher",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Smoke",
+        "Chaos",
+        "Tzeentch",
+        "Vindicator"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -2548,7 +3846,12 @@ window.data.TS = {
           "value": "6+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Malign Trickery",
+            "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of any enemy units, it can make a Normal move of up to D6\" as if it were your Movement phase."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2566,9 +3869,95 @@ window.data.TS = {
           "name": "Tzaangor Enlightened"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autopistol",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Fatecaster greatbow",
+              "keywords": [
+                "lethal hits",
+                "precision"
+              ],
+              "range": "30\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Chainsword",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Divining spear",
+              "keywords": [
+                "lance",
+                "precision"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Mounted",
+        "Fly",
+        "Chaos",
+        "Tzeentch",
+        "Tzaangor Enlightened"
+      ],
       "factions": [
         "Thousand Sons"
       ]
@@ -2711,7 +4100,12 @@ window.data.TS = {
           "value": "6+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Relic Hunters",
+            "description": "At the end of your Command phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it: for each 4+, you gain 1 Cabal point."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2729,9 +4123,61 @@ window.data.TS = {
           "name": "Tzaangors"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autopistol",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Chainsword",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Tzaangor blades",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Battleline",
+        "Chaos",
+        "Tzeentch",
+        "Tzaangors"
+      ],
       "factions": [
         "Thousand Sons"
       ]
