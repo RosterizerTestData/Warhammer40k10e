@@ -66,7 +66,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
 
 ### T'au
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifest
 
 ### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifest
