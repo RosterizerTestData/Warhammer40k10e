@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.1.0",
+  "revision": "10.2.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1392,7 +1392,43 @@
             "Invasion Fleet"
           ]
         },
-        "text": "Tyranids model only. The bearer has the Feel No Pain\n5+ ability. At the start of any turn, if the bearer has\nfewer than its starting number of wounds remaining,\nuntil the end of the battle, it has the Feel No Pain 4+\nability instead."
+        "text": "Tyranids model only. The bearer has the Feel No Pain\n5+ ability. At the start of any turn, if the bearer has\nfewer than its starting number of wounds remaining,\nuntil the end of the battle, it has the Feel No Pain 4+\nability instead.",
+        "rules": {
+          "PermanentBonus": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Feel No Pain",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Feel No Pain",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "5+",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Enhancement§Alien Cunning": {
         "keywords": {
