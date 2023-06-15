@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.0.10",
+  "revision": "10.1.0",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -83,11 +83,87 @@
         }
       },
       "Character": {
-        "templateClass": "Unit"
+        "templateClass": "Unit",
+        "rules": {
+          "detachmentEnhancements": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "noEpicHeroEnhancements": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Enhancement",
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "allowed": {
+          "classifications": [
+            "Enhancement"
+          ]
+        },
+        "constraints": {
+          "any": [
+            "Core"
+          ]
+        }
       },
       "Detachment": {
         "aspects": {
           "Visibility": "active"
+        }
+      },
+      "Enhancement": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
         }
       },
       "Infantry/Mounted": {
@@ -167,13 +243,57 @@
             "groupOrder": -1,
             "tracked": true,
             "statType": "numeric"
+          },
+          "modelName": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
           }
         },
         "aspects": {
           "Type": "game piece",
           "Group Traits": true
         },
-        "rules": {}
+        "rules": {
+          "renameModel": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "modelName",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 200,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "modelName",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Order of Battle": {
         "allowed": {
@@ -363,6 +483,8 @@
             "statType": "numeric",
             "label": "CP",
             "value": 0,
+            "group": "Cost",
+            "groupOrder": -1,
             "visibility": "always"
           }
         },
@@ -372,68 +494,32 @@
           "Group By": "Phase",
           "Visibility": "active"
         },
-        "rules": {
-          "There are multiples of this unique stratagem.": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "designation"
-                  ]
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": false
-              },
-              {
-                "paths": [
-                  [
-                    "{roster}",
-                    "tally",
-                    "{0string}"
-                  ]
-                ],
-                "max": 1,
-                "operator": "AND",
-                "not": true,
-                "actionable": false
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "aspects",
-                    "Unique"
-                  ],
-                  [
-                    "{self}",
-                    "rules",
-                    "There are multiples of this unique stratagem",
-                    "evals",
-                    "1",
-                    "result",
-                    "truthy"
-                  ]
-                ],
-                "max": 1,
-                "operator": "SUM",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "error",
-            "evaluate": "AND"
-          }
-        },
+        "rules": {},
         "keywords": {
-          "Phase": []
+          "Phase": [],
+          "Category": [],
+          "Turn": []
         }
       },
       "Stratagems": {
         "aspects": {
           "Visibility": "active",
           "Order Traits A–Z": true
+        },
+        "assets": {
+          "traits": [
+            "Stratagem§Heroic Intervention",
+            "Stratagem§Smokescreen",
+            "Stratagem§Go to Ground",
+            "Stratagem§Fire Overwatch",
+            "Stratagem§Rapid Ingress",
+            "Stratagem§Tank Shock",
+            "Stratagem§Grenade",
+            "Stratagem§Insane Bravery",
+            "Stratagem§Command Re-roll",
+            "Stratagem§Counter-offensive",
+            "Stratagem§Epic Challenge"
+          ]
         }
       },
       "Unit": {
@@ -519,12 +605,6 @@
             "statOrder": 9,
             "group": "Stats",
             "visibility": "normal"
-          },
-          "model": {
-            "statType": "numeric",
-            "value": null,
-            "visibility": "hidden",
-            "tracked": true
           },
           "Enhancement": {
             "statType": "numeric",
@@ -1642,8 +1722,6 @@
           ]
         }
       },
-      "Detachment§Basic Detachment": {},
-      "Detachment§Invasion Fleet": {},
       "Order of Battle§Order of Battle": {},
       "Roster§Army": {
         "aspects": {
@@ -1655,16 +1733,6 @@
           "Collapse": true
         },
         "stats": {
-          "Power Level": {
-            "statType": "numeric",
-            "value": 0,
-            "statOrder": 2,
-            "group": "Cost",
-            "groupOrder": 0,
-            "visibility": "normal",
-            "dynamic": false,
-            "tracked": true
-          },
           "Points": {
             "statType": "numeric",
             "value": 0,
@@ -1690,74 +1758,6 @@
             "visibility": "normal",
             "dynamic": true,
             "tracked": false
-          },
-          "Play": {
-            "statType": "rank",
-            "value": "Matched",
-            "ranks": {
-              "Matched": {
-                "order": 0
-              },
-              "Narrative": {
-                "order": 1
-              }
-            },
-            "statOrder": 4,
-            "visibility": "normal",
-            "dynamic": true
-          },
-          "Faction Group": {
-            "statType": "rank",
-            "value": "-",
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Imperium": {
-                "order": 1,
-                "term": "Imperium Faction"
-              },
-              "Chaos": {
-                "order": 2,
-                "term": "Chaos Faction"
-              },
-              "Aeldari": {
-                "order": 3,
-                "term": "Aeldari Faction"
-              },
-              "Xenos": {
-                "order": 4,
-                "term": "Xenos Faction"
-              }
-            },
-            "statOrder": 2,
-            "visibility": "always",
-            "dynamic": true
-          },
-          "Detachment": {
-            "statType": "rank",
-            "value": "Basic",
-            "ranks": {
-              "Basic": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Detachment§Basic Detachment"
-                  }
-                ]
-              },
-              "Invasion Fleet": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Detachment§Invasion Fleet"
-                  }
-                ]
-              }
-            },
-            "statOrder": 4,
-            "visibility": "normal",
-            "dynamic": true
           },
           "Character": {
             "statType": "numeric",
@@ -1814,6 +1814,68 @@
             "visibility": "hidden",
             "tracked": true,
             "max": 3
+          },
+          "Detachment": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statOrder": 4,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Play": {
+            "statType": "rank",
+            "value": "Matched",
+            "ranks": {
+              "Matched": {
+                "order": 0
+              },
+              "Narrative": {
+                "order": 1
+              }
+            },
+            "statOrder": 4,
+            "visibility": "normal"
+          },
+          "Faction": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statOrder": 3,
+            "visibility": "always",
+            "dynamic": true
+          },
+          "Faction Group": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Imperium": {
+                "order": 1,
+                "term": "Imperium Faction"
+              },
+              "Chaos": {
+                "order": 2,
+                "term": "Chaos Faction"
+              },
+              "Xenos": {
+                "order": 3,
+                "term": "Xenos Faction"
+              }
+            },
+            "statOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
         "allowed": {
@@ -1897,6 +1959,49 @@
                 "iterations": 1
               }
             ]
+          },
+          "allowFaction": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Faction",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "Select your Warlord.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "warning",
+            "evaluate": "AND"
           }
         },
         "constraints": {
@@ -1909,45 +2014,247 @@
           ]
         }
       },
-      "Stratagem§Heroic Support": {
-        "stats": {
-          "Command Cost": {
-            "value": 1
-          }
-        },
-        "text": "Use this Stratagem before the battle, when you are mustering your army. If a [Detachment ability](https://wahapedia.ru/wh40k9ed/the-rules/core-rules/#Detachment-Abilities) (excluding [Gene-sect](https://wahapedia.ru/wh40k9ed/factions/genestealer-cults/#Gene-sect)) would limit the number of times you can include a unit in that [Detachment](https://wahapedia.ru/wh40k9ed/the-rules/core-rules/#Detachments) to 1, you can include a maximum of 2 of that unit in that Detachment instead. You can only use this Stratagem once.",
+      "Stratagem§Command Re-roll": {
+        "text": "**WHEN:** In any phase, just after you have made a Hit\nroll, a Wound roll, a Damage roll, a saving throw, an\nAdvance roll, a Charge roll, a Desperate Escape test,\na Hazardous test, or just after you have rolled the\ndice to determine the number of attacks made with a\nweapon, for an attack, model or unit from your army.\n\n**EFFECT:** You re-roll that roll, test or saving throw.",
         "keywords": {
-          "Tags": [
-            "AoO"
+          "Keywords": [
+            "Core"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
           ]
         },
-        "removed": {}
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        }
       },
-      "Stratagem§Relic": {
+      "Stratagem§Counter-offensive": {
+        "text": "**WHEN:** Fight phase, just after an enemy unit\nhas fought.\n\n**TARGET:** One unit from your army that is within\nEngagement Range of one or more enemy units\nand that has not already been selected to fight\nthis phase.\n\n**EFFECT:** Your unit fights next.",
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Keywords": [
+            "Core"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        }
+      },
+      "Stratagem§Epic Challenge": {
+        "keywords": {
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        }
+      },
+      "Stratagem§Fire Overwatch": {
         "stats": {
           "Command Cost": {
             "value": 1
           }
         },
-        "text": "Use this Stratagem before the battle, when you are mustering your army, after selecting your **WARLORD**. Select one **CHARACTER** model from your army that is not a named character; give that model one Relic (this must be a Relic they could have). You can only use this Stratagem once.",
         "keywords": {
-          "Tags": [
-            "AoO",
-            "Model Strat"
+          "Phase": [
+            "Charge",
+            "Movement"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Keywords": [
+            "Core"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Movement or Charge phase,\njust after an enemy unit is set up or when an enemy\nunit starts or ends a Normal, Advance, Fall Back or\nCharge move.\n\n**TARGET:** One unit from your army that is within 24\" of\nthat enemy unit and that would be eligible to shoot if\nit were your Shooting phase.\n\n**EFFECT:** Your unit can shoot that enemy unit as if it\nwere your Shooting phase.\n\n**RESTRICTIONS:** Until the end of the phase, each\ntime a model in your unit makes a ranged attack,\nan unmodified Hit roll of 6 is required to score a hit,\nirrespective of the attacking weapon’s Ballistic Skill\nor any modifiers. You can only use this Stratagem\nonce per turn."
+      },
+      "Stratagem§Go to Ground": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase, just after an\nenemy unit has selected its targets.\n\n**TARGET:** One Infantry unit from your army that was\nselected as the target of one or more of the attacking\nunit’s attacks.\n\n**EFFECT:** Until the end of the phase, all models in\nyour unit have a 6+ invulnerable save and have the\nBenefit of Cover (pg 44)."
+      },
+      "Stratagem§Grenade": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Core"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One Grenades unit from your army that is\nnot within Engagement Range of any enemy units\nand has not been selected to shoot this phase.\n\n**EFFECT:** Select one enemy unit that is not within\nEngagement Range of any units from your army and\nis within 8\" of and visible to your Grenades unit.\nRoll six D6: for each 4+, that enemy unit suffers 1\nmortal wound."
+      },
+      "Stratagem§Heroic Intervention": {
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN:** Your opponent’s Charge phase, just after an\nenemy unit ends a Charge move.\n\n**TARGET:** One unit from your army that is within 6\"\nof that enemy unit and would be eligible to declare\na charge against that enemy unit if it were your\nCharge phase.\n\n**EFFECT:** Your unit now declares a charge that targets\nonly that enemy unit, and you resolve that charge as\nif it were your Charge phase.\n\n**RESTRICTIONS:** You can only select a Vehicle unit\nfrom your army if it is a Walker. Note that even if\nthis charge is successful, your unit does not receive\nany Charge bonus this turn (pg 29).",
+        "keywords": {
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Charge"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
           ]
         }
       },
-      "Stratagem§Warlord Trait": {
+      "Stratagem§Insane Bravery": {
+        "keywords": {
+          "Turn": [
+            "Yours"
+          ],
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Category": [
+            "Epic Deed"
+          ]
+        },
         "stats": {
           "Command Cost": {
             "value": 1
           }
         },
-        "text": "Use this Stratagem before the battle, when you are mustering your army, after selecting your **WARLORD**. If your **WARLORD** is a **CHARACTER** model, determine a Warlord Trait for them (this must be a Warlord Trait they could have). If your **WARLORD** is a named character with access to more than one Warlord Trait, one use of this Stratagem gives all of those specified Warlord Traits to that **WARLORD**. You can only use this Stratagem once.",
+        "text": "**WHEN:** Battle-shock step of your Command phase,\njust after you have failed a Battle-shock test taken\nfor a unit from your army (pg 11).\n\n**TARGET:** The unit from your army that Battle-shock\ntest was just taken for (even though your\nBattle-shocked units cannot normally be affected by\nyour Stratagems).\n\n**EFFECT:** Your unit is treated as having passed that\ntest instead, and is not Battle-shocked as a result."
+      },
+      "Stratagem§Rapid Ingress": {
+        "text": "**WHEN:** End of your opponent’s Movement phase.\n\n**TARGET:** One unit from your army that is in Reserves.\n\n**EFFECT:** Your unit can arrive on the battlefield\nas if it were the Reinforcements step of your\nMovement phase.\n\n**RESTRICTIONS:** You cannot use this Stratagem to\nenable a unit to arrive on the battlefield during a\nbattle round it would not normally be able to do so in.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
         "keywords": {
-          "Tags": [
-            "AoO",
-            "Model Strat"
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        }
+      },
+      "Stratagem§Smokescreen": {
+        "keywords": {
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One Smoke unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, all models in your unit have the Benefit of Cover (pg 44) and the Stealth ability (pg 20)."
+      },
+      "Stratagem§Tank Shock": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Core"
+          ],
+          "Phase": [
+            "Charge"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
           ]
         }
       },
