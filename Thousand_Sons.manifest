@@ -1,6 +1,6 @@
 {
   "name": "Thousand Sons",
-  "revision": "10.0.10",
+    "revision": "10.1.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -15,7 +15,22 @@
     }
   ],
   "manifest": {
-    "assetTaxonomy": {},
+      "assetTaxonomy": {
+        "Character": {
+          "stats": {}
+        },
+        "Unit": {
+          "stats": {
+            "Cabal Points": {
+              "statType": "numeric",
+              "value": null,
+              "group": "Resources",
+              "visibility": "hidden",
+              "tracked": true
+            }
+          }
+        }
+      },
     "assetCatalog": {
       "Ability§Aetherstride (psychic)": {
         "text": "At the end of your opponent’s turn, if this model is not within Engagement Range of any enemy units, you can remove it from the battlefield and then, in the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9″ horizontally away from all enemy models. If the battle ends and this model is not on the battlefield, it is destroyed.",
@@ -105,6 +120,75 @@
           ]
         }
       },
+        "Ability§Cabal of Sorcerers": {
+          "keywords": {
+            "Tags": [],
+            "Keywords": [
+              "Faction"
+            ]
+          },
+          "stats": {
+            "x": {
+              "text": "At the end of your Command phase, if this model is on the battlefield and not Battle-shocked, it generates {t} Cabal points."
+            },
+            "Cabal Points": {
+              "statType": "numeric",
+              "value": 0,
+              "visibility": "normal",
+              "tracked": true
+            }
+          },
+          "text": "",
+          "rules": {
+            "CopyCPtoX": {
+              "evals": [],
+              "failState": "pass",
+              "evaluate": "AND",
+              "order": 1,
+              "actions": [
+                {
+                  "paths": [
+                    [
+                      "{self}",
+                      "stats",
+                      "x",
+                      "value"
+                    ]
+                  ],
+                  "actionType": "set",
+                  "value": [
+                    "{self}",
+                    "stats",
+                    "Cabal Points",
+                    "value"
+                  ],
+                  "iterations": 1
+                }
+              ]
+            },
+            "MakeCPVisible": {
+              "evals": [],
+              "failState": "pass",
+              "evaluate": "AND",
+              "order": 2,
+              "actions": [
+                {
+                  "paths": [
+                    [
+                      "{parent}",
+                      "stats",
+                      "Cabal Points",
+                      "visibility"
+                    ]
+                  ],
+                  "actionType": "set",
+                  "value": "always",
+                  "iterations": 1
+                }
+              ]
+            }
+          }
+        },
       "Ability§Cabal Of Sorcerers 1": {
         "keywords": {
           "Keywords": [
@@ -398,10 +482,8 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following unit:\n\n\n\n* Rubric Marines AHRIMAN Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch."
             },
-            "Ability§Cabal Of Sorcerers 3",
             "Ability§Rubric Lord",
             "Ability§Arch-sorcerer Of Tzeentch (psychic)",
-            "Ability§Ahriman",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -412,7 +494,15 @@
             },
             "Ranged Weapon§Ahriman—Inferno bolt pistol",
             "Ranged Weapon§Ahriman—Psychic Stalk",
-            "Melee Weapon§Ahriman—Black Staff of Ahriman"
+              "Melee Weapon§Ahriman—Black Staff of Ahriman",
+              {
+                "item": "Ability§Cabal of Sorcerers",
+                "stats": {
+                  "Cabal Points": {
+                    "value": 3
+                  }
+                }
+              }
           ]
         },
         "keywords": {
@@ -454,6 +544,27 @@
           "OC": {
             "value": 1
           }
+          },
+          "rules": {
+            "RemoveAhrimanOnDisc": {
+              "evals": [],
+              "failState": "pass",
+              "evaluate": "AND",
+              "actions": [
+                {
+                  "paths": [
+                    [
+                      "{roster}",
+                      "disallowed",
+                      "items"
+                    ]
+                  ],
+                  "actionType": "add",
+                  "value": "Character§Ahriman On Disc Of Tzeentch",
+                  "iterations": 1
+                }
+              ]
+            }
         }
       },
       "Character§Ahriman On Disc Of Tzeentch": {
@@ -463,10 +574,8 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following unit:\n\n\n\n* Rubric Marines AHRIMAN Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch."
             },
-            "Ability§Cabal Of Sorcerers 3",
             "Ability§Rubric Lord",
             "Ability§Arch-sorcerer Of Tzeentch (psychic)",
-            "Ability§Ahriman",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -477,7 +586,15 @@
             },
             "Ranged Weapon§Ahriman On Disc Of Tzeentch—Psychic Stalk",
             "Ranged Weapon§Ahriman On Disc Of Tzeentch—Inferno bolt pistol",
-            "Melee Weapon§Ahriman On Disc Of Tzeentch—Black Staff of Ahriman"
+              "Melee Weapon§Ahriman On Disc Of Tzeentch—Black Staff of Ahriman",
+              {
+                "item": "Ability§Cabal of Sorcerers",
+                "stats": {
+                  "Cabal Points": {
+                    "value": 3
+                  }
+                }
+              }
           ]
         },
         "keywords": {
@@ -520,6 +637,27 @@
           "OC": {
             "value": 1
           }
+          },
+          "rules": {
+            "RemoveAhriman": {
+              "evals": [],
+              "failState": "pass",
+              "evaluate": "AND",
+              "actions": [
+                {
+                  "paths": [
+                    [
+                      "{roster}",
+                      "disallowed",
+                      "items"
+                    ]
+                  ],
+                  "actionType": "add",
+                  "value": "Character§Ahriman",
+                  "iterations": 1
+                }
+              ]
+            }
         }
       },
       "Character§Exalted Sorcerer": {
@@ -1306,6 +1444,41 @@
             "value": 1
           }
         }
+      },
+      "Detachment§Cult of Magic": {
+        "text": "## KINDRED SORCERY\n\nIn your Command phase, you can select one of the abilities listed below to take effect until the start of your next\nCommand phase.\n\n### MALEVOLENT CHARGE\nPsychic weapons equipped by Thousand Sons models from your army have the [LETHAL HITS] ability.\n\n### PSYCHIC MAELSTROM\nPsychic weapons equipped by Thousand Sons models from your army have the [SUSTAINED HITS 1] ability.\n\n### WRATH OF THE IMMATERIUM\nPsychic weapons equipped by Thousand Sons models from your army have the [DEVASTATING WOUNDS] ability."
+      },
+      "Enhancement§Arcane Vortex": {
+        "text": "Thousand Sons model only. Add 1 to the Strength and Damage characteristics of Psychic weapons equipped by the bearer.",
+        "keywords": {
+          "Keywords": [
+            "Cult of Magic"
+          ]
+        }
+      },
+      "Enhancement§Athenaean Scrolls": {
+        "keywords": {
+          "Keywords": [
+            "Cult of Magic"
+          ]
+        },
+        "text": "Thousand Sons Psyker model only. In your Command phase, if the bearer is on the battlefield and is not Battle-shocked, it generates you 1 additional Cabal point this phase."
+      },
+      "Enhancement§Lord of Forbidden Lore": {
+        "keywords": {
+          "Keywords": [
+            "Cult of Magic"
+          ]
+        },
+        "text": "Thousand Sons Psyker model only. The bearer can be selected to use a Ritual even if another Psyker from your army has already been selected to use that Ritual this phase."
+      },
+      "Enhancement§Umbralefic Crystal": {
+        "keywords": {
+          "Keywords": [
+            "Cult of Magic"
+          ]
+        },
+        "text": "Thousand Sons model only. Once per battle, in your Command phase, you can remove the bearer’s unit from the battlefield. If you do, in the Reinforcements step of your next Movement phase, set that unit back up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models."
       },
       "Melee Weapon§Ahriman On Disc Of Tzeentch—Black Staff of Ahriman": {
         "stats": {
@@ -6752,7 +6925,240 @@
           ]
         }
       },
-      "Roster§Army": {},
+        "Roster§Army": {
+          "stats": {
+            "Faction Group": {
+              "value": "Chaos",
+              "dynamic": false
+            },
+            "Detachment": {
+              "value": "Cult of Magic",
+              "ranks": {
+                "Cult of Magic": {
+                  "order": 1,
+                  "traits": [
+                    {
+                      "path": [
+                        "{self}",
+                        "assets",
+                        "classification",
+                        "Stratagems"
+                      ],
+                      "trait": "Stratagem§Psychic Dominion"
+                    },
+                    {
+                      "path": [
+                        "{self}",
+                        "assets",
+                        "classification",
+                        "Stratagems"
+                      ],
+                      "trait": "Stratagem§Destined by Fate"
+                    },
+                    {
+                      "path": [
+                        "{self}",
+                        "assets",
+                        "classification",
+                        "Stratagems"
+                      ],
+                      "trait": "Stratagem§Devastating Sorcery"
+                    },
+                    {
+                      "path": [
+                        "{self}",
+                        "assets",
+                        "classification",
+                        "Stratagems"
+                      ],
+                      "trait": "Stratagem§Ensorcelled Infusion"
+                    },
+                    {
+                      "path": [
+                        "{self}",
+                        "assets",
+                        "classification",
+                        "Stratagems"
+                      ],
+                      "trait": "Stratagem§Sorcerous Might"
+                    },
+                    {
+                      "path": [
+                        "{self}",
+                        "assets",
+                        "classification",
+                        "Stratagems"
+                      ],
+                      "trait": "Stratagem§Warp Sight"
+                    }
+                  ]
+                }
+              },
+              "dynamic": false
+            },
+            "Faction": {
+              "ranks": {
+                "Thousand Sons": {
+                  "order": 1
+                }
+              },
+              "dynamic": false,
+              "value": "Thousand Sons"
+            },
+            "Cabal Points": {
+              "statType": "numeric",
+              "value": null,
+              "group": "Resources",
+              "visibility": "normal",
+              "tracked": true
+            }
+          },
+          "rules": {
+            "AddCabalPointsStat": {
+              "evals": []
+            }
+          }
+        },
+        "Stratagem§Destined by Fate": {
+          "keywords": {
+            "Keywords": [
+              "Cult of Magic",
+              "Thousand Sons"
+            ],
+            "Phase": [
+              "Any"
+            ],
+            "Category": [
+              "Epic Deed"
+            ],
+            "Turn": [
+              "Opponent’s",
+              "Yours"
+            ]
+          },
+          "text": "**WHEN**: Any phase, when a saving throw is failed for a Thousand Sons Psyker model from your army.\n\n**TARGET**: That Psyker model.\n\n**EFFECT**: Change the Damage characteristic of that attack to 0.",
+          "stats": {
+            "Command Cost": {
+              "value": 1
+            }
+          }
+        },
+        "Stratagem§Devastating Sorcery": {
+          "keywords": {
+            "Keywords": [
+              "Cult of Magic",
+              "Thousand Sons"
+            ],
+            "Phase": [
+              "Shooting"
+            ],
+            "Category": [
+              "Battle Tactic"
+            ],
+            "Turn": [
+              "Yours"
+            ]
+          },
+          "stats": {
+            "Command Cost": {
+              "value": 1
+            }
+          },
+          "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Thousand Sons Psyker unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a Psychic Attack, you can re-roll the Hit roll and you can re-roll the Wound roll."
+        },
+        "Stratagem§Ensorcelled Infusion": {
+          "keywords": {
+            "Keywords": [
+              "Cult of Magic",
+              "Thousand Sons"
+            ],
+            "Phase": [
+              "Shooting"
+            ],
+            "Category": [
+              "Strategic Ploy"
+            ],
+            "Turn": [
+              "Yours"
+            ]
+          },
+          "stats": {
+            "Command Cost": {
+              "value": 1
+            }
+          },
+          "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Thousand Sons Psyker unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, all inferno bolt pistols, inferno boltguns, inferno combi-bolters and inferno combi-weapons equipped by models in your unit have the [PSYCHIC] ability and a Strength characteristic of 5."
+        },
+        "Stratagem§Psychic Dominion": {
+          "keywords": {
+            "Keywords": [
+              "Cult of Magic",
+              "Thousand Sons"
+            ],
+            "Phase": [
+              "Any"
+            ],
+            "Category": [
+              "Epic Deed"
+            ],
+            "Turn": [
+              "Opponent’s",
+              "Yours"
+            ]
+          },
+          "text": "**WHEN**: Any phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Thousand Sons unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, all attacks made against your unit with Psychic weapons have the [HAZARDOUS] ability and all models in your unit have the Feel No Pain 4+ ability against Psychic Attacks.",
+          "stats": {
+            "Command Cost": {
+              "value": 1
+            }
+          }
+        },
+        "Stratagem§Sorcerous Might": {
+          "stats": {
+            "Command Cost": {
+              "value": 1
+            }
+          },
+          "keywords": {
+            "Keywords": [
+              "Cult of Magic",
+              "Thousand Sons"
+            ],
+            "Phase": [
+              "Shooting"
+            ],
+            "Category": [
+              "Epic Deed"
+            ],
+            "Turn": [
+              "Yours"
+            ]
+          },
+          "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Thousand Sons Psyker unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, add 9\" to the range of Psychic weapons equipped by your unit."
+        },
+        "Stratagem§Warp Sight": {
+          "stats": {
+            "Command Cost": {
+              "value": 2
+            }
+          },
+          "keywords": {
+            "Keywords": [
+              "Cult of Magic",
+              "Thousand Sons"
+            ],
+            "Phase": [
+              "Shooting"
+            ],
+            "Category": [
+              "Strategic Ploy"
+            ],
+            "Turn": [
+              "Yours"
+            ]
+          },
+          "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Thousand Sons Psyker unit from your army and one enemy unit that is visible to that unit.\n\n**EFFECT**: Until the end of the phase, each time a friendly Thousand Sons Psyker model makes an attack with a Psychic weapon that targets that enemy unit, that attack has the [INDIRECT FIRE] and [IGNORES COVER] abilities."
+        },
       "Unit§Mutalith Vortex Beast": {
         "assets": {
           "traits": [
@@ -7613,7 +8019,7 @@
               "item": "Ability§Damaged:",
               "stats": {
                 "x": {
-                  "value": "1-5 wounds remaining"
+                    "value": "1-5 wounds"
                 }
               }
             },
