@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.0.7",
+  "revision": "10.1.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -249,7 +249,14 @@
           ]
         }
       },
-      "Ability§Hive Defences": {},
+      "Ability§Hive Defences": {
+        "text": "Each time an enemy unit is set up or ends a Normal, Advance or Fall Back move within\nrange of this weapon, if that enemy unit is an eligible target, the bearer can shoot with this weapon at\nthat unit as if it were your Shooting phase (the bearer can do so up to four times per phase).",
+        "keywords": {
+          "Keywords": [
+            "Weapon Ability"
+          ]
+        }
+      },
       "Ability§Hunter Organism": {
         "text": "This model cannot be your Warlord.",
         "keywords": {
@@ -383,7 +390,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is Tyranids, once per battle, in\neither player’s Command phase, if one or more units\nfrom your army with this ability are on the battlefield,\nyou can unleash the Shadow in the Warp. When you\ndo, each enemy unit on the battlefield must take a\nBattle-shock test."
       },
       "Ability§Skulking Horrors": {
         "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9″ of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6″.",
@@ -438,7 +446,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is Tyranids, while a Tyranids\nunit from your army is within 6\" of one or more\nSynapse models from your army, that unit is said to\nbe within Synapse Range of your army. Each time a\nTyranids unit from your army takes a Battle-shock\ntest, if it is within Synapse Range of your army, take\nthat test on 3D6 instead of 2D6."
       },
       "Ability§Synaptic Relays": {
         "text": "In your Command phase, you can select up to two friendly Tyranids units within 12″ of this model’s unit. Until the start of your next Command phase, the selected units are always considered to be within Synapse Range of your army. Designer’s Note: Place a Synaptic Relay token next to each selected unit to remind you.",
@@ -694,35 +703,42 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Loadout1": {
             "statType": "rank",
-            "value": "Heavy venom cannon",
+            "label": "Loadout",
+            "value": "Bonesword, whip",
             "ranks": {
-              "Heavy venom cannon": {
+              "Bonesword, whip": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Hive Tyrant—Heavy venom cannon"
-                  }
-                ]
-              },
-              "Stranglethorn cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Hive Tyrant—Stranglethorn cannon"
-                  }
-                ]
-              },
-              "Monstrous bonesword and lash whip": {
-                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Hive Tyrant—Monstrous bonesword and lash whip"
                   }
                 ]
               },
-              "Monstrous scything talons": {
+              "Venom cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Hive Tyrant—Heavy venom cannon"
+                  }
+                ],
+                "tracking": {
+                  "loadout1Cannon": 1
+                }
+              },
+              "Stranglethorn": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Hive Tyrant—Stranglethorn cannon"
+                  }
+                ],
+                "tracking": {
+                  "loadout1Cannon": 1
+                }
+              },
+              "Scything talons": {
                 "order": 3,
                 "traits": [
                   {
@@ -731,13 +747,149 @@
                 ]
               }
             },
+            "statOrder": 1,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Loadout2": {
+            "statType": "rank",
+            "label": "Loadout",
+            "value": "Scything talons",
+            "ranks": {
+              "Scything talons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Hive Tyrant—Monstrous scything talons"
+                  }
+                ]
+              },
+              "Venom cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Hive Tyrant—Heavy venom cannon"
+                  }
+                ],
+                "tracking": {
+                  "loadout2Cannon": 1
+                }
+              },
+              "Stranglethorn": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Hive Tyrant—Stranglethorn cannon"
+                  }
+                ],
+                "tracking": {
+                  "loadout2Cannon": 1
+                }
+              }
+            },
+            "statOrder": 2,
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: monstrous bonesword and lash whip; monstrous scything talons.\n\nThis model’s monstrous bonesword and lash whip can be replaced with one of the following: ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 monstrous scything talons\n\n*This model’s monstrous scything talons can be replaced with one of the following: ◦ 1 heavy venom cannon* ◦ 1 stranglethorn cannon* *  This model cannot be equipped with both a stranglethorn cannon and a heavy venom cannon. This model cannot be equipped with more than 1 heavy venom cannon, and it cannot be equipped with more than 1 stranglethorn cannon."
+        "rules": {
+          "loadout1Cannon": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "loadout1Cannon"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Stranglethorn",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Venom cannon",
+                "iterations": 1
+              }
+            ]
+          },
+          "loadout2Cannon": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "loadout2Cannon"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout1",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Stranglethorn",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout1",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Venom cannon",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Character§Neurotyrant": {
         "assets": {
@@ -928,11 +1080,12 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Tervigon—Stinger salvoes"
           ]
         },
         "keywords": {
@@ -970,28 +1123,20 @@
           "OC": {
             "value": 5
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Stinger salvoes",
+            "value": "Claws",
             "ranks": {
-              "Stinger salvoes": {
+              "Claws": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tervigon—Stinger salvoes"
-                  }
-                ]
-              },
-              "Massive crushing claws": {
-                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Tervigon—Massive crushing claws"
                   }
                 ]
               },
-              "Massive scything talons": {
-                "order": 2,
+              "Talons": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Wargear§Tervigon—Massive scything talons"
@@ -1004,8 +1149,7 @@
             "visibility": "active",
             "dynamic": true
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: stinger salvoes; massive scything talons.\n\nThis model’s massive scything talons can be replaced with 1 massive crushing claws."
+        }
       },
       "Character§The Swarmlord": {
         "assets": {
@@ -1103,7 +1247,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Winged Hive Tyrant—Tyrant talons"
           ]
         },
         "keywords": {
@@ -1144,45 +1289,37 @@
           },
           "sampleLoadout": {
             "statType": "rank",
-            "value": "Heavy venom cannon",
+            "value": "Bonesword, whip",
             "ranks": {
-              "Heavy venom cannon": {
+              "Bonesword, whip": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Winged Hive Tyrant—Heavy venom cannon"
-                  }
-                ]
-              },
-              "Stranglethorn cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Winged Hive Tyrant—Stranglethorn cannon"
-                  }
-                ]
-              },
-              "Monstrous bonesword and lash whip": {
-                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Winged Hive Tyrant—Monstrous bonesword and lash whip"
                   }
                 ]
               },
-              "Monstrous scything talons": {
+              "Venom cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Winged Hive Tyrant—Heavy venom cannon"
+                  }
+                ]
+              },
+              "Stranglethorn": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Winged Hive Tyrant—Stranglethorn cannon"
+                  }
+                ]
+              },
+              "Scything talons": {
                 "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Winged Hive Tyrant—Monstrous scything talons"
-                  }
-                ]
-              },
-              "Tyrant talons": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Winged Hive Tyrant—Tyrant talons"
                   }
                 ]
               }
@@ -1192,8 +1329,7 @@
             "visibility": "active",
             "dynamic": true
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: monstrous bonesword and lash whip; Tyrant talons.\n\nThis model’s monstrous bonesword and lash whip can be replaced with one of the following: ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 monstrous scything talons"
+        }
       },
       "Character§Winged Tyranid Prime": {
         "assets": {
@@ -1246,6 +1382,41 @@
             "value": 1
           }
         }
+      },
+      "Detachment§Invasion Fleet": {
+        "text": "## HYPER-ADAPTATIONS\nAt the start of the first battle round, select one of the\nfollowing Hyper-adaptations to be active for Tyranids\nunits from your army until the end of the battle:\n\n### SWARMING INSTINCTS\nEach time a Tyranids model with this\nHyper-adaptation makes an attack that targets an\nenemy Infantry or Swarm unit, that attack has the\n[SUSTAINED HITS 1] ability.\n\n### HYPER-AGGRESSION\nEach time a Tyranids model with this\nHyper-adaptation makes an attack that targets an\nenemy Monster or Vehicle unit, that attack has the\n[LETHAL HITS] ability.\n\n### HIVE PREDATORS\nEach time a Tyranids model with this\nHyper-adaptation makes an attack that targets an\nenemy Character unit, if a Critical Hit is scored, that\nattack has the [PRECISION] ability."
+      },
+      "Enhancement§Adaptive Biology": {
+        "keywords": {
+          "Keywords": [
+            "Invasion Fleet"
+          ]
+        },
+        "text": "Tyranids model only. The bearer has the Feel No Pain\n5+ ability. At the start of any turn, if the bearer has\nfewer than its starting number of wounds remaining,\nuntil the end of the battle, it has the Feel No Pain 4+\nability instead."
+      },
+      "Enhancement§Alien Cunning": {
+        "keywords": {
+          "Keywords": [
+            "Invasion Fleet"
+          ]
+        },
+        "text": "Tyranids model only. After both players have\ndeployed their armies, select up to three Tyranids\nunits from your army and redeploy them. When doing\nso, you can set those units up in Strategic Reserves if\nyou wish, regardless of how many units are already in\nStrategic Reserves."
+      },
+      "Enhancement§Perfectly Adapted": {
+        "keywords": {
+          "Keywords": [
+            "Invasion Fleet"
+          ]
+        },
+        "text": "Tyranids model only. Once per turn, you can re-roll\none Hit roll, one Wound roll, one Damage roll, one\nAdvance roll, one Charge roll or one saving throw\nmade for the bearer."
+      },
+      "Enhancement§Synaptic Lynchpin": {
+        "keywords": {
+          "Keywords": [
+            "Invasion Fleet"
+          ]
+        },
+        "text": "Tyranids model only. While a friendly Tyranids unit\nis within 9\" of the bearer, that unit is within Synapse\nRange of your army."
       },
       "Melee Weapon§Barbgaunts—Xenos claws and teeth": {
         "stats": {
@@ -2936,7 +3107,7 @@
           }
         }
       },
-      "Model§Barbgaunts": {
+      "Model§Barbgaunt": {
         "stats": {
           "M": {
             "value": 6
@@ -2964,7 +3135,7 @@
           ]
         }
       },
-      "Model§Biovores": {
+      "Model§Biovore": {
         "stats": {
           "M": {
             "value": 5
@@ -2992,7 +3163,7 @@
           ]
         }
       },
-      "Model§Carnifexes": {
+      "Model§Carnifex": {
         "stats": {
           "M": {
             "value": 8
@@ -3012,19 +3183,63 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Bio-plasma": {
             "statType": "rank",
-            "value": "Bio-plasma",
+            "value": "-",
             "ranks": {
-              "Bio-plasma": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Carnifexes—Bio-plasma"
                   }
                 ]
+              }
+            },
+            "statOrder": 3,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Spine banks": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
-              "Deathspitters with slimer maggots": {
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Carnifexes—Spine banks"
+                  }
+                ]
+              }
+            },
+            "statOrder": 3,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Basic": {
+            "statType": "rank",
+            "value": "Scything talons",
+            "ranks": {
+              "Scything talons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Carnifexes—Carnifex scything talons"
+                  }
+                ]
+              },
+              "Deathspitters": {
                 "order": 1,
                 "traits": [
                   {
@@ -3032,7 +3247,7 @@
                   }
                 ]
               },
-              "Devourers with brainleech worms": {
+              "Devourers": {
                 "order": 2,
                 "traits": [
                   {
@@ -3040,7 +3255,49 @@
                   }
                 ]
               },
-              "Heavy venom cannon": {
+              "Crushing claws": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Carnifexes—Carnifex crushing claws"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Extra": {
+            "statType": "rank",
+            "value": "Scything talons",
+            "ranks": {
+              "Scything talons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Carnifexes—Carnifex extra scything talons"
+                  }
+                ]
+              },
+              "Deathspitters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Carnifexes—Deathspitters with slimer maggots"
+                  }
+                ]
+              },
+              "Devourers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Carnifexes—Devourers with brainleech worms"
+                  }
+                ]
+              },
+              "Venom cannon": {
                 "order": 3,
                 "traits": [
                   {
@@ -3048,51 +3305,19 @@
                   }
                 ]
               },
-              "Spine banks": {
+              "Stranglethorn": {
                 "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Carnifexes—Spine banks"
-                  }
-                ]
-              },
-              "Stranglethorn cannon": {
-                "order": 5,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Carnifexes—Stranglethorn cannon"
                   }
                 ]
               },
-              "Carnifex crushing claws": {
-                "order": 6,
+              "Crushing claws": {
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Carnifexes—Carnifex crushing claws"
-                  }
-                ]
-              },
-              "Carnifex extra scything talons": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Carnifexes—Carnifex extra scything talons"
-                  }
-                ]
-              },
-              "Carnifex scything talons": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Carnifexes—Carnifex scything talons"
-                  }
-                ]
-              },
-              "Xenos claws and teeth": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Carnifexes—Xenos claws and teeth"
                   }
                 ]
               }
@@ -3102,6 +3327,11 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Carnifexes—Xenos claws and teeth"
+          ]
         }
       },
       "Model§Gargoyles": {
@@ -3132,7 +3362,7 @@
           ]
         }
       },
-      "Model§Genestealers": {
+      "Model§Genestealer": {
         "stats": {
           "M": {
             "value": 8
@@ -3179,31 +3409,23 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
             "value": "Impaler cannon",
             "ranks": {
-              "Impaler cannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Hive Guard—Impaler cannon"
-                  }
-                ]
-              },
               "Shockcannon": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Hive Guard—Shockcannon"
                   }
                 ]
               },
-              "Xenos claws and teeth": {
-                "order": 2,
+              "Impaler cannon": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Hive Guard—Xenos claws and teeth"
+                    "trait": "Ranged Weapon§Hive Guard—Impaler cannon"
                   }
                 ]
               }
@@ -3213,9 +3435,14 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Hive Guard—Xenos claws and teeth"
+          ]
         }
       },
-      "Model§Hormagaunts": {
+      "Model§Hormagaunt": {
         "stats": {
           "M": {
             "value": 10
@@ -3242,7 +3469,7 @@
           ]
         }
       },
-      "Model§Mucolid Spores": {
+      "Model§Mucolid Spore": {
         "stats": {
           "M": {
             "value": 4
@@ -3264,7 +3491,7 @@
           }
         }
       },
-      "Model§Neurogaunt Nodebeasts*": {
+      "Model§Neurogaunt": {
         "stats": {
           "M": {
             "value": 6
@@ -3286,7 +3513,7 @@
           }
         }
       },
-      "Model§Neurogaunts": {
+      "Model§Neurogaunt Nodebeast": {
         "stats": {
           "M": {
             "value": 6
@@ -3336,7 +3563,7 @@
           ]
         }
       },
-      "Model§Pyrovores": {
+      "Model§Pyrovore": {
         "stats": {
           "M": {
             "value": 5
@@ -3364,7 +3591,7 @@
           ]
         }
       },
-      "Model§Raveners": {
+      "Model§Ravener": {
         "stats": {
           "M": {
             "value": 10
@@ -3384,23 +3611,18 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Bio-weapon": {
             "statType": "rank",
-            "value": "Thoracic bio-weapon",
+            "value": "-",
             "ranks": {
-              "Thoracic bio-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Raveners—Thoracic bio-weapon"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Ravener claws and talons": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Raveners—Ravener claws and talons"
+                    "trait": "Ranged Weapon§Raveners—Thoracic bio-weapon"
                   }
                 ]
               }
@@ -3410,9 +3632,14 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Raveners—Ravener claws and talons"
+          ]
         }
       },
-      "Model§Ripper Swarms": {
+      "Model§Ripper Swarm": {
         "stats": {
           "M": {
             "value": 6
@@ -3431,36 +3658,15 @@
           },
           "OC": {
             "value": 0
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Spinemaws",
-            "ranks": {
-              "Spinemaws": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Ripper Swarms—Spinemaws"
-                  }
-                ]
-              },
-              "Xenos claws and teeth": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Ripper Swarms—Xenos claws and teeth"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Ripper Swarms—Xenos claws and teeth"
+          ]
         }
       },
-      "Model§Spore Mines": {
+      "Model§Spore Mine": {
         "stats": {
           "M": {
             "value": 4
@@ -3482,7 +3688,7 @@
           }
         }
       },
-      "Model§Termagants": {
+      "Model§Termagant": {
         "stats": {
           "M": {
             "value": 6
@@ -3501,49 +3707,12 @@
           },
           "OC": {
             "value": 2
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Fleshborer",
-            "ranks": {
-              "Fleshborer": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Termagants—Fleshborer"
-                  }
-                ]
-              },
-              "Termagant spinefists": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Termagants—Termagant spinefists"
-                  }
-                ]
-              },
-              "Termagant devourer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Termagants—Termagant devourer"
-                  }
-                ]
-              },
-              "Xenos claws and teeth": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Termagants—Xenos claws and teeth"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Termagants—Xenos claws and teeth"
+          ]
         }
       },
       "Model§Tyranid Prime": {
@@ -3566,15 +3735,15 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Barbed strangler",
+            "value": "Devourer",
             "ranks": {
-              "Barbed strangler": {
+              "Devourer": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Barbed strangler"
+                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Devourer"
                   }
                 ]
               },
@@ -3586,21 +3755,24 @@
                   }
                 ]
               },
-              "Devourer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Devourer"
-                  }
-                ]
-              },
               "Spinefists": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Spinefists"
                   }
                 ]
+              },
+              "Barbed strangler": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Barbed strangler"
+                  }
+                ],
+                "tracking": {
+                  "barbedStrangler": 1
+                }
               },
               "Venom cannon": {
                 "order": 4,
@@ -3608,15 +3780,10 @@
                   {
                     "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Venom cannon"
                   }
-                ]
-              },
-              "Bio-weapons": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tyranid Warriors With Ranged Bio-weapons—Bio-weapons"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "venomCanon": 1
+                }
               }
             },
             "group": "Loadout",
@@ -3626,7 +3793,7 @@
           }
         }
       },
-      "Model§Tyranid Warriors": {
+      "Model§Tyranid Prime (melee)": {
         "stats": {
           "M": {
             "value": 6
@@ -3646,15 +3813,48 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "modelName": {
+            "statType": "term",
+            "value": "Tyranid Prime",
+            "visibility": "hidden"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Tyranid Warriors With Melee Bio-weapons—Bio-weapons"
+          ]
+        },
+        "rules": {}
+      },
+      "Model§Tyranid Warrior": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 5
+          },
+          "Sv": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 7
+          },
+          "OC": {
+            "value": 2
+          },
+          "Loadout": {
             "statType": "rank",
-            "value": "Barbed strangler",
+            "value": "Devourer",
             "ranks": {
-              "Barbed strangler": {
+              "Devourer": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Barbed strangler"
+                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Devourer"
                   }
                 ]
               },
@@ -3666,21 +3866,24 @@
                   }
                 ]
               },
-              "Devourer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Devourer"
-                  }
-                ]
-              },
               "Spinefists": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Spinefists"
                   }
                 ]
+              },
+              "Barbed strangler": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Barbed strangler"
+                  }
+                ],
+                "tracking": {
+                  "barbedStrangler": 1
+                }
               },
               "Venom cannon": {
                 "order": 4,
@@ -3688,15 +3891,10 @@
                   {
                     "trait": "Ranged Weapon§Tyranid Warriors With Ranged Bio-weapons—Venom cannon"
                   }
-                ]
-              },
-              "Bio-weapons": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tyranid Warriors With Ranged Bio-weapons—Bio-weapons"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "venomCannon": 1
+                }
               }
             },
             "group": "Loadout",
@@ -3704,7 +3902,45 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Tyranid Warriors With Ranged Bio-weapons—Bio-weapons"
+          ]
         }
+      },
+      "Model§Tyranid Warrior (melee)": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 5
+          },
+          "Sv": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 7
+          },
+          "OC": {
+            "value": 2
+          },
+          "modelName": {
+            "statType": "term",
+            "value": "Tyranid Warrior",
+            "visibility": "hidden"
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Tyranid Warriors With Melee Bio-weapons—Bio-weapons"
+          ]
+        },
+        "rules": {}
       },
       "Model§Tyrant Guard": {
         "stats": {
@@ -3726,31 +3962,31 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Bone cleaver, lash whip and rending claws",
+            "value": "Talons, claws",
             "ranks": {
-              "Bone cleaver, lash whip and rending claws": {
+              "Talons, claws": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Tyrant Guard—Scything talons and rending claws"
+                  }
+                ]
+              },
+              "Cleaver, whip, claws": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Tyrant Guard—Bone cleaver, lash whip and rending claws"
                   }
                 ]
               },
-              "Crushing claws and rending claws": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tyrant Guard—Crushing claws and rending claws"
-                  }
-                ]
-              },
-              "Scything talons and rending claws": {
+              "Crushing, rending": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Tyrant Guard—Scything talons and rending claws"
+                    "trait": "Melee Weapon§Tyrant Guard—Crushing claws and rending claws"
                   }
                 ]
               }
@@ -3762,7 +3998,7 @@
           }
         }
       },
-      "Model§Venomthropes": {
+      "Model§Venomthrope": {
         "stats": {
           "M": {
             "value": 6
@@ -3789,7 +4025,7 @@
           ]
         }
       },
-      "Model§Von Ryan’s Leapers": {
+      "Model§Von Ryan’s Leaper": {
         "stats": {
           "M": {
             "value": 10
@@ -3816,7 +4052,7 @@
           ]
         }
       },
-      "Model§Zoanthropes": {
+      "Model§Zoanthrope": {
         "stats": {
           "M": {
             "value": 5
@@ -5393,7 +5629,228 @@
           ]
         }
       },
-      "Roster§Army": {},
+      "Roster§Army": {
+        "stats": {
+          "Faction Group": {
+            "value": "Xenos",
+            "dynamic": false
+          },
+          "Faction": {
+            "value": "Tyranids",
+            "ranks": {
+              "Tyranids": {
+                "order": 1
+              }
+            },
+            "dynamic": false
+          },
+          "Detachment": {
+            "value": "Invasion Fleet",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Invasion Fleet": {
+                "order": 0,
+                "traits": [
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Stratagems"
+                    ],
+                    "trait": "Stratagem§Rapid Regeneration"
+                  },
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Stratagems"
+                    ],
+                    "trait": "Stratagem§Adrenal Surge"
+                  },
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Stratagems"
+                    ],
+                    "trait": "Stratagem§Death Frenzy"
+                  },
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Stratagems"
+                    ],
+                    "trait": "Stratagem§Overrun"
+                  },
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Stratagems"
+                    ],
+                    "trait": "Stratagem§Synaptic Insight"
+                  },
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Stratagems"
+                    ],
+                    "trait": "Stratagem§Endless Swarm"
+                  }
+                ]
+              }
+            },
+            "dynamic": false
+          }
+        }
+      },
+      "Stratagem§Adrenal Surge": {
+        "keywords": {
+          "Keywords": [
+            "Invasion Fleet",
+            "Tyranids"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** Up to two Tyranids units from\nyour army that are within Synapse Range\nof your army and are eligible to fight, or\none other Tyranids unit from your army\nthat is eligible to fight.\n\n**EFFECT:** Until the end of the phase, each\ntime a model in one of those selected\nunits makes an attack, a successful\nunmodified Hit roll of 5+ scores a\nCritical Hit.",
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        }
+      },
+      "Stratagem§Death Frenzy": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN:** Fight phase, just after an enemy\nunit has selected its targets.\n\n**TARGET:** One Tyranids unit from your\narmy that was selected as the target of\none or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, each\ntime a model in your unit is destroyed, if\nthat model has not fought this phase, roll\none D6: on a 4+, do not remove it from\nplay. The destroyed model can fight after\nthe attacking model’s unit has finished\nmaking attacks, and is then removed\nfrom play.",
+        "keywords": {
+          "Keywords": [
+            "Invasion Fleet",
+            "Tyranids"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§Endless Swarm": {
+        "keywords": {
+          "Turn": [
+            "Yours"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Keywords": [
+            "Invasion Fleet",
+            "Tyranids"
+          ]
+        },
+        "text": "**WHEN:** Your Command phase.\n\n**TARGET:** Up to two Endless Multitude\nunits from your army that are within\nSynapse Range of your army, or one other\nEndless Multitude unit from your army.\n\n**EFFECT:** Up to D3+3 destroyed models are\nreturned to each of the selected units.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        }
+      },
+      "Stratagem§Overrun": {
+        "text": "**WHEN:** Fight phase, just before a Tyranids\nunit from your army Consolidates.\n\n**TARGET:** That Tyranids unit.\n\n**EFFECT:** Until the end of the phase,\neach time a model in your unit makes a\nConsolidation move, it can move up to\n6\" instead of up to 3\", provided your unit\ncan end its Consolidation move in Unit\nCoherency and within Engagement Range\nof one or more enemy units. If your unit\nis within Synapse Range of your army\nand not within Engagement Range of\nany enemy units, instead of making that\nConsolidation move, it can instead make a\nNormal move of up to 6\".",
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Keywords": [
+            "Invasion Fleet",
+            "Tyranids"
+          ]
+        }
+      },
+      "Stratagem§Rapid Regeneration": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase or\nthe Fight phase, just after an enemy unit\nhas selected its targets.\n\n**TARGET:** One Tyranids unit from your\narmy that was selected as the target of\none or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase,\nmodels in your unit have the\nFeel No Pain 6+ ability. If your unit is\nwithin Synapse Range of your army, until\nthe end of the phase, models in your unit\nhave the Feel No Pain 5+ ability instead.",
+        "keywords": {
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Keywords": [
+            "Invasion Fleet",
+            "Tyranids"
+          ]
+        }
+      },
+      "Stratagem§Synaptic Insight": {
+        "text": "**WHEN:** Your Command phase.\n\n**TARGET:** Up to two Tyranids units from\nyour army that are within Synapse Range\nof your army, or one other Tyranids unit\nfrom your army.\n\n**EFFECT:** Select one Hyper-adaptation.\nUntil the end of the battle round, that\nhyper-adaptation is active for those\nselected units in addition to any other that\nmay be active for your army.\n\n**RESTRICTIONS:** You cannot select the\nsame hyper-adaptation you selected at\nthe start of the first battle round.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Turn": [
+            "Yours"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Keywords": [
+            "Invasion Fleet",
+            "Tyranids"
+          ]
+        }
+      },
       "Unit§Barbgaunts": {
         "assets": {
           "traits": [
@@ -5402,7 +5859,7 @@
           ],
           "included": [
             {
-              "item": "Model§Barbgaunts",
+              "item": "Model§Barbgaunt",
               "quantity": 5
             }
           ]
@@ -5422,11 +5879,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Barbgaunts"
+            "Model§Barbgaunt"
           ]
         },
         "stats": {
-          "Barbgaunts": {
+          "Barbgaunt": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5451,7 +5908,7 @@
             "Ability§Seed Spore Mines"
           ],
           "included": [
-            "Model§Biovores"
+            "Model§Biovore"
           ]
         },
         "keywords": {
@@ -5469,11 +5926,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Biovores"
+            "Model§Biovore"
           ]
         },
         "stats": {
-          "Biovores": {
+          "Biovore": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5498,7 +5955,7 @@
             "Ability§Blistering Assault"
           ],
           "included": [
-            "Model§Carnifexes"
+            "Model§Carnifex"
           ]
         },
         "keywords": {
@@ -5516,11 +5973,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Carnifexes"
+            "Model§Carnifex"
           ]
         },
         "stats": {
-          "Carnifexes": {
+          "Carnifex": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5528,8 +5985,7 @@
             "min": 1,
             "max": 2
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: Carnifex scything talons; Carnifex extra scything talons; xenos claws and teeth.\n\nAny number of models can each have their Carnifex extra scything talons replaced with one of the following: ◦ 1 deathspitters with slimer maggots ◦ 1 devourers with brainleech worms ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 Carnifex crushing claws\n\n*Any number of models can each have their Carnifex scything talons replaced with one of the following: ◦ 1 deathspitters with slimer maggots ◦ 1 devourers with brainleech worms ◦ 1 Carnifex crushing claws\n\n*Any number of models can each be equipped with 1 bio-plasma.\n\n*Any number of models can each be equipped with 1 spine banks."
+        }
       },
       "Unit§Exocrine": {
         "assets": {
@@ -5547,7 +6003,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
@@ -5626,7 +6082,7 @@
           ]
         },
         "stats": {
-          "Gargoyles": {
+          "Gargoyle": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5660,7 +6116,7 @@
           ],
           "included": [
             {
-              "item": "Model§Genestealers",
+              "item": "Model§Genestealer",
               "quantity": 5
             }
           ]
@@ -5680,11 +6136,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Genestealers"
+            "Model§Genestealer"
           ]
         },
         "stats": {
-          "Genestealers": {
+          "Genestealer": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5711,11 +6167,13 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Harpy—Stinger salvoes",
+            "Melee Weapon§Harpy—Scything wings"
           ]
         },
         "keywords": {
@@ -5753,39 +6211,23 @@
           "OC": {
             "value": 0
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Stinger salvoes",
+            "value": "Stranglethorn",
             "ranks": {
-              "Stinger salvoes": {
+              "Stranglethorn": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Harpy—Stinger salvoes"
-                  }
-                ]
-              },
-              "Twin heavy venom cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Harpy—Twin heavy venom cannon"
-                  }
-                ]
-              },
-              "Twin stranglethorn cannon": {
-                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Harpy—Twin stranglethorn cannon"
                   }
                 ]
               },
-              "Scything wings": {
-                "order": 3,
+              "Heavy venom": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Harpy—Scything wings"
+                    "trait": "Ranged Weapon§Harpy—Twin heavy venom cannon"
                   }
                 ]
               }
@@ -5795,8 +6237,7 @@
             "visibility": "active",
             "dynamic": true
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: stinger salvoes; twin stranglethorn cannon; scything wings.\n\nThis model’s twin stranglethorn cannon can be replaced with 1 twin heavy venom cannon."
+        }
       },
       "Unit§Haruspex": {
         "assets": {
@@ -5814,7 +6255,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
@@ -5875,7 +6316,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-4 wounds remaining"
                 }
               }
@@ -5964,8 +6405,7 @@
             "min": 3,
             "max": 6
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: shockcannon; xenos claws and teeth.\n\nAny number of models can each have their shockcannon replaced with 1 impaler cannon."
+        }
       },
       "Unit§Hormagaunts": {
         "assets": {
@@ -5975,7 +6415,7 @@
           ],
           "included": [
             {
-              "item": "Model§Hormagaunts",
+              "item": "Model§Hormagaunt",
               "quantity": 10
             }
           ]
@@ -5997,11 +6437,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Hormagaunts"
+            "Model§Hormagaunt"
           ]
         },
         "stats": {
-          "Hormagaunts": {
+          "Hormagaunt": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6083,7 +6523,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
@@ -6145,7 +6585,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
@@ -6197,7 +6637,7 @@
             "Ability§Floating Death"
           ],
           "included": [
-            "Model§Mucolid Spores"
+            "Model§Mucolid Spore"
           ]
         },
         "keywords": {
@@ -6216,11 +6656,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Mucolid Spores"
+            "Model§Mucolid Spore"
           ]
         },
         "stats": {
-          "Mucolid Spores": {
+          "Mucolid Spore": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6237,9 +6677,9 @@
             "Ability§Neurocytes"
           ],
           "included": [
-            "Model§Neurogaunt Nodebeasts*",
+            "Model§Neurogaunt Nodebeast",
             {
-              "item": "Model§Neurogaunts",
+              "item": "Model§Neurogaunt",
               "quantity": 10
             }
           ]
@@ -6260,12 +6700,12 @@
         },
         "allowed": {
           "items": [
-            "Model§Neurogaunt Nodebeasts*",
-            "Model§Neurogaunts"
+            "Model§Neurogaunt Nodebeast",
+            "Model§Neurogaunt"
           ]
         },
         "stats": {
-          "Neurogaunt Nodebeasts*": {
+          "Neurogaunt Nodebeast": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6273,13 +6713,47 @@
             "min": 1,
             "max": 2
           },
-          "Neurogaunts": {
+          "Neurogaunt": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
             "min": 10,
             "max": 20
+          }
+        },
+        "rules": {
+          "2 Neurogaunt Nodebeasts only with 20 Neurogaunts.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neurogaunt"
+                  ]
+                ],
+                "min": 20,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neurogaunt Nodebeast"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
           }
         }
       },
@@ -6358,7 +6832,7 @@
             "Ability§Burning Spray"
           ],
           "included": [
-            "Model§Pyrovores"
+            "Model§Pyrovore"
           ]
         },
         "keywords": {
@@ -6376,11 +6850,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Pyrovores"
+            "Model§Pyrovore"
           ]
         },
         "stats": {
-          "Pyrovores": {
+          "Pyrovore": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6399,7 +6873,7 @@
           ],
           "included": [
             {
-              "item": "Model§Raveners",
+              "item": "Model§Ravener",
               "quantity": 3
             }
           ]
@@ -6419,11 +6893,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Raveners"
+            "Model§Ravener"
           ]
         },
         "stats": {
-          "Raveners": {
+          "Ravener": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6431,8 +6905,7 @@
             "min": 3,
             "max": 6
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: Ravener claws and talons.\n\nAny number of models can each be equipped with 1 thoracic bio-weapon."
+        }
       },
       "Unit§Ripper Swarms": {
         "assets": {
@@ -6443,7 +6916,7 @@
           ],
           "included": [
             {
-              "item": "Model§Ripper Swarms",
+              "item": "Model§Ripper Swarm",
               "quantity": 3
             }
           ]
@@ -6463,20 +6936,45 @@
         },
         "allowed": {
           "items": [
-            "Model§Ripper Swarms"
+            "Model§Ripper Swarm"
           ]
         },
         "stats": {
-          "Ripper Swarms": {
+          "Ripper Swarm": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
             "min": 3,
             "max": 6
+          },
+          "Spinemaws": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Model"
+                    ],
+                    "trait": "Ranged Weapon§Ripper Swarms—Spinemaws"
+                  }
+                ]
+              }
+            },
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: xenos claws and teeth.\n\nAll models in this unit can each be equipped with 1 spinemaws."
+        "rules": {}
       },
       "Unit§Screamer-killer": {
         "assets": {
@@ -6539,7 +7037,7 @@
           ],
           "included": [
             {
-              "item": "Model§Spore Mines",
+              "item": "Model§Spore Mine",
               "quantity": 3
             }
           ]
@@ -6560,11 +7058,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Spore Mines"
+            "Model§Spore Mine"
           ]
         },
         "stats": {
-          "Spore Mines": {
+          "Spore Mine": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6634,7 +7132,7 @@
           ],
           "included": [
             {
-              "item": "Model§Termagants",
+              "item": "Model§Termagant",
               "quantity": 10
             }
           ]
@@ -6656,20 +7154,71 @@
         },
         "allowed": {
           "items": [
-            "Model§Termagants"
+            "Model§Termagant"
           ]
         },
         "stats": {
-          "Termagants": {
+          "Termagant": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
             "min": 10,
             "max": 20
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": "Fleshborer",
+            "ranks": {
+              "Fleshborer": {
+                "order": 0,
+                "traits": [
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Model"
+                    ],
+                    "trait": "Ranged Weapon§Termagants—Fleshborer"
+                  }
+                ]
+              },
+              "Spinefists": {
+                "order": 1,
+                "traits": [
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Model"
+                    ],
+                    "trait": "Ranged Weapon§Termagants—Termagant spinefists"
+                  }
+                ]
+              },
+              "Devourer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "path": [
+                      "{self}",
+                      "assets",
+                      "classification",
+                      "Model"
+                    ],
+                    "trait": "Ranged Weapon§Termagants—Termagant devourer"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: fleshborer; xenos claws and teeth.\n\nAll models in this unit can each have their fleshborer replaced with 1 Termagant devourer.\n\n*All models in this unit can each have their fleshborer replaced with 1 Termagant spinefists."
+        }
       },
       "Unit§Toxicrene": {
         "assets": {
@@ -6688,7 +7237,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
@@ -6739,7 +7288,7 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
@@ -6788,11 +7337,11 @@
             "Ability§Shadow In The Warp",
             "Ability§Synapse",
             "Ability§Adrenalised Onslaught",
-            "Model§Tyranid Prime"
+            "Model§Tyranid Prime (melee)"
           ],
           "included": [
             {
-              "item": "Model§Tyranid Warriors",
+              "item": "Model§Tyranid Warrior (melee)",
               "quantity": 2
             }
           ]
@@ -6812,11 +7361,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Tyranid Warriors"
+            "Model§Tyranid Warrior (melee)"
           ]
         },
         "stats": {
-          "Tyranid Warriors": {
+          "Tyranid Warrior (melee)": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6836,7 +7385,7 @@
           ],
           "included": [
             {
-              "item": "Model§Tyranid Warriors",
+              "item": "Model§Tyranid Warrior",
               "quantity": 2
             }
           ]
@@ -6856,11 +7405,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Tyranid Warriors"
+            "Model§Tyranid Warrior"
           ]
         },
         "stats": {
-          "Tyranid Warriors": {
+          "Tyranid Warrior": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -6869,7 +7418,85 @@
             "max": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: devourer; bio-weapons.\n\nAny number of models can each have their devourer replaced with one of the following: ◦ 1 deathspitter ◦ 1 spinefists\n\n*For every 3 models in this unit, 1 model’s devourer can be replaced with 1 barbed strangler.\n\n*For every 3 models in this unit, 1 model’s devourer can be replaced with 1 venom cannon."
+        "rules": {
+          "1 in 3 can have a Barbed strangler.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "barbedStrangler"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "1 in 3 can have a Venom cannon.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "venomCannon"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 3 can have a Venom cannon.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Unit§Tyrannocyte": {
         "assets": {
@@ -6946,11 +7573,13 @@
             {
               "item": "Ability§Damaged:",
               "stats": {
-                "keyword": {
+                "x": {
                   "value": "1-5 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Tyrannofex—Stinger salvoes",
+            "Melee Weapon§Tyrannofex—Powerful limbs"
           ]
         },
         "keywords": {
@@ -6985,27 +7614,27 @@
           "OC": {
             "value": 5
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Acid spray",
+            "value": "Hive",
             "ranks": {
-              "Acid spray": {
+              "Hive": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tyrannofex—Acid spray"
-                  }
-                ]
-              },
-              "Fleshborer hive": {
-                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Tyrannofex—Fleshborer hive"
                   }
                 ]
               },
-              "Rupture cannon": {
+              "Acid": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tyrannofex—Acid spray"
+                  }
+                ]
+              },
+              "Rupture": {
                 "order": 2,
                 "traits": [
                   {
@@ -7035,8 +7664,7 @@
             "visibility": "active",
             "dynamic": true
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: fleshborer hive; stinger salvoes; powerful limbs.\n\nThis model’s fleshborer hive can be replaced with one of the following: ◦ 1 acid spray ◦ 1 rupture cannon"
+        }
       },
       "Unit§Tyrant Guard": {
         "assets": {
@@ -7078,8 +7706,7 @@
             "min": 3,
             "max": 6
           }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: scything talons and rending claws.\n\nAny number of models can each have their scything talons and rending claws replaced with one of the following: ◦ 1 bone cleaver, lash whip and rending claws ◦ 1 crushing claws and rending claws"
+        }
       },
       "Unit§Venomthropes": {
         "assets": {
@@ -7090,7 +7717,7 @@
           ],
           "included": [
             {
-              "item": "Model§Venomthropes",
+              "item": "Model§Venomthrope",
               "quantity": 3
             }
           ]
@@ -7111,11 +7738,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Venomthropes"
+            "Model§Venomthrope"
           ]
         },
         "stats": {
-          "Venomthropes": {
+          "Venomthrope": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -7144,7 +7771,7 @@
           ],
           "included": [
             {
-              "item": "Model§Von Ryan’s Leapers",
+              "item": "Model§Von Ryan’s Leaper",
               "quantity": 3
             }
           ]
@@ -7164,11 +7791,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Von Ryan’s Leapers"
+            "Model§Von Ryan’s Leaper"
           ]
         },
         "stats": {
-          "Von Ryan’s Leapers": {
+          "Von Ryan’s Leaper": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -7197,7 +7824,7 @@
           ],
           "included": [
             {
-              "item": "Model§Zoanthropes",
+              "item": "Model§Zoanthrope",
               "quantity": 2
             }
           ]
@@ -7220,11 +7847,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Zoanthropes"
+            "Model§Zoanthrope"
           ]
         },
         "stats": {
-          "Zoanthropes": {
+          "Zoanthrope": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
