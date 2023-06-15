@@ -5,8 +5,8 @@ window.data.AS = {
   "name": "Adepta Sororitas",
   "datasheets": [
     {
-      "id": "e2471c03-170d-576e-b55a-151a3a65e57e",
-      "name": "Adepta Sororitas Armoury\r",
+      "id": "31a5896d-2ef5-59c5-86e5-6f5a05436817",
+      "name": "Adepta Sororitas Armoury",
       "faction_id": "AS",
       "leader": "",
       "composition": [],
@@ -30,7 +30,109 @@ window.data.AS = {
         }
       },
       "stats": [],
-      "rangedWeapons": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Combi-weapon",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Condemnor boltgun",
+              "keywords": [
+                "anti-psyker 2+",
+                "devastating wounds",
+                "precision",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno pistol",
+              "keywords": [
+                "melta 2",
+                "pistol"
+              ],
+              "range": "6\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-4",
+              "damage": "D3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Ministorum hand flamer",
+              "keywords": [
+                "ignores cover",
+                "pistol",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma pistol – standard",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma pistol – supercharge",
+              "keywords": [
+                "hazardous",
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
       "meleeWeapons": [],
       "keywords": [],
       "factions": [
@@ -38,15 +140,18 @@ window.data.AS = {
       ]
     },
     {
-      "id": "b0abe669-69f9-563d-8753-79cf2c4ab71b",
-      "name": "Aestred Thurga And Agathae Dolan\r",
+      "id": "3f3b3210-9983-56bc-b505-721f9d8aa7dd",
+      "name": "Aestred Thurga And Agathae Dolan",
       "faction_id": "AS",
       "leader": "This unit can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants ■ Dominion Squad ■ Retributor Squad",
       "composition": [
-        "1 Aestred Thurga – Epic Hero 1 Agathae Dolan – Epic Hero"
+        "1 Aestred Thurga – Epic Hero",
+        "1 Agathae Dolan – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Aestred Thurga is equipped with: bolt pistol; Blade of Vigil. Agathae Dolan is equipped with: bolt pistol; scribe’s staff.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -79,22 +184,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Aestred Thurga And Agathae Dolan\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "2+",
           "w": "4",
           "ld": "6+",
           "oc": "1",
-          "name": "AESTRED THURGA\r"
+          "name": "AESTRED THURGA"
         },
         {
           "m": "6\"",
@@ -103,7 +199,7 @@ window.data.AS = {
           "w": "3",
           "ld": "7+",
           "oc": "1",
-          "name": "AGATHAE DOLAN\r"
+          "name": "AGATHAE DOLAN"
         }
       ],
       "rangedWeapons": [
@@ -144,20 +240,12 @@ window.data.AS = {
             {
               "name": "Scribe’s staff",
               "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -175,15 +263,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "4eaf073d-2740-545d-b6b9-427f35ce31ca",
-      "name": "Arco-flagellants\r",
+      "id": "88b82e4e-c012-50aa-976a-9b63482f25b2",
+      "name": "Arco-flagellants",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "3-10 Arco-flagellants"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: arco-flails.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -212,31 +302,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Arco-flagellants\r"
-        },
-        {
           "m": "7\"",
           "t": "3",
           "sv": "7+",
           "w": "2",
           "ld": "8+",
-          "oc": "1\r",
-          "name": "Arco-flagellants\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Arco-flagellants"
         }
       ],
       "rangedWeapons": [],
@@ -269,8 +341,8 @@ window.data.AS = {
       ]
     },
     {
-      "id": "3d9eef08-aadf-50aa-bb3f-373761860a4b",
-      "name": "Battle Sisters Squad\r",
+      "id": "d5bfff1a-8946-5275-8b37-0c5e14f353f9",
+      "name": "Battle Sisters Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
@@ -278,7 +350,13 @@ window.data.AS = {
         "9 Battle Sisters"
       ],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
-      "wargear": [],
+      "wargear": [
+        "The Sister Superior’s boltgun can be replaced with one of the following: ◦  1 bolt pistol ◦ 1 combi-weapon* ◦ 1 condemnor boltgun* ◦ 1 inferno pistol* ◦ 1 Ministorum hand flamer* ◦ 1 plasma pistol*",
+        "The Sister Superior can be equipped with one of the following: ◦ 1 chainsword ◦ 1 power weapon",
+        "1 Battle Sister’s boltgun can be replaced with one of the following: ◦ 1 artificer-crafted storm bolter ◦ 1 meltagun ◦ 1 Ministorum flamer",
+        "1 Battle Sister’s boltgun can be replaced with one of the following: ◦ 1 artificer-crafted storm bolter ◦ 1 heavy bolter ◦ 1 meltagun ◦ 1 Ministorum flamer ◦ 1 Ministorum heavy flamer ◦ 1 multi-melta",
+        "1 Battle Sister equipped with 1 boltgun can be equipped with 1 simulacrum imperialis (that model’s boltgun cannot be replaced). *  This weapon’s profile can be found on the Adepta Sororitas Armoury card."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -314,22 +392,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Battle Sisters Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Battle Sisters Squad\r"
+          "oc": "2",
+          "name": "Battle Sisters Squad"
         }
       ],
       "rangedWeapons": [
@@ -356,7 +425,12 @@ window.data.AS = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -384,7 +458,12 @@ window.data.AS = {
                 "heavy",
                 "sustained hits 1"
               ],
-              "range": "36\""
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
@@ -398,9 +477,9 @@ window.data.AS = {
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1\r"
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
             }
           ]
         },
@@ -412,7 +491,12 @@ window.data.AS = {
                 "ignores cover",
                 "torrent"
               ],
-              "range": "12\""
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -425,11 +509,11 @@ window.data.AS = {
                 "torrent"
               ],
               "range": "12\"",
-              "attacks": "3",
-              "skill": "4+",
-              "strength": "5",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "6",
               "ap": "-1",
-              "damage": "2"
+              "damage": "1"
             }
           ]
         },
@@ -441,7 +525,12 @@ window.data.AS = {
                 "heavy",
                 "melta 2"
               ],
-              "range": "18\"\r"
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
             }
           ]
         }
@@ -450,22 +539,14 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "D6",
-              "attacks": "N/A",
-              "skill": "5",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
               "name": "Chainsword",
               "keywords": [],
-              "range": "Melee"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -475,11 +556,11 @@ window.data.AS = {
               "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
-              "attacks": "D6",
-              "skill": "N/A",
-              "strength": "6",
-              "ap": "-1",
-              "damage": "1\r"
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -488,72 +569,12 @@ window.data.AS = {
             {
               "name": "Power weapon",
               "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "9",
-              "strength": "-4",
-              "ap": "D6\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -570,15 +591,20 @@ window.data.AS = {
       ]
     },
     {
-      "id": "d8b39137-b7fd-5f77-ac45-8b32760e0661",
-      "name": "Canoness\r",
+      "id": "ff8ab591-db4a-5588-a5b6-0fb6c84d1eb8",
+      "name": "Canoness",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants",
       "composition": [
         "1 Canoness"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; chainsword.",
+      "wargear": [
+        "This model’s bolt pistol can be replaced with one of the following: ◦ 1 condemnor boltgun ◦ 1 inferno pistol ◦ 1 plasma pistol",
+        "This model’s chainsword can be replaced with one of the following: ◦  1 blessed blade ◦ 1 power weapon",
+        "If this model is equipped with a chainsword, it can be equipped with one of the following: ◦ 1 brazier of holy fire ◦ 1 null rod",
+        "If this model is equipped with a plasma pistol and a power weapon, it can be equipped with: ◦ 1 rod of office"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -620,22 +646,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Canoness\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "4",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Canoness\r"
+          "oc": "1",
+          "name": "Canoness"
         }
       ],
       "rangedWeapons": [
@@ -678,30 +695,50 @@ window.data.AS = {
             {
               "name": "Condemnor boltgun",
               "keywords": [
-                "anti-psyker 2+"
+                "anti-psyker 2+",
+                "devastating wounds",
+                "precision",
+                "rapid fire 1"
               ],
-              "range": "24\"",
-              "attacks": "1",
-              "skill": "2+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
+              "range": "1",
+              "attacks": "2+",
+              "skill": "4",
+              "strength": "0",
+              "ap": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "DEVASTATING WOUNDS, PRECISION, RAPID FIRE 1]",
+              "name": "Inferno pistol",
               "keywords": [
                 "melta 2",
                 "pistol"
-              ]
+              ],
+              "range": "6\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-4",
+              "damage": "D3"
             }
           ]
         },
         {
           "profiles": [
+            {
+              "name": "Plasma pistol – standard",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
             {
               "name": "Plasma pistol – supercharge",
               "keywords": [
@@ -713,7 +750,7 @@ window.data.AS = {
               "skill": "2+",
               "strength": "8",
               "ap": "-3",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -738,15 +775,6 @@ window.data.AS = {
             {
               "name": "Chainsword",
               "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Power weapon",
-              "keywords": [],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -759,13 +787,14 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Power weapon",
               "keywords": [],
-              "range": "4",
-              "attacks": "2+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -782,15 +811,19 @@ window.data.AS = {
       ]
     },
     {
-      "id": "0e89b690-08ec-5d7f-8fe1-7a777e796ba6",
-      "name": "Castigator\r",
+      "id": "3741efa4-b45c-5588-bd3b-e34b7723c590",
+      "name": "Castigator",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "1 Castigator"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Castigator autocannons; 3 heavy bolters; armoured tracks.",
+      "wargear": [
+        "This model’s Castigator autocannons can be replaced with 1 Castigator battle cannon.",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 storm bolter."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -819,22 +852,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Castigator\r"
-        },
-        {
           "m": "10\"",
           "t": "10",
           "sv": "3+",
           "w": "11",
           "ld": "7+",
-          "oc": "3\r",
-          "name": "Castigator\r"
+          "oc": "3",
+          "name": "Castigator"
         }
       ],
       "rangedWeapons": [
@@ -932,7 +956,7 @@ window.data.AS = {
               "skill": "4+",
               "strength": "6",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         }
@@ -948,15 +972,20 @@ window.data.AS = {
       ]
     },
     {
-      "id": "72c12fec-9b0f-5473-b2fd-aff92609e571",
-      "name": "Celestian Sacresants\r",
+      "id": "520d767b-3df5-5b7b-b156-0d98246c4472",
+      "name": "Celestian Sacresants",
       "faction_id": "AS",
       "leader": "",
       "composition": [
-        "1 Sacresant Superior 4-9 Celestian Sacresants"
+        "1 Sacresant Superior",
+        "4-9 Celestian Sacresants"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: bolt pistol; hallowed mace.",
+      "wargear": [
+        "The Sacresant Superior’s hallowed mace can be replaced with 1 spear of the faithful.",
+        "The Sacresant Superior’s bolt pistol can be replaced with one of the following: ◦ 1 inferno pistol ◦ 1 Ministorum hand flamer ◦ 1 plasma pistol",
+        "Any number of models can each have their hallowed mace replaced with 1 anointed halberd."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -983,22 +1012,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Celestian Sacresants\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Celestian Sacresants\r"
+          "oc": "1",
+          "name": "Celestian Sacresants"
         }
       ],
       "rangedWeapons": [
@@ -1026,7 +1046,12 @@ window.data.AS = {
                 "melta 2",
                 "pistol"
               ],
-              "range": "6\"\r"
+              "range": "6\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-4",
+              "damage": "D3"
             }
           ]
         },
@@ -1036,44 +1061,15 @@ window.data.AS = {
               "name": "Ministorum hand flamer",
               "keywords": [
                 "ignores cover",
-                "pistol"
+                "pistol",
+                "torrent"
               ],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "8",
-              "strength": "-4",
-              "ap": "D3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "12\""
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "TORRENT]",
-              "keywords": [],
-              "range": "D6",
-              "attacks": "N/A",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -1097,11 +1093,12 @@ window.data.AS = {
                 "hazardous",
                 "pistol"
               ],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "8",
-              "strength": "-3",
-              "ap": "2\r"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         }
@@ -1110,51 +1107,42 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Anointed halberd",
               "keywords": [],
-              "range": "Melee\r"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Hallowed mace",
               "keywords": [],
-              "range": "Anointed",
-              "attacks": "halberd",
-              "skill": "Melee",
-              "strength": "2",
-              "ap": "3+",
-              "damage": "5"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Spear of the faithful",
               "keywords": [],
-              "range": "Hallowed",
-              "attacks": "mace",
-              "skill": "Melee",
-              "strength": "2",
-              "ap": "3+",
-              "damage": "4"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Spear",
-              "attacks": "of",
-              "skill": "the",
-              "strength": "faithful",
-              "ap": "3",
-              "damage": "3+"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -1170,15 +1158,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "456be693-57d1-5530-87e5-ed781a011273",
-      "name": "Crusaders\r",
+      "id": "b0992500-b13e-516c-b85d-29f349f0a55f",
+      "name": "Crusaders",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "2-6 Crusaders"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: power weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1205,31 +1195,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Crusaders\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Crusaders\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Crusaders"
         }
       ],
       "rangedWeapons": [],
@@ -1259,15 +1231,18 @@ window.data.AS = {
       ]
     },
     {
-      "id": "c11fac9d-e60a-51bd-b6b9-3b00aaef2816",
-      "name": "Daemonifuge\r",
+      "id": "e55011ad-5c67-5c92-9a96-29bb38ee534b",
+      "name": "Daemonifuge",
       "faction_id": "AS",
       "leader": "",
       "composition": [
-        "1 Ephrael Stern – Epic Hero 1 Kyganil of the Bloody Tears – Epic Hero"
+        "1 Ephrael Stern – Epic Hero",
+        "1 Kyganil of the Bloody Tears – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Ephrael Stern is equipped with: bolt pistol; Sanctity. Kyganil of the Bloody Tears is equipped with: the Outcast’s Weapons.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1302,22 +1277,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Daemonifuge\r"
-        },
-        {
           "m": "8\"",
           "t": "3",
           "sv": "3+",
           "w": "5",
           "ld": "7+",
           "oc": "1",
-          "name": "EPHRAEL STERN\r"
+          "name": "EPHRAEL STERN"
         },
         {
           "m": "8\"",
@@ -1326,7 +1292,7 @@ window.data.AS = {
           "w": "3",
           "ld": "7+",
           "oc": "1",
-          "name": "KYGANIL OF THE BLOODY TEARS\r"
+          "name": "KYGANIL OF THE BLOODY TEARS"
         }
       ],
       "rangedWeapons": [
@@ -1395,15 +1361,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "bea67c07-0e03-5e45-97d4-80ad999f736c",
-      "name": "Death Cult Assassins\r",
+      "id": "c24a8e3b-328d-530c-a874-532601f33280",
+      "name": "Death Cult Assassins",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "2-6 Death Cult Assassins"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: Death Cult power blades.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1432,31 +1400,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Death Cult Assassins\r"
-        },
-        {
           "m": "7\"",
           "t": "3",
           "sv": "5+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Death Cult Assassins\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Death Cult Assassins"
         }
       ],
       "rangedWeapons": [],
@@ -1488,15 +1438,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "09956119-a3a1-50a6-aded-4279c61b1785",
-      "name": "Dialogus\r",
+      "id": "0377a6b8-dee1-5703-8748-e4c313a306a2",
+      "name": "Dialogus",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants ■ Dominion Squad ■ Retributor Squad ■ Sisters Novitiate Squad This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
       "composition": [
         "1 Dialogus"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; Dialogus staff.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1529,22 +1481,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Dialogus\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "3",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Dialogus\r"
+          "oc": "1",
+          "name": "Dialogus"
         }
       ],
       "rangedWeapons": [
@@ -1592,15 +1535,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "ea9b58fc-6333-5f24-956e-2f35b309def3",
-      "name": "Dogmata\r",
+      "id": "661ffcf0-c14a-5680-a889-4e8587065e6f",
+      "name": "Dogmata",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants ■ Dominion Squad ■ Retributor Squad This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
       "composition": [
         "1 Dogmata"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; mace of the righteous.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1633,22 +1578,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Dogmata\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "3",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Dogmata\r"
+          "oc": "1",
+          "name": "Dogmata"
         }
       ],
       "rangedWeapons": [
@@ -1697,8 +1633,8 @@ window.data.AS = {
       ]
     },
     {
-      "id": "49954fa6-e94e-5584-9998-51344b69a8d2",
-      "name": "Dominion Squad\r",
+      "id": "ca91f29f-892d-59b8-bb46-55e50ee598d1",
+      "name": "Dominion Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
@@ -1706,7 +1642,12 @@ window.data.AS = {
         "9 Dominions"
       ],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
-      "wargear": [],
+      "wargear": [
+        "The Dominion Superior’s boltgun can be replaced with one of the following: ◦  1 bolt pistol ◦ 1 combi-weapon* ◦ 1 condemnor boltgun* ◦ 1 inferno pistol* ◦ 1 Ministorum hand flamer* ◦ 1 plasma pistol*",
+        "The Dominion Superior can be equipped with one of the following: ◦ 1 chainsword ◦ 1 power weapon",
+        "Up to 4 Dominions can each have their boltgun replaced with one of the following: ◦ 1 artificer-crafted storm bolter ◦ 1 meltagun ◦ 1 Ministorum flamer",
+        "1 Dominion equipped with 1 boltgun can be equipped with 1 simulacrum imperialis (that model’s boltgun cannot be replaced). *  This weapon’s profile can be found on the Adepta Sororitas Armoury card."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -1744,22 +1685,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Dominion Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Dominion Squad\r"
+          "oc": "1",
+          "name": "Dominion Squad"
         }
       ],
       "rangedWeapons": [
@@ -1787,7 +1719,12 @@ window.data.AS = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -1816,7 +1753,12 @@ window.data.AS = {
                 "assault",
                 "melta 2"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
             }
           ]
         },
@@ -1830,9 +1772,9 @@ window.data.AS = {
                 "torrent"
               ],
               "range": "12\"",
-              "attacks": "1",
-              "skill": "3+",
-              "strength": "4",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
               "ap": "0",
               "damage": "1"
             }
@@ -1846,9 +1788,9 @@ window.data.AS = {
               "name": "Chainsword",
               "keywords": [],
               "range": "Melee",
-              "attacks": "D6",
-              "skill": "N/A",
-              "strength": "5",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "3",
               "ap": "0",
               "damage": "1"
             }
@@ -1859,7 +1801,12 @@ window.data.AS = {
             {
               "name": "Close combat weapon",
               "keywords": [],
-              "range": "Melee"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -1869,50 +1816,11 @@ window.data.AS = {
               "name": "Power weapon",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -1928,15 +1836,18 @@ window.data.AS = {
       ]
     },
     {
-      "id": "8dc87625-9155-5d6b-8adc-10daaf4b0c35",
-      "name": "Exorcist\r",
+      "id": "95e41219-dd2d-503f-8bce-dbc1c6a38b91",
+      "name": "Exorcist",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "1 Exorcist"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Exorcist missile launcher; heavy bolter; armoured tracks.",
+      "wargear": [
+        "This model’s Exorcist missile launcher can be replaced with 1 Exorcist conflagration rockets.",
+        "This model can be equipped with 1 hunter-killer missile."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1965,22 +1876,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Exorcist\r"
-        },
-        {
           "m": "10\"",
           "t": "10",
           "sv": "3+",
           "w": "11",
           "ld": "7+",
-          "oc": "3\r",
-          "name": "Exorcist\r"
+          "oc": "3",
+          "name": "Exorcist"
         }
       ],
       "rangedWeapons": [
@@ -1988,7 +1890,12 @@ window.data.AS = {
           "profiles": [
             {
               "name": "Exorcist conflagration rockets",
-              "keywords": [],
+              "keywords": [
+                "blast",
+                "heavy",
+                "ignores cover",
+                "indirect fire"
+              ],
               "range": "36\"",
               "attacks": "3D6",
               "skill": "3+",
@@ -2001,11 +1908,33 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "[BLAST, HEAVY, IGNORES COVER, INDIRECT FIRE]",
+              "name": "Exorcist missile launcher",
               "keywords": [
                 "heavy",
                 "indirect fire"
-              ]
+              ],
+              "range": "36\"",
+              "attacks": "D6+2",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": [
+                "sustained hits 1"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
@@ -2021,7 +1950,7 @@ window.data.AS = {
               "skill": "2+",
               "strength": "14",
               "ap": "-3",
-              "damage": "D6\r"
+              "damage": "D6"
             }
           ]
         }
@@ -2053,15 +1982,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "76e27de1-b4cd-5851-b30a-47c62adc8098",
-      "name": "Hospitaller\r",
+      "id": "fdc8a2a1-d053-5dfd-a2a6-4b9ee3d84cdc",
+      "name": "Hospitaller",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants ■ Dominion Squad ■ Retributor Squad ■ Sisters Novitiate Squad This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
       "composition": [
         "1 Hospitaller"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; chirurgeon’s tools.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2094,22 +2025,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Hospitaller\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Hospitaller\r"
+          "oc": "1",
+          "name": "Hospitaller"
         }
       ],
       "rangedWeapons": [
@@ -2157,15 +2079,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "dae7fa66-55e0-535c-b648-5b18f6e1a910",
-      "name": "Imagifier\r",
+      "id": "6d7a9fea-15a3-566c-8893-f1996af06914",
+      "name": "Imagifier",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants ■ Dominion Squad ■ Retributor Squad This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
       "composition": [
         "1 Imagifier"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; boltgun; close combat weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2198,22 +2122,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Imagifier\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "3",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Imagifier\r"
+          "oc": "1",
+          "name": "Imagifier"
         }
       ],
       "rangedWeapons": [
@@ -2240,7 +2155,12 @@ window.data.AS = {
               "keywords": [
                 "rapid fire 1"
               ],
-              "range": "24\"\r"
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2249,38 +2169,14 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2297,15 +2193,18 @@ window.data.AS = {
       ]
     },
     {
-      "id": "324d096c-f9a1-545d-a016-0a9660ba678a",
-      "name": "Immolator\r",
+      "id": "679ec816-197c-50e7-844f-afd0d62a76ca",
+      "name": "Immolator",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "1 Immolator"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: heavy bolter; immolation flamers; armoured tracks.",
+      "wargear": [
+        "This model’s immolation flamers can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin multi-melta",
+        "This model can be equipped with 1 hunter-killer missile."
+      ],
       "transport": "This model has a transport capacity of 6 Adepta Sororitas Infantry models. It cannot transport Jump Pack models or the Triumph of Saint Katherine. At the start of the Declare Battle Formations step, you can select one Battle Sisters Squad, Dominion Squad or Sisters Novitiate Squad from your army. If you do, that unit is split into two units, each containing as equal a number of models as possible (when splitting a unit in this way, make a note of which models form each of the two new units). One of these units must start the battle embarked within this Transport; the other can start the battle embarked within another Transport, or it can be deployed as a separate unit.",
       "abilities": {
         "wargear": [],
@@ -2334,22 +2233,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Immolator\r"
-        },
-        {
           "m": "12\"",
           "t": "10",
           "sv": "3+",
           "w": "11",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Immolator\r"
+          "oc": "2",
+          "name": "Immolator"
         }
       ],
       "rangedWeapons": [
@@ -2432,7 +2322,7 @@ window.data.AS = {
               "skill": "3+",
               "strength": "9",
               "ap": "-4",
-              "damage": "D6\r"
+              "damage": "D6"
             }
           ]
         }
@@ -2448,7 +2338,7 @@ window.data.AS = {
               "skill": "4+",
               "strength": "6",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         }
@@ -2466,15 +2356,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "b5343616-17da-5c1b-becf-dfd2f264f385",
-      "name": "Junith Eruita\r",
+      "id": "2c64d8eb-881c-55dc-a873-3f2f70fbd8d0",
+      "name": "Junith Eruita",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants",
       "composition": [
         "1 Junith Eruita – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: twin Ministorum heavy flamer; Mace of Castigation.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2508,22 +2400,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Junith Eruita\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Junith Eruita\r"
+          "oc": "2",
+          "name": "Junith Eruita"
         }
       ],
       "rangedWeapons": [
@@ -2531,7 +2414,11 @@ window.data.AS = {
           "profiles": [
             {
               "name": "Twin Ministorum heavy flamer",
-              "keywords": [],
+              "keywords": [
+                "ignores cover",
+                "torrent",
+                "twin-linked"
+              ],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2540,35 +2427,20 @@ window.data.AS = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Mace of Castigation",
               "keywords": [],
-              "range": "Mace",
-              "attacks": "of",
-              "skill": "Castigation"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -2586,15 +2458,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "3b833f6c-aedb-5796-903d-716c570d6a98",
-      "name": "Missionary\r",
+      "id": "25965d2f-8ed6-5605-a5ee-73c8f9f92415",
+      "name": "Missionary",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Arco-flagellants ■ Battle Sisters Squad ■ Crusaders ■ Sisters Novitiate Squad",
       "composition": [
         "1 Missionary"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: holy pistol; power weapon.",
+      "wargear": [
+        "This model’s power weapon can be replaced with one of the following: ◦ 1 autogun and 1 chainsword ◦ 1 Ministorum shotgun and 1 chainsword"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2627,22 +2501,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Missionary\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "6+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Missionary\r"
+          "oc": "1",
+          "name": "Missionary"
         }
       ],
       "rangedWeapons": [
@@ -2669,7 +2534,12 @@ window.data.AS = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -2681,7 +2551,7 @@ window.data.AS = {
                 "assault"
               ],
               "range": "12\"",
-              "attacks": "3",
+              "attacks": "2",
               "skill": "4+",
               "strength": "4",
               "ap": "0",
@@ -2697,11 +2567,11 @@ window.data.AS = {
               "name": "Chainsword",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -2710,33 +2580,12 @@ window.data.AS = {
             {
               "name": "Power weapon",
               "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -2753,15 +2602,19 @@ window.data.AS = {
       ]
     },
     {
-      "id": "d5ea2178-b701-5739-88e2-986bbfef28d6",
-      "name": "Mortifiers\r",
+      "id": "00f20888-3070-5238-b767-f35bc0fc216f",
+      "name": "Mortifiers",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "1-2 Mortifiers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: 2 heavy bolters; twin penitent buzz-blades.",
+      "wargear": [
+        "1 model can be equipped with 1 anchorite sarcophagus.",
+        "Any number of models can each have their 2 heavy bolters replaced with one of the following: ◦  1 heavy bolter and 1 Mortifier flamer ◦ 2 Mortifier flamers",
+        "Any number of models can each have their twin penitent buzz-blades replaced with one of the following: ◦ 1 twin penitent flails ◦ 1 penitent buzz-blade and 1 penitent flail"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2796,22 +2649,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Mortifiers\r"
-        },
-        {
           "m": "8\"",
           "t": "6",
           "sv": "4+",
           "w": "5",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Mortifiers\r"
+          "oc": "2",
+          "name": "Mortifiers"
         }
       ],
       "rangedWeapons": [
@@ -2891,7 +2735,7 @@ window.data.AS = {
               "skill": "3+",
               "strength": "10",
               "ap": "-3",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         },
@@ -2923,15 +2767,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "ea1072c9-206f-5729-9705-755b847452be",
-      "name": "Morvenn Vahl\r",
+      "id": "8c6557e1-2555-58f9-bd81-513f36465c69",
+      "name": "Morvenn Vahl",
       "faction_id": "AS",
-      "leader": "This model can be attached to the following unit: ■ Paragon Warsuits SUPREME COMMANDER If this model is in your army, it must be your Warlord.",
+      "leader": "This model can be attached to the following unit: ■ Paragon Warsuits",
       "composition": [
         "1 Morvenn Vahl – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Fidelis; Paragon missile launcher; Lance of Illumination.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2970,22 +2816,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Morvenn Vahl\r"
-        },
-        {
           "m": "8\"",
           "t": "6",
           "sv": "2+",
           "w": "8",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Morvenn Vahl\r"
+          "oc": "2",
+          "name": "Morvenn Vahl"
         }
       ],
       "rangedWeapons": [
@@ -3016,6 +2853,18 @@ window.data.AS = {
               "strength": "9",
               "ap": "-2",
               "damage": "D6"
+            },
+            {
+              "name": "Paragon missile launcher – sanctorum",
+              "keywords": [
+                "blast"
+              ],
+              "range": "36\"",
+              "attacks": "2D6",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -3061,15 +2910,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "0777e8a3-2874-5ad0-ab4c-d5f864f05802",
-      "name": "Palatine\r",
+      "id": "d283a405-4cbf-5ef3-8f5c-b863a879ba96",
+      "name": "Palatine",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Battle Sisters Squad ■ Celestian Sacresants ■ Dominion Squad ■ Sisters Novitiate Squad",
       "composition": [
         "1 Palatine"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; Palatine blade.",
+      "wargear": [
+        "This model’s bolt pistol can be replaced with 1 plasma pistol."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3103,22 +2954,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Palatine\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Palatine\r"
+          "oc": "1",
+          "name": "Palatine"
         }
       ],
       "rangedWeapons": [
@@ -3145,7 +2987,12 @@ window.data.AS = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
             },
             {
               "name": "Plasma pistol – supercharge",
@@ -3156,9 +3003,9 @@ window.data.AS = {
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
-              "strength": "7",
-              "ap": "-2",
-              "damage": "1"
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         }
@@ -3170,24 +3017,11 @@ window.data.AS = {
               "name": "Palatine blade",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "2+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "2"
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -3204,15 +3038,20 @@ window.data.AS = {
       ]
     },
     {
-      "id": "c2bc2b83-3d49-5720-b0a8-4cd944a0ce02",
-      "name": "Paragon Warsuits\r",
+      "id": "da1adfbf-6de1-5432-bfa9-b9d3d95c4770",
+      "name": "Paragon Warsuits",
       "faction_id": "AS",
       "leader": "",
       "composition": [
-        "1 Paragon Superior 2 Paragons"
+        "1 Paragon Superior",
+        "2 Paragons"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: bolt pistol; heavy bolter; Paragon storm bolters; Paragon war blade.",
+      "wargear": [
+        "Any number of models can each have their Paragon storm bolters replaced with 1 Paragon grenade launchers.",
+        "Any number of models can each have their heavy bolter replaced with one of the following: ◦ 1 Ministorum heavy flamer ◦ 1 multi-melta",
+        "Any number of models can each have their Paragon war blade replaced with 1 Paragon war mace."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3239,22 +3078,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Paragon Warsuits\r"
-        },
-        {
           "m": "8\"",
           "t": "6",
           "sv": "2+",
           "w": "4",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Paragon Warsuits\r"
+          "oc": "2",
+          "name": "Paragon Warsuits"
         }
       ],
       "rangedWeapons": [
@@ -3281,7 +3111,12 @@ window.data.AS = {
               "keywords": [
                 "sustained hits 1"
               ],
-              "range": "36\"\r"
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
@@ -3294,11 +3129,11 @@ window.data.AS = {
                 "torrent"
               ],
               "range": "12\"",
-              "attacks": "3",
-              "skill": "3+",
-              "strength": "5",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "6",
               "ap": "-1",
-              "damage": "2"
+              "damage": "1"
             }
           ]
         },
@@ -3309,7 +3144,12 @@ window.data.AS = {
               "keywords": [
                 "melta 2"
               ],
-              "range": "18\""
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
             }
           ]
         },
@@ -3321,11 +3161,11 @@ window.data.AS = {
                 "twin-linked"
               ],
               "range": "24\"",
-              "attacks": "D6",
-              "skill": "N/A",
-              "strength": "6",
-              "ap": "-1",
-              "damage": "1\r"
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D3"
             }
           ]
         },
@@ -3337,7 +3177,12 @@ window.data.AS = {
                 "rapid fire 2",
                 "twin-linked"
               ],
-              "range": "24\"\r"
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -3346,78 +3191,28 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Paragon war blade",
               "keywords": [],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "9",
-              "strength": "-2",
-              "ap": "D3"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Paragon war mace",
               "keywords": [],
-              "range": "Paragon",
-              "attacks": "war",
-              "skill": "blade",
-              "strength": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Paragon",
-              "attacks": "war",
-              "skill": "mace",
-              "strength": "Melee",
-              "ap": "2",
-              "damage": "3+"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "12",
-              "strength": "-1",
-              "ap": "3\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-1",
+              "damage": "3"
             }
           ]
         }
@@ -3434,15 +3229,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "afc17703-8ffc-5569-8799-14be3179b4ca",
-      "name": "Penitent Engines\r",
+      "id": "af6e6459-79bd-50a0-8e7d-5bd94c3b9701",
+      "name": "Penitent Engines",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "1-2 Penitent Engines"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: penitent flamers; twin penitent buzz-blades.",
+      "wargear": [
+        "Any number of models can each have their twin penitent buzz-blades replaced with one of the following: ◦ 1 penitent buzz-blade and 1 penitent flail ◦ 1 twin penitent flails"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3472,22 +3269,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Penitent Engines\r"
-        },
-        {
           "m": "8\"",
           "t": "6",
           "sv": "4+",
           "w": "5",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Penitent Engines\r"
+          "oc": "2",
+          "name": "Penitent Engines"
         }
       ],
       "rangedWeapons": [
@@ -3498,7 +3286,8 @@ window.data.AS = {
               "keywords": [
                 "assault",
                 "ignores cover",
-                "torrent"
+                "torrent",
+                "twin-linked"
               ],
               "range": "12\"",
               "attacks": "2D6",
@@ -3508,28 +3297,32 @@ window.data.AS = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "TWIN-LINKED]",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
+              "name": "Penitent buzz-blade",
+              "keywords": [
+                "sustained hits 1"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Penitent flail",
+              "keywords": [
+                "sustained hits 1"
+              ],
               "range": "Melee",
               "attacks": "8",
               "skill": "4+",
@@ -3542,78 +3335,34 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Penitent",
-              "attacks": "buzz-blade",
-              "skill": "[SUSTAINED",
-              "strength": "HITS",
-              "ap": "1]\r"
+              "name": "Twin penitent buzz-blades",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Penitent",
-              "attacks": "flail",
-              "skill": "[SUSTAINED",
-              "strength": "HITS",
-              "ap": "1]",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Twin",
-              "attacks": "penitent",
-              "skill": "buzz-blades",
-              "strength": "[SUSTAINED",
-              "ap": "HITS",
-              "damage": "1,\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Twin penitent flails",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
               "range": "Melee",
               "attacks": "8",
               "skill": "4+",
               "strength": "5",
               "ap": "-1",
-              "damage": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "TWIN-LINKED]\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Twin",
-              "attacks": "penitent",
-              "skill": "flails",
-              "strength": "[SUSTAINED",
-              "ap": "HITS",
-              "damage": "1,"
+              "damage": "1"
             }
           ]
         }
@@ -3629,15 +3378,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "66f954dc-8fba-53c0-89ab-f2d6a17c3656",
-      "name": "Preacher\r",
+      "id": "39ca8fac-8846-5960-9af6-7a9020e8c194",
+      "name": "Preacher",
       "faction_id": "AS",
       "leader": "This model can be attached to the following units: ■ Arco-flagellants ■ Crusaders ■ Sisters Novitiate Squad",
       "composition": [
         "1 Preacher"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: zealot’s vindictor.",
+      "wargear": [
+        "This model’s zealot’s vindictor can be replaced with 1 autopistol and 1 chainsword."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3670,22 +3421,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Preacher\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "6+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Preacher\r"
+          "oc": "1",
+          "name": "Preacher"
         }
       ],
       "rangedWeapons": [
@@ -3708,8 +3450,11 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "Zealot’s vindictor [IGNORES COVER, TORRENT]",
-              "keywords": [],
+              "name": "Zealot’s vindictor",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3724,59 +3469,28 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Chainsword",
               "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Zealot’s vindictor",
               "keywords": [],
-              "range": "Chainsword"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Zealot’s",
-              "attacks": "vindictor",
-              "skill": "Melee",
-              "strength": "4",
-              "ap": "4+",
-              "damage": "3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "5",
-              "strength": "-1",
-              "ap": "2"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         }
@@ -3792,15 +3506,18 @@ window.data.AS = {
       ]
     },
     {
-      "id": "2e2cb45f-ac88-5d07-a6d7-dcd2ea3ce470",
-      "name": "Repentia Squad\r",
+      "id": "5293ce3b-95be-5140-9274-e92d7697236a",
+      "name": "Repentia Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
-        "1 Repentia Superior 4-9 Sisters Repentia"
+        "1 Repentia Superior",
+        "4-9 Sisters Repentia"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Repentia Superior is equipped with: bolt pistol; neural whips. Each Sister Repentia is equipped with: penitent eviscerator.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3829,22 +3546,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Repentia Squad\r"
-        },
-        {
           "m": "7\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
           "oc": "1",
-          "name": "REPENTIA SUPERIOR\r"
+          "name": "REPENTIA SUPERIOR"
         },
         {
           "m": "7\"",
@@ -3853,7 +3561,7 @@ window.data.AS = {
           "w": "1",
           "ld": "8+",
           "oc": "1",
-          "name": "SISTERS REPENTIA\r"
+          "name": "SISTERS REPENTIA"
         }
       ],
       "rangedWeapons": [
@@ -3917,8 +3625,8 @@ window.data.AS = {
       ]
     },
     {
-      "id": "0c1387ef-2016-5b95-b530-317a49f5b0f6",
-      "name": "Retributor Squad\r",
+      "id": "d6156281-f4e5-5b72-8372-13af3eb8572d",
+      "name": "Retributor Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
@@ -3926,7 +3634,11 @@ window.data.AS = {
         "4 Retributors"
       ],
       "loadout": "The Retributor Superior is equipped with: bolt pistol; boltgun; close combat weapon. Each Retributor is equipped with: bolt pistol; heavy bolter; close combat weapon.",
-      "wargear": [],
+      "wargear": [
+        "The Retributor Superior’s boltgun can be replaced with one of the following: ◦  1 bolt pistol ◦ 1 combi-weapon* ◦ 1 condemnor boltgun* ◦ 1 inferno pistol* ◦ 1 Ministorum hand flamer* ◦ 1 plasma pistol*",
+        "The Retributor Superior can be equipped with one of the following: ◦ 1 chainsword ◦ 1 power weapon",
+        "Each Retributor’s heavy bolter can be replaced with one of the following: ◦ 1 Ministorum heavy flamer ◦ 1 multi-melta *  This weapon’s profile can be found on the Adepta Sororitas Armoury card."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3957,22 +3669,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Retributor Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Retributor Squad\r"
+          "oc": "1",
+          "name": "Retributor Squad"
         }
       ],
       "rangedWeapons": [
@@ -3999,7 +3702,12 @@ window.data.AS = {
               "keywords": [
                 "rapid fire 1"
               ],
-              "range": "24\"\r"
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -4012,11 +3720,11 @@ window.data.AS = {
                 "sustained hits 1"
               ],
               "range": "36\"",
-              "attacks": "1",
-              "skill": "3+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
@@ -4028,7 +3736,12 @@ window.data.AS = {
                 "ignores cover",
                 "torrent"
               ],
-              "range": "12\""
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -4041,11 +3754,11 @@ window.data.AS = {
                 "melta 2"
               ],
               "range": "18\"",
-              "attacks": "3",
+              "attacks": "2",
               "skill": "4+",
-              "strength": "5",
-              "ap": "-1",
-              "damage": "2"
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
             }
           ]
         }
@@ -4057,11 +3770,11 @@ window.data.AS = {
               "name": "Chainsword",
               "keywords": [],
               "range": "Melee",
-              "attacks": "2",
+              "attacks": "3",
               "skill": "4+",
-              "strength": "9",
-              "ap": "-4",
-              "damage": "D6\r"
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -4070,7 +3783,12 @@ window.data.AS = {
             {
               "name": "Close combat weapon",
               "keywords": [],
-              "range": "Melee\r"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -4080,50 +3798,11 @@ window.data.AS = {
               "name": "Power weapon",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -4139,15 +3818,18 @@ window.data.AS = {
       ]
     },
     {
-      "id": "dfdbd48c-0a25-5d46-8299-b802fd9c7858",
-      "name": "Saint Celestine\r",
+      "id": "ccbd4e23-2170-55ca-ad75-6f9af5f167a7",
+      "name": "Saint Celestine",
       "faction_id": "AS",
       "leader": "This unit can be attached to the following units: ■ Seraphim Squad ■ Zephyrim Squad",
       "composition": [
-        "1 Celestine – Epic Hero 2 Geminae Superia"
+        "1 Celestine – Epic Hero",
+        "2 Geminae Superia"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Saint Celestine is equipped with: the Ardent Blade. Each Geminae Superia is equipped with: bolt pistol; power weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -4185,22 +3867,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Saint Celestine\r"
-        },
-        {
           "m": "12\"",
           "t": "3",
           "sv": "2+",
           "w": "5",
           "ld": "6+",
           "oc": "1",
-          "name": "CELESTINE\r"
+          "name": "CELESTINE"
         },
         {
           "m": "12\"",
@@ -4209,7 +3882,7 @@ window.data.AS = {
           "w": "2",
           "ld": "7+",
           "oc": "1",
-          "name": "GEMINAE SUPERIA\r"
+          "name": "GEMINAE SUPERIA"
         }
       ],
       "rangedWeapons": [
@@ -4232,8 +3905,11 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "The Ardent Blade [IGNORES COVER, TORRENT]",
-              "keywords": [],
+              "name": "The Ardent Blade",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4248,71 +3924,59 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Power weapon",
               "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Power",
-              "attacks": "weapon"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "The",
-              "attacks": "Ardent",
-              "skill": "Blade",
-              "strength": "[DEVASTATING",
-              "ap": "WOUNDS]",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "The Ardent Blade",
+              "keywords": [
+                "devastating wounds"
+              ],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
               "strength": "6",
               "ap": "-3",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
       ],
-      "keywords": [],
+      "keywords": [
+        "Infantry",
+        "Jump Pack",
+        "Fly",
+        "Grenades",
+        "Imperium"
+      ],
       "factions": [
         "Adepta Sororitas"
       ]
     },
     {
-      "id": "0a0da486-e11c-5826-ab04-cc8cd3fa4a83",
-      "name": "Seraphim Squad\r",
+      "id": "28054192-ed9e-5f9c-a5ee-10e5cbcd365d",
+      "name": "Seraphim Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
-        "1 Seraphim Superior 4-9 Seraphim"
+        "1 Seraphim Superior",
+        "4-9 Seraphim"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: 2 bolt pistols; close combat weapon.",
+      "wargear": [
+        "The Seraphim Superior’s 2 bolt pistols can be replaced with one of the following: ◦ 1 bolt pistol and 1 chainsword ◦ 1 bolt pistol and 1 plasma pistol ◦ 1 bolt pistol and 1 power weapon ◦ 1 plasma pistol and 1 chainsword ◦  1 plasma pistol and 1 power weapon",
+        "For every 5 models in the unit, up to 2 Seraphim can each have their 2 bolt pistols replaced with one of the following: ◦ 2 inferno pistols ◦ 2 Ministorum hand flamers"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -4341,22 +4005,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Seraphim Squad\r"
-        },
-        {
           "m": "12\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Seraphim Squad\r"
+          "oc": "1",
+          "name": "Seraphim Squad"
         }
       ],
       "rangedWeapons": [
@@ -4384,7 +4039,12 @@ window.data.AS = {
                 "melta 2",
                 "pistol"
               ],
-              "range": "6\"\r"
+              "range": "6\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-4",
+              "damage": "D3"
             }
           ]
         },
@@ -4394,44 +4054,15 @@ window.data.AS = {
               "name": "Ministorum hand flamer",
               "keywords": [
                 "pistol",
-                "torrent"
+                "torrent",
+                "ignores cover"
               ],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "8",
-              "strength": "-4",
-              "ap": "D3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "12\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "IGNORES COVER]",
-              "keywords": [],
-              "range": "D6",
-              "attacks": "N/A",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "12\""
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -4455,11 +4086,12 @@ window.data.AS = {
                 "hazardous",
                 "pistol"
               ],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "8",
-              "strength": "-3",
-              "ap": "2"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         }
@@ -4468,62 +4100,42 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Chainsword",
               "keywords": [],
-              "range": "Melee\r"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "Chainsword",
-              "attacks": "Melee",
-              "skill": "4",
-              "strength": "3+",
-              "ap": "3",
-              "damage": "0"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Power weapon",
               "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Power",
-              "attacks": "weapon",
-              "skill": "2",
-              "strength": "3+",
-              "ap": "3",
-              "damage": "0"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -4541,8 +4153,8 @@ window.data.AS = {
       ]
     },
     {
-      "id": "c348cb94-fe44-53ed-8a49-fe5ba321c2f4",
-      "name": "Sisters Novitiate Squad\r",
+      "id": "06efe54d-9b91-59ee-a6c0-22cfa29ca99f",
+      "name": "Sisters Novitiate Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
@@ -4550,7 +4162,13 @@ window.data.AS = {
         "9 Sisters Novitiate"
       ],
       "loadout": "The Novitiate Superior is equipped with: bolt pistol; boltgun; close combat weapon. Each Sister Novitiate is equipped with: autopistol; autogun; close combat weapon.",
-      "wargear": [],
+      "wargear": [
+        "The Novitiate Superior’s bolt pistol and boltgun can be replaced with one of the following: ◦ 1 bolt pistol and 1 power weapon ◦ 1 plasma pistol and 1 power weapon",
+        "1 Sister Novitiate’s autogun can be replaced with 1 sacred banner.",
+        "1 Sister Novitiate’s autogun can be replaced with 1 simulacrum imperialis.",
+        "Up to 2 Sisters Novitiate can each have their autogun replaced with 1 Ministorum flamer.",
+        "Any number of Sisters Novitiate can each have their autogun and close combat weapon replaced with 1 Novitiate melee weapons."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -4586,22 +4204,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Sisters Novitiate Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
           "oc": "2",
-          "name": "NOVITIATE SUPERIOR\r"
+          "name": "NOVITIATE SUPERIOR"
         },
         {
           "m": "6\"",
@@ -4610,7 +4219,7 @@ window.data.AS = {
           "w": "1",
           "ld": "8+",
           "oc": "2",
-          "name": "SISTER NOVITIATE\r"
+          "name": "SISTER NOVITIATE"
         }
       ],
       "rangedWeapons": [
@@ -4633,7 +4242,7 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "Autogun [RAPID FIRE 1]",
+              "name": "Autogun",
               "keywords": [
                 "rapid fire 1"
               ],
@@ -4649,10 +4258,9 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "Ministorum flamer",
+              "name": "Bolt pistol",
               "keywords": [
-                "ignores cover",
-                "torrent"
+                "pistol"
               ],
               "range": "12\"",
               "attacks": "1",
@@ -4666,14 +4274,62 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "Plasma pistol – standard [PISTOL]",
-              "keywords": [],
+              "name": "Boltgun",
+              "keywords": [
+                "rapid fire 1"
+              ],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
               "strength": "4",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Ministorum flamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma pistol – standard",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma pistol – supercharge",
+              "keywords": [
+                "hazardous",
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         }
@@ -4682,83 +4338,21 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "12\"",
-              "ap": "1",
-              "damage": "3+"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Novitiate",
-              "attacks": "melee",
-              "skill": "weapons\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Power",
-              "attacks": "weapon",
-              "skill": "12\"",
-              "strength": "1",
-              "ap": "3+",
-              "damage": "8"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
               "strength": "3",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Novitiate melee weapons",
               "keywords": [],
               "range": "Melee",
               "attacks": "2",
@@ -4772,13 +4366,14 @@ window.data.AS = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Power weapon",
               "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -4794,15 +4389,17 @@ window.data.AS = {
       ]
     },
     {
-      "id": "db72b35e-adb9-5ab7-be45-6edec527a969",
-      "name": "Sororitas Rhino\r",
+      "id": "e6cd8570-ae18-5c8d-8b15-2e26a7393014",
+      "name": "Sororitas Rhino",
       "faction_id": "AS",
       "leader": "",
       "composition": [
         "1 Sororitas Rhino"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile."
+      ],
       "transport": "This model has a transport capacity of 12 Adepta Sororitas Infantry models. It cannot transport Jump Pack models or the Triumph of Saint Katherine.",
       "abilities": {
         "wargear": [],
@@ -4832,22 +4429,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Sororitas Rhino\r"
-        },
-        {
           "m": "12\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Sororitas Rhino\r"
+          "oc": "2",
+          "name": "Sororitas Rhino"
         }
       ],
       "rangedWeapons": [
@@ -4895,7 +4483,7 @@ window.data.AS = {
               "skill": "4+",
               "strength": "6",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         }
@@ -4913,264 +4501,19 @@ window.data.AS = {
       ]
     },
     {
-      "id": "d52e5fbe-174f-5c71-b685-5e275b305af0",
-      "name": "Triumph Of Saint Katherine\r",
-      "faction_id": "AS",
-      "leader": "This model can be attached to the following unit: ■ Battle Sisters Squad",
-      "composition": [
-        "1 Triumph of Saint Katherine – Epic Hero"
-      ],
-      "loadout": "",
-      "wargear": [],
-      "transport": "",
-      "abilities": {
-        "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Acts of Faith"
-        ],
-        "primarch": [],
-        "invul": {
-          "value": "4+",
-          "info": ""
-        },
-        "other": [
-          {
-            "name": "Relics of the Matriarchs",
-            "description": "At the start of the battle round, select up to two of the abilities in the Relics of the Matriarchs section (see left). Until the start of the next battle round, this model has those abilities."
-          }
-        ],
-        "special": [],
-        "damaged": {
-          "range": "1-5 WOUNDS REMAINING",
-          "description": "While this model has 1-5 wounds remaining, the Attacks characteristics of all of its weapons are halved, and you can only select one ability when using its Relics of the Matriarchs ability, instead of up to two."
-        }
-      },
-      "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Triumph Of Saint Katherine\r"
-        },
-        {
-          "m": "6\"",
-          "t": "3",
-          "sv": "3+",
-          "w": "18",
-          "ld": "6+",
-          "oc": "6\r",
-          "name": "Triumph Of Saint Katherine\r"
-        }
-      ],
-      "rangedWeapons": [
-        {
-          "profiles": [
-            {
-              "name": "Bolt pistols",
-              "keywords": [
-                "pistol"
-              ],
-              "range": "12\"",
-              "attacks": "6",
-              "skill": "2+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
-            }
-          ]
-        }
-      ],
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "name": "Relic weapons",
-              "keywords": [],
-              "range": "Melee",
-              "attacks": "18",
-              "skill": "2+",
-              "strength": "5",
-              "ap": "-2",
-              "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "RELICS OF THE MATRIARCHS",
-              "keywords": []
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "is destroyed, the Miracle dice you gain as a result is",
-              "keywords": [],
-              "range": "friendly",
-              "attacks": "Adepta",
-              "skill": "Sororitas",
-              "strength": "unit",
-              "ap": "is",
-              "damage": "within"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "automatically a 6.",
-              "keywords": [],
-              "range": "model,",
-              "attacks": "add",
-              "skill": "1",
-              "strength": "to",
-              "ap": "the",
-              "damage": "Attacks"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Fire",
-              "attacks": "weapons",
-              "skill": "equipped",
-              "strength": "by",
-              "ap": "models",
-              "damage": "in"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Censer of the Sacred Rose (Aura): While a friendly",
-              "keywords": [],
-              "range": "Icon",
-              "attacks": "of",
-              "skill": "the",
-              "strength": "Valorous",
-              "ap": "Heart",
-              "damage": "(Aura):"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Adepta Sororitas unit is within 6\" of this model,",
-              "keywords": [],
-              "range": "Adepta",
-              "attacks": "Sororitas",
-              "skill": "unit",
-              "strength": "is",
-              "ap": "within",
-              "damage": "6\""
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "improve that unit’s Leadership characteristic by 1.",
-              "keywords": [],
-              "range": "that",
-              "attacks": "unit",
-              "skill": "has",
-              "strength": "the",
-              "ap": "Feel",
-              "damage": "No"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Simulacrum of the Ebon Chalice (Aura): While a",
-              "keywords": [],
-              "range": "Petals",
-              "attacks": "of",
-              "skill": "the",
-              "strength": "Bloody",
-              "ap": "Rose",
-              "damage": "(Aura):"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "friendly Adepta Sororitas unit is within 6\" of this",
-              "keywords": [],
-              "range": "Adepta",
-              "attacks": "Sororitas",
-              "skill": "unit",
-              "strength": "is",
-              "ap": "within",
-              "damage": "6\""
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "model, that unit can perform any number of Acts of",
-              "keywords": [],
-              "range": "melee",
-              "attacks": "weapons",
-              "skill": "equipped",
-              "strength": "by",
-              "ap": "models",
-              "damage": "in"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Faith per phase, instead of only one.",
-              "keywords": [],
-              "range": "have",
-              "attacks": "the",
-              "skill": "[LETHAL",
-              "strength": "HITS]",
-              "ap": "ability.\r"
-            }
-          ]
-        }
-      ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Character",
-        "Epic Hero",
-        "Imperium",
-        "Triumph of Saint Katherine"
-      ],
-      "factions": [
-        "Adepta Sororitas"
-      ]
-    },
-    {
-      "id": "facc6ac5-c308-5b8e-82f9-9be8c22f2cd7",
-      "name": "Zephyrim Squad\r",
+      "id": "d7f0b494-8805-52ab-99c7-6660b49c0763",
+      "name": "Zephyrim Squad",
       "faction_id": "AS",
       "leader": "",
       "composition": [
-        "1 Zephyrim Superior 4-9 Zephyrim"
+        "1 Zephyrim Superior",
+        "4-9 Zephyrim"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: bolt pistol; power weapon.",
+      "wargear": [
+        "The Zephyrim Superior can be equipped with 1 sacred banner.",
+        "The Zephyrim Superior’s bolt pistol can be replaced with 1 plasma pistol."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -5204,22 +4547,13 @@ window.data.AS = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Zephyrim Squad\r"
-        },
-        {
           "m": "12\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Zephyrim Squad\r"
+          "oc": "1",
+          "name": "Zephyrim Squad"
         }
       ],
       "rangedWeapons": [
@@ -5246,7 +4580,12 @@ window.data.AS = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
             },
             {
               "name": "Plasma pistol – supercharge",
@@ -5257,9 +4596,9 @@ window.data.AS = {
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
-              "strength": "7",
-              "ap": "-2",
-              "damage": "1"
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         }
@@ -5271,24 +4610,11 @@ window.data.AS = {
               "name": "Power weapon",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }

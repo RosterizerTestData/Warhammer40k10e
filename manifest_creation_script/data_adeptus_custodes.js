@@ -5,15 +5,17 @@ window.data.AC = {
   "name": "Adeptus Custodes",
   "datasheets": [
     {
-      "id": "659ae5cd-6564-595f-a0ae-5b84f364bff8",
-      "name": "Aleya\r",
+      "id": "2973a1e7-49ab-5c6f-a61f-0abefe87bfe5",
+      "name": "Aleya",
       "faction_id": "AC",
       "leader": "This model can be attached to the following units: ■ Prosecutors ■ Vigilators ■ Witchseekers",
       "composition": [
         "1 Aleya – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Somnus.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -28,7 +30,20 @@ window.data.AC = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Tactical Perception",
+            "description": "While this model is leading a unit, models in that unit have the Fights First ability."
+          },
+          {
+            "name": "Tenacious Spirit",
+            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength."
+          },
+          {
+            "name": "Daughter of the Abyss",
+            "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -37,50 +52,59 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Aleya\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Aleya\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Aleya"
         }
       ],
       "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Somnus",
+              "keywords": [
+                "anti-psyker 4+",
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "6",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Epic Hero",
+        "Imperium",
+        "Aleya"
+      ],
       "factions": [
         "Adeptus Custodes"
       ]
     },
     {
-      "id": "759c20dd-8ed1-5197-b78e-c5e3b7b7742b",
-      "name": "Allarus Custodians\r",
+      "id": "1d52b4a3-4514-5a3e-adab-3594c2a60fa0",
+      "name": "Allarus Custodians",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "2-6 Allarus Custodians"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: balistus grenade launcher; guardian spear.",
+      "wargear": [
+        "Any number of models can each have their guardian spear replaced with 1 castellan axe.",
+        "1 model’s guardian spear can be replaced with 1 vexilla and 1 misericordia."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -118,22 +142,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Allarus Custodians\r"
-        },
-        {
           "m": "5\"",
           "t": "7",
           "sv": "2+",
           "w": "4",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Allarus Custodians\r"
+          "oc": "2",
+          "name": "Allarus Custodians"
         }
       ],
       "rangedWeapons": [
@@ -156,8 +171,26 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "Castellan axe [ASSAULT]",
-              "keywords": [],
+              "name": "Castellan axe",
+              "keywords": [
+                "assault"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Guardian spear",
+              "keywords": [
+                "assault"
+              ],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -172,45 +205,21 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Castellan axe",
               "keywords": [],
-              "range": "Castellan",
-              "attacks": "axe",
-              "skill": "RANGE",
-              "strength": "A",
-              "ap": "WS",
-              "damage": "S"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Guardian",
-              "attacks": "spear\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Misericordia",
-              "attacks": "Melee",
-              "skill": "4",
-              "strength": "3+",
-              "ap": "9",
-              "damage": "-1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Guardian spear",
               "keywords": [],
               "range": "Melee",
               "attacks": "5",
@@ -224,7 +233,7 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Misericordia",
               "keywords": [],
               "range": "Melee",
               "attacks": "5",
@@ -247,15 +256,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "09dfb85b-f003-56ce-9905-1e5f27364061",
-      "name": "Anathema Psykana Rhino\r",
+      "id": "2e5ba22b-8a92-5e30-aa84-5610a5081445",
+      "name": "Anathema Psykana Rhino",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "1 Anathema Psykana Rhino"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile."
+      ],
       "transport": "This model has a transport capacity of 12 Anathema Psykana Infantry models.",
       "abilities": {
         "wargear": [],
@@ -268,7 +279,16 @@ window.data.AC = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Daughters of the Abyss",
+            "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks."
+          },
+          {
+            "name": "Self Repair",
+            "description": "At the start of your Command phase, this model regains 1 lost wound."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -277,41 +297,90 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Anathema Psykana Rhino\r"
-        },
-        {
           "m": "12\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Anathema Psykana Rhino\r"
+          "oc": "2",
+          "name": "Anathema Psykana Rhino"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": [
+                "one shot"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Dedicated Transport",
+        "Smoke",
+        "Imperium",
+        "Anathema Psykana",
+        "Rhino"
+      ],
       "factions": [
         "Adeptus Custodes"
       ]
     },
     {
-      "id": "3a06e2d9-a678-5123-9540-9aff24bef49f",
-      "name": "Blade Champion\r",
+      "id": "e3d44ca2-252c-517f-8702-19e20f311930",
+      "name": "Blade Champion",
       "faction_id": "AC",
       "leader": "This model can be attached to the following units: ■ Custodian Guard ■ Custodian Wardens",
       "composition": [
         "1 Blade Champion"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: vaultswords.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -345,31 +414,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Blade Champion\r"
-        },
-        {
           "m": "6\"",
           "t": "6",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Blade Champion\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "2",
+          "name": "Blade Champion"
         }
       ],
       "rangedWeapons": [],
@@ -398,7 +449,7 @@ window.data.AC = {
               "skill": "2+",
               "strength": "5",
               "ap": "-1",
-              "damage": "1\r"
+              "damage": "1"
             },
             {
               "name": "Vaultswords – Victus",
@@ -426,15 +477,18 @@ window.data.AC = {
       ]
     },
     {
-      "id": "141d0b6f-c879-526c-84a3-f902eee6d5cd",
-      "name": "Custodian Guard\r",
+      "id": "923d8a4f-3a80-5328-bd04-8d3bcee4d6e2",
+      "name": "Custodian Guard",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "4-10 Custodian Guard"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: guardian spear.",
+      "wargear": [
+        "Any number of models can each have their guardian spear replaced with 1 sentinel blade and 1 praesidium shield.",
+        "1 model’s guardian spear can be replaced with one of the following: ◦ 1 vexilla and 1 misericordia ◦ 1 vexilla, 1 misericordia and 1 praesidium shield"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -476,22 +530,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Custodian Guard\r"
-        },
-        {
           "m": "6\"",
           "t": "6",
           "sv": "2+",
           "w": "3",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Custodian Guard\r"
+          "oc": "2",
+          "name": "Custodian Guard"
         }
       ],
       "rangedWeapons": [
@@ -524,7 +569,7 @@ window.data.AC = {
               "skill": "2+",
               "strength": "4",
               "ap": "-1",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -584,15 +629,18 @@ window.data.AC = {
       ]
     },
     {
-      "id": "9a9b847c-e9cf-5155-926b-209e618e2715",
-      "name": "Custodian Wardens\r",
+      "id": "84afd6cb-2f70-5b2d-87ee-e5c581b96817",
+      "name": "Custodian Wardens",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "3-6 Custodian Wardens"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: guardian spear.",
+      "wargear": [
+        "Any number of models can each have their guardian spear replaced with 1 castellan axe.",
+        "1 model can be equipped with 1 vexilla."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -630,22 +678,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Custodian Wardens\r"
-        },
-        {
           "m": "6\"",
           "t": "6",
           "sv": "2+",
           "w": "3",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Custodian Wardens\r"
+          "oc": "2",
+          "name": "Custodian Wardens"
         }
       ],
       "rangedWeapons": [
@@ -677,7 +716,7 @@ window.data.AC = {
               "skill": "2+",
               "strength": "4",
               "ap": "-1",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -722,15 +761,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "88c62c16-2f48-52c1-bffd-60c2e95ec96e",
-      "name": "Knight-centura\r",
+      "id": "1502c79d-c7ba-5714-8de1-c24b51efefd8",
+      "name": "Knight-centura",
       "faction_id": "AC",
       "leader": "This model can be attached to the following units: ■ Prosecutors ■ Vigilators ■ Witchseekers",
       "composition": [
         "1 Knight-Centura"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: executioner greatblade.",
+      "wargear": [
+        "This model’s executioner greatblade can be replaced with one of the following: ◦ 1 master-crafted boltgun ◦ 1 Witchseeker flamer"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -744,7 +785,20 @@ window.data.AC = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Seeker’s Instincts",
+            "description": "While this model is leading a unit, add 2\" to the Move characteristic of models in that unit and add 2 to Advance and Charge rolls made for that unit."
+          },
+          {
+            "name": "Daughter of the Abyss",
+            "description": "This model has the Feel No Pain 3+ ability against Psychic Attacks."
+          },
+          {
+            "name": "Corner the Quarry",
+            "description": "Each time an enemy unit (excluding Monsters and Vehicles) that is within Engagement Range of this model’s unit Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -753,41 +807,93 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Knight-centura\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Knight-centura\r"
+          "oc": "1",
+          "name": "Knight-centura"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Master-crafted boltgun",
+              "keywords": [
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Witchseeker flamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Executioner greatblade",
+              "keywords": [
+                "anti-psyker 4+",
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Imperium",
+        "Anathema Psykana",
+        "Knight-Centura"
+      ],
       "factions": [
         "Adeptus Custodes"
       ]
     },
     {
-      "id": "c5ae9cb6-3ed1-5bf0-8e62-390f71e67e3a",
-      "name": "Prosecutors\r",
+      "id": "c88e2168-63a7-58d4-92f7-599f8240099a",
+      "name": "Prosecutors",
       "faction_id": "AC",
       "leader": "",
       "composition": [
-        "1 Prosecutor Sister Superior 3-9 Prosecutors"
+        "1 Prosecutor Sister Superior",
+        "3-9 Prosecutors"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: boltgun; close combat weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -798,7 +904,16 @@ window.data.AC = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Daughters of the Abyss",
+            "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks."
+          },
+          {
+            "name": "Purity of Execution",
+            "description": "Each time a model in this unit makes a ranged attack that targets a Psyker unit, that attack has the [PRECISION] and [DEVASTATING WOUNDS] abilities."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -807,41 +922,72 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Prosecutors\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Prosecutors\r"
+          "oc": "2",
+          "name": "Prosecutors"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Boltgun",
+              "keywords": [
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Battleline",
+        "Imperium",
+        "Anathema Psykana",
+        "Prosecutors"
+      ],
       "factions": [
         "Adeptus Custodes"
       ]
     },
     {
-      "id": "c70fccc1-5743-5748-91f2-67d237b21b19",
-      "name": "Shield-captain\r",
+      "id": "7e5fe5ef-d517-5317-a4a3-532012b2ab27",
+      "name": "Shield-captain",
       "faction_id": "AC",
       "leader": "This model can be attached to the following units: ■ Custodian Guard ■ Custodian Wardens",
       "composition": [
         "1 Shield-Captain"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: guardian spear.",
+      "wargear": [
+        "This model’s guardian spear can be replaced with one of the following: ◦ 1 castellan axe ◦ 1 sentinel blade ◦ 1 sentinel blade and 1 praesidium shield"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -880,22 +1026,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Shield-captain\r"
-        },
-        {
           "m": "6\"",
           "t": "6",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Shield-captain\r"
+          "oc": "2",
+          "name": "Shield-captain"
         }
       ],
       "rangedWeapons": [
@@ -927,7 +1064,7 @@ window.data.AC = {
               "skill": "2+",
               "strength": "4",
               "ap": "-1",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         },
@@ -1004,15 +1141,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "a7b58014-bf3d-501f-9e1a-15b6d062c585",
-      "name": "Shield-captain In Allarus Terminator Armour\r",
+      "id": "4bff1d84-eb9d-5f8f-80c2-4eef6bc38553",
+      "name": "Shield-captain In Allarus Terminator Armour",
       "faction_id": "AC",
       "leader": "This model can be attached to the following unit: ■ Allarus Custodians",
       "composition": [
         "1 Shield-Captain in Allarus Terminator Armour"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: balistus grenade launcher; guardian spear.",
+      "wargear": [
+        "This model’s guardian spear can be replaced with 1 castellan axe."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1046,22 +1185,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Shield-captain In Allarus Terminator Armour\r"
-        },
-        {
           "m": "5\"",
           "t": "7",
           "sv": "2+",
           "w": "7",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Shield-captain In Allarus Terminator Armour\r"
+          "oc": "2",
+          "name": "Shield-captain In Allarus Terminator Armour"
         }
       ],
       "rangedWeapons": [
@@ -1084,8 +1214,26 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "Castellan axe [ASSAULT]",
-              "keywords": [],
+              "name": "Castellan axe",
+              "keywords": [
+                "assault"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Guardian spear",
+              "keywords": [
+                "assault"
+              ],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -1100,31 +1248,7 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Castellan",
-              "attacks": "axe",
-              "skill": "RANGE",
-              "strength": "A",
-              "ap": "WS",
-              "damage": "S"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Guardian",
-              "attacks": "spear"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Castellan axe",
               "keywords": [],
               "range": "Melee",
               "attacks": "6",
@@ -1138,14 +1262,14 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Guardian spear",
               "keywords": [],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
               "strength": "7",
               "ap": "-2",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -1162,15 +1286,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "2abb457e-8c92-59ee-b8a6-13b8b9076a6d",
-      "name": "Shield-captain On Dawneagle Jetbike\r",
+      "id": "e803a504-7890-5595-8868-d52189fbe26e",
+      "name": "Shield-captain On Dawneagle Jetbike",
       "faction_id": "AC",
       "leader": "This model can be attached to the following unit: ■ Vertus Praetors",
       "composition": [
         "1 Shield-Captain on Dawneagle Jetbike"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: salvo launcher; interceptor lance.",
+      "wargear": [
+        "This model’s salvo launcher can be replaced with 1 Vertus hurricane bolter."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1203,22 +1329,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Shield-captain On Dawneagle Jetbike\r"
-        },
-        {
           "m": "12\"",
           "t": "6",
           "sv": "2+",
           "w": "7",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Shield-captain On Dawneagle Jetbike\r"
+          "oc": "2",
+          "name": "Shield-captain On Dawneagle Jetbike"
         }
       ],
       "rangedWeapons": [
@@ -1244,7 +1361,12 @@ window.data.AC = {
             {
               "name": "Salvo launcher",
               "keywords": [],
-              "range": "24\"\r"
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "3"
             }
           ]
         }
@@ -1253,38 +1375,16 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Interceptor",
-              "attacks": "lance",
-              "skill": "[LANCE]",
-              "strength": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "6",
-              "attacks": "2+",
-              "skill": "7",
-              "strength": "-2",
-              "ap": "2"
+              "name": "Interceptor lance",
+              "keywords": [
+                "lance"
+              ],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "2+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -1302,15 +1402,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "b319639c-cf31-5056-ae54-d6d4c45274f7",
-      "name": "Trajann Valoris\r",
+      "id": "8d484fc2-0de6-5a20-b6fb-888f23a18b3f",
+      "name": "Trajann Valoris",
       "faction_id": "AC",
-      "leader": "This model can be attached to the following units: ■ Custodian Guard ■ Custodian Wardens SUPREME COMMANDER If this model is in your army, it must be your Warlord.",
+      "leader": "This model can be attached to the following units: ■ Custodian Guard ■ Custodian Wardens",
       "composition": [
         "1 Trajann Valoris – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Watcher’s Axe.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1350,22 +1452,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Trajann Valoris\r"
-        },
-        {
           "m": "6\"",
           "t": "6",
           "sv": "2+",
           "w": "7",
           "ld": "5+",
-          "oc": "2\r",
-          "name": "Trajann Valoris\r"
+          "oc": "2",
+          "name": "Trajann Valoris"
         }
       ],
       "rangedWeapons": [
@@ -1414,15 +1507,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "bab65178-df0d-5de7-befa-9a4e7c5b015d",
-      "name": "Valerian\r",
+      "id": "12edb3d1-de71-5dce-8515-c95f86fa9b05",
+      "name": "Valerian",
       "faction_id": "AC",
       "leader": "This model can be attached to the following units: ■ Custodian Guard ■ Custodian Wardens",
       "composition": [
         "1 Valerian – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Gnosis.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1456,22 +1551,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Valerian\r"
-        },
-        {
           "m": "6\"",
           "t": "6",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Valerian\r"
+          "oc": "2",
+          "name": "Valerian"
         }
       ],
       "rangedWeapons": [
@@ -1521,15 +1607,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "2c33dc42-c6e3-5f1f-ac2f-1f2bf4ae59c5",
-      "name": "Venerable Contemptor Dreadnought\r",
+      "id": "cf2b9789-37cf-5eaf-bd1f-6b126b5173b2",
+      "name": "Venerable Contemptor Dreadnought",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "1 Venerable Contemptor Dreadnought"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: combi-bolter; multi-melta; Contemptor combat weapon.",
+      "wargear": [
+        "This model’s multi-melta can be replaced with 1 Kheres-pattern assault cannon."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1558,22 +1646,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Venerable Contemptor Dreadnought\r"
-        },
-        {
           "m": "6\"",
           "t": "9",
           "sv": "2+",
           "w": "10",
           "ld": "6+",
-          "oc": "3\r",
-          "name": "Venerable Contemptor Dreadnought\r"
+          "oc": "3",
+          "name": "Venerable Contemptor Dreadnought"
         }
       ],
       "rangedWeapons": [
@@ -1597,17 +1676,10 @@ window.data.AC = {
           "profiles": [
             {
               "name": "Kheres-pattern assault cannon",
-              "keywords": [],
-              "range": "24\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "18\"",
+              "keywords": [
+                "devastating wounds"
+              ],
+              "range": "24\"",
               "attacks": "6",
               "skill": "2+",
               "strength": "7",
@@ -1619,11 +1691,11 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "[DEVASTATING WOUNDS]",
+              "name": "Multi-melta",
               "keywords": [
                 "melta 2"
               ],
-              "range": "RANGE",
+              "range": "18\"",
               "attacks": "2",
               "skill": "2+",
               "strength": "9",
@@ -1637,24 +1709,14 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Contemptor combat weapon",
               "keywords": [],
-              "range": "5",
-              "attacks": "2+",
-              "skill": "12",
-              "strength": "-2",
-              "ap": "3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Contemptor",
-              "attacks": "combat",
-              "skill": "weapon"
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "2+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
             }
           ]
         }
@@ -1670,15 +1732,18 @@ window.data.AC = {
       ]
     },
     {
-      "id": "6b944f11-b5eb-5834-89ab-03672956f257",
-      "name": "Venerable Land Raider\r",
+      "id": "bf47a8d1-d746-5e58-a1f7-46863e3c0f38",
+      "name": "Venerable Land Raider",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "1 Venerable Land Raider"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: 2 godhammer lascannons; twin heavy bolter; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 storm bolter."
+      ],
       "transport": "This model has a transport capacity of 6 Adeptus Custodes Infantry models.",
       "abilities": {
         "wargear": [],
@@ -1707,22 +1772,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Venerable Land Raider\r"
-        },
-        {
           "m": "10\"",
           "t": "12",
           "sv": "2+",
           "w": "16",
           "ld": "6+",
-          "oc": "5\r",
-          "name": "Venerable Land Raider\r"
+          "oc": "5",
+          "name": "Venerable Land Raider"
         }
       ],
       "rangedWeapons": [
@@ -1743,24 +1799,16 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "2+",
-              "attacks": "14",
-              "skill": "-3",
-              "strength": "D6\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
               "name": "Hunter-killer missile",
               "keywords": [
                 "one shot"
               ],
               "range": "48\"",
-              "attacks": "1"
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
             }
           ]
         },
@@ -1809,7 +1857,7 @@ window.data.AC = {
               "skill": "4+",
               "strength": "8",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         }
@@ -1826,15 +1874,17 @@ window.data.AC = {
       ]
     },
     {
-      "id": "6975af0c-f388-5446-80de-7f2c3a38850c",
-      "name": "Vertus Praetors\r",
+      "id": "e3558fff-5623-5899-8bb0-e6a2aa3881cd",
+      "name": "Vertus Praetors",
       "faction_id": "AC",
       "leader": "",
       "composition": [
         "2-6 Vertus Praetors"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: salvo launcher; interceptor lance.",
+      "wargear": [
+        "Any number of models can each have their salvo launcher replaced with 1 Vertus hurricane bolter."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1865,22 +1915,13 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Vertus Praetors\r"
-        },
-        {
           "m": "12\"",
           "t": "6",
           "sv": "2+",
           "w": "4",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Vertus Praetors\r"
+          "oc": "2",
+          "name": "Vertus Praetors"
         }
       ],
       "rangedWeapons": [
@@ -1906,7 +1947,12 @@ window.data.AC = {
                 "rapid fire 3",
                 "twin-linked"
               ],
-              "range": "18\"\r"
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1915,37 +1961,16 @@ window.data.AC = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
               "name": "Interceptor lance",
               "keywords": [
                 "lance"
               ],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "5",
-              "attacks": "2+",
-              "skill": "7",
-              "strength": "-2",
-              "ap": "2"
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "2+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -1961,15 +1986,18 @@ window.data.AC = {
       ]
     },
     {
-      "id": "a0d60505-e030-547b-ab88-fa11ee1c79c3",
-      "name": "Vigilators\r",
+      "id": "a625fffb-42af-51c1-99a0-20a2f699b2fa",
+      "name": "Vigilators",
       "faction_id": "AC",
       "leader": "",
       "composition": [
-        "1 Vigilator Sister Superior 3-9 Vigilators"
+        "1 Vigilator Sister Superior",
+        "3-9 Vigilators"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: executioner greatblade.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1980,7 +2008,16 @@ window.data.AC = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Daughters of the Abyss",
+            "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks."
+          },
+          {
+            "name": "Deft Parry",
+            "description": "Each time a melee attack targets this unit, subtract 1 from the Hit roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -1989,50 +2026,58 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Vigilators\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Vigilators\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Vigilators"
         }
       ],
       "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Executioner greatblade",
+              "keywords": [
+                "anti-psyker 4+",
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Imperium",
+        "Anathema Psykana",
+        "Vigilators"
+      ],
       "factions": [
         "Adeptus Custodes"
       ]
     },
     {
-      "id": "45744ef1-99e1-5cb8-99bb-633da7028720",
-      "name": "Witchseekers\r",
+      "id": "9232d973-cdd6-519b-a8da-4c68e578ca7f",
+      "name": "Witchseekers",
       "faction_id": "AC",
       "leader": "",
       "composition": [
-        "1 Witchseeker Sister Superior 3-9 Witchseekers"
+        "1 Witchseeker Sister Superior",
+        "3-9 Witchseekers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: Witchseeker flamer; close combat weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2045,7 +2090,16 @@ window.data.AC = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Daughters of the Abyss",
+            "description": "Models in this unit have the Feel No Pain 3+ ability against Psychic Attacks."
+          },
+          {
+            "name": "Sanctified Flames",
+            "description": "Each time this unit shoots, after it has shot, select one enemy unit that was hit by one or more of those attacks. That unit must take a Battle-shock test."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2054,27 +2108,56 @@ window.data.AC = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Witchseekers\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Witchseekers\r"
+          "oc": "1",
+          "name": "Witchseekers"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Witchseeker flamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Imperium",
+        "Anathema Psykana",
+        "Witchseekers"
+      ],
       "factions": [
         "Adeptus Custodes"
       ]

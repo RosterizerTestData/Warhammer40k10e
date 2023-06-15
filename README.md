@@ -5,6 +5,24 @@ If you're going to author stuff for 40k, it's wise to make it similar in structu
 ## 40k10Core
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest
 
+### Space_Marines
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
+
+### SM_Black_Templars
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifest
+
+### SM_Blood_Angels
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
+
+### SM_Dark_Angels
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
+
+### SM_Deathwatch
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifest
+
+### SM_Space_Wolves
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
+
 ### Adepta_Sororitas
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.manifest
 
@@ -44,23 +62,23 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousa
 ### World_Eaters
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
 
-### Space_Marines
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
+### Orks
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
 
-### SM_Black_Templar
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templar.manifest
+### T'au
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au.manifest
 
-### SM_Blood_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
+### Aeldari
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifest
 
-### SM_Dark_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
+### Drukhari
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Drukhari.manifest
 
-### SM_Deathwatch
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifest
+### Leagues_of_Votann
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Leagues_of_Votann.manifest
 
-### SM_Space_Wolves
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
+### Necrons
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necrons.manifest
 
 ### Tyranids
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest

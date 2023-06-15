@@ -1,19 +1,21 @@
 window.data = window.data || {};
 window.data.ADM = {
-  "id": "ADM",
+  "id": "AdM",
   "link": "https://game-datacards.eu",
   "name": "Adeptus Mechanicus",
   "datasheets": [
     {
-      "id": "2036b10d-ae4a-5555-80e9-79bfc42cddbf",
-      "name": "Archaeopter Fusilave\r",
-      "faction_id": "ADM",
+      "id": "91f25fb4-4f2b-56e8-a5ef-911b61833a59",
+      "name": "Archaeopter Fusilave",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Archaeopter Fusilave"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: cognis heavy stubber array; armoured hull; command uplink.",
+      "wargear": [
+        "This model’s command uplink can be replaced with 1 chaff launcher."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -52,22 +54,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Archaeopter Fusilave\r"
-        },
-        {
           "m": "20+\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "7+",
-          "oc": "0\r",
-          "name": "Archaeopter Fusilave\r"
+          "oc": "0",
+          "name": "Archaeopter Fusilave"
         }
       ],
       "rangedWeapons": [
@@ -75,7 +68,11 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber array",
-              "keywords": [],
+              "keywords": [
+                "rapid fire 9",
+                "sustained hits 1",
+                "twin-linked"
+              ],
               "range": "36\"",
               "attacks": "9",
               "skill": "4+",
@@ -84,34 +81,20 @@ window.data.ADM = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "rapid fire 9",
-                "sustained hits 1",
-                "twin-linked"
-              ],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Armoured hull",
               "keywords": [],
-              "range": "Armoured",
-              "attacks": "hull"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -129,15 +112,17 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "041cfdc1-c3b7-506d-a6ce-f2159bd6f0ba",
-      "name": "Archaeopter Stratoraptor\r",
-      "faction_id": "ADM",
+      "id": "a4830798-deae-5bf2-9f49-4b5e5e5bd4bb",
+      "name": "Archaeopter Stratoraptor",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Archaeopter Stratoraptor"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: 2 cognis heavy stubbers; 2 heavy phosphor blasters; twin cognis lascannon; armoured hull; command uplink.",
+      "wargear": [
+        "This model’s command uplink can be replaced with 1 chaff launcher."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -176,22 +161,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Archaeopter Stratoraptor\r"
-        },
-        {
           "m": "20+\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "7+",
-          "oc": "0\r",
-          "name": "Archaeopter Stratoraptor\r"
+          "oc": "0",
+          "name": "Archaeopter Stratoraptor"
         }
       ],
       "rangedWeapons": [
@@ -219,7 +195,12 @@ window.data.ADM = {
               "keywords": [
                 "ignores cover"
               ],
-              "range": "36\"\r"
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -232,11 +213,11 @@ window.data.ADM = {
                 "twin-linked"
               ],
               "range": "48\"",
-              "attacks": "3",
+              "attacks": "1",
               "skill": "4+",
-              "strength": "6",
-              "ap": "-1",
-              "damage": "1"
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
             }
           ]
         }
@@ -248,24 +229,11 @@ window.data.ADM = {
               "name": "Armoured hull",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "1"
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -283,15 +251,17 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "0d789cc3-5982-5668-80a7-0e77729ba12f",
-      "name": "Archaeopter Transvector\r",
-      "faction_id": "ADM",
+      "id": "b8f2f15a-f7ca-5d18-a8fd-9532d26292c7",
+      "name": "Archaeopter Transvector",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Archaeopter Transvector"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: cognis heavy stubber array; armoured hull; command uplink.",
+      "wargear": [
+        "This model’s command uplink can be replaced with 1 chaff launcher."
+      ],
       "transport": "This model has a transport capacity of 11 Skitarii Infantry or Tech-Priest Infantry models. It cannot transport Jump Pack or Kataphron models.",
       "abilities": {
         "wargear": [
@@ -331,22 +301,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Archaeopter Transvector\r"
-        },
-        {
           "m": "20+\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "7+",
-          "oc": "0\r",
-          "name": "Archaeopter Transvector\r"
+          "oc": "0",
+          "name": "Archaeopter Transvector"
         }
       ],
       "rangedWeapons": [
@@ -354,7 +315,11 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber array",
-              "keywords": [],
+              "keywords": [
+                "rapid fire 9",
+                "sustained hits 1",
+                "twin-linked"
+              ],
               "range": "36\"",
               "attacks": "9",
               "skill": "4+",
@@ -363,34 +328,20 @@ window.data.ADM = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "rapid fire 9",
-                "sustained hits 1",
-                "twin-linked"
-              ],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Armoured hull",
               "keywords": [],
-              "range": "Armoured",
-              "attacks": "hull"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -409,26 +360,59 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "6fdfbb3b-2ffe-5f12-8506-66290af75a86",
-      "name": "Belisarius Cawl\r",
-      "faction_id": "ADM",
+      "id": "3f62892a-43a7-59c6-89b7-405b1e72cbd6",
+      "name": "Belisarius Cawl",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Belisarius Cawl – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: solar atomiser; arc scourge; Cawl’s Omnissian axe; mechadendrite hive.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
         "core": [],
         "faction": [],
-        "primarch": [],
+        "primarch": [
+          {
+            "name": "CANTICLES OF THE OMNISSIAH",
+            "abilities": [
+              {
+                "name": "Invocation of Machine Vengeance (Aura)",
+                "description": "While a friendly Adeptus Mechanicus unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1."
+              },
+              {
+                "name": "Mantra of Discipline (Aura)",
+                "description": "While a friendly Adeptus Mechanicus unit is within 6\" of this model, each time you take a Battle-shock or Leadership test for that unit, you can re-roll that test."
+              },
+              {
+                "name": "Shroudpsalm (Aura)",
+                "description": "While a friendly Adeptus Mechanicus unit is within 6\" of this model, that unit has the Stealth ability."
+              }
+            ]
+          }
+        ],
         "invul": {
           "value": "4+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Canticles of the Omnissiah",
+            "description": "At the start of the battle round, select one of the abilities in the Canticles of the Omnissiah section (see left). Until the start of the next battle round, this model has that ability."
+          },
+          {
+            "name": "Mechanicus Bodyguard",
+            "description": "While this model is within 3\" of one or more other friendly Adeptus Mechanicus units, this model has the Lone Operative ability."
+          },
+          {
+            "name": "Self-repair Mechanisms",
+            "description": "At the start of your Command phase, this model regains up to D3 lost wounds."
+          }
+        ],
         "special": [
           {
             "name": "SUPREME COMMANDER",
@@ -442,41 +426,108 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Belisarius Cawl\r"
-        },
-        {
           "m": "6\"",
           "t": "8",
           "sv": "2+",
           "w": "10",
           "ld": "6+",
-          "oc": "3\r",
-          "name": "Belisarius Cawl\r"
+          "oc": "3",
+          "name": "Belisarius Cawl"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Solar atomiser",
+              "keywords": [
+                "blast",
+                "melta d3"
+              ],
+              "range": "18\"",
+              "attacks": "D3",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-4",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Arc scourge",
+              "keywords": [
+                "anti-vehicle 4+",
+                "devastating wounds",
+                "extra attacks"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Cawl’s Omnissian axe",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Mechadendrite hive",
+              "keywords": [
+                "extra attacks"
+              ],
+              "range": "Melee",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Monster",
+        "Character",
+        "Epic Hero",
+        "Imperium",
+        "Tech-Priest",
+        "Belisarius Cawl"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "6a6475ee-72b9-51f1-8751-d8242d953619",
-      "name": "Corpuscarii Electro-priests\r",
-      "faction_id": "ADM",
+      "id": "4cf53304-aa75-538d-ac25-d186e6cbee2c",
+      "name": "Corpuscarii Electro-priests",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "5-10 Corpuscarii Electro-Priests"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: electrostatic gauntlets.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -489,7 +540,12 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Electro-infusion",
+            "description": "While a Character model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -498,41 +554,74 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Corpuscarii Electro-priests\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "7+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Corpuscarii Electro-priests\r"
+          "oc": "1",
+          "name": "Corpuscarii Electro-priests"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Electrostatic gauntlets",
+              "keywords": [
+                "pistol",
+                "sustained hits 2"
+              ],
+              "range": "12\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Electrostatic gauntlets",
+              "keywords": [
+                "sustained hits 2"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Imperium",
+        "Electro-Priests",
+        "Corpuscarii"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "1f5314be-b1b0-5c2c-9b43-db0402d17aa4",
-      "name": "Cybernetica Datasmith\r",
-      "faction_id": "ADM",
+      "id": "53661916-dc81-5293-919b-5c31b0bf7e36",
+      "name": "Cybernetica Datasmith",
+      "faction_id": "AdM",
       "leader": "This model must be attached to the following unit: ■ Kastelan Robots You must attach this model to a Kastelan Robots unit, even if one or more other Cybernetica Datasmith models have already been attached to it. In such cases, if that Bodyguard unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths. If you cannot attach this model to a Kastelan Robots unit, this model cannot be deployed and counts as having been destroyed during the first battle round.",
       "composition": [
         "1 Cybernetica Datasmith"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: archeotech pistol; power fist.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -545,7 +634,12 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Battle Protocols",
+            "description": "In your Command phase, if this model is leading a Kastelan Robots unit, it can set that unit’s battle protocol. If it does, take a Leadership test for this model; if that test is passed, that unit enters a protocol of your choice from those listed below. Once a unit enters a protocol, it remains in that protocol until it enters a different one. ■  Protector Protocol: Add 2 to the Attacks characteristic of ranged weapons equipped by Kastelan Robot models in that unit. ■  Conqueror Protocol: Add 2 to the Attacks characteristic of melee weapons equipped by Kastelan Robot models in that unit. ■  Aegis Protocol: Add 1 to the Toughness characteristic of Kastelan Robot models in that unit."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -554,41 +648,73 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Cybernetica Datasmith\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Cybernetica Datasmith\r"
+          "oc": "1",
+          "name": "Cybernetica Datasmith"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Archeotech pistol",
+              "keywords": [
+                "devastating wounds",
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Power fist",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Imperium",
+        "Tech-Priest",
+        "Cybernetica Datasmith"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "48023358-902f-5ee6-ad0c-a864d88beda5",
-      "name": "Fulgurite Electro-priests\r",
-      "faction_id": "ADM",
+      "id": "f6c2e253-82e2-54bf-9125-5e195516b349",
+      "name": "Fulgurite Electro-priests",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "5-10 Fulgurite Electro-Priests"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: electroleech stave.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -601,7 +727,12 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Electro-infusion",
+            "description": "While a Character model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -610,50 +741,56 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Fulgurite Electro-priests\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "7+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Fulgurite Electro-priests\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Fulgurite Electro-priests"
         }
       ],
       "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Electroleech stave",
+              "keywords": [
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Imperium",
+        "Electro-Priests",
+        "Fulgurite"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "491d2dcd-f590-5e70-85cb-bd7f52150bf0",
-      "name": "Ironstrider Ballistarii\r",
-      "faction_id": "ADM",
+      "id": "1ac9768e-3ffe-539f-900d-1f33f9087eb2",
+      "name": "Ironstrider Ballistarii",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1-3 Ironstrider Ballistarii"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: twin cognis autocannon; Ironstrider feet.",
+      "wargear": [
+        "Any number of models can each have their twin cognis autocannon replaced with 1 twin cognis lascannon."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -686,22 +823,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Ironstrider Ballistarii\r"
-        },
-        {
           "m": "10\"",
           "t": "7",
           "sv": "3+",
           "w": "7",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Ironstrider Ballistarii\r"
+          "oc": "2",
+          "name": "Ironstrider Ballistarii"
         }
       ],
       "rangedWeapons": [
@@ -709,7 +837,10 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin cognis autocannon",
-              "keywords": [],
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
               "range": "48\"",
               "attacks": "2",
               "skill": "4+",
@@ -722,50 +853,17 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
+              "name": "Twin cognis lascannon",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
               "strength": "12",
               "ap": "-3",
-              "damage": "D6+1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[SUSTAINED HITS 1, TWIN-LINKED]",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee",
-              "attacks": "3",
-              "skill": "4+",
-              "strength": "5",
-              "ap": "0",
-              "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[SUSTAINED HITS 1, TWIN-LINKED]",
-              "keywords": []
+              "damage": "D6+1"
             }
           ]
         }
@@ -774,10 +872,14 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Ironstrider feet",
               "keywords": [],
-              "range": "Ironstrider",
-              "attacks": "feet\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -795,15 +897,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "0d52f26d-c6bd-54a0-be6b-62e761471718",
-      "name": "Kastelan Robots\r",
-      "faction_id": "ADM",
+      "id": "11fd9afc-58f4-5280-94a2-7f30776436af",
+      "name": "Kastelan Robots",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "2-4 Kastelan Robots"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: incendine combustor; twin Kastelan fist.",
+      "wargear": [
+        "Any number of models can each have their twin Kastelan fist replaced with one of the following: ◦  1 Kastelan phosphor blaster and 1 Kastelan fist ◦ 1 twin Kastelan phosphor blaster and 1 close combat weapon",
+        "Any number of models can each have their incendine combustor replaced with 1 heavy phosphor blaster."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -816,7 +921,16 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Robotic Bodyguard",
+            "description": "While a Cybernetica Datasmith model is leading this unit, that model has the Feel No Pain 4+ ability."
+          },
+          {
+            "name": "Repulsor Grid",
+            "description": "Each time a ranged attack is allocated to a Kastelan Robot model in this unit, on an unmodified saving throw of 6, the attacking unit suffers 1 mortal wound after it has finished making its attacks."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -825,41 +939,152 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Kastelan Robots\r"
-        },
-        {
           "m": "6\"",
           "t": "9",
           "sv": "2+",
           "w": "7",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Kastelan Robots\r"
+          "oc": "2",
+          "name": "Kastelan Robots"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy phosphor blaster",
+              "keywords": [
+                "ignores cover"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Incendine combustor",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Kastelan phosphor blaster",
+              "keywords": [
+                "ignores cover"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin Kastelan phosphor blaster",
+              "keywords": [
+                "ignores cover",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Kastelan fist",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin Kastelan fist",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Imperium",
+        "Kastelan Robots"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "c5425712-dc84-5dd7-bc64-bcba8f905add",
-      "name": "Kataphron Breachers\r",
-      "faction_id": "ADM",
+      "id": "8277da97-bfc9-5597-99dc-cbed85744e0e",
+      "name": "Kataphron Breachers",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "3-6 Kataphron Breachers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: heavy arc rifle; arc claw.",
+      "wargear": [
+        "Any number of models can each have their heavy arc rifle replaced with 1 torsion cannon.",
+        "Any number of models can each have their arc claw replaced with 1 hydraulic claw."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -886,22 +1111,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Kataphron Breachers\r"
-        },
-        {
           "m": "5\"",
           "t": "7",
           "sv": "3+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Kataphron Breachers\r"
+          "oc": "1",
+          "name": "Kataphron Breachers"
         }
       ],
       "rangedWeapons": [
@@ -909,7 +1125,10 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy arc rifle",
-              "keywords": [],
+              "keywords": [
+                "anti-vehicle 4+",
+                "rapid fire 2"
+              ],
               "range": "36\"",
               "attacks": "2",
               "skill": "4+",
@@ -922,10 +1141,10 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Torsion cannon",
               "keywords": [
-                "anti-vehicle 4+",
-                "rapid fire 2"
+                "anti-infantry 2+",
+                "blast"
               ],
               "range": "48\"",
               "attacks": "D3",
@@ -935,30 +1154,29 @@ window.data.ADM = {
               "damage": "2"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Torsion cannon",
-              "keywords": [
-                "anti-infantry 2+",
-                "blast"
-              ],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Arc claw",
+              "keywords": [
+                "anti-vehicle 4+"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hydraulic claw",
               "keywords": [],
               "range": "Melee",
               "attacks": "2",
@@ -966,28 +1184,6 @@ window.data.ADM = {
               "strength": "8",
               "ap": "-2",
               "damage": "3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Arc",
-              "attacks": "claw",
-              "skill": "[ANTI-VEHICLE",
-              "strength": "4+]\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Hydraulic",
-              "attacks": "claw\r"
             }
           ]
         }
@@ -1003,15 +1199,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "8cbb57a8-975b-5c92-8e43-cf22a096469e",
-      "name": "Kataphron Destroyers\r",
-      "faction_id": "ADM",
+      "id": "c1893b52-e426-59c4-aa4d-0a03e4b329ad",
+      "name": "Kataphron Destroyers",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "3-6 Kataphron Destroyers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: heavy grav-cannon; phosphor blaster; close combat weapon.",
+      "wargear": [
+        "Any number of models can each have their heavy grav-cannon replaced with 1 Kataphron plasma culverin.",
+        "Any number of models can each have their phosphor blaster replaced with 1 cognis flamer."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1038,22 +1237,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Kataphron Destroyers\r"
-        },
-        {
           "m": "5\"",
           "t": "6",
           "sv": "3+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Kataphron Destroyers\r"
+          "oc": "1",
+          "name": "Kataphron Destroyers"
         }
       ],
       "rangedWeapons": [
@@ -1077,8 +1267,10 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "Heavy grav-cannon [ANTI-VEHICLE 2+]",
-              "keywords": [],
+              "name": "Heavy grav-cannon",
+              "keywords": [
+                "anti-vehicle 2+"
+              ],
               "range": "30\"",
               "attacks": "4",
               "skill": "4+",
@@ -1091,7 +1283,7 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Kataphron plasma culverin – standard",
               "keywords": [],
               "range": "36\"",
               "attacks": "4",
@@ -1099,23 +1291,35 @@ window.data.ADM = {
               "strength": "7",
               "ap": "-2",
               "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
+            },
             {
-              "name": "[HAZARDOUS]",
+              "name": "Kataphron plasma culverin – supercharge",
               "keywords": [
-                "ignores cover",
-                "rapid fire 1"
+                "hazardous"
               ],
               "range": "36\"",
               "attacks": "4",
               "skill": "4+",
               "strength": "8",
               "ap": "-3",
-              "damage": "2\r"
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Phosphor blaster",
+              "keywords": [
+                "ignores cover",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1124,39 +1328,14 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
               "strength": "5",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         }
@@ -1172,15 +1351,19 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "45be40f5-b11d-5240-a2b9-ec13612d52ec",
-      "name": "Onager Dunecrawler\r",
-      "faction_id": "ADM",
+      "id": "99cde65d-31e7-523a-9791-8fe0f1e1c965",
+      "name": "Onager Dunecrawler",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Onager Dunecrawler"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: eradication beamer; Dunecrawler legs.",
+      "wargear": [
+        "This model’s eradication beamer can be replaced with one of the following: ◦ 1 daedalus missile launcher and 1 Icarus array ◦  1 neutron laser and 1 cognis heavy stubber ◦ 1 twin Onager heavy phosphor blaster",
+        "This model can be equipped with 1 additional cognis heavy stubber.",
+        "This model can be equipped with one of the following: ◦ 1 broad spectrum data-tether ◦ 1 smoke launchers"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -1218,22 +1401,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Onager Dunecrawler\r"
-        },
-        {
           "m": "8\"",
           "t": "10",
           "sv": "2+",
           "w": "11",
           "ld": "7+",
-          "oc": "3\r",
-          "name": "Onager Dunecrawler\r"
+          "oc": "3",
+          "name": "Onager Dunecrawler"
         }
       ],
       "rangedWeapons": [
@@ -1261,16 +1435,7 @@ window.data.ADM = {
               "keywords": [
                 "anti-fly 2+"
               ],
-              "range": "48\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Eradication beamer – dissipated",
-              "keywords": [],
-              "range": "36\"",
+              "range": "48\"",
               "attacks": "1",
               "skill": "4+",
               "strength": "10",
@@ -1282,7 +1447,20 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Eradication beamer – dissipated",
+              "keywords": [
+                "blast",
+                "sustained hits d3"
+              ],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "2"
+            },
+            {
+              "name": "Eradication beamer – focused",
               "keywords": [
                 "blast",
                 "sustained hits d3"
@@ -1291,70 +1469,8 @@ window.data.ADM = {
               "attacks": "D6",
               "skill": "4+",
               "strength": "9",
-              "ap": "-2",
-              "damage": "2"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "36\""
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Eradication beamer – focused",
-              "keywords": [],
-              "range": "48\"",
-              "attacks": "D6",
-              "skill": "4+",
-              "strength": "9",
               "ap": "-3",
-              "damage": "3\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "48\""
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "blast",
-                "sustained hits d3"
-              ],
-              "range": "36\"",
-              "attacks": "3",
-              "skill": "4+",
-              "strength": "6",
-              "ap": "-1",
-              "damage": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "16",
-              "strength": "-4",
-              "ap": "D6+1"
+              "damage": "3"
             }
           ]
         },
@@ -1365,7 +1481,41 @@ window.data.ADM = {
               "keywords": [
                 "ignores cover"
               ],
-              "range": "RANGE",
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Neutron laser",
+              "keywords": [
+                "blast",
+                "heavy"
+              ],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "16",
+              "ap": "-4",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Icarus array",
+              "keywords": [
+                "anti-fly 4+",
+                "twin-linked"
+              ],
+              "range": "48\"",
               "attacks": "6",
               "skill": "4+",
               "strength": "8",
@@ -1377,40 +1527,17 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "Neutron laser [BLAST, HEAVY]",
-              "keywords": [],
-              "range": "Melee",
+              "name": "Twin Onager heavy phosphor blaster",
+              "keywords": [
+                "ignores cover",
+                "twin-linked"
+              ],
+              "range": "36\"",
               "attacks": "4",
               "skill": "4+",
               "strength": "6",
               "ap": "-1",
               "damage": "2"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[IGNORES COVER, TWIN-LINKED]",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "1"
             }
           ]
         }
@@ -1419,10 +1546,14 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Dunecrawler legs",
               "keywords": [],
-              "range": "Dunecrawler",
-              "attacks": "legs\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1439,15 +1570,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "4ead08f9-976c-54b0-9d86-5ee764537446",
-      "name": "Pteraxii Skystalkers\r",
-      "faction_id": "ADM",
+      "id": "b745d158-f5fd-54c0-8564-e1a67b432621",
+      "name": "Pteraxii Skystalkers",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Pteraxii Skystalker Alpha 4-9 Pteraxii Skystalkers"
+        "1 Pteraxii Skystalker Alpha",
+        "4-9 Pteraxii Skystalkers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Pteraxii Skystalker Alpha model is equipped with: flechette blaster; taser goad. Every Pteraxii Skystalker model is equipped with: flechette carbine; close combat weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1476,22 +1610,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Pteraxii Skystalkers\r"
-        },
-        {
           "m": "12\"",
           "t": "4",
           "sv": "4+",
           "w": "2",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Pteraxii Skystalkers\r"
+          "oc": "1",
+          "name": "Pteraxii Skystalkers"
         }
       ],
       "rangedWeapons": [
@@ -1516,7 +1641,12 @@ window.data.ADM = {
             {
               "name": "Flechette carbine",
               "keywords": [],
-              "range": "18\"\r"
+              "range": "18\"",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1525,52 +1655,30 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Taser",
-              "attacks": "goad",
-              "skill": "[SUSTAINED",
-              "strength": "HITS",
-              "ap": "2]",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "1"
+              "name": "Taser goad",
+              "keywords": [
+                "sustained hits 2"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1589,15 +1697,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "1053fa4c-beb0-5e19-b19d-a4edfd0f3c5a",
-      "name": "Pteraxii Sterylizors\r",
-      "faction_id": "ADM",
+      "id": "c2cae0ff-1d6d-54ad-8f3f-f2b1b18f5450",
+      "name": "Pteraxii Sterylizors",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Pteraxii Sterylizor Alpha 4-9 Pteraxii Sterylizors"
+        "1 Pteraxii Sterylizor Alpha",
+        "4-9 Pteraxii Sterylizors"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Pteraxii Sterylizor Alpha model is equipped with: flechette blaster; Pteraxii talons; taser goad. Every Pteraxii Sterylizor model is equipped with: phosphor torch; Pteraxii talons.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1626,22 +1737,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Pteraxii Sterylizors\r"
-        },
-        {
           "m": "12\"",
           "t": "4",
           "sv": "4+",
           "w": "2",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Pteraxii Sterylizors\r"
+          "oc": "1",
+          "name": "Pteraxii Sterylizors"
         }
       ],
       "rangedWeapons": [
@@ -1664,8 +1766,11 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "Phosphor torch [IGNORES COVER, TORRENT]",
-              "keywords": [],
+              "name": "Phosphor torch",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1680,60 +1785,30 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Pteraxii talons",
               "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Pteraxii",
-              "attacks": "talons"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Taser",
-              "attacks": "goad",
-              "skill": "[SUSTAINED",
-              "strength": "HITS",
-              "ap": "2]",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "1"
+              "name": "Taser goad",
+              "keywords": [
+                "sustained hits 2"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1751,15 +1826,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "e140486d-0bfb-57de-9f73-79b0a157b312",
-      "name": "Serberys Raiders\r",
-      "faction_id": "ADM",
+      "id": "70269b85-1b31-543f-8c14-697547dafe48",
+      "name": "Serberys Raiders",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Serberys Raider Alpha 2-5 Serberys Raiders"
+        "1 Serberys Raider Alpha",
+        "2-5 Serberys Raiders"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Serberys Raider Alpha model is equipped with: archeotech pistol; galvanic carbine; cavalry sabre and clawed limbs. Every Serberys Raider model is equipped with: galvanic carbine; cavalry sabre and clawed limbs.",
+      "wargear": [
+        "1 Serberys Raider can be equipped with 1 enhanced data-tether."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -1793,22 +1871,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Serberys Raiders\r"
-        },
-        {
           "m": "12\"",
           "t": "4",
           "sv": "4+",
           "w": "2",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Serberys Raiders\r"
+          "oc": "2",
+          "name": "Serberys Raiders"
         }
       ],
       "rangedWeapons": [
@@ -1836,7 +1905,12 @@ window.data.ADM = {
               "keywords": [
                 "devastating wounds"
               ],
-              "range": "18\"\r"
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1845,40 +1919,14 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Cavalry sabre and clawed limbs",
               "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Cavalry",
-              "attacks": "sabre",
-              "skill": "and",
-              "strength": "clawed",
-              "ap": "limbs",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1894,15 +1942,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "07d7627c-a7b4-518c-9a21-a5548fd94ac8",
-      "name": "Serberys Sulphurhounds\r",
-      "faction_id": "ADM",
+      "id": "766d924f-db7c-5ccf-866d-5ed47c6bdfbe",
+      "name": "Serberys Sulphurhounds",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Serberys Sulphurhound Alpha 2-5 Serberys Sulphurhounds"
+        "1 Serberys Sulphurhound Alpha",
+        "2-5 Serberys Sulphurhounds"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Serberys Sulphurhound Alpha model is equipped with: phosphor blast pistol; sulphur breath; cavalry arc maul; clawed limbs. Every Serberys Sulphurhound model is equipped with: twin phosphor pistols; sulphur breath; clawed limbs.",
+      "wargear": [
+        "For every 3 models in this unit, 1 Serberys Sulphurhound’s twin phosphor pistols can be replaced with 1 phosphor blast carbine and 1 phosphor pistol."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1929,22 +1980,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Serberys Sulphurhounds\r"
-        },
-        {
           "m": "12\"",
           "t": "4",
           "sv": "4+",
           "w": "2",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Serberys Sulphurhounds\r"
+          "oc": "2",
+          "name": "Serberys Sulphurhounds"
         }
       ],
       "rangedWeapons": [
@@ -1968,11 +2010,10 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "Phosphor blast pistol [IGNORES COVER, PISTOL]",
+              "name": "Phosphor blast pistol",
               "keywords": [
                 "ignores cover",
-                "pistol",
-                "torrent"
+                "pistol"
               ],
               "range": "12\"",
               "attacks": "D3",
@@ -1986,8 +2027,11 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "Twin phosphor pistols",
-              "keywords": [],
+              "name": "Phosphor pistol",
+              "keywords": [
+                "ignores cover",
+                "pistol"
+              ],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2000,11 +2044,11 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Sulphur breath",
               "keywords": [
                 "ignores cover",
                 "pistol",
-                "twin-linked"
+                "torrent"
               ],
               "range": "9\"",
               "attacks": "D6",
@@ -2014,57 +2058,52 @@ window.data.ADM = {
               "damage": "1"
             }
           ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin phosphor pistols",
+              "keywords": [
+                "ignores cover",
+                "pistol",
+                "twin-linked"
+              ],
+              "range": "12\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Cavalry arc maul",
               "keywords": [],
-              "range": "Cavalry",
-              "attacks": "arc",
-              "skill": "maul",
-              "strength": "RANGE",
-              "ap": "A",
-              "damage": "WS"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Clawed limbs",
               "keywords": [],
-              "range": "[ANTI-VEHICLE",
-              "attacks": "4+,",
-              "skill": "DEVASTATING",
-              "strength": "WOUNDS,",
-              "ap": "EXTRA",
-              "damage": "ATTACKS]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Clawed",
-              "attacks": "limbs",
-              "skill": "4",
-              "strength": "4+",
-              "ap": "4",
-              "damage": "0"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2080,15 +2119,17 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "b85f66c0-2488-594c-af50-3bf97fabc2ed",
-      "name": "Servitors\r",
-      "faction_id": "ADM",
+      "id": "98f32d4e-f2e4-5b8a-a274-bf31c4467a77",
+      "name": "Servitors",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "4 Servitors"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: Servitor’s servo-arm.",
+      "wargear": [
+        "Up to 2 models can each have their Servitor’s servo-arm replaced with one of the following: ◦ 1 heavy bolter and 1 Servitor’s tools ◦ 1 multi-melta and 1 Servitor’s tools ◦ 1 plasma cannon and 1 Servitor’s tools"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2120,22 +2161,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Servitors\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "1",
           "ld": "8+",
-          "oc": "0\r",
-          "name": "Servitors\r"
+          "oc": "0",
+          "name": "Servitors"
         }
       ],
       "rangedWeapons": [
@@ -2169,7 +2201,7 @@ window.data.ADM = {
               "skill": "6+",
               "strength": "9",
               "ap": "-4",
-              "damage": "D6\r"
+              "damage": "D6"
             }
           ]
         },
@@ -2216,7 +2248,7 @@ window.data.ADM = {
               "skill": "5+",
               "strength": "8",
               "ap": "-2",
-              "damage": "3\r"
+              "damage": "3"
             }
           ]
         },
@@ -2225,20 +2257,12 @@ window.data.ADM = {
             {
               "name": "Servitor’s tools",
               "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "5+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2253,15 +2277,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "f64a1fca-67f6-51d4-a580-4a7110ad1b66",
-      "name": "Sicarian Infiltrators\r",
-      "faction_id": "ADM",
+      "id": "3b98c029-9ae1-54d3-a3c4-f008382cca2b",
+      "name": "Sicarian Infiltrators",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Sicarian Infiltrator Princeps 4-9 Sicarian Infiltrators"
+        "1 Sicarian Infiltrator Princeps",
+        "4-9 Sicarian Infiltrators"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: stubcarbine; power weapon.",
+      "wargear": [
+        "Any number of models can each have their stubcarbine and power weapon replaced with 1 flechette blaster and 1 taser goad."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2291,22 +2318,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Sicarian Infiltrators\r"
-        },
-        {
           "m": "8\"",
           "t": "4",
           "sv": "4+",
           "w": "2",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Sicarian Infiltrators\r"
+          "oc": "1",
+          "name": "Sicarian Infiltrators"
         }
       ],
       "rangedWeapons": [
@@ -2333,7 +2351,12 @@ window.data.ADM = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2342,51 +2365,30 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Power weapon",
               "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Power",
-              "attacks": "weapon",
-              "skill": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Taser",
-              "attacks": "goad",
-              "skill": "[SUSTAINED",
-              "strength": "HITS",
-              "ap": "2]",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "1"
+              "name": "Taser goad",
+              "keywords": [
+                "sustained hits 2"
+              ],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2402,15 +2404,19 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "cca46e14-e1e4-5ca2-a5eb-8e14df6af963",
-      "name": "Sicarian Ruststalkers\r",
-      "faction_id": "ADM",
+      "id": "ed740a5b-3573-596f-845e-81c03469e598",
+      "name": "Sicarian Ruststalkers",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Sicarian Ruststalker Princeps 4-9 Sicarian Ruststalkers"
+        "1 Sicarian Ruststalker Princeps",
+        "4-9 Sicarian Ruststalkers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: transonic razor and chordclaw.",
+      "wargear": [
+        "Any number of Sicarian Ruststalkers can each have their transonic razor and chordclaw replaced with 1 transonic blades.",
+        "The Sicarian Ruststalker Princeps’ transonic razor and chordclaw can be replaced with 1 transonic blades and chordclaw."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2439,31 +2445,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Sicarian Ruststalkers\r"
-        },
-        {
           "m": "8\"",
           "t": "4",
           "sv": "4+",
           "w": "2",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Sicarian Ruststalkers\r"
-        },
-        {
-          "m": "MELEE",
-          "t": "WEAPONS",
-          "sv": "RANGE",
-          "w": "A",
-          "ld": "WS",
-          "oc": "S",
-          "name": "AP D ABILITIES\r"
+          "oc": "1",
+          "name": "Sicarian Ruststalkers"
         }
       ],
       "rangedWeapons": [],
@@ -2489,31 +2477,17 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Transonic blades and chordclaw",
-              "keywords": [],
-              "range": "Melee",
-              "attacks": "4",
-              "skill": "4+",
-              "strength": "4",
-              "ap": "-2",
-              "damage": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
               "keywords": [
                 "anti-infantry 3+",
                 "devastating wounds",
                 "precision"
               ],
               "range": "Melee",
-              "attacks": "3",
+              "attacks": "4",
               "skill": "4+",
               "strength": "4",
               "ap": "-2",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         },
@@ -2524,7 +2498,13 @@ window.data.ADM = {
               "keywords": [
                 "anti-infantry 3+",
                 "precision"
-              ]
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -2540,15 +2520,17 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "b6356697-55db-5a9f-a15e-50f203021c5c",
-      "name": "Skitarii Marshal\r",
-      "faction_id": "ADM",
+      "id": "5a618444-fd19-5bba-b585-7d8618bdb84e",
+      "name": "Skitarii Marshal",
+      "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Skitarii Rangers ■ Skitarii Vanguard",
       "composition": [
         "1 Skitarii Marshal"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: archeotech pistol; control stave.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2586,22 +2568,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Skitarii Marshal\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "3",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Skitarii Marshal\r"
+          "oc": "1",
+          "name": "Skitarii Marshal"
         }
       ],
       "rangedWeapons": [
@@ -2651,15 +2624,23 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "ddda6547-ae83-53bd-b3b7-8118e1c9cf6a",
-      "name": "Skitarii Rangers\r",
-      "faction_id": "ADM",
+      "id": "dce7d828-db1b-5c95-9190-0fe0b05960bc",
+      "name": "Skitarii Rangers",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Skitarii Ranger Alpha 9 Skitarii Rangers"
+        "1 Skitarii Ranger Alpha",
+        "9 Skitarii Rangers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: galvanic rifle; close combat weapon.",
+      "wargear": [
+        "The Skitarii Ranger Alpha can be equipped with 1 Alpha combat weapon.",
+        "The Skitarii Ranger Alpha’s galvanic rifle can be replaced with 1 archeotech pistol.",
+        "1 Skitarii Ranger’s galvanic rifle can be replaced with 1 arc rifle.",
+        "1 Skitarii Ranger’s galvanic rifle can be replaced with 1 plasma caliver.",
+        "1 Skitarii Ranger’s galvanic rifle can be replaced with 1 transuranic arquebus.",
+        "1 Skitarii Ranger equipped with a galvanic rifle can be equipped with one of the following: ◦ 1 enhanced data-tether* ◦ 1 omnispex* *  That model’s galvanic rifle cannot be replaced."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2697,22 +2678,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Skitarii Rangers\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "5+",
           "w": "1",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Skitarii Rangers\r"
+          "oc": "2",
+          "name": "Skitarii Rangers"
         }
       ],
       "rangedWeapons": [
@@ -2754,7 +2726,7 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Galvanic rifle",
               "keywords": [],
               "range": "30\"",
               "attacks": "2",
@@ -2762,15 +2734,6 @@ window.data.ADM = {
               "strength": "4",
               "ap": "0",
               "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Galvanic rifle",
-              "keywords": [],
-              "range": "30\""
             }
           ]
         },
@@ -2791,7 +2754,12 @@ window.data.ADM = {
               "keywords": [
                 "hazardous"
               ],
-              "range": "36\""
+              "range": "30\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
             }
           ]
         },
@@ -2803,11 +2771,12 @@ window.data.ADM = {
                 "heavy",
                 "precision"
               ],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "8",
-              "strength": "-3",
-              "ap": "2"
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "D3"
             }
           ]
         }
@@ -2816,60 +2785,28 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Alpha combat weapon",
               "keywords": [],
-              "range": "Melee\r"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "Alpha",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "Melee",
-              "ap": "A",
-              "damage": "WS"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "5",
-              "strength": "-1",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2886,15 +2823,23 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "e41de539-983e-59c0-bc9d-8c67b061f036",
-      "name": "Skitarii Vanguard\r",
-      "faction_id": "ADM",
+      "id": "545bfcca-d944-54d6-b612-1fbf1e59eee9",
+      "name": "Skitarii Vanguard",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
-        "1 Skitarii Vanguard Alpha 9 Skitarii Vanguard"
+        "1 Skitarii Vanguard Alpha",
+        "9 Skitarii Vanguard"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: radium carbine; close combat weapon.",
+      "wargear": [
+        "The Skitarii Vanguard Alpha can be equipped with 1 Alpha combat weapon.",
+        "The Skitarii Vanguard Alpha’s radium carbine can be replaced with 1 archeotech pistol.",
+        "1 Skitarii Vanguard’s radium carbine can be replaced with 1 arc rifle.",
+        "1 Skitarii Vanguard’s radium carbine can be replaced with 1 plasma caliver.",
+        "1 Skitarii Vanguard’s radium carbine can be replaced with 1 transuranic arquebus.",
+        "1 Skitarii Vanguard equipped with a radium carbine can be equipped with one of the following: ◦ 1 enhanced data-tether* ◦ 1 omnispex* *  That model’s radium carbine cannot be replaced."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2930,22 +2875,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Skitarii Vanguard\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "5+",
           "w": "1",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Skitarii Vanguard\r"
+          "oc": "2",
+          "name": "Skitarii Vanguard"
         }
       ],
       "rangedWeapons": [
@@ -2987,7 +2923,7 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Plasma caliver – standard",
               "keywords": [],
               "range": "30\"",
               "attacks": "2",
@@ -2995,27 +2931,18 @@ window.data.ADM = {
               "strength": "7",
               "ap": "-2",
               "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Plasma caliver – standard",
-              "keywords": [],
-              "range": "30\"\r"
             },
             {
               "name": "Plasma caliver – supercharge",
               "keywords": [
                 "hazardous"
               ],
-              "range": "18\"",
+              "range": "30\"",
               "attacks": "2",
               "skill": "4+",
               "strength": "8",
               "ap": "-3",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         },
@@ -3026,7 +2953,12 @@ window.data.ADM = {
               "keywords": [
                 "anti-infantry 4+"
               ],
-              "range": "36\"\r"
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -3038,11 +2970,12 @@ window.data.ADM = {
                 "heavy",
                 "precision"
               ],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "D3"
             }
           ]
         }
@@ -3051,60 +2984,28 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Alpha combat weapon",
               "keywords": [],
-              "range": "Melee"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "Alpha",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "Melee",
-              "ap": "A",
-              "damage": "WS"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "5",
-              "strength": "-1",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -3121,15 +3022,17 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "af22b88e-d084-5235-96d4-1ab45082c9ba",
-      "name": "Skorpius Disintegrator\r",
-      "faction_id": "ADM",
+      "id": "140f2de9-984b-5fa2-9c66-4cd4fde3c1be",
+      "name": "Skorpius Disintegrator",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Skorpius Disintegrator"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: belleros energy cannon; 3 cognis heavy stubbers; disruptor missile launcher; armoured hull.",
+      "wargear": [
+        "This model’s belleros energy cannon can be replaced with 1 ferrumite cannon."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3162,22 +3065,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Skorpius Disintegrator\r"
-        },
-        {
           "m": "10\"",
           "t": "10",
           "sv": "2+",
           "w": "12",
           "ld": "7+",
-          "oc": "3\r",
-          "name": "Skorpius Disintegrator\r"
+          "oc": "3",
+          "name": "Skorpius Disintegrator"
         }
       ],
       "rangedWeapons": [
@@ -3201,8 +3095,11 @@ window.data.ADM = {
         {
           "profiles": [
             {
-              "name": "Cognis heavy stubber [RAPID FIRE 3, SUSTAINED HITS 1]",
-              "keywords": [],
+              "name": "Cognis heavy stubber",
+              "keywords": [
+                "rapid fire 3",
+                "sustained hits 1"
+              ],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3211,13 +3108,27 @@ window.data.ADM = {
               "damage": "1"
             }
           ]
-        }
-      ],
-      "meleeWeapons": [
+        },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Disruptor missile launcher",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Ferrumite cannon",
               "keywords": [],
               "range": "48\"",
               "attacks": "3",
@@ -3227,35 +3138,13 @@ window.data.ADM = {
               "damage": "D6"
             }
           ]
-        },
+        }
+      ],
+      "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Armoured",
-              "attacks": "hull"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Armoured hull",
               "keywords": [],
               "range": "Melee",
               "attacks": "3",
@@ -3278,15 +3167,17 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "869fc174-36bb-596c-aac5-22c842abf743",
-      "name": "Skorpius Dunerider\r",
-      "faction_id": "ADM",
+      "id": "dc18d2fa-e4ee-5be2-97a7-c62d66da93aa",
+      "name": "Skorpius Dunerider",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1 Skorpius Dunerider"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: cognis heavy stubber array; armoured hull.",
+      "wargear": [
+        "None"
+      ],
       "transport": "This model has a transport capacity of 12 Adeptus Mechanicus Infantry models. It cannot transport Jump Pack or Kataphron models.",
       "abilities": {
         "wargear": [],
@@ -3319,22 +3210,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Skorpius Dunerider\r"
-        },
-        {
           "m": "12\"",
           "t": "9",
           "sv": "3+",
           "w": "11",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Skorpius Dunerider\r"
+          "oc": "2",
+          "name": "Skorpius Dunerider"
         }
       ],
       "rangedWeapons": [
@@ -3342,7 +3224,10 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber array",
-              "keywords": [],
+              "keywords": [
+                "rapid fire 9",
+                "sustained hits 1"
+              ],
               "range": "36\"",
               "attacks": "9",
               "skill": "4+",
@@ -3351,33 +3236,20 @@ window.data.ADM = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "rapid fire 9",
-                "sustained hits 1"
-              ],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Armoured hull",
               "keywords": [],
-              "range": "Armoured",
-              "attacks": "hull\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -3395,15 +3267,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "f57faf48-a349-51c1-9923-071a370a376c",
-      "name": "Sydonian Dragoons\r",
-      "faction_id": "ADM",
+      "id": "6a0662fc-5077-5df6-ae33-776050a450ba",
+      "name": "Sydonian Dragoons",
+      "faction_id": "AdM",
       "leader": "",
       "composition": [
         "1-3 Sydonian Dragoons"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: taser lance.",
+      "wargear": [
+        "Any number of models can each have their taser lance replaced with 1 radium jezzail and 1 Ironstrider feet.",
+        "Any number of models can each be equipped with 1 phosphor serpenta."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3437,22 +3312,13 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Sydonian Dragoons\r"
-        },
-        {
           "m": "10\"",
           "t": "7",
           "sv": "3+",
           "w": "7",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Sydonian Dragoons\r"
+          "oc": "2",
+          "name": "Sydonian Dragoons"
         }
       ],
       "rangedWeapons": [
@@ -3486,7 +3352,7 @@ window.data.ADM = {
               "skill": "4+",
               "strength": "5",
               "ap": "-2",
-              "damage": "3\r"
+              "damage": "3"
             }
           ]
         }
@@ -3515,20 +3381,12 @@ window.data.ADM = {
                 "lance",
                 "sustained hits 2"
               ],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "4+",
-              "skill": "7",
-              "strength": "-2",
-              "ap": "2"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -3545,15 +3403,18 @@ window.data.ADM = {
       ]
     },
     {
-      "id": "d5f78893-b48a-51df-9540-0f10a654660d",
-      "name": "Tech-priest Dominus\r",
-      "faction_id": "ADM",
+      "id": "4ee67673-d09b-59b6-ab04-659b15cc35a6",
+      "name": "Tech-priest Dominus",
+      "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Skitarii Rangers ■ Skitarii Vanguard",
       "composition": [
         "1 Tech-Priest Dominus"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: macrostubber; volkite blaster; Omnissian axe.",
+      "wargear": [
+        "This model’s macrostubber can be replaced with 1 phosphor serpenta.",
+        "This model’s volkite blaster can be replaced with 1 eradication ray."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3566,7 +3427,16 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Lord of the Machine Cult",
+            "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability. If that unit has the Electro-Priests keyword, models in that unit have the Feel No Pain 4+ ability instead."
+          },
+          {
+            "name": "Data-spike",
+            "description": "At the start of the Fight phase, you can select one enemy Vehicle unit within Engagement Range of this model’s unit and roll one D6: on a 4+, that enemy unit suffers D6 mortal wounds and, until the end of the phase, the Weapon Skill characteristic of melee weapons equipped by that enemy unit is worsened by 1."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -3575,41 +3445,128 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Tech-priest Dominus\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "4",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Tech-priest Dominus\r"
+          "oc": "1",
+          "name": "Tech-priest Dominus"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Eradication ray – dissipated",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            },
+            {
+              "name": "Eradication ray – focused",
+              "keywords": [],
+              "range": "12\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Macrostubber",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Phosphor serpenta",
+              "keywords": [
+                "ignores cover"
+              ],
+              "range": "18\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Volkite blaster",
+              "keywords": [
+                "devastating wounds"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Omnissian axe",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Infantry",
+        "Character",
+        "Tech-Priest",
+        "Dominus"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "3c9a4c0c-651d-5234-b649-30e58444f2d1",
-      "name": "Tech-priest Enginseer\r",
-      "faction_id": "ADM",
+      "id": "8d5f2317-c4d1-5591-8a54-7f153f91e212",
+      "name": "Tech-priest Enginseer",
+      "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Servitors ■ Skitarii Rangers ■ Skitarii Vanguard",
       "composition": [
         "1 Tech-Priest Enginseer"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: archeotech pistol; Omnissian axe; servo-arm.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3622,7 +3579,20 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Enginseer",
+            "description": "While this model is within 3\" of one or more friendly Adeptus Mechanicus Vehicle units, unless it is leading a unit, this model has the Lone Operative ability."
+          },
+          {
+            "name": "Omnissiah’s Blessing",
+            "description": "In your Command phase, select one friendly Adeptus Mechanicus model within 3\" of this model. That model regains up to D3 lost wounds and, if it is a Vehicle model, until the start of your next Command phase, that model has a 4+ invulnerable save. Each model can only be selected for this ability once per Command phase."
+          },
+          {
+            "name": "Vengeance for the Omnissiah",
+            "description": "If a friendly Adeptus Mechanicus Vehicle model is destroyed within 12\" of this model, until the end of the battle, this model’s Omnissian axe has an Attacks characteristic of 6."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -3630,42 +3600,90 @@ window.data.ADM = {
         }
       },
       "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Tech-priest Enginseer\r"
-        },
         {
           "m": "6\"",
           "t": "4",
           "sv": "3+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Tech-priest Enginseer\r"
+          "oc": "1",
+          "name": "Tech-priest Enginseer"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Archeotech pistol",
+              "keywords": [
+                "devastating wounds",
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Omnissian axe",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Servo-arm",
+              "keywords": [
+                "extra attacks"
+              ],
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Infantry",
+        "Character",
+        "Tech-Priest",
+        "Enginseer"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "4c00e701-3d8e-52a6-988c-060d7be20b90",
-      "name": "Tech-priest Manipulus\r",
-      "faction_id": "ADM",
+      "id": "7fc12fcd-9030-53ac-9a4c-bc5b861368f3",
+      "name": "Tech-priest Manipulus",
+      "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Skitarii Rangers ■ Skitarii Vanguard",
       "composition": [
         "1 Tech-Priest Manipulus"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: magnarail lance; Omnissian staff.",
+      "wargear": [
+        "This model’s magnarail lance can be replaced with 1 transonic cannon."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3678,7 +3696,16 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Galvanic Field",
+            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability."
+          },
+          {
+            "name": "Defend the Divine Work",
+            "description": "Once per battle, at the start of any phase, this model can use this ability. If it does, until the end of the phase, all models in this model’s unit have a 4+ invulnerable save."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -3686,42 +3713,90 @@ window.data.ADM = {
         }
       },
       "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Tech-priest Manipulus\r"
-        },
         {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "4",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Tech-priest Manipulus\r"
+          "oc": "1",
+          "name": "Tech-priest Manipulus"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Magnarail lance",
+              "keywords": [
+                "heavy"
+              ],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Transonic cannon",
+              "keywords": [
+                "devastating wounds",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Omnissian staff",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Imperium",
+        "Infantry",
+        "Character",
+        "Tech-Priest",
+        "Manipulus"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]
     },
     {
-      "id": "8b0b393f-73ad-5930-94ee-f4aa030828c4",
-      "name": "Technoarcheologist\r",
-      "faction_id": "ADM",
+      "id": "0f22e6a2-5162-5a89-847d-54d8b9a931f1",
+      "name": "Technoarcheologist",
+      "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Skitarii Rangers ■ Skitarii Vanguard",
       "composition": [
         "1 Technoarcheologist"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: archeotech pistol; servo-arc claw.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3734,7 +3809,16 @@ window.data.ADM = {
           "value": "5+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Seekers of Divine Arcana",
+            "description": "While this model is leading a unit, add 1 to the Objective Control characteristic of models in that unit."
+          },
+          {
+            "name": "Cogitative Instincts",
+            "description": "Enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12\" horizontally of this model."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -3743,27 +3827,60 @@ window.data.ADM = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Technoarcheologist\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "3+",
           "w": "3",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Technoarcheologist\r"
+          "oc": "1",
+          "name": "Technoarcheologist"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Archeotech pistol",
+              "keywords": [
+                "devastating wounds",
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Servo-arc claw",
+              "keywords": [
+                "anti-vehicle 4+",
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Imperium",
+        "Tech-Priest",
+        "Technoarcheologist"
+      ],
       "factions": [
         "Adeptus Mechanicus"
       ]

@@ -5,15 +5,17 @@ window.data.GK = {
   "name": "Grey Knights",
   "datasheets": [
     {
-      "id": "cf51c67b-c2e2-5fdb-8ec2-f084d2652f07",
-      "name": "Brother-captain\r",
+      "id": "f2ec85ee-5971-5c49-beac-3575cbbc6030",
+      "name": "Brother-captain",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Brother-Captain"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "This model’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -47,22 +49,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brother-captain\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Brother-captain\r"
+          "oc": "1",
+          "name": "Brother-captain"
         }
       ],
       "rangedWeapons": [
@@ -86,14 +79,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -104,54 +130,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
-              "skill": "2+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
               "strength": "6",
               "ap": "-2",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -169,15 +157,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "b0c2dfe4-7c4c-5bdf-9379-5bcb5b639595",
-      "name": "Brother-captain Stern\r",
+      "id": "29dae550-63b2-50fa-9176-d68af9541d34",
+      "name": "Brother-captain Stern",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Brother-Captain Stern – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; Nemesis force sword.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -211,22 +201,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brother-captain Stern\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Brother-captain Stern\r"
+          "oc": "1",
+          "name": "Brother-captain Stern"
         }
       ],
       "rangedWeapons": [
@@ -279,15 +260,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "4c8bd9fe-d65b-5691-8472-dd59f44a0af9",
-      "name": "Brotherhood Champion\r",
+      "id": "116708b0-8e85-502e-bade-efc6cffe2251",
+      "name": "Brotherhood Champion",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Purgation Squad ■ Strike Squad",
       "composition": [
         "1 Brotherhood Champion"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -322,22 +305,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brotherhood Champion\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Brotherhood Champion\r"
+          "oc": "1",
+          "name": "Brotherhood Champion"
         }
       ],
       "rangedWeapons": [
@@ -389,15 +363,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "0a476055-780f-5772-a71e-4709f9e0e047",
-      "name": "Brotherhood Chaplain\r",
+      "id": "a196334f-705a-5c01-939c-29532382942a",
+      "name": "Brotherhood Chaplain",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Brotherhood Chaplain"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; crozius arcanum.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -430,22 +406,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brotherhood Chaplain\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "5",
           "ld": "5+",
-          "oc": "1\r",
-          "name": "Brotherhood Chaplain\r"
+          "oc": "1",
+          "name": "Brotherhood Chaplain"
         }
       ],
       "rangedWeapons": [
@@ -495,15 +462,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "af28430f-a47c-56c9-baf0-7a5f9d8f568c",
-      "name": "Brotherhood Librarian\r",
+      "id": "ed58e505-b825-5724-83a6-a0271413d051",
+      "name": "Brotherhood Librarian",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Brotherhood Librarian"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Purge Soul; Nemesis force weapon.",
+      "wargear": [
+        "This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 storm bolter"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -537,22 +506,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brotherhood Librarian\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "5",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Brotherhood Librarian\r"
+          "oc": "1",
+          "name": "Brotherhood Librarian"
         }
       ],
       "rangedWeapons": [
@@ -560,7 +520,11 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Combi-weapon",
-              "keywords": [],
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -573,20 +537,23 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Purge Soul – witchfire",
               "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds",
-                "rapid fire 1"
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "3"
+            },
+            {
+              "name": "Purge Soul – focused witchfire",
+              "keywords": [
+                "precision",
+                "psychic",
+                "hazardous"
               ],
               "range": "24\"",
               "attacks": "1",
@@ -600,81 +567,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Purge Soul – witchfire",
+              "name": "Storm bolter",
               "keywords": [
-                "psychic"
+                "rapid fire 2"
               ],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "3"
-            },
-            {
-              "name": "Purge Soul – focused witchfire",
-              "keywords": [],
-              "range": "RANGE"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "precision",
-                "psychic",
-                "hazardous"
-              ],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Storm bolter [RAPID FIRE 2]",
-              "keywords": [],
-              "range": "4",
-              "attacks": "2+",
-              "skill": "6",
-              "strength": "-1",
-              "ap": "2"
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -683,12 +585,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]\r"
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         }
@@ -705,15 +611,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "4df02a92-182f-5ca8-9a4a-7ee426943ccd",
-      "name": "Brotherhood Techmarine\r",
+      "id": "eeb060e8-3807-55c1-a07d-c836e0cd370d",
+      "name": "Brotherhood Techmarine",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Servitors ■ Strike Squad",
       "composition": [
         "1 Brotherhood Techmarine"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: boltgun; flamer; plasma cutter; Omnissian power axe; servo-arms.",
+      "wargear": [
+        "This model’s boltgun can be replaced with 1 bolt pistol."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -751,22 +659,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brotherhood Techmarine\r"
-        },
-        {
           "m": "5\"",
           "t": "4",
           "sv": "2+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Brotherhood Techmarine\r"
+          "oc": "1",
+          "name": "Brotherhood Techmarine"
         }
       ],
       "rangedWeapons": [
@@ -799,73 +698,36 @@ window.data.GK = {
               "damage": "1"
             }
           ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Flamer",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Omnissian",
-              "attacks": "power",
-              "skill": "axe",
-              "strength": "RANGE",
-              "ap": "A",
-              "damage": "WS"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Plasma",
-              "attacks": "cutter",
-              "skill": "–",
-              "strength": "standard"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Omnissian power axe",
               "keywords": [],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
               "strength": "6",
               "ap": "-2",
-              "damage": "2\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "[EXTRA",
-              "attacks": "ATTACKS]",
-              "skill": "Melee",
-              "strength": "2",
-              "ap": "3+",
-              "damage": "7"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Plasma",
-              "attacks": "cutter",
-              "skill": "–",
-              "strength": "supercharge",
-              "ap": "Melee",
               "damage": "2"
             }
           ]
@@ -873,36 +735,45 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
+              "name": "Plasma cutter – standard",
+              "keywords": [
+                "extra attacks"
+              ],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma cutter – supercharge",
+              "keywords": [
+                "extra attacks",
+                "hazardous"
+              ],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Servo-arms",
+              "keywords": [
+                "extra attacks"
+              ],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
               "strength": "8",
               "ap": "-2",
-              "damage": "3\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "[EXTRA",
-              "attacks": "ATTACKS,",
-              "skill": "HAZARDOUS]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Servo-arms",
-              "attacks": "[EXTRA",
-              "skill": "ATTACKS]"
+              "damage": "3"
             }
           ]
         }
@@ -919,15 +790,20 @@ window.data.GK = {
       ]
     },
     {
-      "id": "3c6364c2-5509-5f12-bb0e-a81fb4f93bdf",
-      "name": "Brotherhood Terminator Squad\r",
+      "id": "09b7e6e4-9a1c-5fa8-bcd2-119f1feda5fe",
+      "name": "Brotherhood Terminator Squad",
       "faction_id": "GK",
       "leader": "",
       "composition": [
-        "1 Terminator Justicar 4-9 Brotherhood Terminators"
+        "1 Terminator Justicar",
+        "4-9 Brotherhood Terminators"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "For every 5 models in this unit, 1 Brotherhood Terminator’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon",
+        "1 Brotherhood Terminator equipped with a storm bolter can be equipped with 1 Ancient’s banner.*",
+        "1 Brotherhood Terminator can have its storm bolter replaced with 1 narthecium.* *You cannot select both of these options for the same model."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -965,22 +841,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Brotherhood Terminator Squad\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "3",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Brotherhood Terminator Squad\r"
+          "oc": "2",
+          "name": "Brotherhood Terminator Squad"
         }
       ],
       "rangedWeapons": [
@@ -1004,14 +871,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -1022,54 +922,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
-              "skill": "3+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
               "strength": "6",
               "ap": "-2",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -1088,15 +950,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "f05635f3-c0d6-55b9-a292-58190c9a29db",
-      "name": "Castellan Crowe\r",
+      "id": "293435ac-8824-583a-8a7e-0e94642bf809",
+      "name": "Castellan Crowe",
       "faction_id": "GK",
       "leader": "This model can be attached to the following unit: ■ Purifier Squad",
       "composition": [
         "1 Castellan Crowe – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Purifying Flame; storm bolter; Black Blade of Antwyr.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1130,22 +994,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Castellan Crowe\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "5",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Castellan Crowe\r"
+          "oc": "1",
+          "name": "Castellan Crowe"
         }
       ],
       "rangedWeapons": [
@@ -1153,7 +1008,11 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Purifying Flame",
-              "keywords": [],
+              "keywords": [
+                "anti-infantry 2+",
+                "ignores cover",
+                "psychic"
+              ],
               "range": "18\"",
               "attacks": "3",
               "skill": "2+",
@@ -1166,34 +1025,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Storm bolter",
               "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "psychic"
+                "rapid fire 2"
               ],
-              "range": "2",
-              "attacks": "2+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Storm bolter [RAPID FIRE 2]",
-              "keywords": []
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -1230,15 +1071,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "fe11974f-4753-530e-8b61-9a0afa2f82d6",
-      "name": "Grand Master\r",
+      "id": "f29aef55-8607-5cfb-8bac-1d235c1ca41a",
+      "name": "Grand Master",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Grand Master"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "This model’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1272,22 +1115,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grand Master\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "7",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Grand Master\r"
+          "oc": "1",
+          "name": "Grand Master"
         }
       ],
       "rangedWeapons": [
@@ -1311,14 +1145,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -1329,48 +1196,10 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
-              "skill": "2+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1395,15 +1224,18 @@ window.data.GK = {
       ]
     },
     {
-      "id": "c0442400-a6e2-5f76-89be-874dddd1b75b",
-      "name": "Grand Master In Nemesis Dreadknight\r",
+      "id": "cf718708-be2e-50fc-80e7-4da3f6637da3",
+      "name": "Grand Master In Nemesis Dreadknight",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Grand Master in Nemesis Dreadknight"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: dreadfists.",
+      "wargear": [
+        "This model’s dreadfists can be replaced with one of the following: ◦ 1 Nemesis daemon greathammer ◦ 1 Nemesis greatsword",
+        "This model can be equipped with up to two of the following, but cannot take duplicates: ◦ 1 gatling psilencer ◦ 1 heavy incinerator ◦ 1 heavy psycannon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1437,22 +1269,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grand Master In Nemesis Dreadknight\r"
-        },
-        {
           "m": "8\"",
           "t": "8",
           "sv": "2+",
           "w": "13",
           "ld": "6+",
-          "oc": "4\r",
-          "name": "Grand Master In Nemesis Dreadknight\r"
+          "oc": "4",
+          "name": "Grand Master In Nemesis Dreadknight"
         }
       ],
       "rangedWeapons": [
@@ -1481,7 +1304,12 @@ window.data.GK = {
                 "ignores cover",
                 "torrent"
               ],
-              "range": "18\"\r"
+              "range": "18\"",
+              "attacks": "2D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -1493,11 +1321,11 @@ window.data.GK = {
                 "psychic"
               ],
               "range": "24\"",
-              "attacks": "2D6",
-              "skill": "N/A",
-              "strength": "6",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "10",
               "ap": "-1",
-              "damage": "1"
+              "damage": "3"
             }
           ]
         }
@@ -1509,11 +1337,11 @@ window.data.GK = {
               "name": "Dreadfists",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -1521,29 +1349,6 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis daemon greathammer",
-              "keywords": [
-                "psychic"
-              ],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Nemesis greatsword – strike",
-              "keywords": [
-                "psychic"
-              ],
-              "range": "Melee",
-              "attacks": "6",
-              "skill": "3+",
-              "strength": "6",
-              "ap": "-1",
-              "damage": "1"
-            },
-            {
-              "name": "Nemesis greatsword – sweep",
               "keywords": [
                 "psychic"
               ],
@@ -1559,26 +1364,28 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "5",
-              "attacks": "3+",
-              "skill": "10",
-              "strength": "-2",
-              "ap": "D6\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
+              "name": "Nemesis greatsword – strike",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            },
             {
-              "name": "",
-              "keywords": [],
-              "range": "10",
-              "attacks": "3+",
-              "skill": "5",
-              "strength": "-1",
-              "ap": "1"
+              "name": "Nemesis greatsword – sweep",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "10",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         }
@@ -1596,15 +1403,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "5c70516a-0f5c-583f-a8b0-49f6c561045f",
-      "name": "Grand Master Voldus\r",
+      "id": "149469d0-61a1-5592-98ca-2a94ca358bc8",
+      "name": "Grand Master Voldus",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Grand Master Voldus – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; Malleus Argyrum.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1627,11 +1436,7 @@ window.data.GK = {
           },
           {
             "name": "Hammer Aflame (Psychic)",
-            "description": "Each time this model’s unit is selected to fight, you can select one enemy unit within Engagement Range of this model’s unit and roll one D6,"
-          },
-          {
-            "name": "adding 2 to the result if that unit has the Daemon keyword",
-            "description": "on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
+            "description": "Each time this model’s unit is selected to fight, you can select one enemy unit within Engagement Range of this model’s unit and roll one D6, adding 2 to the result if that unit has the Daemon keyword: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
           }
         ],
         "special": [],
@@ -1642,22 +1447,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grand Master Voldus\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "6",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Grand Master Voldus\r"
+          "oc": "1",
+          "name": "Grand Master Voldus"
         }
       ],
       "rangedWeapons": [
@@ -1710,15 +1506,19 @@ window.data.GK = {
       ]
     },
     {
-      "id": "ac01ca22-a979-51b8-bab7-552049447f29",
-      "name": "Grey Knights Land Raider\r",
+      "id": "689e1001-9d6b-5dd2-a513-9346daaf23b4",
+      "name": "Grey Knights Land Raider",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Land Raider"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: 2 godhammer lascannons; twin heavy bolter; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 multi-melta.",
+        "This model can be equipped with 1 storm bolter."
+      ],
       "transport": "This model has a transport capacity of 12 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
       "abilities": {
         "wargear": [],
@@ -1731,50 +1531,151 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Assault Ramp",
+            "description": "Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-5 WOUNDS REMAINING",
-          "description": "Storm bolter [RAPID FIRE 2]                            24\"    2        3+ 4 0  1      While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. Twin heavy bolter [SUSTAINED HITS 1, TWIN-LINKED]      36\"    3        3+ 5 -1 2  MELEE WEAPONS                                      RANGE A             WS S AP D  Armoured tracks                                        Melee  6        4+ 8 0  1"
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Land Raider\r"
-        },
         {
           "m": "10\"",
           "t": "12",
           "sv": "2+",
           "w": "16",
           "ld": "6+",
-          "oc": "5\r",
-          "name": "Grey Knights Land Raider\r"
+          "oc": "5",
+          "name": "Grey Knights Land Raider"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Godhammer lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": [
+                "one shot"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": [
+                "melta 2"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Smoke",
+        "Imperium",
+        "Land Raider"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "44fb2526-2240-5738-8c44-1631f1821911",
-      "name": "Grey Knights Land Raider Crusader\r",
+      "id": "4d3bc053-81dd-5d13-b4eb-9701facf25dd",
+      "name": "Grey Knights Land Raider Crusader",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Land Raider Crusader"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: 2 hurricane bolters; twin assault cannon; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 multi-melta.",
+        "This model can be equipped with 1 storm bolter."
+      ],
       "transport": "This model has a transport capacity of 16 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
       "abilities": {
         "wargear": [],
@@ -1787,50 +1688,156 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Assault Ramp",
+            "description": "Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-5 WOUNDS REMAINING",
-          "description": "Storm bolter [RAPID FIRE 2]                           24\"  2           3+ 4 0  1    While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. Twin assault cannon                                   24\"  6           3+ 6 0  1  [DEVASTATING WOUNDS, TWIN-LINKED]  MELEE WEAPONS                                     RANGE    A WS S AP D  Armoured tracks                                    Melee   6 4+ 8 0            1"
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Land Raider Crusader\r"
-        },
         {
           "m": "10\"",
           "t": "12",
           "sv": "2+",
           "w": "16",
           "ld": "6+",
-          "oc": "5\r",
-          "name": "Grey Knights Land Raider Crusader\r"
+          "oc": "5",
+          "name": "Grey Knights Land Raider Crusader"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": [
+                "one shot"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hurricane bolter",
+              "keywords": [
+                "rapid fire 6",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": [
+                "melta 2"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin assault cannon",
+              "keywords": [
+                "devastating wounds",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Smoke",
+        "Grenades",
+        "Imperium",
+        "Land Raider",
+        "Crusader"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "a3b6a544-d052-59a9-bdd0-77aaa0c86a7c",
-      "name": "Grey Knights Land Raider Redeemer\r",
+      "id": "46942d4e-2b3b-5f7a-b034-0a067a3629f3",
+      "name": "Grey Knights Land Raider Redeemer",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Land Raider Redeemer"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: 2 flamestorm cannons; twin assault cannon; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 multi-melta.",
+        "This model can be equipped with 1 storm bolter."
+      ],
       "transport": "This model has a transport capacity of 14 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
       "abilities": {
         "wargear": [],
@@ -1843,50 +1850,156 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Assault Ramp",
+            "description": "Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-5 WOUNDS REMAINING",
-          "description": "Storm bolter [RAPID FIRE 2]                     24\"  2 3+ 4 0          1  While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll. Twin assault cannon                             24\"  6 3+ 6 0          1  [DEVASTATING WOUNDS, TWIN-LINKED]  MELEE WEAPONS                               RANGE    A WS S AP D  Armoured tracks                              Melee   6 4+ 8 0          1"
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Land Raider Redeemer\r"
-        },
         {
           "m": "10\"",
           "t": "12",
           "sv": "2+",
           "w": "16",
           "ld": "6+",
-          "oc": "5\r",
-          "name": "Grey Knights Land Raider Redeemer\r"
+          "oc": "5",
+          "name": "Grey Knights Land Raider Redeemer"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Flamestorm cannon",
+              "keywords": [
+                "ignores cover",
+                "torrent"
+              ],
+              "range": "12\"",
+              "attacks": "D6+3",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": [
+                "one shot"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": [
+                "melta 2"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin assault cannon",
+              "keywords": [
+                "devastating wounds",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Smoke",
+        "Grenades",
+        "Imperium",
+        "Land Raider",
+        "Redeemer"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "f38c9bf2-2e87-570d-8950-44a46741cf69",
-      "name": "Grey Knights Razorback\r",
+      "id": "3f5d25a5-f5ca-5398-90d0-9c702d2a65a9",
+      "name": "Grey Knights Razorback",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Razorback"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: twin heavy bolter; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 storm bolter.",
+        "This model’s twin heavy bolter can be replaced with one of the following: ◦ 1 twin assault cannon ◦ 1 twin lascannon"
+      ],
       "transport": "This model has a transport capacity of 6 Grey Knights Infantry models. It cannot transport Terminator models.",
       "abilities": {
         "wargear": [],
@@ -1899,7 +2012,12 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Fire Support",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit it scored one or more hits against this phase. Until the end of the phase, each time a friendly model that disembarked from this Transport this turn makes an attack that targets that enemy unit, you can re-roll the Wound roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -1908,41 +2026,140 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Razorback\r"
-        },
-        {
           "m": "12\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Grey Knights Razorback\r"
+          "oc": "2",
+          "name": "Grey Knights Razorback"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": [
+                "one shot"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin assault cannon",
+              "keywords": [
+                "devastating wounds",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Dedicated Transport",
+        "Smoke",
+        "Imperium",
+        "Razorback"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "b6e5dbfe-0c2a-5651-8898-1cebb3585e1e",
-      "name": "Grey Knights Rhino\r",
+      "id": "6c474964-4d5f-5f57-8b1b-b8c3b373bd9b",
+      "name": "Grey Knights Rhino",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Rhino"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: storm bolter; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 additional storm bolter."
+      ],
       "transport": "This model has a transport capacity of 12 Grey Knights Infantry models. It cannot transport Terminator models.",
       "abilities": {
         "wargear": [],
@@ -1956,7 +2173,12 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Self Repair",
+            "description": "At the start of your Command phase, this model regains 1 lost wound."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -1965,41 +2187,90 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Rhino\r"
-        },
-        {
           "m": "12\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Grey Knights Rhino\r"
+          "oc": "2",
+          "name": "Grey Knights Rhino"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": [
+                "one shot"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Dedicated Transport",
+        "Smoke",
+        "Imperium",
+        "Rhino"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "dcdf1b30-7d16-53f3-acfa-f9fcbdd87fa5",
-      "name": "Grey Knights Stormhawk Interceptor\r",
+      "id": "ca1ff249-da22-5041-81b3-c5dbc117454a",
+      "name": "Grey Knights Stormhawk Interceptor",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Stormhawk Interceptor"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: las-talon; skyhammer missile launcher; twin assault cannon; armoured hull.",
+      "wargear": [
+        "This model’s las-talon can be replaced with 1 icarus stormcannon.",
+        "This model’s skyhammer missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 typhoon missile launcher"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2013,7 +2284,12 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Interceptor",
+            "description": "Each time this model makes a ranged attack that targets a unit that can Fly, add 1 to the Hit roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2022,41 +2298,165 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Stormhawk Interceptor\r"
-        },
-        {
           "m": "20+\"",
           "t": "9",
           "sv": "3+",
           "w": "10",
           "ld": "6+",
-          "oc": "0\r",
-          "name": "Grey Knights Stormhawk Interceptor\r"
+          "oc": "0",
+          "name": "Grey Knights Stormhawk Interceptor"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Icarus stormcannon",
+              "keywords": [
+                "anti-fly 2+"
+              ],
+              "range": "48\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Las-talon",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Skyhammer missile launcher",
+              "keywords": [
+                "anti-fly 2+"
+              ],
+              "range": "48\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "D3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin assault cannon",
+              "keywords": [
+                "devastating wounds",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Typhoon missile launcher – frag",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Typhoon missile launcher – krak",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Aircraft",
+        "Fly",
+        "Smoke",
+        "Imperium",
+        "Stormhawk Interceptor"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "bd5b1794-7c45-5752-bf87-94f773b00c08",
-      "name": "Grey Knights Stormraven Gunship\r",
+      "id": "ff40724d-a84a-5684-8eeb-6917bd57f2eb",
+      "name": "Grey Knights Stormraven Gunship",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Stormraven Gunship"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: 2 stormstrike missile launchers; twin assault cannon; typhoon missile launcher; armoured hull.",
+      "wargear": [
+        "This model can be equipped with 2 hurricane bolters.",
+        "This model’s twin assault cannon can be replaced with one of the following: ◦ 1 twin heavy plasma cannon ◦ 1 twin lascannon",
+        "This model’s typhoon missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin multi-melta"
+      ],
       "transport": "This model has a transport capacity of 12 Grey Knights Infantry models and 1 Grey Knights Venerable Dreadnought model. Each Terminator model takes up the space of 2 models.",
       "abilities": {
         "wargear": [],
@@ -2070,50 +2470,226 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Armoured Resilience",
+            "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "1-5 WOUNDS REMAINING",
-          "description": "Twin heavy plasma cannon – standard                      48\" 18\"   3 3+ 7 -2 2                      While this model has 1-5 wounds remaining, each time this [BLAST, TWIN-LINKED]                                     48\"                                    model makes an attack, subtract 1 from the Hit roll. 48\"   3 3+ 8 -3 3 Twin heavy plasma cannon – supercharge RANGE   1 3+ 12 -3 D6+1 [BLAST, HAZARDOUS, TWIN-LINKED] Melee  2 3+ 9 -4 D6 Twin lascannon [TWIN-LINKED] Twin multi-melta [MELTA 2, TWIN-LINKED]                        2D6 3+ 4 0                    1 Typhoon missile launcher – frag [BLAST] Typhoon missile launcher – krak                                2 3+ 9 -2 D6  MELEE WEAPONS                                                  A WS S AP D  Armoured hull                                                  6 4+ 8 0                      1"
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
       },
       "stats": [
-        {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Stormraven Gunship\r"
-        },
         {
           "m": "20+\"",
           "t": "10",
           "sv": "3+",
           "w": "14",
           "ld": "6+",
-          "oc": "0\r",
-          "name": "Grey Knights Stormraven Gunship\r"
+          "oc": "0",
+          "name": "Grey Knights Stormraven Gunship"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hurricane bolter",
+              "keywords": [
+                "rapid fire 6",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Stormstrike missile launcher",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin assault cannon",
+              "keywords": [
+                "devastating wounds",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy plasma cannon – standard",
+              "keywords": [
+                "blast",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "2"
+            },
+            {
+              "name": "Twin heavy plasma cannon – supercharge",
+              "keywords": [
+                "blast",
+                "hazardous",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin multi-melta",
+              "keywords": [
+                "melta 2",
+                "twin-linked"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Typhoon missile launcher – frag",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Typhoon missile launcher – krak",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Aircraft",
+        "Transport",
+        "Fly",
+        "Imperium",
+        "Stormraven Gunship"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "6d19108e-a2f9-52af-9f4e-656ee85ad856",
-      "name": "Grey Knights Stormtalon Gunship\r",
+      "id": "c9a5a5d4-76dc-5845-b86e-7b1818200853",
+      "name": "Grey Knights Stormtalon Gunship",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Stormtalon Gunship"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: skyhammer missile launcher; twin assault cannon; armoured hull.",
+      "wargear": [
+        "This model’s skyhammer missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin lascannon ◦ 1 typhoon missile launcher"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2127,7 +2703,12 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Strafing Run",
+            "description": "Each time this model makes a ranged attack that targets a unit that cannot Fly, add 1 to the Hit roll."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2136,41 +2717,149 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Stormtalon Gunship\r"
-        },
-        {
           "m": "20+\"",
           "t": "8",
           "sv": "3+",
           "w": "10",
           "ld": "6+",
-          "oc": "0\r",
-          "name": "Grey Knights Stormtalon Gunship\r"
+          "oc": "0",
+          "name": "Grey Knights Stormtalon Gunship"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Skyhammer missile launcher",
+              "keywords": [
+                "anti-fly 2+"
+              ],
+              "range": "48\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "D3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin assault cannon",
+              "keywords": [
+                "devastating wounds",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": [
+                "sustained hits 1",
+                "twin-linked"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Typhoon missile launcher – frag",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Typhoon missile launcher – krak",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Aircraft",
+        "Fly",
+        "Imperium",
+        "Stormtalon Gunship"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "2511e7c7-1872-5a6b-a7b5-3a1b04071e79",
-      "name": "Grey Knights Venerable Dreadnought\r",
+      "id": "84079d1f-0353-5ea0-a39a-c33a1a17c3f4",
+      "name": "Grey Knights Venerable Dreadnought",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Venerable Dreadnought"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: assault cannon; storm bolter; Dreadnought combat weapon.",
+      "wargear": [
+        "This model’s assault cannon can be replaced with one of the following: ◦ 1 heavy plasma cannon ◦ 1 multi-melta ◦ 1 twin lascannon",
+        "This model’s storm bolter and Dreadnought combat weapon can be replaced with one of the following: ◦  1 missile launcher and 1 armoured feet ◦  1 heavy flamer and 1 Dreadnought combat weapon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2183,7 +2872,12 @@ window.data.GK = {
           "value": "",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Wisdom of the Ancients (Aura)",
+            "description": "While a friendly Grey Knights Infantry unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+          }
+        ],
         "special": [],
         "damaged": {
           "range": "",
@@ -2192,41 +2886,208 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Grey Knights Venerable Dreadnought\r"
-        },
-        {
           "m": "6\"",
           "t": "9",
           "sv": "2+",
           "w": "8",
           "ld": "6+",
-          "oc": "3\r",
-          "name": "Grey Knights Venerable Dreadnought\r"
+          "oc": "3",
+          "name": "Grey Knights Venerable Dreadnought"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Assault cannon",
+              "keywords": [
+                "devastatig wounds"
+              ],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": [
+                "torrent",
+                "ignores cover"
+              ],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy plasma cannon – standard",
+              "keywords": [
+                "blast"
+              ],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "2"
+            },
+            {
+              "name": "Heavy plasma cannon – supercharge",
+              "keywords": [
+                "blast",
+                "hazardous"
+              ],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Missile launcher – frag",
+              "keywords": [
+                "blast"
+              ],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Missile launcher – krak",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": [
+                "melta 2"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": [
+                "twin-linked"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured feet",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Dreadnought combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Psyker",
+        "Smoke",
+        "Imperium",
+        "Venerable Dreadnought"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "6606e986-f7d6-5a93-a6d7-e8be7ef3b55a",
-      "name": "Interceptor Squad\r",
+      "id": "dbba5ea4-3390-573f-b26a-2251b7a7e472",
+      "name": "Interceptor Squad",
       "faction_id": "GK",
       "leader": "",
       "composition": [
-        "1 Interceptor Justicar 4-9 Interceptors"
+        "1 Interceptor Justicar",
+        "4-9 Interceptors"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "For every 5 models in this unit, 1 Interceptor’s storm bolter and Nemesis force weapon can be replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2255,22 +3116,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Interceptor Squad\r"
-        },
-        {
           "m": "12\"",
           "t": "4",
           "sv": "2+",
           "w": "2",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Interceptor Squad\r"
+          "oc": "1",
+          "name": "Interceptor Squad"
         }
       ],
       "rangedWeapons": [
@@ -2294,14 +3146,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -2312,10 +3197,10 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
+              "range": "Melee",
+              "attacks": "3",
               "skill": "3+",
               "strength": "4",
               "ap": "0",
@@ -2326,61 +3211,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]",
-              "ap": "RANGE",
-              "damage": "A"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2\r"
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -2398,15 +3238,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "e8da5980-92e3-5ff6-b340-cbc50c43a8bf",
-      "name": "Kaldor Draigo\r",
+      "id": "ed70155e-e7bf-5d8f-968f-bd71c2821012",
+      "name": "Kaldor Draigo",
       "faction_id": "GK",
-      "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad SUPREME COMMANDER If this model is in your army, it must be your Warlord.",
+      "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
       "composition": [
         "1 Kaldor Draigo – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Scourging; storm bolter; the Titansword.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2445,22 +3287,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Kaldor Draigo\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "7",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Kaldor Draigo\r"
+          "oc": "1",
+          "name": "Kaldor Draigo"
         }
       ],
       "rangedWeapons": [
@@ -2489,7 +3322,12 @@ window.data.GK = {
               "keywords": [
                 "rapid fire 2"
               ],
-              "range": "24\"\r"
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2498,40 +3336,17 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "The",
-              "attacks": "Titansword",
-              "skill": "[ANTI-DAEMON",
-              "strength": "2+,",
-              "ap": "PSYCHIC]",
-              "damage": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "6",
-              "attacks": "2+",
-              "skill": "8",
-              "strength": "-4",
-              "ap": "3"
+              "name": "The Titansword",
+              "keywords": [
+                "anti-daemon 2+",
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-4",
+              "damage": "3"
             }
           ]
         }
@@ -2551,15 +3366,18 @@ window.data.GK = {
       ]
     },
     {
-      "id": "39a4abaf-f863-53a7-a305-0828168ecddd",
-      "name": "Nemesis Dreadknight\r",
+      "id": "ae017e4f-88b0-5a26-8fc3-52b3865bcd12",
+      "name": "Nemesis Dreadknight",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "1 Nemesis Dreadknight"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: dreadfists.",
+      "wargear": [
+        "This model’s dreadfists can be replaced with one of the following: ◦ 1 Nemesis daemon greathammer ◦ 1 Nemesis greatsword",
+        "This model can be equipped with up to two of the following, but cannot take duplicates: ◦ 1 gatling psilencer ◦ 1 heavy incinerator ◦ 1 heavy psycannon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2589,22 +3407,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Nemesis Dreadknight\r"
-        },
-        {
           "m": "8\"",
           "t": "8",
           "sv": "2+",
           "w": "13",
           "ld": "6+",
-          "oc": "4\r",
-          "name": "Nemesis Dreadknight\r"
+          "oc": "4",
+          "name": "Nemesis Dreadknight"
         }
       ],
       "rangedWeapons": [
@@ -2633,7 +3442,12 @@ window.data.GK = {
                 "ignores cover",
                 "torrent"
               ],
-              "range": "18\"\r"
+              "range": "18\"",
+              "attacks": "2D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -2645,11 +3459,11 @@ window.data.GK = {
                 "psychic"
               ],
               "range": "24\"",
-              "attacks": "2D6",
-              "skill": "N/A",
-              "strength": "6",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "10",
               "ap": "-1",
-              "damage": "1"
+              "damage": "3"
             }
           ]
         }
@@ -2661,11 +3475,11 @@ window.data.GK = {
               "name": "Dreadfists",
               "keywords": [],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -2676,7 +3490,12 @@ window.data.GK = {
               "keywords": [
                 "psychic"
               ],
-              "range": "Melee\r"
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6+1"
             }
           ]
         },
@@ -2688,11 +3507,11 @@ window.data.GK = {
                 "psychic"
               ],
               "range": "Melee",
-              "attacks": "6",
+              "attacks": "5",
               "skill": "3+",
-              "strength": "6",
-              "ap": "-1",
-              "damage": "1"
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
             },
             {
               "name": "Nemesis greatsword – sweep",
@@ -2700,37 +3519,11 @@ window.data.GK = {
                 "psychic"
               ],
               "range": "Melee",
-              "attacks": "5",
-              "skill": "4+",
-              "strength": "14",
-              "ap": "-3",
-              "damage": "D6+1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "5",
-              "attacks": "3+",
-              "skill": "10",
-              "strength": "-2",
-              "ap": "D6"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "10",
-              "attacks": "3+",
-              "skill": "5",
-              "strength": "-1",
-              "ap": "1"
+              "attacks": "10",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         }
@@ -2747,15 +3540,19 @@ window.data.GK = {
       ]
     },
     {
-      "id": "2c3e73b3-c598-51ee-93a1-079d4a4b8eb5",
-      "name": "Paladin Squad\r",
+      "id": "d34447ce-96dc-5248-8b8c-067b4951590d",
+      "name": "Paladin Squad",
       "faction_id": "GK",
       "leader": "",
       "composition": [
-        "1 Paragon 4-9 Paladins"
+        "1 Paragon",
+        "4-9 Paladins"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "For every 5 models in this unit, up to 2 Paladins can each have their storm bolter replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon",
+        "1 Paladin equipped with a storm bolter and Nemesis force weapon can be equipped with 1 Ancient’s banner. That model’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2789,22 +3586,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Paladin Squad\r"
-        },
-        {
           "m": "5\"",
           "t": "5",
           "sv": "2+",
           "w": "3",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Paladin Squad\r"
+          "oc": "1",
+          "name": "Paladin Squad"
         }
       ],
       "rangedWeapons": [
@@ -2828,14 +3616,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "2+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -2846,54 +3667,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
-              "skill": "2+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
               "strength": "6",
               "ap": "-2",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
@@ -2911,15 +3694,18 @@ window.data.GK = {
       ]
     },
     {
-      "id": "e2470ce1-b978-5f40-a1d8-5e4fbe194b90",
-      "name": "Purgation Squad\r",
+      "id": "60cb3f02-e210-5d88-9594-349d03bb941a",
+      "name": "Purgation Squad",
       "faction_id": "GK",
       "leader": "",
       "composition": [
-        "1 Purgator Justicar 4-9 Purgators"
+        "1 Purgator Justicar",
+        "4-9 Purgators"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "Up to 4 Purgators can each have their storm bolter and Nemesis force weapon replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2948,22 +3734,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Purgation Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "2",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Purgation Squad\r"
+          "oc": "1",
+          "name": "Purgation Squad"
         }
       ],
       "rangedWeapons": [
@@ -2987,14 +3764,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -3005,10 +3815,10 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
+              "range": "Melee",
+              "attacks": "3",
               "skill": "3+",
               "strength": "4",
               "ap": "0",
@@ -3019,61 +3829,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]",
-              "ap": "RANGE",
-              "damage": "A"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2\r"
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -3090,15 +3855,18 @@ window.data.GK = {
       ]
     },
     {
-      "id": "a069c3c4-43d2-579a-a6dc-e55dc9a76aa6",
-      "name": "Purifier Squad\r",
+      "id": "d10cbe49-479b-5d84-b030-e7a1ed0bcfb0",
+      "name": "Purifier Squad",
       "faction_id": "GK",
       "leader": "",
       "composition": [
-        "1 Knight of the Flame 4-9 Purifiers"
+        "1 Knight of the Flame",
+        "4-9 Purifiers"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: Purifying Flame; storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "For every 5 models in this unit, up to 2 Purifiers can each have their storm bolter and Nemesis force weapon replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3127,22 +3895,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Purifier Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "2",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Purifier Squad\r"
+          "oc": "1",
+          "name": "Purifier Squad"
         }
       ],
       "rangedWeapons": [
@@ -3166,8 +3925,11 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
-              "keywords": [],
+              "name": "Psilencer",
+              "keywords": [
+                "psychic",
+                "sustained hits 1"
+              ],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3180,8 +3942,10 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3194,9 +3958,11 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "[ANTI-INFANTRY 2+, IGNORES COVER, PSYCHIC]",
+              "name": "Purifying Flame",
               "keywords": [
-                "rapid fire 2"
+                "anti-infantry 2+",
+                "ignores cover",
+                "psychic"
               ],
               "range": "18\"",
               "attacks": "1",
@@ -3206,67 +3972,52 @@ window.data.GK = {
               "damage": "1"
             }
           ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
         }
       ],
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]",
-              "ap": "Melee",
-              "damage": "3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2\r"
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -3283,15 +4034,17 @@ window.data.GK = {
       ]
     },
     {
-      "id": "b85f66c0-2488-594c-af50-3bf97fabc2ed",
-      "name": "Servitors\r",
+      "id": "98f32d4e-f2e4-5b8a-a274-bf31c4467a77",
+      "name": "Servitors",
       "faction_id": "GK",
       "leader": "",
       "composition": [
         "4 Servitors"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: Servitor’s servo-arm.",
+      "wargear": [
+        "Up to 2 models can each have their Servitor’s servo-arm replaced with one of the following: ◦ 1 heavy bolter and 1 Servitor’s tools ◦ 1 multi-melta and 1 Servitor’s tools ◦ 1 plasma cannon and 1 Servitor’s tools"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3302,7 +4055,16 @@ window.data.GK = {
           "value": "6+",
           "info": ""
         },
-        "other": [],
+        "other": [
+          {
+            "name": "Mindlock",
+            "description": "While a Brotherhood Techmarine model is leading this unit, improve the Ballistic Skill and Weapon Skill characteristics of ranged and melee weapons equipped by Servitor models in this unit by 1."
+          },
+          {
+            "name": "Retinue",
+            "description": "While a Brotherhood Techmarine model is leading this unit, models in this unit have the Deep Strike and Teleport Assault abilities."
+          }
+        ],
         "special": [
           {
             "name": "SERVITOR RETINUE",
@@ -3316,41 +4078,134 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Servitors\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "4+",
           "w": "1",
           "ld": "8+",
-          "oc": "0\r",
-          "name": "Servitors\r"
+          "oc": "0",
+          "name": "Servitors"
         }
       ],
-      "rangedWeapons": [],
-      "meleeWeapons": [],
-      "keywords": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": [
+                "heavy",
+                "sustained hits 1"
+              ],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": [
+                "heavy",
+                "melta 2"
+              ],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma cannon – standard",
+              "keywords": [
+                "blast",
+                "heavy"
+              ],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma cannon – supercharge",
+              "keywords": [
+                "blast",
+                "hazardous",
+                "heavy"
+              ],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Servitor’s servo-arm",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Servitor’s tools",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Imperium",
+        "Servitors"
+      ],
       "factions": [
         "Grey Knights"
       ]
     },
     {
-      "id": "31b09fa9-3f03-5a8f-b816-133eb0ca0582",
-      "name": "Strike Squad\r",
+      "id": "c5e2fdc0-70ae-50af-907a-6c8c4714c95b",
+      "name": "Strike Squad",
       "faction_id": "GK",
       "leader": "",
       "composition": [
-        "1 Justicar 4-9 Grey Knights"
+        "1 Justicar",
+        "4-9 Grey Knights"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
+      "wargear": [
+        "For every 5 models in this unit, 1 Grey Knight’s storm bolter and Nemesis force weapon can be replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -3380,22 +4235,13 @@ window.data.GK = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Strike Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "4",
           "sv": "2+",
           "w": "2",
           "ld": "6+",
-          "oc": "2\r",
-          "name": "Strike Squad\r"
+          "oc": "2",
+          "name": "Strike Squad"
         }
       ],
       "rangedWeapons": [
@@ -3419,14 +4265,47 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "Psilencer [PSYCHIC, SUSTAINED HITS 1]",
+              "name": "Psilencer",
               "keywords": [
-                "rapid fire 2"
+                "psychic",
+                "sustained hits 1"
               ],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
               "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Psycannon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": [
+                "rapid fire 2"
+              ],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
             }
@@ -3437,10 +4316,10 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "24\"",
-              "attacks": "2",
+              "range": "Melee",
+              "attacks": "3",
               "skill": "3+",
               "strength": "4",
               "ap": "0",
@@ -3451,61 +4330,16 @@ window.data.GK = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "force",
-              "skill": "weapon",
-              "strength": "[PSYCHIC]",
-              "ap": "RANGE",
-              "damage": "A"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis force weapon",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
-              "strength": "4",
-              "ap": "0",
-              "damage": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2\r"
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }

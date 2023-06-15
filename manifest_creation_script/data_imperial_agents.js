@@ -1,19 +1,21 @@
 window.data = window.data || {};
-window.data.IA = {
-  "id": "IA",
+window.data.AoI = {
+  "id": "AoI",
   "link": "https://game-datacards.eu",
-  "name": "Imperial Agents",
+  "name": "Agents of the Imperium",
   "datasheets": [
     {
-      "id": "51e47b30-f4a3-552c-a106-8e26b13d79f4",
-      "name": "Callidus Assassin\r",
-      "faction_id": "IA",
+      "id": "91aed3a7-1ae0-56b8-9c64-3265b497a0df",
+      "name": "Callidus Assassin",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
         "1 Callidus Assassin – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: neural shredder; phase sword and poison blades.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -49,22 +51,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Callidus Assassin\r"
-        },
-        {
           "m": "7\"",
           "t": "4",
           "sv": "6+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Callidus Assassin\r"
+          "oc": "1",
+          "name": "Callidus Assassin"
         }
       ],
       "rangedWeapons": [
@@ -92,21 +85,16 @@ window.data.IA = {
           "profiles": [
             {
               "name": "Phase sword and poison blades",
-              "keywords": [],
+              "keywords": [
+                "lethal hits",
+                "precision"
+              ],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
               "strength": "5",
               "ap": "-4",
               "damage": "2"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[LETHAL HITS, PRECISION]",
-              "keywords": []
             }
           ]
         }
@@ -123,15 +111,17 @@ window.data.IA = {
       ]
     },
     {
-      "id": "c792bdb5-85ba-514b-8c36-abf5439fd30a",
-      "name": "Eversor Assassin\r",
-      "faction_id": "IA",
+      "id": "82566d83-6c6d-51fa-8bd5-b64877fffebb",
+      "name": "Eversor Assassin",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
         "1 Eversor Assassin – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: executioner pistol; power sword and neuro gauntlet.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -166,22 +156,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Eversor Assassin\r"
-        },
-        {
           "m": "9\"",
           "t": "4",
           "sv": "6+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Eversor Assassin\r"
+          "oc": "1",
+          "name": "Eversor Assassin"
         }
       ],
       "rangedWeapons": [
@@ -234,15 +215,23 @@ window.data.IA = {
       ]
     },
     {
-      "id": "0ad09687-a258-5988-9c45-d78272a14afb",
-      "name": "Exaction Squad\r",
-      "faction_id": "IA",
+      "id": "5a9b9c02-d23d-5319-bd02-f29cdab04a6f",
+      "name": "Exaction Squad",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
-        "1 Proctor-Exactant 4-9 Exaction Vigilants 0-1 Cyber-mastiff very Proctor-Exactant and Exaction Vigilant is equipped ith: Arbites combat shotgun; Arbites shotpistol; close ombat weapon."
+        "1 Proctor-Exactant",
+        "4-9 Exaction Vigilants",
+        "0-1 Cyber-mastiff Every Proctor-Exactant and Exaction Vigilant is equipped with: Arbites combat shotgun; Arbites shotpistol; close combat weapon."
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Cyber-mastiff is equipped with: mechanical bite.",
+      "wargear": [
+        "For every 5 models in this unit, up to 2 Exaction Vigilants can each have their Arbites combat shotguns replaced with one of the following (duplicates are not allowed): ◦ 1 executioner shotgun ◦ 1 Arbites grenade launcher ◦ 1 heavy stubber ◦ 1 webber",
+        "1 Exaction Vigilant that is equipped with an Arbites combat shotgun can be equipped with 1 excruciator maul.*",
+        "1 other Exaction Vigilant that is equipped with an Arbites combat shotgun can be equipped with 1 Arbites medi-kit.*",
+        "1 other Exaction Vigilant that is equipped with an Arbites combat shotgun can be equipped with 1 soulguilt scanner.*",
+        "The Proctor-Exactant can be equipped with 1 nuncio aquila. *  That model’s Arbites combat shotgun cannot be replaced."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -282,22 +271,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Exaction Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Exaction Squad\r"
+          "oc": "1",
+          "name": "Exaction Squad"
         }
       ],
       "rangedWeapons": [
@@ -324,17 +304,22 @@ window.data.IA = {
               "keywords": [
                 "blast"
               ],
-              "range": "24\"\r"
-            },
-            {
-              "name": "Arbites grenade launcher – krak",
-              "keywords": [],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
               "strength": "4",
               "ap": "0",
               "damage": "1"
+            },
+            {
+              "name": "Arbites grenade launcher – krak",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D3"
             }
           ]
         },
@@ -345,7 +330,12 @@ window.data.IA = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\""
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -360,9 +350,9 @@ window.data.IA = {
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
-              "strength": "9",
-              "ap": "-2",
-              "damage": "D3"
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -373,7 +363,12 @@ window.data.IA = {
               "keywords": [
                 "rapid fire 3"
               ],
-              "range": "36\""
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -387,11 +382,11 @@ window.data.IA = {
                 "torrent"
               ],
               "range": "12\"",
-              "attacks": "1",
-              "skill": "4+",
-              "strength": "4",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "2",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         }
@@ -403,9 +398,9 @@ window.data.IA = {
               "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
-              "attacks": "3",
+              "attacks": "2",
               "skill": "4+",
-              "strength": "4",
+              "strength": "3",
               "ap": "0",
               "damage": "1"
             }
@@ -416,7 +411,12 @@ window.data.IA = {
             {
               "name": "Excruciator maul",
               "keywords": [],
-              "range": "Melee\r"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
@@ -426,63 +426,11 @@ window.data.IA = {
               "name": "Mechanical bite",
               "keywords": [],
               "range": "Melee",
-              "attacks": "D6",
-              "skill": "N/A",
-              "strength": "2",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
               "ap": "0",
               "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "-1",
-              "ap": "2\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1\r"
             }
           ]
         }
@@ -499,15 +447,22 @@ window.data.IA = {
       ]
     },
     {
-      "id": "3a763182-132d-56fd-9c71-ee550c42b391",
-      "name": "Imperial Navy Breachers\r",
-      "faction_id": "IA",
+      "id": "77016539-3dc1-5d1b-a9a4-8c4830429c71",
+      "name": "Imperial Navy Breachers",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
-        "1 Navis Sergeant-at-Arms 9 Navis Armsmen"
+        "1 Navis Sergeant-at-Arms",
+        "9 Navis Armsmen"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "One Navis Armsman is equipped with: Navis las-volley; close combat weapon. One other Navis Armsman is equipped with: Navis heavy shotgun; close combat weapon; endurant shield. Every other model is equipped with: Navis shotgun; close combat weapon.",
+      "wargear": [
+        "The Navis Sergeant-at-Arms’ Navis shotgun can be replaced with one of the following: ◦ 1 autopistol and 1 chainsword ◦ 1 bolt pistol and 1 power weapon",
+        "1 Navis Armsman’s Navis las-volley can be replaced with one of the following: ◦ 1 meltagun ◦ 1 plasma gun",
+        "1 Navis Armsman’s Navis shotgun can be replaced with 1 autopistol and 1 power weapon.",
+        "1 Navis Armsman’s Navis shotgun can be replaced with 1 autopistol and 1 chainfist.",
+        "1 Navis Armsman can be equipped with 1 demolition charge and 1 grenade belts."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -543,22 +498,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Imperial Navy Breachers\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "1",
           "ld": "8+",
-          "oc": "2\r",
-          "name": "Imperial Navy Breachers\r"
+          "oc": "2",
+          "name": "Imperial Navy Breachers"
         }
       ],
       "rangedWeapons": [
@@ -687,7 +633,7 @@ window.data.IA = {
               "skill": "4+",
               "strength": "7",
               "ap": "-1",
-              "damage": "1\r"
+              "damage": "1"
             },
             {
               "name": "Plasma gun – supercharge",
@@ -700,12 +646,71 @@ window.data.IA = {
               "skill": "4+",
               "strength": "8",
               "ap": "-2",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         }
       ],
-      "meleeWeapons": [],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Chainfist",
+              "keywords": [
+                "anti-vehicle 3+"
+              ],
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Chainsword",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Power weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
       "keywords": [
         "Infantry",
         "Grenades",
@@ -719,15 +724,19 @@ window.data.IA = {
       ]
     },
     {
-      "id": "b01d7ed9-677b-5c95-ba21-bd68ea23f9f3",
-      "name": "Inquisitor\r",
-      "faction_id": "IA",
+      "id": "97b523fd-b753-5103-b5e9-04aa7ee7f477",
+      "name": "Inquisitor",
+      "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
       "composition": [
         "1 Inquisitor"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; Inquisitorial melee weapon; blessed wardings.",
+      "wargear": [
+        "This model’s bolt pistol can be replaced with 1 combi-weapon.",
+        "This model’s blessed wardings can be replaced with 1 psychic gifts and 1 Psychic Shock Wave.",
+        "If this model is equipped with 1 psychic gifts, its Inquisitorial melee weapon can be replaced with 1 force weapon."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -769,22 +778,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Inquisitor\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Inquisitor\r"
+          "oc": "1",
+          "name": "Inquisitor"
         }
       ],
       "rangedWeapons": [
@@ -808,34 +808,16 @@ window.data.IA = {
           "profiles": [
             {
               "name": "Combi-weapon",
-              "keywords": [],
-              "range": "24\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[ANTI-INFANTRY 4+, DEVASTATING WOUNDS, RAPID FIRE 1]",
-              "keywords": [],
-              "range": "18\"",
-              "attacks": "2D6",
-              "skill": "N/A",
-              "strength": "3",
-              "ap": "-1",
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "rapid fire 1"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
               "damage": "1"
             }
           ]
@@ -843,27 +825,17 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[DEVASTATING WOUNDS, PSYCHIC, TORRENT]",
-              "keywords": [],
-              "range": "Melee",
-              "attacks": "5",
-              "skill": "3+",
-              "strength": "4",
-              "ap": "-2",
+              "name": "Psychic Shock Wave",
+              "keywords": [
+                "devastating wounds",
+                "psychic",
+                "torrent"
+              ],
+              "range": "18\"",
+              "attacks": "2D6",
+              "skill": "N/A",
+              "strength": "3",
+              "ap": "-1",
               "damage": "1"
             }
           ]
@@ -873,22 +845,30 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Inquisitorial melee weapon",
               "keywords": [],
-              "range": "Inquisitorial",
-              "attacks": "melee",
-              "skill": "weapon\r"
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Force",
-              "attacks": "weapon",
-              "skill": "[PSYCHIC]\r"
+              "name": "Force weapon",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "D3"
             }
           ]
         }
@@ -905,15 +885,17 @@ window.data.IA = {
       ]
     },
     {
-      "id": "b83e4366-9a4b-54d8-99ee-7c7a78b2c404",
-      "name": "Inquisitor Coteaz\r",
-      "faction_id": "IA",
+      "id": "0a6dcec2-75d1-555e-9372-d49a60189f2e",
+      "name": "Inquisitor Coteaz",
+      "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
       "composition": [
         "1 Inquisitor Coteaz – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: bolt pistol; Psychic Blast; Nemesis daemon hammer.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -950,22 +932,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Inquisitor Coteaz\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "2+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Inquisitor Coteaz\r"
+          "oc": "1",
+          "name": "Inquisitor Coteaz"
         }
       ],
       "rangedWeapons": [
@@ -1008,26 +981,16 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
+              "name": "Nemesis daemon hammer",
+              "keywords": [
+                "psychic"
+              ],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
               "strength": "9",
               "ap": "-3",
               "damage": "3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Nemesis",
-              "attacks": "daemon",
-              "skill": "hammer",
-              "strength": "[PSYCHIC]\r"
             }
           ]
         }
@@ -1046,15 +1009,17 @@ window.data.IA = {
       ]
     },
     {
-      "id": "f39148db-0211-59f6-b537-eea4cdcbdd22",
-      "name": "Inquisitor Eisenhorn\r",
-      "faction_id": "IA",
+      "id": "f8ed00c8-b411-560a-9126-d8bad2200a16",
+      "name": "Inquisitor Eisenhorn",
+      "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
       "composition": [
         "1 Inquisitor Eisenhorn – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: artificer bolt pistol; Mind Assault; runestaff and Barbarisater",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1092,22 +1057,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Inquisitor Eisenhorn\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Inquisitor Eisenhorn\r"
+          "oc": "1",
+          "name": "Inquisitor Eisenhorn"
         }
       ],
       "rangedWeapons": [
@@ -1129,35 +1085,18 @@ window.data.IA = {
           "profiles": [
             {
               "name": "Mind Assault",
-              "keywords": [],
-              "range": "18\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "3+",
-              "skill": "5",
-              "strength": "-2",
-              "ap": "3"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
               "keywords": [
                 "devastating wounds",
                 "precision",
                 "psychic",
                 "sustained hits 1"
               ],
-              "range": "RANGE\r"
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "3"
             }
           ]
         }
@@ -1166,25 +1105,16 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "5",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Runestaff",
-              "attacks": "and",
-              "skill": "Barbarisater",
-              "strength": "[PSYCHIC]\r"
+              "name": "Runestaff and Barbarisater",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -1204,15 +1134,17 @@ window.data.IA = {
       ]
     },
     {
-      "id": "96d4061b-2756-56e8-9d7e-2795dcb8fc7c",
-      "name": "Inquisitor Greyfax\r",
-      "faction_id": "IA",
+      "id": "23ba73f2-1cfd-5bf9-9409-0adf6fbe3e45",
+      "name": "Inquisitor Greyfax",
+      "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
       "composition": [
         "1 Inquisitor Greyfax – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Castigation; condemnor stake; master-crafter power sword.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1249,22 +1181,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Inquisitor Greyfax\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "4",
           "ld": "4+",
-          "oc": "1\r",
-          "name": "Inquisitor Greyfax\r"
+          "oc": "1",
+          "name": "Inquisitor Greyfax"
         }
       ],
       "rangedWeapons": [
@@ -1272,7 +1195,9 @@ window.data.IA = {
           "profiles": [
             {
               "name": "Castigation",
-              "keywords": [],
+              "keywords": [
+                "psychic"
+              ],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1285,11 +1210,9 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Condemnor stake",
               "keywords": [
-                "anti-character 4+",
-                "devastating wounds",
-                "precision"
+                "fire 1"
               ],
               "range": "24\"",
               "attacks": "1",
@@ -1299,25 +1222,13 @@ window.data.IA = {
               "damage": "1"
             }
           ]
-        },
+        }
+      ],
+      "meleeWeapons": [
         {
           "profiles": [
             {
-              "name": "PSYCHIC]",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
+              "name": "Master-crafted power sword",
               "keywords": [],
               "range": "Melee",
               "attacks": "4",
@@ -1325,27 +1236,6 @@ window.data.IA = {
               "strength": "4",
               "ap": "-2",
               "damage": "2"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "[ANTI-PSYKER 2+, DEVASTATING WOUNDS, PRECISION, RAPID",
-              "keywords": []
-            }
-          ]
-        }
-      ],
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Master-crafted",
-              "attacks": "power",
-              "skill": "sword"
             }
           ]
         }
@@ -1365,15 +1255,17 @@ window.data.IA = {
       ]
     },
     {
-      "id": "ceedd9f0-ceb6-5c04-a404-71203be8fc93",
-      "name": "Inquisitor Karamazov\r",
-      "faction_id": "IA",
+      "id": "164eb5c0-341e-5ce8-a80b-4ea96b74521d",
+      "name": "Inquisitor Karamazov",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
         "1 Inquisitor Karamazov – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: master-crafted multi-melta; master-crafted power sword.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1406,22 +1298,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Inquisitor Karamazov\r"
-        },
-        {
           "m": "5\"",
           "t": "8",
           "sv": "3+",
           "w": "9",
           "ld": "6+",
-          "oc": "3\r",
-          "name": "Inquisitor Karamazov\r"
+          "oc": "3",
+          "name": "Inquisitor Karamazov"
         }
       ],
       "rangedWeapons": [
@@ -1472,15 +1355,23 @@ window.data.IA = {
       ]
     },
     {
-      "id": "4f68a3c2-7643-55eb-8242-b8db2bd257bd",
-      "name": "Inquisitorial Henchmen\r",
-      "faction_id": "IA",
+      "id": "6dc851be-1f06-524c-936d-5de230184396",
+      "name": "Inquisitorial Henchmen",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
-        "4-10 Inquisitorial Acolytes 0-2 Gun Servitors 0-2 Mystics 0-1 Jokaero Weaponsmith 0-1 Daemonhost"
+        "4-10 Inquisitorial Acolytes",
+        "0-2 Gun Servitors",
+        "0-2 Mystics",
+        "0-1 Jokaero Weaponsmith",
+        "0-1 Daemonhost"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every Inquisitorial Acolyte is equipped with: Acolyte firearm; Acolyte melee weapon. Every Gun Servitor is equipped with: heavy bolter; Acolyte melee weapon. Every Mystic is equipped with: Acolyte firearm; Acolyte melee weapon. A Jokaero Weaponsmith is equipped with: Jokaero weapons; Acolyte melee weapon. A Daemonhost is equipped with: Unholy Gaze; warp grasp.",
+      "wargear": [
+        "1 Inquisitorial Acolyte can be equipped with 1 plasma pistol.",
+        "1 Inquisitorial Acolyte can be equipped with 1 eviscerator.",
+        "1 Gun Servitor’s heavy bolter can be replaced with one of the following: ◦ 1 multi-melta ◦ 1 plasma cannon"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1519,22 +1410,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Inquisitorial Henchmen\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "5+",
           "w": "2",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Inquisitorial Henchmen\r"
+          "oc": "1",
+          "name": "Inquisitorial Henchmen"
         }
       ],
       "rangedWeapons": [
@@ -1567,7 +1449,7 @@ window.data.IA = {
               "skill": "5+",
               "strength": "5",
               "ap": "-1",
-              "damage": "2\r"
+              "damage": "2"
             }
           ]
         },
@@ -1636,22 +1518,21 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
+              "name": "Plasma pistol – standard",
+              "keywords": [
+                "pistol"
+              ],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
               "strength": "7",
               "ap": "-1",
               "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
+            },
             {
-              "name": "Plasma pistol – standard",
+              "name": "Plasma pistol – supercharge",
               "keywords": [
+                "hazardous",
                 "pistol"
               ],
               "range": "12\"",
@@ -1660,33 +1541,23 @@ window.data.IA = {
               "strength": "8",
               "ap": "-2",
               "damage": "2"
-            },
-            {
-              "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
-              "range": "18\"",
-              "attacks": "1",
-              "skill": "4+",
-              "strength": "9",
-              "ap": "-2",
-              "damage": "3\r"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "Unholy Gaze [PSYCHIC, SUSTAINED HITS D3]",
-              "keywords": [],
-              "range": "RANGE",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "name": "Unholy Gaze",
+              "keywords": [
+                "psychic",
+                "sustained hits d3"
+              ],
+              "range": "18\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "3"
             }
           ]
         }
@@ -1695,75 +1566,46 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Acolyte melee weapon",
               "keywords": [],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
               "strength": "3",
               "ap": "0",
-              "damage": "1\r"
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Acolyte",
-              "attacks": "melee",
-              "skill": "weapon",
-              "strength": "Melee"
+              "name": "Eviscerator",
+              "keywords": [
+                "devastating wounds"
+              ],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "Eviscerator",
-              "attacks": "[DEVASTATING",
-              "skill": "WOUNDS]",
-              "strength": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Warp",
-              "attacks": "grasp",
-              "skill": "[PSYCHIC]"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "4+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "1\r"
+              "name": "Warp grasp",
+              "keywords": [
+                "psychic"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -1780,15 +1622,17 @@ window.data.IA = {
       ]
     },
     {
-      "id": "a6b7307a-b97e-5cc3-828d-8b37bf6cbc9d",
-      "name": "Lord Inquisitor Kyria Draxus\r",
-      "faction_id": "IA",
+      "id": "dbe01a5d-8877-5c07-9f77-7e79241694e4",
+      "name": "Lord Inquisitor Kyria Draxus",
+      "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
       "composition": [
         "1 Lord Inquisitor Kyria Draxus – Epic Hero"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "This model is equipped with: Dirgesinger; Psychic Tempest; power fist.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -1825,22 +1669,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Lord Inquisitor Kyria Draxus\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "4",
           "ld": "6+",
-          "oc": "1\r",
-          "name": "Lord Inquisitor Kyria Draxus\r"
+          "oc": "1",
+          "name": "Lord Inquisitor Kyria Draxus"
         }
       ],
       "rangedWeapons": [
@@ -1848,7 +1683,11 @@ window.data.IA = {
           "profiles": [
             {
               "name": "Dirgesinger",
-              "keywords": [],
+              "keywords": [
+                "anti-infantry 4+",
+                "devastating wounds",
+                "assault"
+              ],
               "range": "18\"",
               "attacks": "4",
               "skill": "3+",
@@ -1861,74 +1700,18 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "18\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds",
-                "assault"
-              ],
-              "range": "6",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "2"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "RANGE\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
               "name": "Psychic Tempest",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
               "keywords": [
                 "indirect fire",
                 "psychic",
                 "sustained hits 2"
               ],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-2",
-              "ap": "2"
+              "range": "18\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "2"
             }
           ]
         }
@@ -1937,10 +1720,14 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Power fist",
               "keywords": [],
-              "range": "Power",
-              "attacks": "fist"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "2"
             }
           ]
         }
@@ -1960,15 +1747,18 @@ window.data.IA = {
       ]
     },
     {
-      "id": "f183aa9a-fed1-545f-9874-c6987648d4e3",
-      "name": "Rogue Trader Entourage\r",
-      "faction_id": "IA",
+      "id": "3782157e-f35b-531b-b70f-b0bbf33c1915",
+      "name": "Rogue Trader Entourage",
+      "faction_id": "AoI",
       "leader": "This unit can be attached to the following units: ■ Imperial Navy Breachers ■ Voidsmen-at-Arms",
       "composition": [
-        "1 Rogue Trader 3 Rogue Trader Specialists"
+        "1 Rogue Trader",
+        "3 Rogue Trader Specialists"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Rogue Trader is equipped with: household pistol; monomolecular cane-rapier. One Rogue Trader Specialist is equipped with: dartmask; Death Cult power blade. One other Rogue Trader Specialist is equipped with: voltaic pistol; close combat weapon. One other Rogue Trader Specialist is equipped with: laspistol; close combat weapon; healing serum.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2011,22 +1801,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Rogue Trader Entourage\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "4",
           "ld": "6+",
           "oc": "1",
-          "name": "ROGUE TRADER\r"
+          "name": "ROGUE TRADER"
         },
         {
           "m": "6\"",
@@ -2035,7 +1816,7 @@ window.data.IA = {
           "w": "2",
           "ld": "7+",
           "oc": "1",
-          "name": "ROGUE TRADER\r"
+          "name": "SPECIALIST"
         }
       ],
       "rangedWeapons": [
@@ -2065,17 +1846,6 @@ window.data.IA = {
                 "pistol",
                 "devastating wounds"
               ],
-              "range": "12\"\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
               "range": "12\"",
               "attacks": "2",
               "skill": "3+",
@@ -2088,12 +1858,33 @@ window.data.IA = {
         {
           "profiles": [
             {
+              "name": "Laspistol",
+              "keywords": [
+                "pistol"
+              ],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
               "name": "Voltaic pistol",
               "keywords": [
                 "pistol",
                 "sustained hits 2"
               ],
-              "range": "12\"\r"
+              "range": "12\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         }
@@ -2102,22 +1893,14 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
               "name": "Close combat weapon",
               "keywords": [],
-              "range": "Melee"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -2129,11 +1912,11 @@ window.data.IA = {
                 "precision"
               ],
               "range": "Melee",
-              "attacks": "A",
-              "skill": "WS",
-              "strength": "S",
-              "ap": "AP",
-              "damage": "D"
+              "attacks": "5",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
             }
           ]
         },
@@ -2142,46 +1925,12 @@ window.data.IA = {
             {
               "name": "Monomolecular cane-rapier",
               "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "5",
-              "attacks": "2+",
-              "skill": "4",
-              "strength": "-2",
-              "ap": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "4",
-              "attacks": "3+",
-              "skill": "4",
-              "strength": "-1",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         }
@@ -2202,15 +1951,19 @@ window.data.IA = {
       ]
     },
     {
-      "id": "4c3976e4-91a7-56d6-b198-73206d3b9818",
-      "name": "Subductor Squad\r",
-      "faction_id": "IA",
+      "id": "bd0c66bf-5fa0-5c52-8ce4-88858b2d8c5f",
+      "name": "Subductor Squad",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
-        "1 Proctor-Subductor 9 Subductors 0-1 Cyber-mastiff"
+        "1 Proctor-Subductor",
+        "9 Subductors",
+        "0-1 Cyber-mastiff"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every Proctor-Subductor and Subductor is equipped with: Arbites shotpistol; shock maul. The Cyber-mastiff is equipped with: mechanical bite.",
+      "wargear": [
+        "The Proctor-Subductor can be equipped with 1 nuncio aquila."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2226,7 +1979,7 @@ window.data.IA = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "*Excluding the Cyber-mastiff."
         },
         "other": [
           {
@@ -2242,22 +1995,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Subductor Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "3+",
           "w": "1",
           "ld": "7+",
-          "oc": "1\r",
-          "name": "Subductor Squad\r"
+          "oc": "1",
+          "name": "Subductor Squad"
         }
       ],
       "rangedWeapons": [
@@ -2298,20 +2042,12 @@ window.data.IA = {
             {
               "name": "Shock maul",
               "keywords": [],
-              "range": "Melee"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "-1",
-              "ap": "1"
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         }
@@ -2328,15 +2064,20 @@ window.data.IA = {
       ]
     },
     {
-      "id": "8ea7ac76-f710-5abb-be47-1fa4ef75d91b",
-      "name": "Vigilant Squad\r",
-      "faction_id": "IA",
+      "id": "353ff980-8867-549a-bec2-bb1841817d7d",
+      "name": "Vigilant Squad",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
-        "1 Proctor-Vigilant 9 Vigilants 0-1 Cyber-mastiff"
+        "1 Proctor-Vigilant",
+        "9 Vigilants",
+        "0-1 Cyber-mastiff"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "Every Proctor-Vigilant and Vigilant is equipped with: Arbites combat shotgun; Arbites shotpistol; close combat weapon. The Cyber-mastiff is equipped with: mechanical bite.",
+      "wargear": [
+        "Up to 2 Vigilants can each have their Arbites combat shotgun replaced with one of the following (duplicates are not allowed): ◦ 1 executioner shotgun ◦ 1 Arbites grenade launcher ◦ 1 heavy stubber ◦ 1 webber",
+        "The Proctor-Vigilant can be equipped with 1 nuncio aquila."
+      ],
       "transport": "",
       "abilities": {
         "wargear": [
@@ -2368,22 +2109,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Vigilant Squad\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "1",
           "ld": "7+",
-          "oc": "2\r",
-          "name": "Vigilant Squad\r"
+          "oc": "2",
+          "name": "Vigilant Squad"
         }
       ],
       "rangedWeapons": [
@@ -2410,17 +2142,22 @@ window.data.IA = {
               "keywords": [
                 "blast"
               ],
-              "range": "24\"\r"
-            },
-            {
-              "name": "Arbites grenade launcher – krak",
-              "keywords": [],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
               "strength": "4",
               "ap": "0",
               "damage": "1"
+            },
+            {
+              "name": "Arbites grenade launcher – krak",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D3"
             }
           ]
         },
@@ -2431,7 +2168,12 @@ window.data.IA = {
               "keywords": [
                 "pistol"
               ],
-              "range": "12\""
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -2446,9 +2188,9 @@ window.data.IA = {
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
-              "strength": "9",
-              "ap": "-2",
-              "damage": "D3"
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -2459,7 +2201,12 @@ window.data.IA = {
               "keywords": [
                 "rapid fire 3"
               ],
-              "range": "36\"\r"
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -2473,9 +2220,9 @@ window.data.IA = {
                 "torrent"
               ],
               "range": "12\"",
-              "attacks": "1",
-              "skill": "4+",
-              "strength": "4",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "2",
               "ap": "0",
               "damage": "1"
             }
@@ -2489,9 +2236,9 @@ window.data.IA = {
               "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
-              "attacks": "3",
+              "attacks": "2",
               "skill": "4+",
-              "strength": "4",
+              "strength": "3",
               "ap": "0",
               "damage": "1"
             }
@@ -2502,59 +2249,12 @@ window.data.IA = {
             {
               "name": "Mechanical bite",
               "keywords": [],
-              "range": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "D6",
-              "attacks": "N/A",
-              "skill": "2",
-              "strength": "0",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "A",
-              "attacks": "WS",
-              "skill": "S",
-              "strength": "AP",
-              "ap": "D\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "2",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2572,15 +2272,19 @@ window.data.IA = {
       ]
     },
     {
-      "id": "423c4f87-a319-59d1-919c-aff30625ed1a",
-      "name": "Voidsmen-at-arms\r",
-      "faction_id": "IA",
+      "id": "be68fcbd-8764-576e-8e7f-f1d5b8ed089b",
+      "name": "Voidsmen-at-arms",
+      "faction_id": "AoI",
       "leader": "",
       "composition": [
-        "1 Voidmaster 4-8 Voidsmen 0-1 Canid"
+        "1 Voidmaster",
+        "4-8 Voidsmen",
+        "0-1 Canid"
       ],
-      "loadout": "",
-      "wargear": [],
+      "loadout": "The Voidmaster is equipped with: artificer shotgun; laspistol; close combat weapon. For every 5 models in this unit, 1 Voidsman is equipped with: laspistol; Voidsman rotor cannon; close combat weapon. Every other Voidsman is equipped with: lasgun; laspistol; close combat weapon. The Canid is equipped with: vicious bite.",
+      "wargear": [
+        "None"
+      ],
       "transport": "",
       "abilities": {
         "wargear": [],
@@ -2607,22 +2311,13 @@ window.data.IA = {
       },
       "stats": [
         {
-          "m": "M",
-          "t": "T",
-          "sv": "SV",
-          "w": "W",
-          "ld": "LD",
-          "oc": "OC\r",
-          "name": "Voidsmen-at-arms\r"
-        },
-        {
           "m": "6\"",
           "t": "3",
           "sv": "4+",
           "w": "1",
           "ld": "8+",
-          "oc": "2\r",
-          "name": "Voidsmen-at-arms\r"
+          "oc": "2",
+          "name": "Voidsmen-at-arms"
         }
       ],
       "rangedWeapons": [
@@ -2649,7 +2344,12 @@ window.data.IA = {
               "keywords": [
                 "rapid fire 1"
               ],
-              "range": "24\"\r"
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -2677,7 +2377,12 @@ window.data.IA = {
                 "heavy",
                 "sustained hits 1"
               ],
-              "range": "24\""
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "5+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -2686,65 +2391,28 @@ window.data.IA = {
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Close combat weapon",
               "keywords": [],
-              "range": "6",
-              "attacks": "5+",
-              "skill": "6",
-              "strength": "0",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
         {
           "profiles": [
             {
-              "name": "",
+              "name": "Vicious bite",
               "keywords": [],
-              "range": "Close",
-              "attacks": "combat",
-              "skill": "weapon",
-              "strength": "Melee\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "Vicious",
-              "attacks": "bite",
-              "skill": "Melee",
-              "strength": "A",
-              "ap": "WS",
-              "damage": "S"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "1",
-              "attacks": "4+",
-              "skill": "3",
-              "strength": "0",
-              "ap": "1\r"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "3",
-              "attacks": "4+",
-              "skill": "4",
-              "strength": "0",
-              "ap": "1\r"
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
