@@ -8,7 +8,7 @@ window.data.CSM = {
       "id": "f951b549-32e0-5523-9152-337fd8b5f9f4",
       "name": "Abaddon The Despoiler",
       "faction_id": "CSM",
-      "leader": "This model can be attached to the following units: ■ Chaos Terminator Squad ■ Legionaries SUPREME COMMANDER If this model is in your army, it must be your Warlord.",
+      "leader": "This model can be attached to the following units: ■ Chaos Terminator Squad ■ Legionaries",
       "composition": [
         "1 Abaddon the Despoiler – Epic Hero"
       ],
@@ -2430,7 +2430,7 @@ window.data.CSM = {
       ],
       "loadout": "The Dark Apostle is equipped with: bolt pistol; accursed crozius. Every Dark Disciple is equipped with: close combat weapon.",
       "wargear": [
-        "None KEYWORDS –"
+        "None"
       ],
       "transport": "",
       "abilities": {
@@ -2532,18 +2532,13 @@ window.data.CSM = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "KEYWORDS –",
-              "keywords": [],
-              "range": "Chaos"
-            }
-          ]
         }
       ],
-      "keywords": [],
+      "keywords": [
+        "Infantry",
+        "Grenades",
+        "Chaos"
+      ],
       "factions": [
         "Heretic Astartes"
       ]
@@ -2718,7 +2713,7 @@ window.data.CSM = {
         "Grenades",
         "Chaos",
         "Dark Commune",
-        "MINDWITCH ONLY",
+        "MINDWITCH ONLY:",
         "Psyker",
         "CULT DEMAGOGUE ONLY:",
         "Character",
@@ -3086,7 +3081,7 @@ window.data.CSM = {
       ],
       "loadout": "Fabius Bile is equipped with: Xyclos Needler; Chirurgeon; Rod of Torment. The Surgeon Acolyte is equipped with: Surgeon Acolyte’s tools.",
       "wargear": [
-        "None KEYWORDS –"
+        "None"
       ],
       "transport": "",
       "abilities": {
@@ -3206,18 +3201,13 @@ window.data.CSM = {
               "damage": "1"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "KEYWORDS –",
-              "keywords": [],
-              "range": "d"
-            }
-          ]
         }
       ],
-      "keywords": [],
+      "keywords": [
+        "Infantry",
+        "Chaos",
+        "Chaos Undivided"
+      ],
       "factions": [
         "Heretic Astartes"
       ]
@@ -3578,11 +3568,7 @@ window.data.CSM = {
         "other": [
           {
             "name": "Head Taker",
-            "description": "While this model is leading a unit, each time this model’s unit ends a Charge move, select one enemy unit within Engagement Range of this model’s unit and roll one D6"
-          },
-          {
-            "name": "for each model in this model’s unit",
-            "description": "for each 4+, that enemy unit suffers 1 mortal wound."
+            "description": "While this model is leading a unit, each time this model’s unit ends a Charge move, select one enemy unit within Engagement Range of this model’s unit and roll one D6 for each model in this model’s unit: for each 4+, that enemy unit suffers 1 mortal wound."
           },
           {
             "name": "Herald of the Apocalypse (Aura)",
@@ -6976,7 +6962,7 @@ window.data.CSM = {
       ],
       "loadout": "The Traitor Enforcer is equipped with: bolt pistol; power fist. The Traitor Ogryn is equipped with: Ogryn weapons.",
       "wargear": [
-        "None KEYWORDS –"
+        "None"
       ],
       "transport": "",
       "abilities": {
@@ -7074,18 +7060,13 @@ window.data.CSM = {
               "damage": "2"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "KEYWORDS –",
-              "keywords": [],
-              "range": "enades"
-            }
-          ]
         }
       ],
-      "keywords": [],
+      "keywords": [
+        "Infantry",
+        "Chaos",
+        "Grenades"
+      ],
       "factions": [
         "Heretic Astartes"
       ]
