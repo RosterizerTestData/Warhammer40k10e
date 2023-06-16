@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.1",
+  "revision": "10.1.2",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -164,6 +164,60 @@
         "aspects": {
           "Lock Qty": true,
           "Unique": true
+        },
+        "rules": {
+          "There are more than 1 of this unique enhancement.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "{0string}"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "aspects",
+                    "Unique"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "There are more than 1 of this unique enhancement.",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "max": 1,
+                "operator": "SUM",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
         }
       },
       "Infantry/Mounted": {
@@ -1136,12 +1190,6 @@
             "dynamic": false,
             "tracked": true
           },
-          "A": {
-            "statType": "numeric",
-            "value": null,
-            "statOrder": 1,
-            "visibility": "normal"
-          },
           "Range": {
             "statType": "numeric",
             "format": "{v}″",
@@ -1156,12 +1204,23 @@
             "visibility": "always",
             "tracked": true
           },
+          "weaponName": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "A": {
+            "statType": "numeric",
+            "value": null,
+            "statOrder": 1,
+            "visibility": "always"
+          },
           "BS": {
             "statType": "numeric",
             "format": "{v}+",
             "value": null,
             "statOrder": 2,
-            "visibility": "normal",
+            "visibility": "always",
             "tracked": true
           },
           "WS": {
@@ -1169,13 +1228,8 @@
             "format": "{v}+",
             "value": null,
             "statOrder": 2,
-            "visibility": "normal",
+            "visibility": "always",
             "tracked": true
-          },
-          "weaponName": {
-            "statType": "term",
-            "value": null,
-            "visibility": "hidden"
           }
         },
         "aspects": {
