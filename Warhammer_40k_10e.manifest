@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.4",
+  "revision": "10.1.5",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -217,6 +217,16 @@
             ],
             "failState": "error",
             "evaluate": "AND"
+          }
+        },
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 0,
+            "group": "Cost",
+            "groupOrder": -1,
+            "visibility": "normal",
+            "tracked": true
           }
         }
       },
@@ -601,15 +611,6 @@
             "dynamic": true,
             "tracked": true
           },
-          "Points": {
-            "statType": "term",
-            "format": "{v}",
-            "value": "?",
-            "group": "Cost",
-            "groupOrder": -1,
-            "visibility": "always",
-            "tracked": true
-          },
           "maxQty": {
             "statType": "numeric",
             "value": 3,
@@ -666,6 +667,35 @@
             "visibility": "hidden",
             "tracked": true,
             "max": 1
+          },
+          "Points": {
+            "statType": "numeric",
+            "format": "{v}",
+            "value": null,
+            "group": "Cost",
+            "groupOrder": -1,
+            "visibility": "always",
+            "tracked": true
+          },
+          "model2ndTally": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model2ndCost": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model3rdCost": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
           }
         },
         "keywords": {
@@ -899,7 +929,33 @@
               }
             ]
           },
-          "cheatTally": {
+          "trueModelTally": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "noTally"
+                  ]
+                }
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND"
+          },
+          "cheatUnitNameTally": {
             "evals": [
               {
                 "paths": [
@@ -927,6 +983,142 @@
                 ],
                 "actionType": "set",
                 "value": 1,
+                "iterations": 1
+              }
+            ]
+          },
+          "apply2ndModelCost": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model1stTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "trueModelTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply2ndModelCost",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model2ndCost",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "apply3rdModelCost": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model2ndTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "trueModelTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply3rdModelCost",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model3rdCost",
+                  "value"
+                ],
                 "iterations": 1
               }
             ]
@@ -2098,6 +2290,11 @@
         "assets": {
           "traits": [
             "Stratagems§Stratagems"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "noTally"
           ]
         }
       },
