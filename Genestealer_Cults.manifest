@@ -1,6 +1,6 @@
 {
   "name": "Genestealer Cults",
-  "revision": "10.1.1",
+  "revision": "10.2.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -86,7 +86,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is Genestealer Cults, each time a unit with this ability is destroyed, roll one D6, adding 3 to the result if it is a Battleline unit. On a 4+, that unit is placed into Cult Ambush and you can place one Cult Ambush marker* anywhere on the battlefield that is more than 9\" horizontally away from all enemy units (if this is not possible, no marker is placed).\n\nIf an enemy model (excluding Aircraft models) ends any kind of move within 9\" of a Cult Ambush marker you placed, that Cult Ambush marker is removed from the battlefield. At the end of the Reinforcements step of your opponent’s next Movement phase, for each of your Cult Ambush markers that is still on the battlefield, you can select one unit from your army that is in Cult Ambush and set that destroyed unit back up on the battlefield using the Deep Strike ability, containing all of its models with their full wounds remaining and with at least one of those models touching that Cult Ambush marker (that Cult Ambush marker is then removed from the battlefield). Characters that are attached to a unit with this ability are not returned alongside that unit should it return to the battlefield as described above (only the Bodyguard unit returns).\n\n**Designer’s Note**: Each time a unit with this ability is destroyed, it triggers all rules that apply when a unit is destroyed. For example, if a rule awards a player 1VP each time an enemy unit is destroyed, and a unit with this ability is destroyed, returned using this ability then subsequently destroyed again, it would award the opponent 2VP.\n\n*A circular 32mm diameter marker should be used for Cult Ambush Markers."
       },
       "Ability§Cult Demagogue": {
         "text": "While this model is leading a unit, each time a model in that unit makes an attack, you can re-roll the Hit roll.",
@@ -183,6 +184,9 @@
             "Other"
           ]
         }
+      },
+      "Ability§One Shot": {
+        "text": "The bearer can only shoot with this weapon once per battle."
       },
       "Ability§Outrider Gangs": {
         "text": "Each time you use the Cult Ambush ability to set this unit back up on the battlefield, in addition to the normal rules, all of its models must be set up wholly within 6″ of a battlefield edge and at least one of its models must be touching one of your Cult Ambush markers (that marker is then removed from the battlefield). If this cannot be done, this unit cannot be set back up.",
@@ -445,8 +449,11 @@
             },
             "Ability§Twisted Science",
             "Ability§Biological Warfare",
-            "Wargear§Alchemicus Familiar"
-          ]
+            "Ranged Weapon§Biophagus—Autopistol",
+            "Ranged Weapon§Biophagus—Chemical vials",
+            "Melee Weapon§Biophagus—Injector goad"
+          ],
+          "included": []
         },
         "keywords": {
           "Faction": [
@@ -481,31 +488,18 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Alchemicus familiar": {
             "statType": "rank",
-            "value": "Autopistol",
+            "value": "-",
             "ranks": {
-              "Autopistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Biophagus—Autopistol"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Chemical vials": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Biophagus—Chemical vials"
-                  }
-                ]
-              },
-              "Injector goad": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Biophagus—Injector goad"
+                    "trait": "Wargear§Alchemicus Familiar"
                   }
                 ]
               }
@@ -516,7 +510,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: autopistol; chemical vials; injector goad.\n\nThis model can be equipped with 1 alchemicus familiar."
+        "text": ""
       },
       "Character§Clamavus": {
         "assets": {
@@ -898,6 +892,28 @@
           "OC": {
             "value": 1
           }
+        },
+        "rules": {
+          "The Patriarch must be your warlord.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
         }
       },
       "Character§Primus": {
@@ -1061,29 +1077,24 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Cult sniper rifle",
+            "value": "Sanctus bio-dagger",
             "ranks": {
-              "Cult sniper rifle": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Sanctus—Cult sniper rifle"
-                  }
-                ]
-              },
               "Sanctus bio-dagger": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Sanctus—Sanctus bio-dagger"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 2,
+              "Cult sniper rifle": {
+                "order": 1,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sanctus—Cult sniper rifle"
+                  },
                   {
                     "trait": "Melee Weapon§Sanctus—Close combat weapon"
                   }
@@ -1096,7 +1107,135 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Sanctus bio-dagger.\n\nThis model’s Sanctus bio-dagger can be replaced with 1 cult sniper rifle and 1 close combat weapon."
+        "text": ""
+      },
+      "Detachment§Ascension Day": {
+        "text": "Each time a Genestealer Cults unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities.",
+        "rules": {
+          "assignStratagems": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Unquestioning Loyalty",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Coordinated Trap",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Tunnel Crawlers",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§A Perfect Ambush",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§One With The Darkness",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Return To The Shadows",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Focus of Adoration": {
+        "keywords": {
+          "Keywords": [
+            "Ascension Day"
+          ]
+        },
+        "text": "Genestealer Cults model only. While the bearer is leading a unit, you can target that unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase."
+      },
+      "Enhancement§Inscrutable Cunning": {
+        "keywords": {
+          "Keywords": [
+            "Ascension Day"
+          ]
+        },
+        "text": "Genestealer Cults model only. While the bearer is leading a unit, models in that unit have the Infiltrators ability and each time you select that unit as the target of a Stratagem, roll one D6: on a 4+, you gain 1CP."
+      },
+      "Enhancement§Meticulous Planner": {
+        "keywords": {
+          "Keywords": [
+            "Ascension Day"
+          ]
+        },
+        "text": "Genestealer Cults model only. Once per battle, just after your opponent uses a Stratagem, if the bearer is on the battlefield, it can use this ability. If it does, until the end of the battle, the CP cost your opponent must pay to use that Stratagem again is increased by 1CP."
+      },
+      "Enhancement§Prowling Agitant": {
+        "keywords": {
+          "Keywords": [
+            "Ascension Day"
+          ]
+        },
+        "text": "Genestealer Cults model only. Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of the bearer’s unit, if the bearer’s unit is not within Engagement Range of any enemy units, it can make a Normal move of up to D6\"."
       },
       "Melee Weapon§Aberrants—Heavy improvised weapon": {
         "stats": {
@@ -2035,6 +2174,33 @@
           ]
         }
       },
+      "Model§Aberrant": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 6
+          },
+          "Sv": {
+            "value": 5
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Aberrants—Heavy power weapon"
+          ]
+        }
+      },
       "Model§Aberrant Hypermorph": {
         "stats": {
           "M": {
@@ -2055,99 +2221,39 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Weapon": {
             "statType": "rank",
-            "value": "Heavy improvised weapon",
+            "value": "Heavy power weapon",
             "ranks": {
-              "Heavy improvised weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aberrants—Heavy improvised weapon"
-                  }
-                ]
-              },
               "Heavy power weapon": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Aberrants—Heavy power weapon"
                   }
                 ]
               },
-              "Hypermorph tail": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aberrants—Hypermorph tail"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
-        }
-      },
-      "Model§Aberrants": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 6
-          },
-          "Sv": {
-            "value": 5
-          },
-          "W": {
-            "value": 3
-          },
-          "Ld": {
-            "value": 7
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Heavy improvised weapon",
-            "ranks": {
               "Heavy improvised weapon": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Aberrants—Heavy improvised weapon"
                   }
                 ]
-              },
-              "Heavy power weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aberrants—Heavy power weapon"
-                  }
-                ]
-              },
-              "Hypermorph tail": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aberrants—Hypermorph tail"
-                  }
-                ]
               }
             },
             "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Aberrants—Hypermorph tail"
+          ]
         }
       },
-      "Model§Achilles Ridgerunners": {
+      "Model§Achilles Ridgerunner": {
         "stats": {
           "M": {
             "value": 12
@@ -2167,23 +2273,57 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Utility": {
             "statType": "rank",
-            "value": "Achilles missile launcher",
+            "value": "Flare launcher",
             "ranks": {
-              "Achilles missile launcher": {
+              "Flare launcher": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Achilles Ridgerunners—Achilles missile launcher"
+                    "trait": "Wargear§Flare Launcher"
                   }
                 ]
               },
-              "Heavy mining laser": {
+              "Spotter": {
                 "order": 1,
                 "traits": [
                   {
+                    "trait": "Wargear§Spotter"
+                  }
+                ]
+              },
+              "Survey augur": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Survey Augur"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Primary weapon": {
+            "statType": "rank",
+            "value": "Heavy mining laser",
+            "ranks": {
+              "Heavy mining laser": {
+                "order": 0,
+                "traits": [
+                  {
                     "trait": "Ranged Weapon§Achilles Ridgerunners—Heavy mining laser"
+                  }
+                ]
+              },
+              "Achilles missile launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Achilles Ridgerunners—Achilles missile launcher"
                   }
                 ]
               },
@@ -2194,22 +2334,6 @@
                     "trait": "Ranged Weapon§Achilles Ridgerunners—Heavy mortar"
                   }
                 ]
-              },
-              "Twin heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Achilles Ridgerunners—Twin heavy stubber"
-                  }
-                ]
-              },
-              "Ridgerunner wheels": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Achilles Ridgerunners—Ridgerunner wheels"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -2217,9 +2341,15 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Achilles Ridgerunners—Twin heavy stubber",
+            "Melee Weapon§Achilles Ridgerunners—Ridgerunner wheels"
+          ]
         }
       },
-      "Model§Acolyte Hybrids": {
+      "Model§Acolyte Hybrid": {
         "stats": {
           "M": {
             "value": 6
@@ -2239,57 +2369,81 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Autopistol",
+            "value": "Autopistol, cult claws and knife",
             "ranks": {
-              "Autopistol": {
+              "Autopistol, cult claws and knife": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Acolyte Hybrids—Autopistol"
-                  }
-                ]
-              },
-              "Demolition charges": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Acolyte Hybrids—Demolition charges"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Acolyte Hybrids—Hand flamer"
-                  }
-                ]
-              },
-              "Cult claws and knife": {
-                "order": 3,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
                   }
-                ]
+                ],
+                "tracking": {
+                  "specialWeapons": 0,
+                  "Icons": 0
+                }
+              },
+              "Hand flamer, cult claws and knife": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Acolyte Hybrids—Hand flamer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
+                  }
+                ],
+                "tracking": {
+                  "specialWeapons": 0,
+                  "Icons": 0
+                }
+              },
+              "Demolition charges, cult claws and knife": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Acolyte Hybrids—Demolition charges"
+                  },
+                  {
+                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
+                  }
+                ],
+                "tracking": {
+                  "specialWeapons": 1,
+                  "Icons": 0
+                }
               },
               "Heavy mining tool": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Acolyte Hybrids—Heavy mining tool"
                   }
-                ]
+                ],
+                "tracking": {
+                  "specialWeapons": 1,
+                  "Mind Control (psychic)": 0
+                }
               },
-              "Leader’s cult weapons": {
-                "order": 5,
+              "Cult icon, cult claws and knife": {
+                "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Acolyte Hybrids—Leader’s cult weapons"
+                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
+                  },
+                  {
+                    "trait": "Wargear§Cult Icon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "specialWeapons": 0,
+                  "Icons": 1
+                }
               }
             },
             "group": "Loadout",
@@ -2319,7 +2473,7 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Pistol": {
             "statType": "rank",
             "value": "Autopistol",
             "ranks": {
@@ -2331,40 +2485,34 @@
                   }
                 ]
               },
-              "Demolition charges": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Acolyte Hybrids—Demolition charges"
-                  }
-                ]
-              },
               "Hand flamer": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Acolyte Hybrids—Hand flamer"
                   }
                 ]
-              },
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Cult claws and knife",
+            "ranks": {
               "Cult claws and knife": {
-                "order": 3,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
                   }
                 ]
               },
-              "Heavy mining tool": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Acolyte Hybrids—Heavy mining tool"
-                  }
-                ]
-              },
-              "Leader’s cult weapons": {
-                "order": 5,
+              "Leader's cult weapons": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Acolyte Hybrids—Leader’s cult weapons"
@@ -2372,14 +2520,15 @@
                 ]
               }
             },
+            "statOrder": 2,
             "group": "Loadout",
             "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
           }
         }
       },
-      "Model§Atalan Jackals": {
+      "Model§Atalan Jackal": {
         "stats": {
           "M": {
             "value": 12
@@ -2399,20 +2548,12 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Ranged": {
             "statType": "rank",
-            "value": "Atalan incinerator",
+            "value": "Atalan small arms",
             "ranks": {
-              "Atalan incinerator": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atalan Jackals—Atalan incinerator"
-                  }
-                ]
-              },
               "Atalan small arms": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Atalan Jackals—Atalan small arms"
@@ -2420,42 +2561,10 @@
                 ]
               },
               "Grenade launcher": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Wargear§Atalan Jackals—Grenade launcher"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atalan Jackals—Heavy stubber"
-                  }
-                ]
-              },
-              "Mining laser": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atalan Jackals—Mining laser"
-                  }
-                ]
-              },
-              "Atalan power weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Atalan Jackals—Atalan power weapon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Atalan Jackals—Close combat weapon"
                   }
                 ]
               }
@@ -2464,10 +2573,37 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Close combat weapon",
+            "ranks": {
+              "Close combat weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Atalan Jackals—Close combat weapon"
+                  }
+                ]
+              },
+              "Atalan power weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Atalan Jackals—Atalan power weapon"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           }
         }
       },
-      "Model§Atalan Wolfquads* *  This unit can only contain 2 Atalan Wolfquads if it also contains 8 Atalan Jackals.": {
+      "Model§Atalan Wolfquad": {
         "stats": {
           "M": {
             "value": 12
@@ -2487,63 +2623,31 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Main weapon": {
             "statType": "rank",
-            "value": "Atalan incinerator",
+            "value": "Heavy stubber",
             "ranks": {
-              "Atalan incinerator": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atalan Jackals—Atalan incinerator"
-                  }
-                ]
-              },
-              "Atalan small arms": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atalan Jackals—Atalan small arms"
-                  }
-                ]
-              },
-              "Grenade launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Atalan Jackals—Grenade launcher"
-                  }
-                ]
-              },
               "Heavy stubber": {
-                "order": 3,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Atalan Jackals—Heavy stubber"
                   }
                 ]
               },
+              "Atalan incinerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Atalan Jackals—Atalan incinerator"
+                  }
+                ]
+              },
               "Mining laser": {
-                "order": 4,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Atalan Jackals—Mining laser"
-                  }
-                ]
-              },
-              "Atalan power weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Atalan Jackals—Atalan power weapon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Atalan Jackals—Close combat weapon"
                   }
                 ]
               }
@@ -2553,9 +2657,15 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Atalan Jackals—Atalan small arms",
+            "Melee Weapon§Atalan Jackals—Close combat weapon"
+          ]
         }
       },
-      "Model§Hybrid Metamorphs": {
+      "Model§Hybrid Metamorph": {
         "stats": {
           "M": {
             "value": 6
@@ -2575,7 +2685,7 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Pistol/icon": {
             "statType": "rank",
             "value": "Autopistol",
             "ranks": {
@@ -2585,7 +2695,10 @@
                   {
                     "trait": "Ranged Weapon§Hybrid Metamorphs—Autopistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Icons": 0
+                }
               },
               "Hand flamer": {
                 "order": 1,
@@ -2593,23 +2706,21 @@
                   {
                     "trait": "Ranged Weapon§Hybrid Metamorphs—Hand flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Icons": 0
+                }
               },
-              "Leader’s cult weapons": {
+              "Cult icon": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Hybrid Metamorphs—Leader’s cult weapons"
+                    "trait": "Wargear§Cult Icon"
                   }
-                ]
-              },
-              "Metamorph mutations": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Wargear§Hybrid Metamorphs—Metamorph mutations"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Icons": 1
+                }
               }
             },
             "group": "Loadout",
@@ -2617,6 +2728,11 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Wargear§Hybrid Metamorphs—Metamorph mutations"
+          ]
         }
       },
       "Model§Metamorph Leader": {
@@ -2639,7 +2755,7 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Pistol": {
             "statType": "rank",
             "value": "Autopistol",
             "ranks": {
@@ -2658,22 +2774,6 @@
                     "trait": "Ranged Weapon§Hybrid Metamorphs—Hand flamer"
                   }
                 ]
-              },
-              "Leader’s cult weapons": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Hybrid Metamorphs—Leader’s cult weapons"
-                  }
-                ]
-              },
-              "Metamorph mutations": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Wargear§Hybrid Metamorphs—Metamorph mutations"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -2681,9 +2781,14 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Hybrid Metamorphs—Leader’s cult weapons"
+          ]
         }
       },
-      "Model§Neophyte Hybrids": {
+      "Model§Neophyte Hybrid": {
         "stats": {
           "M": {
             "value": 6
@@ -2703,49 +2808,74 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Gun": {
             "statType": "rank",
-            "value": "Autopistol",
+            "value": "Hybrid firearm",
             "ranks": {
-              "Autopistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Autopistol"
-                  }
-                ]
-              },
               "Hybrid firearm": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Hybrid firearm"
                   }
-                ]
+                ],
+                "tracking": {
+                  "SpecialWeapons": 0,
+                  "HeavyWeapons": 0,
+                  "Icons": 0
+                }
               },
-              "Leader pistol": {
-                "order": 2,
+              "Hybrid firearm and cult icon": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Leader pistol"
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Hybrid firearm"
+                  },
+                  {
+                    "trait": "Wargear§Cult Icon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "HeavyWeapons": 0,
+                  "SpecialWeapons": 0,
+                  "Icons": 1
+                }
               },
               "Flamer": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "SpecialWeapons": 1,
+                  "HeavyWeapons": 0
+                }
               },
               "Grenade launcher": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Wargear§Neophyte Hybrids—Grenade launcher"
                   }
-                ]
+                ],
+                "tracking": {
+                  "HeavyWeapons": 0,
+                  "SpecialWeapons": 1
+                }
+              },
+              "Webber": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Webber"
+                  }
+                ],
+                "tracking": {
+                  "HeavyWeapons": 0,
+                  "SpecialWeapons": 1
+                }
               },
               "Heavy stubber": {
                 "order": 5,
@@ -2753,7 +2883,11 @@
                   {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Heavy stubber"
                   }
-                ]
+                ],
+                "tracking": {
+                  "HeavyWeapons": 1,
+                  "SpecialWeapons": 0
+                }
               },
               "Mining laser": {
                 "order": 6,
@@ -2761,7 +2895,11 @@
                   {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Mining laser"
                   }
-                ]
+                ],
+                "tracking": {
+                  "HeavyWeapons": 1,
+                  "SpecialWeapons": 0
+                }
               },
               "Seismic cannon": {
                 "order": 7,
@@ -2769,39 +2907,11 @@
                   {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Seismic cannon"
                   }
-                ]
-              },
-              "Webber": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Webber"
-                  }
-                ]
-              },
-              "Chainsword": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Neophyte Hybrids—Chainsword"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Neophyte Hybrids—Power weapon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Neophyte Hybrids—Close combat weapon"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "HeavyWeapons": 1,
+                  "SpecialWeapons": 0
+                }
               }
             },
             "group": "Loadout",
@@ -2809,6 +2919,12 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Neophyte Hybrids—Autopistol",
+            "Melee Weapon§Neophyte Hybrids—Close combat weapon"
+          ]
         }
       },
       "Model§Neophyte Leader": {
@@ -2831,103 +2947,40 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Loadout": {
             "statType": "rank",
-            "value": "Autopistol",
+            "value": "Hybrid firearm and close combat weapon",
             "ranks": {
-              "Autopistol": {
+              "Hybrid firearm and close combat weapon": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Autopistol"
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Hybrid firearm"
+                  },
+                  {
+                    "trait": "Melee Weapon§Neophyte Hybrids—Close combat weapon"
                   }
                 ]
               },
-              "Hybrid firearm": {
+              "Leader pistol and chainsword": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Hybrid firearm"
-                  }
-                ]
-              },
-              "Leader pistol": {
-                "order": 2,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Leader pistol"
-                  }
-                ]
-              },
-              "Flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Flamer"
-                  }
-                ]
-              },
-              "Grenade launcher": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Wargear§Neophyte Hybrids—Grenade launcher"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Heavy stubber"
-                  }
-                ]
-              },
-              "Mining laser": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Mining laser"
-                  }
-                ]
-              },
-              "Seismic cannon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Seismic cannon"
-                  }
-                ]
-              },
-              "Webber": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Webber"
-                  }
-                ]
-              },
-              "Chainsword": {
-                "order": 9,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Neophyte Hybrids—Chainsword"
                   }
                 ]
               },
-              "Power weapon": {
-                "order": 10,
+              "Leader pistol and power weapon": {
+                "order": 2,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Leader pistol"
+                  },
                   {
                     "trait": "Melee Weapon§Neophyte Hybrids—Power weapon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Neophyte Hybrids—Close combat weapon"
                   }
                 ]
               }
@@ -2937,9 +2990,14 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Neophyte Hybrids—Autopistol"
+          ]
         }
       },
-      "Model§Purestrain Genestealers": {
+      "Model§Purestrain Genestealer": {
         "stats": {
           "M": {
             "value": 8
@@ -4516,6 +4574,165 @@
               }
             },
             "dynamic": false
+          },
+          "Detachment": {
+            "value": "Ascension Day",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Ascension Day": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Detachment§Ascension Day"
+                  }
+                ]
+              }
+            },
+            "dynamic": false
+          }
+        }
+      },
+      "Stratagem§A Perfect Ambush": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Ascension Day",
+            "Genestealer Cults"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Genestealer Cults unit from your army that arrived from Reserves this turn and has not been selected to shoot this phase.\n\n**EFFECT:** Until the end of the phase, improve the Ballistic Skill and Armour Penetration characteristics of ranged weapons equipped by models in your unit by 1."
+      },
+      "Stratagem§Coordinated Trap": {
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Ascension Day",
+            "Genestealer Cults"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "**WHEN**: The start of your Shooting phase or the start of the Fight phase.\n\n**TARGET**: Two Genestealer Cults units from your army that have not been selected to shoot or fight this phase, and one enemy unit.\n\n**EFFECT:** Until the end of the phase, each time a model in either of your units makes an attack, it can only target that enemy unit (and only if it is an eligible target for that attack), and when resolving that attack, add 1 to the Wound roll."
+      },
+      "Stratagem§One With The Darkness": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Ascension Day",
+            "Genestealer Cults"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Genestealer Cults Infantry unit from your army that was selected as the target of one or more of that enemy unit’s attacks.\n\n**EFFECT**: Until the end of the phase, your unit has the Stealth ability and can only be selected as the target of a ranged attack if the attacking model is within 12\"."
+      },
+      "Stratagem§Return To The Shadows": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Ascension Day",
+            "Genestealer Cults"
+          ],
+          "Phase": [
+            "End of turn"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "text": "**WHEN: End of your opponent’s turn.\n\n**TARGET**: Up to two Genestealer Cults Battleline units from your army, or one other Genestealer Cults Infantry unit from your army.\n\n**EFFECT**: Remove the targeted units from the battlefield and place them into Strategic Reserves.\n\n**RESTRICTIONS**: The targeted units must have the Deep Strike ability and cannot be within Engagement Range of any enemy units when targeted."
+      },
+      "Stratagem§Tunnel Crawlers": {
+        "keywords": {
+          "Keywords": [
+            "Ascension Day",
+            "Genestealer Cults"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Genestealer Cults unit from your army that is arriving using the Deep Strike ability this phase.\n\n**EFFECT**: Your unit can be set up anywhere on the battlefield that is more than 3\" horizontally away from all enemy models.\n\n**RESTRICTIONS**: A unit targeted by this Stratagem is not eligible to declare a charge in the same turn."
+      },
+      "Stratagem§Unquestioning Loyalty": {
+        "keywords": {
+          "Keywords": [
+            "Ascension Day",
+            "Genestealer Cults"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Genestealer Cults Character unit from your army that was selected as the target of one or more of that enemy unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time a Character model in your unit would lose a wound, select one friendly Genestealer Cults unit within 3\" of it (excluding Vehicle units). Your Character model does not lose that wound and that selected unit suffers one mortal wound instead.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
           }
         }
       },
@@ -4537,7 +4754,7 @@
           ],
           "included": [
             {
-              "item": "Model§Aberrants",
+              "item": "Model§Aberrant",
               "quantity": 4
             }
           ]
@@ -4557,11 +4774,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Aberrants"
+            "Model§Aberrant"
           ]
         },
         "stats": {
-          "Aberrants": {
+          "Aberrant": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -4570,7 +4787,7 @@
             "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThe Aberrant Hypermorph is equipped with: heavy power weapon; hypermorph tail. Every Aberrant is equipped with: heavy power weapon.\n\nThe Aberrant Hypermorph’s heavy power weapon can be replaced with 1 heavy improvised weapon."
+        "text": ""
       },
       "Unit§Achilles Ridgerunners": {
         "assets": {
@@ -4591,13 +4808,10 @@
                 }
               }
             },
-            "Ability§Crossfire",
-            "Wargear§Flare Launcher",
-            "Wargear§Spotter",
-            "Wargear§Survey Augur"
+            "Ability§Crossfire"
           ],
           "included": [
-            "Model§Achilles Ridgerunners"
+            "Model§Achilles Ridgerunner"
           ]
         },
         "keywords": {
@@ -4615,11 +4829,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Achilles Ridgerunners"
+            "Model§Achilles Ridgerunner"
           ]
         },
         "stats": {
-          "Achilles Ridgerunners": {
+          "Achilles Ridgerunner": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -4628,7 +4842,7 @@
             "max": 2
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: heavy mining laser; twin heavy stubbers; Ridgerunner wheels; flare launcher.\n\nAny number of models can each have their heavy mining laser replaced with one of the following: ◦ 1 achilles missile launcher ◦ 1 heavy mortar\n\n*Any number of models can each have their flare launcher replaced with one of the following: ◦ 1 spotter ◦ 1 survey augur"
+        "text": ""
       },
       "Unit§Acolyte Hybrids": {
         "assets": {
@@ -4636,12 +4850,11 @@
             "Ability§Deep Strike",
             "Ability§Cult Ambush",
             "Ability§Vile Insurrectionists",
-            "Wargear§Cult Icon",
             "Model§Acolyte Leader"
           ],
           "included": [
             {
-              "item": "Model§Acolyte Hybrids",
+              "item": "Model§Acolyte Hybrid",
               "quantity": 4
             }
           ]
@@ -4663,11 +4876,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Acolyte Hybrids"
+            "Model§Acolyte Hybrid"
           ]
         },
         "stats": {
-          "Acolyte Hybrids": {
+          "Acolyte Hybrid": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -4676,7 +4889,79 @@
             "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: autopistol; cult claws and knife.\n\nAny number of models can each have their autopistol replaced with 1 hand flamer.\n\n*One Acolyte Hybrid’s autopistol can be replaced with 1 cult icon.\n\n*For every 5 models in this unit, up to 2 Acolyte Hybrids can each have their autopistol and cult claws and knife replaced with one of the following: ◦  1 demolition charges and 1 cult claws and knife ◦ 1 heavy mining tool\n\n*The Acolyte Leader’s cult claws and knife can be replaced with 1 Leader’s cult weapons."
+        "text": "",
+        "rules": {
+          "Maximum 1 cult icon.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icons"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 4 special weapons.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapons"
+                  ]
+                ],
+                "max": 4,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 2 special weapons per 5 models.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapons"
+                  ]
+                ],
+                "max": 2,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": 10,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          }
+        }
       },
       "Unit§Atalan Jackals": {
         "assets": {
@@ -4695,10 +4980,10 @@
           ],
           "included": [
             {
-              "item": "Model§Atalan Jackals",
+              "item": "Model§Atalan Jackal",
               "quantity": 4
             },
-            "Model§Atalan Wolfquads* *  This unit can only contain 2 Atalan Wolfquads if it also contains 8 Atalan Jackals."
+            "Model§Atalan Wolfquad"
           ]
         },
         "keywords": {
@@ -4717,29 +5002,99 @@
         },
         "allowed": {
           "items": [
-            "Model§Atalan Jackals",
-            "Model§Atalan Wolfquads* *  This unit can only contain 2 Atalan Wolfquads if it also contains 8 Atalan Jackals."
+            "Model§Atalan Jackal",
+            "Model§Atalan Wolfquad"
           ]
         },
         "stats": {
-          "Atalan Jackals": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 8
-          },
-          "Atalan Wolfquads* *  This unit can only contain 2 Atalan Wolfquads if it also contains 8 Atalan Jackals.": {
+          "Atalan Wolfquad": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
             "min": 1,
             "max": 2
+          },
+          "Atalan Jackal": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 8
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery Atalan Jackal is equipped with: Atalan small arms; close combat weapon. Every Atalan Wolfquad is equipped with: Atalan small arms; heavy stubber; close combat weapon.\n\nAny number of Atalan Jackals can each replace their close combat weapon with 1 Atalan power weapon.\n\n*For every 4 Atalan Jackals in this unit, 1 Atalan Jackal’s Atalan small arms can be replaced with 1 grenade launcher.\n\n*Any number of Atalan Wolfquads can each have their heavy stubber replaced with one of the following: ◦ 1 Atalan incinerator ◦ 1 mining laser"
+        "text": "",
+        "rules": {
+          "*This unit can only contain 2 Atalan Wolfquads if it also contains 8 Atalan Jackals.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Atalan Wolfquad"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Atalan Jackal"
+                  ]
+                ],
+                "min": 8,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "Max 1 grenade launcher per 4 Atalan Jackals.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Atalan Jackals—Grenade launcher",
+                      "Grenade launcher"
+                    ]
+                  ]
+                ],
+                "max": 1,
+                "operator": "SUM",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Atalan Jackal",
+                    "value"
+                  ]
+                ],
+                "min": 8,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          }
+        }
       },
       "Unit§Goliath Rockgrinder": {
         "assets": {
@@ -4772,7 +5127,10 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Genestealer Cults Infantry models. It cannot transport a Patriarch."
-            }
+            },
+            "Ranged Weapon§Goliath Rockgrinder—Heavy stubber",
+            "Melee Weapon§Goliath Rockgrinder—Drilldozer blade",
+            "Ranged Weapon§Goliath Rockgrinder—Demolition charge cache"
           ]
         },
         "keywords": {
@@ -4808,55 +5166,31 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Main weapon": {
             "statType": "rank",
-            "value": "Clearance incinerator",
+            "value": "Heavy mining laser",
             "ranks": {
-              "Clearance incinerator": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Goliath Rockgrinder—Clearance incinerator"
-                  }
-                ]
-              },
-              "Demolition charge cache": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Goliath Rockgrinder—Demolition charge cache"
-                  }
-                ]
-              },
               "Heavy mining laser": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Goliath Rockgrinder—Heavy mining laser"
                   }
                 ]
               },
+              "Clearance incinerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Goliath Rockgrinder—Clearance incinerator"
+                  }
+                ]
+              },
               "Heavy seismic cannon": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Goliath Rockgrinder—Heavy seismic cannon"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Goliath Rockgrinder—Heavy stubber"
-                  }
-                ]
-              },
-              "Drilldozer blade": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Goliath Rockgrinder—Drilldozer blade"
                   }
                 ]
               }
@@ -4867,7 +5201,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy mining laser; heavy stubber; drilldozer blade; demolition charge cache.\n\nThis model’s heavy mining laser can be replaced with one of the following: ◦ 1 clearance incinerator ◦ 1 heavy seismic cannon"
+        "text": ""
       },
       "Unit§Goliath Truck": {
         "assets": {
@@ -4949,12 +5283,11 @@
             },
             "Ability§Cult Ambush",
             "Ability§Savage Amalgam",
-            "Wargear§Cult Icon",
             "Model§Metamorph Leader"
           ],
           "included": [
             {
-              "item": "Model§Hybrid Metamorphs",
+              "item": "Model§Hybrid Metamorph",
               "quantity": 4
             }
           ]
@@ -4975,11 +5308,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Hybrid Metamorphs"
+            "Model§Hybrid Metamorph"
           ]
         },
         "stats": {
-          "Hybrid Metamorphs": {
+          "Hybrid Metamorph": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -4988,7 +5321,28 @@
             "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThe Metamorph Leader is equipped with: autopistol; Leader’s cult weapons. Every Hybrid Metamorph is equipped with: autopistol; Metamorph mutations.\n\nAny number of models can each have their autopistol replaced with 1 hand flamer.\n\n*One Hybrid Metamorph’s autopistol can be replaced with 1 cult icon."
+        "text": "",
+        "rules": {
+          "Maximum 1 cult icon.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icons"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Unit§Neophyte Hybrids": {
         "assets": {
@@ -4996,12 +5350,11 @@
             "Ability§Deep Strike",
             "Ability§Cult Ambush",
             "Ability§A Plan Generations In The Making",
-            "Wargear§Cult Icon",
             "Model§Neophyte Leader"
           ],
           "included": [
             {
-              "item": "Model§Neophyte Hybrids",
+              "item": "Model§Neophyte Hybrid",
               "quantity": 9
             }
           ]
@@ -5023,11 +5376,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Neophyte Hybrids"
+            "Model§Neophyte Hybrid"
           ]
         },
         "stats": {
-          "Neophyte Hybrids": {
+          "Neophyte Hybrid": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5036,7 +5389,130 @@
             "max": 19
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: autopistol; Hybrid firearm; close combat weapon.\n\nOne Neophyte Hybrid equipped with a Hybrid firearm can be equipped with 1 cult icon.\n\n*For every 10 models in this unit, up to 2 Neophyte Hybrids can each have their Hybrid firearm replaced with one of the following: ◦ Heavy stubber ◦ Mining laser ◦ Seismic cannon\n\n*For every 10 models in this unit, up to 2 Neophyte Hybrids can each have their Hybrid firearm replaced with one of the following: ◦ Flamer ◦ Grenade launcher ◦ Webber\n\n*The Neophyte Leader’s Hybrid firearm and close combat weapon can be replaced with 1 of the following:  ◦ 1 Leader pistol and 1 chainsword ◦ 1 Leader pistol and 1 power weapon"
+        "text": "",
+        "rules": {
+          "Maximum 4 heavy weapons.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "HeavyWeapons"
+                  ]
+                ],
+                "max": 4,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 4 special weapons.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "SpecialWeapons"
+                  ]
+                ],
+                "max": 4,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 2 special weapons per 10 models.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "SpecialWeapons"
+                  ]
+                ],
+                "max": 2,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": 20,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "Maximum 1 cult icon.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icons"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 2 heavy weapons per 10 models.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "HeavyWeapons"
+                  ]
+                ],
+                "max": 2,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": 20,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          }
+        }
       },
       "Unit§Purestrain Genestealers": {
         "assets": {
@@ -5056,7 +5532,7 @@
           ],
           "included": [
             {
-              "item": "Model§Purestrain Genestealers",
+              "item": "Model§Purestrain Genestealer",
               "quantity": 5
             }
           ]
@@ -5076,11 +5552,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Purestrain Genestealers"
+            "Model§Purestrain Genestealer"
           ]
         },
         "stats": {
-          "Purestrain Genestealers": {
+          "Purestrain Genestealer": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -5115,7 +5591,28 @@
         "text": "In the Reinforcements step of your Movement phase, you can return up to 3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to D3+3 destroyed models to that unit instead. This ability cannot be used to return destroyed Character models in Attached units."
       },
       "Wargear§Flare Launcher": {
-        "text": "The bearer’s unit has the Smoke keyword."
+        "text": "The bearer’s unit has the Smoke keyword.",
+        "rules": {
+          "addSmokeKeyword": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Smoke",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Wargear§Hybrid Metamorphs—Metamorph mutations": {
         "assets": {
@@ -5154,7 +5651,32 @@
         }
       },
       "Wargear§Spotter": {
-        "text": "The bearer’s ranged weapons have a Ballistic Skill characteristic of 3+."
+        "text": "The bearer’s ranged weapons have a Ballistic Skill characteristic of 3+.",
+        "rules": {
+          "setBallisticSkill": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 3,
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Wargear§Survey Augur": {
         "text": "Each time the bearer’s unit has shot, select one enemy unit that was hit by one or more attacks made by the bearer this phase. Until the end of the phase, each time a friendly Genestealer Cults model makes an attack against that unit, that attack has the [IGNORES COVER] ability."
