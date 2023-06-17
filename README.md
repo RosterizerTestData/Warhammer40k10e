@@ -82,3 +82,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necron
 
 ### Tyranids
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest
+
+### Genestealer Cults
+
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Genestealer_Cults.manifest
