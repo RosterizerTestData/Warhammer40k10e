@@ -1,6 +1,6 @@
 {
   "name": "Imperial Knights",
-  "revision": "10.2.1",
+  "revision": "10.2.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "Y37TR7",
+      "slug": "123456",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -1640,12 +1640,29 @@
             "value": 25
           }
         },
-        "constraints": {
-          "none": [],
-          "not": [
-            "Dominus",
-            "Armiger"
-          ]
+        "text": "Questoris model with a Bondsman ability only. Each time the bearer uses its Bondsman ability, you can select one additional friendly Armiger model within 12\" of the bearer that is not already being affected by a Bondsman ability. Until the start of your next Command phase, that model is also affected by that Bondsman ability.",
+        "rules": {
+          "Can only be given to a Questoris model.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Questoris",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND",
+            "order": 1
+          }
         }
       },
       "Enhancement§Revered Knight (Aura)": {
@@ -1658,17 +1675,31 @@
       },
       "Enhancement§Unyielding Paragon": {
         "text": "Questoris model only. Each time an attack is\nallocated to the bearer, worsen the Armour Penetration\ncharacteristic of that attack by 1.",
-        "constraints": {
-          "none": [],
-          "any": [],
-          "not": [
-            "Dominus",
-            "Armiger"
-          ]
-        },
         "stats": {
           "Points": {
             "value": 40
+          }
+        },
+        "rules": {
+          "Can only be given to a Questoris model.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Questoris",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
           }
         }
       },
