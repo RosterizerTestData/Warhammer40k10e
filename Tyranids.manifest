@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.2.5",
+  "revision": "10.2.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7891,40 +7891,6 @@
           }
         },
         "rules": {
-          "1 in 3 can have a Barbed strangler.": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 3
-                }
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "barbedStrangler"
-                  ]
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "error",
-            "evaluate": "AND"
-          },
           "1 in 3 can have a Venom cannon.": {
             "evals": [
               {
@@ -7955,6 +7921,49 @@
                   "{self}",
                   "rules",
                   "1 in 3 can have a Venom cannon.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "1 in 3 can have a Barbed strangler.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "barbedStrangler"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 3 can have a Barbed strangler.",
                   "evals",
                   "0",
                   "result",
@@ -8094,9 +8103,9 @@
           },
           "Loadout": {
             "statType": "rank",
-            "value": "Hive",
+            "value": "Fleshborer hive",
             "ranks": {
-              "Hive": {
+              "Fleshborer hive": {
                 "order": 0,
                 "traits": [
                   {
@@ -8104,7 +8113,7 @@
                   }
                 ]
               },
-              "Acid": {
+              "Acid spray": {
                 "order": 1,
                 "traits": [
                   {
@@ -8112,27 +8121,11 @@
                   }
                 ]
               },
-              "Rupture": {
+              "Rupture cannon": {
                 "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Tyrannofex—Rupture cannon"
-                  }
-                ]
-              },
-              "Stinger salvoes": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tyrannofex—Stinger salvoes"
-                  }
-                ]
-              },
-              "Powerful limbs": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tyrannofex—Powerful limbs"
                   }
                 ]
               }
