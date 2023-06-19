@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.1.4",
+  "revision": "10.1.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7694,7 +7694,7 @@
           ],
           "included": [
             {
-              "item": "Model§Desolation Marines",
+              "item": "Model§Desolation Marine",
               "quantity": 4
             }
           ]
@@ -7716,18 +7716,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Desolation Marines"
+            "Model§Desolation Marine"
           ]
         },
         "stats": {
-          "Desolation Marines": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 120
           },
@@ -7739,9 +7731,32 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Desolation Marine": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
+          },
+          "Rocket launcher": {
+            "statType": "rank",
+            "value": "Superfrag",
+            "ranks": {
+              "Superfrag": {
+                "order": 0
+              },
+              "Superkrak": {
+                "order": 1
+              }
+            },
+            "group": "Loadout",
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; castellan launcher; superfrag rocket launcher; close combat weapon.\n\nAll of the models in this unit can each have their superfrag rocket launcher replaced with 1 superkrak rocket launcher.\n\n*The Desolation Sergeant’s superfrag rocket launcher or superkrak rocket launcher can be replaced with 1 vengor launcher."
+        "text": ""
       },
       "Infantry/Mounted§Devastator Squad": {
         "assets": {
@@ -8041,7 +8056,7 @@
           ],
           "included": [
             {
-              "item": "Model§Inceptors",
+              "item": "Model§Inceptor",
               "quantity": 2
             }
           ]
@@ -8064,18 +8079,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Inceptors"
+            "Model§Inceptor"
           ]
         },
         "stats": {
-          "Inceptors": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 115
           },
@@ -8087,9 +8094,32 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "Inceptor": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 2,
+            "max": 5
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": "Assault bolters",
+            "ranks": {
+              "Assault bolters": {
+                "order": 0
+              },
+              "Plasma exterminators": {
+                "order": 1
+              }
+            },
+            "group": "Loadout",
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: assault bolters; close combat weapon.\n\nAll models in this unit can each have their assault bolters replaced with 1 plasma exterminators."
+        "text": ""
       },
       "Infantry/Mounted§Incursor Squad": {
         "assets": {
@@ -8104,12 +8134,11 @@
             },
             "Ability§Oath of Moment",
             "Ability§Multi-spectrum Array",
-            "Wargear§Haywire Mine",
             "Model§Incursor Sergeant"
           ],
           "included": [
             {
-              "item": "Model§Incursors",
+              "item": "Model§Incursor",
               "quantity": 4
             }
           ]
@@ -8132,18 +8161,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Incursors"
+            "Model§Incursor"
           ]
         },
         "stats": {
-          "Incursors": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 90
           },
@@ -8155,9 +8176,38 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Incursor": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; occulus bolt carbine; paired combat blades.\n\nOne Incusor can be equipped with 1 haywire mine."
+        "text": "",
+        "rules": {
+          "Maximum 1 haywire mine.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Haywire Mine"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Infernus Squad": {
         "assets": {
@@ -8222,13 +8272,11 @@
             "Ability§Infiltrators",
             "Ability§Oath of Moment",
             "Ability§Omni-scramblers",
-            "Wargear§Helix Gauntlet",
-            "Wargear§Infiltrator Comms Array",
             "Model§Infiltrator Sergeant"
           ],
           "included": [
             {
-              "item": "Model§Infiltrators",
+              "item": "Model§Infiltrator",
               "quantity": 4
             }
           ]
@@ -8251,18 +8299,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Infiltrators"
+            "Model§Infiltrator"
           ]
         },
         "stats": {
-          "Infiltrators": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 90
           },
@@ -8274,9 +8314,57 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Infiltrator": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; marksman bolt carbine; close combat weapon.\n\n1 Infiltrator can be equipped with 1 helix gauntlet.*\n\n*1 Infiltrator can be equipped with 1 Infiltrator comms array.* * These options cannot be taken on the same model."
+        "text": "",
+        "rules": {
+          "Maximum 1 helix gauntlet.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Helix Gauntlet"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 1 Infiltrator comms array.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Infiltrator Comms Array"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Intercessor Squad": {
         "assets": {
@@ -8716,7 +8804,7 @@
           ],
           "included": [
             {
-              "item": "Model§Scout Snipers",
+              "item": "Model§Scout Sniper",
               "quantity": 4
             }
           ]
@@ -8738,18 +8826,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Scout Snipers"
+            "Model§Scout Sniper"
           ]
         },
         "stats": {
-          "Scout Snipers": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 75
           },
@@ -8761,9 +8841,38 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Scout Sniper": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; sniper rifle; close combat weapon.\n\n1 Scout Sniper’s scout sniper rifle can be replaced with 1 missile launcher."
+        "text": "",
+        "rules": {
+          "Maximum 1 missile launcher.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Missile launcher"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Scout Squad": {
         "assets": {
@@ -17909,7 +18018,7 @@
           }
         }
       },
-      "Model§Desolation Marines": {
+      "Model§Desolation Marine": {
         "stats": {
           "M": {
             "value": 6
@@ -17928,64 +18037,83 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Castellan launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Castellan launcher"
-                  }
-                ]
-              },
-              "Superfrag rocket launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Superfrag rocket launcher"
-                  }
-                ]
-              },
-              "Superkrak rocket launcher": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Superkrak rocket launcher"
-                  }
-                ]
-              },
-              "Vengor launcher": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Vengor launcher"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Desolation Squad—Close combat weapon"
-                  }
-                ]
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Desolation Squad—Bolt pistol",
+            "Ranged Weapon§Desolation Squad—Castellan launcher",
+            "Melee Weapon§Desolation Squad—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "AddSuperfrag": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Rocket launcher",
+                    "value"
+                  ]
+                ],
+                "value": "Superfrag",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
               }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Desolation Squad—Superfrag rocket launcher",
+                "iterations": 1
+              }
+            ]
+          },
+          "AddSuperkrak": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Rocket launcher",
+                    "value"
+                  ]
+                ],
+                "value": "Superkrak",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Desolation Squad—Superkrak rocket launcher",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -18009,63 +18137,129 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Primary weapon": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Rocket launcher",
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Castellan launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Castellan launcher"
-                  }
-                ]
-              },
-              "Superfrag rocket launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Superfrag rocket launcher"
-                  }
-                ]
-              },
-              "Superkrak rocket launcher": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Desolation Squad—Superkrak rocket launcher"
-                  }
-                ]
+              "Rocket launcher": {
+                "order": 0
               },
               "Vengor launcher": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Desolation Squad—Vengor launcher"
                   }
                 ]
-              },
-              "Close combat weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Desolation Squad—Close combat weapon"
-                  }
-                ]
               }
             },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Desolation Squad—Bolt pistol",
+            "Ranged Weapon§Desolation Squad—Castellan launcher",
+            "Melee Weapon§Desolation Squad—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "AddSuperfrag": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Rocket launcher",
+                    "value"
+                  ]
+                ],
+                "value": "Superfrag",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Primary weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Rocket launcher",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Desolation Squad—Superfrag rocket launcher",
+                "iterations": 1
+              }
+            ]
+          },
+          "AddSuperkrak": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Rocket launcher",
+                    "value"
+                  ]
+                ],
+                "value": "Superkrak",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Primary weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Rocket launcher",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Desolation Squad—Superkrak rocket launcher",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -19085,6 +19279,103 @@
           }
         }
       },
+      "Model§Inceptor": {
+        "stats": {
+          "M": {
+            "value": 10
+          },
+          "T": {
+            "value": 6
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Inceptor Squad—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "AddBolters": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Assault bolters",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Inceptor Squad—Assault bolters",
+                "iterations": 1
+              }
+            ]
+          },
+          "AddPlasma": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Plasma exterminators",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Inceptor Squad—Plasma exterminators",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
       "Model§Inceptor Sergeant": {
         "stats": {
           "M": {
@@ -19104,56 +19395,97 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Assault bolters",
-            "ranks": {
-              "Assault bolters": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Inceptor Squad—Assault bolters"
-                  }
-                ]
-              },
-              "Plasma exterminators": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Inceptor Squad—Plasma exterminators"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Inceptor Squad—Close combat weapon"
-                  }
-                ]
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Inceptor Squad—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "AddBolters": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Assault bolters",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
               }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Inceptor Squad—Assault bolters",
+                "iterations": 1
+              }
+            ]
+          },
+          "AddPlasma": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Plasma exterminators",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Inceptor Squad—Plasma exterminators",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
-      "Model§Inceptors": {
+      "Model§Incursor": {
         "stats": {
           "M": {
-            "value": 10
+            "value": 6
           },
           "T": {
-            "value": 6
+            "value": 4
           },
           "Sv": {
             "value": 3
           },
           "W": {
-            "value": 3
+            "value": 2
           },
           "Ld": {
             "value": 6
@@ -19161,40 +19493,33 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Haywire mine": {
             "statType": "rank",
-            "value": "Assault bolters",
+            "value": "-",
             "ranks": {
-              "Assault bolters": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Inceptor Squad—Assault bolters"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Plasma exterminators": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Wargear§Inceptor Squad—Plasma exterminators"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Inceptor Squad—Close combat weapon"
+                    "trait": "Wargear§Haywire Mine"
                   }
                 ]
               }
             },
             "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Incursor Squad—Bolt pistol",
+            "Melee Weapon§Incursor Squad—Paired combat blades",
+            "Ranged Weapon§Incursor Squad—Occulus bolt carbine"
+          ]
         }
       },
       "Model§Incursor Sergeant": {
@@ -19216,97 +19541,14 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Incursor Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Occulus bolt carbine": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Incursor Squad—Occulus bolt carbine"
-                  }
-                ]
-              },
-              "Paired combat blades": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Incursor Squad—Paired combat blades"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
-        }
-      },
-      "Model§Incursors": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Incursor Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Occulus bolt carbine": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Incursor Squad—Occulus bolt carbine"
-                  }
-                ]
-              },
-              "Paired combat blades": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Incursor Squad—Paired combat blades"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Incursor Squad—Bolt pistol",
+            "Melee Weapon§Incursor Squad—Paired combat blades",
+            "Ranged Weapon§Incursor Squad—Occulus bolt carbine"
+          ]
         }
       },
       "Model§Infernus Marines": {
@@ -19367,6 +19609,63 @@
           ]
         }
       },
+      "Model§Infiltrator": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Wargear": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Helix gauntlet": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Helix Gauntlet"
+                  }
+                ]
+              },
+              "Infiltrator comms array": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Infiltrator Comms Array"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "visibility": "normal",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Infiltrator Squad—Close combat weapon",
+            "Ranged Weapon§Infiltrator Squad—Marksman bolt carbine",
+            "Ranged Weapon§Infiltrator Squad—Bolt pistol"
+          ]
+        }
+      },
       "Model§Infiltrator Sergeant": {
         "stats": {
           "M": {
@@ -19386,97 +19685,14 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infiltrator Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Marksman bolt carbine": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infiltrator Squad—Marksman bolt carbine"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Infiltrator Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
-        }
-      },
-      "Model§Infiltrators": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infiltrator Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Marksman bolt carbine": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infiltrator Squad—Marksman bolt carbine"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Infiltrator Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Infiltrator Squad—Close combat weapon",
+            "Ranged Weapon§Infiltrator Squad—Marksman bolt carbine",
+            "Ranged Weapon§Infiltrator Squad—Bolt pistol"
+          ]
         }
       },
       "Model§Intercessor Sergeant": {
@@ -20691,6 +20907,60 @@
           }
         }
       },
+      "Model§Scout Sniper": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": "Scout sniper rifle",
+            "ranks": {
+              "Scout sniper rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Scout Sniper Squad—Scout sniper rifle"
+                  }
+                ]
+              },
+              "Missile launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Scout Sniper Squad—Missile launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Scout Sniper Squad—Bolt pistol",
+            "Melee Weapon§Scout Sniper Squad—Close combat weapon"
+          ]
+        }
+      },
       "Model§Scout Sniper Sergeant": {
         "stats": {
           "M": {
@@ -20710,113 +20980,14 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Sniper Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Missile launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Scout Sniper Squad—Missile launcher"
-                  }
-                ]
-              },
-              "Scout sniper rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Sniper Squad—Scout sniper rifle"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Sniper Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
-        }
-      },
-      "Model§Scout Snipers": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 4
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Sniper Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Missile launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Scout Sniper Squad—Missile launcher"
-                  }
-                ]
-              },
-              "Scout sniper rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Sniper Squad—Scout sniper rifle"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Sniper Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Scout Sniper Squad—Bolt pistol",
+            "Melee Weapon§Scout Sniper Squad—Close combat weapon",
+            "Ranged Weapon§Scout Sniper Squad—Scout sniper rifle"
+          ]
         }
       },
       "Model§Scouts": {
@@ -42058,7 +42229,11 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Gladiator Reaper—Twin heavy onslaught gatling cannon",
+            "Ranged Weapon§Gladiator Reaper—Tempest bolter",
+            "Ranged Weapon§Gladiator Reaper—Tempest bolter",
+            "Melee Weapon§Gladiator Reaper—Armoured hull"
           ]
         },
         "keywords": {
@@ -42094,64 +42269,58 @@
           "OC": {
             "value": 3
           },
-          "Loadout": {
+          "Points": {
+            "value": 155
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "Ironhail heavy stubber": {
             "statType": "rank",
-            "value": "Icarus rocket pod",
+            "value": "-",
             "ranks": {
-              "Icarus rocket pod": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Reaper—Icarus rocket pod"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Ironhail heavy stubber": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Gladiator Reaper—Ironhail heavy stubber"
                   }
                 ]
+              }
+            },
+            "statOrder": 0,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Icarus rocket pod": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
-              "Tempest bolter": {
-                "order": 2,
+              "✓": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Gladiator Reaper—Tempest bolter"
-                  }
-                ]
-              },
-              "Twin heavy onslaught gatling cannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Reaper—Twin heavy onslaught gatling cannon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Gladiator Reaper—Armoured hull"
+                    "trait": "Ranged Weapon§Gladiator Reaper—Icarus rocket pod"
                   }
                 ]
               }
             },
+            "statOrder": 1,
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          },
-          "Points": {
-            "value": 155
-          },
-          "model1stTally": {
-            "value": 1
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 tempest bolters; twin heavy onslaught gatling cannon; armoured hull.\n\nThis model can be equipped with 1 ironhail heavy stubber.\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Gladiator Valiant": {
         "assets": {
@@ -43270,7 +43439,8 @@
             },
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
-            "Ability§Target Sighted"
+            "Ability§Target Sighted",
+            "Melee Weapon§Land Speeder—Close combat weapon"
           ]
         },
         "keywords": {
@@ -43306,6 +43476,12 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 80
+          },
+          "model1stTally": {
+            "value": 1
+          },
           "Loadout": {
             "statType": "rank",
             "value": "Heavy bolter",
@@ -43325,29 +43501,15 @@
                     "trait": "Ranged Weapon§Land Speeder—Multi-melta"
                   }
                 ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Land Speeder—Close combat weapon"
-                  }
-                ]
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          },
-          "Points": {
-            "value": 80
-          },
-          "model1stTally": {
-            "value": 1
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolter; close combat weapon.\n\nThis model’s heavy bolter can be replaced with 1 multi-melta."
+        "text": ""
       },
       "Vehicle§Land Speeder Storm": {
         "assets": {
@@ -44160,7 +44322,10 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models."
-            }
+            },
+            "Ranged Weapon§Repulsor—Hunter-slayer missile",
+            "Ranged Weapon§Repulsor—Repulsor defensive array",
+            "Melee Weapon§Repulsor—Armoured hull"
           ]
         },
         "keywords": {
@@ -44197,7 +44362,39 @@
           "OC": {
             "value": 5
           },
-          "Loadout": {
+          "Points": {
+            "value": 195
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "Weapon 2": {
+            "statType": "rank",
+            "value": "Twin heavy bolter",
+            "ranks": {
+              "Twin heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Repulsor—Twin heavy bolter"
+                  }
+                ]
+              },
+              "Twin lascannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Repulsor—Twin lascannon"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Weapon 1": {
             "statType": "rank",
             "value": "Heavy onslaught gatling cannon",
             "ranks": {
@@ -44209,51 +44406,11 @@
                   }
                 ]
               },
-              "Hunter-slayer missile": {
+              "Las-talon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Repulsor—Hunter-slayer missile"
-                  }
-                ]
-              },
-              "Las-talon": {
-                "order": 2,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Repulsor—Las-talon"
-                  }
-                ]
-              },
-              "Repulsor defensive array": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor—Repulsor defensive array"
-                  }
-                ]
-              },
-              "Twin heavy bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor—Twin heavy bolter"
-                  }
-                ]
-              },
-              "Twin lascannon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor—Twin lascannon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Repulsor—Armoured hull"
                   }
                 ]
               }
@@ -44262,15 +44419,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          },
-          "Points": {
-            "value": 195
-          },
-          "model1stTally": {
-            "value": 1
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy onslaught gatling cannon; hunter-slayer missile; Repulsor defensive array; twin heavy bolter; armoured hull.\n\nThis model’s twin heavy bolter can be replaced with 1 twin lascannon.\n\n*This model’s heavy onslaught gatling cannon can be replaced with 1 las-talon."
+        "text": ""
       },
       "Vehicle§Repulsor Executioner": {
         "assets": {
@@ -44296,7 +44447,12 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models."
-            }
+            },
+            "Melee Weapon§Repulsor Executioner—Armoured hull",
+            "Ranged Weapon§Repulsor Executioner—Repulsor Executioner defensive array",
+            "Ranged Weapon§Repulsor Executioner—Twin Icarus ironhail heavy stubber",
+            "Ranged Weapon§Repulsor Executioner—Heavy onslaught gatling cannon",
+            "Ranged Weapon§Repulsor Executioner—Twin heavy bolter"
           ]
         },
         "keywords": {
@@ -44333,79 +44489,29 @@
           "OC": {
             "value": 5
           },
-          "Loadout": {
+          "Points": {
+            "value": 230
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "Main gun": {
             "statType": "rank",
-            "value": "Heavy laser destroyer",
+            "value": "Macro plasma incinerator",
             "ranks": {
-              "Heavy laser destroyer": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Heavy laser destroyer"
-                  }
-                ]
-              },
-              "Heavy onslaught gatling cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Heavy onslaught gatling cannon"
-                  }
-                ]
-              },
-              "Icarus rocket pod": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Icarus rocket pod"
-                  }
-                ]
-              },
-              "Ironhail heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Ironhail heavy stubber"
-                  }
-                ]
-              },
               "Macro plasma incinerator": {
-                "order": 4,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Wargear§Repulsor Executioner—Macro plasma incinerator"
                   }
                 ]
               },
-              "Repulsor Executioner defensive array": {
-                "order": 5,
+              "Heavy laser destroyer": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Repulsor Executioner defensive array"
-                  }
-                ]
-              },
-              "Twin heavy bolter": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Twin heavy bolter"
-                  }
-                ]
-              },
-              "Twin Icarus ironhail heavy stubber": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Repulsor Executioner—Twin Icarus ironhail heavy stubber"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Repulsor Executioner—Armoured hull"
+                    "trait": "Ranged Weapon§Repulsor Executioner—Heavy laser destroyer"
                   }
                 ]
               }
@@ -44415,14 +44521,52 @@
             "visibility": "active",
             "dynamic": true
           },
-          "Points": {
-            "value": 230
+          "Icarus rocket pod": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Repulsor Executioner—Icarus rocket pod"
+                  }
+                ]
+              }
+            },
+            "statOrder": 1,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           },
-          "model1stTally": {
-            "value": 1
+          "Ironhail heavy stubber": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Repulsor Executioner—Ironhail heavy stubber"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy onslaught gatling cannon; macro plasma incinerator; Repulsor Executioner defensive array; twin heavy bolter; twin Icarus ironhail heavy stubber; armoured hull.\n\nThis model’s macro plasma incinerator can be replaced with 1 heavy laser destroyer.\n\n*This model can be equipped with 1 ironhail heavy stubber.\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Rhino": {
         "assets": {
