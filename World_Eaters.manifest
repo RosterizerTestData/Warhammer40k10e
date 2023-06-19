@@ -1,6 +1,6 @@
 {
   "name": "World Eaters",
-  "revision": "10.1.1",
+  "revision": "10.2.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -70,7 +70,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is World Eaters, at the start of the battle round, you can make a Blessings of Khorne roll. To do so, roll eight D6. You can then use those dice to activate up to two Blessings of Khorne from the Blessings of Khorne list (see right). Each Blessing of Khorne specifies the dice results it requires (where a number is specified, a double or triple of that value or higher is required). You can only activate each Blessing of Khorne once per battle round. Any unused dice from the Blessings of Khorne roll are then discarded.\n\nOnce activated, each Blessing of Khorne applies to all units from your army with this ability until the end of the battle round.\n\n*Example: Ash makes their Blessings of Khorne roll and gets the following dice: 1, 2, 2, 2, 3, 4, 6, 6. First they use the two 6s to activate Warp Blades (which requires a double 5+), leaving the following dice: 1, 2, 2, 2, 3, 4. They then use the two 2s to activate Wrathful Devotion (which requires any double), leaving the following dice: 1, 2, 3, 4. However, now that they have activated two Blessings of Khorne, they cannot activate any more and the remaining dice are discarded.*\n\n## RAGE-FUELLED INVIGORATION\n### ANY DOUBLE\nAdd 2\" to the Move characteristic of models in this unit.\n## WRATHFUL DEVOTION\n### ANY DOUBLE\nModels in this unit have the Feel No Pain 6+ ability. If models in this unit already have the Feel No Pain ability, add 1 to their Feel No Pain rolls. \n## MARTIAL EXCELLENCE\n### DOUBLE 3+\nMelee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.\n## TOTAL CARNAGE\n### DOUBLE 4+ OR ANY TRIPLE\nEach time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6: on a 4+, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.\n## WARP BLADES\n### DOUBLE 5+ OR ANY TRIPLE\nMelee weapons equipped by models in this unit have the [LETHAL HITS] ability.\n## UNBRIDLED BLOODLUST\n### DOUBLE 6 OR TRIPLE 4+\nThis unit is eligible to declare a charge in a turn in which it Advanced."
       },
       "Ability§Blood Surge": {
         "text": "Each time an enemy unit is selected to shoot, after that unit has finished making its attacks, if any models from this unit were destroyed as a result of those attacks, this unit can make a Blood Surge move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding Aircraft). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Blood Surge move while it is Battle-shocked.",
@@ -311,12 +312,19 @@
         "text": "At the start of your Charge phase, select one Wrathful Presence ability (see left). Until the start of your next Charge phase, this model has that ability.",
         "keywords": {
           "Keywords": [
-            "Other"
+            "Primarch"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Glorious Bloodletting (Aura)",
+            "Ability§Infectious Rage (Aura)",
+            "Ability§Righteous Slaughter (Aura)"
           ]
         }
       },
       "Character§Angron": {
-        "text": "ERROR: this unit had some special abilities related to “WRATHFUL PRESENCE” that must be added to the appropriate ability: \n\n* Glorious Bloodletting (Aura)\n* Infectious Rage (Aura)\n* Righteous Slaughter (Aura)",
+        "text": "",
         "assets": {
           "traits": [
             {
@@ -391,6 +399,31 @@
           },
           "OC": {
             "value": 6
+          },
+          "Points": {
+            "value": 415
+          }
+        },
+        "rules": {
+          "Angron must be your Warlord.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
           }
         }
       },
@@ -455,6 +488,9 @@
           },
           "OC": {
             "value": 1
+          },
+          "Points": {
+            "value": 95
           }
         }
       },
@@ -484,7 +520,9 @@
                 }
               }
             },
-            "Ranged Weapon§Lord Invocatus—Bolt pistol"
+            "Ranged Weapon§Lord Invocatus—Bolt pistol",
+            "Melee Weapon§Lord Invocatus—Juggernaut’s bladed horn",
+            "Melee Weapon§Lord Invocatus—Coward’s Bane"
           ]
         },
         "keywords": {
@@ -525,6 +563,9 @@
           },
           "OC": {
             "value": 2
+          },
+          "Points": {
+            "value": 155
           }
         }
       },
@@ -588,10 +629,13 @@
           },
           "OC": {
             "value": 3
+          },
+          "Points": {
+            "value": 220
           }
         }
       },
-      "Character§World Eaters Daemon Prince With Wings": {
+      "Character§World Eaters Daemon Prince with Wings": {
         "assets": {
           "traits": [
             {
@@ -653,10 +697,13 @@
           },
           "OC": {
             "value": 3
+          },
+          "Points": {
+            "value": 215
           }
         }
       },
-      "Character§World Eaters Lord On Juggernaut": {
+      "Character§World Eaters Lord on Juggernaut": {
         "assets": {
           "traits": [
             {
@@ -713,6 +760,9 @@
           },
           "OC": {
             "value": 2
+          },
+          "Points": {
+            "value": 120
           }
         }
       },
@@ -763,11 +813,222 @@
           },
           "OC": {
             "value": 1
+          },
+          "Points": {
+            "value": 80
           }
         }
       },
       "Detachment§Berzerker Warband": {
-        "text": "Each time a World Eaters unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit."
+        "text": "Each time a World Eaters unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit.",
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Gory Massacre",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§For The Skull Throne!",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§For The Blood God!",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Khorne Cares Not...",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Blood Offering",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Apoplectic Frenzy",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Battle-Lust": {
+        "text": "World Eaters model only. You can select the bearer’s unit for the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.",
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband"
+          ]
+        }
+      },
+      "Enhancement§Berzerker Glaive": {
+        "text": "World Eaters model only. Add 1 to the Attacks and Damage characteristics of melee weapons equipped by the bearer. Each time the bearer ends a Charge move, roll one D3; until the end of the turn, add the result of that roll to the Attacks and Damage characteristics of those melee weapons instead.",
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband"
+          ]
+        },
+        "rules": {
+          "PermanentBonus": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Wargear",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Wargear",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 1,
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Favoured of Khorne": {
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "World Eaters model only. Each time you make a Blessings of Khorne roll, before doing anything else, the bearer can use this Enhancement. If it does, discard all of the dice from that roll and make a new Blessings of Khorne roll. This new roll does not count as a re-roll, so any rules that enable you to re-roll or manipulate individual dice (e.g. Icon of Khorne) can still be used.",
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband"
+          ]
+        }
+      },
+      "Enhancement§Helm of Brazen Ire": {
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband"
+          ]
+        },
+        "text": "World Eaters model only. Each time an attack is allocated to the bearer, halve the Damage characteristic of that attack."
       },
       "Melee Weapon§Angron—Samni’arius and Spinegrinder – strike": {
         "stats": {
@@ -2133,6 +2394,81 @@
           ]
         }
       },
+      "Model§Dishonoured": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "Sv": {
+            "value": 6
+          },
+          "W": {
+            "value": 1
+          },
+          "Ld": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Melee Weapon": {
+            "statType": "rank",
+            "value": "Dishonoured chainblades",
+            "ranks": {
+              "Dishonoured chainblades": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Jakhals—Dishonoured chainblades"
+                  }
+                ]
+              },
+              "Skullsmasher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Jakhals—Skullsmasher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        }
+      },
+      "Model§Eightbound": {
+        "stats": {
+          "M": {
+            "value": 9
+          },
+          "T": {
+            "value": 6
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Eightbound—Eightbound eviscerators"
+          ]
+        }
+      },
       "Model§Eightbound Champion": {
         "stats": {
           "M": {
@@ -2153,15 +2489,15 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Melee Weapon": {
             "statType": "rank",
-            "value": "Eightbound eviscerators",
+            "value": "Lacerators",
             "ranks": {
-              "Eightbound eviscerators": {
+              "Lacerators": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Eightbound—Eightbound eviscerators"
+                    "trait": "Melee Weapon§Eightbound—Lacerators"
                   }
                 ]
               },
@@ -2170,70 +2506,6 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Eightbound—Heavy chainglaive"
-                  }
-                ]
-              },
-              "Lacerators": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Eightbound—Lacerators"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
-        }
-      },
-      "Model§Eightbound The Eightbound Champion model is equipped with: lacerators.": {
-        "stats": {
-          "M": {
-            "value": 9
-          },
-          "T": {
-            "value": 6
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 3
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Eightbound eviscerators",
-            "ranks": {
-              "Eightbound eviscerators": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Eightbound—Eightbound eviscerators"
-                  }
-                ]
-              },
-              "Heavy chainglaive": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Eightbound—Heavy chainglaive"
-                  }
-                ]
-              },
-              "Lacerators": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Eightbound—Lacerators"
                   }
                 ]
               }
@@ -2264,49 +2536,13 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Eightbound chainfist",
-            "ranks": {
-              "Eightbound chainfist": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Exalted Eightbound—Eightbound chainfist"
-                  }
-                ]
-              },
-              "Eightbound eviscerator": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Exalted Eightbound—Eightbound eviscerator"
-                  }
-                ]
-              },
-              "Heavy chainglaive": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Exalted Eightbound—Heavy chainglaive"
-                  }
-                ]
-              },
-              "Paired Eightbound chainfists": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Exalted Eightbound—Paired Eightbound chainfists"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Exalted Eightbound—Eightbound eviscerator",
+            "Melee Weapon§Exalted Eightbound—Eightbound chainfist"
+          ]
         }
       },
       "Model§Exalted Eightbound Champion": {
@@ -2329,23 +2565,26 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Melee Weapon": {
             "statType": "rank",
-            "value": "Eightbound chainfist",
+            "value": "Chainfist + Eviscerator",
             "ranks": {
-              "Eightbound chainfist": {
+              "Chainfist + Eviscerator": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Exalted Eightbound—Eightbound chainfist"
+                  },
+                  {
+                    "trait": "Melee Weapon§Exalted Eightbound—Eightbound eviscerator"
                   }
                 ]
               },
-              "Eightbound eviscerator": {
+              "Paired Eightbound chainfists": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Exalted Eightbound—Eightbound eviscerator"
+                    "trait": "Melee Weapon§Exalted Eightbound—Paired Eightbound chainfists"
                   }
                 ]
               },
@@ -2354,14 +2593,6 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Exalted Eightbound—Heavy chainglaive"
-                  }
-                ]
-              },
-              "Paired Eightbound chainfists": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Exalted Eightbound—Paired Eightbound chainfists"
                   }
                 ]
               }
@@ -2373,7 +2604,7 @@
           }
         }
       },
-      "Model§Jakhal Pack Leader, 1 Dishonoured and 8 Jakhals or:": {
+      "Model§Jakhal": {
         "stats": {
           "M": {
             "value": 6
@@ -2393,56 +2624,92 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Melee Weapon": {
             "statType": "rank",
-            "value": "Autopistol",
+            "value": "Jakhal chainblades",
             "ranks": {
-              "Autopistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Jakhals—Autopistol"
-                  }
-                ]
-              },
               "Jakhal chainblades": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Jakhals—Jakhal chainblades"
                   }
                 ]
               },
-              "Dishonoured chainblades": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Jakhals—Dishonoured chainblades"
-                  }
-                ]
-              },
               "Mauler chainblade": {
-                "order": 3,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Jakhals—Mauler chainblade"
                   }
-                ]
-              },
-              "Skullsmasher": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Jakhals—Skullsmasher"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Mauler": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Icon of Khorne": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Khorne"
+                  }
+                ],
+                "tracking": {
+                  "Icon of Khorne": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Jakhals—Autopistol"
+          ]
+        }
+      },
+      "Model§Jakhal Pack Leader": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "Sv": {
+            "value": 6
+          },
+          "W": {
+            "value": 1
+          },
+          "Ld": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Jakhals—Autopistol",
+            "Melee Weapon§Jakhals—Jakhal chainblades"
+          ]
         }
       },
       "Model§Jakhal Pack Leader, 2 Dishonoured and 17 Jakhals": {
@@ -2537,7 +2804,31 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Icon of Khorne": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Khorne"
+                  }
+                ],
+                "tracking": {
+                  "Icon of Khorne": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Pistol": {
             "statType": "rank",
             "value": "Bolt pistol",
             "ranks": {
@@ -2555,23 +2846,8 @@
                   {
                     "trait": "Wargear§Khorne Berzerkers—Plasma pistol"
                   }
-                ]
-              },
-              "Berzerker chainblade": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Khorne Berzerkers—Berzerker chainblade"
-                  }
-                ]
-              },
-              "Khornate eviscerator": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Khorne Berzerkers—Khornate eviscerator"
-                  }
-                ]
+                ],
+                "tracking": {}
               }
             },
             "group": "Loadout",
@@ -2579,6 +2855,11 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Khorne Berzerkers—Berzerker chainblade"
+          ]
         }
       },
       "Model§Khorne Berzerkers": {
@@ -2601,7 +2882,36 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Melee Weapon": {
+            "statType": "rank",
+            "value": "Berzerker chainblade",
+            "ranks": {
+              "Berzerker chainblade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Khorne Berzerkers—Berzerker chainblade"
+                  }
+                ]
+              },
+              "Khornate eviscerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Khorne Berzerkers—Khornate eviscerator"
+                  }
+                ],
+                "tracking": {
+                  "Eviscerator": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Pistol": {
             "statType": "rank",
             "value": "Bolt pistol",
             "ranks": {
@@ -2619,30 +2929,44 @@
                   {
                     "trait": "Wargear§Khorne Berzerkers—Plasma pistol"
                   }
-                ]
-              },
-              "Berzerker chainblade": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Khorne Berzerkers—Berzerker chainblade"
-                  }
-                ]
-              },
-              "Khornate eviscerator": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Khorne Berzerkers—Khornate eviscerator"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Plasma": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Icon of Khorne": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Khorne"
+                  }
+                ],
+                "tracking": {
+                  "Icon of Khorne": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": []
         }
       },
       "Model§World Eaters Terminator Champion": {
@@ -2665,7 +2989,58 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Melee Weapon": {
+            "statType": "rank",
+            "value": "Accursed weapon",
+            "ranks": {
+              "Accursed weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Accursed weapon"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Paired accursed weapons"
+                  }
+                ],
+                "tracking": {
+                  "Paired Weapons": 1
+                }
+              },
+              "Chainfist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Chainfist"
+                  }
+                ],
+                "tracking": {
+                  "Chainweapon": 1
+                }
+              },
+              "Power fist": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "Powerweapon": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Ranged Weapon": {
             "statType": "rank",
             "value": "Combi-bolter",
             "ranks": {
@@ -2682,54 +3057,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Terminator Squad—Combi-weapon"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Terminator Squad—Heavy flamer"
-                  }
-                ]
-              },
-              "Reaper autocannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Terminator Squad—Reaper autocannon"
-                  }
-                ]
-              },
-              "Accursed weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Accursed weapon"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Paired accursed weapons"
-                  }
-                ]
-              },
-              "Chainfist": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Chainfist"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Power fist"
                   }
                 ]
               }
@@ -2761,7 +3088,58 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Melee Weapon": {
+            "statType": "rank",
+            "value": "Accursed weapon",
+            "ranks": {
+              "Accursed weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Accursed weapon"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Paired accursed weapons"
+                  }
+                ],
+                "tracking": {
+                  "Pairedweapon": 1
+                }
+              },
+              "Chainfist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Chainfist"
+                  }
+                ],
+                "tracking": {
+                  "Chainweapon": 1
+                }
+              },
+              "Power fist": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Terminator Squad—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "Powerweapon": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Ranged Weapon": {
             "statType": "rank",
             "value": "Combi-bolter",
             "ranks": {
@@ -2787,7 +3165,10 @@
                   {
                     "trait": "Ranged Weapon§World Eaters Terminator Squad—Heavy flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Heavyweapon": 1
+                }
               },
               "Reaper autocannon": {
                 "order": 3,
@@ -2795,39 +3176,10 @@
                   {
                     "trait": "Ranged Weapon§World Eaters Terminator Squad—Reaper autocannon"
                   }
-                ]
-              },
-              "Accursed weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Accursed weapon"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Paired accursed weapons"
-                  }
-                ]
-              },
-              "Chainfist": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Chainfist"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Terminator Squad—Power fist"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Heavyweapon": 1
+                }
               }
             },
             "group": "Loadout",
@@ -4958,6 +5310,149 @@
           }
         }
       },
+      "Stratagem§Apoplectic Frenzy": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One World Eaters unit from\nyour army that has not been selected to\nmove this phase.\n\n**EFFECT**: Until the end of the phase, if your\nunit Advances, do not make an Advance\nroll for it. Instead, until the end of the\nphase, add 6\" to the Move characteristic\nof models in your unit.",
+        "keywords": {
+          "Turn": [
+            "Yours"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Keywords": [
+            "Berzerker Warband",
+            "World Eaters"
+          ]
+        }
+      },
+      "Stratagem§Blood Offering": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase.\n\n**TARGET**: One World Eaters unit from\nyour army that was just destroyed\nwhile it was within range of an objective\nmarker you controlled. You can use this\nStratagem on that unit even though it was\njust destroyed.\n\n**EFFECT**: That objective marker remains\nunder your control, even if you have\nno models within range of it, until your\nopponent controls it at the start or end of\nany turn.",
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband",
+            "World Eaters"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Category": [
+            "Epic Deed"
+          ]
+        }
+      },
+      "Stratagem§For The Blood God!": {
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband",
+            "World Eaters"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "**WHEN**: Fight phase, just after a World\nEaters unit from your army destroys an\nenemy unit.\n\n**TARGET**: That World Eaters unit.\n\n**EFFECT**: Make a Blessings of Khorne\nroll. You can use the results of this roll\nto activate one Blessing of Khorne.\nThat Blessing of Khorne does not count\ntowards your maximum number of\nactivated Blessings of Khorne, but all\nother rules for Blessings of Khorne apply.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        }
+      },
+      "Stratagem§For The Skull Throne!": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband",
+            "World Eaters"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One World Eaters unit from\nyour army that has not been selected to\nfight this phase.\n\n**EFFECT**: Until the end of the phase,\neach time a model in your unit makes a\nmelee attack that targets a Character,\nMonster or Vehicle unit, add 1 to the\nWound roll."
+      },
+      "Stratagem§Gory Massacre": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband",
+            "World Eaters"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One World Eaters unit from\nyour army that made a Charge move this\nturn and destroyed one or more enemy\nunits this phase.\n\n**EFFECT**: In your opponent’s next\nCommand phase, each enemy unit within\n6\" of your unit must take a Battle-shock\ntest. If the unit taking that test is Below\nHalf-strength, subtract 1 from that test.\nEnemy units affected by this Stratagem\ndo not need to take any other Battle-shock\ntests in the same phase."
+      },
+      "Stratagem§Khorne Cares Not...": {
+        "text": "**WHEN**: Fight phase, just after an enemy\nunit has selected its targets.\n\n**TARGET**: One World Eaters unit from\nyour army that was selected as the\ntarget of one or more of that enemy\nunit’s attacks.\n\n**EFFECT**: Until the end of the phase, each\ntime an attack targets your unit, subtract\n1 from the Damage characteristic of\nthat attack.",
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Berzerker Warband",
+            "World Eaters"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
       "Unit§Eightbound": {
         "assets": {
           "traits": [
@@ -4983,7 +5478,7 @@
           ],
           "included": [
             {
-              "item": "Model§Eightbound The Eightbound Champion model is equipped with: lacerators.",
+              "item": "Model§Eightbound",
               "quantity": 2
             }
           ]
@@ -5005,20 +5500,29 @@
         },
         "allowed": {
           "items": [
-            "Model§Eightbound The Eightbound Champion model is equipped with: lacerators."
+            "Model§Eightbound"
           ]
         },
         "stats": {
-          "Eightbound The Eightbound Champion model is equipped with: lacerators.": {
+          "Eightbound": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
             "min": 2,
             "max": 5
+          },
+          "Points": {
+            "value": 155
+          },
+          "model2ndCost": {
+            "value": 155
+          },
+          "model1stTally": {
+            "value": 3
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery Eightbound model is equipped with: Eightbound eviscerators.\n\nThe Eightbound Champion’s lacerators can be replaced with 1 heavy chainglaive."
+        "text": ""
       },
       "Unit§Exalted Eightbound": {
         "assets": {
@@ -5079,9 +5583,18 @@
             "tracked": true,
             "min": 2,
             "max": 5
+          },
+          "Points": {
+            "value": 180
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 180
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: Eightbound eviscerator; Eightbound chainfist.\n\nThe Exalted Eightbound Champion’s Eightbound eviscerator and Eightbound chainfist can be replaced with one of the following: ◦ 1 paired Eightbound chainfists ◦ 1 heavy chainglaive"
+        "text": ""
       },
       "Unit§Jakhals": {
         "assets": {
@@ -5097,8 +5610,12 @@
             "Ability§Blessings of Khorne",
             "Ability§Objective Ravaged",
             "Wargear§Icon of Khorne",
-            "Model§Jakhal Pack Leader, 1 Dishonoured and 8 Jakhals or:",
-            "Model§Jakhal Pack Leader, 2 Dishonoured and 17 Jakhals"
+            "Model§Dishonoured",
+            "Model§Jakhal Pack Leader",
+            {
+              "item": "Model§Jakhal",
+              "quantity": 8
+            }
           ]
         },
         "keywords": {
@@ -5116,7 +5633,40 @@
             "Jakhals"
           ]
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThe Jakhal Pack Leader and every Jakhal is equipped with: autopistol; Jakhal chainblades. Every Dishonoured is equipped with: Dishonoured chainblades.\n\nFor every 10 models in this unit, 1 Jakhal’s Jakhal chainblades can be replaced with 1 mauler chainblade.\n\n*Any number of Dishonoured models can each have their Dishonoured chainblades replaced with 1 skullsmasher.\n\n*For every 10 models in this unit, 1 Jakhal can be equipped with 1 icon of Khorne."
+        "text": "",
+        "stats": {
+          "Points": {
+            "value": 75
+          },
+          "model1stTally": {
+            "value": 10
+          },
+          "model2ndCost": {
+            "value": 75
+          },
+          "Dishonoured": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 1,
+            "max": 2
+          },
+          "Jakhal": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 8,
+            "max": 17
+          }
+        },
+        "allowed": {
+          "items": [
+            "Model§Jakhal",
+            "Model§Dishonoured"
+          ]
+        }
       },
       "Unit§Khorne Berzerkers": {
         "assets": {
@@ -5162,9 +5712,151 @@
             "tracked": true,
             "min": 4,
             "max": 9
+          },
+          "Points": {
+            "value": 115
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 115
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; Berzerker chainblade.\n\nThe Khorne Berzerker Champion’s bolt pistol can be replaced with 1 plasma pistol.\n\n*For every 5 models in this unit, 1 Khorne Berzerker’s bolt pistol can be replaced with 1 plasma pistol.\n\n*For every 5 models in this unit, 1 Khorne Berzerker’s Berzerker chainblade can be replaced with 1 Khornate eviscerator.\n\n*1 model can be equipped with 1 icon of Khorne."
+        "text": "",
+        "rules": {
+          "1 in 5 can have a plasma pistol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Plasma"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a plasma pistol",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Plasma"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "1 in 5 can have a Khornate eviscerator": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Eviscerator"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Khornate eviscerator",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Eviscerator"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "1 can have Icon of Khorne": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icon of Khorne"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Unit§Khorne Lord of Skulls": {
         "assets": {
@@ -5194,7 +5886,8 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Wargear§Khorne Lord of Skulls—Great cleaver of Khorne"
           ]
         },
         "keywords": {
@@ -5233,55 +5926,23 @@
           "OC": {
             "value": 8
           },
-          "sampleLoadout": {
+          "Arm Weapon": {
             "statType": "rank",
-            "value": "Daemongore cannon",
+            "value": "Hades gatling cannon",
             "ranks": {
-              "Daemongore cannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Khorne Lord of Skulls—Daemongore cannon"
-                  }
-                ]
-              },
-              "Gorestorm cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Khorne Lord of Skulls—Gorestorm cannon"
-                  }
-                ]
-              },
               "Hades gatling cannon": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Khorne Lord of Skulls—Hades gatling cannon"
                   }
                 ]
               },
-              "Ichor cannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Khorne Lord of Skulls—Ichor cannon"
-                  }
-                ]
-              },
               "Skullhurler": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Khorne Lord of Skulls—Skullhurler"
-                  }
-                ]
-              },
-              "Great cleaver of Khorne": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Wargear§Khorne Lord of Skulls—Great cleaver of Khorne"
                   }
                 ]
               }
@@ -5290,9 +5951,49 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Hull Weapon": {
+            "statType": "rank",
+            "value": "Daemongore cannon",
+            "ranks": {
+              "Gorestorm cannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Khorne Lord of Skulls—Gorestorm cannon"
+                  }
+                ]
+              },
+              "Daemongore cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Khorne Lord of Skulls—Daemongore cannon"
+                  }
+                ]
+              },
+              "Ichor cannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Khorne Lord of Skulls—Ichor cannon"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Points": {
+            "value": 420
+          },
+          "model3rdCost": {
+            "value": -255
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: gorestorm cannon; Hades gatling cannon; great cleaver of Khorne.\n\nThis model’s gorestorm cannon can be replaced with one of the following: ◦ 1 daemongore cannon ◦ 1 ichor cannon\n\n*This model’s Hades gatling cannon can be replaced with 1 skullhurler."
+        "text": ""
       },
       "Unit§World Eaters Chaos Spawn": {
         "assets": {
@@ -5342,6 +6043,15 @@
             "tracked": true,
             "min": 2,
             "max": 2
+          },
+          "maxQty": {
+            "value": 2
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "Points": {
+            "value": 65
           }
         }
       },
@@ -5373,7 +6083,9 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Melee Weapon§World Eaters Defiler—Defiler claws",
+            "Ranged Weapon§World Eaters Defiler—Defiler cannon"
           ]
         },
         "keywords": {
@@ -5412,84 +6124,31 @@
           "OC": {
             "value": 5
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 210
+          },
+          "Weapon 1": {
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "Twin heavy flamer",
             "ranks": {
-              "Combi-bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Combi-bolter"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Combi-weapon"
-                  }
-                ]
-              },
-              "Defiler cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Defiler cannon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Havoc launcher"
-                  }
-                ]
-              },
-              "Reaper autocannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Reaper autocannon"
-                  }
-                ]
-              },
-              "Twin heavy bolter": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Twin heavy bolter"
-                  }
-                ]
-              },
               "Twin heavy flamer": {
-                "order": 6,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Defiler—Twin heavy flamer"
                   }
                 ]
               },
-              "Twin lascannon": {
-                "order": 7,
+              "Havoc launcher": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Defiler—Twin lascannon"
-                  }
-                ]
-              },
-              "Defiler claws": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Defiler—Defiler claws"
+                    "trait": "Ranged Weapon§World Eaters Defiler—Havoc launcher"
                   }
                 ]
               },
               "Defiler scourge": {
-                "order": 9,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§World Eaters Defiler—Defiler scourge"
@@ -5501,9 +6160,74 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Weapon 3": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Defiler—Combi-bolter"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Defiler—Combi-weapon"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Weapon 2": {
+            "statType": "rank",
+            "value": "Reaper autocannon",
+            "ranks": {
+              "Reaper autocannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Defiler—Reaper autocannon"
+                  }
+                ]
+              },
+              "Twin heavy bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Defiler—Twin heavy bolter"
+                  }
+                ]
+              },
+              "Twin lascannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Defiler—Twin lascannon"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.\n\nThis model’s twin heavy flamer can be replaced with one of the following: ◦ 1 havoc launcher ◦ 1 Defiler scourge\n\n*This model’s reaper autocannon can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin lascannon\n\n*This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon"
+        "text": ""
       },
       "Unit§World Eaters Forgefiend": {
         "assets": {
@@ -5571,39 +6295,62 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 150
+          },
+          "Jaws/claws": {
             "statType": "rank",
-            "value": "Ectoplasma cannon",
+            "value": "Forgefiend jaws",
             "ranks": {
-              "Ectoplasma cannon": {
+              "Forgefiend jaws": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Forgefiend—Ectoplasma cannon"
+                    "trait": "Melee Weapon§World Eaters Forgefiend—Forgefiend jaws"
                   }
                 ]
               },
-              "Hades autocannon": {
+              "Ectoplasma cannon and claws": {
                 "order": 1,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Forgefiend—Ectoplasma cannon"
+                  },
+                  {
+                    "trait": "Melee Weapon§World Eaters Forgefiend—Forgefiend claws"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Cannons": {
+            "statType": "rank",
+            "value": "2 Hades autocannons",
+            "ranks": {
+              "2 Hades autocannons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Forgefiend—Hades autocannon"
+                  },
                   {
                     "trait": "Ranged Weapon§World Eaters Forgefiend—Hades autocannon"
                   }
                 ]
               },
-              "Forgefiend claws": {
-                "order": 2,
+              "2 Ectoplasma cannons": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§World Eaters Forgefiend—Forgefiend claws"
-                  }
-                ]
-              },
-              "Forgefiend jaws": {
-                "order": 3,
-                "traits": [
+                    "trait": "Ranged Weapon§World Eaters Forgefiend—Ectoplasma cannon"
+                  },
                   {
-                    "trait": "Melee Weapon§World Eaters Forgefiend—Forgefiend jaws"
+                    "trait": "Ranged Weapon§World Eaters Forgefiend—Ectoplasma cannon"
                   }
                 ]
               }
@@ -5614,7 +6361,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 Hades autocannons; 1 Forgefiend jaws.\n\nThis model’s 2 Hades autocannons can be replaced with 2 ectoplasma cannons.\n\n*This model’s Forgefiend jaws can be replaced with 1 ectoplasma cannon and 1 Forgefiend claws."
+        "text": ""
       },
       "Unit§World Eaters Helbrute": {
         "assets": {
@@ -5629,7 +6376,8 @@
             },
             "Ability§Blessings of Khorne",
             "Ability§Frenzy",
-            "Ability§Helbrute Fists"
+            "Ability§Helbrute Fists",
+            "Melee Weapon§World Eaters Helbrute—Close combat weapon"
           ]
         },
         "keywords": {
@@ -5666,60 +6414,39 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 150
+          },
+          "Weapon 1": {
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "Multi-melta",
             "ranks": {
-              "Combi-bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Helbrute—Combi-bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Helbrute—Heavy flamer"
-                  }
-                ]
-              },
-              "Helbrute plasma cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Helbrute—Helbrute plasma cannon"
-                  }
-                ]
-              },
-              "Missile launcher": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Wargear§World Eaters Helbrute—Missile launcher"
-                  }
-                ]
-              },
               "Multi-melta": {
-                "order": 4,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Helbrute—Multi-melta"
                   }
                 ]
               },
+              "Helbrute plasma cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Helbrute—Helbrute plasma cannon"
+                  }
+                ]
+              },
               "Twin autocannon": {
-                "order": 5,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Helbrute—Twin autocannon"
                   }
                 ]
               },
-              "Twin heavy bolter": {
-                "order": 6,
+              "Twin inferno heavy bolter": {
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Helbrute—Twin heavy bolter"
@@ -5727,31 +6454,63 @@
                 ]
               },
               "Twin lascannon": {
-                "order": 7,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Helbrute—Twin lascannon"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Helbrute—Close combat weapon"
-                  }
-                ]
-              },
               "Helbrute fist": {
-                "order": 9,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§World Eaters Helbrute—Helbrute fist"
                   }
                 ]
               },
+              "Helbrute fist with combi-bolter": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Helbrute—Helbrute fist"
+                  },
+                  {
+                    "trait": "Ranged Weapon§World Eaters Helbrute—Combi-bolter"
+                  }
+                ]
+              },
+              "Helbrute fist with heavy flamer": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Helbrute—Helbrute fist"
+                  },
+                  {
+                    "trait": "Ranged Weapon§World Eaters Helbrute—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Weapon 2": {
+            "statType": "rank",
+            "value": "Missile launcher",
+            "ranks": {
+              "Missile launcher": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Wargear§World Eaters Helbrute—Missile launcher"
+                  }
+                ]
+              },
               "Helbrute hammer": {
-                "order": 10,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§World Eaters Helbrute—Helbrute hammer"
@@ -5759,10 +6518,40 @@
                 ]
               },
               "Power scourge": {
-                "order": 11,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§World Eaters Helbrute—Power scourge"
+                  }
+                ]
+              },
+              "Helbrute fist": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Helbrute—Helbrute fist"
+                  }
+                ]
+              },
+              "Helbrute fist with inferno combi-bolter": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Helbrute—Combi-bolter"
+                  },
+                  {
+                    "trait": "Melee Weapon§World Eaters Helbrute—Helbrute fist"
+                  }
+                ]
+              },
+              "Helbrute fist with heavy flamer": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§World Eaters Helbrute—Helbrute fist"
+                  },
+                  {
+                    "trait": "Ranged Weapon§World Eaters Helbrute—Heavy flamer"
                   }
                 ]
               }
@@ -5773,7 +6562,44 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: missile launcher; multi-melta; close combat weapon.\n\nThis model’s multi-melta can be replaced with one of the following: ◦ 1 Helbrute plasma cannon ◦ 1 twin autocannon ◦ 1 twin heavy bolter ◦ 1 twin lascannon ◦ 1 Helbrute fist\n\n*This model’s missile launcher can be replaced with one of the following: ◦ 1 Helbrute fist ◦ 1 Helbrute hammer ◦ 1 power scourge\n\n*For each Helbrute fist this model is equipped with, it can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 heavy flamer"
+        "text": "",
+        "rules": {
+          "Helbrute fists": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Helbrute fist"
+                  ]
+                ],
+                "value": 2,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Melee Weapon§World Eaters Helbrute—Helbrute fist",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Twin-linked",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Unit§World Eaters Heldrake": {
         "assets": {
@@ -5804,7 +6630,8 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Melee Weapon§World Eaters Heldrake—Heldrake claws"
           ]
         },
         "keywords": {
@@ -5844,31 +6671,23 @@
           "OC": {
             "value": 0
           },
-          "sampleLoadout": {
+          "Ranged Weapon": {
             "statType": "rank",
             "value": "Baleflamer",
             "ranks": {
-              "Baleflamer": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Heldrake—Baleflamer"
-                  }
-                ]
-              },
               "Hades autocannon": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Heldrake—Hades autocannon"
                   }
                 ]
               },
-              "Heldrake claws": {
-                "order": 2,
+              "Baleflamer": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§World Eaters Heldrake—Heldrake claws"
+                    "trait": "Ranged Weapon§World Eaters Heldrake—Baleflamer"
                   }
                 ]
               }
@@ -5877,9 +6696,12 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 215
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Hades autocannon; Heldrake claws.\n\nThis model’s Hades autocannon can be replaced with 1 baleflamer."
+        "text": ""
       },
       "Unit§World Eaters Land Raider": {
         "assets": {
@@ -5905,7 +6727,9 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 World Eaters Infantry models. Each Eightbound, Exalted Eightbound and Terminator model takes up the space of 2 models."
-            }
+            },
+            "Ranged Weapon§World Eaters Land Raider—Soulshatter lascannon",
+            "Ranged Weapon§World Eaters Land Raider—Soulshatter lascannon"
           ]
         },
         "keywords": {
@@ -5943,12 +6767,39 @@
           "OC": {
             "value": 5
           },
-          "sampleLoadout": {
+          "Havoc launcher": {
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "-",
             "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Thousand Sons Land Raider—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Points": {
+            "value": 255
+          },
+          "Additional": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
               "Combi-bolter": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Land Raider—Combi-bolter"
@@ -5956,42 +6807,10 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Land Raider—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Land Raider—Havoc launcher"
-                  }
-                ]
-              },
-              "Soulshatter lascannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Land Raider—Soulshatter lascannon"
-                  }
-                ]
-              },
-              "Twin heavy bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Land Raider—Twin heavy bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Land Raider—Armoured tracks"
+                    "trait": "Ranged Weapon§World Eaters Land Raider—Combi-weapon"
                   }
                 ]
               }
@@ -6002,7 +6821,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 soulshatter lascannons; twin heavy bolter; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§World Eaters Maulerfiend": {
         "assets": {
@@ -6032,7 +6851,8 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Melee Weapon§World Eaters Maulerfiend—Maulerfiend fists"
           ]
         },
         "keywords": {
@@ -6070,31 +6890,26 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Weapon": {
             "statType": "rank",
             "value": "Magma cutter",
             "ranks": {
-              "Magma cutter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Maulerfiend—Magma cutter"
-                  }
-                ]
-              },
               "Lasher tendrils": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§World Eaters Maulerfiend—Lasher tendrils"
                   }
                 ]
               },
-              "Maulerfiend fists": {
-                "order": 2,
+              "Magma cutter": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§World Eaters Maulerfiend—Maulerfiend fists"
+                    "trait": "Ranged Weapon§World Eaters Maulerfiend—Magma cutter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§World Eaters Maulerfiend—Magma cutter"
                   }
                 ]
               }
@@ -6103,9 +6918,12 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 175
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: lasher tendrils; Maulerfiend fists.\n\nThis model’s lasher tendrils can be replaced with 2 magma cutters."
+        "text": ""
       },
       "Unit§World Eaters Predator Annihilator": {
         "assets": {
@@ -6127,7 +6945,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Melee Weapon§World Eaters Predator Annihilator—Armoured tracks",
+            "Ranged Weapon§World Eaters Predator Annihilator—Predator twin lascannon"
           ]
         },
         "keywords": {
@@ -6164,12 +6984,18 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 130
+          },
+          "Additional": {
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "-",
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "Combi-bolter": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Predator Annihilator—Combi-bolter"
@@ -6177,50 +7003,67 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Predator Annihilator—Combi-weapon"
                   }
                 ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Havoc launcher": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
-              "Havoc launcher": {
-                "order": 2,
+              "✓": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Predator Annihilator—Havoc launcher"
                   }
                 ]
+              }
+            },
+            "statOrder": 3,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Sponsons": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
-              "Heavy bolter": {
-                "order": 3,
+              "2 Lascannons": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Predator Annihilator—Heavy bolter"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 4,
-                "traits": [
+                    "trait": "Ranged Weapon§World Eaters Predator Annihilator—Lascannon"
+                  },
                   {
                     "trait": "Ranged Weapon§World Eaters Predator Annihilator—Lascannon"
                   }
                 ]
               },
-              "Predator twin lascannon": {
-                "order": 5,
+              "2 Heavy Bolters": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Predator Annihilator—Predator twin lascannon"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 6,
-                "traits": [
+                    "trait": "Ranged Weapon§World Eaters Predator Annihilator—Heavy bolter"
+                  },
                   {
-                    "trait": "Melee Weapon§World Eaters Predator Annihilator—Armoured tracks"
+                    "trait": "Ranged Weapon§World Eaters Predator Annihilator—Heavy bolter"
                   }
                 ]
               }
@@ -6231,7 +7074,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Predator twin lascannon; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons\n\n*This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§World Eaters Predator Destructor": {
         "assets": {
@@ -6253,7 +7096,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§World Eaters Predator Destructor—Predator autocannon",
+            "Melee Weapon§World Eaters Predator Destructor—Armoured tracks"
           ]
         },
         "keywords": {
@@ -6290,63 +7135,35 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 130
+          },
+          "Sponsons": {
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "-",
             "ranks": {
-              "Combi-bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Combi-bolter"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Combi-weapon": {
+              "2 Lascannons": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Havoc launcher"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Heavy bolter"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 4,
-                "traits": [
+                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Lascannon"
+                  },
                   {
                     "trait": "Ranged Weapon§World Eaters Predator Destructor—Lascannon"
                   }
                 ]
               },
-              "Predator autocannon": {
-                "order": 5,
+              "2 Heavy Bolters": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Predator autocannon"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 6,
-                "traits": [
+                    "trait": "Ranged Weapon§World Eaters Predator Annihilator—Heavy bolter"
+                  },
                   {
-                    "trait": "Melee Weapon§World Eaters Predator Destructor—Armoured tracks"
+                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Heavy bolter"
                   }
                 ]
               }
@@ -6355,9 +7172,61 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Additional": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Combi-bolter"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Combi-weapon"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Havoc launcher": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Predator Destructor—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "statOrder": 3,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Predator autocannon; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons\n\n*This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§World Eaters Rhino": {
         "assets": {
@@ -6375,7 +7244,8 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 World Eaters Infantry models. It cannot transport Eightbound or Terminator models."
-            }
+            },
+            "Melee Weapon§World Eaters Rhino—Armoured tracks"
           ]
         },
         "keywords": {
@@ -6414,12 +7284,39 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Havoc launcher": {
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "-",
             "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Thousand Sons Rhino—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Points": {
+            "value": 85
+          },
+          "Additional": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
               "Combi-bolter": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§World Eaters Rhino—Combi-bolter"
@@ -6427,26 +7324,10 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§World Eaters Rhino—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§World Eaters Rhino—Havoc launcher"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§World Eaters Rhino—Armoured tracks"
+                    "trait": "Ranged Weapon§World Eaters Rhino—Combi-weapon"
                   }
                 ]
               }
@@ -6457,7 +7338,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: combi-bolter; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 1 additional combi-bolter ◦ 1 combi-weapon\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§World Eaters Terminator Squad": {
         "assets": {
@@ -6484,7 +7365,7 @@
         },
         "keywords": {
           "Faction": [
-            "World eaters"
+            "World Eaters"
           ],
           "Source": [
             "10th Edition Index"
@@ -6510,9 +7391,239 @@
             "tracked": true,
             "min": 4,
             "max": 9
+          },
+          "Points": {
+            "value": 195
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 195
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: combi-bolter; accursed weapon.\n\nFor every 5 models in this unit, 1 World Eaters Terminator’s combi-bolter can be replaced with one of the following: ◦ 1 heavy flamer ◦ 1 reaper autocannon\n\n*Any number of models can each have their combi-bolter replaced with 1 combi-weapon.\n\n*For every 5 models in this unit, 1 model’s combi-bolter and accursed weapon can be replaced with 1 paired accursed weapons.\n\n*For every 5 models in this unit, up to 3 models can each have their accursed weapon replaced with 1 power fist.\n\n*For every 5 models in this unit, 1 model’s accursed weapon can be replaced with 1 chainfist."
+        "text": "",
+        "rules": {
+          "1 in 5 can have a heavy weapon.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Heavyweapon "
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a heavy weapon.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Heavyweapon "
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "1 in 5 can have a chainfist": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Chainweapon"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a chainfist",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Chainweapon"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "1 in 5 can have a paired weapon": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pairedweapon"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a paired weapon",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pairedweapon"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          },
+          "max 6 powerfists": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Powerweapon"
+                  ]
+                ],
+                "max": 6,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "max of 3 powerfists per 5 models": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Powerweapon"
+                  ]
+                ],
+                "max": 3,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "min": 10,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          }
+        }
       },
       "Wargear§Angron—Samni’arius and Spinegrinder": {
         "assets": {
