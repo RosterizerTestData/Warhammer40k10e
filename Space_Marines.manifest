@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.1.6",
+  "revision": "10.1.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7043,7 +7043,7 @@
           ],
           "included": [
             {
-              "item": "Model§Aggressors",
+              "item": "Model§Aggressor",
               "quantity": 2
             }
           ]
@@ -7064,18 +7064,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Aggressors"
+            "Model§Aggressor"
           ]
         },
         "stats": {
-          "Aggressors": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 110
           },
@@ -7087,9 +7079,119 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "Aggressor": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 2,
+            "max": 5
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": "Flamestorm",
+            "ranks": {
+              "Flamestorm": {
+                "order": 0
+              },
+              "Boltstorm + Fragstorm": {
+                "order": 1
+              }
+            },
+            "visibility": "active",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: flamestorm gauntlets; power fist.\n\nAll models in this unit can each have their flamestorm gauntlets replaced with 1 auto boltstorm gauntlets and 1 fragstorm grenade launcher."
+        "text": "done",
+        "rules": {
+          "setFlamestorm": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Flamestorm",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Aggressor Squad—Flamestorm gauntlets",
+                "iterations": 1
+              }
+            ]
+          },
+          "setBoltstorm": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Boltstorm + Fragstorm",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Aggressor Squad—Auto boltstorm gauntlets",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ranged Weapon§Aggressor Squad—Fragstorm grenade launcher",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Infantry/Mounted§Assault Intercessor Squad": {
         "assets": {
@@ -7100,7 +7202,7 @@
           ],
           "included": [
             {
-              "item": "Model§Assault Intercessors",
+              "item": "Model§Assault Intercessor",
               "quantity": 4
             }
           ]
@@ -7123,18 +7225,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Assault Intercessors"
+            "Model§Assault Intercessor"
           ]
         },
         "stats": {
-          "Assault Intercessors": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 90
           },
@@ -7146,6 +7240,14 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Assault Intercessor": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: heavy bolt pistol; Astartes chainsword.\n\nThe Assault Intercessor Sergeant’s heavy bolt pistol can be replaced with one of the following: ◦ 1 hand flamer ◦ 1 plasma pistol\n\n*The Assault Intercessor Sergeant’s Astartes chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
@@ -7155,12 +7257,11 @@
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Chainsword Doctrines",
-            "Wargear§Astartes Shield",
             "Model§Assault Sergeant"
           ],
           "included": [
             {
-              "item": "Model§Assault Marines",
+              "item": "Model§Assault Marine",
               "quantity": 4
             }
           ]
@@ -7181,18 +7282,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Assault Marines"
+            "Model§Assault Marine"
           ]
         },
         "stats": {
-          "Assault Marines": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 95
           },
@@ -7204,9 +7297,69 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Assault Marine": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
+          },
+          "Special Weapon Selection": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "max": 2
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; Astartes chainsword.\n\nThe Assault Sergeant’s bolt pistol can be replaced with one of the following: ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol* ◦ 1 plasma pistol\n\n*The Assault Sergeant’s Astartes chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer\n\n*The Assault Sergeant can do one of the following: ◦  Replace its bolt pistol and Astartes chainsword with 1 twin lightning claws. ◦  Be equipped with 1 Astartes shield.\n\n*Up to 2 Assault Marines can each have their bolt pistol and Astartes chainsword replaced with one of the following: ◦ 1 plasma pistol and 1 Astartes chainsword ◦ 1 flamer ◦ 1 meltagun ◦ 1 plasma gun\n\n*For every 5 models in this unit, 1 model’s Astartes chainsword can be replaced with 1 eviscerator. *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
+        "text": "done",
+        "rules": {
+          "1 in 5 models can have an Eviscerator": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Eviscerator"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have an Eviscerator",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Assault Squad with Jump Packs": {
         "assets": {
@@ -7214,12 +7367,11 @@
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
             "Ability§Hammer of Wrath",
-            "Wargear§Astartes Shield",
             "Model§Assault Sergeant with Jump Pack"
           ],
           "included": [
             {
-              "item": "Model§Assault Marines with Jump Packs",
+              "item": "Model§Assault Marine with Jump Pack",
               "quantity": 4
             }
           ]
@@ -7242,18 +7394,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Assault Marines with Jump Packs"
+            "Model§Assault Marine with Jump Pack"
           ]
         },
         "stats": {
-          "Assault Marines with Jump Packs": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 115
           },
@@ -7265,9 +7409,69 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Assault Marine with Jump Pack": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
+          },
+          "Special Weapon Selection": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "max": 2
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; Astartes chainsword.\n\nThe Assault Sergeant with Jump Pack’s bolt pistol can be replaced with one of the following: ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol* ◦ 1 plasma pistol\n\n*The Assault Sergeant with Jump Pack’s Astartes chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer\n\n*The Assault Sergeant with Jump Pack can do one of the following: ◦  Replace its bolt pistol and Astartes chainsword with 1 twin lightning claws. ◦  Be equipped with 1 Astartes shield.\n\n*Up to 2 Assault Marines with Jump Packs can each have their bolt pistol and Astartes chainsword replaced with one of the following: ◦ 1 plasma pistol and 1 Astartes chainsword ◦ 1 flamer ◦ 1 meltagun ◦ 1 plasma gun\n\n*For every 5 models in this unit, 1 model’s Astartes chainsword can be replaced with 1 eviscerator. *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
+        "text": "done",
+        "rules": {
+          "1 in 5 models can have an Eviscerator": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Eviscerator"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have an Eviscerator",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Astartes Servitors": {
         "assets": {
@@ -7285,7 +7489,7 @@
           ],
           "included": [
             {
-              "item": "Model§Astartes Servitors",
+              "item": "Model§Astartes Servitor",
               "quantity": 4
             }
           ]
@@ -7305,11 +7509,17 @@
         },
         "allowed": {
           "items": [
-            "Model§Astartes Servitors"
+            "Model§Astartes Servitor"
           ]
         },
         "stats": {
-          "Astartes Servitors": {
+          "Points": {
+            "value": 55
+          },
+          "model1stTally": {
+            "value": 4
+          },
+          "Astartes Servitor": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -7317,14 +7527,15 @@
             "min": 4,
             "max": 4
           },
-          "Points": {
-            "value": 55
-          },
-          "model1stTally": {
-            "value": 4
+          " Special Weapon Selection": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "max": 2
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: Servitor servo-arm.\n\nUp to 2 models can each have their Servitor servo-arm replaced with one of the following: ◦ 1 heavy bolter and 1 close combat weapon ◦ 1 multi-melta and 1 close combat weapon ◦  1 plasma cannon and 1 close combat weapon"
+        "text": "done"
       },
       "Infantry/Mounted§Attack Bike Squad": {
         "assets": {
@@ -15986,7 +16197,7 @@
           }
         }
       },
-      "Model§Aggressors": {
+      "Model§Aggressor": {
         "stats": {
           "M": {
             "value": 5
@@ -16402,7 +16613,7 @@
           }
         }
       },
-      "Model§Assault Intercessors": {
+      "Model§Assault Intercessor": {
         "stats": {
           "M": {
             "value": 6
@@ -16490,7 +16701,7 @@
           }
         }
       },
-      "Model§Assault Marines": {
+      "Model§Assault Marine": {
         "stats": {
           "M": {
             "value": 6
@@ -16610,7 +16821,7 @@
           }
         }
       },
-      "Model§Assault Marines with Jump Packs": {
+      "Model§Assault Marine with Jump Pack": {
         "stats": {
           "M": {
             "value": 12
@@ -17066,7 +17277,7 @@
           }
         }
       },
-      "Model§Astartes Servitors": {
+      "Model§Astartes Servitor": {
         "stats": {
           "M": {
             "value": 6
