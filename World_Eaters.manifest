@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "Y37TR7",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -5609,13 +5609,14 @@
             },
             "Ability§Blessings of Khorne",
             "Ability§Objective Ravaged",
-            "Wargear§Icon of Khorne",
             "Model§Dishonoured",
             "Model§Jakhal Pack Leader",
             {
               "item": "Model§Jakhal",
-              "quantity": 8
-            }
+              "quantity": 6
+            },
+            "Model§Jakhal",
+            "Model§Jakhal"
           ]
         },
         "keywords": {
@@ -5666,6 +5667,83 @@
             "Model§Jakhal",
             "Model§Dishonoured"
           ]
+        },
+        "rules": {
+          "1 can have Icon of Khorne": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icon of Khorne"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "1 in 10 can have Mauler": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Mauler"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 10 can have Mauler",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Mauler"
+                  ]
+                ],
+                "min": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          }
         }
       },
       "Unit§Khorne Berzerkers": {
@@ -7284,27 +7362,6 @@
           "OC": {
             "value": 2
           },
-          "Havoc launcher": {
-            "statType": "rank",
-            "value": "-",
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Thousand Sons Rhino—Havoc launcher"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "normal",
-            "dynamic": true
-          },
           "Points": {
             "value": 85
           },
@@ -7335,6 +7392,27 @@
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
+            "dynamic": true
+          },
+          "Havoc launcher": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§World Eaters Rhino—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
             "dynamic": true
           }
         },
