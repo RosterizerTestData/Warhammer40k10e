@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.1.7",
+  "revision": "10.1.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7033,6 +7033,130 @@
       },
       "Detachment§Gladius Task Force": {
         "text": "## COMBAT DOCTRINES\n\nAt the start of your Command phase, you can\nselect one of the Combat Doctrines listed below.\nUntil the start of your next Command phase, that\nCombat Doctrine is active and its effects apply\nto all Adeptus Astartes units from your army\nwith this ability. You can only select each Combat\nDoctrine once per battle.\n\n### DEVASTATOR DOCTRINE\nThe Codex Astartes explains in detail the strategic value\nof overwhelming firepower applied to key targets while\nadvancing into position in order to eliminate threats and\ncreate tactical openings.  \nThis unit is eligible to shoot in a turn in which it Advanced.\n\n### TACTICAL DOCTRINE\nAs the warring armies close upon one another and\nvicious fire-fights erupt, the Codex lays out strategies for\nswiftly seizing the initiative and combining versatility\nwith firepower.  \nThis unit is eligible to shoot and declare a charge in a turn in which it Fell Back.\n\n### ASSAULT DOCTRINE\nThe Codex Astartes leaves no doubt that the killing blow\nin most engagements must be delivered with a decisive\nclose-quarters strike. It presents plentiful tactical means\nto achieve this end.\nThis unit is eligible to declare a charge in a turn in which\nit Advanced."
+      },
+      "Enhancement§Adept of the Codex": {
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Gladius Task Force"
+          ]
+        },
+        "text": "Captain model only. At the start of your Command phase, if the bearer is on the battlefield, instead of selecting a Combat Doctrine to be active for your army, you can select the Tactical Doctrine. If you do, until the start of your next Command phase, that doctrine is active for the bearer’s unit only, even if you have already selected that doctrine to be active for your army this battle.",
+        "rules": {
+          "Captain model only.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Captain",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
+      },
+      "Enhancement§Artificer Armour": {
+        "text": "Adeptus Astartes model only. The bearer has a Save\ncharacteristic of 2+ and the Feel No Pain 5+ ability.",
+        "keywords": {
+          "Keywords": [
+            "Gladius Task Force"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "rules": {
+          "PermanentBonus": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 2,
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Feel No Pain",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Feel No Pain",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "5+",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Bolter Discipline": {
+        "text": "Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, each time a model in that unit makes a ranged attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.",
+        "keywords": {
+          "Keywords": [
+            "Gladius Task Force"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        }
+      },
+      "Enhancement§The Honour Vehement": {
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Gladius Task Force"
+          ]
+        },
+        "text": "Adeptus Astartes model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead."
       },
       "Infantry/Mounted§Aggressor Squad": {
         "assets": {
@@ -16133,7 +16257,7 @@
           }
         }
       },
-      "Model§Aggressor Sergeant": {
+      "Model§Aggressor": {
         "stats": {
           "M": {
             "value": 5
@@ -16197,7 +16321,7 @@
           }
         }
       },
-      "Model§Aggressor": {
+      "Model§Aggressor Sergeant": {
         "stats": {
           "M": {
             "value": 5
@@ -16525,7 +16649,7 @@
           }
         }
       },
-      "Model§Assault Intercessor Sergeant": {
+      "Model§Assault Intercessor": {
         "stats": {
           "M": {
             "value": 6
@@ -16613,7 +16737,7 @@
           }
         }
       },
-      "Model§Assault Intercessor": {
+      "Model§Assault Intercessor Sergeant": {
         "stats": {
           "M": {
             "value": 6
@@ -19580,7 +19704,7 @@
                   ]
                 ],
                 "actionType": "add",
-                "value": "Ranged Weapon§Inceptor Squad—Plasma exterminators",
+                "value": "Wargear§Inceptor Squad—Plasma exterminators",
                 "iterations": 1
               }
             ]
@@ -19677,7 +19801,7 @@
                   ]
                 ],
                 "actionType": "add",
-                "value": "Ranged Weapon§Inceptor Squad—Plasma exterminators",
+                "value": "Wargear§Inceptor Squad—Plasma exterminators",
                 "iterations": 1
               }
             ]
@@ -42317,8 +42441,11 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
-          ]
+            },
+            "Ranged Weapon§Gladiator Lancer—Lancer laser destroyer",
+            "Melee Weapon§Gladiator Lancer—Armoured hull"
+          ],
+          "included": []
         },
         "keywords": {
           "Faction": [
@@ -42353,55 +42480,35 @@
           "OC": {
             "value": 3
           },
+          "Points": {
+            "value": 145
+          },
+          "model1stTally": {
+            "value": 1
+          },
           "Loadout": {
             "statType": "rank",
-            "value": "Fragstorm grenade launcher",
+            "value": "2 storm bolters",
             "ranks": {
-              "Fragstorm grenade launcher": {
+              "2 storm bolters": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Gladiator Lancer—Fragstorm grenade launcher"
-                  }
-                ]
-              },
-              "Icarus rocket pod": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Lancer—Icarus rocket pod"
-                  }
-                ]
-              },
-              "Ironhail heavy stubber": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Lancer—Ironhail heavy stubber"
-                  }
-                ]
-              },
-              "Lancer laser destroyer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Lancer—Lancer laser destroyer"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 4,
-                "traits": [
+                    "trait": "Ranged Weapon§Gladiator Lancer—Storm bolter"
+                  },
                   {
                     "trait": "Ranged Weapon§Gladiator Lancer—Storm bolter"
                   }
                 ]
               },
-              "Armoured hull": {
-                "order": 5,
+              "2 fragstorm grenade launchers": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Gladiator Lancer—Armoured hull"
+                    "trait": "Ranged Weapon§Gladiator Lancer—Fragstorm grenade launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gladiator Lancer—Fragstorm grenade launcher"
                   }
                 ]
               }
@@ -42411,14 +42518,52 @@
             "visibility": "active",
             "dynamic": true
           },
-          "Points": {
-            "value": 145
+          "Icarus rocket pod": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gladiator Lancer—Icarus rocket pod"
+                  }
+                ]
+              }
+            },
+            "statOrder": 1,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           },
-          "model1stTally": {
-            "value": 1
+          "Ironhail heavy stubber": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gladiator Lancer—Ironhail heavy stubber"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Lancer laser destroyer; 2 storm bolters; armoured hull.\n\nThis model’s 2 storm bolters can be replaced with 2 fragstorm grenade launchers.\n\n*This model can be equipped with 1 ironhail heavy stubber.\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Gladiator Reaper": {
         "assets": {
@@ -42553,7 +42698,11 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Gladiator Valiant—Twin las-talon",
+            "Ranged Weapon§Gladiator Valiant—Multi-melta",
+            "Ranged Weapon§Gladiator Valiant—Multi-melta",
+            "Melee Weapon§Gladiator Valiant—Armoured hull"
           ]
         },
         "keywords": {
@@ -42589,64 +42738,54 @@
           "OC": {
             "value": 3
           },
-          "Loadout": {
+          "Points": {
+            "value": 155
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "Icarus rocket pod": {
             "statType": "rank",
-            "value": "Icarus rocket pod",
+            "value": "-",
             "ranks": {
-              "Icarus rocket pod": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Gladiator Valiant—Icarus rocket pod"
                   }
                 ]
+              }
+            },
+            "group": "Loadout",
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Ironhail heavy stubber": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
-              "Ironhail heavy stubber": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Gladiator Valiant—Ironhail heavy stubber"
                   }
                 ]
-              },
-              "Multi-melta": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Valiant—Multi-melta"
-                  }
-                ]
-              },
-              "Twin las-talon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gladiator Valiant—Twin las-talon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Gladiator Valiant—Armoured hull"
-                  }
-                ]
               }
             },
             "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
-          },
-          "Points": {
-            "value": 155
-          },
-          "model1stTally": {
-            "value": 1
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 multi-meltas; twin las-talon; armoured hull.\n\nThis model can be equipped with 1 ironhail heavy stubber.\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Hammerfall Bunker": {
         "assets": {
@@ -45630,8 +45769,11 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
-          ]
+            },
+            "Ranged Weapon§Vindicator—Demolisher cannon",
+            "Melee Weapon§Vindicator—Armoured tracks"
+          ],
+          "included": []
         },
         "keywords": {
           "Faction": [
@@ -45666,39 +45808,24 @@
           "OC": {
             "value": 3
           },
-          "Loadout": {
+          "Points": {
+            "value": 205
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "Hunter-killer missile": {
             "statType": "rank",
-            "value": "Demolisher cannon",
+            "value": "-",
             "ranks": {
-              "Demolisher cannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Vindicator—Demolisher cannon"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Hunter-killer missile": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Vindicator—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Vindicator—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Vindicator—Armoured tracks"
                   }
                 ]
               }
@@ -45708,14 +45835,29 @@
             "visibility": "active",
             "dynamic": true
           },
-          "Points": {
-            "value": 205
-          },
-          "model1stTally": {
-            "value": 1
+          "Storm bolter": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Vindicator—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: demolisher cannon; armoured tracks.\n\nThis model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with 1 storm bolter."
+        "text": ""
       },
       "Vehicle§Whirlwind": {
         "assets": {
