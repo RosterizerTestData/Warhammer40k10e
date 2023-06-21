@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.8",
+  "revision": "10.1.9",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1583,6 +1583,72 @@
                   "weaponName",
                   "value"
                 ],
+                "iterations": 1
+              }
+            ]
+          },
+          "resetStatsForMultiWeapons": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "quantity"
+                  ]
+                ],
+                "min": 1,
+                "operator": "SUM",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "A",
+                      "AP",
+                      "D",
+                      "BS",
+                      "WS",
+                      "Range",
+                      "S"
+                    ],
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": null,
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "A",
+                      "AP",
+                      "D",
+                      "BS",
+                      "WS",
+                      "Range",
+                      "S"
+                    ],
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
                 "iterations": 1
               }
             ]
