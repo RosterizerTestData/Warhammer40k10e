@@ -1,0 +1,1 @@
+This directory contains scripts that were used to make bulk changes to manifests, in case they're ever needed again, but there's no expectation that they will be.
