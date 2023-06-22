@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.1.9",
+  "revision": "10.1.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1907,7 +1907,7 @@
                   }
                 ]
               },
-              "Twin claws": {
+              "Twin lightning claws": {
                 "order": 10,
                 "traits": [
                   {
@@ -1926,6 +1926,12 @@
           },
           "model1stTally": {
             "value": 1
+          },
+          "Character Captain": {
+            "statType": "numeric",
+            "value": 1,
+            "visibility": "hidden",
+            "tracked": true
           }
         },
         "text": "done",
@@ -1976,7 +1982,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": true,
                 "actionable": true
@@ -2011,7 +2017,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -2047,6 +2053,37 @@
                 "iterations": 1
               }
             ]
+          },
+          "Too many of this unit type in the army": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Character Captain"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND",
+            "order": 6
+          }
+        },
+        "removed": {
+          "rules": {
+            "cheatUnitNameTally": {},
+            "Too many of this unit type in the army.": {}
           }
         }
       },
@@ -2860,7 +2897,7 @@
                   }
                 ]
               },
-              "Twin claws": {
+              "Twin lightning claws": {
                 "order": 10,
                 "traits": [
                   {
@@ -2928,7 +2965,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": true,
                 "actionable": true
@@ -2963,7 +3000,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -3271,7 +3308,7 @@
                   }
                 ]
               },
-              "Twin claws": {
+              "Twin lightning claws": {
                 "order": 10,
                 "traits": [
                   {
@@ -3340,7 +3377,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": true,
                 "actionable": true
@@ -3375,7 +3412,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -4911,7 +4948,7 @@
                   }
                 ]
               },
-              "Twin claws": {
+              "Twin lightning claws": {
                 "order": 9,
                 "traits": [
                   {
@@ -4985,7 +5022,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": true,
                 "actionable": true
@@ -5020,7 +5057,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin claws",
+                "value": "Twin lightning claws",
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -7248,6 +7285,7 @@
             ],
             "failState": "pass",
             "evaluate": "AND",
+            "order": 50,
             "actions": [
               {
                 "paths": [
@@ -7284,6 +7322,7 @@
             ],
             "failState": "pass",
             "evaluate": "AND",
+            "order": 50,
             "actions": [
               {
                 "paths": [
@@ -7374,7 +7413,7 @@
             "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: heavy bolt pistol; Astartes chainsword.\n\nThe Assault Intercessor Sergeant’s heavy bolt pistol can be replaced with one of the following: ◦ 1 hand flamer ◦ 1 plasma pistol\n\n*The Assault Intercessor Sergeant’s Astartes chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
+        "text": "done"
       },
       "Infantry/Mounted§Assault Squad": {
         "assets": {
@@ -7651,7 +7690,7 @@
             "min": 4,
             "max": 4
           },
-          " Special Weapon Selection": {
+          "Special Weapon Selection": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -7668,7 +7707,7 @@
             "Ability§Outrider Escort"
           ],
           "included": [
-            "Model§Attack Bikes"
+            "Model§Attack Bike"
           ]
         },
         "keywords": {
@@ -7687,18 +7726,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Attack Bikes"
+            "Model§Attack Bike"
           ]
         },
         "stats": {
-          "Attack Bikes": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 1,
-            "max": 3
-          },
           "Points": {
             "value": 55
           },
@@ -7713,9 +7744,17 @@
           },
           "model3rdCost": {
             "value": 110
+          },
+          "Attack Bike": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 1,
+            "max": 3
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; heavy bolter; twin boltgun; close combat weapon.\n\nAny number of models can each have their heavy bolter replaced with 1 multi-melta."
+        "text": "done"
       },
       "Infantry/Mounted§Bike Squad": {
         "assets": {
@@ -7726,7 +7765,7 @@
           ],
           "included": [
             {
-              "item": "Model§Space Marine Bikers",
+              "item": "Model§Space Marine Biker",
               "quantity": 2
             }
           ]
@@ -7747,19 +7786,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Space Marine Bikers",
-            "Model§Attack Bike"
+            "Model§Space Marine Biker"
           ]
         },
         "stats": {
-          "Space Marine Bikers": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 80
           },
@@ -7772,16 +7802,44 @@
           "model2ndTally": {
             "value": 6
           },
-          "Attack Bike": {
+          "Space Marine Biker": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
-            "min": 0,
-            "max": 1
+            "min": 2,
+            "max": 5
+          },
+          "Special Weapon Selection": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "max": 2
+          },
+          "Attack Bike": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Model§Attack Bike (squad)"
+                  }
+                ]
+              }
+            },
+            "statOrder": -1,
+            "group": "Loadout",
+            "visibility": "active",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nis equipped with: bolt pistol; twin boltgun; close combat weapon. An Attack Bike is equipped with: bolt pistol; heavy bolter; twin boltgun; close combat weapon.\n\nThe Biker Sergeant’s bolt pistol can be replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 boltgun* ◦ 1 combi-weapon* ◦ 1 hand flamer ◦ 1 grav-pistol ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter*  ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer\n\n*Any number of Space Marine Bikers can each have their bolt pistol replaced with 1 Astartes chainsword.\n\n*Up to 2 Space Marine Bikers can each have their bolt pistol replaced with one of the following: ◦ 1 flamer ◦ 1 grav-gun ◦ 1 meltagun ◦ 1 plasma gun ◦ 1 plasma pistol\n\n*An Attack Bike’s heavy bolter can be replaced with 1 multi-melta.  *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
+        "text": "done"
       },
       "Infantry/Mounted§Bladeguard Veteran Squad": {
         "assets": {
@@ -7800,7 +7858,7 @@
           ],
           "included": [
             {
-              "item": "Model§Bladeguard Veterans",
+              "item": "Model§Bladeguard Veteran",
               "quantity": 2
             }
           ]
@@ -7822,18 +7880,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Bladeguard Veterans"
+            "Model§Bladeguard Veteran"
           ]
         },
         "stats": {
-          "Bladeguard Veterans": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 100
           },
@@ -7845,21 +7895,28 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "Bladeguard Veteran": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 2,
+            "max": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: heavy bolt pistol; master-crafted power weapon.\n\nThe Bladeguard Veteran Sergeant’s heavy bolt pistol can be replaced with one of the following: ◦ 1 neo-volkite pistol ◦ 1 plasma pistol"
+        "text": "done"
       },
       "Infantry/Mounted§Centurion Assault Squad": {
         "assets": {
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Annihilator Protocols",
-            "Wargear§Centurion Assault Launcher",
             "Model§Assault Centurion Sergeant"
           ],
           "included": [
             {
-              "item": "Model§Assault Centurions",
+              "item": "Model§Assault Centurion",
               "quantity": 2
             }
           ]
@@ -7880,18 +7937,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Assault Centurions"
+            "Model§Assault Centurion"
           ]
         },
         "stats": {
-          "Assault Centurions": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 175
           },
@@ -7903,9 +7952,17 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "Assault Centurion": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 2,
+            "max": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: twin flamer; siege drills; Centurion bolters.\n\nAny number of models can each have their twin flamer replaced with 1 twin meltagun.\n\n*Any number of models can each have their Centurion bolters replaced with 1 Centurion assault launcher."
+        "text": "done"
       },
       "Infantry/Mounted§Centurion Devastator Squad": {
         "assets": {
@@ -7916,7 +7973,7 @@
           ],
           "included": [
             {
-              "item": "Model§Devastator Centurions",
+              "item": "Model§Devastator Centurion",
               "quantity": 2
             }
           ]
@@ -7937,18 +7994,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Devastator Centurions"
+            "Model§Devastator Centurion"
           ]
         },
         "stats": {
-          "Devastator Centurions": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 205
           },
@@ -7960,9 +8009,17 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "Devastator Centurion": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 2,
+            "max": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: grav-cannon; Centurion bolters; Centurion fists.\n\nAny number of models can each have their Centurion bolters replaced with 1 Centurion missile launcher.\n\n*Any number of models can each have their grav-cannon replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin lascannon"
+        "text": "done"
       },
       "Infantry/Mounted§Command Squad": {
         "assets": {
@@ -7978,7 +8035,7 @@
           ],
           "included": [
             {
-              "item": "Model§Company Veterans",
+              "item": "Model§Company Veteran",
               "quantity": 2
             }
           ]
@@ -7999,26 +8056,26 @@
         },
         "allowed": {
           "items": [
-            "Model§Company Veterans"
+            "Model§Company Veteran"
           ]
         },
         "stats": {
-          "Company Veterans": {
+          "Points": {
+            "value": 165
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "Company Veteran": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
             "tracked": true,
             "min": 2,
             "max": 2
-          },
-          "Points": {
-            "value": 165
-          },
-          "model1stTally": {
-            "value": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThe Apothecary is equipped with: bolt pistol; Astartes chainsword. The Company Ancient is equipped with: bolt pistol; close combat weapon. The Company Champion is equipped with: bolt pistol; Champion’s blade; Astartes shield. Each Company Veteran is equipped with: bolt pistol; boltgun, close combat weapon.\n\nAny number of models can each have their bolt pistol replaced with one of the following: ◦ 1 hand flamer* ◦ 1 grav-pistol* ◦ 1 inferno pistol* ◦ 1 plasma pistol*\n\n*Any number of Company Veterans can each have their bolt pistol replaced with 1 Astartes shield.\n\n*Any number of Company Veterans can each have  their bolt pistol and boltgun replaced with 1 twin lightning claws.\n\n*The Company Ancient’s bolt pistol can be replaced  with one of the following:  ◦ 1 boltgun  ◦ 1 combi-weapon*  *  The profile for this weapon can be found on the Adeptus Astartes Armoury card.\n\n*Any number of Company Veterans can each have their boltgun replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 Astartes shield ◦ 1 combi-weapon* ◦ 1 flamer ◦ 1 heavy bolter*  ◦ 1 heavy flamer* ◦ 1 grav-cannon*  ◦ 1 grav-gun  ◦ 1 lascannon* ◦ 1 meltagun  ◦ 1 missile launcher*  ◦ 1 multi-melta*  ◦ 1 plasma cannon*  ◦ 1 storm bolter* ◦ 1 power fist  ◦ 1 power weapon ◦ 1 thunder hammer"
+        "text": "done"
       },
       "Infantry/Mounted§Desolation Squad": {
         "assets": {
@@ -8103,7 +8160,7 @@
           ],
           "included": [
             {
-              "item": "Model§Devastator Marines",
+              "item": "Model§Devastator Marine",
               "quantity": 4
             }
           ]
@@ -8124,18 +8181,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Devastator Marines"
+            "Model§Devastator Marine"
           ]
         },
         "stats": {
-          "Devastator Marines": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 120
           },
@@ -8147,9 +8196,24 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Devastator Marine": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
+          },
+          "Special Weapon Selection": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "max": 4
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; boltgun; close combat weapon.\n\nUp to 4 Devastator Marines can each have their boltgun replaced with one of the following: ◦ 1 grav-cannon ◦ 1 heavy bolter ◦ 1 heavy flamer* ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 multi-melta ◦ 1 plasma cannon*\n\n*The Devastator Sergeant’s bolt pistol and boltgun can be replaced with 1 twin lightning claws.  *  The profile for this weapon can be found on the Adeptus Astartes Armoury card. ** T his model can only be equipped with two ranged weapons if one of them is a Pistol (and it can only have one Pistol)\n\n*The Devastator Sergeant’s bolt pistol and boltgun can be replaced with two different weapons from the following list:** ◦ 1 Astartes chainsword ◦ 1 bolt pistol ◦ 1 boltgun ◦ 1 combi-weapon* ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol*  ◦ 1 plasma pistol* ◦ 1 storm bolter* ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
+        "text": "done"
       },
       "Infantry/Mounted§Eliminator Squad": {
         "assets": {
@@ -8163,7 +8227,7 @@
           ],
           "included": [
             {
-              "item": "Model§Eliminators",
+              "item": "Model§Eliminator",
               "quantity": 2
             }
           ]
@@ -8185,11 +8249,17 @@
         },
         "allowed": {
           "items": [
-            "Model§Eliminators"
+            "Model§Eliminator"
           ]
         },
         "stats": {
-          "Eliminators": {
+          "Points": {
+            "value": 95
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "Eliminator": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -8197,14 +8267,57 @@
             "min": 2,
             "max": 2
           },
-          "Points": {
-            "value": 95
-          },
-          "model1stTally": {
-            "value": 3
+          "Eliminator Weapon": {
+            "statType": "rank",
+            "value": "Bolt sniper rifle",
+            "ranks": {
+              "Bolt sniper rifle": {
+                "order": 0,
+                "term": "Ranged Weapon§Eliminator Squad—Bolt sniper rifle"
+              },
+              "Las fusil": {
+                "order": 1,
+                "term": "Ranged Weapon§Eliminator Squad—Las fusil"
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; bolt sniper rifle; close combat weapon.\n\nThe Eliminator Sergeant’s bolt sniper rifle can be replaced with one of the following: ◦ 1 instigator bolt carbine ◦ 1 las fusil\n\n*All Eliminators in this unit can each have their bolt sniper rifle replaced with 1 las fusil."
+        "text": "done",
+        "rules": {
+          "eliminatorWeapon": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "included",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Eliminator Weapon",
+                  "processed",
+                  "term",
+                  "current"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Infantry/Mounted§Eradicator Squad": {
         "assets": {
@@ -8215,7 +8328,7 @@
           ],
           "included": [
             {
-              "item": "Model§Eradicators",
+              "item": "Model§Eradicator",
               "quantity": 2
             }
           ]
@@ -8237,18 +8350,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Eradicators"
+            "Model§Eradicator"
           ]
         },
         "stats": {
-          "Eradicators": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 2,
-            "max": 5
-          },
           "Points": {
             "value": 95
           },
@@ -8260,9 +8365,62 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "Eradicator": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 2,
+            "max": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; melta rifle; close combat weapon.\n\nFor every 3 models in this unit, 1 Eradicator’s melta rifle can be replaced with 1 multi-melta."
+        "text": "done",
+        "rules": {
+          "1 in 3 can have a Multi-melta.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Multi-melta"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 3 can have a Multi-melta.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Heavy Intercessor Squad": {
         "assets": {
@@ -8273,7 +8431,7 @@
           ],
           "included": [
             {
-              "item": "Model§Heavy Intercessors",
+              "item": "Model§Heavy Intercessor",
               "quantity": 4
             }
           ]
@@ -8296,18 +8454,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Heavy Intercessors"
+            "Model§Heavy Intercessor"
           ]
         },
         "stats": {
-          "Heavy Intercessors": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 110
           },
@@ -8319,9 +8469,62 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Heavy Intercessor": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; heavy bolt rifle; close combat weapon.\n\nFor every 5 models in this unit, 1 Heavy Intercessor’s heavy bolt rifle can be replaced with 1 heavy bolter."
+        "text": "done",
+        "rules": {
+          "1 in 5 can have a Heavy bolter.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Heavy bolter"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Heavy bolter.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Hellblaster Squad": {
         "assets": {
@@ -8332,7 +8535,7 @@
           ],
           "included": [
             {
-              "item": "Model§Hellblasters",
+              "item": "Model§Hellblaster",
               "quantity": 4
             }
           ]
@@ -8354,18 +8557,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Hellblasters"
+            "Model§Hellblaster"
           ]
         },
         "stats": {
-          "Hellblasters": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 125
           },
@@ -8377,9 +8572,64 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Hellblaster": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
+          },
+          "Pistol": {
+            "statType": "rank",
+            "value": "Bolt",
+            "ranks": {
+              "Bolt": {
+                "order": 0,
+                "term": "Ranged Weapon§Hellblaster Squad—Bolt pistol"
+              },
+              "Plasma": {
+                "order": 1,
+                "term": "Weapon§Hellblaster Squad—Plasma pistol"
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal"
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; plasma incinerator; close combat weapon.\n\nAll models in this unit can each have their bolt pistol replaced with 1 plasma pistol."
+        "text": "done",
+        "rules": {
+          "addPistol": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Pistol",
+                  "processed",
+                  "term",
+                  "current"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Infantry/Mounted§Inceptor Squad": {
         "assets": {
@@ -8553,7 +8803,7 @@
           ],
           "included": [
             {
-              "item": "Model§Infernus Marines",
+              "item": "Model§Infernus Marine",
               "quantity": 4
             }
           ]
@@ -8575,18 +8825,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Infernus Marines"
+            "Model§Infernus Marine"
           ]
         },
         "stats": {
-          "Infernus Marines": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 90
           },
@@ -8598,6 +8840,14 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Infernus Marine": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         }
       },
@@ -8710,7 +8960,7 @@
           ],
           "included": [
             {
-              "item": "Model§Intercessors",
+              "item": "Model§Intercessor",
               "quantity": 4
             }
           ]
@@ -8733,18 +8983,10 @@
         },
         "allowed": {
           "items": [
-            "Model§Intercessors"
+            "Model§Intercessor"
           ]
         },
         "stats": {
-          "Intercessors": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Points": {
             "value": 95
           },
@@ -8756,15 +8998,71 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "Intercessor": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; bolt rifle; close combat weapon.\n\nThe Sergeant’s bolt rifle can be replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 hand flamer ◦ 1 plasma pistol ◦ 1 power weapon\n\n*The Intercessor Sergeant’s close combat weapon can be replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer\n\n*For every 5 models in this unit, 1 model equipped with a bolt rifle can be equipped with 1 Astartes grenade launcher."
+        "text": "done",
+        "rules": {
+          "1 in 5 models can have an Astartes grenade launcher.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Astartes grenade launcher"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have an Astartes grenade launcher.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Invader Atv": {
         "assets": {
           "traits": [
             "Ability§Oath of Moment",
-            "Ability§Outrider Escort"
+            "Ability§Outrider Escort",
+            "Ranged Weapon§Invader Atv—Heavy bolt pistol",
+            "Ranged Weapon§Invader Atv—Twin bolt rifle",
+            "Melee Weapon§Invader Atv—Close combat weapon"
           ]
         },
         "keywords": {
@@ -8800,15 +9098,21 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 80
+          },
+          "model1stTally": {
+            "value": 1
+          },
           "Loadout": {
             "statType": "rank",
-            "value": "Heavy bolt pistol",
+            "value": "Gatling cannon",
             "ranks": {
-              "Heavy bolt pistol": {
+              "Gatling cannon": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Invader Atv—Heavy bolt pistol"
+                    "trait": "Ranged Weapon§Invader Atv—Onslaught gatling cannon"
                   }
                 ]
               },
@@ -8819,45 +9123,15 @@
                     "trait": "Ranged Weapon§Invader Atv—Multi-melta"
                   }
                 ]
-              },
-              "Onslaught gatling cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Invader Atv—Onslaught gatling cannon"
-                  }
-                ]
-              },
-              "Twin bolt rifle": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Invader Atv—Twin bolt rifle"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Invader Atv—Close combat weapon"
-                  }
-                ]
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          },
-          "Points": {
-            "value": 80
-          },
-          "model1stTally": {
-            "value": 1
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolt pistol; twin bolt rifle, onslaught gatling cannon; close combat weapon.\n\nThis model’s onslaught gatling cannon can be replaced with 1 multi-melta."
+        "text": "done"
       },
       "Infantry/Mounted§Outrider Squad": {
         "assets": {
@@ -16276,49 +16550,12 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Auto boltstorm gauntlets",
-            "ranks": {
-              "Auto boltstorm gauntlets": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Aggressor Squad—Auto boltstorm gauntlets"
-                  }
-                ]
-              },
-              "Flamestorm gauntlets": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Aggressor Squad—Flamestorm gauntlets"
-                  }
-                ]
-              },
-              "Fragstorm grenade launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Aggressor Squad—Fragstorm grenade launcher"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aggressor Squad—Power fist"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Aggressor Squad—Power fist"
+          ]
         }
       },
       "Model§Aggressor Sergeant": {
@@ -16340,49 +16577,12 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Auto boltstorm gauntlets",
-            "ranks": {
-              "Auto boltstorm gauntlets": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Aggressor Squad—Auto boltstorm gauntlets"
-                  }
-                ]
-              },
-              "Flamestorm gauntlets": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Aggressor Squad—Flamestorm gauntlets"
-                  }
-                ]
-              },
-              "Fragstorm grenade launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Aggressor Squad—Fragstorm grenade launcher"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aggressor Squad—Power fist"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Aggressor Squad—Power fist"
+          ]
         }
       },
       "Model§Apothecary": {
@@ -16407,6 +16607,7 @@
           },
           "Loadout": {
             "statType": "rank",
+            "label": "Loadout",
             "value": "Bolt pistol",
             "ranks": {
               "Bolt pistol": {
@@ -16417,99 +16618,35 @@
                   }
                 ]
               },
-              "Boltgun": {
+              "Hand flamer": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Boltgun"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
                   }
                 ]
               },
-              "Flamer": {
+              "Grav-pistol": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Flamer"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
                   }
                 ]
               },
-              "Grav-gun": {
+              "Inferno pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Grav-gun"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
                   }
                 ]
               },
-              "Meltagun": {
+              "Plasma pistol": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Weapon§Command Squad—Plasma gun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Champion’s blade": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Champion’s blade"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Twin lightning claws"
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
                   }
                 ]
               }
@@ -16519,6 +16656,92 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Command Squad—Astartes chainsword"
+          ]
+        }
+      },
+      "Model§Assault Centurion": {
+        "stats": {
+          "M": {
+            "value": 4
+          },
+          "T": {
+            "value": 7
+          },
+          "Sv": {
+            "value": 2
+          },
+          "W": {
+            "value": 4
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Loadout 1": {
+            "statType": "rank",
+            "label": "Loadout",
+            "value": "Twin flamer",
+            "ranks": {
+              "Twin flamer": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin flamer"
+                  }
+                ]
+              },
+              "Twin meltagun": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin meltagun"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Loadout 2": {
+            "statType": "rank",
+            "label": "Loadout",
+            "value": "Centurion bolters",
+            "ranks": {
+              "Centurion bolters": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Assault Squad—Centurion bolters"
+                  }
+                ]
+              },
+              "Assault launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Centurion Assault Launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Centurion Assault Squad—Siege drills"
+          ]
         }
       },
       "Model§Assault Centurion Sergeant": {
@@ -16541,8 +16764,36 @@
           "OC": {
             "value": 2
           },
-          "Loadout": {
+          "Loadout 1": {
             "statType": "rank",
+            "label": "Loadout",
+            "value": "Twin flamer",
+            "ranks": {
+              "Twin flamer": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin flamer"
+                  }
+                ]
+              },
+              "Twin meltagun": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin meltagun"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Loadout 2": {
+            "statType": "rank",
+            "label": "Loadout",
             "value": "Centurion bolters",
             "ranks": {
               "Centurion bolters": {
@@ -16553,27 +16804,11 @@
                   }
                 ]
               },
-              "Twin flamer": {
+              "Assault launcher": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin flamer"
-                  }
-                ]
-              },
-              "Twin meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin meltagun"
-                  }
-                ]
-              },
-              "Siege drills": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Centurion Assault Squad—Siege drills"
+                    "trait": "Wargear§Centurion Assault Launcher"
                   }
                 ]
               }
@@ -16583,70 +16818,11 @@
             "visibility": "active",
             "dynamic": true
           }
-        }
-      },
-      "Model§Assault Centurions": {
-        "stats": {
-          "M": {
-            "value": 4
-          },
-          "T": {
-            "value": 7
-          },
-          "Sv": {
-            "value": 2
-          },
-          "W": {
-            "value": 4
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Centurion bolters",
-            "ranks": {
-              "Centurion bolters": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Assault Squad—Centurion bolters"
-                  }
-                ]
-              },
-              "Twin flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin flamer"
-                  }
-                ]
-              },
-              "Twin meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Assault Squad—Twin meltagun"
-                  }
-                ]
-              },
-              "Siege drills": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Centurion Assault Squad—Siege drills"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Centurion Assault Squad—Siege drills"
+          ]
         }
       },
       "Model§Assault Intercessor": {
@@ -16668,73 +16844,13 @@
           },
           "OC": {
             "value": 2
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Hand flamer",
-            "ranks": {
-              "Hand flamer": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Intercessor Squad—Hand flamer"
-                  }
-                ]
-              },
-              "Heavy bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Intercessor Squad—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Assault Intercessor Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Intercessor Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Intercessor Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Intercessor Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Intercessor Squad—Thunder hammer"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Assault Intercessor Squad—Heavy bolt pistol",
+            "Melee Weapon§Assault Intercessor Squad—Astartes chainsword"
+          ]
         }
       },
       "Model§Assault Intercessor Sergeant": {
@@ -16757,23 +16873,23 @@
           "OC": {
             "value": 2
           },
-          "Loadout": {
+          "Shooting": {
             "statType": "rank",
-            "value": "Hand flamer",
+            "value": "Heavy bolt pistol",
             "ranks": {
-              "Hand flamer": {
+              "Heavy bolt pistol": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Intercessor Squad—Hand flamer"
+                    "trait": "Ranged Weapon§Assault Intercessor Squad—Heavy bolt pistol"
                   }
                 ]
               },
-              "Heavy bolt pistol": {
+              "Hand flamer": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Intercessor Squad—Heavy bolt pistol"
+                    "trait": "Ranged Weapon§Assault Intercessor Squad—Hand flamer"
                   }
                 ]
               },
@@ -16784,9 +16900,20 @@
                     "trait": "Weapon§Assault Intercessor Squad—Plasma pistol"
                   }
                 ]
-              },
+              }
+            },
+            "statOrder": 1,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "ranks": {
               "Astartes chainsword": {
-                "order": 3,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Intercessor Squad—Astartes chainsword"
@@ -16794,7 +16921,7 @@
                 ]
               },
               "Power fist": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Intercessor Squad—Power fist"
@@ -16802,7 +16929,7 @@
                 ]
               },
               "Power weapon": {
-                "order": 5,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Intercessor Squad—Power weapon"
@@ -16810,7 +16937,7 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 6,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Intercessor Squad—Thunder hammer"
@@ -16818,6 +16945,7 @@
                 ]
               }
             },
+            "statOrder": 2,
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
@@ -16845,7 +16973,7 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Shooting": {
             "statType": "rank",
             "value": "Bolt pistol",
             "ranks": {
@@ -16857,91 +16985,171 @@
                   }
                 ]
               },
-              "Flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad—Flamer"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Weapon§Assault Squad—Plasma gun"
-                  }
-                ]
-              },
               "Plasma pistol": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Weapon§Assault Squad—Plasma pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
-              "Astartes chainsword": {
-                "order": 5,
+              "Flamer": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad—Astartes chainsword"
+                    "trait": "Ranged Weapon§Assault Squad—Flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1,
+                  "noSword": 1
+                }
               },
-              "Eviscerator": {
-                "order": 6,
+              "Meltagun": {
+                "order": 3,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad—Eviscerator"
+                    "trait": "Ranged Weapon§Assault Squad—Meltagun"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1,
+                  "noSword": 1
+                }
               },
-              "Power fist": {
-                "order": 7,
+              "Plasma gun": {
+                "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad—Power fist"
+                    "trait": "Weapon§Assault Squad—Plasma gun"
                   }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad—Twin lightning claws"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1,
+                  "noSword": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Intercessor Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Eviscerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad—Eviscerator"
+                  }
+                ]
+              },
+              "-": {
+                "order": 2
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "noSword": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "noSword"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "yesSword": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "noSword"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -16965,7 +17173,7 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Shooting": {
             "statType": "rank",
             "value": "Bolt pistol",
             "ranks": {
@@ -16977,91 +17185,171 @@
                   }
                 ]
               },
-              "Flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Flamer"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Weapon§Assault Squad with Jump Packs—Plasma gun"
-                  }
-                ]
-              },
               "Plasma pistol": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Weapon§Assault Squad with Jump Packs—Plasma pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
-              "Astartes chainsword": {
-                "order": 5,
+              "Flamer": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Astartes chainsword"
+                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1,
+                  "noSword": 1
+                }
               },
-              "Eviscerator": {
-                "order": 6,
+              "Meltagun": {
+                "order": 3,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
+                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Meltagun"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1,
+                  "noSword": 1
+                }
               },
-              "Power fist": {
-                "order": 7,
+              "Plasma gun": {
+                "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Power fist"
+                    "trait": "Weapon§Assault Squad with Jump Packs—Plasma gun"
                   }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Twin lightning claws"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1,
+                  "noSword": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Intercessor Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Eviscerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
+                  }
+                ]
+              },
+              "-": {
+                "order": 2
+              }
+            },
+            "statOrder": 2,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "noSword": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "noSword"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "yesSword": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "noSword"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -17085,7 +17373,7 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Shooting": {
             "statType": "rank",
             "value": "Bolt pistol",
             "ranks": {
@@ -17097,56 +17385,62 @@
                   }
                 ]
               },
-              "Flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad—Flamer"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Weapon§Assault Squad—Plasma gun"
-                  }
-                ]
-              },
               "Plasma pistol": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Weapon§Assault Squad—Plasma pistol"
                   }
                 ]
               },
+              "Grav-pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
+                  }
+                ]
+              },
+              "Hand flamer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
+                  }
+                ]
+              },
+              "-": {
+                "order": 5
+              }
+            },
+            "statOrder": 1,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "ranks": {
               "Astartes chainsword": {
-                "order": 5,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Eviscerator": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad—Eviscerator"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 7,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad—Power fist"
@@ -17154,7 +17448,7 @@
                 ]
               },
               "Power weapon": {
-                "order": 8,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad—Power weapon"
@@ -17162,15 +17456,23 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 9,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad—Thunder hammer"
                   }
                 ]
               },
+              "Eviscerator": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad—Eviscerator"
+                  }
+                ]
+              },
               "Twin lightning claws": {
-                "order": 10,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad—Twin lightning claws"
@@ -17178,10 +17480,165 @@
                 ]
               }
             },
+            "statOrder": 3,
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Shield": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Astartes Shield"
+                  }
+                ]
+              }
+            },
+            "statOrder": 4,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "twinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "value"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "visibility"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "noTwinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
+          },
+          "hasShield": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Twin lightning claws",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -17205,7 +17662,7 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Shooting": {
             "statType": "rank",
             "value": "Bolt pistol",
             "ranks": {
@@ -17217,56 +17674,62 @@
                   }
                 ]
               },
-              "Flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Flamer"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Weapon§Assault Squad with Jump Packs—Plasma gun"
-                  }
-                ]
-              },
               "Plasma pistol": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Weapon§Assault Squad with Jump Packs—Plasma pistol"
                   }
                 ]
               },
+              "Grav-pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
+                  }
+                ]
+              },
+              "Hand flamer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
+                  }
+                ]
+              },
+              "-": {
+                "order": 5
+              }
+            },
+            "statOrder": 1,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Melee": {
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "ranks": {
               "Astartes chainsword": {
-                "order": 5,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad with Jump Packs—Astartes chainsword"
                   }
                 ]
               },
-              "Eviscerator": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 7,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad with Jump Packs—Power fist"
@@ -17274,7 +17737,7 @@
                 ]
               },
               "Power weapon": {
-                "order": 8,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad with Jump Packs—Power weapon"
@@ -17282,15 +17745,23 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 9,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad with Jump Packs—Thunder hammer"
                   }
                 ]
               },
+              "Eviscerator": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
+                  }
+                ]
+              },
               "Twin lightning claws": {
-                "order": 10,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Assault Squad with Jump Packs—Twin lightning claws"
@@ -17298,10 +17769,165 @@
                 ]
               }
             },
+            "statOrder": 3,
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Shield": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Astartes Shield"
+                  }
+                ]
+              }
+            },
+            "statOrder": 4,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "twinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "value"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "visibility"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "noTwinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
+          },
+          "hasShield": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "Twin lightning claws",
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -17423,47 +18049,57 @@
           },
           "Loadout": {
             "statType": "rank",
-            "value": "Heavy bolter",
+            "value": "Servitor servo-arm",
             "ranks": {
-              "Heavy bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Astartes Servitors—Heavy bolter"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Astartes Servitors—Multi-melta"
-                  }
-                ]
-              },
-              "Plasma cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Astartes Servitors—Plasma cannon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Astartes Servitors—Close combat weapon"
-                  }
-                ]
-              },
               "Servitor servo-arm": {
-                "order": 4,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Astartes Servitors—Servitor servo-arm"
                   }
                 ]
+              },
+              "Heavy bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astartes Servitors—Heavy bolter"
+                  },
+                  {
+                    "trait": "Melee Weapon§Astartes Servitors—Close combat weapon"
+                  }
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
+              },
+              "Multi-melta": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astartes Servitors—Multi-melta"
+                  },
+                  {
+                    "trait": "Melee Weapon§Astartes Servitors—Close combat weapon"
+                  }
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
+              },
+              "Plasma cannon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Weapon§Astartes Servitors—Plasma cannon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Astartes Servitors—Close combat weapon"
+                  }
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               }
             },
             "group": "Loadout",
@@ -17485,7 +18121,7 @@
             "value": 3
           },
           "W": {
-            "value": 3
+            "value": 5
           },
           "Ld": {
             "value": 6
@@ -17495,109 +18131,21 @@
           },
           "Loadout": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Heavy bolter",
             "ranks": {
-              "Bolt pistol": {
+              "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Bike Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Grav-pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Grav-pistol"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Hand flamer"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Heavy bolter"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Inferno pistol"
+                    "trait": "Ranged Weapon§Attack Bike Squad—Heavy bolter"
                   }
                 ]
               },
               "Multi-melta": {
-                "order": 5,
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Bike Squad—Multi-melta"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Weapon§Bike Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Twin boltgun": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Twin boltgun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Thunder hammer"
+                    "trait": "Ranged Weapon§Attack Bike Squad—Multi-melta"
                   }
                 ]
               }
@@ -17607,9 +18155,16 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Attack Bike Squad—Bolt pistol",
+            "Ranged Weapon§Attack Bike Squad—Twin boltgun",
+            "Melee Weapon§Attack Bike Squad—Close combat weapon"
+          ]
         }
       },
-      "Model§Attack Bikes": {
+      "Model§Attack Bike (squad)": {
         "stats": {
           "M": {
             "value": 12
@@ -17629,47 +18184,26 @@
           "OC": {
             "value": 2
           },
+          "modelName": {
+            "value": "Attack Bike"
+          },
           "Loadout": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Heavy bolter",
             "ranks": {
-              "Bolt pistol": {
+              "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Attack Bike Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Attack Bike Squad—Heavy bolter"
+                    "trait": "Ranged Weapon§Bike Squad—Heavy bolter"
                   }
                 ]
               },
               "Multi-melta": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Attack Bike Squad—Multi-melta"
-                  }
-                ]
-              },
-              "Twin boltgun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Attack Bike Squad—Twin boltgun"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Attack Bike Squad—Close combat weapon"
+                    "trait": "Ranged Weapon§Bike Squad—Multi-melta"
                   }
                 ]
               }
@@ -17679,6 +18213,13 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Bike Squad—Bolt pistol",
+            "Ranged Weapon§Bike Squad—Twin boltgun",
+            "Melee Weapon§Bike Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Biker Sergeant": {
@@ -17713,80 +18254,72 @@
                   }
                 ]
               },
-              "Grav-pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Grav-pistol"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Hand flamer"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Heavy bolter"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Inferno pistol"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Multi-melta"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Weapon§Bike Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Twin boltgun": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Twin boltgun"
-                  }
-                ]
-              },
               "Astartes chainsword": {
-                "order": 8,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Bike Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 9,
+              "Boltgun": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Bike Squad—Close combat weapon"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Boltgun"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
+                  }
+                ]
+              },
+              "Hand flamer": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Bike Squad—Hand flamer"
+                  }
+                ]
+              },
+              "Grav-pistol": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Bike Squad—Grav-pistol"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Bike Squad—Inferno pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Weapon§Bike Squad—Plasma pistol"
+                  }
+                ]
+              },
+              "Storm bolter": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
                   }
                 ]
               },
               "Power fist": {
-                "order": 10,
+                "order": 9,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Bike Squad—Power fist"
@@ -17794,7 +18327,7 @@
                 ]
               },
               "Power weapon": {
-                "order": 11,
+                "order": 10,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Bike Squad—Power weapon"
@@ -17802,7 +18335,7 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 12,
+                "order": 11,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Bike Squad—Thunder hammer"
@@ -17815,6 +18348,40 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Bike Squad—Twin boltgun",
+            "Melee Weapon§Attack Bike Squad—Close combat weapon"
+          ]
+        }
+      },
+      "Model§Bladeguard Veteran": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Bladeguard Veteran Squad—Heavy bolt pistol",
+            "Melee Weapon§Bladeguard Veteran Squad—Master-crafted power weapon"
+          ]
         }
       },
       "Model§Bladeguard Veteran Sergeant": {
@@ -17864,14 +18431,6 @@
                     "trait": "Weapon§Bladeguard Veteran Squad—Plasma pistol"
                   }
                 ]
-              },
-              "Master-crafted power weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bladeguard Veteran Squad—Master-crafted power weapon"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -17879,70 +18438,11 @@
             "visibility": "active",
             "dynamic": true
           }
-        }
-      },
-      "Model§Bladeguard Veterans": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 3
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Heavy bolt pistol",
-            "ranks": {
-              "Heavy bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bladeguard Veteran Squad—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Neo-volkite pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bladeguard Veteran Squad—Neo-volkite pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Bladeguard Veteran Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Master-crafted power weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bladeguard Veteran Squad—Master-crafted power weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Bladeguard Veteran Squad—Master-crafted power weapon"
+          ]
         }
       },
       "Model§Company Ancient": {
@@ -17967,6 +18467,7 @@
           },
           "Loadout": {
             "statType": "rank",
+            "label": "Loadout",
             "value": "Bolt pistol",
             "ranks": {
               "Bolt pistol": {
@@ -17977,99 +18478,51 @@
                   }
                 ]
               },
-              "Boltgun": {
+              "Hand flamer": {
                 "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
+                  }
+                ]
+              },
+              "Grav-pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
+                  }
+                ]
+              },
+              "Boltgun": {
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Command Squad—Boltgun"
                   }
                 ]
               },
-              "Flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Command Squad—Flamer"
-                  }
-                ]
-              },
-              "Grav-gun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Command Squad—Grav-gun"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Command Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Weapon§Command Squad—Plasma gun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
+              "Combi-weapon": {
                 "order": 6,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Command Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Champion’s blade": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Champion’s blade"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Twin lightning claws"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
                   }
                 ]
               }
@@ -18079,6 +18532,11 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Command Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Company Champion": {
@@ -18103,6 +18561,7 @@
           },
           "Loadout": {
             "statType": "rank",
+            "label": "Loadout",
             "value": "Bolt pistol",
             "ranks": {
               "Bolt pistol": {
@@ -18113,99 +18572,35 @@
                   }
                 ]
               },
-              "Boltgun": {
+              "Hand flamer": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Boltgun"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
                   }
                 ]
               },
-              "Flamer": {
+              "Grav-pistol": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Flamer"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
                   }
                 ]
               },
-              "Grav-gun": {
+              "Inferno pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Grav-gun"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
                   }
                 ]
               },
-              "Meltagun": {
+              "Plasma pistol": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Weapon§Command Squad—Plasma gun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Champion’s blade": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Champion’s blade"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Twin lightning claws"
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
                   }
                 ]
               }
@@ -18215,9 +18610,15 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Command Squad—Champion’s blade",
+            "Wargear§Astartes Shield"
+          ]
         }
       },
-      "Model§Company Veterans": {
+      "Model§Company Veteran": {
         "stats": {
           "M": {
             "value": 6
@@ -18237,8 +18638,9 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Loadout 1": {
             "statType": "rank",
+            "label": "Loadout",
             "value": "Bolt pistol",
             "ranks": {
               "Bolt pistol": {
@@ -18249,96 +18651,48 @@
                   }
                 ]
               },
-              "Boltgun": {
+              "Hand flamer": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Boltgun"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
                   }
                 ]
               },
-              "Flamer": {
+              "Grav-pistol": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Flamer"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
                   }
                 ]
               },
-              "Grav-gun": {
+              "Inferno pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Grav-gun"
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
                   }
                 ]
               },
-              "Meltagun": {
+              "Plasma pistol": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Command Squad—Meltagun"
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
                   }
                 ]
               },
-              "Plasma gun": {
+              "Astartes shield": {
                 "order": 5,
                 "traits": [
                   {
-                    "trait": "Weapon§Command Squad—Plasma gun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Champion’s blade": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Champion’s blade"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Command Squad—Thunder hammer"
+                    "trait": "Wargear§Astartes Shield"
                   }
                 ]
               },
               "Twin lightning claws": {
-                "order": 12,
+                "order": 6,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Command Squad—Twin lightning claws"
@@ -18350,7 +18704,263 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Loadout 2": {
+            "statType": "rank",
+            "label": "Loadout",
+            "value": "Boltgun",
+            "ranks": {
+              "Boltgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Command Squad—Boltgun"
+                  }
+                ]
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Command Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Astartes shield": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Astartes Shield"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Command Squad—Flamer"
+                  }
+                ]
+              },
+              "Grav-gun": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Command Squad—Grav-gun"
+                  }
+                ]
+              },
+              "Meltagun": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Command Squad—Meltagun"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Weapon§Command Squad—Plasma gun"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Command Squad—Power fist"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Command Squad—Power weapon"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Command Squad—Thunder hammer"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
+                  }
+                ]
+              },
+              "Heavy bolter": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Heavy bolter"
+                  }
+                ]
+              },
+              "Heavy flamer": {
+                "order": 12,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Heavy flamer"
+                  }
+                ]
+              },
+              "Grav-cannon": {
+                "order": 13,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-cannon"
+                  }
+                ]
+              },
+              "Lascannon": {
+                "order": 14,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Lascannon"
+                  }
+                ]
+              },
+              "Missile launcher": {
+                "order": 15,
+                "traits": [
+                  {
+                    "trait": "Weapon§Adeptus Astartes Armoury—Missile launcher"
+                  }
+                ]
+              },
+              "Multi-melta": {
+                "order": 16,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Multi-melta"
+                  }
+                ]
+              },
+              "Plasma cannon": {
+                "order": 17,
+                "traits": [
+                  {
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma cannon"
+                  }
+                ]
+              },
+              "Storm bolter": {
+                "order": 18,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
+                  }
+                ]
+              },
+              "-": {
+                "order": 19
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           }
+        },
+        "rules": {
+          "twinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "noTwinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Command Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Desolation Marine": {
@@ -18598,6 +19208,95 @@
           }
         }
       },
+      "Model§Devastator Centurion": {
+        "stats": {
+          "M": {
+            "value": 4
+          },
+          "T": {
+            "value": 7
+          },
+          "Sv": {
+            "value": 2
+          },
+          "W": {
+            "value": 4
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Loadout 1": {
+            "statType": "rank",
+            "label": "Loadout",
+            "value": "Centurion bolters",
+            "ranks": {
+              "Centurion bolters": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Devastator Squad—Centurion bolters"
+                  }
+                ]
+              },
+              "Centurion missile launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Devastator Squad—Centurion missile launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Loadout 2": {
+            "statType": "rank",
+            "label": "Loadout",
+            "value": "Grav-cannon",
+            "ranks": {
+              "Grav-cannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Devastator Squad—Grav-cannon"
+                  }
+                ]
+              },
+              "Twin heavy bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Devastator Squad—Twin heavy bolter"
+                  }
+                ]
+              },
+              "Twin lascannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centurion Devastator Squad—Twin lascannon"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Centurion Devastator Squad—Centurion fists"
+          ]
+        }
+      },
       "Model§Devastator Centurion Sergeant": {
         "stats": {
           "M": {
@@ -18618,8 +19317,9 @@
           "OC": {
             "value": 2
           },
-          "Loadout": {
+          "Loadout 1": {
             "statType": "rank",
+            "label": "Loadout",
             "value": "Centurion bolters",
             "ranks": {
               "Centurion bolters": {
@@ -18637,97 +19337,28 @@
                     "trait": "Ranged Weapon§Centurion Devastator Squad—Centurion missile launcher"
                   }
                 ]
-              },
-              "Grav-cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Devastator Squad—Grav-cannon"
-                  }
-                ]
-              },
-              "Twin heavy bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Devastator Squad—Twin heavy bolter"
-                  }
-                ]
-              },
-              "Twin lascannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Devastator Squad—Twin lascannon"
-                  }
-                ]
-              },
-              "Centurion fists": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Centurion Devastator Squad—Centurion fists"
-                  }
-                ]
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          }
-        }
-      },
-      "Model§Devastator Centurions": {
-        "stats": {
-          "M": {
-            "value": 4
           },
-          "T": {
-            "value": 7
-          },
-          "Sv": {
-            "value": 2
-          },
-          "W": {
-            "value": 4
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "Loadout": {
+          "Loadout 2": {
             "statType": "rank",
-            "value": "Centurion bolters",
+            "label": "Loadout",
+            "value": "Grav-cannon",
             "ranks": {
-              "Centurion bolters": {
+              "Grav-cannon": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Centurion Devastator Squad—Centurion bolters"
-                  }
-                ]
-              },
-              "Centurion missile launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centurion Devastator Squad—Centurion missile launcher"
-                  }
-                ]
-              },
-              "Grav-cannon": {
-                "order": 2,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Centurion Devastator Squad—Grav-cannon"
                   }
                 ]
               },
               "Twin heavy bolter": {
-                "order": 3,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Centurion Devastator Squad—Twin heavy bolter"
@@ -18735,18 +19366,10 @@
                 ]
               },
               "Twin lascannon": {
-                "order": 4,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Centurion Devastator Squad—Twin lascannon"
-                  }
-                ]
-              },
-              "Centurion fists": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Centurion Devastator Squad—Centurion fists"
                   }
                 ]
               }
@@ -18756,9 +19379,14 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Centurion Devastator Squad—Centurion fists"
+          ]
         }
       },
-      "Model§Devastator Marines": {
+      "Model§Devastator Marine": {
         "stats": {
           "M": {
             "value": 6
@@ -18780,18 +19408,10 @@
           },
           "Loadout": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Boltgun",
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Devastator Squad—Bolt pistol"
-                  }
-                ]
-              },
               "Boltgun": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Devastator Squad—Boltgun"
@@ -18799,92 +19419,81 @@
                 ]
               },
               "Grav-cannon": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Devastator Squad—Grav-cannon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
               "Heavy bolter": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Devastator Squad—Heavy bolter"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
               "Lascannon": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Devastator Squad—Lascannon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
               "Missile launcher": {
-                "order": 5,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Devastator Squad—Missile launcher"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
               "Multi-melta": {
-                "order": 6,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Devastator Squad—Multi-melta"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
-              "Astartes chainsword": {
+              "Heavy flamer": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Heavy flamer"
+                  }
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
+              },
+              "Plasma cannon": {
                 "order": 7,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Devastator Squad—Astartes chainsword"
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma cannon"
                   }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Twin lightning claws"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               }
             },
             "group": "Loadout",
@@ -18892,6 +19501,12 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Devastator Squad—Bolt pistol",
+            "Melee Weapon§Devastator Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Devastator Sergeant": {
@@ -18914,8 +19529,134 @@
           "OC": {
             "value": 1
           },
-          "Loadout": {
+          "Loadout 2": {
             "statType": "rank",
+            "label": "Loadout",
+            "value": "Boltgun",
+            "ranks": {
+              "Boltgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Devastator Squad—Boltgun"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Devastator Squad—Bolt pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Astartes chainsword": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Devastator Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Devastator Squad—Power fist"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Devastator Squad—Power weapon"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Devastator Squad—Thunder hammer"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
+                  }
+                ]
+              },
+              "Grav-pistol": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Bike Squad—Grav-pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Hand flamer": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Inferno pistol": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Plasma pistol": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Storm bolter": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
+                  }
+                ]
+              },
+              "-": {
+                "order": 12
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Loadout 1": {
+            "statType": "rank",
+            "label": "Loadout",
             "value": "Bolt pistol",
             "ranks": {
               "Bolt pistol": {
@@ -18924,7 +19665,10 @@
                   {
                     "trait": "Ranged Weapon§Devastator Squad—Bolt pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
               },
               "Boltgun": {
                 "order": 1,
@@ -18934,64 +19678,16 @@
                   }
                 ]
               },
-              "Grav-cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Devastator Squad—Grav-cannon"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Devastator Squad—Heavy bolter"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Devastator Squad—Lascannon"
-                  }
-                ]
-              },
-              "Missile launcher": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Weapon§Devastator Squad—Missile launcher"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Devastator Squad—Multi-melta"
-                  }
-                ]
-              },
               "Astartes chainsword": {
-                "order": 7,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Devastator Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Close combat weapon"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 9,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Devastator Squad—Power fist"
@@ -18999,7 +19695,7 @@
                 ]
               },
               "Power weapon": {
-                "order": 10,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Devastator Squad—Power weapon"
@@ -19007,7 +19703,7 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 11,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Devastator Squad—Thunder hammer"
@@ -19015,10 +19711,314 @@
                 ]
               },
               "Twin lightning claws": {
-                "order": 12,
+                "order": 6,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Devastator Squad—Twin lightning claws"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
+                  }
+                ]
+              },
+              "Grav-pistol": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Bike Squad—Grav-pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Hand flamer": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Inferno pistol": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Plasma pistol": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
+                  }
+                ],
+                "tracking": {
+                  "pistol": 1
+                }
+              },
+              "Storm bolter": {
+                "order": 12,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "pistol": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden",
+            "tracked": true,
+            "max": 1
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Devastator Squad—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "noTwinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": "-",
+                "iterations": 1
+              }
+            ]
+          },
+          "noDups": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Loadout 2",
+                  "value"
+                ],
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Loadout 1",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "twinClaws": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "-",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "hidden",
+                "iterations": 1
+              }
+            ]
+          },
+          "With 2 ranged weapons, one must be a pistol.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Ranged Weapon"
+                  ]
+                ],
+                "value": 2,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "pistol"
+                  ]
+                ],
+                "value": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR"
+          }
+        }
+      },
+      "Model§Eliminator": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Eliminator Squad—Bolt pistol"
+                  }
+                ]
+              },
+              "Bolt sniper rifle": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Eliminator Squad—Bolt sniper rifle"
+                  }
+                ]
+              },
+              "Instigator bolt carbine": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Eliminator Squad—Instigator bolt carbine"
+                  }
+                ]
+              },
+              "Las fusil": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Eliminator Squad—Las fusil"
+                  }
+                ]
+              },
+              "Close combat weapon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Eliminator Squad—Close combat weapon"
                   }
                 ]
               }
@@ -19102,79 +20102,7 @@
           }
         }
       },
-      "Model§Eliminators": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Eliminator Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Bolt sniper rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Eliminator Squad—Bolt sniper rifle"
-                  }
-                ]
-              },
-              "Instigator bolt carbine": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Eliminator Squad—Instigator bolt carbine"
-                  }
-                ]
-              },
-              "Las fusil": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Eliminator Squad—Las fusil"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Eliminator Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
-        }
-      },
-      "Model§Eradicator Sergeant": {
+      "Model§Eradicator": {
         "stats": {
           "M": {
             "value": 5
@@ -19196,18 +20124,10 @@
           },
           "Loadout": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Melta rifle",
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Eradicator Squad—Bolt pistol"
-                  }
-                ]
-              },
               "Melta rifle": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Eradicator Squad—Melta rifle"
@@ -19215,18 +20135,10 @@
                 ]
               },
               "Multi-melta": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Eradicator Squad—Multi-melta"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Eradicator Squad—Close combat weapon"
                   }
                 ]
               }
@@ -19236,9 +20148,15 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Eradicator Squad—Bolt pistol",
+            "Melee Weapon§Eradicator Squad—Close combat weapon"
+          ]
         }
       },
-      "Model§Eradicators": {
+      "Model§Eradicator Sergeant": {
         "stats": {
           "M": {
             "value": 5
@@ -19358,6 +20276,60 @@
           }
         }
       },
+      "Model§Heavy Intercessor": {
+        "stats": {
+          "M": {
+            "value": 5
+          },
+          "T": {
+            "value": 6
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Loadout": {
+            "statType": "rank",
+            "value": "Heavy bolt rifle",
+            "ranks": {
+              "Heavy bolt rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Heavy bolt rifle"
+                  }
+                ]
+              },
+              "Heavy bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Heavy bolter"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Heavy Intercessor Squad—Bolt pistol",
+            "Melee Weapon§Heavy Intercessor Squad—Close combat weapon"
+          ]
+        }
+      },
       "Model§Heavy Intercessor Sergeant": {
         "stats": {
           "M": {
@@ -19377,113 +20349,42 @@
           },
           "OC": {
             "value": 2
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Heavy bolt rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Heavy bolt rifle"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Heavy bolter"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Heavy Intercessor Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Heavy Intercessor Squad—Bolt pistol",
+            "Ranged Weapon§Heavy Intercessor Squad—Heavy bolt rifle",
+            "Melee Weapon§Heavy Intercessor Squad—Close combat weapon"
+          ]
         }
       },
-      "Model§Heavy Intercessors": {
+      "Model§Hellblaster": {
         "stats": {
           "M": {
-            "value": 5
+            "value": 6
           },
           "T": {
-            "value": 6
+            "value": 4
           },
           "Sv": {
             "value": 3
           },
           "W": {
-            "value": 3
+            "value": 2
           },
           "Ld": {
             "value": 6
           },
           "OC": {
-            "value": 2
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Heavy bolt rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Heavy bolt rifle"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Heavy Intercessor Squad—Heavy bolter"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Heavy Intercessor Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
+            "value": 1
           }
+        },
+        "assets": {
+          "traits": [
+            "Weapon§Hellblaster Squad—Plasma incinerator",
+            "Melee Weapon§Hellblaster Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Hellblaster Sergeant": {
@@ -19505,113 +20406,13 @@
           },
           "OC": {
             "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Hellblaster Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Plasma incinerator": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Hellblaster Squad—Plasma incinerator"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Hellblaster Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Hellblaster Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
-        }
-      },
-      "Model§Hellblasters": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Loadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Hellblaster Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Plasma incinerator": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Hellblaster Squad—Plasma incinerator"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Hellblaster Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Hellblaster Squad—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
+        },
+        "assets": {
+          "traits": [
+            "Weapon§Hellblaster Squad—Plasma incinerator",
+            "Melee Weapon§Hellblaster Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Inceptor": {
@@ -19886,7 +20687,7 @@
           ]
         }
       },
-      "Model§Infernus Marines": {
+      "Model§Infernus Sergeant": {
         "stats": {
           "M": {
             "value": 6
@@ -19915,7 +20716,7 @@
           ]
         }
       },
-      "Model§Infernus Sergeant": {
+      "Model§Infernus Marine": {
         "stats": {
           "M": {
             "value": 6
@@ -20030,6 +20831,56 @@
           ]
         }
       },
+      "Model§Intercessor": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Grenade launcher": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Weapon§Intercessor Squad—Astartes grenade launcher"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Intercessor Squad—Bolt pistol",
+            "Ranged Weapon§Intercessor Squad—Bolt rifle",
+            "Melee Weapon§Intercessor Squad—Close combat weapon"
+          ]
+        }
+      },
       "Model§Intercessor Sergeant": {
         "stats": {
           "M": {
@@ -20139,114 +20990,24 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          }
-        }
-      },
-      "Model§Intercessors": {
-        "stats": {
-          "M": {
-            "value": 6
           },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 3
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "Loadout": {
+          "Grenade launcher": {
             "statType": "rank",
-            "value": "Astartes grenade launcher",
+            "value": "-",
             "ranks": {
-              "Astartes grenade launcher": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Weapon§Intercessor Squad—Astartes grenade launcher"
                   }
                 ]
-              },
-              "Bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Intercessor Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Bolt rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Intercessor Squad—Bolt rifle"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Intercessor Squad—Hand flamer"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Weapon§Intercessor Squad—Plasma pistol"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Intercessor Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Intercessor Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Intercessor Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Intercessor Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Intercessor Squad—Thunder hammer"
-                  }
-                ]
               }
             },
+            "statOrder": 2,
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
@@ -21444,7 +22205,7 @@
           }
         }
       },
-      "Model§Space Marine Bikers": {
+      "Model§Space Marine Biker": {
         "stats": {
           "M": {
             "value": 12
@@ -21476,45 +22237,42 @@
                   }
                 ]
               },
-              "Grav-pistol": {
+              "Astartes chainsword": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Bike Squad—Grav-pistol"
+                    "trait": "Melee Weapon§Bike Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Hand flamer": {
+              "Flamer": {
                 "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Hand flamer"
-                  }
-                ]
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
-              "Heavy bolter": {
+              "Grav-gun": {
                 "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Heavy bolter"
-                  }
-                ]
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
-              "Inferno pistol": {
+              "Meltagun": {
                 "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Inferno pistol"
-                  }
-                ]
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
-              "Multi-melta": {
+              "Plasma gun": {
                 "order": 5,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Bike Squad—Multi-melta"
+                    "trait": "Weapon§Adeptus Astartes Armoury—Plasma pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               },
               "Plasma pistol": {
                 "order": 6,
@@ -21522,55 +22280,10 @@
                   {
                     "trait": "Weapon§Bike Squad—Plasma pistol"
                   }
-                ]
-              },
-              "Twin boltgun": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Bike Squad—Twin boltgun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Bike Squad—Thunder hammer"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "Special Weapon Selection": 1
+                }
               }
             },
             "group": "Loadout",
@@ -21578,6 +22291,12 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Bike Squad—Twin boltgun",
+            "Melee Weapon§Bike Squad—Close combat weapon"
+          ]
         }
       },
       "Model§Sternguard Veteran Sergeant": {
