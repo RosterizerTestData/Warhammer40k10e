@@ -13,11 +13,14 @@ def find_duplicate_values():
 
         if "manifest" in data and "assetCatalog" in data["manifest"]:
             asset_catalog = data["manifest"]["assetCatalog"]
-            rename_wargear_to_weapon(asset_catalog)
+            changes_made = rename_wargear_to_weapon(asset_catalog)
             duplicates = find_duplicate_keys(asset_catalog)
+            modified_data = data
             if duplicates:
+                changes_made = True
                 modified_data = modify_json_data(data, duplicates)
 
+            if changes_made:
                 # Increment the third number in the "revision" key
                 increment_revision(modified_data)
 
@@ -110,12 +113,14 @@ def save_modified_json(data, file_path):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def rename_wargear_to_weapon(data):
+    changes_made = False
     keys_to_remove = []
     items_to_add = {}
     name_replacements = {}
     for key, value in data.items():
         if key.startswith("Wargear§"):
             if "keywords" in value and "Tags" in value["keywords"] and "Multi-weapon" in value["keywords"]["Tags"]:
+                changes_made = True
                 new_key = key.replace("Wargear§", "Weapon§")
                 if "stats" in value and "wargearName" in value["stats"]:
                     value["stats"]["weaponName"] = value["stats"].pop("wargearName")
@@ -130,6 +135,8 @@ def rename_wargear_to_weapon(data):
         data[key] = value
 
     replace_wargear_refs(data, name_replacements)
+
+    return changes_made
 
 def replace_wargear_refs(data, name_replacements):
     if isinstance(data, dict):
