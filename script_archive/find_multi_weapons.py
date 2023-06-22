@@ -112,6 +112,7 @@ def save_modified_json(data, file_path):
 def rename_wargear_to_weapon(data):
     keys_to_remove = []
     items_to_add = {}
+    name_replacements = {}
     for key, value in data.items():
         if key.startswith("Wargear§"):
             if "keywords" in value and "Tags" in value["keywords"] and "Multi-weapon" in value["keywords"]["Tags"]:
@@ -120,11 +121,32 @@ def rename_wargear_to_weapon(data):
                     value["stats"]["weaponName"] = value["stats"].pop("wargearName")
                 keys_to_remove.append(key)
                 items_to_add[new_key] = value
+                name_replacements[key] = new_key
 
     for old_key in keys_to_remove:
         data.pop(old_key)
 
     for key, value in items_to_add.items():
         data[key] = value
+
+    replace_wargear_refs(data, name_replacements)
+
+def replace_wargear_refs(data, name_replacements):
+    if isinstance(data, dict):
+        for key, value in data.items():
+            if isinstance(value, list):
+                for old_name, new_name in name_replacements.items():
+                    if old_name in value:
+                        value.remove(old_name)
+                        value.append(new_name)
+                        data[key] = value
+
+            if isinstance(value, str) and value in name_replacements:
+                data[key] = name_replacements[value]
+            else:
+                replace_wargear_refs(value, name_replacements)
+    elif isinstance(data, list):
+        for item in data:
+            replace_wargear_refs(item, name_replacements)
 
 find_duplicate_values()
