@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 
 def find_duplicate_values():
-    manifest_directory = os.getcwd()
+    manifest_directory = os.path.dirname(os.getcwd())
     manifest_files = [f for f in os.listdir(manifest_directory) if f.endswith(".manifest")]
 
     for file_name in manifest_files:
