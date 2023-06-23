@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.9",
+  "revision": "10.1.10",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -138,6 +138,45 @@
                   ]
                 ],
                 "actionType": "add",
+                "value": "Enhancement",
+                "iterations": 1
+              }
+            ]
+          },
+          "noAllyEnhancements": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Faction",
+                  "value"
+                ],
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "actionType": "remove",
                 "value": "Enhancement",
                 "iterations": 1
               }
@@ -668,15 +707,6 @@
             "tracked": true,
             "max": 1
           },
-          "Points": {
-            "statType": "numeric",
-            "format": "{v}",
-            "value": null,
-            "group": "Cost",
-            "groupOrder": -1,
-            "visibility": "always",
-            "tracked": true
-          },
           "model2ndTally": {
             "statType": "numeric",
             "value": 0,
@@ -696,6 +726,34 @@
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden"
+          },
+          "Points": {
+            "statType": "numeric",
+            "format": "{v}",
+            "value": null,
+            "statOrder": 1,
+            "group": "Cost",
+            "groupOrder": -1,
+            "visibility": "always",
+            "tracked": true
+          },
+          "Ally 2 Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 3,
+            "group": "Cost",
+            "groupOrder": -1,
+            "visibility": "hidden",
+            "tracked": true
+          },
+          "Ally 1 Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 2,
+            "group": "Cost",
+            "groupOrder": -1,
+            "visibility": "hidden",
+            "tracked": true
           }
         },
         "keywords": {
@@ -987,6 +1045,71 @@
               }
             ]
           },
+          "Error in this Unit’s text.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "ERROR",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "copyPointsIfAlly1": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Allied faction 1",
+                  "value"
+                ],
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
           "apply2ndModelCost": {
             "evals": [
               {
@@ -1034,6 +1157,7 @@
             ],
             "failState": "pass",
             "evaluate": "AND",
+            "order": 40,
             "actions": [
               {
                 "paths": [
@@ -1102,6 +1226,7 @@
             ],
             "failState": "pass",
             "evaluate": "AND",
+            "order": 40,
             "actions": [
               {
                 "paths": [
@@ -1123,24 +1248,51 @@
               }
             ]
           },
-          "Error in this Unit’s text.": {
+          "copyPointsIfAlly2": {
             "evals": [
               {
                 "paths": [
                   [
                     "{self}",
-                    "text"
+                    "keywords",
+                    "Faction"
                   ]
                 ],
-                "value": "ERROR",
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Allied faction 2",
+                  "value"
+                ],
                 "contains": true,
                 "operator": "AND",
-                "not": true,
+                "not": false,
                 "actionable": true
               }
             ],
-            "failState": "error",
-            "evaluate": "AND"
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 2 Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
           }
         },
         "aspects": {
@@ -2064,16 +2216,6 @@
           "Collapse": true
         },
         "stats": {
-          "Points": {
-            "statType": "numeric",
-            "value": 0,
-            "statOrder": 2,
-            "group": "Cost",
-            "groupOrder": 0,
-            "visibility": "normal",
-            "dynamic": false,
-            "tracked": true
-          },
           "Mission": {
             "statType": "rank",
             "value": "-",
@@ -2158,20 +2300,6 @@
             "visibility": "normal",
             "dynamic": true
           },
-          "Play": {
-            "statType": "rank",
-            "value": "Matched",
-            "ranks": {
-              "Matched": {
-                "order": 0
-              },
-              "Narrative": {
-                "order": 1
-              }
-            },
-            "statOrder": 4,
-            "visibility": "normal"
-          },
           "Faction": {
             "statType": "rank",
             "value": "-",
@@ -2207,6 +2335,69 @@
             "statOrder": 2,
             "visibility": "normal",
             "dynamic": true
+          },
+          "Play": {
+            "statType": "rank",
+            "value": "Matched",
+            "ranks": {
+              "Matched": {
+                "order": 0
+              },
+              "Narrative": {
+                "order": 1
+              }
+            },
+            "statOrder": 7,
+            "visibility": "normal"
+          },
+          "Ally 1 Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 2,
+            "group": "Cost",
+            "groupOrder": 0,
+            "visibility": "hidden",
+            "tracked": true
+          },
+          "Ally 2 Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 3,
+            "group": "Cost",
+            "groupOrder": 0,
+            "visibility": "hidden",
+            "tracked": true
+          },
+          "Allied faction 1": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statOrder": 5,
+            "visibility": "hidden"
+          },
+          "Allied faction 2": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statOrder": 6,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "statType": "numeric",
+            "value": 0,
+            "statOrder": 1,
+            "group": "Cost",
+            "groupOrder": 0,
+            "visibility": "normal",
+            "tracked": true
           }
         },
         "allowed": {
@@ -2366,6 +2557,212 @@
                 "iterations": 1
               }
             ]
+          },
+          "ally1Selected": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "always",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Allied faction 1",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "ally2Selected": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 2",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "visibility"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "always",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Allied faction 2",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "preventDuplicateFactions": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Faction",
+                  "value"
+                ],
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Faction",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "preventDuplicateAllies": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              }
+            ],
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 2",
+                    "ranks"
+                  ]
+                ],
+                "actionType": "remove",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Allied faction 1",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 50
           }
         },
         "constraints": {
