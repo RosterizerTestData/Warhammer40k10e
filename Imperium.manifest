@@ -140,41 +140,6 @@
               }
             ]
           },
-          "A Freeblade cannot be your Warlord.": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Faction",
-                    "value"
-                  ]
-                ],
-                "value": "Imperial Knights",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "-",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "error",
-            "evaluate": "OR",
-            "order": 26
-          },
           "CountArmigers": {
             "evals": [
               {
@@ -367,6 +332,55 @@
                 "iterations": 1
               }
             ]
+          },
+          "A Freeblade cannot be your Warlord.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Imperial Knights",
+                "contains": true,
+                "operator": "AND",
+                "not": true,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "Imperial Knights",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "OR",
+            "order": 26
           }
         }
       },
@@ -969,9 +983,6 @@
             "value": 85
           }
         },
-        "aspects": {
-          "Unique": true
-        },
         "assets": {
           "traits": [
             "Ability§Deep Strike",
@@ -1019,6 +1030,9 @@
             "failState": "error",
             "evaluate": "AND"
           }
+        },
+        "aspects": {
+          "Unique": true
         }
       },
       "Character§Eversor Assassin": {
@@ -3058,9 +3072,6 @@
             "value": 80
           }
         },
-        "aspects": {
-          "Unique": true
-        },
         "assets": {
           "traits": [
             "Ability§Infiltrators",
@@ -3111,6 +3122,9 @@
             "failState": "error",
             "evaluate": "AND"
           }
+        },
+        "aspects": {
+          "Unique": true
         }
       },
       "Melee Weapon§Armiger Helverin—Armoured feet": {
