@@ -1,6 +1,6 @@
 {
-  "name": "Votann",
-  "revision": "10.1.4",
+  "name": "Leagues of Votann",
+  "revision": "10.3.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,21 +9,13 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "MWEXDY",
+      "slug": "123456",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
   ],
   "manifest": {
-    "assetTaxonomy": {
-      "Character": {
-        "stats": {
-          "Points": {
-            "value": 0
-          }
-        }
-      }
-    },
+    "assetTaxonomy": {},
     "assetCatalog": {
       "Ability§Ancestral Fortune": {
         "text": "Once per turn, you can change one Hit roll, one Wound roll or one Damage roll made for this model to a 6.",
@@ -68,7 +60,7 @@
           ]
         }
       },
-      "Ability§Exemplar of The Einhyr": {
+      "Ability§Exemplar of the Einhyr": {
         "text": "While this model is leading a unit, you can re-roll Charge rolls made for that unit.",
         "keywords": {
           "Keywords": [
@@ -76,7 +68,7 @@
           ]
         }
       },
-      "Ability§Eye of The Ancestors": {
+      "Ability§Eye of the Ancestors": {
         "keywords": {
           "Keywords": [
             "Faction"
@@ -220,7 +212,7 @@
               "item": "Ability§Leader",
               "text": "This unit can be attached to the following units:\n\n\n\n* Hearthkyn Warriors\n\n\n\n* Brôkhyr Thunderkyn"
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Multispectral Visor",
             "Ability§Brôkhyr’s Guild",
             "Model§Brôkhyr Iron-master",
@@ -275,8 +267,8 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following unit:\n\n\n\n* Einhyr Hearthguard"
             },
-            "Ability§Eye of The Ancestors",
-            "Ability§Exemplar of The Einhyr",
+            "Ability§Eye of the Ancestors",
+            "Ability§Exemplar of the Einhyr",
             "Ability§Mass Driver Accelerators",
             "Ranged Weapon§Einhyr Champion—Autoch-pattern combi-bolter"
           ]
@@ -380,7 +372,7 @@
               "item": "Ability§Leader",
               "text": "This unit can be attached to the following unit:\n\n\n\n* Hearthkyn Warriors"
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Fortify (psychic)",
             "Ability§Grimnyr’s Regard",
             {
@@ -427,7 +419,7 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following units:\n\n\n\n* Einhyr Hearthguard\n\n\n\n* Hearthkyn Warriors"
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Kindred Hero",
             "Ability§Grim Efficiency",
             {
@@ -569,7 +561,7 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following units:\n\n\n\n* Einhyr Hearthguard\n\n\n\n* Hearthkyn Warriors"
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Ancestral Fortune",
             "Ability§The Destined",
             "Ability§Grim Efficiency",
@@ -1487,7 +1479,37 @@
           }
         },
         "assets": {
-          "traits": []
+          "traits": [
+            "Melee Weapon§Brôkhyr Thunderkyn—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "addWeapon": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "Ranged Weapon",
+                  "processed",
+                  "term",
+                  "current"
+                ],
+                "iterations": 1
+              }
+            ]
+          }
         }
       },
       "Model§CORV": {
@@ -1555,7 +1577,9 @@
                     "trait": "Melee Weapon§Cthonian Beserks—Twin concussion gauntlet"
                   }
                 ],
-                "tracking": {}
+                "tracking": {
+                  "Cthonian Beserks—Twin concussion gauntlet": 1
+                }
               },
               "Mole grenade launcher": {
                 "order": 2,
@@ -1618,33 +1642,21 @@
                 "paths": [
                   [
                     "{self}",
-                    "traits",
-                    "item",
-                    "Melee Weapon§Cthonian Beserks—Concussion maul",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
                     "stats",
                     "A",
                     "value"
                   ],
                   [
                     "{self}",
-                    "traits",
-                    "item",
-                    "Wargear§Cthonian Beserks—Heavy plasma axe",
-                    "traits",
-                    "item",
-                    "Melee Weapon§Cthonian Beserks—Heavy plasma axe – strike",
-                    "stats",
-                    "A",
-                    "value"
-                  ],
-                  [
-                    "{self}",
-                    "traits",
-                    "item",
-                    "Wargear§Cthonian Beserks—Heavy plasma axe",
-                    "traits",
-                    "item",
-                    "Melee Weapon§Cthonian Beserks—Heavy plasma axe – sweep",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
                     "stats",
                     "A",
                     "value"
@@ -1653,41 +1665,23 @@
                 "actionType": "modify",
                 "value": 1,
                 "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits",
-                    "item",
-                    "Ranged Weapon§Cthonian Beserks—Mole grenade launcher",
-                    "stats",
-                    "A",
-                    "value"
-                  ]
-                ],
-                "actionType": "set",
-                "value": "D6+1",
-                "iterations": 1
               }
             ]
           },
-          "addConcussionMaul": {
+          "addDefaultMeleeWeapon": {
             "evals": [
               {
                 "paths": [
                   [
-                    "{parent}",
+                    "{self}",
                     "stats",
-                    "Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
+                    "Special Weapon",
+                    "value"
                   ]
                 ],
-                "value": "Concussion Maul",
+                "value": "Twin concussion gauntlet",
                 "operator": "AND",
-                "not": false,
+                "not": true,
                 "actionable": true
               }
             ],
@@ -1703,74 +1697,21 @@
                   ]
                 ],
                 "actionType": "add",
-                "value": "Melee Weapon§Cthonian Beserks—Concussion maul",
-                "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "Melee Weapon",
+                  "processed",
+                  "term",
+                  "current"
                 ],
-                "actionType": "remove",
-                "value": "Weapon§Cthonian Beserks—Heavy plasma axe",
-                "iterations": 1
-              }
-            ]
-          },
-          "replaceMeleeWithGauntlets": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Special Weapon",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "Twin concussion gauntlet",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 27,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "remove",
-                "value": "Weapon§Cthonian Beserks—Heavy plasma axe",
-                "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "remove",
-                "value": "Melee Weapon§Cthonian Beserks—Concussion maul",
                 "iterations": 1
               }
             ]
           }
         },
         "assets": {
-          "traits": [
-            "Weapon§Cthonian Beserks—Heavy plasma axe"
-          ]
+          "traits": []
         }
       },
       "Model§E-COG": {
@@ -1896,42 +1837,6 @@
           ]
         },
         "rules": {
-          "addConcussionGaunt": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "ConcussionGaunt",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 25,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "add",
-                "value": "Melee Weapon§Einhyr Hearthguard—Concussion gauntlet",
-                "iterations": 1
-              }
-            ]
-          },
           "addEtaCarnPlasma": {
             "evals": [
               {
@@ -2004,25 +1909,8 @@
               }
             ]
           },
-          "addPlasmaBladeGaunt": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "PlasmaBladeGaunt",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
+          "addMeleeWeapon": {
+            "evals": [],
             "failState": "pass",
             "evaluate": "AND",
             "order": 25,
@@ -2035,7 +1923,14 @@
                   ]
                 ],
                 "actionType": "add",
-                "value": "Melee Weapon§Einhyr Hearthguard—Plasma blade gauntlet",
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "Melee Weapon",
+                  "processed",
+                  "term",
+                  "current"
+                ],
                 "iterations": 1
               }
             ]
@@ -2392,16 +2287,20 @@
             "visibility": "active",
             "dynamic": true
           },
-          "Concussion Hammer": {
+          "Melee weapon": {
             "statType": "rank",
-            "value": "-",
+            "value": "Default",
             "ranks": {
-              "-": {
+              "Default": {
                 "order": 0
               },
-              "✓": {
+              "Concussion hammer": {
                 "order": 1,
-                "term": "ConcHammer"
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Einhyr Hearthguard—Concussion hammer"
+                  }
+                ]
               }
             },
             "statOrder": 1,
@@ -2417,42 +2316,6 @@
           ]
         },
         "rules": {
-          "addConcussionGaunt": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "ConcussionGaunt",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 25,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "add",
-                "value": "Melee Weapon§Einhyr Hearthguard—Concussion gauntlet",
-                "iterations": 1
-              }
-            ]
-          },
           "addEtaCarnPlasma": {
             "evals": [
               {
@@ -2525,20 +2388,18 @@
               }
             ]
           },
-          "addPlasmaBladeGaunt": {
+          "addDefaultMeleeWeapon": {
             "evals": [
               {
                 "paths": [
                   [
-                    "{parent}",
+                    "{self}",
                     "stats",
-                    "Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
+                    "Melee weapon",
+                    "value"
                   ]
                 ],
-                "value": "PlasmaBladeGaunt",
+                "value": "Default",
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -2556,65 +2417,14 @@
                   ]
                 ],
                 "actionType": "add",
-                "value": "Melee Weapon§Einhyr Hearthguard—Plasma blade gauntlet",
-                "iterations": 1
-              }
-            ]
-          },
-          "replaceConcHammer": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Concussion Hammer",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "Melee Weapon",
+                  "processed",
+                  "term",
+                  "current"
                 ],
-                "value": "ConcHammer",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 30,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "add",
-                "value": "Melee Weapon§Einhyr Hearthguard—Concussion hammer",
-                "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "remove",
-                "value": "Melee Weapon§Einhyr Hearthguard—Concussion gauntlet",
-                "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "remove",
-                "value": "Melee Weapon§Einhyr Hearthguard—Plasma blade gauntlet",
                 "iterations": 1
               }
             ]
@@ -2703,15 +2513,15 @@
             "visibility": "active",
             "dynamic": true
           },
-          "Kin Melee Weapon": {
+          "Primary weapon": {
             "statType": "rank",
-            "value": "-",
+            "value": "Ranged weapon",
             "ranks": {
-              "-": {
+              "Ranged weapon": {
                 "order": 0,
                 "term": "null"
               },
-              "✓": {
+              "Kin melee weapon": {
                 "order": 1,
                 "term": "Kin melee weapon",
                 "traits": [
@@ -2730,57 +2540,11 @@
         },
         "assets": {
           "traits": [
+            "Melee Weapon§Hearthkyn Warriors—Close combat weapon",
             "Wargear§Weavefield Crest"
           ]
         },
         "rules": {
-          "swapKinMelee": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Kin Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "Kin melee weapon",
-                "operator": "AND",
-                "not": false,
-                "actionable": true
-              }
-            ],
-            "failState": "pass",
-            "evaluate": "AND",
-            "order": 50,
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "remove",
-                "value": "Ranged Weapon§Hearthkyn Warriors—Autoch-pattern bolter",
-                "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "actionType": "remove",
-                "value": "Ranged Weapon§Hearthkyn Warriors—Ion blaster",
-                "iterations": 1
-              }
-            ]
-          },
           "addRangedWeapon": {
             "evals": [
               {
@@ -2788,13 +2552,11 @@
                   [
                     "{self}",
                     "stats",
-                    "Kin Melee Weapon",
-                    "processed",
-                    "term",
-                    "current"
+                    "Primary weapon",
+                    "value"
                   ]
                 ],
-                "value": "null",
+                "value": "Ranged weapon",
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -4270,7 +4032,8 @@
                   }
                 ]
               }
-            }
+            },
+            "dynamic": false
           }
         }
       },
@@ -4418,9 +4181,8 @@
       "Unit§Brôkhyr Thunderkyn": {
         "assets": {
           "traits": [
-            "Ability§Eye of The Ancestors",
-            "Ability§Oathband Covering Fire",
-            "Melee Weapon§Brôkhyr Thunderkyn—Close combat weapon"
+            "Ability§Eye of the Ancestors",
+            "Ability§Oathband Covering Fire"
           ],
           "included": [
             {
@@ -4471,27 +4233,15 @@
             "ranks": {
               "Bolt cannon": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Brôkhyr Thunderkyn—Bolt cannon"
-                  }
-                ]
+                "term": "Ranged Weapon§Brôkhyr Thunderkyn—Bolt cannon"
               },
               "Graviton blast cannon": {
                 "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Brôkhyr Thunderkyn—Graviton blast cannon"
-                  }
-                ]
+                "term": "Ranged Weapon§Brôkhyr Thunderkyn—Graviton blast cannon"
               },
               "SP conversion beamer": {
                 "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Brôkhyr Thunderkyn—SP conversion beamer"
-                  }
-                ]
+                "term": "Ranged Weapon§Brôkhyr Thunderkyn—SP conversion beamer"
               }
             },
             "group": "Loadout",
@@ -4512,7 +4262,7 @@
                 }
               }
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Cyberstimms",
             "Ability§Subterranean Explosives"
           ],
@@ -4558,23 +4308,6 @@
             "min": 5,
             "max": 10
           },
-          "Melee Weapon": {
-            "statType": "rank",
-            "value": "Heavy plasma axe",
-            "ranks": {
-              "Heavy plasma axe": {
-                "order": 0,
-                "term": "Heavy Plasma Axe"
-              },
-              "Concussion maul": {
-                "order": 1,
-                "term": "Concussion Maul"
-              }
-            },
-            "group": "Loadout",
-            "visibility": "normal",
-            "dynamic": true
-          },
           "Cthonian Beserks—Twin concussion gauntlet": {
             "statType": "numeric",
             "value": 0,
@@ -4588,6 +4321,23 @@
             "visibility": "hidden",
             "tracked": true,
             "max": 1
+          },
+          "Melee Weapon": {
+            "statType": "rank",
+            "value": "Heavy plasma axe",
+            "ranks": {
+              "Heavy plasma axe": {
+                "order": 0,
+                "term": "Weapon§Cthonian Beserks—Heavy plasma axe"
+              },
+              "Concussion maul": {
+                "order": 1,
+                "term": "Melee Weapon§Cthonian Beserks—Concussion maul"
+              }
+            },
+            "group": "Loadout",
+            "visibility": "normal",
+            "dynamic": true
           }
         },
         "text": "done",
@@ -4646,7 +4396,7 @@
       "Unit§Einhyr Hearthguard": {
         "assets": {
           "traits": [
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Oathband Bodyguard",
             "Model§Hesyr"
           ],
@@ -4684,23 +4434,6 @@
             "min": 4,
             "max": 9
           },
-          "Melee Weapon": {
-            "statType": "rank",
-            "value": "Concussion gauntlet",
-            "ranks": {
-              "Concussion gauntlet": {
-                "order": 0,
-                "term": "ConcussionGaunt"
-              },
-              "Plasma blade gauntlet": {
-                "order": 1,
-                "term": "PlasmaBladeGaunt"
-              }
-            },
-            "group": "Loadout",
-            "visibility": "normal",
-            "dynamic": true
-          },
           "Ranged Weapon": {
             "statType": "rank",
             "value": "EtaCarn plasma gun",
@@ -4726,6 +4459,23 @@
           },
           "model1stTally": {
             "value": 5
+          },
+          "Melee Weapon": {
+            "statType": "rank",
+            "value": "Concussion gauntlet",
+            "ranks": {
+              "Concussion gauntlet": {
+                "order": 0,
+                "term": "Melee Weapon§Einhyr Hearthguard—Concussion gauntlet"
+              },
+              "Plasma blade gauntlet": {
+                "order": 1,
+                "term": "Melee Weapon§Einhyr Hearthguard—Plasma blade gauntlet"
+              }
+            },
+            "group": "Loadout",
+            "visibility": "normal",
+            "dynamic": true
           }
         },
         "text": "done"
@@ -4733,7 +4483,7 @@
       "Unit§Hearthkyn Warriors": {
         "assets": {
           "traits": [
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Luck Has. Need Keeps. Toil Earns",
             "Model§Theyn",
             {
@@ -4902,7 +4652,7 @@
                 }
               }
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Fire Support",
             {
               "item": "Ability§Damaged:",
@@ -5076,7 +4826,7 @@
                 }
               }
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Outflanking Mag-riders"
           ],
           "included": [
@@ -5251,7 +5001,7 @@
                 }
               }
             },
-            "Ability§Eye of The Ancestors",
+            "Ability§Eye of the Ancestors",
             "Ability§Blistering Advance",
             {
               "item": "Ability§Transport",
@@ -5345,7 +5095,55 @@
         "text": "Models in the bearer’s unit have the Feel No Pain 6+ ability."
       },
       "Wargear§Pan Spectral Scanner": {
-        "text": "Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability."
+        "text": "Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.",
+        "rules": {
+          "ApplyEffect": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit",
+                "operator": "AND",
+                "not": false,
+                "actionable": true,
+                "note": "We only apply the effect if this wargear is on a single-model unit, as otherwise the effect is conditional on the model surviving."
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 1,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Ignores Cover",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Wargear§Rampart Crest": {
         "text": "While the bearer is leading a unit, models in that unit have a 5+ invulnerable save."
