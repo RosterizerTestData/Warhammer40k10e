@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.1.2",
+  "revision": "10.1.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "FTRGRK",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -17,6 +17,13 @@
   "manifest": {
     "assetTaxonomy": {},
     "assetCatalog": {
+      "Ability§Anti-Psyker 4+": {
+        "stats": {
+          "x": {
+            "value": "4+"
+          }
+        }
+      },
       "Ability§Aquilon Optics": {
         "text": "Each time this model is selected to shoot, you can re-roll one Hit roll, you can re-roll one Wound roll and you can re-roll one Damage roll when resolving its attacks.",
         "keywords": {
@@ -251,7 +258,7 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Ranged Option": {
             "statType": "rank",
             "value": "Combi-weapon",
             "ranks": {
@@ -270,9 +277,19 @@
                     "trait": "Ranged Weapon§Castellan—Heavy bolt pistol"
                   }
                 ]
-              },
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Melee Option": {
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "ranks": {
               "Astartes chainsword": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Castellan—Astartes chainsword"
@@ -280,7 +297,7 @@
                 ]
               },
               "Master-crafted power weapon": {
-                "order": 3,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Castellan—Master-crafted power weapon"
@@ -294,7 +311,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: combi-weapon; master-crafted power weapon.\n\nThis model’s combi-weapon can be replaced with 1 heavy bolt pistol.\n\n*This model’s master-crafted power weapon can be replaced with 1 Astartes chainsword."
+        "text": ""
       },
       "Character§High Marshal Helbrecht": {
         "assets": {
@@ -377,7 +394,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Marshal—Master-crafted power weapon"
           ]
         },
         "keywords": {
@@ -416,7 +434,7 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Ranged Option": {
             "statType": "rank",
             "value": "Combi-weapon",
             "ranks": {
@@ -435,14 +453,6 @@
                     "trait": "Weapon§Marshal—Plasma pistol"
                   }
                 ]
-              },
-              "Master-crafted power weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Marshal—Master-crafted power weapon"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -451,7 +461,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: plasma pistol; master-crafted power weapon.\n\nThis model’s plasma pistol can be replaced with one combi-weapon."
+        "text": ""
       },
       "Character§The Emperor’s Champion": {
         "assets": {
@@ -517,8 +527,351 @@
           }
         }
       },
+      "Detachment§Righteous Crusaders": {
+        "text": "TEMPLAR VOWS\nAt the start of the first battle round, select one of the four\nTemplar Vows below to be active for Adeptus Astartes\nunits from your army until the end of the battle.\n\n■ Suffer Not the Unclean to Live: Melee weapons\nequipped by models in this unit have the [LETHAL\nHITS] ability.\n\n■ Uphold the Honour of the Emperor: Models in this\nunit have the Feel No Pain 6+ ability and a Leadership\ncharacteristic of 5+.\n\n■ Abhor the Witch, Destroy the Witch: Models in this unit\nhave a 4+ invulnerable save against Psychic Attacks\nand melee weapons equipped by models in this unit\nhave the [ANTI-PSYKER 4+] ability.\n\n■ Accept Any Challenge, No Matter the Odds: Melee\nweapons equipped by models in this unit have the\n[SUSTAINED HITS 1] ability",
+        "rules": {
+          "assignStratagems": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Fervent Acclamation",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§No Escape",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Devout Push",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Armour of Contempt",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Crusader's Wrath",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Vicious Riposte",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Perdition's Edge": {
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 15,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "text": "Adeptus Astartes model only.\n■ Improve the Strength and Armour Penetration\ncharacteristics of the bearer’s melee weapons by 1.\n■ If the Suffer Not the Unclean to Live vow is active for\nyour army, add 1 to the Attacks characteristic of the\nbearer’s melee weapons as well.",
+        "rules": {
+          "Ability": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": -1,
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 1,
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ]
+        }
+      },
+      "Enhancement§Sigismund's Seal": {
+        "text": "Adeptus Astartes model only.\n■ Improve the Attacks characteristic of the bearer’s\nmelee weapons by 1.\n■ While the bearer is leading a unit, if the Accept Any\nChallenge, No Matter the Odds vow is active for your\narmy, each time a model in that unit makes a melee\nattack, a successful unmodified Hit roll of 5+ scores\na Critical Hit.",
+        "rules": {
+          "Ability": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": 1,
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 20,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ]
+        }
+      },
+      "Enhancement§Täanhauser's Bones": {
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 35,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "text": "Adeptus Astartes model only.\n■ Each time an attack is allocated to the bearer, halve\nthe Damage characteristic of that attack.\n■ While the bearer is leading a unit, if the Uphold the\nHonour of the Emperor vow is active for your army,\nmodels in that unit have the Feel No Pain 5+ ability.",
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ]
+        }
+      },
+      "Enhancement§Witchseeker Bolts": {
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 10,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ]
+        },
+        "text": "Adeptus Astartes model only.\n■ The bearer’s ranged weapons have the [PRECISION],\n[ANTI-PSYKER 4+] and [DEVASTATING WOUNDS] abilities.\n■ If the Abhor the Witch, Destroy the Witch vow is\nactive for your army, each time the bearer makes\na ranged attack that targets a Psyker unit, you can\nre-roll the Hit roll and you can re-roll the Wound roll.",
+        "rules": {
+          "Ability": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Precision",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Devastating Wounds",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Anti-Psyker 4+",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
       "Infantry/Mounted§Chaplain Grimaldus": {
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nChaplain Grimaldus is equipped with: plasma pistol; artificer crozius. Every Cenobyte Servitor is equipped with: close combat weapon.\n\nNoneERROR: this unit had some special abilities related to “RELICS OF THE EMPEROR ASCENDANT” that must be added to the appropriate ability: \n\n* Banner of Fallen Crusaders\n* Remnant of the Fallen Temple\n* Sceptre of Anointing",
+        "text": "",
         "assets": {
           "traits": [
             {
@@ -535,7 +888,10 @@
             },
             "Ability§Oath of Moment",
             "Ability§Litanies of The Devout",
-            "Ability§Temple Relics",
+            {
+              "item": "Ability§Temple Relics",
+              "text": "In your Command phase, if this unit contains one or more Cenobyte Servitor models, select one Relics of the Emperor Ascendant ability. Until the start of your next Command phase, this unit’s Chaplain Grimaldus model has that ability.\n\nBanner of Fallen Crusaders: This unit is eligible to declare a charge in a turn in which it Advanced or\nFell Back.\n\nRemnant of the Fallen Temple: Models in this unit have the Feel No Pain 5+ ability.\n\nSceptre of Anointing: Improve the Armour Penetration characteristic of melee weapons equipped by\nmodels in this unit by 1."
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -548,7 +904,7 @@
           ],
           "included": [
             {
-              "item": "Model§Cenobyte Servitors",
+              "item": "Model§Cenobyte Servitor",
               "quantity": 3
             }
           ]
@@ -569,11 +925,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Cenobyte Servitors"
+            "Model§Cenobyte Servitor"
           ]
         },
         "stats": {
-          "Cenobyte Servitors": {
+          "Cenobyte Servitor": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -593,7 +949,7 @@
           ],
           "included": [
             {
-              "item": "Model§Initiates",
+              "item": "Model§Initiate",
               "quantity": 4
             }
           ]
@@ -616,12 +972,12 @@
         },
         "allowed": {
           "items": [
-            "Model§Initiates",
-            "Model§Neophytes"
+            "Model§Initiate",
+            "Model§Neophyte"
           ]
         },
         "stats": {
-          "Initiates": {
+          "Initiate": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -629,7 +985,7 @@
             "min": 4,
             "max": 9
           },
-          "Neophytes": {
+          "Neophyte": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -638,7 +994,47 @@
             "max": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: boltgun; bolt pistol; close combat weapon.\n\n"
+        "text": "",
+        "rules": {
+          "Maximum 1 Special weapon": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special1"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 1 Heavy weapon": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special2"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Primaris Crusader Squad": {
         "assets": {
@@ -658,11 +1054,11 @@
           ],
           "included": [
             {
-              "item": "Model§Primaris Initiates",
+              "item": "Model§Primaris Initiate",
               "quantity": 5
             },
             {
-              "item": "Model§Primaris Neophytes",
+              "item": "Model§Primaris Neophyte",
               "quantity": 4
             }
           ]
@@ -686,12 +1082,12 @@
         },
         "allowed": {
           "items": [
-            "Model§Primaris Initiates",
-            "Model§Primaris Neophytes"
+            "Model§Primaris Initiate",
+            "Model§Primaris Neophyte"
           ]
         },
         "stats": {
-          "Primaris Initiates": {
+          "Primaris Initiate": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -699,7 +1095,7 @@
             "min": 5,
             "max": 11
           },
-          "Primaris Neophytes": {
+          "Primaris Neophyte": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -708,7 +1104,52 @@
             "max": 8
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThe Primaris Sword Brother is equipped with: heavy bolt pistol; power weapon. Every Primaris Initiate is equipped with: bolt pistol; bolt rifle; close combat weapon. Every Primaris Neophyte is equipped with: bolt pistol; Astartes chainsword.\n\nThe Primaris Sword Brother’s heavy bolt pistol can be replaced with 1 pyre pistol.\n\n*All of the Primaris Neophytes can each have their bolt pistol and Astartes chainsword replaced with 1 Neophyte firearm and 1 close combat weapon.\n\n*Any number of Primaris Initiates can each have their bolt rifle replaced with 1 heavy bolt pistol and 1 Astartes chainsword.\n\n*For every 10 models in this unit, up to 2 Primaris Initiates can each have their bolt rifle replaced with one of the following: ◦ 1 heavy bolt pistol and 1 power fist ◦ 1 pyreblaster"
+        "text": "",
+        "rules": {
+          "2 in 10 models can have a Power fist or Pyreblaster": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "2 in 10 models can have a Power fist or Pyreblaster",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Primaris Sword Brethren": {
         "assets": {
@@ -756,7 +1197,138 @@
             "max": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: heavy bolt pistol; Astartes chainsword.\n\nAny number of Primaris Sword Brothers can each have their Astartes chainsword replaced with 1 power weapon.\n\n*For every 5 models in this unit, 1 Primaris Sword Brother’s Astartes chainsword can be replaced with 1 thunder hammer.\n\n*For every 5 models in this unit, 1 Primaris Sword Brother’s heavy bolt pistol can be replaced with 1 plasma pistol.\n\n*For every 5 models in this unit, up to 2 Primaris Sword Brothers can each have their heavy bolt pistol replaced with 1 pyre pistol.\n\n*The Sword Brother Castellan’s heavy bolt pistol and Astartes chainsword can be replaced with one of the following: ◦ 1 combi-weapon and 1 Astartes chainsword. ◦ 1 combi-weapon and 1 master-crafted power weapon. ◦ 1 heavy bolt pistol and 1 master-crafted power weapon."
+        "text": "",
+        "rules": {
+          "1 in 5 models can have a Thunder hammer": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "th"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a Thunder hammer",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "1 in 5 models can have a Plasma pistol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "pl"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a Plasma pistol",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "2 in 5 models can have a Pyre pistol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 2.5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "py"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "2 in 5 models can have a Pyre pistol",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Melee Weapon§Black Templars Gladiator Lancer—Armoured hull": {
         "stats": {
@@ -1558,7 +2130,7 @@
           }
         }
       },
-      "Model§Cenobyte Servitors": {
+      "Model§Cenobyte Servitor": {
         "stats": {
           "M": {
             "value": 6
@@ -1577,41 +2149,12 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Plasma pistol",
-            "ranks": {
-              "Plasma pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Chaplain Grimaldus—Plasma pistol"
-                  }
-                ]
-              },
-              "Artificer crozius": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaplain Grimaldus—Artificer crozius"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaplain Grimaldus—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Chaplain Grimaldus—Close combat weapon"
+          ]
         }
       },
       "Model§Chaplain Grimaldus – Epic Hero": {
@@ -1633,44 +2176,24 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Plasma pistol",
-            "ranks": {
-              "Plasma pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Chaplain Grimaldus—Plasma pistol"
-                  }
-                ]
-              },
-              "Artificer crozius": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaplain Grimaldus—Artificer crozius"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaplain Grimaldus—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
           }
+        },
+        "keywords": {
+          "Keywords": [
+            "Chaplain Grimaldus",
+            "Character",
+            "Epic Hero",
+            "Grenades"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Weapon§Chaplain Grimaldus—Plasma pistol",
+            "Melee Weapon§Chaplain Grimaldus—Artificer crozius"
+          ]
         }
       },
-      "Model§Initiates": {
+      "Model§Initiate": {
         "stats": {
           "M": {
             "value": 6
@@ -1690,9 +2213,206 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Loadout Options": {
             "statType": "rank",
-            "value": "Astartes shotgun",
+            "value": "Boltgun",
+            "ranks": {
+              "Boltgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Boltgun"
+                  }
+                ]
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Flamer"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1
+                }
+              },
+              "Grav-gun": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Grav-gun"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1
+                }
+              },
+              "Meltagun": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Meltagun"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1
+                }
+              },
+              "Plasma gun": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Weapon§Crusader Squad—Plasma gun"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1
+                }
+              },
+              "Power fist": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Power weapon": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Power weapon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Heavy bolter": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Heavy bolter"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Heavy flamer": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Heavy flamer"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Grav-cannon": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Grav-cannon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Lascannon": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Lascannon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Missile Launcher": {
+                "order": 12,
+                "traits": [
+                  {
+                    "trait": "Weapon§Black Templars Armoury—Missile launcher"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Multi-melta": {
+                "order": 13,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Multi-melta"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Plasma cannon": {
+                "order": 14,
+                "traits": [
+                  {
+                    "trait": "Weapon§Black Templars Armoury—Plasma cannon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Crusader Squad—Bolt pistol",
+            "Melee Weapon§Crusader Squad—Close combat weapon"
+          ]
+        }
+      },
+      "Model§Neophyte": {
+        "stats": {
+          "M": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "Sv": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          },
+          "Ld": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "Boltgun",
             "ranks": {
               "Astartes shotgun": {
                 "order": 0,
@@ -1702,109 +2422,21 @@
                   }
                 ]
               },
-              "Bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Bolt pistol"
-                  }
-                ]
-              },
               "Boltgun": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crusader Squad—Boltgun"
                   }
                 ]
               },
-              "Flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Flamer"
-                  }
-                ]
-              },
-              "Grav-gun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Grav-gun"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Weapon§Crusader Squad—Plasma gun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Astartes chainsword"
-                  }
-                ]
-              },
               "Combat knife": {
-                "order": 8,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Crusader Squad—Combat knife"
                   }
                 ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 13,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Twin lightning claws"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -1812,9 +2444,15 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Crusader Squad—Bolt pistol",
+            "Melee Weapon§Crusader Squad—Close combat weapon"
+          ]
         }
       },
-      "Model§Neophytes": {
+      "Model§Primaris Initiate": {
         "stats": {
           "M": {
             "value": 6
@@ -1834,233 +2472,65 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Loadout Options": {
             "statType": "rank",
-            "value": "Astartes shotgun",
+            "value": "Bolt pistol & Bolt rifle",
             "ranks": {
-              "Astartes shotgun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Astartes shotgun"
-                  }
-                ]
-              },
-              "Bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Boltgun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Boltgun"
-                  }
-                ]
-              },
-              "Flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Flamer"
-                  }
-                ]
-              },
-              "Grav-gun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Grav-gun"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Weapon§Crusader Squad—Plasma gun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Combat knife": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Combat knife"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 13,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Twin lightning claws"
-                  }
-                ]
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          }
-        }
-      },
-      "Model§Primaris Initiates": {
-        "stats": {
-          "M": {
-            "value": 6
-          },
-          "T": {
-            "value": 4
-          },
-          "Sv": {
-            "value": 4
-          },
-          "W": {
-            "value": 2
-          },
-          "Ld": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "ranks": {
-              "Bolt pistol": {
+              "Bolt pistol & Bolt rifle": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Bolt rifle": {
-                "order": 1,
-                "traits": [
+                  },
                   {
                     "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt rifle"
-                  }
-                ]
-              },
-              "Heavy bolt pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Neophyte firearm": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Neophyte firearm"
-                  }
-                ]
-              },
-              "Pyre pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Pyre pistol"
-                  }
-                ]
-              },
-              "Pyreblaster": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Pyreblaster"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Primaris Crusader Squad—Close combat weapon"
                   }
                 ]
               },
-              "Power weapon": {
-                "order": 8,
+              "Heavy bolt pistol & Chainsword": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Power weapon"
+                    "trait": "Ranged Weapon§Primaris Crusader Squad—Heavy bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Primaris Crusader Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Power fist": {
-                "order": 9,
+              "Heavy bolt pistol & Power fist": {
+                "order": 2,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Primaris Crusader Squad—Heavy bolt pistol"
+                  },
                   {
                     "trait": "Melee Weapon§Primaris Crusader Squad—Power fist"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special": 1
+                }
+              },
+              "Pyreblaster & Bolt pistol": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Primaris Crusader Squad—Pyre pistol"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Primaris Crusader Squad—Close combat weapon"
+                  }
+                ],
+                "tracking": {
+                  "special": 1
+                }
               }
             },
             "group": "Loadout",
@@ -2070,7 +2540,7 @@
           }
         }
       },
-      "Model§Primaris Neophytes": {
+      "Model§Primaris Neophyte": {
         "stats": {
           "M": {
             "value": 6
@@ -2090,87 +2560,29 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Loadout Options": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Bolt pistol & Astartes Chainsword",
             "ranks": {
-              "Bolt pistol": {
+              "Bolt pistol & Astartes Chainsword": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Bolt rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt rifle"
-                  }
-                ]
-              },
-              "Heavy bolt pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Neophyte firearm": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Neophyte firearm"
-                  }
-                ]
-              },
-              "Pyre pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Pyre pistol"
-                  }
-                ]
-              },
-              "Pyreblaster": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Pyreblaster"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Primaris Crusader Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 7,
+              "Neophyte firearm": {
+                "order": 1,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Primaris Crusader Squad—Neophyte firearm"
+                  },
                   {
                     "trait": "Melee Weapon§Primaris Crusader Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Power weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Power fist"
                   }
                 ]
               }
@@ -2202,87 +2614,23 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Pistol Option": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Heavy bolt pistol",
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Bolt rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Bolt rifle"
-                  }
-                ]
-              },
               "Heavy bolt pistol": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Primaris Crusader Squad—Heavy bolt pistol"
                   }
                 ]
               },
-              "Neophyte firearm": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Neophyte firearm"
-                  }
-                ]
-              },
               "Pyre pistol": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Primaris Crusader Squad—Pyre pistol"
-                  }
-                ]
-              },
-              "Pyreblaster": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Crusader Squad—Pyreblaster"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Power weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Crusader Squad—Power fist"
                   }
                 ]
               }
@@ -2292,6 +2640,11 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Primaris Crusader Squad—Power weapon"
+          ]
         }
       },
       "Model§Primaris Sword Brothers": {
@@ -2314,60 +2667,20 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Melee Options": {
             "statType": "rank",
-            "value": "Combi-weapon",
+            "value": "Astartes chainsword",
             "ranks": {
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Sword Brethren—Combi-weapon"
-                  }
-                ]
-              },
-              "Heavy bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Sword Brethren—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Primaris Sword Brethren—Plasma pistol"
-                  }
-                ]
-              },
-              "Pyre pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Sword Brethren—Pyre pistol"
-                  }
-                ]
-              },
               "Astartes chainsword": {
-                "order": 4,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Primaris Sword Brethren—Astartes chainsword"
                   }
                 ]
               },
-              "Master-crafted power weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Primaris Sword Brethren—Master-crafted power weapon"
-                  }
-                ]
-              },
               "Power weapon": {
-                "order": 6,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Primaris Sword Brethren—Power weapon"
@@ -2375,12 +2688,54 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 7,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Primaris Sword Brethren—Thunder hammer"
                   }
+                ],
+                "tracking": {
+                  "th": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal"
+          },
+          "Pistol Options": {
+            "statType": "rank",
+            "value": "Heavy bolt pistol",
+            "ranks": {
+              "Heavy bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Primaris Sword Brethren—Heavy bolt pistol"
+                  }
                 ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Weapon§Primaris Sword Brethren—Plasma pistol"
+                  }
+                ],
+                "tracking": {
+                  "pl": 1
+                }
+              },
+              "Pyre pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Primaris Sword Brethren—Pyre pistol"
+                  }
+                ],
+                "tracking": {
+                  "py": 1
+                }
               }
             },
             "group": "Loadout",
@@ -2410,105 +2765,192 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Unique Loadouts": {
             "statType": "rank",
-            "value": "Astartes shotgun",
+            "value": "Bolt pistol & Boltgun",
             "ranks": {
-              "Astartes shotgun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Astartes shotgun"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Bolt pistol": {
+              "Bolt pistol & Boltgun": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crusader Squad—Bolt pistol"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Boltgun"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "special1": 1
+                }
+              },
+              "Twin lightning claws": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Twin lightning claws"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "special1": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Weapon 2": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Castellan—Astartes chainsword"
+                  }
+                ],
+                "tracking": {
+                  "1": 1,
+                  "special2": 1
+                }
+              },
+              "Bolt pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Bolt pistol"
+                  }
+                ],
+                "tracking": {
+                  "2": 1,
+                  "special2": 0,
+                  "pistol": 1
+                }
               },
               "Boltgun": {
-                "order": 2,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crusader Squad—Boltgun"
                   }
-                ]
+                ],
+                "tracking": {
+                  "3": 1,
+                  "special2": 1,
+                  "gun": 1
+                }
               },
-              "Flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Crusader Squad—Flamer"
-                  }
-                ]
-              },
-              "Grav-gun": {
+              "Combi-weapon": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Crusader Squad—Grav-gun"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Combi-weapon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "4": 1,
+                  "special2": 1,
+                  "gun": 1
+                }
               },
-              "Meltagun": {
+              "Grav-pistol": {
                 "order": 5,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Crusader Squad—Meltagun"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Grav-pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "5": 1,
+                  "special2": 1,
+                  "pistol": 1
+                }
               },
-              "Plasma gun": {
+              "Hand flamer": {
                 "order": 6,
                 "traits": [
                   {
-                    "trait": "Weapon§Crusader Squad—Plasma gun"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Hand flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "6": 1,
+                  "special2": 1,
+                  "pistol": 1
+                }
               },
-              "Astartes chainsword": {
+              "Inferno pistol": {
                 "order": 7,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Crusader Squad—Astartes chainsword"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Inferno pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "7": 1,
+                  "special2": 1,
+                  "pistol": 1
+                }
               },
-              "Combat knife": {
+              "Plasma pistol": {
                 "order": 8,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Crusader Squad—Combat knife"
+                    "trait": "Weapon§Black Templars Armoury—Plasma pistol"
                   }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Close combat weapon"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "8": 1,
+                  "special2": 1,
+                  "pistol": 1
+                }
               },
               "Power fist": {
-                "order": 10,
+                "order": 9,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Crusader Squad—Power fist"
                   }
-                ]
+                ],
+                "tracking": {
+                  "9": 1,
+                  "special2": 1
+                }
               },
               "Power weapon": {
-                "order": 11,
+                "order": 10,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Crusader Squad—Power weapon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "10": 1,
+                  "special2": 1
+                }
+              },
+              "Storm bolter": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Storm bolter"
+                  }
+                ],
+                "tracking": {
+                  "11": 1,
+                  "special2": 1,
+                  "gun": 1
+                }
               },
               "Thunder hammer": {
                 "order": 12,
@@ -2516,21 +2958,421 @@
                   {
                     "trait": "Melee Weapon§Crusader Squad—Thunder hammer"
                   }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 13,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Crusader Squad—Twin lightning claws"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "12": 1,
+                  "special2": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
+          },
+          "Weapon 1": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Castellan—Astartes chainsword"
+                  }
+                ],
+                "tracking": {
+                  "1": 1,
+                  "special1": 1
+                }
+              },
+              "Bolt pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Bolt pistol"
+                  }
+                ],
+                "tracking": {
+                  "2": 1,
+                  "special1": 1,
+                  "pistol": 1
+                }
+              },
+              "Boltgun": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Crusader Squad—Boltgun"
+                  }
+                ],
+                "tracking": {
+                  "3": 1,
+                  "special1": 1,
+                  "gun": 1
+                }
+              },
+              "Combi-weapon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Combi-weapon"
+                  }
+                ],
+                "tracking": {
+                  "4": 1,
+                  "special1": 1,
+                  "gun": 1
+                }
+              },
+              "Grav-pistol": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Grav-pistol"
+                  }
+                ],
+                "tracking": {
+                  "5": 1,
+                  "special1": 1,
+                  "pistol": 1
+                }
+              },
+              "Hand flamer": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Hand flamer"
+                  }
+                ],
+                "tracking": {
+                  "6": 1,
+                  "special1": 1,
+                  "pistol": 1
+                }
+              },
+              "Inferno pistol": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Inferno pistol"
+                  }
+                ],
+                "tracking": {
+                  "7": 1,
+                  "special1": 1,
+                  "pistol": 1
+                }
+              },
+              "Plasma pistol": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Weapon§Black Templars Armoury—Plasma pistol"
+                  }
+                ],
+                "tracking": {
+                  "8": 1,
+                  "special1": 1,
+                  "pistol": 1
+                }
+              },
+              "Power fist": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "9": 1,
+                  "special1": 1
+                }
+              },
+              "Power weapon": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Power weapon"
+                  }
+                ],
+                "tracking": {
+                  "10": 1,
+                  "special1": 1
+                }
+              },
+              "Storm bolter": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Armoury—Storm bolter"
+                  }
+                ],
+                "tracking": {
+                  "11": 1,
+                  "special1": 1,
+                  "gun": 1
+                }
+              },
+              "Thunder hammer": {
+                "order": 12,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Crusader Squad—Thunder hammer"
+                  }
+                ],
+                "tracking": {
+                  "12": 1,
+                  "special1": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          }
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Crusader Squad—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "Maximum 1 Non-pistol ranged weapon": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "gun"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 1 pistol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "pistol"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "No duplicate weapon options": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "3"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "4"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "5"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "6"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "7"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "8"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "9"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "10"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "11"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "12"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Unique loadouts can not take other options": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special1"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special2"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
           }
         }
       },
@@ -2554,71 +3396,51 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Loadout Options": {
             "statType": "rank",
-            "value": "Combi-weapon",
+            "value": "Combi-weapon & Chainsword",
             "ranks": {
-              "Combi-weapon": {
+              "Combi-weapon & Chainsword": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Primaris Sword Brethren—Combi-weapon"
-                  }
-                ]
-              },
-              "Heavy bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Sword Brethren—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Primaris Sword Brethren—Plasma pistol"
-                  }
-                ]
-              },
-              "Pyre pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Primaris Sword Brethren—Pyre pistol"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 4,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Primaris Sword Brethren—Astartes chainsword"
                   }
                 ]
               },
-              "Master-crafted power weapon": {
-                "order": 5,
+              "Heavy bolt pistol & Master-crafted power weapon": {
+                "order": 1,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Primaris Sword Brethren—Heavy bolt pistol"
+                  },
                   {
                     "trait": "Melee Weapon§Primaris Sword Brethren—Master-crafted power weapon"
                   }
                 ]
               },
-              "Power weapon": {
-                "order": 6,
+              "Combi-weapon & Master-crafted power weapon": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Primaris Sword Brethren—Power weapon"
+                    "trait": "Ranged Weapon§Primaris Sword Brethren—Combi-weapon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Primaris Sword Brethren—Master-crafted power weapon"
                   }
                 ]
               },
-              "Thunder hammer": {
-                "order": 7,
+              "Heavy bolt pistol & Astartes chainsword": {
+                "order": 3,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Primaris Sword Brethren—Thunder hammer"
+                    "trait": "Melee Weapon§Primaris Sword Brethren—Astartes chainsword"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Primaris Sword Brethren—Heavy bolt pistol"
                   }
                 ]
               }
@@ -5571,7 +6393,157 @@
               }
             },
             "dynamic": false
+          },
+          "Detachment": {
+            "value": "Righteous Crusaders",
+            "ranks": {
+              "Righteous Crusaders": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Detachment§Righteous Crusaders"
+                  }
+                ]
+              }
+            },
+            "dynamic": false
           }
+        }
+      },
+      "Stratagem§Armour of Contempt": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "WHEN: Your opponent’s Shooting phase or\nthe Fight phase, just after an enemy unit\nhas selected its targets.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.\n\nEFFECT: Until the end of the phase, each\ntime an attack targets your unit, worsen\nthe Armour Penetration characteristic of\nthat attack by 1."
+      },
+      "Stratagem§Crusader's Wrath": {
+        "text": "WHEN: Fight phase.\n\nTARGET: One Adeptus Astartes unit from\nyour army that has not been selected to\nfight this phase.\n\nEFFECT: Until the end of the phase, each\ntime a model in your unit makes a melee\nattack, improve the Armour Penetration\ncharacteristic of that attack by 1. If the\nSuffer Not The Unclean to Live vow is\nactive for your army, add 1 to the Strength\ncharacteristic of that attack as well.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§Devout Push": {
+        "text": "WHEN: Your opponent’s Shooting phase,\njust after an enemy unit has shot.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that had one or more of\nits models destroyed as a result of the\nattacking unit’s attacks.\n\nEFFECT: Your unit can make a Normal\nmove of up to D6\", but it must end that\nmove closer to the enemy unit that just\nshot. If the Abhor the Witch, Destroy the\nWitch vow is active for your army, your\nunit can make a Normal move of up to 6\"\ninstead, but it must end that move either\ncloser to the enemy unit that just shot, or\ncloser to the closest enemy Psyker unit.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        }
+      },
+      "Stratagem§Fervent Acclamation": {
+        "text": "WHEN: Your Command phase.\n\nTARGET: One Adeptus Astartes\nCharacter unit from your army.\n\nEFFECT: Select one Templar Vow that is\nnot active for your army. Until the start\nof your next Command phase, while that\nCharacter is leading a unit, models in\nthat unit gain the benefits of that vow in\naddition to the vow selected to be active\nfor your army at the start of the battle",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§No Escape": {
+        "text": "WHEN: Your opponent’s Movement phase,\nwhen an enemy unit (excluding Vehicles\nand Monsters) is selected to Fall Back.\n\nTARGET: One Adeptus Astartes unit from\nyour army that is within Engagement\nRange of that enemy unit.\n\nEFFECT: Roll one D6, adding 1 to the result\nif the Accept Any Challenge, No Matter\nthe Odds vow is active for your army. On\na 4+, that enemy unit cannot Fall Back\nthis phase and must Remain Stationary.\nOtherwise, that enemy unit can Fall Back\nthis phase, but if it does, all models in that\nunit must take a Desperate Escape test.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        }
+      },
+      "Stratagem§Vicious Riposte": {
+        "text": "WHEN: Fight phase, just after an enemy\nunit has selected its targets.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.\n\nEFFECT: Until the end of the phase, each\ntime a model in your unit is destroyed,\nif that model has not fought this phase,\nroll one D6, adding 1 to the result if the\nUphold the Honour of the Emperor vow\nis active for your army. On a 4+, do not\nremove the destroyed model from play; it\ncan fight after the attacking model’s unit\nhas finished making its attacks, and is\nthen removed from play.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Righteous Crusaders"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
         }
       },
       "Vehicle§Black Templars Gladiator Lancer": {
@@ -5594,7 +6566,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Black Templars Gladiator Lancer—Lancer laser destroyer",
+            "Melee Weapon§Black Templars Gladiator Lancer—Armoured hull"
           ]
         },
         "keywords": {
@@ -5631,63 +6605,79 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Icarus Rocket Pod": {
             "statType": "rank",
-            "value": "Fragstorm grenade launcher",
+            "value": 0,
             "ranks": {
-              "Fragstorm grenade launcher": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Gladiator Lancer—Fragstorm grenade launcher"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Icarus rocket pod": {
+              "1": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Gladiator Lancer—Icarus rocket pod"
                   }
                 ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
               "Ironhail heavy stubber": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Gladiator Lancer—Ironhail heavy stubber"
                   }
                 ]
               },
-              "Lancer laser destroyer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Gladiator Lancer—Lancer laser destroyer"
-                  }
-                ]
-              },
               "Multi-melta": {
-                "order": 4,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Gladiator Lancer—Multi-melta"
                   }
                 ]
-              },
-              "Storm bolter": {
-                "order": 5,
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Loadout": {
+            "statType": "rank",
+            "value": "2 Fragstorm grenade launchers",
+            "ranks": {
+              "2 Fragstorm grenade launchers": {
+                "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Black Templars Gladiator Lancer—Storm bolter"
+                    "trait": {
+                      "item": "Ranged Weapon§Black Templars Gladiator Lancer—Fragstorm grenade launcher",
+                      "quantity": 2
+                    }
                   }
                 ]
               },
-              "Armoured hull": {
-                "order": 6,
+              "2 Storm bolters": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Black Templars Gladiator Lancer—Armoured hull"
+                    "trait": {
+                      "item": "Ranged Weapon§Black Templars Gladiator Lancer—Storm bolter",
+                      "quantity": 2
+                    }
                   }
                 ]
               }
@@ -5698,7 +6688,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Lancer laser destroyer; 2 storm bolters; armoured hull.\n\nThis model’s 2 storm bolters can be replaced with 2 fragstorm grenade launchers.\n\n*This model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Black Templars Gladiator Reaper": {
         "assets": {
@@ -5720,7 +6710,13 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            {
+              "item": "Ranged Weapon§Black Templars Gladiator Reaper—Tempest bolter",
+              "quantity": 2
+            },
+            "Ranged Weapon§Black Templars Gladiator Reaper—Twin heavy onslaught gatling cannon",
+            "Melee Weapon§Black Templars Gladiator Reaper—Armoured hull"
           ]
         },
         "keywords": {
@@ -5757,17 +6753,33 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Icarus Rocket Pod": {
             "statType": "rank",
-            "value": "Icarus rocket pod",
+            "value": 0,
             "ranks": {
-              "Icarus rocket pod": {
-                "order": 0,
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Gladiator Reaper—Icarus rocket pod"
                   }
                 ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
               "Ironhail heavy stubber": {
                 "order": 1,
@@ -5784,30 +6796,6 @@
                     "trait": "Ranged Weapon§Black Templars Gladiator Reaper—Multi-melta"
                   }
                 ]
-              },
-              "Tempest bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Gladiator Reaper—Tempest bolter"
-                  }
-                ]
-              },
-              "Twin heavy onslaught gatling cannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Gladiator Reaper—Twin heavy onslaught gatling cannon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Black Templars Gladiator Reaper—Armoured hull"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -5816,7 +6804,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 tempest bolters; twin heavy onslaught gatling cannon; armoured hull.\n\nThis model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Black Templars Gladiator Valiant": {
         "assets": {
@@ -5838,7 +6826,10 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Black Templars Gladiator Valiant—Multi-melta",
+            "Ranged Weapon§Black Templars Gladiator Valiant—Twin las-talon",
+            "Melee Weapon§Black Templars Gladiator Valiant—Armoured hull"
           ]
         },
         "keywords": {
@@ -5875,17 +6866,33 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Icarus Rocket Pod": {
             "statType": "rank",
-            "value": "Icarus rocket pod",
+            "value": 0,
             "ranks": {
-              "Icarus rocket pod": {
-                "order": 0,
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Gladiator Valiant—Icarus rocket pod"
                   }
                 ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
               },
               "Ironhail heavy stubber": {
                 "order": 1,
@@ -5902,22 +6909,6 @@
                     "trait": "Ranged Weapon§Black Templars Gladiator Valiant—Multi-melta"
                   }
                 ]
-              },
-              "Twin las-talon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Gladiator Valiant—Twin las-talon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Black Templars Gladiator Valiant—Armoured hull"
-                  }
-                ]
               }
             },
             "group": "Loadout",
@@ -5926,7 +6917,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 multi-meltas; twin las-talon; armoured hull.\n\nThis model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Vehicle§Black Templars Impulsor": {
         "assets": {
@@ -5949,12 +6940,11 @@
             },
             "Ability§Oath of Moment",
             "Ability§Assault Vehicle",
-            "Wargear§Orbital Comms Array (aura)",
-            "Wargear§Shield Dome",
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Tacticus or Phobos Infantry models. It cannot transport Jump Pack models."
-            }
+            },
+            "Melee Weapon§Black Templars Impulsor—Armoured hull"
           ]
         },
         "keywords": {
@@ -5992,63 +6982,103 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Ranged Options": {
             "statType": "rank",
-            "value": "Bellicatus missile array",
+            "value": "-",
             "ranks": {
-              "Bellicatus missile array": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Black Templars Impulsor—Bellicatus missile array"
-                  }
-                ]
-              },
-              "Fragstorm grenade launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Impulsor—Fragstorm grenade launcher"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
               "Ironhail heavy stubber": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Impulsor—Ironhail heavy stubber"
                   }
                 ]
               },
+              "Multi-melta": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Impulsor—Multi-melta"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Loadout": {
+            "statType": "rank",
+            "value": "2 Fragstorm grenade launchers",
+            "ranks": {
+              "2 Fragstorm grenade launchers": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Black Templars Impulsor—Fragstorm grenade launcher",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "2 Storm bolters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Black Templars Impulsor—Storm bolter",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Wargear": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Bellicatus missile array": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Weapon§Black Templars Impulsor—Bellicatus missile array"
+                  }
+                ]
+              },
               "Ironhail skytalon array": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Impulsor—Ironhail skytalon array"
                   }
                 ]
               },
-              "Multi-melta": {
+              "Orbital comms array": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Orbital Comms Array (aura)"
+                  }
+                ]
+              },
+              "Shield dome": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Black Templars Impulsor—Multi-melta"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Impulsor—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Black Templars Impulsor—Armoured hull"
+                    "trait": "Wargear§Shield Dome"
                   }
                 ]
               }
@@ -6059,7 +7089,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 storm bolters; armoured hull.\n\nThis model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta\n\n*This model’s 2 storm bolters can be replaced with 2 fragstorm grenade launchers.\n\n*This model can be equipped with one of the following: ◦ 1 bellicatus missile array ◦ 1 ironhail skytalon array ◦ 1 orbital comms array ◦ 1 shield dome"
+        "text": ""
       },
       "Vehicle§Black Templars Repulsor": {
         "assets": {
@@ -6085,7 +7115,10 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. Each Jump Pack, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models."
-            }
+            },
+            "Ranged Weapon§Black Templars Repulsor—Hunter-slayer missile",
+            "Melee Weapon§Black Templars Repulsor—Armoured hull",
+            "Ranged Weapon§Black Templars Repulsor—Repulsor defensive array"
           ]
         },
         "keywords": {
@@ -6123,7 +7156,28 @@
           "OC": {
             "value": 5
           },
-          "sampleLoadout": {
+          "Multi-melta": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Repulsor—Multi-melta"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Cannon Option": {
             "statType": "rank",
             "value": "Heavy onslaught gatling cannon",
             "ranks": {
@@ -6135,40 +7189,26 @@
                   }
                 ]
               },
-              "Hunter-slayer missile": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor—Hunter-slayer missile"
-                  }
-                ]
-              },
               "Las-talon": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Repulsor—Las-talon"
                   }
                 ]
-              },
-              "Multi-melta": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor—Multi-melta"
-                  }
-                ]
-              },
-              "Repulsor defensive array": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor—Repulsor defensive array"
-                  }
-                ]
-              },
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Loadout": {
+            "statType": "rank",
+            "value": "Twin heavy bolter",
+            "ranks": {
               "Twin heavy bolter": {
-                "order": 5,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Repulsor—Twin heavy bolter"
@@ -6176,18 +7216,10 @@
                 ]
               },
               "Twin lascannon": {
-                "order": 6,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Repulsor—Twin lascannon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Black Templars Repulsor—Armoured hull"
                   }
                 ]
               }
@@ -6198,7 +7230,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy onslaught gatling cannon; hunter-slayer missile; Repulsor defensive array; twin heavy bolter; armoured hull.\n\nThis model’s twin heavy bolter can be replaced with 1 twin lascannon.\n\n*This model’s heavy onslaught gatling cannon can be replaced with 1 las-talon.\n\n*This model can be equipped with 1 multi-melta."
+        "text": ""
       },
       "Vehicle§Black Templars Repulsor Executioner": {
         "assets": {
@@ -6224,7 +7256,12 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. Each Jump Pack, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models."
-            }
+            },
+            "Ranged Weapon§Black Templars Repulsor Executioner—Heavy onslaught gatling cannon",
+            "Ranged Weapon§Black Templars Repulsor Executioner—Repulsor Executioner defensive array",
+            "Ranged Weapon§Black Templars Repulsor Executioner—Twin heavy bolter",
+            "Ranged Weapon§Black Templars Repulsor Executioner—Twin Icarus ironhail heavy stubber",
+            "Melee Weapon§Black Templars Repulsor Executioner—Armoured hull"
           ]
         },
         "keywords": {
@@ -6262,87 +7299,73 @@
           "OC": {
             "value": 5
           },
-          "sampleLoadout": {
+          "Icarus Rocket Pod": {
             "statType": "rank",
-            "value": "Heavy laser destroyer",
+            "value": 0,
             "ranks": {
-              "Heavy laser destroyer": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Heavy laser destroyer"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Heavy onslaught gatling cannon": {
+              "1": {
                 "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Heavy onslaught gatling cannon"
-                  }
-                ]
-              },
-              "Icarus rocket pod": {
-                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Icarus rocket pod"
                   }
                 ]
-              },
-              "Ironhail heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Ironhail heavy stubber"
-                  }
-                ]
-              },
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Cannon Option": {
+            "statType": "rank",
+            "value": "Macro plasma incinerator",
+            "ranks": {
               "Macro plasma incinerator": {
-                "order": 4,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator"
                   }
                 ]
               },
+              "Heavy laser destroyer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Heavy laser destroyer"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Ironhail heavy stubber": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Ironhail heavy stubber"
+                  }
+                ]
+              },
               "Multi-melta": {
-                "order": 5,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Multi-melta"
-                  }
-                ]
-              },
-              "Repulsor Executioner defensive array": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Repulsor Executioner defensive array"
-                  }
-                ]
-              },
-              "Twin heavy bolter": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Twin heavy bolter"
-                  }
-                ]
-              },
-              "Twin Icarus ironhail heavy stubber": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Twin Icarus ironhail heavy stubber"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Black Templars Repulsor Executioner—Armoured hull"
                   }
                 ]
               }
@@ -6353,7 +7376,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy onslaught gatling cannon; macro plasma incinerator; Repulsor Executioner defensive array; twin heavy bolter; twin Icarus ironhail heavy stubber; armoured hull.\n\nThis model’s macro plasma incinerator can be replaced with 1 heavy laser destroyer.\n\n*This model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta\n\n*This model can be equipped with 1 Icarus rocket pod."
+        "text": ""
       },
       "Wargear§Orbital Comms Array (aura)": {
         "text": "While a friendly Adeptus Astartes unit is within 6″ of the bearer, each time you target that unit with a Stratagem, roll one D6: on a 5+, you gain 1CP."
