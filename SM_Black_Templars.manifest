@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.1.3",
+  "revision": "10.1.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "FTRGRK",
+      "slug": "MWEXDY",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -309,6 +309,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 70
           }
         },
         "text": ""
@@ -374,6 +377,9 @@
           },
           "OC": {
             "value": 2
+          },
+          "Points": {
+            "value": 105
           }
         }
       },
@@ -459,6 +465,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 75
           }
         },
         "text": ""
@@ -524,6 +533,9 @@
           },
           "OC": {
             "value": 1
+          },
+          "Points": {
+            "value": 85
           }
         }
       },
@@ -936,6 +948,9 @@
             "tracked": true,
             "min": 3,
             "max": 3
+          },
+          "Points": {
+            "value": 120
           }
         }
       },
@@ -977,14 +992,6 @@
           ]
         },
         "stats": {
-          "Initiate": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden",
-            "tracked": true,
-            "min": 4,
-            "max": 9
-          },
           "Neophyte": {
             "statType": "numeric",
             "value": 0,
@@ -992,6 +999,37 @@
             "tracked": true,
             "min": 0,
             "max": 10
+          },
+          "Points": {
+            "value": 75
+          },
+          "initiates1stTally": {
+            "value": 4,
+            "statType": "numeric"
+          },
+          "neophytes1stTally": {
+            "value": 0,
+            "statType": "numeric"
+          },
+          "combined2ndCost": {
+            "value": 70,
+            "statType": "numeric"
+          },
+          "neophytes2ndTally": {
+            "value": 5,
+            "statType": "numeric"
+          },
+          "combined3rdCost": {
+            "value": 0,
+            "statType": "numeric"
+          },
+          "Initiate": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal",
+            "tracked": true,
+            "min": 4,
+            "max": 9
           }
         },
         "text": "",
@@ -1033,6 +1071,189 @@
             ],
             "failState": "error",
             "evaluate": "AND"
+          },
+          "apply3rdCombinedCost": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "initiates1stTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "neophytes1stTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Initiate"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply3rdCombinedCost",
+                  "evals",
+                  "0",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "note": "check initiates tally"
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neophyte"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply3rdCombinedCost",
+                  "evals",
+                  "1",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "note": "checks neophytes tally"
+              }
+            ],
+            "failState": "warning",
+            "evaluate": "AND",
+            "order": 40,
+            "actions": [
+              {
+                "paths": [],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "combined2ndCost",
+                  "value"
+                ],
+                "iterations": 1
+              },
+              {
+                "paths": [],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "combined3rdCost",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "apply2ndCostInitiates": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "initiates1stTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Initiate"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply2ndCostInitiates",
+                  "evals",
+                  "0",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Initiate"
+                  ]
+                ],
+                "min": 5,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "OR",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "combined2ndCost",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
           }
         }
       },
@@ -1102,6 +1323,15 @@
             "tracked": true,
             "min": 4,
             "max": 8
+          },
+          "Points": {
+            "value": 160
+          },
+          "model2ndCost": {
+            "value": 160
+          },
+          "model1stTally": {
+            "value": 10
           }
         },
         "text": "",
@@ -1195,6 +1425,15 @@
             "tracked": true,
             "min": 4,
             "max": 10
+          },
+          "Points": {
+            "value": 150
+          },
+          "model1stTally": {
+            "value": 11
+          },
+          "model2ndCost": {
+            "value": 180
           }
         },
         "text": "",
@@ -6686,6 +6925,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 160
           }
         },
         "text": ""
@@ -6802,6 +7044,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 175
           }
         },
         "text": ""
@@ -6915,6 +7160,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 180
           }
         },
         "text": ""
@@ -7087,6 +7335,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 115
           }
         },
         "text": ""
@@ -7228,6 +7479,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 220
           }
         },
         "text": ""
@@ -7374,6 +7628,9 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Points": {
+            "value": 245
           }
         },
         "text": ""
