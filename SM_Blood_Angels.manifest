@@ -1,6 +1,6 @@
 {
   "name": "Blood Angels",
-  "revision": "10.1.3",
+  "revision": "10.1.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "FTRGRK",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -32,6 +32,9 @@
             "Other"
           ]
         }
+      },
+      "Ability§Anti-Chaos 5+": {
+        "text": "Critical Wounds the named unit type on 5+."
       },
       "Ability§Attached Unit": {
         "text": "If a Captain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs unit, it can be attached to this unit instead.",
@@ -456,7 +459,10 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Captain Tycho—Blood Song",
+            "Ranged Weapon§Captain Tycho—Bolt pistol",
+            "Melee Weapon§Captain Tycho—Dead Man’s Hand"
           ]
         },
         "keywords": {
@@ -978,7 +984,10 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Tycho The Lost—Dead Man’s Hand",
+            "Ranged Weapon§Tycho The Lost—Blood Song",
+            "Ranged Weapon§Tycho The Lost—Bolt pistol"
           ]
         },
         "keywords": {
@@ -1023,6 +1032,268 @@
           }
         }
       },
+      "Detachment§Sons of Sanguinius": {
+        "text": "THE RED THIRST\nEach time an Adeptus Astartes unit from your\narmy is selected to fight, if that unit made a Charge\nmove this turn, until the end of the phase, add 1 to\nthe Strength and Attacks characteristics of melee\nweapons equipped by models in that unit.",
+        "rules": {
+          "assignStratagems": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Angel's Sacrifice",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Aggressive Onslaught",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Armour of Contempt",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Red Rampage",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Only In Death Does Duty End",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Relentless Assault",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Archangel's Shard": {
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 25,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "text": "Adeptus Astartes model only. The bearer’s\nmelee weapons have the [ANTI-CHAOS 5+] and\n[LANCE] abilities.",
+        "rules": {
+          "Abilities": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Lance",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Anti-Chaos 5+",
+                "iterations": 1
+              }
+            ]
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ]
+        }
+      },
+      "Enhancement§Artisan of War": {
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 20,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "text": "Adeptus Astartes model only. Improve the Armour\nPenetration characteristic of the bearer’s weapons by\n1, and the bearer has a Save characteristic of 2+.",
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ]
+        },
+        "rules": {
+          "Abilities": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": -1,
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": 2,
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Enhancement§Icon of the Angel": {
+        "text": "Adeptus Astartes model only. Each time an enemy\nunit (excluding Monsters and Vehicles) within\nEngagement Range of the bearer’s unit is selected\nto Fall Back, models in that enemy unit must\ntake Desperate Escape tests as if their unit was\nBattle-shocked. When doing so, if that enemy unit is\nalso Battle-shocked by other means, subtract 1 from\neach of those Desperate Escape tests.",
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 10,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        }
+      },
+      "Enhancement§Visage of Death": {
+        "text": "Adeptus Astartes model only. While an enemy\nunit (excluding Monsters and Vehicles) is within\nEngagement Range of the bearer’s unit, halve the\nObjective Control characteristic of models in that unit.",
+        "stats": {
+          "Points": {
+            "statType": "numeric",
+            "value": 15,
+            "group": "Cost",
+            "visibility": "normal"
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ]
+        }
+      },
       "Infantry/Mounted§Death Company Intercessors": {
         "assets": {
           "traits": [
@@ -1041,7 +1312,7 @@
           ],
           "included": [
             {
-              "item": "Model§Death Company Intercessors",
+              "item": "Model§Death Company Intercessor",
               "quantity": 5
             }
           ]
@@ -1064,11 +1335,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Death Company Intercessors"
+            "Model§Death Company Intercessor"
           ]
         },
         "stats": {
-          "Death Company Intercessors": {
+          "Death Company Intercessor": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -1077,7 +1348,90 @@
             "max": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n\n\nAll models in this unit can each have their bolt pistol and bolt rifle replaced with 1 heavy bolt pistol and 1 Astartes chainsword.\n\n*1 model’s heavy bolt pistol can be replaced with one of the following: ◦ 1 hand flamer ◦ 1 plasma pistol\n\n*For every 5 models in this unit, 1 model equipped with a bolt rifle can be equipped with 1 Astartes grenade launcher.\n\n*1 model can replace its bolt rifle or Astartes chainsword with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
+        "text": "",
+        "rules": {
+          "1 in 5 models can have a grenade launcher": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "grenade"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a grenade launcher",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 1 Hand Flamer or Plasma Pistol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "ranged"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 1 Power Fist, Power Weapon, or Thunder Hammer": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "melee"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Infantry/Mounted§Death Company Marines": {
         "assets": {
@@ -1097,7 +1451,7 @@
           ],
           "included": [
             {
-              "item": "Model§Death Company Marines",
+              "item": "Model§Death Company Marine",
               "quantity": 5
             }
           ]
@@ -1119,11 +1473,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Death Company Marines"
+            "Model§Death Company Marine"
           ]
         },
         "stats": {
-          "Death Company Marines": {
+          "Death Company Marine": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -1132,7 +1486,7 @@
             "max": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n\n\nAny number of models can each have their boltgun and close combat weapon replaced with one of the following: ◦ 1 Astartes chainsword and 1 bolt pistol ◦ 1 thunder hammer\n\n*Any number of models can each have their bolt pistol replaced with one of the following: ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol\n\n*Any number of models can each have their Astartes chainsword replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon"
+        "text": ""
       },
       "Infantry/Mounted§Death Company Marines with Jump Packs": {
         "assets": {
@@ -1153,7 +1507,7 @@
           ],
           "included": [
             {
-              "item": "Model§Death Company Marines with Jump Packs",
+              "item": "Model§Death Company Marine with Jump Pack",
               "quantity": 5
             }
           ]
@@ -1177,11 +1531,11 @@
         },
         "allowed": {
           "items": [
-            "Model§Death Company Marines with Jump Packs"
+            "Model§Death Company Marine with Jump Pack"
           ]
         },
         "stats": {
-          "Death Company Marines with Jump Packs": {
+          "Death Company Marine with Jump Pack": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden",
@@ -1190,7 +1544,7 @@
             "max": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n\n\nAny number of models can each have their boltgun and close combat weapon replaced with one of the following: ◦ 1 Astartes chainsword and 1 bolt pistol ◦ 1 thunder hammer\n\n*Any number of models can each have their bolt pistol replaced with one of the following: ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol\n\n*Any number of models can each have their Astartes chainsword replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon"
+        "text": ""
       },
       "Infantry/Mounted§Sanguinary Guard": {
         "assets": {
@@ -1199,8 +1553,7 @@
             "Ability§Oath of Moment",
             "Ability§Angelic Visage",
             "Ability§Heirs of Azkaellon",
-            "Ability§Attached Unit",
-            "Wargear§Sanguinary Banner"
+            "Ability§Attached Unit"
           ],
           "included": [
             {
@@ -1241,7 +1594,71 @@
             "max": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: angelus boltgun; encarmine blade.\n\nAny number of models can each have their angelus boltgun replaced with one of the following: ◦ 1 inferno pistol ◦ 1 plasma pistol\n\n*For every 5 models in this unit, one model’s encarmine blade can be replaced with 1 power fist.\n\n*1 model can be equipped with 1 sanguinary banner."
+        "text": "",
+        "rules": {
+          "1 in 5 Models can have a Power Fist": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "fist"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 Models can have a Power Fist",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Maximum 1 Banner": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "flag"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
+        }
       },
       "Melee Weapon§Astorath—The Executioner’s Axe": {
         "stats": {
@@ -2271,7 +2688,7 @@
           }
         }
       },
-      "Model§Death Company Intercessors": {
+      "Model§Death Company Intercessor": {
         "stats": {
           "M": {
             "value": 6
@@ -2291,11 +2708,67 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Unique Loadouts": {
             "statType": "rank",
-            "value": "Astartes grenade launcher",
+            "value": "Bolt Rifle & Bolt Pistol",
             "ranks": {
-              "Astartes grenade launcher": {
+              "-": {
+                "order": 0
+              },
+              "Bolt Rifle & Bolt Pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Close combat weapon"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1,
+                  "special2": 1
+                }
+              },
+              "Bolt Rifle, Bolt Pistol, & Astartes Grenade Launcher": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Astartes grenade launcher – frag"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Astartes grenade launcher – krak"
+                  },
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Close combat weapon"
+                  }
+                ],
+                "tracking": {
+                  "grenade": 1,
+                  "special1": 1,
+                  "special2": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
                 "order": 0,
                 "traits": [
                   {
@@ -2309,26 +2782,24 @@
                   {
                     "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
                   }
-                ]
-              },
-              "Bolt rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "bolt": 1
+                }
               },
               "Hand flamer": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Company Intercessors—Hand flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Heavy bolt pistol": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Company Intercessors—Heavy bolt pistol"
@@ -2336,62 +2807,139 @@
                 ]
               },
               "Plasma pistol": {
-                "order": 5,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Death Company Intercessors—Plasma pistol"
                   }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Thunder hammer"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Melee Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Astartes chainsword"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "bolt": 1
+                }
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "melee": 1
+                }
+              },
+              "Power weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Power weapon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "melee": 1
+                }
+              },
+              "Thunder hammer": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Thunder hammer"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "melee": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "Unique loadouts can not take other options": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special1"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special2"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          },
+          "Chainsword can not combine with Bolt Pistol": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "bolt"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
           }
         }
       },
-      "Model§Death Company Marines": {
+      "Model§Death Company Marine": {
         "stats": {
           "M": {
             "value": 6
@@ -2411,25 +2959,109 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Unique Loadouts": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "-",
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Company Marines—Bolt pistol"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Boltgun": {
+              "Boltgun & Close Combat Weapon": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Company Marines—Boltgun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Death Company Marines—Close combat weapon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "special1": 1
+                }
+              },
+              "Thunder Hammer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines—Thunder hammer"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1,
+                  "special1": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Melee Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines—Astartes chainsword"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Power weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines—Power weapon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Marines—Bolt pistol"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Hand flamer": {
                 "order": 2,
@@ -2437,7 +3069,10 @@
                   {
                     "trait": "Ranged Weapon§Death Company Marines—Hand flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Inferno pistol": {
                 "order": 3,
@@ -2445,7 +3080,10 @@
                   {
                     "trait": "Ranged Weapon§Death Company Marines—Inferno pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Plasma pistol": {
                 "order": 4,
@@ -2453,47 +3091,10 @@
                   {
                     "trait": "Weapon§Death Company Marines—Plasma pistol"
                   }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines—Close combat weapon"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines—Thunder hammer"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               }
             },
             "group": "Loadout",
@@ -2501,9 +3102,43 @@
             "visibility": "active",
             "dynamic": true
           }
+        },
+        "rules": {
+          "Unique loadouts can not take other options": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special1"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special2"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
+          }
         }
       },
-      "Model§Death Company Marines with Jump Packs": {
+      "Model§Death Company Marine with Jump Pack": {
         "stats": {
           "M": {
             "value": 12
@@ -2523,25 +3158,63 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Unique Loadouts": {
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "-",
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Company Marines with Jump Packs—Bolt pistol"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Boltgun": {
+              "Boltgun & Close Combat Weapon": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Company Marines with Jump Packs—Boltgun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Close combat weapon"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1,
+                  "special2": 1
+                }
+              },
+              "Thunder Hammer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Thunder hammer"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1,
+                  "special2": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Marines with Jump Packs—Bolt pistol"
+                  }
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Hand flamer": {
                 "order": 2,
@@ -2549,7 +3222,10 @@
                   {
                     "trait": "Ranged Weapon§Death Company Marines with Jump Packs—Hand flamer"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Inferno pistol": {
                 "order": 3,
@@ -2557,7 +3233,10 @@
                   {
                     "trait": "Ranged Weapon§Death Company Marines with Jump Packs—Inferno pistol"
                   }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               },
               "Plasma pistol": {
                 "order": 4,
@@ -2565,53 +3244,96 @@
                   {
                     "trait": "Weapon§Death Company Marines with Jump Packs—Plasma pistol"
                   }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Astartes chainsword"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Thunder hammer"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Close combat weapon"
-                  }
-                ]
+                ],
+                "tracking": {
+                  "special1": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Melee Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Astartes chainsword"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Power fist"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              },
+              "Power weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Marines with Jump Packs—Power weapon"
+                  }
+                ],
+                "tracking": {
+                  "special2": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          }
+        },
+        "rules": {
+          "Unique Loadouts can not take other options": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special1"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special2"
+                  ]
+                ],
+                "max": 1,
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
           }
         }
       },
@@ -2635,7 +3357,7 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
+          "Ranged Options": {
             "statType": "rank",
             "value": "Angelus boltgun",
             "ranks": {
@@ -2662,27 +3384,64 @@
                     "trait": "Weapon§Sanguinary Guard—Plasma pistol"
                   }
                 ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
+          },
+          "Sanguinary Banner": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "0": {
+                "order": 0
               },
-              "Encarmine blade": {
-                "order": 3,
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Sanguinary Banner"
+                  }
+                ],
+                "tracking": {
+                  "flag": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Melee Options": {
+            "statType": "rank",
+            "value": "Encarmine Blade",
+            "ranks": {
+              "Encarmine Blade": {
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Sanguinary Guard—Encarmine blade"
                   }
                 ]
               },
-              "Power fist": {
-                "order": 4,
+              "Power Fist": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Sanguinary Guard—Power fist"
                   }
-                ]
+                ],
+                "tracking": {
+                  "fist": 1
+                }
               }
             },
             "group": "Loadout",
             "groupOrder": 2,
-            "visibility": "active",
+            "visibility": "normal",
             "dynamic": true
           }
         }
@@ -4589,7 +5348,252 @@
               }
             },
             "dynamic": false
+          },
+          "Detachment": {
+            "value": "Sons of Sangunius",
+            "ranks": {
+              "Sons of Sangunius": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Detachment§Sons of Sanguinius"
+                  }
+                ]
+              }
+            },
+            "dynamic": false
           }
+        }
+      },
+      "Stratagem§Aggressive Onslaught": {
+        "text": "WHEN: Fight phase.\n\nTARGET: One Adeptus Astartes\nunit from your army, just before that\nunit Consolidates.\n\nEFFECT: Until the end of the phase,\neach time a model in your unit makes a\nConsolidation move, it can move up to\n6\" instead of up to 3\", provided your unit\nends that Consolidation move in Unit\nCoherency and within Engagement Range\nof one or more enemy units.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§Angel's Sacrifice": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "WHEN: Any phase.\n\nTARGET: One Adeptus Astartes\nCharacter unit from your army that\nwas just destroyed. You can use this\nStratagem on that unit even though it was\njust destroyed.\n\nEFFECT: Until the end of the battle, each\ntime a friendly Adeptus Astartes unit\nmakes an attack that targets the enemy\nunit that just destroyed your Character\nunit, you can re-roll the Hit roll.",
+        "rules": {
+          "assignStratagems": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Relentless Assault",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Angel's Sacrifice",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Armour of Contempt",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Red Rampage",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Aggressive Onslaught",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Stratagem§Only In Death Does Duty End",
+                "iterations": 1
+              }
+            ]
+          }
+        }
+      },
+      "Stratagem§Armour of Contempt": {
+        "text": "WHEN: Your opponent’s Shooting phase or\nthe Fight phase, just after an enemy unit\nhas selected its targets.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.\n\nEFFECT: Until the end of the phase, each\ntime an attack targets your unit, worsen\nthe Armour Penetration characteristic of\nthat attack by 1.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§Only In Death Does Duty End": {
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "WHEN: Fight phase, just after an enemy\nunit has selected its targets.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.\n\nEFFECT: Until the end of the phase, each\ntime a model in your unit is destroyed, if\nthat model has not fought this phase, do\nnot remove it from play. The destroyed\nmodel can fight after the attacking\nmodel’s unit has finished making its\nattacks, and is then removed from play.",
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§Red Rampage": {
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "WHEN: Fight phase.\n\nTARGET: One Adeptus Astartes unit from\nyour army that has not been selected to\nfight this phase.\n\nEFFECT: Until the end of the phase,\nmelee weapons equipped by models\nin your unit have the [LANCE] and\n[LETHAL HITS] abilities.",
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        }
+      },
+      "Stratagem§Relentless Assault": {
+        "text": "WHEN: Your Movement phase, just after\nan Adeptus Astartes unit from your army\nFalls Back.\n\nTARGET: That Adeptus Astartes unit.\n\nEFFECT: Until the end of the turn, your unit\nis eligible to declare a charge even though\nit Fell Back this phase.",
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Sons of Sanguinius"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ]
         }
       },
       "Vehicle§Baal Predator": {
@@ -4605,6 +5609,9 @@
                 }
               }
             }
+          ],
+          "included": [
+            "Melee Weapon§Baal Predator—Armoured tracks"
           ]
         },
         "keywords": {
@@ -4641,7 +5648,7 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Cannon Options": {
             "statType": "rank",
             "value": "Baal flamestorm cannon",
             "ranks": {
@@ -4653,51 +5660,11 @@
                   }
                 ]
               },
-              "Heavy bolter": {
+              "Twin assault cannon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Baal Predator—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Baal Predator—Heavy flamer"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Baal Predator—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Baal Predator—Storm bolter"
-                  }
-                ]
-              },
-              "Twin assault cannon": {
-                "order": 5,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Baal Predator—Twin assault cannon"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Baal Predator—Armoured tracks"
                   }
                 ]
               }
@@ -4706,9 +5673,86 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Storm Bolter": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Baal Predator—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Hunter-Killer Missile": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Baal Predator—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "-",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "2 Heavy Bolters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Baal Predator—Heavy bolter",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "2 Heavy Flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Baal Predator—Heavy flamer",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: twin assault cannon; armoured tracks.\n\nThis model’s twin assault cannon can be replaced with 1 Baal flamestorm cannon.\n\n*This model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with 1 storm bolter.\n\n*This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 heavy flamers"
+        "text": ""
       },
       "Vehicle§Death Company Dreadnought": {
         "assets": {
@@ -4731,8 +5775,7 @@
             },
             "Ability§Oath of Moment",
             "Ability§Black Rage",
-            "Ability§Frenzied Reprisal",
-            "Wargear§Magna-grapple"
+            "Ability§Frenzied Reprisal"
           ]
         },
         "keywords": {
@@ -4770,11 +5813,58 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Magna-grapple": {
             "statType": "rank",
-            "value": "Heavy flamer",
+            "value": 0,
             "ranks": {
-              "Heavy flamer": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Magna-grapple"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Option 2": {
+            "statType": "rank",
+            "value": "Meltagun",
+            "ranks": {
+              "Meltagun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Dreadnought—Meltagun"
+                  }
+                ]
+              },
+              "Heavy Flamer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Dreadnought—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Ranged Option 1": {
+            "statType": "rank",
+            "value": "Storm Bolter",
+            "ranks": {
+              "Heavy Flamer": {
                 "order": 0,
                 "traits": [
                   {
@@ -4782,35 +5872,11 @@
                   }
                 ]
               },
-              "Meltagun": {
+              "Storm Bolter": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Death Company Dreadnought—Meltagun"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 2,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Death Company Dreadnought—Storm bolter"
-                  }
-                ]
-              },
-              "Blood talons": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Dreadnought—Blood talons"
-                  }
-                ]
-              },
-              "Twin Furioso fists": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Company Dreadnought—Twin Furioso fists"
                   }
                 ]
               }
@@ -4819,9 +5885,33 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Fist Option": {
+            "statType": "rank",
+            "value": "Twin Furioso Fists",
+            "ranks": {
+              "Twin Furioso Fists": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Dreadnought—Twin Furioso fists"
+                  }
+                ]
+              },
+              "Blood Talons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Dreadnought—Blood talons"
+                  }
+                ]
+              }
+            },
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n\n\nThis model’s storm bolter can be replaced with 1 heavy flamer.\n\n*This model’s meltagun can be replaced with 1 heavy flamer.\n\n*This model’s Furioso fists can be replaced with 1 blood talons.\n\n*This model can be equipped with 1 magna-grapple."
+        "text": ""
       },
       "Vehicle§Furioso Dreadnought": {
         "assets": {
@@ -4835,9 +5925,10 @@
               }
             },
             "Ability§Oath of Moment",
-            "Ability§Wrathful Rampage",
-            "Ability§Made A Charge Move This Turn",
-            "Wargear§Magna-grapple"
+            {
+              "item": "Ability§Wrathful Rampage",
+              "text": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
+            }
           ]
         },
         "keywords": {
@@ -4874,63 +5965,62 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Loadout Options": {
             "statType": "rank",
-            "value": "Heavy flamer",
+            "value": "Heavy frag cannon & Furioso Fist",
             "ranks": {
-              "Heavy flamer": {
+              "Heavy frag cannon & Furioso Fist": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Furioso Dreadnought—Heavy flamer"
-                  }
-                ]
-              },
-              "Heavy frag cannon": {
-                "order": 1,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Furioso Dreadnought—Heavy frag cannon"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Furioso Dreadnought—Meltagun"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Furioso Dreadnought—Storm bolter"
-                  }
-                ]
-              },
-              "Blood talons": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Furioso Dreadnought—Blood talons"
-                  }
-                ]
-              },
-              "Furioso fist": {
-                "order": 5,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Furioso Dreadnought—Furioso fist"
                   }
                 ]
               },
-              "Twin Furioso fists": {
-                "order": 6,
+              "Meltagun & Blood Talons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Furioso Dreadnought—Meltagun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Death Company Dreadnought—Blood talons"
+                  }
+                ]
+              },
+              "Meltagun & Twin Furioso fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Furioso Dreadnought—Meltagun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Furioso Dreadnought—Twin Furioso fists"
+                  }
+                ]
+              },
+              "Heavy Flamer & Blood Talons": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Furioso Dreadnought—Heavy flamer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Furioso Dreadnought—Blood talons"
+                  }
+                ]
+              },
+              "Heavy Flamer & Twin Furioso Fist": {
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Furioso Dreadnought—Twin Furioso fists"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Furioso Dreadnought—Heavy flamer"
                   }
                 ]
               }
@@ -4939,9 +6029,56 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "Storm Bolter",
+            "ranks": {
+              "Storm Bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Furioso Dreadnought—Storm bolter"
+                  }
+                ]
+              },
+              "Heavy Flamer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Furioso Dreadnought—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
+          },
+          "Magna-grapple": {
+            "statType": "rank",
+            "value": 0,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Magna-grapple"
+                  }
+                ]
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "normal",
+            "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy frag cannon; Furioso fist; storm bolter.\n\nThis model’s heavy frag cannon and Furioso fist can be replaced with one of the following: ◦ 1 Blood Talons and 1 meltagun ◦ 1 twin Furioso fist and 1 meltagun\n\n*This model’s storm bolter can be replaced with 1 heavy flamer.\n\n*This model’s meltagun can be replaced with 1 heavy flamer.\n\n*This model can be equipped with 1 magna-grapple."
+        "text": ""
       },
       "Vehicle§Librarian Dreadnought": {
         "assets": {
@@ -4956,7 +6093,12 @@
             },
             "Ability§Oath of Moment",
             "Ability§Shield of Sanguinius (aura, Psychic)",
-            "Ability§Wings of Sanguinius (psychic)"
+            "Ability§Wings of Sanguinius (psychic)",
+            "Ranged Weapon§Librarian Dreadnought—Blood Lance – focused witchfire",
+            "Ranged Weapon§Librarian Dreadnought—Blood Lance – witchfire",
+            "Ranged Weapon§Librarian Dreadnought—Heavy flamer",
+            "Melee Weapon§Librarian Dreadnought—Furioso force halberd",
+            "Melee Weapon§Librarian Dreadnought—Furioso fist"
           ]
         },
         "keywords": {
@@ -4994,20 +6136,12 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Ranged Options": {
             "statType": "rank",
-            "value": "Blood Lance",
+            "value": "Storm bolter",
             "ranks": {
-              "Blood Lance": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Librarian Dreadnought—Blood Lance"
-                  }
-                ]
-              },
               "Heavy flamer": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Librarian Dreadnought—Heavy flamer"
@@ -5015,7 +6149,7 @@
                 ]
               },
               "Meltagun": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Librarian Dreadnought—Meltagun"
@@ -5023,26 +6157,10 @@
                 ]
               },
               "Storm bolter": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Librarian Dreadnought—Storm bolter"
-                  }
-                ]
-              },
-              "Furioso fist": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Librarian Dreadnought—Furioso fist"
-                  }
-                ]
-              },
-              "Furioso force halberd": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Librarian Dreadnought—Furioso force halberd"
                   }
                 ]
               }
@@ -5053,7 +6171,7 @@
             "dynamic": true
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Blood Lance; storm bolter; Furioso fist, Furioso force halberd.\n\nThis model’s storm bolter can be replaced with one of the following: ◦ 1 heavy flamer ◦ 1 meltagun"
+        "text": ""
       },
       "Wargear§Magna-grapple": {
         "text": "The bearer loses the Smoke keyword, but add 2 to Charge rolls made for the bearer if one or more of the targets of that charge is a Monster or Vehicle unit."
