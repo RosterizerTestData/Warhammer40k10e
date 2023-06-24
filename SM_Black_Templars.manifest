@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.1.4",
+  "revision": "10.1.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1003,33 +1003,38 @@
           "Points": {
             "value": 75
           },
-          "initiates1stTally": {
-            "value": 4,
-            "statType": "numeric"
-          },
-          "neophytes1stTally": {
-            "value": 0,
-            "statType": "numeric"
-          },
           "combined2ndCost": {
+            "statType": "numeric",
             "value": 70,
-            "statType": "numeric"
-          },
-          "neophytes2ndTally": {
-            "value": 5,
-            "statType": "numeric"
+            "visibility": "hidden"
           },
           "combined3rdCost": {
-            "value": 0,
-            "statType": "numeric"
+            "statType": "numeric",
+            "value": 145,
+            "visibility": "hidden"
           },
           "Initiate": {
             "statType": "numeric",
             "value": 0,
-            "visibility": "normal",
+            "visibility": "hidden",
             "tracked": true,
             "min": 4,
             "max": 9
+          },
+          "initiates1stTally": {
+            "statType": "numeric",
+            "value": 4,
+            "visibility": "hidden"
+          },
+          "neophytes1stTally": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "neophytes2ndTally": {
+            "statType": "numeric",
+            "value": 5,
+            "visibility": "hidden"
           }
         },
         "text": "",
@@ -1072,7 +1077,240 @@
             "failState": "error",
             "evaluate": "AND"
           },
-          "apply3rdCombinedCost": {
+          "apply2ndCostInitiates": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "initiates1stTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Initiate",
+                    "value"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply2ndCostInitiates",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neophyte",
+                    "value"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "stats",
+                  "neophytes1stTally",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "combined2ndCost",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "apply2ndCostNeophytes": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "neophytes1stTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neophyte",
+                    "value"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply2ndCostNeophytes",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Initiate",
+                    "value"
+                  ]
+                ],
+                "max": [
+                  "{self}",
+                  "stats",
+                  "initiates1stTally",
+                  "value"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "combined2ndCost",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "apply3rdCostNeophytes": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "neophytes2ndTally",
+                    "value"
+                  ]
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                }
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neophyte",
+                    "value"
+                  ]
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply3rdCostNeophytes",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "combined3rdCost",
+                  "value"
+                ],
+                "iterations": 1
+              }
+            ]
+          },
+          "apply3rdCostInitiates": {
             "evals": [
               {
                 "paths": [
@@ -1112,107 +1350,19 @@
                 "paths": [
                   [
                     "{self}",
-                    "tally",
-                    "Initiate"
-                  ]
-                ],
-                "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdCombinedCost",
-                  "evals",
-                  "0",
-                  "value"
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": false,
-                "note": "check initiates tally"
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Neophyte"
-                  ]
-                ],
-                "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdCombinedCost",
-                  "evals",
-                  "1",
-                  "value"
-                ],
-                "operator": "AND",
-                "not": false,
-                "actionable": false,
-                "note": "checks neophytes tally"
-              }
-            ],
-            "failState": "warning",
-            "evaluate": "AND",
-            "order": 40,
-            "actions": [
-              {
-                "paths": [],
-                "actionType": "modify",
-                "value": [
-                  "{self}",
-                  "stats",
-                  "combined2ndCost",
-                  "value"
-                ],
-                "iterations": 1
-              },
-              {
-                "paths": [],
-                "actionType": "modify",
-                "value": [
-                  "{self}",
-                  "stats",
-                  "combined3rdCost",
-                  "value"
-                ],
-                "iterations": 1
-              }
-            ]
-          },
-          "apply2ndCostInitiates": {
-            "evals": [
-              {
-                "paths": [
-                  [
-                    "{self}",
                     "stats",
-                    "initiates1stTally",
+                    "Initiate",
                     "value"
                   ]
                 ],
-                "operator": "AND",
-                "not": false,
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                }
-              },
-              {
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Initiate"
-                  ]
-                ],
                 "min": [
                   "{self}",
                   "rules",
-                  "apply2ndCostInitiates",
+                  "apply3rdCostInitiates",
                   "evals",
                   "0",
-                  "value"
+                  "result",
+                  "integer"
                 ],
                 "operator": "AND",
                 "not": false,
@@ -1222,18 +1372,33 @@
                 "paths": [
                   [
                     "{self}",
-                    "tally",
-                    "Initiate"
+                    "stats",
+                    "Neophyte",
+                    "value"
                   ]
                 ],
-                "min": 5,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "neophytes2ndTally",
+                  "value"
+                ],
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply3rdCostInitiates",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
                 "operator": "AND",
                 "not": false,
-                "actionable": false
+                "actionable": true
               }
             ],
             "failState": "pass",
-            "evaluate": "OR",
+            "evaluate": "AND",
             "actions": [
               {
                 "paths": [
@@ -1248,7 +1413,7 @@
                 "value": [
                   "{self}",
                   "stats",
-                  "combined2ndCost",
+                  "combined3rdCost",
                   "value"
                 ],
                 "iterations": 1
