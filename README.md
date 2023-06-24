@@ -12,22 +12,22 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperi
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest
 
 ### Space_Marines
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifes
 
 ### SM_Black_Templars
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifes
 
 ### SM_Blood_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifes
 
 ### SM_Dark_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifes
 
 ### SM_Deathwatch
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifes
 
 ### SM_Space_Wolves
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifes
 
 ### Adepta_Sororitas
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.manifest
@@ -39,10 +39,10 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptu
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Mechanicus.manifest
 
 ### Astra_Militarum
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifes
 
 ### Grey_Knights
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.manifes
 
 ### Imperial_Agents
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Agents.manifest
@@ -51,7 +51,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperi
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.manifest
 
 ### Chaos_Space_Marines
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifes
 
 ### Chaos_Knights
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Knights.manifest
@@ -60,7 +60,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Daemons.manifest
 
 ### Death_Guard
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.manifes
 
 ### Thousand_Sons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.manifest
@@ -68,14 +68,8 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousa
 ### World_Eaters
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
 
-### Orks
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
-
-### T'au
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifest
-
 ### Aeldari
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifes
 
 ### Drukhari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Drukhari.manifest
@@ -85,6 +79,12 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/League
 
 ### Necrons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necrons.manifest
+
+### Orks
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
+
+### T'au
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifes
 
 ### Tyranids
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest
