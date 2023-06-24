@@ -1,6 +1,6 @@
 {
   "name": "Dark Angels",
-  "revision": "10.1.4",
+  "revision": "10.1.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -217,7 +217,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is Adeptus Astartes, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model from your army with this ability makes an attack that targets that enemy unit, you can re-roll the Hit roll and you can re-roll the Wound roll."
       },
       "Ability§Primarch of The First Legion": {
         "text": "In your Command phase, select one Primarch of the First Legion abilities (see left). Until the start of your next Command phase, this model has that ability.",
@@ -1260,7 +1261,7 @@
         }
       },
       "Detachment§Unforgiven Task Force": {
-        "text": "GRIM RESOLVE\nWhile an Adeptus Astartes unit from your army\nis Battle-shocked, change the Objective Control\ncharacteristic of models in that unit to 1, instead of 0.",
+        "text": "## GRIM RESOLVE\n\nWhile an Adeptus Astartes unit from your army\nis Battle-shocked, change the Objective Control\ncharacteristic of models in that unit to 1, instead of 0.",
         "rules": {
           "assignStratagems": {
             "evals": [],
@@ -1458,6 +1459,61 @@
             "value": 10,
             "group": "Cost",
             "visibility": "normal"
+          }
+        },
+        "keywords": {
+          "Keywords": [
+            "Unforgiven Task Force"
+          ]
+        },
+        "rules": {
+          "Bladeguard Ancient, Primaris Ancient or Terminator Ancient model only.": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Bladeguard Ancient",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Primaris Ancient",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator Ancient",
+                "contains": true,
+                "operator": "AND",
+                "not": false,
+                "actionable": false
+              }
+            ],
+            "failState": "pass",
+            "evaluate": "AND"
           }
         }
       },
