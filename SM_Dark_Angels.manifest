@@ -1,6 +1,6 @@
 {
   "name": "Dark Angels",
-  "revision": "10.1.6",
+  "revision": "10.1.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -35,7 +35,7 @@
         }
       },
       "Ability§Attached Unit": {
-        "text": "If a Character unit from your army with the Leader ability can be attached to a Outrider Squad, it can be attached to this unit instead.",
+        "text": "",
         "keywords": {
           "Keywords": [
             "Special"
@@ -114,7 +114,7 @@
           ]
         }
       },
-      "Ability§Honour Or Death": {
+      "Ability§Honour or Death": {
         "text": "While this unit contains a Company Champion, add 1 to Advance and Charge rolls made for this unit and you can target this unit with the Heroic Intervention Stratagem for 0CP.",
         "keywords": {
           "Keywords": [
@@ -1556,9 +1556,11 @@
             "Ability§Oath of Moment",
             "Ability§Narthecium",
             "Ability§Astartes Banner",
-            "Ability§Honour Or Death",
-            "Ability§Attached Unit",
-            "Wargear§Storm Shield",
+            "Ability§Honour or Death",
+            {
+              "item": "Ability§Attached Unit",
+              "text": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead."
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1690,7 +1692,10 @@
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
             "Ability§Inner Circle",
-            "Ability§Attached Unit",
+            {
+              "item": "Ability§Attached Unit",
+              "text": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead."
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1775,7 +1780,10 @@
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
             "Ability§Deathwing",
-            "Ability§Attached Unit",
+            {
+              "item": "Ability§Attached Unit",
+              "text": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead."
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1904,7 +1912,10 @@
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Knights of Caliban",
-            "Ability§Attached Unit",
+            {
+              "item": "Ability§Attached Unit",
+              "text": "If a Character unit from your army with the Leader ability can be attached to a Outrider Squad, it can be attached to this unit instead."
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -2014,8 +2025,11 @@
             "Ability§Oath of Moment",
             "Ability§Narthecium",
             "Ability§Astartes Banner",
-            "Ability§Honour Or Death",
-            "Ability§Attached Unit",
+            "Ability§Honour or Death",
+            {
+              "item": "Ability§Attached Unit",
+              "text": "If a Character unit from your army with the Leader ability can be attached to a Outrider Squad, it can be attached to this unit instead."
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -3370,84 +3384,13 @@
             "visibility": "normal",
             "dynamic": true
           },
-          "Ranged Options": {
-            "statType": "rank",
-            "value": "Storm bolter",
-            "ranks": {
-              "Storm bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwing Command Squad—Storm bolter"
-                  }
-                ],
-                "tracking": {
-                  "special1": 1
-                }
-              },
-              "Assault cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwing Command Squad—Assault cannon"
-                  }
-                ],
-                "tracking": {
-                  "special1": 1,
-                  "heavy": 1
-                }
-              },
-              "Heavy flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwing Command Squad—Heavy flamer"
-                  }
-                ],
-                "tracking": {
-                  "special1": 1,
-                  "heavy": 1
-                }
-              },
-              "Plasma cannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Weapon§Deathwing Command Squad—Plasma cannon"
-                  }
-                ],
-                "tracking": {
-                  "special1": 1,
-                  "heavy": 1
-                }
-              },
-              "Storm bolter & Cyclone missile launcher": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Weapon§Deathwing Command Squad—Cyclone missile launcher"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Deathwing Command Squad—Storm bolter"
-                  }
-                ],
-                "tracking": {
-                  "special1": 1,
-                  "heavy": 1
-                }
-              }
-            },
-            "group": "Loadout",
-            "groupOrder": 2,
-            "visibility": "active",
-            "dynamic": true
-          },
           "Unique Loadouts": {
             "statType": "rank",
             "value": "-",
             "ranks": {
               "-": {
-                "order": 0
+                "order": 0,
+                "term": "none"
               },
               "Twin lightning claws": {
                 "order": 1,
@@ -3481,10 +3424,91 @@
             "groupOrder": 2,
             "visibility": "normal",
             "dynamic": true
+          },
+          "Ranged Options": {
+            "statType": "rank",
+            "value": "Storm bolter",
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Storm bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Command Squad—Storm bolter"
+                  }
+                ],
+                "tracking": {
+                  "special1": 0,
+                  "special2": 1
+                }
+              },
+              "Assault cannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Command Squad—Assault cannon"
+                  }
+                ],
+                "tracking": {
+                  "special1": 0,
+                  "heavy": 1,
+                  "special2": 1
+                }
+              },
+              "Heavy flamer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Command Squad—Heavy flamer"
+                  }
+                ],
+                "tracking": {
+                  "special1": 0,
+                  "heavy": 1,
+                  "special2": 1
+                }
+              },
+              "Plasma cannon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Weapon§Deathwing Command Squad—Plasma cannon"
+                  }
+                ],
+                "tracking": {
+                  "special1": 0,
+                  "heavy": 1,
+                  "special2": 1
+                }
+              },
+              "Storm bolter & Cyclone missile launcher": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Weapon§Deathwing Command Squad—Cyclone missile launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Deathwing Command Squad—Storm bolter"
+                  }
+                ],
+                "tracking": {
+                  "special1": 0,
+                  "heavy": 1,
+                  "special2": 1
+                }
+              }
+            },
+            "group": "Loadout",
+            "groupOrder": 2,
+            "visibility": "active",
+            "dynamic": true
           }
         },
         "rules": {
-          "Unique loadouts can not take other options": {
+          "You must select select EITHER a melee and ranged option OR a unique loadout": {
             "evals": [
               {
                 "paths": [
@@ -3495,6 +3519,7 @@
                   ]
                 ],
                 "max": 1,
+                "min": 1,
                 "operator": "AND",
                 "not": false,
                 "actionable": true
@@ -3508,6 +3533,7 @@
                   ]
                 ],
                 "max": 1,
+                "min": 1,
                 "operator": "AND",
                 "not": false,
                 "actionable": true
