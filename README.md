@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifest
 
 ### SM_Blood_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
 
 ### SM_Dark_Angels
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
