@@ -15,13 +15,13 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
 
 ### SM_Black_Templars
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifest
 
 ### SM_Blood_Angels
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifes
 
 ### SM_Dark_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
 
 ### SM_Deathwatch
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifes
