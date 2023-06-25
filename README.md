@@ -12,7 +12,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperi
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest
 
 ### Space_Marines
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
 
 ### SM_Black_Templars
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifes
