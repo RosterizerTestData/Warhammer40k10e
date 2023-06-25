@@ -84,7 +84,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necron
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
 
 ### T'au
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifest
 
 ### Tyranids
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest
