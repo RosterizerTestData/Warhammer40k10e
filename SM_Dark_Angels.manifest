@@ -1,6 +1,6 @@
 {
   "name": "Dark Angels",
-  "revision": "10.1.8",
+  "revision": "10.2.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -221,7 +221,7 @@
         "text": "If your Army Faction is Adeptus Astartes, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model from your army with this ability makes an attack that targets that enemy unit, you can re-roll the Hit roll and you can re-roll the Wound roll."
       },
       "Ability§Primarch of The First Legion": {
-        "text": "In your Command phase, select one Primarch of the First Legion abilities (see left). Until the start of your next Command phase, this model has that ability.",
+        "text": "In your Command phase, select one Primarch of the First Legion abilities (see below). Until the start of your next Command phase, this model has that ability.\n\n**All Secrets Revealed:** Once per turn, when your opponent targets a unit from their army with a Stratagem\nbut before that Stratagem’s effects are resolved, if that unit is within 12\" of this model, you gain 1CP\nand that enemy unit must take a Battle-shock test. If that test is failed, in addition to that unit being\nBattle-shocked, that Stratagem’s effects are not resolved (that Stratagem still counts as having been\nused this phase).\n\n**Martial Exemplar (Aura):** While a friendly Adeptus Astartes unit is within 6\" of this model , each time a\nmodel in that unit makes a melee attack, add 1 to the Hit roll.\n\n**No Hiding From the Watchers (Aura):** While a friendly Adeptus Astartes unit is within 6\" of this model,\nmodels in that unit have the Feel No Pain 4+ ability against mortal wounds.",
         "keywords": {
           "Keywords": [
             "Other"
@@ -266,7 +266,8 @@
           "Keywords": [
             "Special"
           ]
-        }
+        },
+        "rules": {}
       },
       "Ability§Supreme Grand Master": {
         "text": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
@@ -1058,10 +1059,7 @@
             "Ability§Deep Strike",
             "Ability§Fights First",
             "Ability§Oath of Moment",
-            {
-              "item": "Ability§Primarch of The First Legion",
-              "text": "In your Command phase, select one Primarch of the First Legion abilities. Until the start of your next Command phase, this model has that ability.\n\nAll Secrets Revealed: Once per turn, when your opponent targets a unit from their army with a Stratagem\nbut before that Stratagem’s effects are resolved, if that unit is within 12\" of this model, you gain 1CP\nand that enemy unit must take a Battle-shock test. If that test is failed, in addition to that unit being\nBattle-shocked, that Stratagem’s effects are not resolved (that Stratagem still counts as having been\nused this phase).\n\nMartial Exemplar (Aura): While a friendly Adeptus Astartes unit is within 6\" of this model , each time a\nmodel in that unit makes a melee attack, add 1 to the Hit roll.\n\nNo Hiding From the Watchers (Aura): While a friendly Adeptus Astartes unit is within 6\" of this model,\nmodels in that unit have the Feel No Pain 4+ ability against mortal wounds."
-            },
+            "Ability§Primarch of The First Legion",
             "Ability§The Emperor’s Shield",
             "Ability§Dark Angels Bodyguard",
             "Ability§Supreme Commander",
@@ -1118,6 +1116,28 @@
           },
           "Points": {
             "value": 380
+          }
+        },
+        "rules": {
+          "Lion El'Jonson must be your Warlord": {
+            "evals": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓",
+                "operator": "AND",
+                "not": false,
+                "actionable": true
+              }
+            ],
+            "failState": "error",
+            "evaluate": "AND"
           }
         }
       },
@@ -6281,23 +6301,26 @@
           "OC": {
             "value": 3
           },
+          "Points": {
+            "value": 125
+          },
           "Ranged Options": {
             "statType": "rank",
-            "value": "Assault cannon",
+            "value": "Heavy bolter",
             "ranks": {
-              "Assault cannon": {
+              "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Ravenwing Darkshroud—Assault cannon"
+                    "trait": "Ranged Weapon§Ravenwing Darkshroud—Heavy bolter"
                   }
                 ]
               },
-              "Heavy bolter": {
+              "Assault cannon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Ravenwing Darkshroud—Heavy bolter"
+                    "trait": "Ranged Weapon§Ravenwing Darkshroud—Assault cannon"
                   }
                 ]
               }
@@ -6306,9 +6329,6 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          },
-          "Points": {
-            "value": 125
           }
         },
         "text": ""
@@ -6372,23 +6392,26 @@
           "OC": {
             "value": 3
           },
+          "Points": {
+            "value": 160
+          },
           "Ranged Options": {
             "statType": "rank",
-            "value": "Assault cannon",
+            "value": "Heavy bolter",
             "ranks": {
-              "Assault cannon": {
+              "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Assault cannon"
+                    "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Heavy bolter"
                   }
                 ]
               },
-              "Heavy bolter": {
+              "Assault cannon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Heavy bolter"
+                    "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Assault cannon"
                   }
                 ]
               }
@@ -6397,9 +6420,6 @@
             "groupOrder": 2,
             "visibility": "active",
             "dynamic": true
-          },
-          "Points": {
-            "value": 160
           }
         },
         "text": ""
