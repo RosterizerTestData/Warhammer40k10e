@@ -1,6 +1,6 @@
 {
   "name": "T’au Empire",
-  "revision": "10.1.7",
+  "revision": "10.1.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "M4P888",
+      "slug": "ZKXHZ8",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -3604,6 +3604,27 @@
             "Pathfinder Team"
           ]
         },
+        "rules": {
+          "Special weapon max 3": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialweapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "1st Drone": {
             "dynamic": true,
@@ -4949,7 +4970,7 @@
           }
         }
       },
-      "Melee Weapon§Ta'unar-Crushing Feet": {
+      "Melee Weapon§Ta’unar-Crushing Feet": {
         "stats": {
           "A": {
             "value": 6
@@ -5768,6 +5789,103 @@
         }
       },
       "Model§Crisis Shas’ui": {
+        "rules": {
+          "Battlesuit support systems max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Bsupport"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Fragmentation projector max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Frag"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Shields max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Shield"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Weapon support systems max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Wsupport"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Weapons max 3": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "1st Drone": {
             "dynamic": true,
@@ -5814,6 +5932,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -5822,6 +5944,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -5830,6 +5955,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -5838,6 +5966,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -5846,6 +5977,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -5854,6 +5988,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -5862,6 +5999,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -5870,6 +6010,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -5878,6 +6021,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -5886,6 +6032,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "WSupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -5942,6 +6091,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -5950,6 +6103,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -5958,6 +6114,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -5966,6 +6125,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -5974,6 +6136,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -5982,6 +6147,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -5993,6 +6161,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6001,6 +6172,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6009,6 +6183,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6017,6 +6194,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "Wsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -6035,6 +6215,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -6043,6 +6227,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -6051,6 +6238,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -6059,6 +6249,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -6067,6 +6260,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -6075,6 +6271,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -6086,6 +6285,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6094,6 +6296,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6102,6 +6307,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6110,6 +6318,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "Wsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -6128,6 +6339,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -6136,6 +6351,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -6144,6 +6362,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -6152,6 +6373,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -6160,6 +6384,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -6168,6 +6395,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -6179,6 +6409,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6187,6 +6420,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6195,6 +6431,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6203,6 +6442,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "Wsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -6252,6 +6494,103 @@
         }
       },
       "Model§Crisis Shas’vre": {
+        "rules": {
+          "Battlesuit support systems max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Bsupport"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Fragmentation projectors max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Frag"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Shields max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Shield"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Weapon support systems max 1": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Wsupport"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Weapons max 3": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "1st Drone": {
             "dynamic": true,
@@ -6298,6 +6637,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -6306,6 +6649,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -6314,6 +6660,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -6322,6 +6671,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -6330,6 +6682,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -6338,6 +6693,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -6346,6 +6704,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6354,6 +6715,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6362,6 +6726,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6370,6 +6737,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "WSupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -6426,6 +6796,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -6434,6 +6808,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -6442,6 +6819,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -6450,6 +6830,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -6458,6 +6841,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -6466,6 +6852,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -6477,6 +6866,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6485,6 +6877,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6493,6 +6888,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6501,6 +6899,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "Wsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -6519,6 +6920,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -6527,6 +6932,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -6535,6 +6943,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -6543,6 +6954,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -6551,6 +6965,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -6559,6 +6976,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -6570,6 +6990,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6578,6 +7001,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6586,6 +7012,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6594,6 +7023,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "Wsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -6612,6 +7044,10 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Frag": 1,
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Airbursting fragmentation projector"
@@ -6620,6 +7056,9 @@
               },
               "Battlesuit Support System": {
                 "order": 7,
+                "tracking": {
+                  "Bsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -6628,6 +7067,9 @@
               },
               "Burst cannon": {
                 "order": 1,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Burst cannon"
@@ -6636,6 +7078,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 2,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Crisis Battlesuits—Cyclic ion blaster"
@@ -6644,6 +7089,9 @@
               },
               "Fusion blaster": {
                 "order": 3,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Fusion blaster"
@@ -6652,6 +7100,9 @@
               },
               "Missile pod": {
                 "order": 4,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Missile pod"
@@ -6663,6 +7114,9 @@
               },
               "Plasma rifle": {
                 "order": 5,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—Plasma rifle"
@@ -6671,6 +7125,9 @@
               },
               "Shield Generator": {
                 "order": 8,
+                "tracking": {
+                  "Shield": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -6679,6 +7136,9 @@
               },
               "T’au flamer": {
                 "order": 6,
+                "tracking": {
+                  "Weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Crisis Battlesuits—T’au flamer"
@@ -6687,6 +7147,9 @@
               },
               "Weapon Support System": {
                 "order": 9,
+                "tracking": {
+                  "Wsupport": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -12085,7 +12548,7 @@
           }
         }
       },
-      "Ranged Weapon§Ta'unar-Smart missile system": {
+      "Ranged Weapon§Ta’unar-Smart missile system": {
         "assets": {
           "traits": [
             "Ability§Indirect Fire"
@@ -12331,7 +12794,7 @@
           }
         }
       },
-      "Ranged Weapon§Y'Vahra-Flachette Pod": {
+      "Ranged Weapon§Y’Vahra-Flachette Pod": {
         "stats": {
           "A": {
             "value": 5
@@ -12356,7 +12819,7 @@
           }
         }
       },
-      "Ranged Weapon§Y'Vahra-Ionic discharge cannon - Overcharge": {
+      "Ranged Weapon§Y’Vahra-Ionic discharge cannon - Overcharge": {
         "assets": {
           "traits": [
             "Ability§Blast",
@@ -12390,7 +12853,7 @@
           }
         }
       },
-      "Ranged Weapon§Y'Vahra-Ionic discharge cannon - Standard": {
+      "Ranged Weapon§Y’Vahra-Ionic discharge cannon - Standard": {
         "assets": {
           "traits": [
             "Ability§Blast"
@@ -12423,7 +12886,7 @@
           }
         }
       },
-      "Ranged Weapon§Y'Vahra-Phased Plasma-Flamer": {
+      "Ranged Weapon§Y’Vahra-Phased Plasma-Flamer": {
         "assets": {
           "traits": [
             "Ability§Ignores Cover",
@@ -13684,7 +14147,7 @@
         },
         "text": "Every model is equipped with: Piranha burst cannon; 2 twin pulse carbines; armoured hull.\n\nAny number of models can each have their Piranha burst cannon can be replaced with 1 Piranha fusion blaster.\n\n*Any number of models can each be equipped with up to 2 seeker missiles."
       },
-      "Vehicle§R'Varna Battlesuit": {
+      "Vehicle§R’Varna Battlesuit": {
         "allowed": {
           "items": []
         },
@@ -13719,8 +14182,8 @@
           "Keywords": [
             "Battlesuit",
             "Fly",
-            "R'Varna",
-            "R'Varna Battlesuit",
+            "R’Varna",
+            "R’Varna Battlesuit",
             "Vehicle",
             "Walker"
           ],
@@ -14454,20 +14917,18 @@
         },
         "text": "This model is equipped with: twin missile pod; 2 seeker missiles; 2 twin ion rifles; armoured hull.\n\nThis model can be equipped with 1 additional missile pod."
       },
-      "Vehicle§Ta'Unar Supremacy Armour": {
+      "Vehicle§Ta’Unar Supremacy Armour": {
         "assets": {
           "traits": [
             {
               "item": "Ranged Weapon§Crisis Battlesuits—Burst cannon",
               "quantity": 4
             },
-            "Weapon§Tri-Axis Ion Cannon",
-            "Ranged Weapon§Fusion Eradicator",
             {
-              "item": "Ranged Weapon§Ta'unar-Smart missile system",
+              "item": "Ranged Weapon§Ta’unar-Smart missile system",
               "quantity": 4
             },
-            "Melee Weapon§Ta'unar-Crushing Feet",
+            "Melee Weapon§Ta’unar-Crushing Feet",
             {
               "item": "Ability§Damaged:",
               "stats": {
@@ -14495,7 +14956,7 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Ta'unar Supremacy Armour",
+            "Ta’unar Supremacy Armour",
             "Titanic",
             "Towering",
             "Vehicle",
@@ -14571,6 +15032,8 @@
             "visibility": "normal"
           },
           "3rd Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
             "ranks": {
               "Fusion eradicator": {
                 "order": 0,
@@ -15128,7 +15591,7 @@
           }
         }
       },
-      "Vehicle§Y'Vahra Battlesuits": {
+      "Vehicle§Y’Vahra Battlesuits": {
         "assets": {
           "traits": [
             {
@@ -15145,9 +15608,9 @@
             "Ability§Nova Burst",
             "Ability§Damaged:",
             "Ability§Invulnerable",
-            "Ranged Weapon§Y'Vahra-Flachette Pod",
-            "Weapon§Y'Vahra-Ionic Discharge Cannon",
-            "Ranged Weapon§Y'Vahra-Phased Plasma-Flamer",
+            "Ranged Weapon§Y’Vahra-Flachette Pod",
+            "Weapon§Y’Vahra-Ionic Discharge Cannon",
+            "Ranged Weapon§Y’Vahra-Phased Plasma-Flamer",
             "Melee Weapon§Riptide Battlesuit—Riptide fists"
           ]
         },
@@ -15657,11 +16120,11 @@
           ]
         }
       },
-      "Weapon§Y'Vahra-Ionic Discharge Cannon": {
+      "Weapon§Y’Vahra-Ionic Discharge Cannon": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Y'Vahra-Ionic discharge cannon - Standard",
-            "Ranged Weapon§Y'Vahra-Ionic discharge cannon - Overcharge"
+            "Ranged Weapon§Y’Vahra-Ionic discharge cannon - Standard",
+            "Ranged Weapon§Y’Vahra-Ionic discharge cannon - Overcharge"
           ]
         },
         "keywords": {
