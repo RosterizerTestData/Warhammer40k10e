@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.1.16",
+  "revision": "10.2.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -6379,6 +6379,30 @@
                 ],
                 "actionType": "remove",
                 "value": "-",
+                "iterations": 1
+              }
+            ]
+          },
+          "testInvuln": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 80,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Ability§Invulnerable",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "4+",
                 "iterations": 1
               }
             ]
@@ -47864,7 +47888,44 @@
         "text": "The bearer has a 5+ invulnerable save."
       },
       "Wargear§Storm Shield": {
-        "text": "The bearer has a 4+ invulnerable save."
+        "text": "The bearer has a 4+ invulnerable save.",
+        "rules": {
+          "addInvulnToParent": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "order": 80,
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "actionType": "add",
+                "value": "Ability§Invulnerable",
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Invulnerable",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "actionType": "set",
+                "value": "4+",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Wargear§Terminator Storm Shield": {
         "text": "The bearer has a Wounds characteristic of 6."
