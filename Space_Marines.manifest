@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.1.15",
+  "revision": "10.1.16",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1758,9 +1758,6 @@
           "Sv": {
             "value": 3
           },
-          "W": {
-            "value": 5
-          },
           "Ld": {
             "value": 6
           },
@@ -1931,6 +1928,10 @@
             "statType": "numeric",
             "value": 1,
             "visibility": "hidden",
+            "tracked": true
+          },
+          "W": {
+            "value": 5,
             "tracked": true
           }
         },
@@ -2135,9 +2136,6 @@
           "Sv": {
             "value": 3
           },
-          "W": {
-            "value": 6
-          },
           "Ld": {
             "value": 6
           },
@@ -2212,6 +2210,10 @@
           },
           "model1stTally": {
             "value": 1
+          },
+          "W": {
+            "value": 6,
+            "tracked": true
           }
         },
         "text": "done"
@@ -2330,9 +2332,6 @@
           },
           "Sv": {
             "value": 2
-          },
-          "W": {
-            "value": 6
           },
           "Ld": {
             "value": 6
@@ -2486,6 +2485,10 @@
           },
           "model1stTally": {
             "value": 1
+          },
+          "W": {
+            "value": 6,
+            "tracked": true
           }
         },
         "rules": {
@@ -2760,9 +2763,6 @@
           "Sv": {
             "value": 3
           },
-          "W": {
-            "value": 6
-          },
           "Ld": {
             "value": 6
           },
@@ -2920,6 +2920,10 @@
           },
           "model1stTally": {
             "value": 1
+          },
+          "W": {
+            "value": 6,
+            "tracked": true
           }
         },
         "rules": {
@@ -3165,9 +3169,6 @@
           "Sv": {
             "value": 3
           },
-          "W": {
-            "value": 5
-          },
           "Ld": {
             "value": 6
           },
@@ -3333,6 +3334,10 @@
           },
           "model1stTally": {
             "value": 1
+          },
+          "W": {
+            "value": 5,
+            "tracked": true
           }
         },
         "text": "done",
@@ -47806,7 +47811,7 @@
         "text": "The bearer has the Deep Strike ability."
       },
       "Wargear§Relic Shield": {
-        "text": "The bearer has a Wounds characteristic of 6.",
+        "text": "The bearer has a Wounds characteristic of",
         "stats": {
           "wargearName": {
             "value": ""
@@ -47818,7 +47823,42 @@
             "tracked": true
           }
         },
-        "rules": {}
+        "rules": {
+          "addWTotalToText": {
+            "evals": [],
+            "failState": "pass",
+            "evaluate": "AND",
+            "actions": [
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "W",
+                  "value"
+                ],
+                "iterations": 1
+              },
+              {
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "actionType": "modify",
+                "value": ".",
+                "iterations": 1
+              }
+            ]
+          }
+        }
       },
       "Wargear§Shield Dome": {
         "text": "The bearer has a 5+ invulnerable save."
