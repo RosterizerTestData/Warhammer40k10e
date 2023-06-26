@@ -1,6 +1,6 @@
 {
   "name": "Chaos Daemons",
-  "revision": "10.2.9",
+  "revision": "10.2.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "GF36GA",
       "name": "Chaos",
       "game": "Warhammer 40,000"
     }
@@ -18,14 +18,12 @@
     "assetTaxonomy": {},
     "assetCatalog": {
       "Detachment§Daemonic Incursion": {
-        "text": "## WARP RIFTS\n\nEach time a Legiones Daemonica unit from your\narmy is set up on the battlefield using the Deep\nStrike ability, if it is set up wholly within your army’s\nShadow of Chaos, it can be set up anywhere that\nis more than 6″ horizontally away from all enemy\nmodels, instead of more than 9″.",
         "rules": {
           "assignStratagems": {
-            "evals": [],
-            "failState": "pass",
-            "evaluate": "AND",
             "actions": [
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
@@ -35,11 +33,11 @@
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Stratagem§Corrupt Realspace",
-                "iterations": 1
+                "value": "Stratagem§Corrupt Realspace"
               },
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
@@ -49,11 +47,11 @@
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Stratagem§Warp Surge",
-                "iterations": 1
+                "value": "Stratagem§Warp Surge"
               },
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
@@ -63,11 +61,11 @@
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Stratagem§Draught of Terror",
-                "iterations": 1
+                "value": "Stratagem§Draught of Terror"
               },
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
@@ -77,11 +75,11 @@
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Stratagem§Denizens of The Warp",
-                "iterations": 1
+                "value": "Stratagem§Denizens of The Warp"
               },
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
@@ -91,11 +89,11 @@
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Stratagem§The Realm of Chaos",
-                "iterations": 1
+                "value": "Stratagem§The Realm of Chaos"
               },
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
@@ -105,13 +103,15 @@
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Stratagem§Daemonic Invulnerability",
-                "iterations": 1
+                "value": "Stratagem§Daemonic Invulnerability"
               }
-            ]
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
-        }
+        },
+        "text": "## WARP RIFTS\n\nEach time a Legiones Daemonica unit from your\narmy is set up on the battlefield using the Deep\nStrike ability, if it is set up wholly within your army’s\nShadow of Chaos, it can be set up anywhere that\nis more than 6″ horizontally away from all enemy\nmodels, instead of more than 9″."
       },
       "Enhancement§A'rgath, The King of Blades": {
         "keywords": {
@@ -119,11 +119,14 @@
             "Daemonic Incursion"
           ]
         },
-        "text": "Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
         "rules": {
           "Khorne model only": {
             "evals": [
               {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
                 "paths": [
                   [
                     "{parent}",
@@ -131,22 +134,17 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Khorne",
-                "contains": true,
-                "operator": "AND",
-                "not": false,
-                "actionable": true
+                "value": "Khorne"
               }
             ],
-            "failState": "error",
-            "evaluate": "AND"
+            "evaluate": "AND",
+            "failState": "error"
           },
           "PermanentBonus": {
-            "evals": [],
-            "failState": "pass",
-            "evaluate": "AND",
             "actions": [
               {
+                "actionType": "modify",
+                "iterations": 1,
                 "paths": [
                   [
                     "{parent}",
@@ -191,18 +189,20 @@
                     "value"
                   ]
                 ],
-                "actionType": "modify",
-                "value": 1,
-                "iterations": 1
+                "value": 1
               }
-            ]
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
           "Points": {
             "value": 20
           }
-        }
+        },
+        "text": "Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead."
       },
       "Enhancement§Soulstealer": {
         "keywords": {
@@ -210,11 +210,14 @@
             "Daemonic Incursion"
           ]
         },
-        "text": "Slaanesh Legiones Daemonica model only. Each time the bearer destroys an enemy model with a melee attack, roll one D6, adding 1 to the result if the bearer is within your army’s Shadow of Chaos. On a 4+, the bearer regains 1 lost wound.",
         "rules": {
           "Slaanesh model only.": {
             "evals": [
               {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
                 "paths": [
                   [
                     "{parent}",
@@ -222,22 +225,19 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Slaanesh",
-                "contains": true,
-                "operator": "AND",
-                "not": false,
-                "actionable": true
+                "value": "Slaanesh"
               }
             ],
-            "failState": "error",
-            "evaluate": "AND"
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
           "Points": {
             "value": 15
           }
-        }
+        },
+        "text": "Slaanesh Legiones Daemonica model only. Each time the bearer destroys an enemy model with a melee attack, roll one D6, adding 1 to the result if the bearer is within your army’s Shadow of Chaos. On a 4+, the bearer regains 1 lost wound."
       },
       "Enhancement§The Endless Gift": {
         "keywords": {
@@ -245,11 +245,14 @@
             "Daemonic Incursion"
           ]
         },
-        "text": "Nurgle Legiones Daemonica model only. The bearer has the Feel No Pain 5+ ability. While the bearer is within your army’s Shadow of Chaos, the bearer has the Feel No Pain 4+ ability instead.",
         "rules": {
           "Nurgle model only.": {
             "evals": [
               {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
                 "paths": [
                   [
                     "{parent}",
@@ -257,33 +260,28 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Nurgle",
-                "contains": true,
-                "operator": "AND",
-                "not": false,
-                "actionable": true
+                "value": "Nurgle"
               }
             ],
-            "failState": "error",
-            "evaluate": "AND"
+            "evaluate": "AND",
+            "failState": "error"
           },
           "PermanentBonus": {
-            "evals": [],
-            "failState": "pass",
-            "evaluate": "AND",
             "actions": [
               {
+                "actionType": "add",
+                "iterations": 1,
                 "paths": [
                   [
                     "{parent}",
                     "traits"
                   ]
                 ],
-                "actionType": "add",
-                "value": "Ability§Feel No Pain",
-                "iterations": 1
+                "value": "Ability§Feel No Pain"
               },
               {
+                "actionType": "set",
+                "iterations": 1,
                 "paths": [
                   [
                     "{parent}",
@@ -295,18 +293,20 @@
                     "value"
                   ]
                 ],
-                "actionType": "set",
-                "value": "5+",
-                "iterations": 1
+                "value": "5+"
               }
-            ]
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
           "Points": {
             "value": 30
           }
-        }
+        },
+        "text": "Nurgle Legiones Daemonica model only. The bearer has the Feel No Pain 5+ ability. While the bearer is within your army’s Shadow of Chaos, the bearer has the Feel No Pain 4+ ability instead."
       },
       "Enhancement§The Everstave": {
         "keywords": {
@@ -314,11 +314,77 @@
             "Daemonic Incursion"
           ]
         },
-        "text": "Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3″. While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6″ instead.",
         "rules": {
+          "PermanentBonus": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "Range",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "Range",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Tzeentch model only.": {
             "evals": [
               {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
                 "paths": [
                   [
                     "{parent}",
@@ -326,90 +392,24 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Tzeentch",
-                "contains": true,
-                "operator": "AND",
-                "not": false,
-                "actionable": true
+                "value": "Tzeentch"
               }
             ],
-            "failState": "error",
-            "evaluate": "AND"
-          },
-          "PermanentBonus": {
-            "evals": [],
-            "failState": "pass",
             "evaluate": "AND",
-            "actions": [
-              {
-                "paths": [
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "Range",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "Range",
-                    "value"
-                  ]
-                ],
-                "actionType": "modify",
-                "value": 3,
-                "iterations": 1
-              },
-              {
-                "paths": [
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "S",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "S",
-                    "value"
-                  ]
-                ],
-                "actionType": "modify",
-                "value": 1,
-                "iterations": 1
-              }
-            ]
+            "failState": "error"
           }
         },
         "stats": {
           "Points": {
             "value": 25
           }
-        }
+        },
+        "text": "Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3″. While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6″ instead."
       },
       "Roster§Army": {
         "stats": {
           "Detachment": {
-            "value": "Daemonic Incursion",
+            "dynamic": false,
             "ranks": {
               "Daemonic Incursion": {
                 "order": 1,
@@ -423,15 +423,15 @@
                 ]
               }
             },
-            "dynamic": false
+            "value": "Daemonic Incursion"
           },
           "Faction": {
+            "dynamic": false,
             "ranks": {
               "Legiones Daemonica": {
                 "order": 1
               }
             },
-            "dynamic": false,
             "value": "Legiones Daemonica"
           }
         }
@@ -453,12 +453,12 @@
             "Yours"
           ]
         },
-        "text": "**WHEN:** Start of any Command phase.\n\n**TARGET:** One Legiones Daemonica unit from your army that is within range of an objective marker you control.\n\n**EFFECT:** That objective marker is said to be Corrupted and remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn. In addition, while an objective marker is Corrupted and under your control, the area of the battlefield within 6″ of that objective marker is considered to be within your army’s Shadow of Chaos.",
         "stats": {
           "Command Cost": {
             "value": 1
           }
-        }
+        },
+        "text": "**WHEN:** Start of any Command phase.\n\n**TARGET:** One Legiones Daemonica unit from your army that is within range of an objective marker you control.\n\n**EFFECT:** That objective marker is said to be Corrupted and remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn. In addition, while an objective marker is Corrupted and under your control, the area of the battlefield within 6″ of that objective marker is considered to be within your army’s Shadow of Chaos."
       },
       "Stratagem§Daemonic Invulnerability": {
         "keywords": {
@@ -476,12 +476,12 @@
             "Opponent’s"
           ]
         },
-        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Legiones Daemonica unit from your army that was selected as\nthe target of one or more of that enemy unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an invulnerable saving throw is made for a model in your unit, re-roll a saving throw of 1.",
         "stats": {
           "Command Cost": {
             "value": 1
           }
-        }
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Legiones Daemonica unit from your army that was selected as\nthe target of one or more of that enemy unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an invulnerable saving throw is made for a model in your unit, re-roll a saving throw of 1."
       },
       "Stratagem§Denizens of The Warp": {
         "keywords": {
@@ -499,12 +499,12 @@
             "Yours"
           ]
         },
-        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that is arriving using the Deep Strike ability this phase.\n\n**EFFECT**: Your unit can be set up anywhere on the battlefield that is more than 3″ horizontally away from all enemy models.\n\n**RESTRICTIONS**: A unit targeted by this Stratagem is not eligible to declare a\ncharge in the same turn.",
         "stats": {
           "Command Cost": {
             "value": 1
           }
-        }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that is arriving using the Deep Strike ability this phase.\n\n**EFFECT**: Your unit can be set up anywhere on the battlefield that is more than 3″ horizontally away from all enemy models.\n\n**RESTRICTIONS**: A unit targeted by this Stratagem is not eligible to declare a\ncharge in the same turn."
       },
       "Stratagem§Draught of Terror": {
         "keywords": {
@@ -524,12 +524,12 @@
             "Yours"
           ]
         },
-        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that has not been\nselected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, improve the Armour Penetration\ncharacteristic of weapons equipped by models in that unit by 1. In addition,\nuntil the end of the phase, each time such a weapon targets a unit that is\nBattle-shocked, you can re-roll the Wound roll.",
         "stats": {
           "Command Cost": {
             "value": 1
           }
-        }
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that has not been\nselected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, improve the Armour Penetration\ncharacteristic of weapons equipped by models in that unit by 1. In addition,\nuntil the end of the phase, each time such a weapon targets a unit that is\nBattle-shocked, you can re-roll the Wound roll."
       },
       "Stratagem§The Realm of Chaos": {
         "keywords": {
@@ -547,12 +547,12 @@
             "Opponent’s"
           ]
         },
-        "text": "**WHEN**: End of your opponent’s turn.\n\n**TARGET**: Up to two Legiones Daemonica units from your army that are within\nyour army’s Shadow of Chaos, or one other Legiones Daemonica unit from\nyour army.\n\n**EFFECT**: Remove the targeted units from the battlefield and place them into\nStrategic Reserves. They will arrive back on the battlefield in the Reinforcements step of your next Movement phase using the Deep Strike ability.\n\n**RESTRICTIONS**: You cannot target units that are within Engagement Range of one or more enemy units with this Stratagem.",
         "stats": {
           "Command Cost": {
             "value": 1
           }
-        }
+        },
+        "text": "**WHEN**: End of your opponent’s turn.\n\n**TARGET**: Up to two Legiones Daemonica units from your army that are within\nyour army’s Shadow of Chaos, or one other Legiones Daemonica unit from\nyour army.\n\n**EFFECT**: Remove the targeted units from the battlefield and place them into\nStrategic Reserves. They will arrive back on the battlefield in the Reinforcements step of your next Movement phase using the Deep Strike ability.\n\n**RESTRICTIONS**: You cannot target units that are within Engagement Range of one or more enemy units with this Stratagem."
       },
       "Stratagem§Warp Surge": {
         "keywords": {
@@ -570,12 +570,12 @@
             "Yours"
           ]
         },
-        "text": "**WHEN**: Your Charge phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that is within your army’s Shadow of Chaos.\n\n**EFFECT**: Until the end of the phase, your unit is eligible to declare a charge even if it Advanced this turn.",
         "stats": {
           "Command Cost": {
             "value": 1
           }
-        }
+        },
+        "text": "**WHEN**: Your Charge phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that is within your army’s Shadow of Chaos.\n\n**EFFECT**: Until the end of the phase, your unit is eligible to declare a charge even if it Advanced this turn."
       }
     },
     "gameModes": {},
