@@ -864,25 +864,21 @@
         },
         "rules": {
           "No ethereals allowed": {
-            "actions": [
+            "evals": [
               {
-                "actionType": "set",
-                "iterations": 1,
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
                 "paths": [
                   [
-                    "{parent}",
+                    "{roster}",
                     "tally",
-                    [
-                      "Ethereal",
-                      "Aun’va",
-                      "Aun’shi"
-                    ]
+                    "Ethereal"
                   ]
                 ],
-                "value": 0
+                "value": 1
               }
             ],
-            "evals": [],
             "evaluate": "AND",
             "failState": "error",
             "order": 1
@@ -3320,6 +3316,13 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Kroot Farstalkers—Dvorgite skinner": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Kroot Hounds": {
             "max": 2,
             "min": 2,
@@ -3471,14 +3474,6 @@
           "traits": [
             "Ability§Hunting Pack",
             "Ability§Stealth",
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "9"
-                }
-              }
-            },
             "Model§Kroot Hounds Farstalkers"
           ]
         },
@@ -7872,6 +7867,9 @@
                 "traits": [
                   {
                     "trait": "Weapon§Pathfinder Team—Semi-automatic grenade launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Pulse carbine"
                   }
                 ]
               }
@@ -8073,11 +8071,28 @@
       "Model§Stealth Shas’vre": {
         "assets": {
           "traits": [
-            "Melee Weapon§Stealth Battlesuits—Battlesuit fists",
-            "Wargear§Battlesuit Support System"
+            "Melee Weapon§Stealth Battlesuits—Battlesuit fists"
           ]
         },
         "stats": {
+          "Battlesuit Support System": {
+            "ranks": {
+              "Battlesuit Support System": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
+              },
+              "N/A": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": null,
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
