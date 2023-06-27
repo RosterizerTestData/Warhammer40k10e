@@ -1,6 +1,6 @@
 {
   "name": "Grey Knights",
-  "revision": "10.1.9",
+  "revision": "10.1.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1049,6 +1049,7 @@
             "value": 6
           },
           "Loadout 1": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "label": "Loadout",
@@ -1089,9 +1090,10 @@
             },
             "statType": "rank",
             "value": "Heavy Incinerator",
-            "visibility": "normal"
+            "visibility": "active"
           },
           "Loadout 2": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "label": "Loadout",
@@ -1132,7 +1134,7 @@
             },
             "statType": "rank",
             "value": "Heavy Psycannon",
-            "visibility": "normal"
+            "visibility": "active"
           },
           "M": {
             "value": 8
@@ -1354,6 +1356,78 @@
       },
       "Detachment§Teleport Strike Force": {
         "text": "## TELEPORT SHUNT\n\nEach time a Grey Knights unit with the Deep Strike\nability Advances, do not make an Advance roll.\nInstead, until the end of the phase, add 6\" to that\nunit’s Move characteristic and that unit can Fly"
+      },
+      "Enhancement§Domina Liber Daemonica": {
+        "keywords": {
+          "Keywords": [
+            "Teleport Strike Force"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Grey Knights model only. Each time the bearer\nmakes a melee attack add 1 to the Wound roll and,\nif that attack targets a Daemon unit, add 1 to the\nDamage characteristic of that attack as well."
+      },
+      "Enhancement§First to the Fray": {
+        "keywords": {
+          "Keywords": [
+            "Teleport Strike Force"
+          ]
+        },
+        "rules": {
+          "This enhancement must be given to a model with Deep Strike": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": "Deep Strike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "Grey Knights model with the Deep Strike ability only.\nThe bearer’s unit must start the battle in Reserves, but\nneither it, nor any Transport it is embarked within,\nis counted towards any limits the mission places on\nthe number of Strategic Reserves units you can have.\nThat unit can be set up using its Deep Strike ability in\nthe Reinforcements step of your first, second or third\nMovement phase, regardless of any mission rules."
+      },
+      "Enhancement§Inescapable Wrath": {
+        "keywords": {
+          "Keywords": [
+            "Teleport Strike Force"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Grey Knights model only. Add 1 to Charge rolls made\nfor the bearer’s unit"
+      },
+      "Enhancement§Sigil of Exigence": {
+        "keywords": {
+          "Keywords": [
+            "Teleport Strike Force"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "Grey Knights model only. Once per battle, in your\nopponent’s Shooting phase, when the bearer’s unit\nis selected as the target of a ranged attack, you can\nremove the bearer’s unit from the battlefield and then\nset it back up again anywhere on the battlefield that\nis more than 9\" horizontally away from all enemy\nmodels. If the bearer is no longer an eligible target,\nyour opponent can then select new targets for any\nattacks that had targeted the bearer’s unit."
       },
       "Melee Weapon§Brother-captain Stern—Nemesis force sword": {
         "assets": {
@@ -2625,7 +2699,7 @@
               "Ancient's Banner": {
                 "order": 5,
                 "tracking": {
-                  "Banner": 1
+                  "AncientBanner": 1
                 },
                 "traits": [
                   {
@@ -2989,6 +3063,12 @@
         }
       },
       "Model§Knight of the Flame": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Purifier Squad—Nemesis force weapon",
+            "Ranged Weapon§Purifier Squad—Storm bolter"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -2998,72 +3078,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Close combat weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Purifier Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Incinerator": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Purifier Squad—Incinerator"
-                  }
-                ]
-              },
-              "Nemesis force weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Purifier Squad—Nemesis force weapon"
-                  }
-                ]
-              },
-              "Psilencer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Purifier Squad—Psilencer"
-                  }
-                ]
-              },
-              "Psycannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Purifier Squad—Psycannon"
-                  }
-                ]
-              },
-              "Purifying Flame": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Purifier Squad—Purifying Flame"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Purifier Squad—Storm bolter"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Incinerator",
-            "visibility": "active"
           },
           "Sv": {
             "value": 2
@@ -3136,7 +3150,7 @@
               "Incinerator": {
                 "order": 1,
                 "tracking": {
-                  "specialWeapon": 1
+                  "specialWeapons": 1
                 },
                 "traits": [
                   {
@@ -3147,7 +3161,7 @@
               "Psilencer": {
                 "order": 2,
                 "tracking": {
-                  "specialWeapon": 1
+                  "specialWeapons": 1
                 },
                 "traits": [
                   {
@@ -3158,7 +3172,7 @@
               "Psycannon": {
                 "order": 3,
                 "tracking": {
-                  "specialWeapon": 1
+                  "specialWeapons": 1
                 },
                 "traits": [
                   {
@@ -3355,7 +3369,7 @@
               "Incinerator": {
                 "order": 1,
                 "tracking": {
-                  "specialWeapon": 1
+                  "specialWeapons": 1
                 },
                 "traits": [
                   {
@@ -3369,7 +3383,7 @@
               "Psilencer": {
                 "order": 2,
                 "tracking": {
-                  "specialWeapon": 1
+                  "specialWeapons": 1
                 },
                 "traits": [
                   {
@@ -3383,7 +3397,7 @@
               "Psycannon": {
                 "order": 3,
                 "tracking": {
-                  "specialWeapon": 1
+                  "specialWeapons": 1
                 },
                 "traits": [
                   {
@@ -7378,6 +7392,22 @@
       },
       "Roster§Army": {
         "stats": {
+          "Detachment": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Teleport Strike Force": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Detachment§Teleport Strike Force"
+                  }
+                ]
+              }
+            },
+            "value": "Teleport Strike Force"
+          },
           "Faction": {
             "dynamic": false,
             "ranks": {
@@ -7396,6 +7426,7 @@
       "Stratagem§Death From The Warp": {
         "keywords": {
           "Keywords": [
+            "Grey Knights",
             "Teleport Strike Force"
           ],
           "Phase": [
@@ -7418,6 +7449,7 @@
       "Stratagem§Haloed In Soulfire": {
         "keywords": {
           "Keywords": [
+            "Grey Knights",
             "Teleport Strike Force"
           ],
           "Phase": [
@@ -7440,6 +7472,7 @@
       "Stratagem§Mists Of Deimos": {
         "keywords": {
           "Keywords": [
+            "Grey Knights",
             "Teleport Strike Force"
           ],
           "Phase": [
@@ -7462,6 +7495,7 @@
       "Stratagem§Prognisticated Arrival": {
         "keywords": {
           "Keywords": [
+            "Grey Knights",
             "Teleport Strike Force"
           ],
           "Phase": [
@@ -7494,6 +7528,7 @@
             "Yours"
           ],
           "Keywords": [
+            "Grey Knights",
             "Teleport Strike Force"
           ]
         },
@@ -7507,6 +7542,7 @@
       "Stratagem§Truesilver Armour": {
         "keywords": {
           "Keywords": [
+            "Grey Knights",
             "Teleport Strike Force"
           ],
           "Phase": [
@@ -8554,6 +8590,7 @@
             "visibility": "active"
           },
           "Loadout 2": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "label": "Loadout",
@@ -8585,7 +8622,7 @@
             },
             "statType": "rank",
             "value": "Typhoon missile launcher",
-            "visibility": "normal"
+            "visibility": "active"
           },
           "M": {
             "statType": "term",
@@ -8793,6 +8830,7 @@
             "visibility": "active"
           },
           "Secondary": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
@@ -8832,7 +8870,7 @@
             },
             "statType": "rank",
             "value": "Storm bolter + Dreadnought combat weapon",
-            "visibility": "normal"
+            "visibility": "active"
           },
           "Sv": {
             "value": 2
@@ -9133,6 +9171,7 @@
             "visibility": "hidden"
           },
           "Melee": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
@@ -9163,7 +9202,7 @@
             },
             "statType": "rank",
             "value": "Dreadfists",
-            "visibility": "normal"
+            "visibility": "active"
           },
           "OC": {
             "value": 4
