@@ -928,6 +928,72 @@
             "Commander Farsight"
           ]
         },
+        "rules": {
+          "No ethereals allowed": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Character§Ethereal"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Model§Aun’Va – Epic Hero"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Character§Aun’shi"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "designation",
+                    [
+                      "Ethereal",
+                      "Aun’va",
+                      "Aun’shi"
+                    ],
+                    "disallowed",
+                    "classifications"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -3289,7 +3355,7 @@
             "value": "7"
           },
           "model1stTally": {
-            "value": 19
+            "value": 10
           },
           "model2ndCost": {
             "value": 75
@@ -3315,7 +3381,7 @@
         "allowed": {
           "items": [
             "Model§Kroot Farstalkers",
-            "Model§Kroot Hounds"
+            "Model§Kroot Hounds Farstalkers"
           ]
         },
         "assets": {
@@ -3325,7 +3391,7 @@
               "quantity": 9
             },
             {
-              "item": "Model§Kroot Hounds",
+              "item": "Model§Kroot Hounds Farstalkers",
               "quantity": 2
             }
           ],
@@ -3390,7 +3456,7 @@
             "value": 1
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThe Kroot Kill-broker is equipped with: Farstalker firearm; Kroot pistol; ritual blade. Every Kroot Farstalker is equipped with: Farstalker firearm; Kroot pistol; close combat weapon. Every Kroot Hound is equipped with: ripping fangs.\n\nThe Kroot Kill-broker’s Farstalker firearm can be replaced with one of the following: ◦ 1 pulse carbine ◦ 1 pulse rifle\n\n*1 Kroot Farstalker’s Farstalker firearm can be replaced with one of the following: ◦ 1 Dvorgite skinner ◦ 1 Londaxi tribalest\n\n*1 Kroot Farstalker equipped with a Farstalker firearm can be equipped with 1 Pech’ra."
+        "text": "The Kroot Kill-broker is equipped with: Farstalker firearm; Kroot pistol; ritual blade. Every Kroot Farstalker is equipped with: Farstalker firearm; Kroot pistol; close combat weapon. Every Kroot Hound is equipped with: ripping fangs.\n\nThe Kroot Kill-broker’s Farstalker firearm can be replaced with one of the following: ◦ 1 pulse carbine ◦ 1 pulse rifle\n\n*1 Kroot Farstalker’s Farstalker firearm can be replaced with one of the following: ◦ 1 Dvorgite skinner ◦ 1 Londaxi tribalest\n\n*1 Kroot Farstalker equipped with a Farstalker firearm can be equipped with 1 Pech’ra."
       },
       "Infantry/Mounted§Kroot Hounds": {
         "allowed": {
@@ -3408,7 +3474,14 @@
           "traits": [
             "Ability§Hunting Pack",
             "Ability§Stealth",
-            "Ability§Scouts"
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9"
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -3423,6 +3496,31 @@
             "Kroot",
             "Hounds"
           ]
+        },
+        "rules": {
+          "farstalker hounds": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "designation",
+                    "Kroot Farstalkers",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ]
+                ],
+                "value": 7
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Kroot Hounds": {
@@ -3457,6 +3555,108 @@
           "Points": {
             "value": 30
           },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Infantry/Mounted§Kroot Hounds Farstalkers": {
+        "allowed": {
+          "items": [
+            "Model§Kroot Hounds Farstalkers"
+          ]
+        },
+        "assets": {
+          "included": [],
+          "traits": [
+            "Ability§Hunting Pack",
+            "Ability§Stealth",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9"
+                }
+              }
+            },
+            "Model§Kroot Hounds Farstalkers"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Beasts",
+            "Kroot",
+            "Hounds"
+          ]
+        },
+        "rules": {
+          "farstalker hounds": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "designation",
+                    "Kroot Farstalkers",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ]
+                ],
+                "value": 7
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Kroot Hounds": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": "12"
+          },
+          "model1stTally": {
+            "value": 7
+          },
+          "model2ndCost": {
+            "value": 30
+          },
+          "model2ndTally": {
+            "value": 11
+          },
+          "model3rdCost": {
+            "value": 30
+          },
+          "OC": {
+            "value": "0"
+          },
+          "Points": {},
           "Sv": {
             "value": 6
           },
@@ -3797,7 +3997,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: burst cannon; battlesuit fists.\n\nThe Stealth Shas’vre can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone* ◦ 1 marker drone* ◦ 1 shield drone*\n\n*For every 3 models in the unit, 1 model’s burst cannon can be replaced with 1 fusion blaster.\n\n*For every 3 models in the unit, 1 model can be equipped with 1 battlesuit support system. * This drone’s rules can be found on the T’au Empire Drones card."
+        "text": "Every model is equipped with: burst cannon; battlesuit fists.\n\nThe Stealth Shas’vre can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone* ◦ 1 marker drone* ◦ 1 shield drone*\n\n*For every 3 models in the unit, 1 model’s burst cannon can be replaced with 1 fusion blaster.\n\n*For every 3 models in the unit, 1 model can be equipped with 1 battlesuit support system. * This drone’s rules can be found on the T’au Empire Drones card."
       },
       "Infantry/Mounted§Strike Team": {
         "allowed": {
@@ -7516,30 +7716,32 @@
             "Melee Weapon§Kroot Hounds—Ripping fangs"
           ]
         },
-        "rules": {
-          "falstalker": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "designation",
-                    "Kroot Farstalkers",
-                    "stats",
-                    "Ld",
-                    "value"
-                  ]
-                ],
-                "value": 7
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 0
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
           }
+        }
+      },
+      "Model§Kroot Hounds Farstalkers": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Kroot Hounds—Ripping fangs"
+          ]
         },
         "stats": {
           "Ld": {
@@ -7547,6 +7749,9 @@
           },
           "M": {
             "value": 12
+          },
+          "modelName": {
+            "value": "Kroot Hounds"
           },
           "OC": {
             "value": 0
