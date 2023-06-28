@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.2.5",
+  "revision": "10.2.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -21243,6 +21243,36 @@
         }
       },
       "Model§Intercessor Sergeant": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Intercessor Squad—Bolt pistol"
+          ]
+        },
+        "rules": {
+          "Astartes grenade launcher requires Bolt rifle": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "tally",
+                  "Intercessor Squad—Bolt rifle"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Intercessor Squad—Astartes grenade launcher"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Grenade launcher": {
             "dynamic": true,
@@ -21250,10 +21280,13 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0
+                "order": 0,
+                "term": "no nade"
               },
               "✓": {
                 "order": 1,
+                "term": "nade",
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Weapon§Intercessor Squad—Astartes grenade launcher"
@@ -21261,61 +21294,45 @@
                 ]
               }
             },
-            "statOrder": 2,
+            "statOrder": 3,
             "statType": "rank",
+            "tracked": true,
             "value": "-",
             "visibility": "active"
           },
           "Ld": {
             "value": 6
           },
-          "Loadout": {
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Primary": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
               "Astartes chainsword": {
-                "order": 5,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Intercessor Squad—Astartes chainsword"
                   }
                 ]
               },
-              "Astartes grenade launcher": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Intercessor Squad—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Intercessor Squad—Bolt pistol"
-                  }
-                ]
-              },
               "Bolt rifle": {
-                "order": 2,
+                "order": 0,
+                "term": "bolt rifle",
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Intercessor Squad—Bolt rifle"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Intercessor Squad—Close combat weapon"
-                  }
-                ]
-              },
               "Hand flamer": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Intercessor Squad—Hand flamer"
@@ -21323,15 +21340,51 @@
                 ]
               },
               "Plasma pistol": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Weapon§Intercessor Squad—Plasma pistol"
                   }
                 ]
               },
+              "Power weapon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Intercessor Squad—Power weapon"
+                  }
+                ]
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "tracked": true,
+            "value": "Bolt rifle",
+            "visibility": "normal"
+          },
+          "Secondary": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Intercessor Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Close combat weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Intercessor Squad—Close combat weapon"
+                  }
+                ]
+              },
               "Power fist": {
-                "order": 7,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Intercessor Squad—Power fist"
@@ -21339,7 +21392,7 @@
                 ]
               },
               "Power weapon": {
-                "order": 8,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Intercessor Squad—Power weapon"
@@ -21347,7 +21400,7 @@
                 ]
               },
               "Thunder hammer": {
-                "order": 9,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Intercessor Squad—Thunder hammer"
@@ -21355,15 +21408,10 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "Astartes grenade launcher",
+            "value": "Close combat weapon",
             "visibility": "active"
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
           },
           "Sv": {
             "value": 3
