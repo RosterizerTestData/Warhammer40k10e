@@ -27,7 +27,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dar
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifes
 
 ### SM_Space_Wolves
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
 
 ### Adepta_Sororitas
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.manifest
