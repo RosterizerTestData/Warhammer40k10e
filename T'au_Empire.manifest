@@ -636,6 +636,9 @@
             "Model§Ethereal Guards"
           ]
         },
+        "aspects": {
+          "Unique": true
+        },
         "assets": {
           "included": [
             {
@@ -3271,7 +3274,7 @@
         "allowed": {
           "items": [
             "Model§Kroot Farstalkers",
-            "Model§Kroot Hounds Farstalkers"
+            "Model§Kroot Hounds"
           ]
         },
         "assets": {
@@ -3281,7 +3284,7 @@
               "quantity": 9
             },
             {
-              "item": "Model§Kroot Hounds Farstalkers",
+              "item": "Model§Kroot Hounds",
               "quantity": 2
             }
           ],
@@ -3414,7 +3417,20 @@
                 "value": 7
               }
             ],
-            "evals": [],
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Kroot Farstalkers"
+                  ]
+                ]
+              }
+            ],
             "evaluate": "AND",
             "failState": "pass"
           }
@@ -3452,100 +3468,6 @@
           "Points": {
             "value": 30
           },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
-        }
-      },
-      "Infantry/Mounted§Kroot Hounds Farstalkers": {
-        "allowed": {
-          "items": [
-            "Model§Kroot Hounds Farstalkers"
-          ]
-        },
-        "assets": {
-          "included": [],
-          "traits": [
-            "Ability§Hunting Pack",
-            "Ability§Stealth",
-            "Model§Kroot Hounds Farstalkers"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T’au Empire"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Beasts",
-            "Kroot",
-            "Hounds"
-          ]
-        },
-        "rules": {
-          "farstalker hounds": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "assets",
-                    "designation",
-                    "Kroot Farstalkers",
-                    "stats",
-                    "Ld",
-                    "value"
-                  ]
-                ],
-                "value": 7
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "stats": {
-          "Kroot Hounds": {
-            "max": 2,
-            "min": 0,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "12"
-          },
-          "model1stTally": {
-            "value": 7
-          },
-          "model2ndCost": {
-            "value": 30
-          },
-          "model2ndTally": {
-            "value": 11
-          },
-          "model3rdCost": {
-            "value": 30
-          },
-          "OC": {
-            "value": "0"
-          },
-          "Points": {},
           "Sv": {
             "value": 6
           },
@@ -5494,7 +5416,7 @@
                 ]
               },
               "N/A": {
-                "order": 5,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -5509,24 +5431,8 @@
                   }
                 ]
               },
-              "Twin plasma rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Broadside Battlesuits—Twin plasma rifle"
-                  }
-                ]
-              },
-              "Twin smart missile system": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Broadside Battlesuits—Twin smart missile system"
-                  }
-                ]
-              },
               "Weapon Support System": {
-                "order": 4,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -5537,6 +5443,14 @@
             "statType": "rank",
             "value": "N/A",
             "visibility": "normal"
+          },
+          "Broadside twin": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Ld": {
             "value": 7
@@ -5583,6 +5497,42 @@
           "Group Includes": true,
           "Lock Qty": true,
           "Rename": true
+        },
+        "rules": {
+          "1 twin weapon system": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Broadside twin"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Broadside twin"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "1st Drone": {
@@ -5775,7 +5725,7 @@
                 ]
               },
               "N/A": {
-                "order": 5,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -5790,24 +5740,8 @@
                   }
                 ]
               },
-              "Twin plasma rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Broadside Battlesuits—Twin plasma rifle"
-                  }
-                ]
-              },
-              "Twin smart missile system": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Broadside Battlesuits—Twin smart missile system"
-                  }
-                ]
-              },
               "Weapon Support System": {
-                "order": 4,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -5818,6 +5752,14 @@
             "statType": "rank",
             "value": "N/A",
             "visibility": "normal"
+          },
+          "Broadside twin": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Ld": {
             "value": 7
@@ -7618,36 +7560,6 @@
           }
         }
       },
-      "Model§Kroot Hounds Farstalkers": {
-        "assets": {
-          "traits": [
-            "Melee Weapon§Kroot Hounds—Ripping fangs"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 12
-          },
-          "modelName": {
-            "value": "Kroot Hounds"
-          },
-          "OC": {
-            "value": 0
-          },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
-        }
-      },
       "Model§Kroot Kill-broker": {
         "assets": {
           "traits": [
@@ -8076,6 +7988,9 @@
         },
         "stats": {
           "Battlesuit Support System": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
             "ranks": {
               "Battlesuit Support System": {
                 "order": 1,
@@ -8090,7 +8005,7 @@
               }
             },
             "statType": "rank",
-            "value": null,
+            "value": "N/A",
             "visibility": "normal"
           },
           "Ld": {
@@ -12574,7 +12489,7 @@
             "value": 1
           },
           "Range": {
-            "value": 16
+            "value": 36
           },
           "S": {
             "value": 6
@@ -12879,6 +12794,15 @@
           ]
         },
         "stats": {
+          "A": {
+            "ranks": {
+              "1": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "1"
+          },
           "AP": {
             "value": 5
           },
@@ -13124,7 +13048,18 @@
               "quantity": 2
             },
             "Ranged Weapon§Twin Heavy Rail Cannon",
-            "Melee Weapon§Devilfish—Armoured hull"
+            "Melee Weapon§Devilfish—Armoured hull",
+            {
+              "item": "Ability§Titan Hunter",
+              "stats": {
+                "x": {
+                  "value": "3"
+                }
+              },
+              "aspects": {
+                "Visibility": "always"
+              }
+            }
           ]
         },
         "keywords": {
@@ -13285,7 +13220,6 @@
             "Ability§For The Greater Good",
             "Ability§Damaged:",
             "Ability§Agile Dogfight",
-            "Melee Weapon§Razorshark Strike Fighter—Armoured hull",
             "Ranged Weapon§Crisis Battlesuits—Missile pod",
             {
               "item": "Ability§Invulnerable",
@@ -13359,7 +13293,14 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Swiftstrike Burst Cannon"
+                    "trait": {
+                      "item": "Ranged Weapon§Swiftstrike Burst Cannon",
+                      "stats": {
+                        "Range": {
+                          "value": 36
+                        }
+                      }
+                    }
                   }
                 ]
               },
@@ -13374,6 +13315,23 @@
             },
             "statType": "rank",
             "value": "Swifstrike Burst Cannon",
+            "visibility": "normal"
+          },
+          "Armoured Hull": {
+            "group": "Loadout",
+            "ranks": {
+              "Armoured hull": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Razorshark Strike Fighter—Armoured hull"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "Armoured hull",
             "visibility": "normal"
           },
           "Ld": {
@@ -13459,9 +13417,7 @@
           ]
         },
         "assets": {
-          "included": [
-            "Model§Broadside Shas’ui"
-          ],
+          "included": [],
           "traits": [
             "Ability§For The Greater Good",
             "Ability§Advanced Armour",

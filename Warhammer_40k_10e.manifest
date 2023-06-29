@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.13",
+  "revision": "10.1.14",
   "game": "Warhammer 40,000",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -118,6 +118,68 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "hideWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          },
           "noAllyEnhancements": {
             "actions": [
               {
@@ -190,6 +252,57 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "Only one Warlord is allowed.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Warlord": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {}
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
           }
         },
         "templateClass": "Unit"
@@ -931,119 +1044,6 @@
             "evaluate": "AND",
             "failState": "error"
           },
-          "hideWarlordOption": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "disallowed",
-                    "classifications"
-                  ]
-                ],
-                "value": "Warlord Trait"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "min": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "tracked",
-                    "Warlord"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "hideWarlordOption",
-                    "evals",
-                    "0",
-                    "result",
-                    "truthy"
-                  ],
-                  [
-                    "{self}",
-                    "rules",
-                    "hideWarlordOption",
-                    "evals",
-                    "1",
-                    "result",
-                    "truthy"
-                  ]
-                ],
-                "value": true
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Character"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "pass",
-            "order": 25
-          },
           "maxQty": {
             "actions": [
               {
@@ -1293,24 +1293,6 @@
             "statOrder": 6,
             "statType": "numeric",
             "value": null,
-            "visibility": "normal"
-          },
-          "Warlord": {
-            "dynamic": true,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "tracking": {
-                  "Warlord": 1
-                }
-              }
-            },
-            "statType": "rank",
-            "tracked": true,
-            "value": "-",
             "visibility": "normal"
           }
         }
