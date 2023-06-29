@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.2.8",
+  "revision": "10.2.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "ZDE7Q5",
+      "slug": "AAJN4J",
       "name": "Imperium",
       "game": "Warhammer 40k"
     }
@@ -21254,17 +21254,55 @@
             "Ranged Weapon§Intercessor Squad—Bolt pistol"
           ]
         },
+        "rules": {
+          "Astartes grenade launcher requires Bolt rifle": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "bolt",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "NadeLauncher",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
+          "bolt": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Grenade launcher": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 3,
             "ranks": {
               "-": {
-                "order": 0
+                "order": 0,
+                "term": "nonade"
               },
               "✓": {
                 "order": 1,
+                "term": "nade",
+                "tracking": {
+                  "NadeLauncher": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Intercessor Squad—Astartes grenade launcher"
@@ -21272,19 +21310,31 @@
                 ]
               }
             },
-            "statOrder": 2,
+            "statOrder": 3,
             "statType": "rank",
+            "tracked": true,
             "value": "-",
             "visibility": "active"
           },
           "Ld": {
             "value": 6
           },
-          "Loadout 1": {
+          "M": {
+            "value": 6
+          },
+          "NadeLauncher": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Primary": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
-            "label": "Loadout",
+            "groupOrder": 3,
             "ranks": {
               "Astartes chainsword": {
                 "order": 1,
@@ -21296,6 +21346,10 @@
               },
               "Bolt rifle": {
                 "order": 0,
+                "term": "Bolt rifle",
+                "tracking": {
+                  "bolt": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Intercessor Squad—Bolt rifle"
@@ -21327,15 +21381,16 @@
                 ]
               }
             },
+            "statOrder": 0,
             "statType": "rank",
+            "tracked": true,
             "value": "Bolt rifle",
             "visibility": "active"
           },
-          "Loadout 2": {
+          "Secondary": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
-            "label": "Loadout",
+            "groupOrder": 3,
             "ranks": {
               "Astartes chainsword": {
                 "order": 1,
@@ -21378,15 +21433,10 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
             "value": "Close combat weapon",
             "visibility": "active"
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
           },
           "Sv": {
             "value": 3
