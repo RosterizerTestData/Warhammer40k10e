@@ -60,7 +60,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Daemons.manifest
 
 ### Death_Guard
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.manifest
 
 ### Thousand_Sons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.manifest
