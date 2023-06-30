@@ -1,6 +1,6 @@
 {
   "name": "Death Guard",
-  "revision": "10.1.7",
+  "revision": "10.1.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "GF36GA",
+      "slug": "QGPXRH",
       "name": "Chaos",
       "game": "Warhammer 40,000"
     }
@@ -184,7 +184,7 @@
             "Other"
           ]
         },
-        "text": "At the start of the battle round, select one of the abilities in the Host of Plagues section (see left). Until the start of the next battle round, this model has that ability."
+        "text": "At the start of the battle round, select one of the abilities in the Host of Plagues section (see below). Until the start of the next battle round, this model has that ability.\nMiasma of Pestilence (Aura): While a friendly Death Guard unit is within 6\" of this model, each time a ranged attack targets that unit, models in that unit have the Benefit of Cover against that attack.\nDiseased Influence (Aura): While a friendly Death Guard unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Wound roll of 1.\nToxic Presence (Aura): While a friendly Death Guard unit is within 12\" of this model, add 3\" to the Contagion Range of that unit."
       },
       "Ability§Hovering Death": {
         "keywords": {
@@ -498,7 +498,7 @@
             "value": 4
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Death Guard Chaos Lord": {
         "assets": {
@@ -536,34 +536,38 @@
             "Chaos Lord"
           ]
         },
+        "rules": {
+          "Twin lightning claw can not take other options": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "twin"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 5
-          },
-          "OC": {
-            "value": 1
-          },
-          "Points": {
-            "value": 75
-          },
-          "sampleLoadout": {
+          "Loadout 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Astartes chainsword": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Chaos Lord—Astartes chainsword"
-                  }
-                ]
-              },
               "Combi-weapon": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Chaos Lord—Combi-weapon"
@@ -571,7 +575,7 @@
                 ]
               },
               "Plague bolt pistol": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Chaos Lord—Plague bolt pistol"
@@ -587,7 +591,7 @@
                 ]
               },
               "Plague fist": {
-                "order": 5,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Guard Chaos Lord—Plague fist"
@@ -595,7 +599,7 @@
                 ]
               },
               "Plague-encrusted exalted weapon": {
-                "order": 6,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Guard Chaos Lord—Plague-encrusted exalted weapon"
@@ -603,7 +607,7 @@
                 ]
               },
               "Plasma pistol": {
-                "order": 3,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Weapon§Death Guard Chaos Lord—Plasma pistol"
@@ -611,7 +615,10 @@
                 ]
               },
               "Twin lightning claws": {
-                "order": 7,
+                "order": 6,
+                "tracking": {
+                  "twin": 1
+                },
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Guard Chaos Lord—Twin lightning claws"
@@ -620,8 +627,64 @@
               }
             },
             "statType": "rank",
-            "value": "Combi-weapon",
+            "value": "Plague bolt pistol",
             "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 3,
+                "tracking": {}
+              },
+              "Astartes chainsword": {
+                "order": 0,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord—Astartes chainsword"
+                  }
+                ]
+              },
+              "Plague fist": {
+                "order": 1,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord—Plague fist"
+                  }
+                ]
+              },
+              "Plague-encrusted exalted weapon": {
+                "order": 2,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord—Plague-encrusted exalted weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "normal"
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 75
           },
           "Sv": {
             "value": 3
@@ -633,7 +696,7 @@
             "value": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: plague bolt pistol; Astartes chainsword.\n\nThis model’s plague bolt pistol can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter ◦ 1 plague fist ◦ 1 plague-encrusted exalted weapon ◦ 1 plasma pistol\n\n*This model’s Astartes chainsword can be replaced with one of the following: ◦ 1 plague fist ◦ 1 plague-encrusted exalted weapon\n\n*This model’s plague bolt pistol and Astartes chainsword can be replaced with 1 twin lighting claws."
+        "text": ""
       },
       "Character§Death Guard Chaos Lord In Terminator Armour": {
         "assets": {
@@ -672,9 +735,121 @@
             "Chaos Lord"
           ]
         },
+        "rules": {
+          "Twin lightning claw can not take other options": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "twin"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Chaos Lord In Terminator Armour—Combi-weapon"
+                  }
+                ]
+              },
+              "Plague combi-bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Chaos Lord In Terminator Armour—Plague combi-bolter"
+                  }
+                ]
+              },
+              "Plague-encrusted exalted weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Plague-encrusted exalted weapon"
+                  }
+                ]
+              },
+              "Twin lightning claws": {
+                "order": 3,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Twin lightning claws"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague combi-bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 3
+              },
+              "Chainfist": {
+                "order": 1,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Chainfist"
+                  }
+                ]
+              },
+              "Plague fist": {
+                "order": 2,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Plague fist"
+                  }
+                ]
+              },
+              "Plague-encrusted exalted weapon": {
+                "order": 0,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Plague-encrusted exalted weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague-encrusted exalted weapon",
+            "visibility": "normal"
           },
           "M": {
             "value": 4
@@ -684,64 +859,6 @@
           },
           "Points": {
             "value": 100
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Chainfist": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Chainfist"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Chaos Lord In Terminator Armour—Combi-weapon"
-                  }
-                ]
-              },
-              "Plague combi-bolter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Chaos Lord In Terminator Armour—Plague combi-bolter"
-                  }
-                ]
-              },
-              "Plague fist": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Plague fist"
-                  }
-                ]
-              },
-              "Plague-encrusted exalted weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Plague-encrusted exalted weapon"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Chaos Lord In Terminator Armour—Twin lightning claws"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Combi-weapon",
-            "visibility": "active"
           },
           "Sv": {
             "value": 2
@@ -753,7 +870,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: plague combi-bolter; plague-encrusted exalted weapon.\n\nThis model’s plague combi-bolter can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 plague-encrusted exalted weapon\n\n*This model’s plague-encrusted exalted weapon can be replaced with one of the following: ◦ 1 chainfist ◦ 1 plague fist\n\n*This model’s plague combi-bolter and plague-encrusted exalted weapon can be replaced with 1 twin lighting claws."
+        "text": ""
       },
       "Character§Death Guard Daemon Prince": {
         "assets": {
@@ -820,7 +937,7 @@
             "value": 10
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Death Guard Daemon Prince with Wings": {
         "assets": {
@@ -889,7 +1006,7 @@
             "value": 10
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Death Guard Icon Bearer": {
         "assets": {
@@ -963,7 +1080,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Weapon§Death Guard Sorcerer In Terminator Armour—Curse of the Leper"
           ]
         },
         "keywords": {
@@ -983,9 +1101,132 @@
             "Sorcerer"
           ]
         },
+        "rules": {
+          "Twin lightning claw can not take other options": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "twin"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Sorcerer In Terminator Armour—Combi-weapon"
+                  }
+                ]
+              },
+              "Plague combi-bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Sorcerer In Terminator Armour—Plague combi-bolter"
+                  }
+                ]
+              },
+              "Plague-encrusted exalted weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Plague-encrusted exalted weapon"
+                  }
+                ]
+              },
+              "Twin lightning claws": {
+                "order": 3,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Twin lightning claws"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague combi-bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 4
+              },
+              "Chainfist": {
+                "order": 2,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Chainfist"
+                  }
+                ]
+              },
+              "Force weapon": {
+                "order": 0,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Force weapon"
+                  }
+                ]
+              },
+              "Plague fist": {
+                "order": 3,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Plague fist"
+                  }
+                ]
+              },
+              "Plague-encrusted exalted weapon": {
+                "order": 1,
+                "tracking": {
+                  "twin": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Plague-encrusted exalted weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague-encrusted exalted weapon",
+            "visibility": "normal"
           },
           "M": {
             "value": 4
@@ -995,80 +1236,6 @@
           },
           "Points": {
             "value": 80
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Chainfist": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Chainfist"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Sorcerer In Terminator Armour—Combi-weapon"
-                  }
-                ]
-              },
-              "Curse of the Leper": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Death Guard Sorcerer In Terminator Armour—Curse of the Leper"
-                  }
-                ]
-              },
-              "Force weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Force weapon"
-                  }
-                ]
-              },
-              "Plague combi-bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Sorcerer In Terminator Armour—Plague combi-bolter"
-                  }
-                ]
-              },
-              "Plague fist": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Plague fist"
-                  }
-                ]
-              },
-              "Plague-encrusted exalted weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Plague-encrusted exalted weapon"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Sorcerer In Terminator Armour—Twin lightning claws"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Combi-weapon",
-            "visibility": "active"
           },
           "Sv": {
             "value": 2
@@ -1080,7 +1247,7 @@
             "value": 5
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Curse of the Leper; plague combi-bolter; force weapon.\n\nThis model’s plague combi-bolter can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 plague-encrusted exalted weapon\n\n*This model’s force weapon can be replaced with one of the following: ◦ 1 chainfist ◦ 1 plague fist ◦ 1 plague-encrusted exalted weapon\n\n*This model’s plague combi-bolter and force weapon can be replaced with 1 twin lighting claws."
+        "text": ""
       },
       "Character§Foul Blightspawn": {
         "assets": {
@@ -1134,7 +1301,7 @@
             "value": 4
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Lord of Contagion": {
         "assets": {
@@ -1198,7 +1365,7 @@
             "value": 6
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Lord of Virulence": {
         "assets": {
@@ -1262,7 +1429,7 @@
             "value": 6
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Malignant Plaguecaster": {
         "assets": {
@@ -1318,7 +1485,7 @@
             "value": 4
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Mortarion": {
         "aspects": {
@@ -1343,7 +1510,6 @@
               }
             },
             "Ability§Nurgle’s Gift (aura)",
-            "Ability§Host of Plagues",
             "Ability§Lord of the Death Guard (aura)",
             "Ability§Supreme Commander",
             {
@@ -1364,7 +1530,8 @@
             },
             "Ranged Weapon§Mortarion—Rotwind",
             "Ranged Weapon§Mortarion—The Lantern",
-            "Weapon§Mortarion—Silence"
+            "Weapon§Mortarion—Silence",
+            "Ability§Host Of Plagues"
           ]
         },
         "keywords": {
@@ -1375,17 +1542,17 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Monster",
-            "Psyker",
-            "Fly",
-            "Character",
-            "Epic Hero",
-            "Daemon",
-            "Grenades",
             "Chaos",
+            "Character",
+            "Daemon",
+            "Epic Hero",
+            "Fly",
+            "Grenades",
+            "Monster",
+            "Mortarion",
             "Nurgle",
             "Primarch",
-            "Mortarion"
+            "Psyker"
           ]
         },
         "stats": {
@@ -1411,7 +1578,7 @@
             "value": 16
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “HOST OF PLAGUES” that must be added to the appropriate ability: \n\n* Miasma of Pestilence (Aura)\n* Diseased Influence (Aura)\n* Toxic Presence (Aura)"
+        "text": ""
       },
       "Character§Noxious Blightbringer": {
         "assets": {
@@ -1465,7 +1632,7 @@
             "value": 4
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Plague Surgeon": {
         "assets": {
@@ -1519,7 +1686,7 @@
             "value": 4
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Tallyman": {
         "assets": {
@@ -1573,7 +1740,7 @@
             "value": 4
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Character§Typhus": {
         "aspects": {
@@ -1641,7 +1808,213 @@
             "value": 6
           }
         },
-        "text": "done"
+        "text": ""
+      },
+      "Detachment§Plague Company": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Ferric Blight"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Sanguous Flux"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Disgustingly Resilient"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Gifts of Decay"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Boilblight"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Cloud of Flies"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "SPREAD THE SICKNESS\nIf you control an objective marker at the end of your Command phase and a Death Guard unit from your army is within range of that objective marker, that objective marker is said to be Infected and remains under your control even if you have no models within range of it, until your opponent controls it at the start or end of any turn. In addition, while an objective marker is Infected and under your control, it has the Nurgle’s Gift ability as if it were a unit from your army (so enemy units within Contagion Range of it will have their Toughness characteristic modified)."
+      },
+      "Enhancement§Deadly Pathogen": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ]
+        },
+        "rules": {
+          "Ability": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Death Guard model only. Add 1 to the Strength\nand Attacks characteristics of the bearer’s melee\nweapons. While the bearer is within range of an\nInfected objective marker you control, add 2 to the\nStrength and Attacks characteristics of the bearer’s\nmelee weapons instead."
+      },
+      "Enhancement§Living Plague": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Death Guard model only. Add 3\" to the range of the\nbearer’s Aura abilities (including Nurgle’s Gift)."
+      },
+      "Enhancement§Shamblerot": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Death Guard model only. Each time the bearer’s unit\nis selected as a target of an enemy unit’s charge, until\nthe end of the phase, subtract 2 from Charge rolls\nmade for that enemy unit."
+      },
+      "Enhancement§The Droning (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Death Guard model only. While an enemy unit is\nwithin Contagion Range of the bearer, each time that\nunit fails a Battle-shock test, roll one D6: on a 2-5, that\nunit suffers 1 mortal wound; on a 6, that unit suffers\nD3 mortal wounds."
       },
       "Melee Weapon§Biologus Putrifier—Plague knives": {
         "assets": {
@@ -3280,81 +3653,49 @@
         }
       },
       "Model§Blightlord Champion": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Blightlord Terminators—Bubotic blade"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 4
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Blight launcher": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Blightlord Terminators—Blight launcher"
-                  }
-                ]
-              },
-              "Bubotic blade": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Blightlord Terminators—Bubotic blade"
-                  }
-                ]
-              },
               "Combi-weapon": {
                 "order": 1,
+                "tracking": {
+                  "combi": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Combi-weapon"
                   }
                 ]
               },
-              "Flail of corruption": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Blightlord Terminators—Flail of corruption"
-                  }
-                ]
-              },
               "Plague combi-bolter": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Plague combi-bolter"
                   }
                 ]
-              },
-              "Plague spewer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Blightlord Terminators—Plague spewer"
-                  }
-                ]
-              },
-              "Reaper autocannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Blightlord Terminators—Reaper autocannon"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Blight launcher",
+            "value": "Plague combi-bolter",
             "visibility": "active"
+          },
+          "M": {
+            "value": 4
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 2
@@ -3367,33 +3708,25 @@
           }
         }
       },
-      "Model§Blightlord Terminators": {
+      "Model§Blightlord Terminator": {
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 4
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
               "Blight launcher": {
-                "order": 0,
+                "order": 2,
+                "tracking": {
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Blight launcher"
-                  }
-                ]
-              },
-              "Bubotic blade": {
-                "order": 5,
-                "traits": [
+                  },
                   {
                     "trait": "Melee Weapon§Blightlord Terminators—Bubotic blade"
                   }
@@ -3401,14 +3734,23 @@
               },
               "Combi-weapon": {
                 "order": 1,
+                "tracking": {
+                  "combi": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Combi-weapon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Blightlord Terminators—Bubotic blade"
                   }
                 ]
               },
               "Flail of corruption": {
-                "order": 6,
+                "order": 5,
+                "tracking": {
+                  "flail": 1
+                },
                 "traits": [
                   {
                     "trait": "Melee Weapon§Blightlord Terminators—Flail of corruption"
@@ -3416,33 +3758,54 @@
                 ]
               },
               "Plague combi-bolter": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Plague combi-bolter"
+                  },
+                  {
+                    "trait": "Melee Weapon§Blightlord Terminators—Bubotic blade"
                   }
                 ]
               },
               "Plague spewer": {
-                "order": 3,
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Plague spewer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Blightlord Terminators—Bubotic blade"
                   }
                 ]
               },
               "Reaper autocannon": {
-                "order": 4,
+                "order": 3,
+                "tracking": {
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Blightlord Terminators—Reaper autocannon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Blightlord Terminators—Bubotic blade"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Blight launcher",
+            "value": "Plague combi-bolter",
             "visibility": "active"
+          },
+          "M": {
+            "value": 4
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 2
@@ -3639,31 +4002,23 @@
         }
       },
       "Model§Deathshroud Champion": {
+        "assets": {
+          "traits": [
+            "Weapon§Deathshroud Terminators—Manreaper",
+            "Ranged Weapon§Deathshroud Terminators—Plaguespurt gauntlet"
+          ]
+        },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 4
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Extra Plaguespurt gauntlet": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Manreaper": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Deathshroud Terminators—Manreaper"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Plaguespurt gauntlet": {
-                "order": 0,
+              "1": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Deathshroud Terminators—Plaguespurt gauntlet"
@@ -3672,8 +4027,17 @@
               }
             },
             "statType": "rank",
-            "value": "Plaguespurt gauntlet",
+            "value": "0",
             "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 4
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 2
@@ -3686,7 +4050,13 @@
           }
         }
       },
-      "Model§Deathshroud Terminators": {
+      "Model§Deathshroud Terminator": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Deathshroud Terminators—Plaguespurt gauntlet",
+            "Weapon§Deathshroud Terminators—Manreaper"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -3696,32 +4066,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Manreaper": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Deathshroud Terminators—Manreaper"
-                  }
-                ]
-              },
-              "Plaguespurt gauntlet": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathshroud Terminators—Plaguespurt gauntlet"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Plaguespurt gauntlet",
-            "visibility": "active"
           },
           "Sv": {
             "value": 2
@@ -5583,6 +5927,37 @@
           },
           "weaponName": {
             "value": "Twin plague heavy bolter"
+          }
+        }
+      },
+      "Ranged Weapon§Death Guard Predator Annihilator - Predator twin lascannon": {
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6+1"
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 14
+          },
+          "weaponName": {
+            "value": "Predator twin lascannon"
           }
         }
       },
@@ -7485,16 +7860,152 @@
           }
         }
       },
+      "Stratagem§Boilblight": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "WHEN: Your Shooting phase.\nTARGET: One Death Guard unit from\nyour army, and one enemy unit within\nContagion Range of that unit.\nEFFECT: Until the end of the phase, each\ntime a weapon equipped by a Death\nGuard model from your army targets that\nenemy unit, that weapon has the [HEAVY]\nand [IGNORES COVER] abilities."
+      },
+      "Stratagem§Cloud of Flies": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "WHEN: Your opponent’s Shooting phase,\njust after an enemy unit has selected\nits targets.\nTARGET: One Death Guard unit from your\narmy that was selected as the target of\none or more of that enemy unit’s attacks.\nEFFECT: Until the end of the phase, your\nunit has the Stealth ability."
+      },
+      "Stratagem§Disgustingly Resilient": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "WHEN: Fight phase, just after an enemy\nunit has selected its targets.\nTARGET: One Death Guard unit from your\narmy that was selected as the target of\none or more of that enemy unit’s attacks.\nEFFECT: Until the end of the phase, each\ntime an attack is allocated to a model in\nyour unit, subtract 1 from the Damage\ncharacteristic of that attack."
+      },
+      "Stratagem§Ferric Blight": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "WHEN: Your Shooting phase or the\nFight phase.\nTARGET: One Death Guard unit from your\narmy that has not been selected to shoot\nor fight this phase.\nEFFECT: Until the end of the phase, each\ntime a model in your unit makes an\nattack, improve the Armour Penetration\ncharacteristic of that attack by 1. If the\ntarget of that attack is within Contagion\nRange of an Infected objective marker\nyou control and a Critical Wound is scored\nfor that attack, improve the Armour\nPenetration characteristic of that attack\nby 2 instead."
+      },
+      "Stratagem§Gifts of Decay": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "WHEN: Your Command phase.\nTARGET: One Death Guard model from\nyour army.\nEFFECT: Your model regains up to D3 lost\nwounds. If your model’s unit is within\nContagion Range of an Infected objective\nmarker you control, your model regains\nup to 3 lost wounds instead."
+      },
+      "Stratagem§Sanguous Flux": {
+        "keywords": {
+          "Keywords": [
+            "Plague Company"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "WHEN: Fight phase.\nTARGET: One Death Guard unit from your\narmy that has not been selected to fight\nthis phase.\nEFFECT: Until the end of the phase,\nweapons equipped by models in your unit\nhave the [SUSTAINED HITS 1] ability. While\nyour unit is within range of an Infected\nobjective marker you control, those\nweapons have the [SUSTAINED HITS 2]\nability instead."
+      },
       "Unit§Blightlord Terminators": {
         "allowed": {
           "items": [
-            "Model§Blightlord Terminators"
+            "Model§Blightlord Terminator"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Blightlord Terminators",
+              "item": "Model§Blightlord Terminator",
               "quantity": 4
             }
           ],
@@ -7528,8 +8039,182 @@
             "Blightlord Terminators"
           ]
         },
+        "rules": {
+          "1 in 5 models can have a blight launcher or reaper autocannon": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a flail",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 models can have a flail": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a flail",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "flail"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 models can have a plague spewer": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a flail",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "3 in 5 models can have a combi-weapon": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 1.6
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "3 in 5 models can have a combi-weapon",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "combi"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
-          "Blightlord Terminators": {
+          "Blightlord Terminator": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -7547,7 +8232,7 @@
             "value": 175
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: plague combi-bolter; bubotic blade.\n\nFor every 5 models in this unit: ◦  Up to 3 models’ plague combi-bolters can each be replaced with 1 combi-weapon. ◦  1 Blightlord Terminator’s plague combi-bolter can be replaced with one of the following: 1 blight launcher; 1 reaper autocannon. ◦  1 Blightlord Terminator’s plague combi-bolter can be replaced with 1 plague spewer. ◦  1 Blightlord Terminator’s plague combi-bolter and bubotic blade can be replaced with 1 flail of corruption."
+        "text": ""
       },
       "Unit§Death Guard Chaos Spawn": {
         "allowed": {
@@ -7796,7 +8481,7 @@
             "value": 55
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Unit§Death Guard Defiler": {
         "assets": {
@@ -7826,7 +8511,9 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Death Guard Defiler—Defiler cannon",
+            "Melee Weapon§Death Guard Defiler—Defiler claws"
           ]
         },
         "keywords": {
@@ -7850,46 +8537,13 @@
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 8
-          },
-          "OC": {
-            "value": 5
-          },
-          "Points": {
-            "value": 205
-          },
-          "sampleLoadout": {
+          "Loadout 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Defiler—Combi-weapon"
-                  }
-                ]
-              },
-              "Defiler cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Defiler—Defiler cannon"
-                  }
-                ]
-              },
-              "Defiler claws": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Defiler—Defiler claws"
-                  }
-                ]
-              },
               "Defiler scourge": {
-                "order": 9,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Guard Defiler—Defiler scourge"
@@ -7897,39 +8551,41 @@
                 ]
               },
               "Havoc launcher": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Defiler—Havoc launcher"
                   }
                 ]
               },
-              "Plague combi-bolter": {
-                "order": 3,
+              "Twin heavy flamer": {
+                "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Death Guard Defiler—Plague combi-bolter"
+                    "trait": "Ranged Weapon§Death Guard Defiler—Twin heavy flamer"
                   }
                 ]
-              },
+              }
+            },
+            "statType": "rank",
+            "value": "Twin heavy flamer",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Reaper autocannon": {
-                "order": 4,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Defiler—Reaper autocannon"
                   }
                 ]
               },
-              "Twin heavy flamer": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Defiler—Twin heavy flamer"
-                  }
-                ]
-              },
               "Twin lascannon": {
-                "order": 6,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Defiler—Twin lascannon"
@@ -7937,7 +8593,7 @@
                 ]
               },
               "Twin plague heavy bolter": {
-                "order": 7,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Defiler—Twin plague heavy bolter"
@@ -7946,8 +8602,46 @@
               }
             },
             "statType": "rank",
-            "value": "Combi-weapon",
-            "visibility": "active"
+            "value": "Reaper autocannon",
+            "visibility": "normal"
+          },
+          "Loadout 3": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Defiler—Combi-weapon"
+                  }
+                ]
+              },
+              "Plague combi-bolter": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Defiler—Plague combi-bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 5
+          },
+          "Points": {
+            "value": 205
           },
           "Sv": {
             "value": 3
@@ -7959,7 +8653,7 @@
             "value": 14
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.\n\nThis model’s twin heavy flamer can be replaced with one of the following: ◦ 1 Defiler scourge ◦ 1 havoc launcher\n\n*This model’s reaper autocannon can be replaced with one of the following: ◦ 1 twin lascannon ◦ 1 twin plague heavy bolter\n\n*This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter"
+        "text": ""
       },
       "Unit§Death Guard Helbrute": {
         "assets": {
@@ -7975,7 +8669,8 @@
             "Ability§Nurgle’s Gift (aura)",
             "Ability§Infused with the Blessings of Nurgle",
             "Ability§Enraged Impact",
-            "Ability§Helbrute Fists"
+            "Ability§Helbrute Fists",
+            "Melee Weapon§Death Guard Helbrute—Close combat weapon"
           ]
         },
         "keywords": {
@@ -7993,53 +8688,145 @@
             "Helbrute"
           ]
         },
+        "rules": {
+          "Maximum 1 Plague combi-bolter or Heavy flamer per helbrute fist": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "fist"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "Maximum 1 Plague combi-bolter or Heavy flamer per helbrute fist",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 3
-          },
-          "Points": {
-            "value": 155
-          },
-          "sampleLoadout": {
+          "1 per Helbrute fist": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Close combat weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Helbrute—Close combat weapon"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Heavy flamer": {
-                "order": 0,
+              "1 Heavy flamer": {
+                "order": 3,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Helbrute—Heavy flamer"
                   }
                 ]
               },
-              "Helbrute fist": {
-                "order": 9,
+              "1 Plague combi-bolter": {
+                "order": 1,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute fist"
+                    "trait": "Ranged Weapon§Death Guard Helbrute—Plague combi-bolter"
                   }
                 ]
               },
-              "Helbrute hammer": {
-                "order": 10,
+              "2 Heavy flamer": {
+                "order": 4,
+                "tracking": {
+                  "special": 2
+                },
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute hammer"
+                    "trait": {
+                      "item": "Ranged Weapon§Death Guard Helbrute—Heavy flamer",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "2 Plague combi-bolters": {
+                "order": 2,
+                "tracking": {
+                  "special": 2
+                },
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Death Guard Helbrute—Plague combi-bolter",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "Heavy flamer & Plague combi-bolter": {
+                "order": 5,
+                "tracking": {
+                  "special": 2
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Helbrute—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Death Guard Helbrute—Plague combi-bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Helbrute fist": {
+                "order": 5,
+                "tracking": {
+                  "fist": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute fist"
                   }
                 ]
               },
@@ -8051,40 +8838,16 @@
                   }
                 ]
               },
-              "Missile launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Death Guard Helbrute—Missile launcher"
-                  }
-                ]
-              },
               "Multi-melta": {
-                "order": 3,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Helbrute—Multi-melta"
                   }
                 ]
               },
-              "Plague combi-bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Helbrute—Plague combi-bolter"
-                  }
-                ]
-              },
-              "Power scourge": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Helbrute—Power scourge"
-                  }
-                ]
-              },
               "Twin autocannon": {
-                "order": 5,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Helbrute—Twin autocannon"
@@ -8092,7 +8855,7 @@
                 ]
               },
               "Twin lascannon": {
-                "order": 6,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Helbrute—Twin lascannon"
@@ -8100,7 +8863,7 @@
                 ]
               },
               "Twin plague heavy bolter": {
-                "order": 7,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Helbrute—Twin plague heavy bolter"
@@ -8109,8 +8872,62 @@
               }
             },
             "statType": "rank",
-            "value": "Heavy flamer",
+            "value": "Multi-melta",
             "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Helbrute fist": {
+                "order": 1,
+                "tracking": {
+                  "fist": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute fist"
+                  }
+                ]
+              },
+              "Helbrute hammer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute hammer"
+                  }
+                ]
+              },
+              "Missile launcher": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Death Guard Helbrute—Missile launcher"
+                  }
+                ]
+              },
+              "Power scourge": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Helbrute—Power scourge"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Missile launcher",
+            "visibility": "normal"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 155
           },
           "Sv": {
             "value": 2
@@ -8122,7 +8939,7 @@
             "value": 8
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: multi-melta; missile launcher; close combat weapon.\n\nThis model’s multi-melta can be replaced with one of the following: ◦ 1 Helbrute plasma cannon ◦ 1 twin autocannon ◦ 1 twin lascannon ◦ 1 twin plague heavy bolter ◦ 1 Helbrute fist\n\n*This model’s missile launcher can be replaced with one of the following: ◦ 1 Helbrute fist ◦ 1 Helbrute hammer ◦ 1 power scourge\n\n*For each Helbrute fist this model is equipped with, it can be equipped with one of the following: ◦ 1 plague combi-bolter ◦ 1 heavy flamer"
+        "text": ""
       },
       "Unit§Death Guard Land Raider": {
         "assets": {
@@ -8148,7 +8965,13 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Death Guard Infantry models (excluding Cultist and Poxwalker models). Each Terminator model takes up the space of 2 models."
-            }
+            },
+            {
+              "item": "Ranged Weapon§Death Guard Land Raider—Soulshatter lascannon",
+              "quantity": 2
+            },
+            "Ranged Weapon§Death Guard Land Raider—Twin plague heavy bolter",
+            "Melee Weapon§Death Guard Land Raider—Armoured tracks"
           ]
         },
         "keywords": {
@@ -8168,44 +8991,43 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 10
-          },
-          "OC": {
-            "value": 5
-          },
-          "Points": {
-            "value": 250
-          },
-          "sampleLoadout": {
+          "Havoc Launcher": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Land Raider—Armoured tracks"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Land Raider—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
+              "1": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Land Raider—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Land Raider—Combi-weapon"
                   }
                 ]
               },
@@ -8216,27 +9038,20 @@
                     "trait": "Ranged Weapon§Death Guard Land Raider—Plague combi-bolter"
                   }
                 ]
-              },
-              "Soulshatter lascannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Land Raider—Soulshatter lascannon"
-                  }
-                ]
-              },
-              "Twin plague heavy bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Land Raider—Twin plague heavy bolter"
-                  }
-                ]
               }
             },
             "statType": "rank",
             "value": "Combi-weapon",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 5
+          },
+          "Points": {
+            "value": 250
           },
           "Sv": {
             "value": 2
@@ -8248,7 +9063,7 @@
             "value": 16
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 soulshatter lascannons; twin plague heavy bolter; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§Death Guard Predator Annihilator": {
         "assets": {
@@ -8270,7 +9085,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Melee Weapon§Death Guard Predator Annihilator—Armoured tracks",
+            "Ranged Weapon§Death Guard Predator Annihilator - Predator twin lascannon"
           ]
         },
         "keywords": {
@@ -8289,8 +9106,87 @@
           ]
         },
         "stats": {
+          "Havoc Launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "2 Lascannons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Lascannon"
+                  }
+                ]
+              },
+              "2 Plague heavy bolters": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Plague heavy bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Combi-weapon"
+                  }
+                ]
+              },
+              "Plague combi-bolter": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Plague combi-bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           },
           "M": {
             "value": 10
@@ -8300,64 +9196,6 @@
           },
           "Points": {
             "value": 130
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Predator Annihilator—Armoured tracks"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Havoc launcher"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Lascannon"
-                  }
-                ]
-              },
-              "Plague combi-bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Plague combi-bolter"
-                  }
-                ]
-              },
-              "Plague heavy bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Annihilator—Plague heavy bolter"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Combi-weapon",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -8369,7 +9207,7 @@
             "value": 11
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Predator twin lascannon; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 2 lascannons ◦ 2 plague heavy bolters\n\n*This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§Death Guard Predator Destructor": {
         "assets": {
@@ -8391,7 +9229,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Death Guard Predator Destructor—Predator autocannon",
+            "Melee Weapon§Death Guard Predator Destructor—Armoured tracks"
           ]
         },
         "keywords": {
@@ -8410,8 +9250,93 @@
           ]
         },
         "stats": {
+          "Havoc Launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "2 Lascannons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Death Guard Predator Destructor—Lascannon",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "2 Plague heavy bolters": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Death Guard Predator Destructor—Plague heavy bolter",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Combi-weapon"
+                  }
+                ]
+              },
+              "Plague combi-bolter": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Plague combi-bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           },
           "M": {
             "value": 10
@@ -8421,72 +9346,6 @@
           },
           "Points": {
             "value": 140
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Armoured tracks": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Predator Destructor—Armoured tracks"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Havoc launcher"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Lascannon"
-                  }
-                ]
-              },
-              "Plague combi-bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Plague combi-bolter"
-                  }
-                ]
-              },
-              "Plague heavy bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Plague heavy bolter"
-                  }
-                ]
-              },
-              "Predator autocannon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Predator Destructor—Predator autocannon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Combi-weapon",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -8524,7 +9383,9 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Death Guard Infantry models. It cannot transport Terminator, Cultist or Poxwalker models."
-            }
+            },
+            "Ranged Weapon§Death Guard Rhino—Plague combi-bolter",
+            "Melee Weapon§Death Guard Rhino—Armoured tracks"
           ]
         },
         "keywords": {
@@ -8545,44 +9406,43 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 12
-          },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 80
-          },
-          "sampleLoadout": {
+          "Havoc Launcher": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Armoured tracks": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Rhino—Armoured tracks"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Combi-weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Guard Rhino—Combi-weapon"
-                  }
-                ]
-              },
-              "Havoc launcher": {
+              "1": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Guard Rhino—Havoc launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Guard Rhino—Combi-weapon"
                   }
                 ]
               },
@@ -8599,6 +9459,15 @@
             "value": "Combi-weapon",
             "visibility": "active"
           },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 80
+          },
           "Sv": {
             "value": 3
           },
@@ -8609,18 +9478,18 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: plague combi-bolter; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 additional plague combi-bolter\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§Deathshroud Terminators": {
         "allowed": {
           "items": [
-            "Model§Deathshroud Terminators"
+            "Model§Deathshroud Terminator"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Deathshroud Terminators",
+              "item": "Model§Deathshroud Terminator",
               "quantity": 2
             }
           ],
@@ -8655,7 +9524,7 @@
           ]
         },
         "stats": {
-          "Deathshroud Terminators": {
+          "Deathshroud Terminator": {
             "max": 5,
             "min": 2,
             "statType": "numeric",
@@ -8673,7 +9542,7 @@
             "value": 140
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: plaguespurt gauntlet; manreaper.\n\nThe Deathshroud Champion can be equipped with 1 additional plaguespurt gauntlet."
+        "text": ""
       },
       "Unit§Foetid Bloat-drone": {
         "assets": {
@@ -8695,7 +9564,8 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Foetid Bloat-drone—Plague probe"
           ]
         },
         "keywords": {
@@ -8718,6 +9588,43 @@
           "Ld": {
             "value": 6
           },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Plaguespitters": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Foetid Bloat-drone—Plaguespitter",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "Fleshmower": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Foetid Bloat-drone—Fleshmower"
+                  }
+                ]
+              },
+              "Heavy blight launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Foetid Bloat-drone—Heavy blight launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy blight launcher",
+            "visibility": "active"
+          },
           "M": {
             "value": 10
           },
@@ -8726,48 +9633,6 @@
           },
           "Points": {
             "value": 135
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Fleshmower": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Foetid Bloat-drone—Fleshmower"
-                  }
-                ]
-              },
-              "Heavy blight launcher": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Foetid Bloat-drone—Heavy blight launcher"
-                  }
-                ]
-              },
-              "Plague probe": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Foetid Bloat-drone—Plague probe"
-                  }
-                ]
-              },
-              "Plaguespitter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Foetid Bloat-drone—Plaguespitter"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy blight launcher",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -8779,7 +9644,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: fleshmower; plague probe.\n\nThis model’s fleshmower can be replaced with one of the following: ◦ 1 heavy blight launcher ◦ 2 plaguespitters"
+        "text": ""
       },
       "Unit§Miasmic Malignifier": {
         "assets": {
@@ -9188,7 +10053,7 @@
             "value": 100
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Unit§Plagueburst Crawler": {
         "assets": {
@@ -9218,7 +10083,9 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Plagueburst Crawler—Plagueburst mortar",
+            "Melee Weapon§Plagueburst Crawler—Armoured tracks"
           ]
         },
         "keywords": {
@@ -9237,6 +10104,38 @@
           ]
         },
         "stats": {
+          "Cannon Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Entropy cannons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Plagueburst Crawler—Entropy cannon",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              },
+              "2 Plaguespitters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Ranged Weapon§Plagueburst Crawler—Plaguespitter",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Entropy cannons",
+            "visibility": "active"
+          },
           "Ld": {
             "value": 6
           },
@@ -9249,53 +10148,21 @@
           "Points": {
             "value": 175
           },
-          "sampleLoadout": {
+          "Slugger Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Plagueburst Crawler—Armoured tracks"
-                  }
-                ]
-              },
-              "Entropy cannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Plagueburst Crawler—Entropy cannon"
-                  }
-                ]
-              },
               "Heavy slugger": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Plagueburst Crawler—Heavy slugger"
                   }
                 ]
               },
-              "Plagueburst mortar": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Plagueburst Crawler—Plagueburst mortar"
-                  }
-                ]
-              },
-              "Plaguespitter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Plagueburst Crawler—Plaguespitter"
-                  }
-                ]
-              },
               "Rothail volley gun": {
-                "order": 4,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Plagueburst Crawler—Rothail volley gun"
@@ -9304,8 +10171,8 @@
               }
             },
             "statType": "rank",
-            "value": "Entropy cannon",
-            "visibility": "active"
+            "value": "Heavy slugger",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 2
@@ -9317,7 +10184,7 @@
             "value": 12
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 entropy cannons; heavy slugger; Plagueburst mortar; armoured tracks.\n\nThis model’s 2 entropy cannons can be replaced with 2 plaguespitters.\n\n*This model’s heavy slugger can be replaced with 1 rothail volley gun."
+        "text": ""
       },
       "Unit§Poxwalkers": {
         "allowed": {
@@ -9378,7 +10245,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "done"
+        "text": ""
       },
       "Weapon§Death Guard Chaos Lord—Plasma pistol": {
         "assets": {
