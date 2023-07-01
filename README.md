@@ -24,7 +24,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blo
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
 
 ### SM_Deathwatch
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifest
 
 ### SM_Space_Wolves
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
@@ -42,7 +42,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptu
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifes
 
 ### Grey_Knights
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.manifest
 
 ### Imperial_Agents
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Agents.manifest
@@ -69,7 +69,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousa
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
 
 ### Aeldari
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifest
 
 ### Drukhari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Drukhari.manifest
@@ -90,5 +90,4 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_E
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest
 
 ### Genestealer Cults
-
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Genestealer_Cults.manifest
