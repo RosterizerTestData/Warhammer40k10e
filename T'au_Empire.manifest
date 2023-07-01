@@ -1,6 +1,6 @@
 {
   "name": "T’au Empire",
-  "revision": "10.2.0",
+  "revision": "10.1.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3342,7 +3342,9 @@
         "allowed": {
           "items": [
             "Model§Kroot Farstalkers",
-            "Model§Kroot Hounds"
+            "Model§Kroot Hounds",
+            "Model§Kroot Farstalkers w/ Dvorgite Skinner",
+            "Model§Kroot Farstalkers w/ Londaxi Tribalest"
           ]
         },
         "assets": {
@@ -3378,48 +3380,35 @@
             "Farstalkers"
           ]
         },
-        "rules": {
-          "Hounds LD": {
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Kroot Hounds"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "stats": {
           "Kroot Farstalkers": {
             "max": 9,
-            "min": 9,
+            "min": 8,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
           },
-          "Kroot Farstalkers—Dvorgite skinner": {
+          "Kroot Farstalkers w/ Dvorgite Skinner": {
             "max": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
           },
-          "Kroot Hounds": {
-            "max": 2,
-            "min": 2,
+          "Kroot Farstalkers w/ Londaxi Tribalest": {
+            "max": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
+            "visibility": "hidden"
+          },
+          "Kroot Special Weapons": {
+            "group": "Loadout",
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": null,
             "visibility": "hidden"
           },
           "Ld": {
@@ -3499,7 +3488,7 @@
                     "value"
                   ]
                 ],
-                "value": 7
+                "value": null
               }
             ],
             "evals": [
@@ -3510,14 +3499,15 @@
                 "paths": [
                   [
                     "{parent}",
-                    "tally",
-                    "Kroot Farstalkers"
+                    "designation"
                   ]
-                ]
+                ],
+                "value": "Kroot Farstalkers"
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 1
           }
         },
         "stats": {
@@ -7580,6 +7570,7 @@
             "ranks": {
               "Dvorgite skinner": {
                 "order": 0,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
@@ -7596,6 +7587,7 @@
               },
               "Londaxi tribalest": {
                 "order": 2,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest"
@@ -7604,7 +7596,135 @@
               }
             },
             "statType": "rank",
+            "tracked": true,
             "value": "Farstalker firearm",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Kroot Farstalkers w/ Dvorgite Skinner": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Kroot Farstalkers—Kroot pistol"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "Melee Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Close Combat Weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Kroot Farstalkers—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Close Combat Weapon",
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Range Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Dvorgite skinner": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "Dvorgite skinner",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Kroot Farstalkers w/ Londaxi Tribalest": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Kroot Farstalkers—Kroot pistol"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "Melee Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Close Combat Weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Kroot Farstalkers—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Close Combat Weapon",
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Range Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Londaxi tribalest": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "Londaxi tribalest",
             "visibility": "active"
           },
           "Sv": {
@@ -7672,6 +7792,7 @@
               }
             },
             "statType": "rank",
+            "tracked": true,
             "value": "Ritual blade",
             "visibility": "normal"
           },
@@ -8017,14 +8138,11 @@
       "Model§Stealth Shas’ui": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Stealth Battlesuits—Burst cannon",
             "Melee Weapon§Stealth Battlesuits—Battlesuit fists"
           ]
         },
         "removed": {
-          "stats": {
-            "modelName": {}
-          }
+          "stats": {}
         },
         "stats": {
           "Ld": {
@@ -8038,7 +8156,7 @@
           },
           "Ranged Weapon": {
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 7,
             "ranks": {
               "Burst cannon": {
                 "order": 0,
@@ -8072,10 +8190,86 @@
           ]
         },
         "stats": {
+          "1st Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Gun Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Gun Drone"
+                  }
+                ]
+              },
+              "Marker Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Marker Drone"
+                  }
+                ]
+              },
+              "N/A": {
+                "order": 0
+              },
+              "Shield Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "N/A",
+            "visibility": "normal"
+          },
+          "2nd Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Gun Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Gun Drone"
+                  }
+                ]
+              },
+              "Marker Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Marker Drone"
+                  }
+                ]
+              },
+              "N/A": {
+                "order": 0
+              },
+              "Shield Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "N/A",
+            "visibility": "normal"
+          },
           "Battlesuit Support System": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 7,
             "ranks": {
               "Battlesuit Support System": {
                 "order": 1,
@@ -8105,7 +8299,7 @@
           "Ranged Weapon": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 7,
             "ranks": {
               "Burst cannon": {
                 "order": 0,
@@ -14517,7 +14711,8 @@
           "W": {
             "value": 12
           }
-        }
+        },
+        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: accelerator burst cannon; quad ion turret; 2 seeker missiles; armoured hull.\n\nThis model’s accelerator burst cannon can be replaced with 1 missile pod."
       },
       "Vehicle§Remora Stealth Drones": {
         "allowed": {
@@ -14854,7 +15049,8 @@
           "W": {
             "value": 14
           }
-        }
+        },
+        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 1 seeker missile rack; 2 twin pulse carbines; armoured hull.\n\nThis model’s 2 twin pulse carbines can be replaced with one of the following: ◦ 2 accelerator burst cannons ◦ 2 twin smart missile systems"
       },
       "Vehicle§Stormsurge": {
         "assets": {
@@ -16160,6 +16356,14 @@
           "weaponName": {
             "value": "Kroot rifle"
           }
+        }
+      },
+      "Weapon§Kroot Special Weapons": {
+        "assets": {
+          "included": [
+            "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest",
+            "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
+          ]
         }
       },
       "Weapon§Longstrike—Ion cannon": {
