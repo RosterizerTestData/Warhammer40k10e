@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.2.20",
+  "revision": "10.2.21",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -553,7 +553,7 @@
         },
         "text": "This model cannot be selected as your Warlord."
       },
-      "Ability§Lead From the Front": {
+      "Ability§Lead from the Front": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -1087,6 +1087,14 @@
         "text": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability."
       },
       "Ability§Tank Commander": {
+        "keywords": {
+          "Keywords": [
+            "Special"
+          ]
+        },
+        "text": "While this model is commanding a Vehicle\nmodel (see Tank Commander (Deployment)):\n\n* Ranged weapons equipped by that Vehicle model have a \nBallistic Skill characteristic of 2+.\n\n* Each time that Vehicle model is selected to shoot, you can \nre-roll one Wound roll when resolving those attacks."
+      },
+      "Ability§Tank Commander (Deployment)": {
         "keywords": {
           "Keywords": [
             "Special"
@@ -3082,7 +3090,7 @@
               "text": "This model can be attached to the following units:\n\n\n\n* Assault Squad\n\n\n\n* Command Squad\n\n\n\n* Sternguard Veteran Squad\n\n\n\n* Tactical Squad\n\n\n\n* Vanguard Veteran Squad"
             },
             "Ability§Oath of Moment",
-            "Ability§Lead From the Front",
+            "Ability§Lead from the Front",
             "Ability§Lightning Assault",
             {
               "item": "Ability§Invulnerable",
@@ -5401,7 +5409,7 @@
                 }
               }
             },
-            "Model§Marneus Calgar – Epic Hero"
+            "Model§Marneus Calgar"
           ]
         },
         "keywords": {
@@ -5413,15 +5421,8 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "ALL MODELS",
             "Infantry",
             "Imperium",
-            "|",
-            "MARNEUS CALGAR",
-            "Character",
-            "Epic Hero",
-            "Gravis",
-            "Chapter Master",
             "Marneus Calgar"
           ]
         },
@@ -5458,7 +5459,7 @@
             },
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Command Squad\n\n\n\n* Sternguard Veteran Squad\n\n\n\n* Tactical Squad CRIMSON FISTS This model is from the Crimson Fists Chapter, a successor of the Imperial Fists. For all rules purposes, it is treated as an Imperial Fists model, but it cannot be included in an army that includes any other Imperial Fists Epic Hero models."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Command Squad\n\n\n\n* Sternguard Veteran Squad\n\n\n\n* Tactical Squad"
             },
             "Ability§Oath of Moment",
             "Ability§Oath of Rynn",
@@ -5493,6 +5494,44 @@
             "Chapter Master",
             "Pedro Kantor"
           ]
+        },
+        "rules": {
+          "Pedro Kantor cannot be included with any other IMPERIAL FISTS EPIC HERO models": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Tor Garadon",
+                    "quantity"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Darnath Lysander",
+                    "quantity"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "warning"
+          }
         },
         "stats": {
           "Ld": {
@@ -6555,9 +6594,9 @@
             "Ability§Oath of Moment",
             "Ability§Tank Commander",
             "Ability§Chronus",
-            "Ability§Tank Commander",
             "Ranged Weapon§Sergeant Chronus—Bolt pistol",
-            "Melee Weapon§Sergeant Chronus—Chronus’ servo-arm"
+            "Melee Weapon§Sergeant Chronus—Chronus’ servo-arm",
+            "Ability§Tank Commander (Deployment)"
           ]
         },
         "keywords": {
@@ -14709,7 +14748,7 @@
             "value": 8
           },
           "weaponName": {
-            "value": "Gauntlets of Ultramar"
+            "value": "melee"
           },
           "WS": {
             "value": 2
@@ -21618,10 +21657,19 @@
           }
         }
       },
-      "Model§Marneus Calgar – Epic Hero": {
+      "Model§Marneus Calgar": {
         "assets": {
           "traits": [
             "Weapon§Marneus Calgar—Gauntlets of Ultramar"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Chapter Master",
+            "Character",
+            "Epic Hero",
+            "Gravis",
+            "Marneus Calgar"
           ]
         },
         "stats": {
@@ -35330,7 +35378,7 @@
             "value": 4
           },
           "weaponName": {
-            "value": "Gauntlets of Ultramar"
+            "value": "ranged"
           }
         }
       },
