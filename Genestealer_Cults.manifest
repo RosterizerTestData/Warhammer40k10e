@@ -1,6 +1,6 @@
 {
   "name": "Genestealer Cults",
-  "revision": "10.2.7",
+  "revision": "10.2.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2648,6 +2648,7 @@
               }
             },
             "statType": "rank",
+            "tracked": true,
             "value": "Atalan small arms",
             "visibility": "active"
           },
@@ -5134,7 +5135,7 @@
           "Max 1 grenade launcher per 4 Atalan Jackals.": {
             "evals": [
               {
-                "actionable": true,
+                "actionable": false,
                 "max": 1,
                 "not": false,
                 "operator": "SUM",
@@ -5150,8 +5151,30 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 8,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Atalan Jackal",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T/O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "Grenade launcher"
+                  ]
+                },
+                "min": 4,
                 "not": false,
                 "operator": "AND",
                 "paths": [
