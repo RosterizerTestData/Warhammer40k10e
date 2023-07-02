@@ -1,6 +1,6 @@
 {
   "name": "Adepta Sororitas",
-  "revision": "10.2.13",
+  "revision": "10.2.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -501,6 +501,33 @@
           ]
         },
         "rules": {
+          "Brazier of holy fire requires chainsword": {
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "Chainsword"
+                  ]
+                },
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Brazier of holy fire"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "hideRod": {
             "actions": [
               {
@@ -540,7 +567,10 @@
                   [
                     "{self}",
                     "tally",
-                    "Plasma pistol"
+                    [
+                      "Canoness—Plasma pistol",
+                      "Plasma pistol"
+                    ]
                   ]
                 ]
               },
@@ -553,13 +583,43 @@
                   [
                     "{self}",
                     "tally",
-                    "Power Weapon"
+                    [
+                      "Canoness—Power weapon",
+                      "Power weapon"
+                    ]
                   ]
                 ]
               }
             ],
             "evaluate": "OR",
             "failState": "pass"
+          },
+          "Null rod requires chainsword": {
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "Chainsword"
+                  ]
+                },
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Null Rod"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
