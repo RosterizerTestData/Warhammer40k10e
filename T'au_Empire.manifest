@@ -3342,9 +3342,7 @@
         "allowed": {
           "items": [
             "Model§Kroot Farstalkers",
-            "Model§Kroot Hounds",
-            "Model§Kroot Farstalkers w/ Dvorgite Skinner",
-            "Model§Kroot Farstalkers w/ Londaxi Tribalest"
+            "Model§Kroot Hounds"
           ]
         },
         "assets": {
@@ -3380,6 +3378,51 @@
             "Farstalkers"
           ]
         },
+        "rules": {
+          "1 Kroot Special Weapon": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "quantity"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "item"
+                  ]
+                ],
+                "value": "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "item"
+                  ]
+                ],
+                "value": "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Kroot Farstalkers": {
             "max": 9,
@@ -3387,28 +3430,6 @@
             "statType": "numeric",
             "tracked": true,
             "value": 0,
-            "visibility": "hidden"
-          },
-          "Kroot Farstalkers w/ Dvorgite Skinner": {
-            "max": 1,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Kroot Farstalkers w/ Londaxi Tribalest": {
-            "max": 1,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Kroot Special Weapons": {
-            "group": "Loadout",
-            "max": 1,
-            "statType": "numeric",
-            "tracked": true,
-            "value": null,
             "visibility": "hidden"
           },
           "Ld": {
@@ -3473,42 +3494,6 @@
             "Kroot",
             "Hounds"
           ]
-        },
-        "rules": {
-          "Hounds LD": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Ld",
-                    "value"
-                  ]
-                ],
-                "value": null
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "designation"
-                  ]
-                ],
-                "value": "Kroot Farstalkers"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
-          }
         },
         "stats": {
           "Kroot Hounds": {
@@ -7537,6 +7522,22 @@
           ]
         },
         "stats": {
+          "Kroot Farstalkers—Dvorgite skinner": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Kroot Farstalkers—Londaxi tribalest": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Ld": {
             "value": 7
           },
@@ -7568,9 +7569,8 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Dvorgite skinner": {
-                "order": 0,
-                "tracking": {},
+              "Dvorgite Skinner": {
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
@@ -7578,16 +7578,15 @@
                 ]
               },
               "Farstalker firearm": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kroot Farstalkers—Farstalker firearm"
                   }
                 ]
               },
-              "Londaxi tribalest": {
-                "order": 2,
-                "tracking": {},
+              "Londaxi Tribalest": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest"
@@ -7611,138 +7610,46 @@
           }
         }
       },
-      "Model§Kroot Farstalkers w/ Dvorgite Skinner": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Kroot Farstalkers—Kroot pistol"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 7
-          },
-          "Melee Weapon": {
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Close Combat Weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Kroot Farstalkers—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Close Combat Weapon",
-            "visibility": "normal"
-          },
-          "OC": {
-            "value": 1
-          },
-          "Range Weapon": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Dvorgite skinner": {
-                "order": 0,
-                "tracking": {},
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "tracked": true,
-            "value": "Dvorgite skinner",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
-        }
-      },
-      "Model§Kroot Farstalkers w/ Londaxi Tribalest": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Kroot Farstalkers—Kroot pistol"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 7
-          },
-          "Melee Weapon": {
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Close Combat Weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Kroot Farstalkers—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Close Combat Weapon",
-            "visibility": "normal"
-          },
-          "OC": {
-            "value": 1
-          },
-          "Range Weapon": {
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Londaxi tribalest": {
-                "order": 0,
-                "tracking": {},
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "tracked": true,
-            "value": "Londaxi tribalest",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
-        }
-      },
       "Model§Kroot Hounds": {
         "assets": {
           "traits": [
             "Melee Weapon§Kroot Hounds—Ripping fangs"
           ]
+        },
+        "rules": {
+          "ld": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ]
+                ],
+                "value": 7
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "designation"
+                  ]
+                ],
+                "value": "Kroot Farstalkers"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -16356,14 +16263,6 @@
           "weaponName": {
             "value": "Kroot rifle"
           }
-        }
-      },
-      "Weapon§Kroot Special Weapons": {
-        "assets": {
-          "included": [
-            "Ranged Weapon§Kroot Farstalkers—Londaxi tribalest",
-            "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
-          ]
         }
       },
       "Weapon§Longstrike—Ion cannon": {

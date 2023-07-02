@@ -1,12 +1,12 @@
 {
   "name": "Space Marines",
-  "revision": "10.2.23",
+  "revision": "10.3.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "dependencies": [
     {
       "slug": "AAJN4J",
@@ -17,6 +17,14 @@
   "manifest": {
     "assetTaxonomy": {},
     "assetCatalog": {
+      "Ability§Aerial Assault": {
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ]
+        },
+        "text": "Each time a unit with the Deep Strike ability disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+      },
       "Ability§Angel’s Wrath": {
         "keywords": {
           "Keywords": [
@@ -1222,6 +1230,14 @@
           ]
         },
         "text": "You can re-roll Charge rolls made for this model’s unit."
+      },
+      "Ability§Thunderhawk": {
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ]
+        },
+        "text": "This model has a transport capacity of 30 Adeptus Astartes Infantry or Adeptus Astartes Mounted models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models. Each Centurion model takes up the space of 3 models. Each Mounted model takes up the space of 4 models."
       },
       "Ability§Thunderstrike": {
         "keywords": {
@@ -9319,6 +9335,38 @@
             "Invader ATV"
           ]
         },
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          }
+        },
+        "rules": {
+          "Too many of this unit in the army.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Unit Invader ATV"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 6
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -9366,6 +9414,12 @@
           },
           "T": {
             "value": 5
+          },
+          "Unit Invader ATV": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "W": {
             "value": 8
@@ -16924,6 +16978,32 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Thunderhawk Gunship—Armoured hull": {
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "Armoured hull"
+          },
+          "WS": {
+            "value": 4
           }
         }
       },
@@ -40944,6 +41024,176 @@
           }
         }
       },
+      "Ranged Weapon§Thunderhawk Gunship—Hellstrike missile battery": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Fly"
+                },
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 72
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "Hellstrike missile battery"
+          }
+        }
+      },
+      "Ranged Weapon§Thunderhawk Gunship—Lascannon": {
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6+1"
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 12
+          },
+          "weaponName": {
+            "value": "Lascannon"
+          }
+        }
+      },
+      "Ranged Weapon§Thunderhawk Gunship—Thunderhawk heavy cannon": {
+        "assets": {
+          "traits": [
+            "Ability§Blast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6+6"
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 10
+          },
+          "weaponName": {
+            "value": "Thunderhawk heavy cannon"
+          }
+        }
+      },
+      "Ranged Weapon§Thunderhawk Gunship—Turbo-laser destructor": {
+        "assets": {
+          "traits": [
+            "Ability§Blast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D3+1"
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6+6"
+          },
+          "Range": {
+            "value": 96
+          },
+          "S": {
+            "value": 20
+          },
+          "weaponName": {
+            "value": "Turbo-laser destructor"
+          }
+        }
+      },
+      "Ranged Weapon§Thunderhawk Gunship—Twin heavy bolter": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Twin heavy bolter"
+          }
+        }
+      },
       "Ranged Weapon§Tor Garadon—Artificer grav-gun": {
         "assets": {
           "traits": [
@@ -44016,7 +44266,16 @@
             "Melee Weapon§Astraeus—Armoured hull",
             "Ranged Weapon§Astraeus—Ironhail heavy stubber",
             "Ranged Weapon§Astraeus—Storm bolter",
-            "Ranged Weapon§Astraeus—Twin macro-accelerator cannon"
+            "Ranged Weapon§Astraeus—Twin macro-accelerator cannon",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+*"
+                }
+              },
+              "text": "\n**This model has a 5+ invulnerable save against ranged attacks.*"
+            }
           ]
         },
         "keywords": {
@@ -48207,6 +48466,140 @@
           }
         }
       },
+      "Vehicle§Thunderhawk Gunship": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D6+2"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-10 wounds remaining"
+                }
+              }
+            },
+            "Melee Weapon§Thunderhawk Gunship—Armoured hull",
+            {
+              "item": "Ranged Weapon§Thunderhawk Gunship—Lascannon",
+              "quantity": 2
+            },
+            {
+              "item": "Ranged Weapon§Thunderhawk Gunship—Twin heavy bolter",
+              "quantity": 4
+            },
+            "Ability§Hover",
+            "Ability§Aerial Assault",
+            "Ability§Thunderhawk"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Titanic",
+            "Fly",
+            "Aircraft",
+            "Transport",
+            "Imperium",
+            "Thunderhawk Gunship"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Thunderhawk heavy cannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Thunderhawk Gunship—Thunderhawk heavy cannon"
+                  }
+                ]
+              },
+              "Turbo-laser destructor": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Thunderhawk Gunship—Turbo-laser destructor"
+                  }
+                ]
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "Thunderhawk heavy cannon",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Hellstrike missile battery": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Thunderhawk Gunship—Hellstrike missile battery"
+                  }
+                ]
+              },
+              "Thunderhawk cluster bombs": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Wargear§Thunderhawk Cluster Bombs"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "Thunderhawk cluster bombs",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 20
+          },
+          "model1stTally": {
+            "value": 1
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 840
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 12
+          },
+          "W": {
+            "value": 24
+          }
+        }
+      },
       "Vehicle§Vindicator": {
         "assets": {
           "included": [],
@@ -48839,6 +49232,9 @@
           }
         },
         "text": ""
+      },
+      "Wargear§Thunderhawk Cluster Bombs": {
+        "text": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."
       },
       "Weapon§Adeptus Astartes Armoury—Missile launcher": {
         "assets": {
