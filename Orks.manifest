@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "7PBHFB",
+      "slug": "MWEXDY",
       "name": "40k10e",
       "game": "Warhammer 40,000"
     }
@@ -1908,6 +1908,48 @@
             "Warboss"
           ]
         },
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          }
+        },
+        "rules": {
+          "Too many of this unit in the army": {
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Character Warboss"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Attack Squig": {
             "dynamic": true,
@@ -1929,6 +1971,12 @@
             "statType": "rank",
             "value": "-",
             "visibility": "active"
+          },
+          "Character Warboss": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "Ld": {
             "value": 6
@@ -5473,59 +5521,6 @@
           }
         }
       },
-      "Model§Boss Nob": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Stormboyz—Slugga"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 6
-          },
-          "Melee Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Choppa": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Stormboyz—Choppa"
-                  }
-                ]
-              },
-              "Power Klaw": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Stormboyz—Power klaw"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Choppa",
-            "visibility": "active"
-          },
-          "OC": {
-            "value": 1
-          },
-          "Sv": {
-            "value": 5
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 2
-          }
-        }
-      },
       "Model§Boss Nob - Boyz": {
         "stats": {
           "Ld": {
@@ -5714,6 +5709,62 @@
           },
           "Sv": {
             "value": 4
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Boss Nob - Stormboyz": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Stormboyz—Slugga"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "Melee Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Choppa": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Stormboyz—Choppa"
+                  }
+                ]
+              },
+              "Power Klaw": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Stormboyz—Power klaw"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Choppa",
+            "visibility": "active"
+          },
+          "modelName": {
+            "value": "Boss Nob"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 5
           },
           "T": {
             "value": 5
@@ -12190,7 +12241,7 @@
             "Ability§Waaagh!",
             "Ability§Breakin’ Heads",
             "Ability§Bodyguard",
-            "Model§Boss Nob"
+            "Model§Boss Nob - Boyz"
           ]
         },
         "keywords": {
@@ -14808,7 +14859,7 @@
             "Ability§Deep Strike",
             "Ability§Waaagh!",
             "Ability§Full Throttle",
-            "Model§Boss Nob"
+            "Model§Boss Nob - Stormboyz"
           ]
         },
         "keywords": {
