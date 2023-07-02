@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.2.23",
+  "revision": "10.2.24",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9319,6 +9319,38 @@
             "Invader ATV"
           ]
         },
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          }
+        },
+        "rules": {
+          "Too many of this unit in the army.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Unit Invader ATV"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 6
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -9366,6 +9398,12 @@
           },
           "T": {
             "value": 5
+          },
+          "Unit Invader ATV": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "W": {
             "value": 8
