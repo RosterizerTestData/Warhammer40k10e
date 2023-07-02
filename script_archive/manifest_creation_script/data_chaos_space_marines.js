@@ -3,29 +3,65 @@ window.data.CSM = {
   "id": "CSM",
   "link": "https://game-datacards.eu",
   "name": "Chaos Space Marines",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Eye of Tzeentch",
+      "description": "Heretic Astartes Tzeentch model only. Each time the bearer’s unit makes a Dark Pact, take a Leadership test for the bearer: if that test is passed, you gain 1CP.",
+      "keywords": ["Heretic Astartes", "Tzeentch"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "Intoxicating Elixir",
+      "description": "Heretic Astartes Slaanesh model only. The bearer has the Feel No Pain 5+ ability. Each time the bearer shoots or fights, if the bearer’s unit made a Dark Pact this phase, after the bearer has resolved those attacks, select one enemy unit that was hit by one or more of those attacks; that enemy unit must take a Battle-shock test.",
+      "keywords": ["Heretic Astartes", "Slaanesh"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Liber Hereticus",
+      "description": "Heretic Astartes Chaos Undivided model only. Each time the bearer’s unit makes a Dark Pact, that unit’s weapons gain the [LETHAL HITS] and [SUSTAINED HITS 1] ability until the end of the phase, instead of just gaining one of those abilities.",
+      "keywords": ["Heretic Astartes", "Chaos Undivided"],
+      "excludes": [],
+      "cost": "40"
+    },
+    {
+      "name": "Orbs of Unlife",
+      "description": "Heretic Astartes Nurgle model only. At the end of the Fight phase, roll one D6 for every enemy unit within 6\" of the bearer, adding 1 to the result if the bearer’s unit made a Dark Pact that phase: on a 4+, that enemy unit suffers D3 mortal wounds.",
+      "keywords": ["Heretic Astartes", "Nurgle"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Talisman of Burning Blood",
+      "description": "Heretic Astartes Khorne model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. Each time the bearer’s unit makes a Dark Pact, until the end of the phase, add D3 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
+      "keywords": ["Heretic Astartes", "Khorne"],
+      "excludes": [],
+      "cost": "20"
+    }
+  ],
   "datasheets": [
     {
       "id": "f951b549-32e0-5523-9152-337fd8b5f9f4",
       "name": "Abaddon The Despoiler",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chaos Terminator Squad ■ Legionaries",
-      "composition": [
-        "1 Abaddon the Despoiler – Epic Hero"
-      ],
+      "composition": ["1 Abaddon the Despoiler – Epic Hero"],
       "loadout": "This model is equipped with: Talon of Horus; Drach’nyen.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "280"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [
           {
             "name": "WARMASTER",
@@ -86,9 +122,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Talon of Horus",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "4",
               "skill": "2+",
@@ -104,9 +138,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Drach’nyen",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -120,9 +152,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Talon of Horus",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -134,7 +164,7 @@ window.data.CSM = {
         }
       ],
       "keywords": [
-        "I  nfantry",
+        "Infantry",
         "Character",
         "Epic Hero",
         "Terminator",
@@ -146,32 +176,31 @@ window.data.CSM = {
         "Tzeentch",
         "Abaddon the Despoiler"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "0aebcd54-01be-5b23-8581-92df7041b89e",
       "name": "Accursed Cultists",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "3-6 Torments",
-        "5-10 Mutants"
-      ],
+      "composition": ["3-6 Torments", "5-10 Mutants"],
       "loadout": "Every Torment is equipped with: hideous mutations. Every Mutant is equipped with: blasphemous appendages.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "8",
+          "cost": "95"
+        },
+        {
+          "models": "16",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Feel No Pain 6+"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -240,24 +269,16 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Accursed Cultists"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Chaos", "Accursed Cultists"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Dark Apostle", "Dark Commune"]
     },
     {
       "id": "db58b3d7-f885-5481-9390-a02d1e435051",
       "name": "Chaos Bikers",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Biker Champion",
-        "2-5 Chaos Bikers"
-      ],
+      "composition": ["1 Biker Champion", "2-5 Chaos Bikers"],
       "loadout": "Every model is equipped with: bolt pistol; combi-bolter; close combat weapon.",
       "wargear": [
         "The Biker Champion’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 accursed weapon ◦ 1 Astartes chainsword ◦ 1 power fist",
@@ -266,6 +287,16 @@ window.data.CSM = {
         "1 model can be equipped with 1 Chaos icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "95"
+        },
+        {
+          "models": "6",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -274,9 +305,7 @@ window.data.CSM = {
           }
         ],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -310,9 +339,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -326,9 +353,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -360,10 +385,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -377,9 +399,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -393,9 +413,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -405,10 +423,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -422,9 +437,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -434,10 +447,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -506,38 +516,31 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Chaos",
-        "Chaos Bikers"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Mounted", "Grenades", "Chaos", "Chaos Bikers"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "5f021401-11a5-573d-b8e4-43e911156975",
       "name": "Chaos Land Raider",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Chaos Land Raider"
-      ],
+      "composition": ["1 Chaos Land Raider"],
       "loadout": "This model is equipped with: 2 soulshatter lascannons; twin heavy bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 Heretic Astartes Infantry models (excluding Obliterator and Jump Pack models). Each Possessed and Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -571,9 +574,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -605,9 +606,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -635,10 +634,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -665,39 +661,31 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Smoke",
-        "Chaos",
-        "Land Raider"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Transport", "Smoke", "Chaos", "Land Raider"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "0297de19-1885-5028-ac78-760043515dc4",
       "name": "Chaos Lord",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Legionaries",
-      "composition": [
-        "1 Chaos Lord"
-      ],
+      "composition": ["1 Chaos Lord"],
       "loadout": "This model is equipped with: plasma pistol; daemon hammer.",
       "wargear": [
         "This model’s daemon hammer can be replaced with one of the following: ◦ 1 accursed weapon ◦ 1 Astartes chainsword ◦ 1 power fist",
         "This model’s plasma pistol can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 accursed weapon ◦ 1 Astartes chainsword ◦ 1 daemon hammer ◦ 1 power fist"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -735,9 +723,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -751,9 +737,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -763,10 +747,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "pistol",
-                "hazardous"
-              ],
+              "keywords": ["pistol", "hazardous"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -810,9 +791,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Daemon hammer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -837,25 +816,15 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Grenades",
-        "Chaos",
-        "Chaos Lord"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Character", "Grenades", "Chaos", "Chaos Lord"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "696bc104-92ae-5efc-a2d5-860f6b09cd80",
       "name": "Chaos Lord In Terminator Armour",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following unit: ■ Chaos Terminator Squad",
-      "composition": [
-        "1 Chaos Lord in Terminator Armour"
-      ],
+      "composition": ["1 Chaos Lord in Terminator Armour"],
       "loadout": "This model is equipped with: combi-bolter; exalted weapon.",
       "wargear": [
         "This model’s combi-bolter can be replaced with 1 combi-weapon.",
@@ -863,15 +832,16 @@ window.data.CSM = {
         "This model’s combi-bolter and exalted weapon can be replaced with 1 paired accursed weapons."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -909,9 +879,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -945,9 +913,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -975,9 +941,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Paired accursed weapons",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -1009,18 +973,14 @@ window.data.CSM = {
         "Terminator",
         "Chaos Lord in Terminator Armour"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "3773dc53-7315-5caf-9abd-01d88825732c",
       "name": "Chaos Predator Annihilator",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Chaos Predator Annihilator"
-      ],
+      "composition": ["1 Chaos Predator Annihilator"],
       "loadout": "This model is equipped with: Predator twin lascannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
@@ -1028,14 +988,16 @@ window.data.CSM = {
         "This model can be equipped with 1 Havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1069,9 +1031,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1103,9 +1063,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1119,9 +1077,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1149,9 +1105,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Predator twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1178,24 +1132,15 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Chaos",
-        "Predator Annihilator"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Chaos", "Predator Annihilator"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "998a9530-9e8f-594a-9f8d-02a2031d54aa",
       "name": "Chaos Predator Destructor",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Chaos Predator Destructor"
-      ],
+      "composition": ["1 Chaos Predator Destructor"],
       "loadout": "This model is equipped with: Predator autocannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
@@ -1203,14 +1148,16 @@ window.data.CSM = {
         "This model can be equipped with 1 Havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1244,9 +1191,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1278,9 +1223,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1294,9 +1237,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1351,38 +1292,31 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Chaos",
-        "Predator Destructor"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Chaos", "Predator Destructor"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "95ddee3b-53cb-5683-9b41-4fc6eb6fc61c",
       "name": "Chaos Rhino",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Chaos Rhino"
-      ],
+      "composition": ["1 Chaos Rhino"],
       "loadout": "This model is equipped with: combi-bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 Heretic Astartes Infantry models. It cannot transport Terminator, Jump Pack, Obliterator or Possessed models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1416,9 +1350,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1450,9 +1382,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1487,31 +1417,27 @@ window.data.CSM = {
         "Chaos",
         "Rhino"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "bafeb65b-91d6-5b9d-b071-115160122588",
       "name": "Chaos Spawn",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "2 Chaos Spawn"
-      ],
+      "composition": ["2 Chaos Spawn"],
       "loadout": "Every model is equipped with: hideous mutations.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1557,24 +1483,15 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Chaos Spawn"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Beast", "Chaos", "Chaos Spawn"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "030f33e9-7bca-59a5-9e5f-64f5804d93c1",
       "name": "Chaos Terminator Squad",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Terminator Champion",
-        "4-9 Chaos Terminators"
-      ],
+      "composition": ["1 Terminator Champion", "4-9 Chaos Terminators"],
       "loadout": "Every model is equipped with: combi-bolter; accursed weapon.",
       "wargear": [
         "For every 5 models in this unit, 1 Terminator’s combi-bolter can be replaced with one of the following: ◦ 1 heavy flamer ◦ 1 reaper autocannon",
@@ -1584,14 +1501,20 @@ window.data.CSM = {
         "For every 5 models in this unit, 1 model’s accursed weapon can be replaced with 1 chainfist."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "195"
+        },
+        {
+          "models": "10",
+          "cost": "390"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1625,9 +1548,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1659,10 +1580,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1676,10 +1594,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -1709,9 +1624,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1725,9 +1638,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Paired accursed weapons",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1752,14 +1663,12 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Terminator",
-        "Chaos Terminator Squad"
-      ],
-      "factions": [
-        "Heretic Astartes"
+      "keywords": ["Infantry", "Chaos", "Terminator", "Chaos Terminator Squad"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": [
+        "Abaddon The Despoiler",
+        "Chaos Lord In Terminator Armour",
+        "Sorcerer In Terminator Armour"
       ]
     },
     {
@@ -1767,23 +1676,23 @@ window.data.CSM = {
       "name": "Chaos Vindicator",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Chaos Vindicator"
-      ],
+      "composition": ["1 Chaos Vindicator"],
       "loadout": "This model is equipped with: demolisher cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon",
         "This model can be equipped with 1 Havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1817,9 +1726,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1851,9 +1758,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Demolisher cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1867,9 +1772,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1896,25 +1799,15 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Chaos",
-        "Vindicator"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Chaos", "Vindicator"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "6e6e68fd-931a-5685-876e-1f28359e02fb",
       "name": "Chosen",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Chosen Champion",
-        "4-9 Chosen"
-      ],
+      "composition": ["1 Chosen Champion", "4-9 Chosen"],
       "loadout": "Every model is equipped with: boltgun; bolt pistol; accursed weapon.",
       "wargear": [
         "For every 5 models in this unit, up to 2 models can each have their bolt pistol replaced with 1 plasma pistol.",
@@ -1924,6 +1817,16 @@ window.data.CSM = {
         "1 model can be equipped with 1 Chaos icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "115"
+        },
+        {
+          "models": "10",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1932,9 +1835,7 @@ window.data.CSM = {
           }
         ],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1968,9 +1869,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2016,9 +1915,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2028,10 +1925,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2061,9 +1955,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Paired accursed weapons",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2088,14 +1980,18 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Chaos",
-        "Chosen"
-      ],
-      "factions": [
-        "Heretic Astartes"
+      "keywords": ["Infantry", "Grenades", "Chaos", "Chosen"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": [
+        "Chaos Lord",
+        "Dark Apostle",
+        "Exalted Champion",
+        "Fabius Bile",
+        "Huron Blackheart",
+        "Master Of Executions",
+        "Master Of Possession",
+        "Sorcerer",
+        "Warpsmith"
       ]
     },
     {
@@ -2103,10 +1999,7 @@ window.data.CSM = {
       "name": "Cultist Mob",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Cultist Champion",
-        "9-19 Chaos Cultists"
-      ],
+      "composition": ["1 Cultist Champion", "9-19 Chaos Cultists"],
       "loadout": "Every model is equipped with: autopistol; brutal assault weapon.",
       "wargear": [
         "The Cultist Champion’s autopistol can be replaced with 1 bolt pistol.",
@@ -2116,12 +2009,20 @@ window.data.CSM = {
         "For every 10 models in this unit, 1 Chaos Cultist’s autopistol and brutal assault weapon can be replaced with 1 Cultist grenade launcher and 1 close combat weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "55"
+        },
+        {
+          "models": "20",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2155,9 +2056,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2171,9 +2070,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2187,9 +2084,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Cultist firearm",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2203,9 +2098,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Cultist grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2229,10 +2122,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2246,10 +2136,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "heavy",
-                "rapid fire 3"
-              ],
+              "keywords": ["heavy", "rapid fire 3"],
               "range": "36\"",
               "attacks": "4",
               "skill": "5+",
@@ -2297,31 +2184,28 @@ window.data.CSM = {
         "Chaos",
         "Cultist Mob"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Dark Apostle", "Dark Commune"]
     },
     {
       "id": "c9b83cec-f13d-5c5b-92fb-d374ee5696d7",
       "name": "Cypher",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Cypher – Epic Hero"
-      ],
+      "composition": ["1 Cypher – Epic Hero"],
       "loadout": "This model is equipped with: Cypher’s bolt pistol; Cypher’s plasma pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Lone Operative"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Lone Operative"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2359,11 +2243,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Cypher’s bolt pistol",
-              "keywords": [
-                "assault",
-                "pistol",
-                "sustained hits 1"
-              ],
+              "keywords": ["assault", "pistol", "sustained hits 1"],
               "range": "12\"",
               "attacks": "6",
               "skill": "2+",
@@ -2377,11 +2257,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Cypher’s plasma pistol",
-              "keywords": [
-                "assault",
-                "pistol",
-                "sustained hits 1"
-              ],
+              "keywords": ["assault", "pistol", "sustained hits 1"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -2408,39 +2284,28 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Chaos",
-        "Cypher"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Chaos", "Cypher"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "64c0d358-e337-5443-9377-8ac880dd10c7",
       "name": "Dark Apostle",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Accursed Cultists ■ Chosen ■ Cultist Mob ■ Legionaries",
-      "composition": [
-        "1 Dark Apostle",
-        "2 Dark Disciples"
-      ],
+      "composition": ["1 Dark Apostle", "2 Dark Disciples"],
       "loadout": "The Dark Apostle is equipped with: bolt pistol; accursed crozius. Every Dark Disciple is equipped with: close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2491,9 +2356,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2534,14 +2397,8 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Chaos"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Grenades", "Chaos"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "5d2476fb-2e9f-5491-b9d2-e32a25fdc3ab",
@@ -2555,10 +2412,14 @@ window.data.CSM = {
         "2 Blessed Blades"
       ],
       "loadout": "The Cult Demagogue is equipped with: autopistol; Commune stave. The Mindwitch is equipped with: Warp Curse; close combat weapon. The Iconarch is equipped with: autopistol; close combat weapon; Chaos icon. Every Blessed Blade is equipped with: Commune blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2566,12 +2427,8 @@ window.data.CSM = {
             "description": "Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2618,9 +2475,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2634,9 +2489,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Warp Curse – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -2646,11 +2499,7 @@ window.data.CSM = {
             },
             {
               "name": "Warp Curse – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic",
-                "sustained hits 2"
-              ],
+              "keywords": ["hazardous", "psychic", "sustained hits 2"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -2694,9 +2543,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Commune stave",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -2719,18 +2566,14 @@ window.data.CSM = {
         "Character",
         "Cult Demagogue"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "fa9a5ed6-8820-5755-9090-c577692e8e2e",
       "name": "Defiler",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Defiler"
-      ],
+      "composition": ["1 Defiler"],
       "loadout": "This model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.",
       "wargear": [
         "This model’s twin heavy flamer can be replaced with one of the following: ◦ 1 Defiler scourge ◦ 1 havoc launcher",
@@ -2738,14 +2581,16 @@ window.data.CSM = {
         "This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2779,9 +2624,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2813,9 +2656,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Defiler cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -2829,9 +2670,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2845,10 +2684,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -2862,10 +2698,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2879,11 +2712,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2897,9 +2726,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2929,9 +2756,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Defiler scourge",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2942,39 +2767,28 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Smoke",
-        "Chaos",
-        "Daemon",
-        "Defiler"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Smoke", "Chaos", "Daemon", "Defiler"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "00ee7435-cd67-5bac-a9e9-078343c3741e",
       "name": "Exalted Champion",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Legionaries You can attach this model to one of the above units even if one other Character model has already been attached to it (a unit cannot have two Exalted Champions attached to it). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Exalted Champion"
-      ],
+      "composition": ["1 Exalted Champion"],
       "loadout": "This model is equipped with: bolt pistol; combi-weapon; exalted weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3012,9 +2826,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3066,33 +2878,27 @@ window.data.CSM = {
         "Chaos",
         "Exalted Champion"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "b868b873-5795-5118-9e85-b13e135ca800",
       "name": "Fabius Bile",
       "faction_id": "CSM",
       "leader": "This unit can be attached to the following units: ■ Chosen ■ Legionaries",
-      "composition": [
-        "1 Fabius Bile – Epic Hero",
-        "1 Surgeon Acolyte"
-      ],
+      "composition": ["1 Fabius Bile – Epic Hero", "1 Surgeon Acolyte"],
       "loadout": "Fabius Bile is equipped with: Xyclos Needler; Chirurgeon; Rod of Torment. The Surgeon Acolyte is equipped with: Surgeon Acolyte’s tools.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3143,10 +2949,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Xyclos Needler",
-              "keywords": [
-                "anti-infantry 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "pistol"],
               "range": "18\"",
               "attacks": "3",
               "skill": "2+",
@@ -3162,9 +2965,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Chirurgeon",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -3204,23 +3005,23 @@ window.data.CSM = {
         }
       ],
       "keywords": [
+        "ALL MODELS:",
         "Infantry",
         "Chaos",
-        "Chaos Undivided"
+        "Chaos Undivided",
+        "FABIUS BILE ONLY:",
+        "Character",
+        "Epic Hero",
+        "Fabius Bile"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "f4a92fc2-8727-56b7-b3cd-473f9d962f90",
       "name": "Fellgor Beastmen",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Fellgor Champion",
-        "9 Fellgor Beastmen"
-      ],
+      "composition": ["1 Fellgor Champion", "9 Fellgor Beastmen"],
       "loadout": "The Fellgor Champion is equipped with: bolt pistol; chainsword. Every Fellgor Beastman is equipped with: autopistol; close combat weapon.",
       "wargear": [
         "The Fellgor Champion’s bolt pistol can be replaced with 1 plasma pistol.",
@@ -3228,14 +3029,16 @@ window.data.CSM = {
         "1 Fellgor Beastman’s close combat weapon can be replaced with 1 corrupted stave."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3269,9 +3072,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3285,9 +3086,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3301,10 +3100,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Corrupted stave",
-              "keywords": [
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "4+",
@@ -3318,9 +3114,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3330,10 +3124,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3377,10 +3168,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Corrupted stave",
-              "keywords": [
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -3405,38 +3193,31 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Chaos",
-        "Fellgor Beastmen"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Grenades", "Chaos", "Fellgor Beastmen"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "d654c6b1-4542-5b8d-ae19-ce281858841d",
       "name": "Forgefiend",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Forgefiend"
-      ],
+      "composition": ["1 Forgefiend"],
       "loadout": "This model is equipped with: 2 Hades autocannons; Forgefiend jaws.",
       "wargear": [
         "This model’s 2 Hades autocannons can be replaced with 2 ectoplasma cannons.",
         "This model’s Forgefiend jaws can be replaced with 1 ectoplasma cannon and 1 armoured limbs."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3470,9 +3251,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Ectoplasma cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -3527,39 +3306,28 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Daemon",
-        "Forgefiend"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Daemon", "Forgefiend"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "16538213-e690-5bb2-97a4-a0dcbf30726a",
       "name": "Haarken Worldclaimer",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following unit: ■ Raptors",
-      "composition": [
-        "1 Haarken Worldclaimer – Epic Hero"
-      ],
+      "composition": ["1 Haarken Worldclaimer – Epic Hero"],
       "loadout": "This model is equipped with: Helspear; Herald’s Talon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3597,10 +3365,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Helspear",
-              "keywords": [
-                "assault",
-                "sustained hits d3"
-              ],
+              "keywords": ["assault", "sustained hits d3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3616,9 +3381,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Herald’s Talon",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -3632,11 +3395,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Helspear",
-              "keywords": [
-                "extra attacks",
-                "lance",
-                "sustained hits d3"
-              ],
+              "keywords": ["extra attacks", "lance", "sustained hits d3"],
               "range": "Melee",
               "attacks": "1",
               "skill": "2+",
@@ -3654,21 +3413,17 @@ window.data.CSM = {
         "Fly",
         "Jump Pack",
         "Chaos",
-        "Chaos"
+        "Chaos Undivided",
+        "Haarken Worldclaimer"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "8ac4b6f6-8adb-5f06-b9f5-51e4c1e4ed0d",
       "name": "Havocs",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Havoc Champion",
-        "4 Havocs"
-      ],
+      "composition": ["1 Havoc Champion", "4 Havocs"],
       "loadout": "The Havoc Champion is equipped with: flamer; Astartes chainsword. 2 Havocs are equipped with: Havoc autocannon; close combat weapon. 2 Havocs are equipped with: Havoc lascannon; close combat weapon.",
       "wargear": [
         "The Havoc Champion’s Astartes chainsword can be replaced with one of the following: ◦ 1 accursed weapon ◦ 1 power fist",
@@ -3676,12 +3431,16 @@ window.data.CSM = {
         "Any number of Havocs can each have their Havoc autocannon or Havoc lascannon replaced with one of the following: ◦ 1 Havoc autocannon ◦ 1 Havoc heavy bolter  ◦ 1 Havoc lascannon ◦ 1 Havoc missile launcher ◦ 1 Havoc reaper chaincannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3715,10 +3474,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3746,9 +3502,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -3776,9 +3530,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3871,23 +3623,16 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Havocs"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Chaos", "Havocs"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Warpsmith"]
     },
     {
       "id": "0b020c25-102b-5feb-93f5-5eda796bd1d5",
       "name": "Helbrute",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Helbrute"
-      ],
+      "composition": ["1 Helbrute"],
       "loadout": "This model is equipped with: missile launcher; multi-melta; close combat weapon",
       "wargear": [
         "This model’s multi-melta can be replaced with one of the following: ◦ 1 Helbrute plasma cannon ◦ 1 twin autocannon ◦ 1 twin heavy bolter ◦ 1 twin lascannon ◦ 1 Helbrute fist",
@@ -3895,14 +3640,16 @@ window.data.CSM = {
         "For each Helbrute fist this model is equipped with, it can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 heavy flamer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3940,9 +3687,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3956,10 +3701,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3973,10 +3715,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Helbrute plasma cannon",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -3990,9 +3729,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -4016,9 +3753,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -4032,9 +3767,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -4048,10 +3781,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -4065,9 +3795,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -4136,38 +3864,30 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Helbrute"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Helbrute"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "c2cc1787-cd42-5d41-bc82-bcdcd6c3b61f",
       "name": "Heldrake",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Heldrake"
-      ],
+      "composition": ["1 Heldrake"],
       "loadout": "This model is equipped with: Hades autocannon; Heldrake claws.",
       "wargear": [
         "This model’s Hades autocannon can be replaced with 1 baleflamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "205"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4201,10 +3921,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Baleflamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -4234,10 +3951,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heldrake claws",
-              "keywords": [
-                "anti-fly 2+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-fly 2+", "devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -4248,17 +3962,8 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Aircraft",
-        "Chaos",
-        "Daemon",
-        "Heldrake"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Aircraft", "Chaos", "Daemon", "Heldrake"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "8b94c535-1785-57b7-a931-1c45dad69eeb",
@@ -4269,6 +3974,7 @@ window.data.CSM = {
       "loadout": "",
       "wargear": [],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -4305,10 +4011,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -4322,9 +4025,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -4338,9 +4039,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4354,10 +4053,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -4367,9 +4063,7 @@ window.data.CSM = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -4383,9 +4077,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4395,10 +4087,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4412,9 +4101,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4424,10 +4111,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4440,31 +4124,27 @@ window.data.CSM = {
       ],
       "meleeWeapons": [],
       "keywords": [],
-      "factions": [
-        ""
-      ]
+      "factions": [""]
     },
     {
       "id": "c96ebf97-424c-50df-be08-428cfd764a80",
       "name": "Heretic Astartes Daemon Prince",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Heretic Astartes Daemon Prince"
-      ],
+      "composition": ["1 Heretic Astartes Daemon Prince"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [
           {
             "name": "DAEMONIC ALLEGIANCE",
@@ -4561,39 +4241,28 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Character",
-        "Chaos",
-        "Daemon",
-        "Daemon Prince"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Monster", "Character", "Chaos", "Daemon", "Daemon Prince"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "472eb026-33ac-5eb8-b52e-b109a26e5caf",
       "name": "Heretic Astartes Daemon Prince With Wings",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Heretic Astartes Daemon Prince with Wings"
-      ],
+      "composition": ["1 Heretic Astartes Daemon Prince with Wings"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Dark Pacts"],
         "primarch": [
           {
             "name": "DAEMONIC ALLEGIANCE",
@@ -4698,31 +4367,27 @@ window.data.CSM = {
         "Daemon",
         "Daemon Prince with Wings"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "5ef737f4-746a-5943-9c85-d1117fb78aba",
       "name": "Huron Blackheart",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Legionaries",
-      "composition": [
-        "1 Huron Blackheart – Epic Hero"
-      ],
+      "composition": ["1 Huron Blackheart – Epic Hero"],
       "loadout": "This model is equipped with: Tyrant’s Claw; exalted weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4764,10 +4429,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Tyrant’s Claw",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4816,32 +4478,34 @@ window.data.CSM = {
         "Chaos Undivided",
         "Huron Blackheart"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "76e4a353-b80c-5294-a3aa-df5a9c382696",
       "name": "Khorne Lord Of Skulls",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Khorne Lord of Skulls"
-      ],
+      "composition": ["1 Khorne Lord of Skulls"],
       "loadout": "This model is equipped with: gorestorm cannon; Hades gatling cannon; great cleaver of Khorne.",
       "wargear": [
         "This model’s gorestorm cannon can be replaced with one of the following: ◦ 1 daemongore cannon ◦ 1 ichor cannon",
         "This model’s Hades gatling cannon can be replaced with 1 skullhurler."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "420"
+        },
+        {
+          "models": "1",
+          "cost": "420"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4875,9 +4539,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Daemongore cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -4891,9 +4553,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Gorestorm cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -4907,9 +4567,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Hades gatling cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "48\"",
               "attacks": "12",
               "skill": "3+",
@@ -4923,9 +4581,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Ichor cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -4985,19 +4641,14 @@ window.data.CSM = {
         "Daemon",
         "Lord of Skulls"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "25074d9b-39cf-598a-bd2a-c018e975b3f5",
       "name": "Legionaries",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Aspiring Champion",
-        "4-9 Legionaries"
-      ],
+      "composition": ["1 Aspiring Champion", "4-9 Legionaries"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "The Aspiring Champion’s boltgun can be replaced with one of the following: ◦ 1 plasma pistol* ◦ 1 accursed weapon ◦ 1 Astartes chainsword ◦ 1 heavy melee weapon",
@@ -5009,6 +4660,16 @@ window.data.CSM = {
         "For every 5 models in this unit, 1 Legionary’s boltgun can be replaced with one of the following (duplicates are not allowed): ◦ 1 plasma pistol ◦ 1 flamer ◦ 1 havoc autocannon ◦ 1 heavy bolter** ◦ 1 lascannon** ◦ 1 meltagun ◦ 1 missile launcher** ◦ 1 plasma gun**  ◦ 1 reaper chaincannon  * Maximum 1 per model. **  This weapon’s profile can be found on the Heretic Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "100"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5017,9 +4678,7 @@ window.data.CSM = {
           }
         ],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5053,9 +4712,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Balefire tome",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -5069,9 +4726,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5099,10 +4754,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5116,9 +4768,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Havoc autocannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -5132,9 +4782,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5148,9 +4796,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5160,10 +4806,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5177,9 +4820,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Reaper chaincannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "24\"",
               "attacks": "8",
               "skill": "4+",
@@ -5255,8 +4896,19 @@ window.data.CSM = {
         "Grenades",
         "Legionaries"
       ],
-      "factions": [
-        "Heretic Astartes"
+      "factions": ["Heretic Astartes"],
+      "ledBy": [
+        "Abaddon The Despoiler",
+        "Chaos Lord",
+        "Dark Apostle",
+        "Exalted Champion",
+        "Fabius Bile",
+        "Huron Blackheart",
+        "Lucius The Eternal",
+        "Master Of Executions",
+        "Master Of Possession",
+        "Sorcerer",
+        "Warpsmith"
       ]
     },
     {
@@ -5264,21 +4916,23 @@ window.data.CSM = {
       "name": "Lord Discordant On Helstalker",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Lord Discordant on Helstalker"
-      ],
+      "composition": ["1 Lord Discordant on Helstalker"],
       "loadout": "This model is equipped with: bolt pistol; Helstalker autocannon; techno-virus injector; bladed limbs; impaler chainglaive.",
       "wargear": [
         "This model’s Helstalker autocannon can be replaced with 1 baleflamer.",
         "This model’s techno-virus injector can be replaced with 1 magma cutter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5320,10 +4974,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Baleflamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -5337,9 +4988,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -5367,9 +5016,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Magma cutter",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "6\"",
               "attacks": "2",
               "skill": "3+",
@@ -5385,9 +5032,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bladed limbs",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5401,9 +5046,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Impaler chainglaive",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -5417,10 +5060,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Techno-virus injector",
-              "keywords": [
-                "anti-vehicle 2+",
-                "extra attacks"
-              ],
+              "keywords": ["anti-vehicle 2+", "extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -5438,32 +5078,27 @@ window.data.CSM = {
         "Daemon",
         "Lord Discordant"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "b67889cb-2995-59ed-be31-2c84590e3694",
       "name": "Lucius The Eternal",
       "faction_id": "CSM",
-      "leader": "This model can be attached to the following units: ■ Legionaries ■ Noise Marines EMPEROR’S CHILDREN If this model is your Warlord, Noise Marine units in your army have the Battleline keyword.",
-      "composition": [
-        "1 Lucius the Eternal – Epic Hero"
-      ],
+      "leader": "This model can be attached to the following units: ■ Legionaries ■ Noise Marines",
+      "composition": ["1 Lucius the Eternal – Epic Hero"],
       "loadout": "This model is equipped with: doom siren; duellist’s sword and Lash of Torment.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Fights First", "Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5510,9 +5145,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Doom siren",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5528,9 +5161,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Duellist’s sword and Lash of Torment",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -5549,31 +5180,27 @@ window.data.CSM = {
         "Slaanesh",
         "Lucius the Eternal"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "3bd99d34-0e1f-5f4d-a0c1-67838dd7a8b3",
       "name": "Master Of Executions",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Legionaries You can attach this model to one of the above units even if one other Character model has already been attached to it (a unit cannot have two Masters of Executions attached to it). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Master of Executions"
-      ],
+      "composition": ["1 Master of Executions"],
       "loadout": "This model is equipped with: bolt pistol; axe of dismemberment.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5611,9 +5238,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5629,10 +5254,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Axe of dismemberment",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -5650,31 +5272,27 @@ window.data.CSM = {
         "Chaos",
         "Master of Executions"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "d4d2f0c5-3988-5eb7-a688-ea19abd859cf",
       "name": "Master Of Possession",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Legionaries ■ Possessed",
-      "composition": [
-        "1 Master of Possession"
-      ],
+      "composition": ["1 Master of Possession"],
       "loadout": "This model is equipped with: bolt pistol; Rite of Possession; staff of possession.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5712,9 +5330,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5728,12 +5344,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Rite of Possession – witchfire",
-              "keywords": [
-                "anti-psyker 2+",
-                "pistol",
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["anti-psyker 2+", "pistol", "precision", "psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -5765,10 +5376,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Staff of possession",
-              "keywords": [
-                "anti-psyker 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-psyker 2+", "psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5786,31 +5394,29 @@ window.data.CSM = {
         "Chaos",
         "Master of Possession"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "90f24438-6cf8-523c-969d-a952f329016a",
       "name": "Maulerfiend",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Maulerfiend"
-      ],
+      "composition": ["1 Maulerfiend"],
       "loadout": "This model is equipped with: lasher tendrils; Maulerfiend fists.",
       "wargear": [
         "This model’s lasher tendrils can be replaced with 2 magma cutters."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5844,9 +5450,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Magma cutters",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "6\"",
               "attacks": "2",
               "skill": "3+",
@@ -5862,9 +5466,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Lasher tendrils",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -5889,38 +5491,28 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Daemon",
-        "Maulerfiend"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Daemon", "Maulerfiend"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "1207b676-a91c-5c14-9524-c646f2225d04",
       "name": "Noctilith Crown",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Noctilith Crown"
-      ],
+      "composition": ["1 Noctilith Crown"],
       "loadout": "This model is equipped with: lashing warp energies.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5974,24 +5566,15 @@ window.data.CSM = {
         }
       ],
       "meleeWeapons": [],
-      "keywords": [
-        "Fortification",
-        "Chaos",
-        "Noctilith Crown"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Fortification", "Chaos", "Noctilith Crown"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "34dad49c-8b17-5d06-9458-e5c1010c2743",
       "name": "Noise Marines",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Noise Champion",
-        "4-9 Noise Marines"
-      ],
+      "composition": ["1 Noise Champion", "4-9 Noise Marines"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "Any number of Noise Marines can each have their boltgun replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 sonic blaster",
@@ -6002,6 +5585,16 @@ window.data.CSM = {
         "1 model can be equipped with 1 Chaos icon. * Maximum 1 per model."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "85"
+        },
+        {
+          "models": "10",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6010,9 +5603,7 @@ window.data.CSM = {
           }
         ],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6046,9 +5637,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Blastmaster – single frequency",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "3",
               "skill": "4+",
@@ -6072,9 +5661,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6102,9 +5689,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Doom siren",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6118,9 +5703,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6130,10 +5713,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6147,9 +5727,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Sonic blaster",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -6225,31 +5803,32 @@ window.data.CSM = {
         "Slaanesh",
         "Noise Marines"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Lucius The Eternal"]
     },
     {
       "id": "b9136516-2614-531c-83da-dead15dc5000",
       "name": "Obliterators",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "2-4 Obliterators"
-      ],
+      "composition": ["2-4 Obliterators"],
       "loadout": "Every model is equipped with: fleshmetal guns; crushing fists.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "160"
+        },
+        {
+          "models": "4",
+          "cost": "320"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -6283,9 +5862,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Fleshmetal guns – focused malice",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -6295,9 +5872,7 @@ window.data.CSM = {
             },
             {
               "name": "Fleshmetal guns – ruinous salvo",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6307,9 +5882,7 @@ window.data.CSM = {
             },
             {
               "name": "Fleshmetal guns – warp hail",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -6336,30 +5909,28 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Daemon",
-        "Obliterators"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Chaos", "Daemon", "Obliterators"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "7d802306-cefc-5a53-8922-9956d90744c9",
       "name": "Possessed",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Possessed Champion",
-        "4-9 Possessed"
-      ],
+      "composition": ["1 Possessed Champion", "4-9 Possessed"],
       "loadout": "Every model is equipped with: hideous mutations.",
-      "wargear": [
-        "1 model can be equipped with 1 Chaos icon."
-      ],
+      "wargear": ["1 model can be equipped with 1 Chaos icon."],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "145"
+        },
+        {
+          "models": "10",
+          "cost": "290"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6368,9 +5939,7 @@ window.data.CSM = {
           }
         ],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -6416,25 +5985,16 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Daemon",
-        "Possessed"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Chaos", "Daemon", "Possessed"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Master Of Possession"]
     },
     {
       "id": "1968abec-d0d8-53c5-8897-ae74b9cf80f1",
       "name": "Raptors",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Raptor Champion",
-        "4-9 Raptors"
-      ],
+      "composition": ["1 Raptor Champion", "4-9 Raptors"],
       "loadout": "Every model is equipped with: bolt pistol; Astartes chainsword.",
       "wargear": [
         "The Raptor Champion’s bolt pistol can be replaced with 1 plasma pistol.",
@@ -6442,14 +6002,20 @@ window.data.CSM = {
         "For every 5 models in this unit, up to 2 Raptors can each have their bolt pistol replaced with 1 plasma pistol, or have theirbolt pistol and Astartes chainsword replaced with one of the following: ◦ 1 flamer and 1 close combat weapon ◦ 1 meltagun and 1 close combat weapon ◦ 1 plasma gun and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6487,9 +6053,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6503,10 +6067,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6520,9 +6081,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6536,9 +6095,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -6548,10 +6105,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -6565,9 +6119,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6577,10 +6129,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6649,38 +6198,29 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Fly",
-        "Jump Pack",
-        "Chaos",
-        "Raptors"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Fly", "Jump Pack", "Chaos", "Raptors"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Haarken Worldclaimer"]
     },
     {
       "id": "7ae1d3cd-10ba-53c7-85bb-e6b388b02db6",
       "name": "Sorcerer",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Legionaries",
-      "composition": [
-        "1 Sorcerer"
-      ],
+      "composition": ["1 Sorcerer"],
       "loadout": "This model is equipped with: bolt pistol; Infernal Gaze; force weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6722,9 +6262,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6738,9 +6276,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Infernal Gaze – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6750,11 +6286,7 @@ window.data.CSM = {
             },
             {
               "name": "Infernal Gaze – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6770,9 +6302,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -6791,24 +6321,26 @@ window.data.CSM = {
         "Chaos",
         "Sorcerer"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "aaaf08fa-e45a-533c-98b2-ef488d3aec69",
       "name": "Sorcerer In Terminator Armour",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following unit: ■ Chaos Terminator Squad",
-      "composition": [
-        "1 Sorcerer in Terminator Armour"
-      ],
+      "composition": ["1 Sorcerer in Terminator Armour"],
       "loadout": "This model is equipped with: combi-bolter; Infernal Gaze; force weapon.",
       "wargear": [
         "This model’s combi-bolter can be replaced with 1 combi-weapon.",
         "This model can be equipped with 1 Chaos familiar."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6816,13 +6348,8 @@ window.data.CSM = {
             "description": "Once per battle, when an attack is allocated to the bearer, you can change the Damage characteristic to 0."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6860,9 +6387,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -6894,9 +6419,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Infernal Gaze – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6906,11 +6429,7 @@ window.data.CSM = {
             },
             {
               "name": "Infernal Gaze – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6926,9 +6445,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -6947,32 +6464,27 @@ window.data.CSM = {
         "Terminator",
         "Sorcerer in Terminator Armour"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "56c7b2e3-0c94-5072-a260-5aa929ff98aa",
       "name": "Traitor Enforcer",
       "faction_id": "CSM",
       "leader": "This unit can be attached to the following unit: ■ Traitor Guardsmen Squad",
-      "composition": [
-        "1 Traitor Enforcer",
-        "1 Traitor Ogryn"
-      ],
+      "composition": ["1 Traitor Enforcer", "1 Traitor Ogryn"],
       "loadout": "The Traitor Enforcer is equipped with: bolt pistol; power fist. The Traitor Ogryn is equipped with: Ogryn weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -7019,9 +6531,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7062,24 +6572,15 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Grenades"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Chaos", "Grenades"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "6bff0798-d546-575d-beb2-75d752372f8f",
       "name": "Traitor Guardsmen Squad",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Traitor Sergeant",
-        "9 Traitor Guardsmen"
-      ],
+      "composition": ["1 Traitor Sergeant", "9 Traitor Guardsmen"],
       "loadout": "The Traitor Sergeant is equipped with: corrupted pistol; close combat weapon. Every Traitor Guardsman is equipped with: lasgun; close combat weapon.",
       "wargear": [
         "Up to 3 Traitor Guardsmen can each have their lasgun replaced with one of the following: ◦ 1 Cultist grenade launcher ◦ 1 flamer ◦ 1 meltagun ◦ 1 plasma gun ◦ 1 Cultist sniper rifle",
@@ -7087,12 +6588,16 @@ window.data.CSM = {
         "The Traitor Sergeant’s corrupted pistol can be replaced with 1 boltgun."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7126,9 +6631,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Boltgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7142,9 +6645,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Corrupted pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -7158,9 +6659,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Cultist grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -7184,10 +6683,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Cultist sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -7201,10 +6697,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7218,9 +6711,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7234,9 +6725,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -7250,9 +6739,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7262,10 +6749,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7320,38 +6804,29 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Chaos",
-        "Traitor Guardsmen Squad"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Grenades", "Chaos", "Traitor Guardsmen Squad"],
+      "factions": ["Heretic Astartes"],
+      "ledBy": ["Traitor Enforcer"]
     },
     {
       "id": "9bb81b71-c313-51bc-addf-437609998d97",
       "name": "Vashtorr The Arkifane",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Vashtorr the Arkifane – Epic Hero"
-      ],
+      "composition": ["1 Vashtorr the Arkifane – Epic Hero"],
       "loadout": "This model is equipped with: Vashtorr’s claw; Vashtorr’s hammer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "225"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -7389,9 +6864,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Vashtorr’s claw",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7407,10 +6880,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Vashtorr’s hammer – strike",
-              "keywords": [
-                "anti-vehicle 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-vehicle 4+", "devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -7420,9 +6890,7 @@ window.data.CSM = {
             },
             {
               "name": "Vashtorr’s hammer – sweep",
-              "keywords": [
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -7442,31 +6910,27 @@ window.data.CSM = {
         "Daemon",
         "Vashtorr the Arkifane"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "60ba86eb-82a3-5e0d-b29f-ab0b09f0de67",
       "name": "Venomcrawler",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Venomcrawler"
-      ],
+      "composition": ["1 Venomcrawler"],
       "loadout": "This model is equipped with: 2 excruciator cannons; soulflayer tendrils and claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -7527,39 +6991,32 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Daemon",
-        "Venomcrawler"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Daemon", "Venomcrawler"],
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "03dd37e5-b1cc-573b-8660-3bf964254426",
       "name": "Warp Talons",
       "faction_id": "CSM",
       "leader": "",
-      "composition": [
-        "1 Warp Talon Champion",
-        "4-9 Warp Talons"
-      ],
+      "composition": ["1 Warp Talon Champion", "4-9 Warp Talons"],
       "loadout": "Every model is equipped with: warp claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "130"
+        },
+        {
+          "models": "10",
+          "cost": "260"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -7594,9 +7051,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Warp claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -7615,31 +7070,29 @@ window.data.CSM = {
         "Daemon",
         "Warp Talons"
       ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "factions": ["Heretic Astartes"]
     },
     {
       "id": "cd95a873-3476-5389-9f71-5830888c2d11",
       "name": "Warpsmith",
       "faction_id": "CSM",
       "leader": "This model can be attached to the following units: ■ Chosen ■ Havocs ■ Legionaries",
-      "composition": [
-        "1 Warpsmith"
-      ],
+      "composition": ["1 Warpsmith"],
       "loadout": "This model is equipped with: flamer tendril; melta tendril; plasma pistol; exalted weapon.",
       "wargear": [
         "This model’s exalted weapon can be replaced with 1 warp hammer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Dark Pacts"
-        ],
+        "core": ["Leader"],
+        "faction": ["Dark Pacts"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7681,11 +7134,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Flamer tendril",
-              "keywords": [
-                "pistol",
-                "torrent",
-                "ignores cover"
-              ],
+              "keywords": ["pistol", "torrent", "ignores cover"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7699,10 +7148,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Melta tendril",
-              "keywords": [
-                "pistol",
-                "melta 2"
-              ],
+              "keywords": ["pistol", "melta 2"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -7716,9 +7162,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -7728,10 +7172,7 @@ window.data.CSM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "pistol",
-                "hazardous"
-              ],
+              "keywords": ["pistol", "hazardous"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -7761,9 +7202,7 @@ window.data.CSM = {
           "profiles": [
             {
               "name": "Warp hammer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -7774,15 +7213,12 @@ window.data.CSM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Chaos",
-        "Warpsmith"
-      ],
-      "factions": [
-        "Heretic Astartes"
-      ]
+      "keywords": ["Infantry", "Character", "Chaos", "Warpsmith"],
+      "factions": ["Heretic Astartes"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#320b0d",
+    "header": "#222a2f"
+  }
 }

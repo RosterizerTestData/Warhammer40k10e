@@ -3,26 +3,144 @@ window.data.tyr = {
   "id": "TYR",
   "link": "https://game-datacards.eu",
   "name": "Tyranids",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Adaptive Biology",
+      "description": "Tyranids model only. The bearer has the Feel No Pain 5+ ability. At the start of any turn, if the bearer has fewer than its starting number of wounds remaining, until the end of the battle, it has the Feel No Pain 4+ ability instead.",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Alien Cunning",
+      "description": "Tyranids model only. After both players have deployed their armies, select up to three Tyranids units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "Perfectly Adapted",
+      "description": "Tyranids model only. Once per turn, you can re-roll one Hit roll, one Wound roll, one Damage roll, one Advance roll, one Charge roll or one saving throw made for the bearer.",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Synaptic Linchpin",
+      "description": "Tyranids model only. While a friendly Tyranids unit is within 9\" of the bearer, that unit is within Synapse Range of your army.",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "cost": "10"
+    }
+  ],
   "datasheets": [
+    {
+      "id": "82098053-7629-50ba-ac7d-8b3df944f84f",
+      "name": "Barbed Hierodule",
+      "faction_id": "TYR",
+      "leader": "",
+      "composition": ["1 Barbed Hierodule"],
+      "loadout": "This model is equipped with: 2 bio-cannons; Hierodule scything talons.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "305"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Synapse"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Overgrown Barbs",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit (excluding Titanic units) that was hit by one or more of those attacks. Until the start of your next turn, while this model is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "8\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "18",
+          "ld": "8+",
+          "oc": "5",
+          "name": "Barbed Hierodule"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bio-cannon",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+3",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hierodule scything talons",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-2",
+              "damage": "D3+3"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Monster", "Great Devourer", "Barbed Hierodule"],
+      "factions": ["Tyranids"]
+    },
     {
       "id": "f9800d2a-a62c-5ad0-9374-39169c572515",
       "name": "Barbgaunts",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "5-10 Barbgaunts"
-      ],
+      "composition": ["5-10 Barbgaunts"],
       "loadout": "Every model is equipped with: bio-cannon; xenos claws and teeth.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "50"
+        },
+        {
+          "models": "10",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Synapse"
-        ],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -56,10 +174,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Bio-cannon",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "4+",
@@ -86,36 +201,36 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Barbgaunts"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Barbgaunts"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "5408a2a2-0dd1-55ab-9280-6d893fd9a60c",
       "name": "Biovores",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1-3 Biovores"
-      ],
+      "composition": ["1-3 Biovores"],
       "loadout": "Every model is equipped with: Spore Mine launcher; chitin-barbed limbs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "40"
+        },
+        {
+          "models": "2",
+          "cost": "80"
+        },
+        {
+          "models": "3",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -181,37 +296,28 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Biovores"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Biovores"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "521dd839-5fa0-5e3d-aa1d-b635fc1b20f0",
       "name": "Broodlord",
       "faction_id": "TYR",
       "leader": "This model can be attached to the following unit: ■ Genestealers",
-      "composition": [
-        "1 Broodlord"
-      ],
+      "composition": ["1 Broodlord"],
       "loadout": "This model is equipped with: Broodlord claws and talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Scouts 8\""
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Leader", "Scouts 8\""],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -250,10 +356,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Broodlord claws and talons",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -271,18 +374,14 @@ window.data.tyr = {
         "Great Devourer",
         "Broodlord"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "28b62847-0a45-5cf7-a498-0ed2ab794f82",
       "name": "Carnifexes",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1-2 Carnifexes"
-      ],
+      "composition": ["1-2 Carnifexes"],
       "loadout": "Every model is equipped with: Carnifex scything talons; Carnifex extra scything talons; xenos claws and teeth.",
       "wargear": [
         "Any number of models can each have their Carnifex extra scything talons replaced with one of the following: ◦ 1 deathspitters with slimer maggots ◦ 1 devourers with brainleech worms ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 Carnifex crushing claws",
@@ -291,14 +390,20 @@ window.data.tyr = {
         "Any number of models can each be equipped with 1 spine banks."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        },
+        {
+          "models": "2",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -332,10 +437,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Bio-plasma",
-              "keywords": [
-                "assault",
-                "blast"
-              ],
+              "keywords": ["assault", "blast"],
               "range": "12\"",
               "attacks": "D3",
               "skill": "4+",
@@ -377,9 +479,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Heavy venom cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -393,9 +493,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Spine banks",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "6\"",
               "attacks": "5",
               "skill": "4+",
@@ -409,9 +507,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Stranglethorn cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "4+",
@@ -440,10 +536,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Carnifex extra scything talons ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Carnifex extra scything talons",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -482,39 +576,29 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Carnifexes"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Carnifexes"],
+      "factions": ["Tyranids"],
+      "ledBy": ["Old One Eye"]
     },
     {
       "id": "624f081f-0912-5c5d-a443-b8b558de9a1f",
       "name": "Deathleaper",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Deathleaper – Epic Hero"
-      ],
+      "composition": ["1 Deathleaper – Epic Hero"],
       "loadout": "This model is equipped with: Lictor claws and talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Infiltrators",
-          "Lone Operative",
-          "Stealth"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Fights First", "Infiltrators", "Lone Operative", "Stealth"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -533,9 +617,7 @@ window.data.tyr = {
         "special": [
           {
             "name": "HUNTER ORGANISM",
-            "description": "This model cannot be your Warlord.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model cannot be your Warlord."
           }
         ],
         "damaged": {
@@ -559,10 +641,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Lictor claws and talons ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Lictor claws and talons",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -580,31 +660,27 @@ window.data.tyr = {
         "Great Devourer",
         "Deathleaper"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "b31924b6-d882-5eda-92c7-003cea05d7c1",
       "name": "Exocrine",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Exocrine"
-      ],
+      "composition": ["1 Exocrine"],
       "loadout": "This model is equipped with: bio-plasmic cannon; powerful limbs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -638,10 +714,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Bio-plasmic cannon",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -668,36 +741,32 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Exocrine"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Exocrine"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "c1b0580d-173f-5441-856d-a5262b91c0f2",
       "name": "Gargoyles",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "10-20 Gargoyles"
-      ],
+      "composition": ["10-20 Gargoyles"],
       "loadout": "Every model is equipped with: fleshborer; blinding venom.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "75"
+        },
+        {
+          "models": "20",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -731,9 +800,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Fleshborer",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -768,31 +835,32 @@ window.data.tyr = {
         "Endless Multitude",
         "Gargoyles"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"],
+      "ledBy": ["Winged Tyranid Prime"]
     },
     {
       "id": "a2e7de56-15c2-56ab-ae84-c2ddb15cf630",
       "name": "Genestealers",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "5-10 Genestealers"
-      ],
+      "composition": ["5-10 Genestealers"],
       "loadout": "Every model is equipped with: Genestealer claws and talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 8\""
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Scouts 8\""],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -838,37 +906,31 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Genestealers"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Genestealers"],
+      "factions": ["Tyranids"],
+      "ledBy": ["Broodlord"]
     },
     {
       "id": "f1ca1132-af5d-5073-9411-2fa0a02d5c20",
       "name": "Harpy",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Harpy"
-      ],
+      "composition": ["1 Harpy"],
       "loadout": "This model is equipped with: stinger salvoes; twin stranglethorn cannon; scything wings.",
       "wargear": [
         "This model’s twin stranglethorn cannon can be replaced with 1 twin heavy venom cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -916,10 +978,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Twin heavy venom cannon",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -933,10 +992,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Twin stranglethorn cannon",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "2+",
@@ -963,38 +1019,118 @@ window.data.tyr = {
           ]
         }
       ],
+      "keywords": ["Monster", "Fly", "Aircraft", "Great Devourer", "Harpy"],
+      "factions": ["Tyranids"]
+    },
+    {
+      "id": "566eaac5-daad-5c8e-833d-a8c69749d04c",
+      "name": "Harridan",
+      "faction_id": "TYR",
+      "leader": "",
+      "composition": ["1 Harridan"],
+      "loadout": "This model is equipped with: 2 dire bio-cannons; gargantuan scything talons.",
+      "wargear": ["None"],
+      "transport": "This model has a transport capacity of 20 Gargoyles models and 1 Winged Tyranid Prime model.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "655"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 2D6", "Hover"],
+        "faction": ["Synapse"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Frenzied Metabolism",
+            "description": "Each time this model is selected to shoot, you can use this ability. If you do, until the end of the phase, each time this model makes an attack, add 1 to the Wound roll. After resolving those attacks, roll one D6: on a 2+, this model suffers D3 mortal wounds."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-10 WOUNDS REMAINING",
+          "description": "While this model has 1-10 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "10",
+          "sv": "3+",
+          "w": "30",
+          "ld": "8+",
+          "oc": "0",
+          "name": "Harridan"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Dire bio-cannon",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+6",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Gargantuan scything talons",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
       "keywords": [
         "Monster",
+        "Titanic",
         "Fly",
         "Aircraft",
+        "Transport",
         "Great Devourer",
-        "Harpy"
+        "Harridan"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "b7f8d67b-a254-50e3-b8bf-38346df1546f",
       "name": "Haruspex",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Haruspex"
-      ],
+      "composition": ["1 Haruspex"],
       "loadout": "This model is equipped with: grasping tongue; ravenous maw; shovelling claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1028,9 +1164,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Grasping tongue",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1059,10 +1193,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Shovelling claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Shovelling claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -1073,37 +1205,149 @@ window.data.tyr = {
           ]
         }
       ],
+      "keywords": ["Monster", "Great Devourer", "Haruspex"],
+      "factions": ["Tyranids"]
+    },
+    {
+      "id": "56dcf747-9ed9-5ee6-b4cc-5b4dc564324f",
+      "name": "Hierophant",
+      "faction_id": "TYR",
+      "leader": "",
+      "composition": ["1 Hierophant"],
+      "loadout": "This model is equipped with: bio-plasma torrent; 2 dire bio-cannons; lashwhip pods; titanic scything talons.",
+      "wargear": ["None"],
+      "transport": "This model has a transport capacity of 20 Tyranids Infantry models. Each model with a Wounds characteristic of more than 1 takes up the space of 3 models. This model cannot transport models that can Fly.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "810"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 2D6"],
+        "faction": ["Synapse"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Apex-beast",
+            "description": "Each time this model makes an attack that targets a unit that is Battle-shocked, add 1 to the Hit roll."
+          },
+          {
+            "name": "Stalking Forward",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4\" or less in height as if they were not there."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-10 WOUNDS REMAINING",
+          "description": "While this model has 1-10 wounds remaining, subtract 6 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "14",
+          "sv": "2+",
+          "w": "30",
+          "ld": "8+",
+          "oc": "12",
+          "name": "Hierophant"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bio-plasma torrent",
+              "keywords": ["assault", "torrent"],
+              "range": "12\"",
+              "attacks": "3D6",
+              "skill": "N/A",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Dire bio-cannon",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+6",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Lashwhip pods",
+              "keywords": ["extra attacks"],
+              "range": "Melee",
+              "attacks": "10",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Titanic scything talons",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "20",
+              "ap": "-2",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
       "keywords": [
         "Monster",
+        "Titanic",
+        "Towering",
+        "Transport",
         "Great Devourer",
-        "Haruspex"
+        "Hierophant"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "6aee35fc-ced8-5243-a844-4ed9638eb360",
       "name": "Hive Crone",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Hive Crone"
-      ],
+      "composition": ["1 Hive Crone"],
       "loadout": "This model is equipped with: drool cannon; stinger salvoes; tentaclids; scything wings; thorax spur.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1137,9 +1381,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Drool cannon",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -1167,10 +1409,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Tentaclids",
-              "keywords": [
-                "anti-vehicle 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-vehicle 4+", "devastating wounds"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -1199,11 +1438,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Thorax spur ",
-              "keywords": [
-                "anti-fly 2+",
-                "extra attacks"
-              ],
+              "name": "Thorax spur",
+              "keywords": ["anti-fly 2+", "extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -1221,29 +1457,33 @@ window.data.tyr = {
         "Great Devourer",
         "Hive Crone"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "f652fcb5-9711-533f-ae7c-498aff0f2ba2",
       "name": "Hive Guard",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Hive Guard"
-      ],
+      "composition": ["3-6 Hive Guard"],
       "loadout": "Every model is equipped with: shockcannon; xenos claws and teeth.",
       "wargear": [
         "Any number of models can each have their shockcannon replaced with 1 impaler cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "100"
+        },
+        {
+          "models": "6",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Synapse"
-        ],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1277,10 +1517,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Impaler cannon",
-              "keywords": [
-                "heavy",
-                "indirect fire"
-              ],
+              "keywords": ["heavy", "indirect fire"],
               "range": "36\"",
               "attacks": "4",
               "skill": "4+",
@@ -1294,9 +1531,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Shockcannon",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1323,39 +1558,31 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Hive Guard"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Hive Guard"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "8d9221f9-a074-5b1d-8d02-53e272a832d0",
       "name": "Hive Tyrant",
       "faction_id": "TYR",
       "leader": "This model can be attached to the following unit: ■ Tyrant Guard",
-      "composition": [
-        "1 Hive Tyrant"
-      ],
+      "composition": ["1 Hive Tyrant"],
       "loadout": "This model is equipped with: monstrous bonesword and lash whip; monstrous scything talons.",
       "wargear": [
         "This model’s monstrous bonesword and lash whip can be replaced with one of the following: ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 monstrous scything talons",
         "This model’s monstrous scything talons can be replaced with one of the following: ◦ 1 heavy venom cannon* ◦ 1 stranglethorn cannon* *  This model cannot be equipped with both a stranglethorn cannon and a heavy venom cannon. This model cannot be equipped with more than 1 heavy venom cannon, and it cannot be equipped with more than 1 stranglethorn cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Leader"
-        ],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3", "Leader"],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1393,9 +1620,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Heavy venom cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "2+",
@@ -1409,9 +1634,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Stranglethorn cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "2+",
@@ -1426,10 +1649,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Monstrous bonesword and lash whip ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Monstrous bonesword and lash whip",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1442,10 +1663,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Monstrous scything talons ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Monstrous scything talons",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -1464,29 +1683,31 @@ window.data.tyr = {
         "Synapse",
         "Hive Tyrant"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "b6d511cb-c07b-5e74-9aaf-0d2e07b841b3",
       "name": "Hormagaunts",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "10-20 Hormagaunts"
-      ],
+      "composition": ["10-20 Hormagaunts"],
       "loadout": "Every model is equipped with: Hormagaunt talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "70"
+        },
+        {
+          "models": "20",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Synapse"
-        ],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1539,34 +1760,27 @@ window.data.tyr = {
         "Endless Multitude",
         "Hormagaunts"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "0d3bc100-533c-5a07-93e5-b6e944c037fb",
       "name": "Lictor",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Lictor"
-      ],
+      "composition": ["1 Lictor"],
       "loadout": "This model is equipped with: Lictor claws and talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Infiltrators",
-          "Lone Operative",
-          "Stealth"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Fights First", "Infiltrators", "Lone Operative", "Stealth"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1604,10 +1818,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Lictor claws and talons ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Lictor claws and talons",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1618,37 +1830,28 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Lictor"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Lictor"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "34f8493b-83eb-5afb-9215-8cf8d720adba",
       "name": "Maleceptor",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Maleceptor"
-      ],
+      "composition": ["1 Maleceptor"],
       "loadout": "This model is equipped with: psychic overload; massive scything talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1682,10 +1885,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Psychic overload",
-              "keywords": [
-                "blast",
-                "psychic"
-              ],
+              "keywords": ["blast", "psychic"],
               "range": "18\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1729,31 +1929,27 @@ window.data.tyr = {
         "Synapse",
         "Maleceptor"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "22c5eef9-80de-594a-be01-19174a72b2a9",
       "name": "Mawloc",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Mawloc"
-      ],
+      "composition": ["1 Mawloc"],
       "loadout": "This model is equipped with: distensible jaw; Mawloc scything talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1817,36 +2013,32 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Mawloc"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Mawloc"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "413eff40-c743-561f-b8b6-d4a66638abfb",
       "name": "Mucolid Spores",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1-2 Mucolid Spores"
-      ],
+      "composition": ["1-2 Mucolid Spores"],
       "loadout": "Every model is equipped with: nothing.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        },
+        {
+          "models": "2",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1881,36 +2073,32 @@ window.data.tyr = {
       ],
       "rangedWeapons": [],
       "meleeWeapons": [],
-      "keywords": [
-        "Beast",
-        "Fly",
-        "Great Devourer",
-        "Mucolid Spores"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Beast", "Fly", "Great Devourer", "Mucolid Spores"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "f314346e-a318-5ce8-9dd4-3a9b35b22acd",
       "name": "Neurogaunts",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1-2 Neurogaunt Nodebeasts*",
-        "10-20 Neurogaunts"
-      ],
+      "composition": ["1-2 Neurogaunt Nodebeasts*", "10-20 Neurogaunts"],
       "loadout": "Every model is equipped with: xenos claws and teeth. * This unit can only contain 2 Neurogaunt Nodebeasts if it contains 20 Neurogaunts.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "45"
+        },
+        {
+          "models": "22",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Synapse"
-        ],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1962,32 +2150,28 @@ window.data.tyr = {
         "Endless Multitude",
         "Neurogaunts"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"],
+      "ledBy": ["Neurotyrant"]
     },
     {
       "id": "690228cc-b07b-5d25-9643-7b50d9db5d5d",
       "name": "Neurotyrant",
       "faction_id": "TYR",
       "leader": "This model can be attached to the following units: ■ Neurogaunts ■ Tyrant Guard",
-      "composition": [
-        "1 Neurotyrant"
-      ],
+      "composition": ["1 Neurotyrant"],
       "loadout": "This model is equipped with: psychic scream; Neurotyrant claws and lashes.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Synapse",
-          "Shadow in the Warp"
-        ],
+        "core": ["Leader"],
+        "faction": ["Synapse", "Shadow in the Warp"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2029,11 +2213,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Psychic scream",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -2069,32 +2249,27 @@ window.data.tyr = {
         "Synapse",
         "Neurotyrant"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "da6d41eb-57dc-5006-8015-d05579b5a4f6",
       "name": "Old One Eye",
       "faction_id": "TYR",
       "leader": "This model can be attached to the following unit: ■ Carnifexes",
-      "composition": [
-        "1 Old One Eye – Epic Hero"
-      ],
+      "composition": ["1 Old One Eye – Epic Hero"],
       "loadout": "This model is equipped with: Old One Eye’s claws and talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2161,33 +2336,27 @@ window.data.tyr = {
         "Great Devourer",
         "Old One Eye"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "599b2db7-f531-5ac3-9e6e-ed8a7081c02d",
       "name": "Parasite Of Mortrex",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Parasite of Mortrex"
-      ],
+      "composition": ["1 Parasite of Mortrex"],
       "loadout": "This model is equipped with: barbed ovipositor; clawed limbs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Lone Operative",
-          "Stealth"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike", "Lone Operative", "Stealth"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2225,11 +2394,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Barbed ovipositor ",
-              "keywords": [
-                "anti-infantry 3+",
-                "extra attacks"
-              ],
+              "name": "Barbed ovipositor",
+              "keywords": ["anti-infantry 3+", "extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "2+",
@@ -2261,32 +2427,27 @@ window.data.tyr = {
         "Great Devourer",
         "Parasite of Mortrex"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "d5a50301-0327-56f8-8e31-1741c01c7b28",
       "name": "Psychophage",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Psychophage"
-      ],
+      "composition": ["1 Psychophage"],
       "loadout": "This model is equipped with: psychoclastic torrent; talons and betentacled maw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 5+"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2324,10 +2485,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Psychoclastic torrent",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2343,10 +2501,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Talons and betentacled maw",
-              "keywords": [
-                "anti-psyker 2+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-psyker 2+", "devastating wounds"],
               "range": "Melee",
               "attacks": "D6+1",
               "skill": "3+",
@@ -2357,36 +2512,36 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Psychophage"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Psychophage"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "719c228c-1866-557f-a039-98eba8de59bf",
       "name": "Pyrovores",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1-3 Pyrovores"
-      ],
+      "composition": ["1-3 Pyrovores"],
       "loadout": "Every model is equipped with: flamespurt; chitin-barbed limbs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "30"
+        },
+        {
+          "models": "2",
+          "cost": "60"
+        },
+        {
+          "models": "3",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2420,11 +2575,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Flamespurt",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6+1",
               "skill": "N/A",
@@ -2451,36 +2602,34 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Pyrovores"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Pyrovores"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "cc767c7b-3110-509f-814e-98d9c58d1964",
       "name": "Raveners",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Raveners"
-      ],
+      "composition": ["3-6 Raveners"],
       "loadout": "Every model is equipped with: Ravener claws and talons.",
       "wargear": [
         "Any number of models can each be equipped with 1 thoracic bio-weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2529,10 +2678,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Ravener claws and talons ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Ravener claws and talons",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "3+",
@@ -2543,36 +2690,34 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Raveners"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Raveners"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "ab44d828-ed62-5627-afa5-70fcdadf98a0",
       "name": "Ripper Swarms",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Ripper Swarms"
-      ],
+      "composition": ["3-6 Ripper Swarms"],
       "loadout": "Every model is equipped with: xenos claws and teeth.",
       "wargear": [
         "All models in this unit can each be equipped with 1 spinemaws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "35"
+        },
+        {
+          "models": "6",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2606,9 +2751,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Spinemaws",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "4",
               "skill": "5+",
@@ -2623,10 +2766,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Xenos claws and teeth ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Xenos claws and teeth",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "5+",
@@ -2637,36 +2778,28 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Swarm",
-        "Great Devourer",
-        "Ripper Swarms"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Swarm", "Great Devourer", "Ripper Swarms"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "e4f63729-38f9-5035-9bdb-916d83b58539",
       "name": "Screamer-killer",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Screamer-Killer"
-      ],
+      "composition": ["1 Screamer-Killer"],
       "loadout": "This model is equipped with: bio-plasmic scream; Screamer-Killer talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2700,10 +2833,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Bio-plasmic scream",
-              "keywords": [
-                "assault",
-                "blast"
-              ],
+              "keywords": ["assault", "blast"],
               "range": "18\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -2730,36 +2860,114 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Screamer-Killer"
+      "keywords": ["Monster", "Great Devourer", "Screamer-Killer"],
+      "factions": ["Tyranids"]
+    },
+    {
+      "id": "1c91f934-1556-543b-96e8-826242b407c6",
+      "name": "Scythed Hierodule",
+      "faction_id": "TYR",
+      "leader": "",
+      "composition": ["1 Scythed Hierodule"],
+      "loadout": "This model is equipped with: bio-acid spray; Hierodule scything talons.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "305"
+        }
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Synapse"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Irresistible Force",
+            "description": "This model is eligible to declare a charge in a turn in which it Fell Back."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "18",
+          "ld": "8+",
+          "oc": "5",
+          "name": "Scythed Hierodule"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bio-acid spray",
+              "keywords": ["torrent"],
+              "range": "18\"",
+              "attacks": "3D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hierodule scything talons",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "10",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-2",
+              "damage": "D3+3"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Monster", "Great Devourer", "Scythed Hierodule"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "041d0bee-aee2-5ac5-9311-6dface0f50db",
       "name": "Spore Mines",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Spore Mines"
-      ],
+      "composition": ["3-6 Spore Mines"],
       "loadout": "Every model is equipped with: nothing.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "50"
+        },
+        {
+          "models": "6",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2794,37 +3002,28 @@ window.data.tyr = {
       ],
       "rangedWeapons": [],
       "meleeWeapons": [],
-      "keywords": [
-        "Beast",
-        "Fly",
-        "Great Devourer",
-        "Spore Mines"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Beast", "Fly", "Great Devourer", "Spore Mines"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "1f163976-4455-58f4-b61b-5d9c2fd09f6a",
       "name": "Sporocyst",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Sporocyst"
-      ],
+      "composition": ["1 Sporocyst"],
       "loadout": "This model is equipped with: Sporocyst bio-weapons; flensing whips.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2858,9 +3057,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Sporocyst bio-weapons",
-              "keywords": [
-                "hive defences"
-              ],
+              "keywords": ["hive defences"],
               "range": "24\"",
               "attacks": "5",
               "skill": "4+",
@@ -2887,35 +3084,35 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Sporocyst"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Sporocyst"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "00fb3f2f-b6be-50ac-935d-eed391fe6ac1",
       "name": "Termagants",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "10-20 Termagants"
-      ],
+      "composition": ["10-20 Termagants"],
       "loadout": "Every model is equipped with: fleshborer; xenos claws and teeth.",
       "wargear": [
         "All models in this unit can each have their fleshborer replaced with 1 Termagant devourer.",
         "All models in this unit can each have their fleshborer replaced with 1 Termagant spinefists."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "60"
+        },
+        {
+          "models": "20",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Synapse"
-        ],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2949,9 +3146,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Fleshborer",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -2965,11 +3160,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Termagant spinefists",
-              "keywords": [
-                "assault",
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "pistol", "twin-linked"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -3017,32 +3208,29 @@ window.data.tyr = {
         "Endless Multitude",
         "Termagants"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "505ab8d4-2791-5d03-9052-6e1a43dde98c",
       "name": "Tervigon",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Tervigon"
-      ],
+      "composition": ["1 Tervigon"],
       "loadout": "This model is equipped with: stinger salvoes; massive scything talons.",
       "wargear": [
         "This model’s massive scything talons can be replaced with 1 massive crushing claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3139,33 +3327,27 @@ window.data.tyr = {
         "Synapse",
         "Tervigon"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "98de8243-66f7-535c-94ec-28a17277255b",
       "name": "The Swarmlord",
       "faction_id": "TYR",
       "leader": "This model can be attached to the following unit: ■ Tyrant Guard",
-      "composition": [
-        "1 Swarmlord – Epic Hero"
-      ],
+      "composition": ["1 Swarmlord – Epic Hero"],
       "loadout": "This model is equipped with: synaptic pulse; bone sabres.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Leader"
-        ],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3", "Leader"],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3207,10 +3389,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Synaptic pulse",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "18\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -3225,10 +3404,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Bone sabres ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Bone sabres",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -3248,31 +3425,27 @@ window.data.tyr = {
         "Synapse",
         "The Swarmlord"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "d71c0768-ad7f-5d9e-9cb8-e849dbc083f2",
       "name": "Toxicrene",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Toxicrene"
-      ],
+      "composition": ["1 Toxicrene"],
       "loadout": "This model is equipped with: massive toxic lashes.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3310,9 +3483,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Massive toxic lashes",
-              "keywords": [
-                "anti-infantry 2+"
-              ],
+              "keywords": ["anti-infantry 2+"],
               "range": "9\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -3327,10 +3498,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Massive toxic lashes ",
-              "keywords": [
-                "anti-infantry 2+"
-              ],
+              "name": "Massive toxic lashes",
+              "keywords": ["anti-infantry 2+"],
               "range": "Melee",
               "attacks": "12",
               "skill": "3+",
@@ -3341,36 +3510,28 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Toxicrene"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Toxicrene"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "6c4e1665-c826-50e4-8db9-304ca1d6fb74",
       "name": "Trygon",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Trygon"
-      ],
+      "composition": ["1 Trygon"],
       "loadout": "This model is equipped with: bio-electric pulse; Trygon scything talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3404,9 +3565,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Bio-electric pulse",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "12\"",
               "attacks": "6",
               "skill": "3+",
@@ -3433,36 +3592,32 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Trygon"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Trygon"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "18355c44-85fc-575f-873f-963f19a561b6",
       "name": "Tyranid Warriors With Melee Bio-weapons",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Tyranid Prime",
-        "2-5 Tyranid Warriors"
-      ],
+      "composition": ["1 Tyranid Prime", "2-5 Tyranid Warriors"],
       "loadout": "Every model is equipped with: bio-weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "90"
+        },
+        {
+          "models": "6",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3496,10 +3651,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Bio-weapons ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Bio-weapons",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -3515,19 +3668,15 @@ window.data.tyr = {
         "Synapse",
         "Tyranid Warriors with Melee Bio-weapons"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"],
+      "ledBy": ["Winged Tyranid Prime"]
     },
     {
       "id": "7cf26389-f7e6-5bb5-83db-4e93a8ade176",
       "name": "Tyranid Warriors With Ranged Bio-weapons",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Tyranid Prime",
-        "2-5 Tyranid Warriors"
-      ],
+      "composition": ["1 Tyranid Prime", "2-5 Tyranid Warriors"],
       "loadout": "Every model is equipped with: devourer; bio-weapons.",
       "wargear": [
         "Any number of models can each have their devourer replaced with one of the following: ◦ 1 deathspitter ◦ 1 spinefists",
@@ -3535,13 +3684,20 @@ window.data.tyr = {
         "For every 3 models in this unit, 1 model’s devourer can be replaced with 1 venom cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "70"
+        },
+        {
+          "models": "6",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3575,9 +3731,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Barbed strangler",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "4+",
@@ -3619,11 +3773,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Spinefists",
-              "keywords": [
-                "assault",
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "pistol", "twin-linked"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -3637,9 +3787,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Venom cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -3671,32 +3819,28 @@ window.data.tyr = {
         "Synapse",
         "Tyranid Warriors with Ranged Bio-weapons"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"],
+      "ledBy": ["Winged Tyranid Prime"]
     },
     {
       "id": "fd1b3b32-8417-51ca-876f-082d5eef9851",
       "name": "Tyrannocyte",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Tyrannocyte"
-      ],
+      "composition": ["1 Tyrannocyte"],
       "loadout": "This model is equipped with: Tyrannocyte bio-weapons; flensing whips.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 20 Tyranids Infantry models, or 1 Tyranids Monster model with a Wounds characteristic of 12 or less. Each Infantry model with a Wounds characteristic of more than 1 takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3765,31 +3909,29 @@ window.data.tyr = {
         "Great Devourer",
         "Tyrannocyte"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "718f867e-0cfd-52ef-a8df-b2687ddcac88",
       "name": "Tyrannofex",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Tyrannofex"
-      ],
+      "composition": ["1 Tyrannofex"],
       "loadout": "This model is equipped with: fleshborer hive; stinger salvoes; powerful limbs.",
       "wargear": [
         "This model’s fleshborer hive can be replaced with one of the following: ◦ 1 acid spray ◦ 1 rupture cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3823,9 +3965,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Acid spray",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "18\"",
               "attacks": "D6+6",
               "skill": "N/A",
@@ -3839,11 +3979,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Fleshborer hive",
-              "keywords": [
-                "heavy",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["heavy", "sustained hits 1", "twin-linked"],
               "range": "24\"",
               "attacks": "20",
               "skill": "3+",
@@ -3857,9 +3993,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Rupture cannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -3900,34 +4034,34 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Great Devourer",
-        "Tyrannofex"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Monster", "Great Devourer", "Tyrannofex"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "38c53884-d96b-5972-8a17-740d18d07a31",
       "name": "Tyrant Guard",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Tyrant Guard"
-      ],
+      "composition": ["3-6 Tyrant Guard"],
       "loadout": "Every model is equipped with: scything talons and rending claws.",
       "wargear": [
         "Any number of models can each have their scything talons and rending claws replaced with one of the following: ◦ 1 bone cleaver, lash whip and rending claws ◦ 1 crushing claws and rending claws"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "95"
+        },
+        {
+          "models": "6",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Synapse"
-        ],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3962,9 +4096,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Bone cleaver, lash whip and rending claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4003,36 +4135,33 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Tyrant Guard"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Tyrant Guard"],
+      "factions": ["Tyranids"],
+      "ledBy": ["Hive Tyrant", "Neurotyrant", "The Swarmlord"]
     },
     {
       "id": "2e0c66ae-f16b-54cf-bb28-daf55aac09c5",
       "name": "Venomthropes",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Venomthropes"
-      ],
+      "composition": ["3-6 Venomthropes"],
       "loadout": "Every model is equipped with: toxic lashes.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "70"
+        },
+        {
+          "models": "6",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Stealth"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Stealth"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4066,10 +4195,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Toxic lashes ",
-              "keywords": [
-                "anti-infantry 2+"
-              ],
+              "name": "Toxic lashes",
+              "keywords": ["anti-infantry 2+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -4080,39 +4207,32 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Fly",
-        "Great Devourer",
-        "Venomthropes"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Fly", "Great Devourer", "Venomthropes"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "e072d88d-2084-536a-97bc-206e99ae6d3c",
       "name": "Von Ryan’s Leapers",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "3-6 Von Ryan’s Leapers"
-      ],
+      "composition": ["3-6 Von Ryan’s Leapers"],
       "loadout": "Every model is equipped with: Leaper’s talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Synapse"
-        ],
+        "core": ["Fights First", "Infiltrators", "Stealth"],
+        "faction": ["Synapse"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -4158,38 +4278,30 @@ window.data.tyr = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Von Ryan’s Leapers"
-      ],
-      "factions": [
-        "Tyranids"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Von Ryan’s Leapers"],
+      "factions": ["Tyranids"]
     },
     {
       "id": "0d7e8129-da97-5e33-80e4-012f62c438c7",
       "name": "Winged Hive Tyrant",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Winged Hive Tyrant"
-      ],
+      "composition": ["1 Winged Hive Tyrant"],
       "loadout": "This model is equipped with: monstrous bonesword and lash whip; Tyrant talons.",
       "wargear": [
         "This model’s monstrous bonesword and lash whip can be replaced with one of the following: ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 monstrous scything talons"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4227,9 +4339,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Heavy venom cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "2+",
@@ -4243,9 +4353,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Stranglethorn cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "2+",
@@ -4260,10 +4368,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Monstrous bonesword and lash whip ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Monstrous bonesword and lash whip",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -4276,10 +4382,8 @@ window.data.tyr = {
         {
           "profiles": [
             {
-              "name": "Monstrous scything talons ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Monstrous scything talons",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -4313,33 +4417,27 @@ window.data.tyr = {
         "Synapse",
         "Winged Hive Tyrant"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "792bad62-c549-5721-8184-f4c025cc6f8a",
       "name": "Winged Tyranid Prime",
       "faction_id": "TYR",
       "leader": "This model can be attached to the following units: ■ Gargoyles ■ Tyranid Warriors with melee Bio-weapons ■ Tyranid Warriors with Ranged Bio-weapons",
-      "composition": [
-        "1 Winged Tyranid Prime"
-      ],
+      "composition": ["1 Winged Tyranid Prime"],
       "loadout": "This model is equipped with: Prime talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4397,31 +4495,31 @@ window.data.tyr = {
         "Synapse",
         "Winged Tyranid Prime"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     },
     {
       "id": "63bb6521-6679-5ee4-83b0-09f3131380f5",
       "name": "Zoanthropes",
       "faction_id": "TYR",
       "leader": "",
-      "composition": [
-        "1 Neurothrope",
-        "2-5 Zoanthropes"
-      ],
+      "composition": ["1 Neurothrope", "2-5 Zoanthropes"],
       "loadout": "Every model is equipped with: Warp Blast; xenos claws and teeth.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "90"
+        },
+        {
+          "models": "6",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Shadow in the Warp",
-          "Synapse"
-        ],
+        "faction": ["Shadow in the Warp", "Synapse"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4459,10 +4557,7 @@ window.data.tyr = {
           "profiles": [
             {
               "name": "Warp Blast – witchfire",
-              "keywords": [
-                "blast",
-                "psychic"
-              ],
+              "keywords": ["blast", "psychic"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -4472,10 +4567,7 @@ window.data.tyr = {
             },
             {
               "name": "Warp Blast – focused witchfire",
-              "keywords": [
-                "lethal hits",
-                "psychic"
-              ],
+              "keywords": ["lethal hits", "psychic"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4510,9 +4602,11 @@ window.data.tyr = {
         "Synapse",
         "Zoanthropes"
       ],
-      "factions": [
-        "Tyranids"
-      ]
+      "factions": ["Tyranids"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#411f41",
+    "header": "#381a3a"
+  }
 }

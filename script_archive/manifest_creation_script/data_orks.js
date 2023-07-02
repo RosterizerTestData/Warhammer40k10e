@@ -3,15 +3,45 @@ window.data.ORK = {
   "id": "ORK",
   "link": "https://game-datacards.eu",
   "name": "Orks",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "FOLLOW ME LADZ",
+      "description": "Orks model only. While the bearer is leading a unit, add 2\" to the Move characteristic of models in that unit.",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "HEADWOPPA’S KILLCHOPPA",
+      "description": "Orks model only. Melee weapons equipped by the bearer that do not have the [EXTRA ATTACKS] ability have the [DEVASTATING WOUNDS] ability.",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "KUNNIN’ BUT BRUTAL",
+      "description": "Orks model only. While the bearer is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back.",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "SUPA-CYBORK BODY",
+      "description": "Orks model only. The bearer has the Feel No Pain 4+ ability.",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "cost": "15"
+    }
+  ],
   "datasheets": [
     {
       "id": "acda7dbd-3e08-583d-a83d-5085f32f80ee",
       "name": "Battlewagon",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Battlewagon"
-      ],
+      "composition": ["1 Battlewagon"],
       "loadout": "This model is equipped with: tracks and wheels.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 kannon ◦ 1 killkannon ◦ 1 zzap gun",
@@ -21,6 +51,12 @@ window.data.ORK = {
         "This model can be equipped with any of the following: ◦ 1 ’ard case ◦ 1 grabbin’ klaw ◦ 1 wreckin’ ball"
       ],
       "transport": "This model has a transport capacity of 22 Orks Infantry models. If this model is equipped with a killkannon, it has a transport capacity of 12 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models. If this model is not equipped with an ’ard case, kannon, killkannon or zzap gun, it can transport 1 Ghazghkull Thraka. Ghazghkull Thraka takes up the space of 18 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "185"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -28,13 +64,8 @@ window.data.ORK = {
             "description": "Add 2 to the bearer’s Toughness characteristic, but it no longer has the Firing Deck ability."
           }
         ],
-        "core": [
-          "Deadly Demise D6",
-          "Firing Deck 22"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D6", "Firing Deck 22"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -68,9 +99,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -84,9 +113,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kannon – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6",
               "skill": "5+",
@@ -124,10 +151,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Lobba",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -141,9 +165,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Zzap gun",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "36\"",
               "attacks": "1",
               "skill": "5+",
@@ -173,9 +195,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Grabbin’ klaw",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -203,9 +223,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Wreckin’ ball",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
@@ -216,37 +234,34 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Battlewagon"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Transport", "Battlewagon"],
+      "factions": ["Orks"]
     },
     {
       "id": "9d13f644-86ae-568e-9f34-97e50e1cb30d",
       "name": "Beast Snagga Boyz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Beast Snagga Nob",
-        "9-19 Beast Snagga Boyz"
-      ],
+      "composition": ["1 Beast Snagga Nob", "9-19 Beast Snagga Boyz"],
       "loadout": "The Beast Snagga Nob is equipped with: slugga; power snappa. Every Beast Snagga Boy is equipped with: slugga; choppa.",
       "wargear": [
         "For every 10 models in this unit, 1 Beast Snagga Boy’s slugga and choppa can be replaced with 1 thump gun and 1 close combat weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "105"
+        },
+        {
+          "models": "20",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 6+"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -289,9 +304,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -305,9 +318,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Thump gun",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "5+",
@@ -369,32 +380,28 @@ window.data.ORK = {
         "Beast Snagga",
         "Beast Snagga Boyz"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"],
+      "ledBy": ["Beastboss", "Painboss", "Wurrboy"]
     },
     {
       "id": "6acd203a-43b6-5fd6-9737-949144462427",
       "name": "Beastboss",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Beast Snagga Boyz",
-      "composition": [
-        "1 Beastboss"
-      ],
+      "composition": ["1 Beastboss"],
       "loadout": "This model is equipped with: shoota; beastchoppa; Beast Snagga klaw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -432,9 +439,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Shoota",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -450,10 +455,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Beast Snagga klaw",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -467,10 +469,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Beastchoppa",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -488,32 +487,27 @@ window.data.ORK = {
         "Warboss",
         "Beastboss"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "3136894e-024e-54e7-939f-a249b081c398",
       "name": "Beastboss On Squigosaur",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Beastboss on Squigosaur"
-      ],
+      "composition": ["1 Beastboss on Squigosaur"],
       "loadout": "This model is equipped with: slugga; beastchoppa; Squigosaur’s jaws.",
-      "wargear": [
-        "This model can be equipped with 1 thump gun."
-      ],
+      "wargear": ["This model can be equipped with 1 thump gun."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 4+"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 4+"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -551,9 +545,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -567,9 +559,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Thump gun",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "5+",
@@ -585,10 +575,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Beastchoppa",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -602,10 +589,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Squigosaur’s jaws",
-              "keywords": [
-                "devastating wounds",
-                "extra attacks"
-              ],
+              "keywords": ["devastating wounds", "extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -622,18 +606,14 @@ window.data.ORK = {
         "Beast Snagga",
         "Beastboss on Squigosaur"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "adceb48a-0005-5558-a460-289abae88725",
       "name": "Big Mek In Mega Armour",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Meganobz",
-      "composition": [
-        "1 Big Mek in Mega Armour"
-      ],
+      "composition": ["1 Big Mek in Mega Armour"],
       "loadout": "This model is equipped with: kustom-mega blaster; power klaw.",
       "wargear": [
         "This model’s kustom-mega blasta can be replaced with one of the following: ◦ 1 killsaw ◦ 1 kombi-weapon ◦ 1 kustom shoota",
@@ -641,6 +621,12 @@ window.data.ORK = {
         "This model can be equipped with 1 grot oiler."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -652,12 +638,8 @@ window.data.ORK = {
             "description": "Once per battle, at the end of your Movement phase, one model in the bearer’s unit regains D3 lost wounds."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -713,9 +695,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-blasta",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -729,9 +709,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "18\"",
               "attacks": "4",
               "skill": "5+",
@@ -745,9 +723,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Tellyport blasta",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "12\"",
               "attacks": "3",
               "skill": "5+",
@@ -788,28 +764,24 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Big Mek in Mega Armour"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Big Mek in Mega Armour"],
+      "factions": ["Orks"]
     },
     {
       "id": "675b6df7-89da-50b0-a4c2-ab52cd62b829",
       "name": "Big Mek With Kustom Force Field",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Burna Boyz ■ Tankbustas ■ Lootas ■ Nobz",
-      "composition": [
-        "1 Big Mek with Kustom Force Field"
-      ],
+      "composition": ["1 Big Mek with Kustom Force Field"],
       "loadout": "This model is equipped with: slugga; choppa.",
-      "wargear": [
-        "This model can be equipped with 1 grot helper."
-      ],
+      "wargear": ["This model can be equipped with 1 grot helper."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -817,12 +789,8 @@ window.data.ORK = {
             "description": "Once per battle, the bearer can overcharge its kustom force field one additional time."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -860,9 +828,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -895,23 +861,23 @@ window.data.ORK = {
         "Grenades",
         "Big Mek with Kustom Force Field"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "ca21b913-eb23-5dd4-967e-aef57fcb4dc7",
       "name": "Big Mek With Shokk Attack Gun",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Lootaz ■ Mek Gunz",
-      "composition": [
-        "1 Big Mek with Shokk Attack Gun"
-      ],
+      "composition": ["1 Big Mek with Shokk Attack Gun"],
       "loadout": "This model is equipped with: close combat weapon, shokk attack gun.",
-      "wargear": [
-        "This model can be equipped with 1 grot assistant."
-      ],
+      "wargear": ["This model can be equipped with 1 grot assistant."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -919,12 +885,8 @@ window.data.ORK = {
             "description": "Once per battle, after rolling to determine how many attacks the bearer’s shokk attack gun makes, you can re-roll that dice."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -962,10 +924,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Shokk attack gun",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "60\"",
               "attacks": "D6+1",
               "skill": "5+",
@@ -998,32 +957,161 @@ window.data.ORK = {
         "Grenades",
         "Big Mek with Shokk Attack Gun"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
+    },
+    {
+      "id": "a3ca37e0-666b-541b-a17c-d22ebb42edfc",
+      "name": "Big Trakk",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Big Trakk"],
+      "loadout": "This model is equipped with: 2 big shootas; armoured hull.",
+      "wargear": [
+        "This model can be equipped with one of the following: ◦ 1 kannon ◦ 1 supa-kannon"
+      ],
+      "transport": "This model has a transport capacity of 12 Orks Infantry models. If this model is equipped with a killkannon, it has a transport capacity of 6 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models. This model cannot transport Ghazghkull Thraka.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D3", "Firing Deck 12"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "6+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Spiked Ram",
+            "description": "Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-4 WOUNDS REMAINING",
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "9",
+          "sv": "4+",
+          "w": "12",
+          "ld": "7+",
+          "oc": "3",
+          "name": "Big Trakk"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Big shoota",
+              "keywords": ["rapid fire 2"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Kannon – frag",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Kannon – shell",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Supa-kannon – frag",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D6+3",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Supa-kannon – shell",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D3+3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Transport", "Big Trakk"],
+      "factions": ["Orks"]
     },
     {
       "id": "60ac82b0-fd1d-599d-8484-c5e926301cfe",
       "name": "Big’ed Bossbunka",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Big’ed Bossbunka"
-      ],
+      "composition": ["1 Big’ed Bossbunka"],
       "loadout": "This model is equipped with: big shoota; Gaze of Gork.",
       "wargear": [
         "This model can be equipped with up to 3 additional big shootas."
       ],
       "transport": "This model has a transport capacity of 11 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 11"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 11"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1065,9 +1153,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -1081,10 +1167,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Gaze of Gork – glare",
-              "keywords": [
-                "blast",
-                "sustained hits d3"
-              ],
+              "keywords": ["blast", "sustained hits d3"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "5+",
@@ -1094,9 +1177,7 @@ window.data.ORK = {
             },
             {
               "name": "Gaze of Gork – squint",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "5+",
@@ -1108,37 +1189,28 @@ window.data.ORK = {
         }
       ],
       "meleeWeapons": [],
-      "keywords": [
-        "Fortification",
-        "Vehicle",
-        "Transport",
-        "Big’ed Bossbunka"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Fortification", "Vehicle", "Transport", "Big’ed Bossbunka"],
+      "factions": ["Orks"]
     },
     {
       "id": "0ec6442e-cdf6-5669-b5ab-57cccdf4a27f",
       "name": "Blitza-bommer",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Blitza-bommer"
-      ],
+      "composition": ["1 Blitza-bommer"],
       "loadout": "This model is equipped with: big shoota; twin supa-shoota; armoured hull.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1172,9 +1244,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -1188,11 +1258,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin supa-shoota",
-              "keywords": [
-                "rapid fire 2",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "4",
               "skill": "5+",
@@ -1219,37 +1285,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Aircraft",
-        "Fly",
-        "Blitza-bommer"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Aircraft", "Fly", "Blitza-bommer"],
+      "factions": ["Orks"]
     },
     {
       "id": "0c057420-5a2c-598e-a2ce-50c72fff23de",
       "name": "Boomdakka Snazzwagon",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boomdakka Snazzwagon"
-      ],
+      "composition": ["1 Boomdakka Snazzwagon"],
       "loadout": "This model is equipped with: big shoota; grot blasta; Mek speshul; spiked wheels.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1283,9 +1340,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -1299,9 +1354,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Grot blasta",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1315,11 +1368,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Mek speshul",
-              "keywords": [
-                "assault",
-                "rapid fire 4",
-                "sustained hits 1"
-              ],
+              "keywords": ["assault", "rapid fire 4", "sustained hits 1"],
               "range": "24\"",
               "attacks": "12",
               "skill": "5+",
@@ -1346,38 +1395,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Grenades",
-        "Boomdakka Snazzwagon"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Grenades", "Boomdakka Snazzwagon"],
+      "factions": ["Orks"]
     },
     {
       "id": "68d7d3de-7926-54df-8238-c1ed05b23fef",
       "name": "Boss Snikrot",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Kommandos",
-      "composition": [
-        "1 Boss Snikrot – Epic Hero"
-      ],
+      "composition": ["1 Boss Snikrot – Epic Hero"],
       "loadout": "This model is equipped with: slugga; Mork’s Teeth.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Leader",
-          "Stealth"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Infiltrators", "Leader", "Stealth"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1415,9 +1454,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1433,10 +1470,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Mork’s Teeth",
-              "keywords": [
-                "precision",
-                "twin-linked"
-              ],
+              "keywords": ["precision", "twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1454,33 +1488,27 @@ window.data.ORK = {
         "Epic Hero",
         "Boss Snikrot"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "9b4c638a-643c-532d-b632-31330c3e0f99",
       "name": "Boss Zagstruk",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Stormboyz",
-      "composition": [
-        "1 Boss Zagstruk – Epic Hero"
-      ],
+      "composition": ["1 Boss Zagstruk – Epic Hero"],
       "loadout": "This model is equipped with: Da Vulcha’s Klaws and choppa; slugga.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 6+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1518,9 +1546,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -1555,19 +1581,14 @@ window.data.ORK = {
         "Epic Hero",
         "Boss Zagstruk"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "126f5eb6-5c28-57fb-a570-21a60a3d85f0",
       "name": "Boyz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boss Nob",
-        "9-19 Boyz"
-      ],
+      "composition": ["1 Boss Nob", "9-19 Boyz"],
       "loadout": "The Boss Nob is equipped with: slugga; big choppa. Every Boy is equipped with: slugga; choppa.",
       "wargear": [
         "The Boss Nob’s big choppa can be replaced with 1 power klaw.",
@@ -1576,12 +1597,20 @@ window.data.ORK = {
         "For every 10 models in this unit, 1 Boy’s choppa and slugga can be replaced with one of the following: ◦ 1 big shoota and 1 close combat weapon ◦ 1 rokkit launcha and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "85"
+        },
+        {
+          "models": "20",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1629,9 +1658,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -1663,9 +1690,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -1679,9 +1704,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Shoota",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "18\"",
               "attacks": "2",
               "skill": "5+",
@@ -1695,9 +1718,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -1766,15 +1787,17 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Mob",
-        "Grenades",
-        "Boyz"
-      ],
-      "factions": [
-        "Orks"
+      "keywords": ["Infantry", "Battleline", "Mob", "Grenades", "Boyz"],
+      "factions": ["Orks"],
+      "ledBy": [
+        "Big Mek With Kustom Force Field",
+        "Big Mek With Shokk Attack Gun",
+        "Mad Dok Grotsnik",
+        "Mek",
+        "Nob With Waaagh! Banner",
+        "Painboy",
+        "Warboss",
+        "Weirdboy"
       ]
     },
     {
@@ -1791,12 +1814,24 @@ window.data.ORK = {
         "Any number of Spanners can each have their big shoota replaced with one of the following: ◦ 1 kustom mega-blasta ◦ 1 rokkit launcha"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "65"
+        },
+        {
+          "models": "10",
+          "cost": "130"
+        },
+        {
+          "models": "15",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1830,9 +1865,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -1846,10 +1879,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Burna",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1863,9 +1893,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-blasta",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -1879,9 +1907,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -1922,12 +1948,12 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Burna Boyz"
-      ],
-      "factions": [
-        "Orks"
+      "keywords": ["Infantry", "Burna Boyz"],
+      "factions": ["Orks"],
+      "ledBy": [
+        "Big Mek With Kustom Force Field",
+        "Mad Dok Grotsnik",
+        "Painboy"
       ]
     },
     {
@@ -1935,22 +1961,20 @@ window.data.ORK = {
       "name": "Burna-bommer",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Burna-bommer"
-      ],
+      "composition": ["1 Burna-bommer"],
       "loadout": "This model is equipped with: twin big shoota; twin supa-shoota; armoured hull.",
-      "wargear": [
-        "This model can be equipped with 1 skorcha missile rack."
-      ],
+      "wargear": ["This model can be equipped with 1 skorcha missile rack."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1984,10 +2008,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin big shoota",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "5+",
@@ -2001,11 +2022,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin supa-shoota",
-              "keywords": [
-                "rapid fire 2",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "4",
               "skill": "5+",
@@ -2019,10 +2036,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Skorcha missile rack",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "5+",
@@ -2049,37 +2063,30 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Aircraft",
-        "Burna-bommer"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Fly", "Aircraft", "Burna-bommer"],
+      "factions": ["Orks"]
     },
     {
       "id": "9640f5b7-a970-5211-b77d-f607db6edf47",
       "name": "Dakkajet",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Dakkajet"
-      ],
+      "composition": ["1 Dakkajet"],
       "loadout": "This model is equipped with: 2 twin supa-shootas; armoured hull.",
       "wargear": [
         "This model can be equipped with 1 additional twin supa-shoota."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2113,11 +2120,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin supa-shoota",
-              "keywords": [
-                "rapid fire 2",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "4",
               "skill": "5+",
@@ -2144,38 +2147,31 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Aircraft",
-        "Dakkajet"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Fly", "Aircraft", "Dakkajet"],
+      "factions": ["Orks"]
     },
     {
       "id": "a7a7a663-bd7e-55fc-b41c-6402d2745af4",
       "name": "Deff Dread",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Deff Dread"
-      ],
+      "composition": ["1 Deff Dread"],
       "loadout": "This model is equipped with: 2 big shootas; 2 dread klaws; stompy feet.",
       "wargear": [
         "This model’s big shootas can each be replaced with one of the following: ◦ 1 dread klaw ◦ 1 kustom-mega blasta ◦ 1 rokkit launcha ◦ 1 skorcha",
         "This model’s dread klaws can each be replaced with one of the following: ◦ 1 big shoota ◦ 1 kustom-mega blasta ◦ 1 rokkit launcha ◦ 1 skorcha"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2209,9 +2205,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -2225,9 +2219,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-blasta",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -2241,9 +2233,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -2257,10 +2247,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Skorcha",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2276,9 +2263,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Dread klaw",
-              "keywords": [
-                "dead choppy"
-              ],
+              "keywords": ["dead choppy"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2289,37 +2274,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Deff Dread"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Walker", "Deff Dread"],
+      "factions": ["Orks"]
     },
     {
       "id": "76ae3494-a689-5dd3-92e6-99d47032ef82",
       "name": "Deffkilla Wartrike",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Warbikers",
-      "composition": [
-        "1 Defkilla Wartrike"
-      ],
+      "composition": ["1 Defkilla Wartrike"],
       "loadout": "This model is equipped with: defkilla boomsticks; killajet; snagga klaw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2357,9 +2333,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Deffkilla boomstikks",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "6",
               "skill": "5+",
@@ -2373,10 +2347,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Killa jet – burna",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2386,9 +2357,7 @@ window.data.ORK = {
             },
             {
               "name": "Killa jet – cutta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -2415,36 +2384,34 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Warboss",
-        "Deffkilla Wartrike"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Mounted", "Warboss", "Deffkilla Wartrike"],
+      "factions": ["Orks"]
     },
     {
       "id": "99d257a5-ca17-5cdf-96a1-7473031a1259",
       "name": "Deffkoptas",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "3-6 Deffkoptas"
-      ],
+      "composition": ["3-6 Deffkoptas"],
       "loadout": "Every model is equipped with: kopta rokkits; slugga; spinnin’ blades.",
       "wargear": [
         "For every 3 models in this unit, 1 Deffkopta can have its kopta rokkits replaced with 1 kustom mega-blasta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "115"
+        },
+        {
+          "models": "6",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2478,10 +2445,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kopta rokkits",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -2495,9 +2459,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-blasta",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -2511,9 +2473,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -2540,30 +2500,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Grenades",
-        "Deffkoptas"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Fly", "Grenades", "Deffkoptas"],
+      "factions": ["Orks"]
     },
     {
       "id": "2505a4c1-5b1a-55ab-8340-c2a874d71104",
       "name": "Flash Gitz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Kaptin",
-        "4-9 Flash Gitz"
-      ],
+      "composition": ["1 Kaptin", "4-9 Flash Gitz"],
       "loadout": "Every model is equipped with: snazzgun; choppa.",
-      "wargear": [
-        "This unit can be equipped with 1 ammo runt."
-      ],
+      "wargear": ["This unit can be equipped with 1 ammo runt."],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2572,9 +2530,7 @@ window.data.ORK = {
           }
         ],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2608,10 +2564,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Snazzgun",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -2638,40 +2591,160 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Flash Gitz"
+      "keywords": ["Infantry", "Grenades", "Flash Gitz"],
+      "factions": ["Orks"],
+      "ledBy": ["Kaptin Badrukk"]
+    },
+    {
+      "id": "3928904f-341e-5718-a995-6a87f94d00f6",
+      "name": "Gargantuan Squiggoth",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Gargantuan Squiggoth"],
+      "loadout": "This model is equipped with: huge tusks.",
+      "wargear": [
+        "This model can be equipped with one of the following: ◦ 1 kannon ◦  1 supa-kannon"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "transport": "This model has a transport capacity of 20 Orks Infantry models. Ghazghkull Thraka takes up the space of 18 models. If this model is equipped with a supa-kannon, it has a transport capacity of 15 Orks Infantry models. It cannot transport Mega Armour or Jump Pack models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "440"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 2D6", "Firing Deck 20"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Gargantuan",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4\" or less in height as if they were not there."
+          },
+          {
+            "name": "Walking Bastion",
+            "description": "This model does not suffer the penalty to its Hit rolls for making ranged attacks while enemy units are within Engagement Range of it."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-10 WOUNDS REMAINING",
+          "description": "While this model has 1-10 wounds remaining, subtract 6 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "13",
+          "sv": "3+",
+          "w": "30",
+          "ld": "7+",
+          "oc": "12",
+          "name": "Gargantuan Squiggoth"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Kannon – frag",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Kannon – shell",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Supa-kannon",
+              "keywords": ["blast"],
+              "range": "60\"",
+              "attacks": "2D6",
+              "skill": "5+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Huge tusks – strike",
+              "keywords": ["lance"],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "12"
+            },
+            {
+              "name": "Huge tusks – sweep",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "18",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Monster",
+        "Titanic",
+        "Towering",
+        "Transport",
+        "Gargantuan Squiggoth"
+      ],
+      "factions": ["Orks"]
     },
     {
       "id": "5eaa496c-6dd6-5387-8308-d5e62f207d0c",
       "name": "Ghazghkull Thraka",
       "faction_id": "ORK",
       "leader": "This unit can be attached to the following unit: ■ Meganobz If this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength.",
-      "composition": [
-        "1 Ghazghkull Thraka – Epic Hero",
-        "1 Makari"
-      ],
+      "composition": ["1 Ghazghkull Thraka – Epic Hero", "1 Makari"],
       "loadout": "Ghazghkull Thraka is equipped with: Mork’s Roar; Gork’s Klaw. Makari is equipped with: Makari’s stabba.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "235"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
-          "value": "GHAZGHKULL                          4+",
+          "value": "4+",
           "info": ""
         },
         "other": [
@@ -2688,6 +2761,10 @@ window.data.ORK = {
           {
             "name": "SUPREME COMMANDER",
             "description": "If this unit is in your army, its Ghazghkull Thraka model must be your Warlord."
+          },
+          {
+            "name": "Invulnerable save: Makari 2+",
+            "description": "* You cannot re-roll invulnerable saving throws made for this model."
           }
         ],
         "damaged": {
@@ -2720,9 +2797,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Mork’s Roar",
-              "keywords": [
-                "rapid fire 4"
-              ],
+              "keywords": ["rapid fire 4"],
               "range": "36\"",
               "attacks": "12",
               "skill": "5+",
@@ -2752,9 +2827,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Makari’s stabba",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
@@ -2765,37 +2838,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Ghazghkull Thraka"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Ghazghkull Thraka"],
+      "factions": ["Orks"]
     },
     {
       "id": "4ffe5482-08d8-5c01-bf59-a4bb152fd94e",
       "name": "Gorkanaut",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Gorkanaut"
-      ],
+      "composition": ["1 Gorkanaut"],
       "loadout": "This model is equipped with: deffstorm mega-shoota; 2 rokkit launchas; skorcha; 2 twin big shootas; klaw of Gork.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 12 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models. It cannot transport Ghazghkull Thraka.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "295"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2833,9 +2897,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Deffstorm mega-shoota",
-              "keywords": [
-                "rapid fire 10"
-              ],
+              "keywords": ["rapid fire 10"],
               "range": "36\"",
               "attacks": "20",
               "skill": "5+",
@@ -2849,9 +2911,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -2865,10 +2925,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Skorcha",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2882,10 +2939,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin big shoota",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "5+",
@@ -2930,30 +2984,31 @@ window.data.ORK = {
         "Transport",
         "Gorkanaut"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "c137a3eb-f513-5d58-9659-b9ca41e61b6b",
       "name": "Gretchin",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1-2 Runtherds",
-        "10-20 Gretchin"
-      ],
+      "composition": ["1-2 Runtherds", "10-20 Gretchin"],
       "loadout": "Every Runtherd is equipped with: slugga; grot-smacka. Every Gretchin is equipped with: grot blasta; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "45"
+        },
+        {
+          "models": "22",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3000,9 +3055,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Grot blasta",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3016,9 +3069,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -3059,37 +3110,329 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Gretchin"
+      "keywords": ["Infantry", "Gretchin"],
+      "factions": ["Orks"],
+      "ledBy": ["Zodgrod Wortsnagga"]
+    },
+    {
+      "id": "08e43c54-f5f6-5fcc-b067-a85c4005e2b5",
+      "name": "Grot Mega-tank",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Grot Mega-Tank"],
+      "loadout": "This model is equipped with: Mega-tank weapons; twin big shoota; twin grotzooka; armoured hull.",
+      "wargear": [
+        "This model’s twin big shoota can be replaced with one of the following: ◦ 1 twin grotzooka ◦ 1 twin kustom mega-blasta ◦ 1 twin rokkit launcha ◦ 1 twin skorcha",
+        "This model’s twin grotzooka can be replaced with one of the following: ◦ 1 twin big shoota ◦ 1 twin kustom mega-blasta ◦ 1 twin rokkit launcha ◦ 1 twin skorcha"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Bizarrely Resilient",
+            "description": "Each time an attack targets this model, worsen the Armour Penetration characteristic of that attack by 1."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-4 WOUNDS REMAINING",
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "8\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "12",
+          "ld": "8+",
+          "oc": "4",
+          "name": "Grot Mega-tank"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Mega-tank weapons",
+              "keywords": ["rapid fire 10"],
+              "range": "18\"",
+              "attacks": "10",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin big shoota",
+              "keywords": ["rapid fire 2", "twin-linked"],
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin grotzooka",
+              "keywords": ["blast", "twin-linked"],
+              "range": "18\"",
+              "attacks": "D3+3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin kustom mega-blasta",
+              "keywords": ["hazardous", "twin-linked"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin rokkit launcha",
+              "keywords": ["blast", "twin-linked"],
+              "range": "24\"",
+              "attacks": "D3",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin skorcha",
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Grot", "Grot Mega-Tank"],
+      "factions": ["Orks"]
+    },
+    {
+      "id": "01d4c195-6873-5913-b7b9-daa049d45ece",
+      "name": "Grot Tanks",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["4-8 Grot Tanks"],
+      "loadout": "Every model is equipped with: big shoota; ramshackle hull.",
+      "wargear": [
+        "Any number of models can each have their big shoota replaced with one of the following: ◦ 1 grotzooka ◦ 1 kustom mega-blasta ◦ 1 rokkit launcha ◦  1 skorcha",
+        "For every four models in this unit, one model can be equipped with one of the following in addition to any other weapons: ◦ 1 big shoota ◦ 1 grotzooka ◦ 1 kustom mega-blasta ◦ 1 rokkit launcha ◦  1 skorcha"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "155"
+        },
+        {
+          "models": "8",
+          "cost": "310"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Scatter!",
+            "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\"."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "6",
+          "sv": "3+",
+          "w": "5",
+          "ld": "8+",
+          "oc": "2",
+          "name": "Grot Tanks"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Big shoota",
+              "keywords": ["rapid fire 2"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Grotzooka",
+              "keywords": ["blast"],
+              "range": "18\"",
+              "attacks": "D3+3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Kustom mega-blasta",
+              "keywords": ["hazardous"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Rokkit launcha",
+              "keywords": ["blast"],
+              "range": "24\"",
+              "attacks": "D3",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Skorcha",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Ramshackle hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "5+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Grot", "Grot Tanks"],
+      "factions": ["Orks"]
     },
     {
       "id": "5680837d-12d4-5c28-9b6e-6ceb36083c1c",
       "name": "Hunta Rig",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Hunta Rig"
-      ],
+      "composition": ["1 Hunta Rig"],
       "loadout": "This model is equipped with: ’eavy lobba; stikka kannon; butcha boyz; savage horns and hooves; saw blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 21 Beast Snagga Infantry models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Feel No Pain 6+",
-          "Firing Deck 21"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D6", "Feel No Pain 6+", "Firing Deck 21"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3123,10 +3466,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "’Eavy lobba",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -3140,11 +3480,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Stikka kannon",
-              "keywords": [
-                "anti-monster 2+",
-                "anti-vehicle 2+",
-                "snagged"
-              ],
+              "keywords": ["anti-monster 2+", "anti-vehicle 2+", "snagged"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -3160,7 +3496,17 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Butcha boyz",
-              "keywords": []
+              "keywords": [
+                "extra attacks",
+                "anti-monster 4+",
+                "anti-vehicle 4+"
+              ],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
             }
           ]
         },
@@ -3168,10 +3514,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Savage horns and hooves",
-              "keywords": [
-                "extra attacks",
-                "lance"
-              ],
+              "keywords": ["extra attacks", "lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -3196,37 +3539,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Beast Snagga",
-        "Hunta Rig"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Transport", "Beast Snagga", "Hunta Rig"],
+      "factions": ["Orks"]
     },
     {
       "id": "61b63a65-5fdf-51da-8260-4e320d8cebc1",
       "name": "Kaptin Badrukk",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Flash Gitz",
-      "composition": [
-        "1 Kaptin Badrukk – Epic Hero"
-      ],
+      "composition": ["1 Kaptin Badrukk – Epic Hero"],
       "loadout": "This model is equipped with: slugga; choppa; Da Rippa.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3264,10 +3598,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Da Rippa – standard",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -3277,11 +3608,7 @@ window.data.ORK = {
             },
             {
               "name": "Da Rippa – supercharge",
-              "keywords": [
-                "hazardous",
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["hazardous", "heavy", "sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -3295,9 +3622,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3324,39 +3649,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Kaptin Badrukk"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Kaptin Badrukk"],
+      "factions": ["Orks"]
     },
     {
       "id": "c70f4da0-73a6-5bb0-9c6f-893a5a9f42b1",
       "name": "Kill Rig",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Kill Rig"
-      ],
+      "composition": ["1 Kill Rig"],
       "loadout": "This model is equipped with: ’eavy lobba; stikka kannon; wurrtower; butcha boyz; savage horns and hooves; saw blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 11 Beast Snagga Infantry models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Feel No Pain 6+",
-          "Firing Deck 11"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D6", "Feel No Pain 6+", "Firing Deck 11"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3390,10 +3704,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "’Eavy lobba",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -3407,11 +3718,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Stikka kannon",
-              "keywords": [
-                "anti-monster 2+",
-                "anti-vehicle 2+",
-                "snagged"
-              ],
+              "keywords": ["anti-monster 2+", "anti-vehicle 2+", "snagged"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -3425,11 +3732,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Wurrtower",
-              "keywords": [
-                "hazardous",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["hazardous", "psychic", "torrent"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "N/A",
@@ -3463,10 +3766,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Savage horns and hooves",
-              "keywords": [
-                "extra attacks",
-                "lance"
-              ],
+              "keywords": ["extra attacks", "lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -3498,31 +3798,159 @@ window.data.ORK = {
         "Beast Snagga",
         "Kill Rig"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
+    },
+    {
+      "id": "e195d3fa-316c-57d4-9621-0f45b697607f",
+      "name": "Kill Tank",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Kill Tank"],
+      "loadout": "This model is equipped with: bursta kannon; skorcha; twin big shoota; reinforced ram.",
+      "wargear": [
+        "This model’s bursta kannon can be replaced with 1 giga shoota."
+      ],
+      "transport": "This model has a transport capacity of 12 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models. It cannot transport Ghazghkull Thraka.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "305"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Wall of Dakka",
+            "description": "Each time this model makes a ranged attack that targets a unit within half range, add 1 to the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-8 WOUNDS REMAINING",
+          "description": "While this model has 1-8 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "12",
+          "sv": "3+",
+          "w": "24",
+          "ld": "6+",
+          "oc": "10",
+          "name": "Kill Tank"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bursta kannon",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "3D6",
+              "skill": "5+",
+              "strength": "14",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Giga shoota",
+              "keywords": ["sustained hits 1"],
+              "range": "48\"",
+              "attacks": "30",
+              "skill": "5+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Skorcha",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin big shoota",
+              "keywords": ["rapid fire 2", "twin-linked"],
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Reinforced ram",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "8",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Transport", "Kill Tank"],
+      "factions": ["Orks"]
     },
     {
       "id": "17461bcd-24d2-580b-b1e4-aa86fdaaf5bf",
       "name": "Killa Kans",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "3-6 Killa Kans"
-      ],
+      "composition": ["3-6 Killa Kans"],
       "loadout": "Every model is equipped with: Kan shoota; Kan klaw.",
       "wargear": [
         "Each Killa Kan’s Kan shoota can be replaced with one of the following: ◦ 1 grotzooka ◦ 1 rokkit launcha ◦ 1 skorcha"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "150"
+        },
+        {
+          "models": "6",
+          "cost": "300"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -3556,10 +3984,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kan shoota",
-              "keywords": [
-                "devastating wounds",
-                "rapid fire 2"
-              ],
+              "keywords": ["devastating wounds", "rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3573,9 +3998,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Grotzooka",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D3+3",
               "skill": "4+",
@@ -3589,9 +4012,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -3605,10 +4026,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Skorcha",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3635,24 +4053,15 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Killa Kans"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Walker", "Killa Kans"],
+      "factions": ["Orks"]
     },
     {
       "id": "907ea7d6-7868-508c-874b-15982396713d",
       "name": "Kommandos",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boss Nob",
-        "9 Kommandos"
-      ],
+      "composition": ["1 Boss Nob", "9 Kommandos"],
       "loadout": "Every model is equipped with: slugga; choppa.",
       "wargear": [
         "The Boss Nob’s choppa can be replaced with one of the following: ◦ 1 big choppa ◦ 1 power klaw",
@@ -3664,6 +4073,12 @@ window.data.ORK = {
         "This unit can be equipped with 1 distraction grot."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3671,13 +4086,8 @@ window.data.ORK = {
             "description": "Once per battle, in your opponent’s Shooting phase, before making a saving throw for a model in this unit, it can deploy the distraction grot. If it does, until the end of the phase, models in this unit have a 5+ invulnerable save."
           }
         ],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3720,10 +4130,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Burna",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3737,9 +4144,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Speshul Kommando shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "18\"",
               "attacks": "4",
               "skill": "5+",
@@ -3753,9 +4158,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -3769,9 +4172,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -3854,36 +4255,29 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Kommandos"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Grenades", "Kommandos"],
+      "factions": ["Orks"],
+      "ledBy": ["Boss Snikrot"]
     },
     {
       "id": "04e65945-62f8-54a9-82b7-23b92c74a0d2",
       "name": "Kustom Boosta-blasta",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Kustom Boosta-blasta"
-      ],
+      "composition": ["1 Kustom Boosta-blasta"],
       "loadout": "This model is equipped with: burna exhausts; grot blasta; rivet kannon; spiked wheels.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -3917,11 +4311,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Burna exhausts",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "6\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -3935,9 +4325,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Grot blasta",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3951,10 +4339,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rivet kannon",
-              "keywords": [
-                "assault",
-                "rapid fire 3"
-              ],
+              "keywords": ["assault", "rapid fire 3"],
               "range": "36\"",
               "attacks": "6",
               "skill": "5+",
@@ -3981,13 +4366,8 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Kustom Boosta-blasta"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Kustom Boosta-blasta"],
+      "factions": ["Orks"]
     },
     {
       "id": "4313053f-9a2a-5a45-9427-5cba8aef2c7e",
@@ -4003,12 +4383,24 @@ window.data.ORK = {
         "Any number of Spanners can each have their big shoota replaced with one of the following: ◦ 1 kustom mega-blasta ◦ 1 rokkit launcha"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "55"
+        },
+        {
+          "models": "10",
+          "cost": "110"
+        },
+        {
+          "models": "15",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4037,9 +4429,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -4053,10 +4443,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Deffgun",
-              "keywords": [
-                "heavy",
-                "rapid fire 1"
-              ],
+              "keywords": ["heavy", "rapid fire 1"],
               "range": "48\"",
               "attacks": "2",
               "skill": "6+",
@@ -4070,9 +4457,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-blasta",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -4086,9 +4471,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -4115,12 +4498,13 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Lootas"
-      ],
-      "factions": [
-        "Orks"
+      "keywords": ["Infantry", "Lootas"],
+      "factions": ["Orks"],
+      "ledBy": [
+        "Big Mek With Kustom Force Field",
+        "Mad Dok Grotsnik",
+        "Mek",
+        "Painboy"
       ]
     },
     {
@@ -4128,23 +4512,20 @@ window.data.ORK = {
       "name": "Mad Dok Grotsnik",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Burna Boyz ■ Tankbustas ■ Lootas ■ Nobz",
-      "composition": [
-        "1 Mad Dok Grotsnik – Epic Hero"
-      ],
+      "composition": ["1 Mad Dok Grotsnik – Epic Hero"],
       "loadout": "This model is equipped with: slugga; power klaw; ’urty syringe.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4182,9 +4563,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -4200,9 +4579,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Power klaw",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4216,11 +4593,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "’Urty syringe",
-              "keywords": [
-                "anti-infantry 4+",
-                "extra attacks",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 4+", "extra attacks", "precision"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -4238,29 +4611,172 @@ window.data.ORK = {
         "Painboy",
         "Mad Dok Grotsnik"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
+    },
+    {
+      "id": "08091535-8e6c-5553-be4e-fb5d3ab268e7",
+      "name": "Mega Dread",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Mega Dread"],
+      "loadout": "This model is equipped with: 2 boombits; killkannon; dread rippa klaw; stompy feet.",
+      "wargear": [
+        "This model’s killkannon can be replaced with one of the following: ◦ 1 dread killsaw ◦ 1 dread rippa klaw",
+        "This model’s dread rippa klaw can be replaced with one of the following: ◦ 1 dread killsaw ◦ 1 killkannon"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "225"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "6+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Mega Carnage",
+            "description": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a Charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
+          },
+          {
+            "name": "Dead Rippy",
+            "description": "If this model is equipped with 2 dread killsaws, those weapons have the [TWIN-LINKED] ability. If this model is equipped with 2 dread rippa klaws, those weapons have the [TWIN-LINKED] ability."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "8\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "16",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Mega Dread"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Boombits",
+              "keywords": ["torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Killkannon",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "D6+3",
+              "skill": "5+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Dread killsaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Dread rippa klaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Stompy feet",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Walker", "Mega Dread"],
+      "factions": ["Orks"]
     },
     {
       "id": "4a45c36d-652e-5cdb-a08d-a28f6644b794",
       "name": "Meganobz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "2-6 Meganobz"
-      ],
+      "composition": ["2-6 Meganobz"],
       "loadout": "Every model is equipped with: kustom shoota; power klaw.",
       "wargear": [
         "Any number of models can each have their kustom shoota and power klaw replaced with one of the following: ◦ 1 kombi-weapon and 1 power klaw ◦ 1 kombi-weapon and 1 killsaw ◦ 1 kustom shoota and 1 killsaw ◦ 1 killsaw and 1 power klaw ◦ 1 twin killsaw"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "65"
+        },
+        {
+          "models": "3",
+          "cost": "100"
+        },
+        {
+          "models": "5",
+          "cost": "165"
+        },
+        {
+          "models": "6",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4312,9 +4828,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "18\"",
               "attacks": "4",
               "skill": "5+",
@@ -4358,9 +4872,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin killsaw",
-              "keywords": [
-                "twin -linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -4371,13 +4883,12 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Meganobz"
-      ],
-      "factions": [
-        "Orks"
+      "keywords": ["Infantry", "Grenades", "Meganobz"],
+      "factions": ["Orks"],
+      "ledBy": [
+        "Big Mek In Mega Armour",
+        "Ghazghkull Thraka",
+        "Warboss In Mega Armour"
       ]
     },
     {
@@ -4385,22 +4896,20 @@ window.data.ORK = {
       "name": "Megatrakk Scrapjet",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Megatrakk Scrapjet"
-      ],
+      "composition": ["1 Megatrakk Scrapjet"],
       "loadout": "This model is equipped with: rokkit kannon; twin big shoota; wing missiles; nose drill.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -4434,9 +4943,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit kannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+1",
               "skill": "5+",
@@ -4450,10 +4957,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin big shoota",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "5+",
@@ -4494,35 +4998,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Megatrakk Scrapjet"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Megatrakk Scrapjet"],
+      "factions": ["Orks"]
     },
     {
       "id": "0d7f5f3a-61ae-5be6-9cbb-217e8b4a9421",
       "name": "Mek",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Lootas ■ Mek Gunz ■ Nobz ■ Tankbustas",
-      "composition": [
-        "1 Mek"
-      ],
+      "composition": ["1 Mek"],
       "loadout": "This model is equipped with: kustom mega-slugga; wrench.",
-      "wargear": [
-        "This model’s wrench can be replaced with 1 killsaw."
-      ],
+      "wargear": ["This model’s wrench can be replaced with 1 killsaw."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4560,10 +5057,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-slugga",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "12\"",
               "attacks": "D3",
               "skill": "5+",
@@ -4604,34 +5098,38 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Mek"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Mek"],
+      "factions": ["Orks"]
     },
     {
       "id": "71a0da31-35c6-57d1-89b9-ca161b90bb1b",
       "name": "Mek Gunz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1-3 Mek Gunz"
-      ],
+      "composition": ["1-3 Mek Gunz"],
       "loadout": "Every model is equipped with: smasha gun; grot crew. Designer’s Note: Place five Grot Crew tokens next to each Mek Gun model when this unit is first set up, removing one each time its Mek Gun model loses a wound (a Mek Gun model itself is considered to represent its final wound).",
       "wargear": [
         "Each model’s smasha gun can be replaced with one of the following: ◦ 1 bubblechukka ◦ 1 kustom mega-kannon ◦ 1 traktor kannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        },
+        {
+          "models": "2",
+          "cost": "90"
+        },
+        {
+          "models": "3",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -4665,10 +5163,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Bubblechukka – big bubble",
-              "keywords": [
-                "bubblechukka",
-                "blast"
-              ],
+              "keywords": ["bubblechukka", "blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "4+",
@@ -4678,10 +5173,7 @@ window.data.ORK = {
             },
             {
               "name": "Bubblechukka – wobbly bubble",
-              "keywords": [
-                "bubblechukka",
-                "blast"
-              ],
+              "keywords": ["bubblechukka", "blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -4691,10 +5183,7 @@ window.data.ORK = {
             },
             {
               "name": "Bubblechukka – dense bubble",
-              "keywords": [
-                "bubblechukka",
-                "blast"
-              ],
+              "keywords": ["bubblechukka", "blast"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "4+",
@@ -4721,35 +5210,146 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Mek Gunz"
+      "keywords": ["Vehicle", "Mek Gunz"],
+      "factions": ["Orks"],
+      "ledBy": ["Big Mek With Shokk Attack Gun", "Mek"]
+    },
+    {
+      "id": "4b67d054-edc2-5a96-951f-e7bde1346f83",
+      "name": "Meka-dread",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Meka-Dread"],
+      "loadout": "This model is equipped with: killkannon; dread rippa klaw; stompy feet.",
+      "wargear": [
+        "This model’s killkannon can be replaced with one of the following: ◦ 1 dread killsaw ◦ 1 dread rippa klaw",
+        "This model’s dread rippa klaw can be replaced with one of the following: ◦ 1 dread killsaw ◦ 1 killkannon"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "230"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "6+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Mekaniak",
+            "description": "At the end of your Movement phase, you can select one friendly Orks Vehicle model within 3\" of this model. That Vehicle model regains up to D3 lost wounds, and, until the start of your next Movement phase, each time that Vehicle model makes an attack, add 1 to the Hit roll. Each model can only be selected for this ability once per turn."
+          },
+          {
+            "name": "Dead Rippy",
+            "description": "If this model is equipped with 2 dread killsaws, those weapons have the [TWIN-LINKED] ability. If this model is equipped with 2 dread rippa klaws, those weapons have the [TWIN-LINKED] ability."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "8\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "16",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Meka-dread"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Killkannon",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "D6+3",
+              "skill": "5+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Dread killsaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Dread rippa klaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Stompy feet",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Walker", "Meka-Dread"],
+      "factions": ["Orks"]
     },
     {
       "id": "c33dd7fe-1ade-5788-bf63-5b801dfef7f1",
       "name": "Morkanaut",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Morkanaut"
-      ],
+      "composition": ["1 Morkanaut"],
       "loadout": "This model is equipped with: kustom mega-blasta; kustom mega-zappa; 2 rokkit launchas; 2 twin big shootas; klaw of Mork.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 12 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models. It cannot transport Ghazghkull Thraka.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "305"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4787,9 +5387,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-blasta",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -4803,10 +5401,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom mega-zappa",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D6+3",
               "skill": "5+",
@@ -4820,9 +5415,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -4836,10 +5429,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin big shoota",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "5+",
@@ -4884,32 +5474,27 @@ window.data.ORK = {
         "Walker",
         "Morkanaut"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "9fef8723-d3b7-5638-8b79-5ed7e3399ef4",
       "name": "Mozrog Skragbad",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Mozrog Skragbad – Epic Hero"
-      ],
+      "composition": ["1 Mozrog Skragbad – Epic Hero"],
       "loadout": "This model is equipped with: thump gun; Big Chompa’s jaws; gutrippa.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 4+"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 4+"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4947,9 +5532,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Thump gun",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "5+",
@@ -4965,10 +5548,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big Chompa’s jaws",
-              "keywords": [
-                "devastating wounds",
-                "extra attacks"
-              ],
+              "keywords": ["devastating wounds", "extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4982,10 +5562,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Gutrippa",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -5003,32 +5580,27 @@ window.data.ORK = {
         "Epic Hero",
         "Mozrog Skragbad"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "2b72a084-1c84-549d-933b-52c997e45ea4",
       "name": "Nob On Smasha Squig",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Squighog Boyz",
-      "composition": [
-        "1 Nob on Smasha Squig"
-      ],
+      "composition": ["1 Nob on Smasha Squig"],
       "loadout": "This model is equipped with: slugga; big choppa; smasha squig jaws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5066,9 +5638,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -5084,10 +5654,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big choppa",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -5101,9 +5668,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Smasha squig jaws",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -5120,31 +5685,27 @@ window.data.ORK = {
         "Beast Snagga",
         "Nob on Smasha Squig"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "922d4b22-cc64-5dac-a376-097aa3d3c943",
       "name": "Nob With Waaagh! Banner",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Nobz",
-      "composition": [
-        "1 Nob with Waaagh! Banner"
-      ],
+      "composition": ["1 Nob with Waaagh! Banner"],
       "loadout": "This model is equipped with: kustom shoota; Waaagh! banner.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5182,9 +5743,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "18\"",
               "attacks": "4",
               "skill": "5+",
@@ -5211,24 +5770,15 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Nob with Waaagh! Banner"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Nob with Waaagh! Banner"],
+      "factions": ["Orks"]
     },
     {
       "id": "40af5f86-133a-5802-9ee9-4f0a8b483b56",
       "name": "Nobz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boss Nob",
-        "4-9 Nobz"
-      ],
+      "composition": ["1 Boss Nob", "4-9 Nobz"],
       "loadout": "Every model is equipped with: slugga; big choppa.",
       "wargear": [
         "Any number of models can each have their big choppa replaced with 1 power klaw.",
@@ -5236,6 +5786,16 @@ window.data.ORK = {
         "For every 5 models in this unit, this unit can be equipped with 1 ammo runt."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "115"
+        },
+        {
+          "models": "10",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5244,9 +5804,7 @@ window.data.ORK = {
           }
         ],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5298,9 +5856,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -5355,28 +5911,206 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Nobz"
-      ],
-      "factions": [
-        "Orks"
+      "keywords": ["Infantry", "Grenades", "Nobz"],
+      "factions": ["Orks"],
+      "ledBy": [
+        "Big Mek With Kustom Force Field",
+        "Mad Dok Grotsnik",
+        "Mek",
+        "Nob With Waaagh! Banner",
+        "Painboy",
+        "Warboss"
       ]
+    },
+    {
+      "id": "504302b7-f7fa-51f7-896d-5ee4bda870c4",
+      "name": "Nobz On Warbikes",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["3 Nobz on Warbikes"],
+      "loadout": "Every model is equipped with: twin dakkagun; choppa; close combat weapon.",
+      "wargear": [
+        "Any number of models can each be equipped with 1 slugga.",
+        "Any number of models can each have their choppa replaced with one of the following: ◦ 1 big choppa ◦ 1 killsaw ◦ 1 power klaw ◦ 1 power stabba ◦ 1 slugga"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "125"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": [],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "6+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Drive-by Krumpin'",
+            "description": "Each time this unit Consolidates, each model in this unit can move up to 6\" instead of up to 3\"."
+          }
+        ],
+        "special": [
+          {
+            "name": "SPEED FREEKS MOB",
+            "description": "If a model from your army with the Leader ability can be attached to a Warbikers unit, it can be attached to this unit instead."
+          }
+        ],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "6",
+          "sv": "4+",
+          "w": "4",
+          "ld": "7+",
+          "oc": "2",
+          "name": "Nobz On Warbikes"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Slugga",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin dakkagun",
+              "keywords": ["assault", "rapid fire 2", "twin-linked"],
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Big choppa",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Choppa",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Killsaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Power klaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Power stabba",
+              "keywords": ["lance"],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Mounted", "Speed Freeks", "Grenades", "Nobz on Warbikes"],
+      "factions": ["Orks"]
     },
     {
       "id": "00de84f1-3352-56ca-944e-a272f9101301",
       "name": "Painboss",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Beast Snagga Boyz",
-      "composition": [
-        "1 Painboss"
-      ],
+      "composition": ["1 Painboss"],
       "loadout": "This model is equipped with: Beast Snagga klaw.",
-      "wargear": [
-        "This model can be equipped with 1 grot orderly."
-      ],
+      "wargear": ["This model can be equipped with 1 grot orderly."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5384,13 +6118,8 @@ window.data.ORK = {
             "description": "Once per battle, in your Command phase, if the bearer is leading a unit that is below its Starting Strength, you can return up to D3 destroyed Bodyguard models to that unit."
           }
         ],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5429,10 +6158,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Beast Snagga klaw",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -5443,29 +6169,24 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Beast Snagga",
-        "Painboss"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Beast Snagga", "Painboss"],
+      "factions": ["Orks"]
     },
     {
       "id": "233c4eaf-0ffd-51c8-816d-3a05bb14b6bf",
       "name": "Painboy",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Nobz ■ Lootas ■ Burna Boyz ■ Tankbustas",
-      "composition": [
-        "1 Painboy"
-      ],
+      "composition": ["1 Painboy"],
       "loadout": "This model is equipped with: power klaw; ’urty syringe.",
-      "wargear": [
-        "This model can be equipped with 1 grot orderly."
-      ],
+      "wargear": ["This model can be equipped with 1 grot orderly."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5473,12 +6194,8 @@ window.data.ORK = {
             "description": "Once per battle, in your Command phase, if the bearer is leading a unit that is below its Starting Strength, you can return up to D3 destroyed Bodyguard models to that unit."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5531,11 +6248,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "’Urty syringe",
-              "keywords": [
-                "anti-infantry 4+",
-                "extra attacks",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 4+", "extra attacks", "precision"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -5546,36 +6259,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Painboy"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Painboy"],
+      "factions": ["Orks"]
     },
     {
       "id": "cf029f7c-7e85-5ab4-9b12-acacb0beb38e",
       "name": "Rukkatrukk Squigbuggy",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Rukkatrukk Squigbuggy"
-      ],
+      "composition": ["1 Rukkatrukk Squigbuggy"],
       "loadout": "This model is equipped with: sawn-off shotgun; squig-launchas; saw blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -5613,9 +6318,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Sawn-off shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "2",
               "skill": "5+",
@@ -5629,11 +6332,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Squig launchas",
-              "keywords": [
-                "blast",
-                "ignores cover",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "ignores cover", "indirect fire"],
               "range": "36\"",
               "attacks": "D6+6",
               "skill": "5+",
@@ -5660,35 +6359,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Rukkatrukk Squigbuggy"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Rukkatrukk Squigbuggy"],
+      "factions": ["Orks"]
     },
     {
       "id": "31525a0d-8f9d-5999-b8b6-eb8e8aa13d1f",
       "name": "Shokkjump Dragsta",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Shokkjump Dragsta"
-      ],
+      "composition": ["1 Shokkjump Dragsta"],
       "loadout": "This model is equipped with: kustom shokk rifle; rokkits; saw blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -5722,11 +6414,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Kustom shokk rifle",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "precision"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -5740,9 +6428,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkits",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -5769,27 +6455,132 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Shokkjump Dragsta"
+      "keywords": ["Vehicle", "Shokkjump Dragsta"],
+      "factions": ["Orks"]
+    },
+    {
+      "id": "4b9efeb7-1988-517f-aadc-fceaf0ef3ceb",
+      "name": "Squiggoth",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Squiggoth"],
+      "loadout": "This model is equipped with: gorin’ horns.",
+      "wargear": ["This model can be equipped with 1 kannon."],
+      "transport": "This model has a transport capacity of 10 Orks Infantry models. If this model is equipped with a kannon, it has a transport capacity of 6 Orks Infantry models. It cannot transport Mega Armour, Jump Pack or Ghazghkull Thraka models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
       ],
-      "factions": [
-        "Orks"
-      ]
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6", "Firing Deck 10"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Trample",
+            "description": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a Charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "10",
+          "sv": "3+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Squiggoth"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Kannon – frag",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            },
+            {
+              "name": "Kannon – shell",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "5+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Gorin’ horns – strike",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "D6"
+            },
+            {
+              "name": "Gorin’ horns – sweep",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Monster", "Transport", "Squiggoth"],
+      "factions": ["Orks"]
     },
     {
       "id": "576c28c7-b40a-5ad3-a820-bd80cf729190",
       "name": "Squighog Boyz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "3-6 Squighog Boyz"
-      ],
+      "composition": ["3-6 Squighog Boyz"],
       "loadout": "Every model is equipped with: saddlegit weapons; stikka; squighog jaws and saddlegits.",
       "wargear": [
         "For every 3 models in this unit, this unit can be equipped with 1 bomb squig."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "110"
+        },
+        {
+          "models": "6",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5797,12 +6588,8 @@ window.data.ORK = {
             "description": "Once per battle for each bomb squig this unit has, after this unit ends a Normal move, you can select one enemy unit within 12\" of it and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds."
           }
         ],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5836,9 +6623,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Saddlegit weapons",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "9\"",
               "attacks": "1",
               "skill": "4+",
@@ -5852,11 +6637,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Stikka",
-              "keywords": [
-                "assault",
-                "anti-monster 4+",
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["assault", "anti-monster 4+", "anti-vehicle 4+"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -5872,9 +6653,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Squighog jaws and saddlegits",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -5888,11 +6667,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Stikka",
-              "keywords": [
-                "anti-monster 4+",
-                "anti-vehicle 4+",
-                "lance"
-              ],
+              "keywords": ["anti-monster 4+", "anti-vehicle 4+", "lance"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -5903,37 +6678,29 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Beast Snagga",
-        "Grenades",
-        "Squighog Boyz"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Mounted", "Beast Snagga", "Grenades", "Squighog Boyz"],
+      "factions": ["Orks"],
+      "ledBy": ["Nob On Smasha Squig"]
     },
     {
       "id": "4a9a33db-6bd9-570c-8a96-6a7841919d6b",
       "name": "Stompa",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Stompa"
-      ],
+      "composition": ["1 Stompa"],
       "loadout": "This model is equipped with: 3 big shootas; deffkannon; skorcha; supa-gatler; supa-rokkits; twin big shoota; mega-choppa.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 22 Orks Infantry models. Each Mega Armour or Jump Pack model takes up the space of 2 models. Ghazghkull Thraka takes up the space of 18 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "800"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 2D6"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise 2D6"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -5971,9 +6738,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -5987,9 +6752,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Deffkannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "72\"",
               "attacks": "3D6",
               "skill": "5+",
@@ -6003,10 +6766,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Skorcha",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6020,9 +6780,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Supa-gatler",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "20",
               "skill": "5+",
@@ -6036,9 +6794,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Supa-rokkits",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "100\"",
               "attacks": "D6",
               "skill": "5+",
@@ -6052,10 +6808,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin big shoota",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "5+",
@@ -6100,32 +6853,31 @@ window.data.ORK = {
         "Walker",
         "Stompa"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "9fae7cc2-0704-5d98-9819-5c9164820636",
       "name": "Stormboyz",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boss Nob",
-        "4-9 Stormboyz"
-      ],
+      "composition": ["1 Boss Nob", "4-9 Stormboyz"],
       "loadout": "Every model is equipped with: slugga; choppa.",
-      "wargear": [
-        "The Boss Nob’s choppa can be replaced with 1 power klaw."
-      ],
+      "wargear": ["The Boss Nob’s choppa can be replaced with 1 power klaw."],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "65"
+        },
+        {
+          "models": "10",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6168,9 +6920,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -6211,37 +6961,29 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Jump Pack",
-        "Fly",
-        "Grenades",
-        "Stormboyz"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Jump Pack", "Fly", "Grenades", "Stormboyz"],
+      "factions": ["Orks"],
+      "ledBy": ["Boss Zagstruk"]
     },
     {
       "id": "dcb10a15-0567-5c33-83f9-ba6d36a3b99b",
       "name": "Tankbustas",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boss Nob",
-        "4 Tankbustas"
-      ],
+      "composition": ["1 Boss Nob", "4 Tankbustas"],
       "loadout": "The Boss Nob is equipped with: rokkit launcha; close combat weapon. One Tankbusta is equipped with: pair of rokkit pistols; close combat weapon. One other Tankbusta is equipped with: tankhammer. Two other Tankbustas are equipped with: rokkit launcha; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6288,10 +7030,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Pair of rokkit pistols",
-              "keywords": [
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["pistol", "twin-linked"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -6305,9 +7044,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Rokkit launcha",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "5+",
@@ -6352,12 +7089,13 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Tankbustas"
-      ],
-      "factions": [
-        "Orks"
+      "keywords": ["Infantry", "Tankbustas"],
+      "factions": ["Orks"],
+      "ledBy": [
+        "Big Mek With Kustom Force Field",
+        "Mad Dok Grotsnik",
+        "Mek",
+        "Painboy"
       ]
     },
     {
@@ -6365,23 +7103,20 @@ window.data.ORK = {
       "name": "Trukk",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Trukk"
-      ],
+      "composition": ["1 Trukk"],
       "loadout": "This model is equipped with: big shoota; spiked wheels.",
-      "wargear": [
-        "This model can be equipped with 1 wreckin’ ball."
-      ],
+      "wargear": ["This model can be equipped with 1 wreckin’ ball."],
       "transport": "This model has a transport capacity of 12 Orks Infantry models. Each Mega Armour model takes up the space of 2 models. It cannot transport Jump Pack models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 12"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 12"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -6415,9 +7150,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -6447,9 +7180,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Wreckin’ ball",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
@@ -6460,37 +7191,35 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Dedicated Transport",
-        "Trukk"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Vehicle", "Transport", "Dedicated Transport", "Trukk"],
+      "factions": ["Orks"]
     },
     {
       "id": "01b374d7-1471-53cf-bff9-cca5d7efcf13",
       "name": "Warbikers",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Boss Nob on Warbike",
-        "2-5 Warbikers"
-      ],
+      "composition": ["1 Boss Nob on Warbike", "2-5 Warbikers"],
       "loadout": "Every model is equipped with: twin dakkagun; close combat weapon.",
       "wargear": [
         "Each Warbiker can be equipped with one of the following: ◦ 1 slugga ◦ 1 choppa",
         "The Boss Nob on Warbike can be equipped with one of the following: ◦ 1 slugga ◦ 1 big choppa ◦ 1 power klaw"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Waaagh!"
-        ],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -6533,9 +7262,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -6549,11 +7276,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin dakkagun",
-              "keywords": [
-                "rapid fire 2",
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "assault", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "5+",
@@ -6622,37 +7345,32 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Warbikers"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Mounted", "Grenades", "Warbikers"],
+      "factions": ["Orks"],
+      "ledBy": ["Deffkilla Wartrike"]
     },
     {
       "id": "4adbb8b3-5ea7-5582-b45b-ba8626da7226",
       "name": "Warboss",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following units: ■ Boyz ■ Nobz",
-      "composition": [
-        "1 Warboss"
-      ],
+      "composition": ["1 Warboss"],
       "loadout": "This model is equipped with: kombi-weapon; twin slugga; big choppa.",
       "wargear": [
         "This model’s big choppa can be replaced with 1 power klaw.",
         "This model can be equipped with 1 attack squig."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -6708,10 +7426,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin slugga",
-              "keywords": [
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["pistol", "twin-linked"],
               "range": "12\"",
               "attacks": "2",
               "skill": "5+",
@@ -6727,9 +7442,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Attack squig",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -6768,37 +7481,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Grenades",
-        "Warboss"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Grenades", "Warboss"],
+      "factions": ["Orks"]
     },
     {
       "id": "13010bb0-bf6d-5579-bf91-ff2402f6b4b7",
       "name": "Warboss In Mega Armour",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Meganobz",
-      "composition": [
-        "1 Warboss in Mega Armour"
-      ],
+      "composition": ["1 Warboss in Mega Armour"],
       "loadout": "This model is equipped with: big shoota; ’uge choppa.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -6836,9 +7540,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Big shoota",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6865,23 +7567,137 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Warboss in Mega Armour"
+      "keywords": ["Infantry", "Character", "Warboss in Mega Armour"],
+      "factions": ["Orks"]
+    },
+    {
+      "id": "0608e43e-d253-53e1-abca-bd0a29b29cc1",
+      "name": "Warboss On Warbike",
+      "faction_id": "ORK",
+      "leader": "",
+      "composition": ["1 Warboss on Warbike"],
+      "loadout": "This model is equipped with: twin dakkagun; killsaw.",
+      "wargear": [
+        "This model’s killsaw can be replaced with one of the following: ◦ 1 big choppa ◦ 1 power klaw"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Leader"],
+        "faction": ["Waaagh!"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Speedboss",
+            "description": "While this model is leading a unit, each time a model in that unit makes a melee attack, add 1 to the Hit roll."
+          },
+          {
+            "name": "High-octane Fuel",
+            "description": "Each time this model’s unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6\" to the Move characteristic of models in this model’s unit."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "6",
+          "sv": "4+",
+          "w": "7",
+          "ld": "6+",
+          "oc": "2",
+          "name": "Warboss On Warbike"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Twin dakkagun",
+              "keywords": ["assault", "rapid fire 2", "twin-linked"],
+              "range": "18\"",
+              "attacks": "3",
+              "skill": "5+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Big choppa",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "2+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Killsaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Power klaw",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Mounted",
+        "Character",
+        "Speed Freeks",
+        "Grenades",
+        "Warboss"
+      ],
+      "factions": ["Orks"]
     },
     {
       "id": "5b0506a2-f061-5d06-b6b8-5b9bb351eada",
       "name": "Wazbom Blastajet",
       "faction_id": "ORK",
       "leader": "",
-      "composition": [
-        "1 Wazbom Blastajet"
-      ],
+      "composition": ["1 Wazbom Blastajet"],
       "loadout": "This model is equipped with: smasha gun; twin wazbom mega-kannon; armoured hull.",
       "wargear": [
         "This model’s twin wazbom mega-kannon can be replaced with 1 twin tellyport mega-blasta.",
@@ -6889,6 +7705,12 @@ window.data.ORK = {
         "This model can be equipped with 1 twin supa-shoota."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "175"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6896,12 +7718,8 @@ window.data.ORK = {
             "description": "The bearer has a 4+ invulnerable save, but it loses the Grenades keyword."
           }
         ],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -6935,9 +7753,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Smasha gun",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6951,11 +7767,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin wazbom mega-kannon",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "hazardous", "twin-linked"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6969,11 +7781,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin supa-shoota",
-              "keywords": [
-                "rapid fire 2",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "4",
               "skill": "4+",
@@ -6987,10 +7795,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Twin tellyport mega-blasta",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "5+",
@@ -7024,32 +7829,27 @@ window.data.ORK = {
         "Grenades",
         "Wazbom Blastajet"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "21308fb3-2753-5c17-a04d-7b8bc695fbbb",
       "name": "Weirdboy",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Boyz",
-      "composition": [
-        "1 Weirdboy"
-      ],
+      "composition": ["1 Weirdboy"],
       "loadout": "This model is equipped with: ’Eadbanger; weirdboy staff.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7087,10 +7887,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "’Eadbanger",
-              "keywords": [
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["precision", "psychic"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7106,9 +7903,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Weirdboy staff",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -7119,39 +7914,28 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Psyker",
-        "Weirdboy"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Psyker", "Weirdboy"],
+      "factions": ["Orks"]
     },
     {
       "id": "3dc1b72a-b8f7-58b4-8bab-fa54e7523b2a",
       "name": "Wurrboy",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Beast Snagga Boyz",
-      "composition": [
-        "1 Wurrboy"
-      ],
+      "composition": ["1 Wurrboy"],
       "loadout": "This model is equipped with: Eyez of Mork; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Deadly Demise D3", "Feel No Pain 6+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7189,9 +7973,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Eyez of Mork",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "5+",
@@ -7225,32 +8007,27 @@ window.data.ORK = {
         "Psyker",
         "Wurrboy"
       ],
-      "factions": [
-        "Orks"
-      ]
+      "factions": ["Orks"]
     },
     {
       "id": "5c0a00c4-5adf-501e-856d-ab55f4bf892a",
       "name": "Zodgrod Wortsnagga",
       "faction_id": "ORK",
       "leader": "This model can be attached to the following unit: ■ Gretchin",
-      "composition": [
-        "1 Zodgrod Wortsnagga – Epic Hero"
-      ],
+      "composition": ["1 Zodgrod Wortsnagga – Epic Hero"],
       "loadout": "This model is equipped with: Da Grabzappa; slugga.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Waaagh!"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Waaagh!"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7260,6 +8037,10 @@ window.data.ORK = {
           {
             "name": "Special Dose",
             "description": "When you call a Waaagh!, until the start of the next battle round, add 6\" to the Move characteristic of models in this model’s unit."
+          },
+          {
+            "name": "Super Runts",
+            "description": "While this model is leading a unit: ■ Models in that unit have the Scouts 9\" ability. ■ Each time a model in that unit makes an attack, add 1 to the Hit roll and add 1 to the Wound roll. ■ Each time an attack targets that unit, subtract 1 from the Wound roll."
           }
         ],
         "special": [],
@@ -7284,9 +8065,7 @@ window.data.ORK = {
           "profiles": [
             {
               "name": "Slugga",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -7313,15 +8092,12 @@ window.data.ORK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Zodgrod Wortsnagga"
-      ],
-      "factions": [
-        "Orks"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Zodgrod Wortsnagga"],
+      "factions": ["Orks"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#283109",
+    "header": "#465b18"
+  }
 }

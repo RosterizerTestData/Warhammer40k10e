@@ -3,30 +3,58 @@ window.data.CD = {
   "id": "CD",
   "link": "https://game-datacards.eu",
   "name": "Chaos Daemons",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "A’rgath, the King of Blades",
+      "description": "Khorne Legiones Daemonica model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
+      "keywords": ["Khorne", "Legiones Daemonica"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Soulstealer",
+      "description": "Slaanesh Legiones Daemonica model only. Each time the bearer destroys an enemy model with a melee attack, roll one D6, adding 1 to the result if the bearer is within your army’s Shadow of Chaos. On a 4+, the bearer regains 1 lost wound.",
+      "keywords": ["Slaanesh", "Legiones Daemonica"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "The Endless Gift",
+      "description": "Nurgle Legiones Daemonica model only. The bearer has the Feel No Pain 5+ ability. While the bearer is within your army’s Shadow of Chaos, the bearer has the Feel No Pain 4+ ability instead.",
+      "keywords": ["Nurgle", "Legiones Daemonica"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "The Everstave",
+      "description": "Tzeentch Legiones Daemonica model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3\". While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6\" instead.",
+      "keywords": ["Tzeentch", "Legiones Daemonica"],
+      "excludes": [],
+      "cost": "25"
+    }
+  ],
   "datasheets": [
     {
       "id": "288c226b-e687-5486-ac5e-c682e653d53e",
       "name": "Be’lakor",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Be’lakor – Epic Hero"
-      ],
+      "composition": ["1 Be’lakor – Epic Hero"],
       "loadout": "This model is equipped with: Betraying Shades; the Blade of Shadows.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "325"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike",
-          "Stealth"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike", "Stealth"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [
           {
             "name": "SHADOW FORM ABILITIES",
@@ -87,11 +115,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Betraying Shades – witchfire",
-              "keywords": [
-                "devastating wounds",
-                "ignores cover",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "ignores cover", "psychic"],
               "range": "18\"",
               "attacks": "9",
               "skill": "2+",
@@ -122,9 +146,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "The Blade of Shadows – strike",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -155,32 +177,31 @@ window.data.CD = {
         "Daemon",
         "Be’lakor"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "879b69f5-1485-5126-bdd3-0186babda451",
       "name": "Beasts Of Nurgle",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1-2 Beasts of Nurgle"
-      ],
+      "composition": ["1-2 Beasts of Nurgle"],
       "loadout": "Every model is equipped with: putrid appendages.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        },
+        {
+          "models": "2",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise 1", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -215,9 +236,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Putrid appendages",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "4+",
@@ -228,32 +247,32 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Daemon",
-        "Nurgle",
-        "Beasts of Nurgle"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Beast", "Chaos", "Daemon", "Nurgle", "Beasts of Nurgle"],
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Horticulous Slimux"]
     },
     {
       "id": "d42abf8d-e119-5791-90a7-70a1183240c7",
       "name": "Bloodcrushers",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Bloodhunter",
-        "2-5 Bloodcrushers"
-      ],
+      "composition": ["1 Bloodhunter", "2-5 Bloodcrushers"],
       "loadout": "Every model is equipped with: hellblade; Juggernaut’s bladed horn.",
       "wargear": [
         "1 Bloodcrusher that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Bloodcrusher that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "120"
+        },
+        {
+          "models": "6",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -265,12 +284,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -319,10 +334,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Juggernaut’s bladed horn",
-              "keywords": [
-                "extra attacks",
-                "lance"
-              ],
+              "keywords": ["extra attacks", "lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -333,32 +345,28 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Khorne",
-        "Bloodcrushers"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Mounted", "Chaos", "Daemon", "Khorne", "Bloodcrushers"],
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Skullmaster"]
     },
     {
       "id": "25ab9e93-fc0c-52b2-b6a7-5ca993d15f1b",
       "name": "Bloodletters",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Bloodreaper",
-        "9 Bloodletters"
-      ],
+      "composition": ["1 Bloodreaper", "9 Bloodletters"],
       "loadout": "Every model is equipped with: hellblade.",
       "wargear": [
         "1 Bloodletter that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Bloodletter that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -370,12 +378,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -429,32 +433,28 @@ window.data.CD = {
         "Khorne",
         "Bloodletters"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Bloodmaster", "Skulltaker"]
     },
     {
       "id": "6317a045-4a71-59a1-9291-4808c2b82e4b",
       "name": "Bloodmaster",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Bloodletters",
-      "composition": [
-        "1 Bloodmaster"
-      ],
+      "composition": ["1 Bloodmaster"],
       "loadout": "This model is equipped with: blade of blood.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -512,32 +512,29 @@ window.data.CD = {
         "Khorne",
         "Bloodmaster"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "7d466720-589e-54d0-abb0-1bd094a28515",
       "name": "Bloodthirster",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Bloodthirster"
-      ],
+      "composition": ["1 Bloodthirster"],
       "loadout": "This model is equipped with: hellfire breath; great axe of Khorne",
       "wargear": [
         "This model’s great axe of Khorne can be replaced with 1 axe of Khorne and one of the following: ◦ 1 bloodflail ◦ 1 lash of Khorne"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "300"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -575,9 +572,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Bloodflail",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -591,10 +586,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Hellfire breath",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -678,32 +670,27 @@ window.data.CD = {
         "Khorne",
         "Bloodthirster"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "cb91d01b-ae8d-5076-9392-5829f1e47eb9",
       "name": "Blue Horrors",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "10 Blue Horrors"
-      ],
+      "composition": ["10 Blue Horrors"],
       "loadout": "Every Blue Horror is equipped with: Coruscating Blue Flames; blue claws. Every Brimstone Horror added to this unit using the Split ability is equipped with: Coruscating Yellow Flames; yellow claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Infiltrators"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -745,9 +732,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Coruscating Blue Flames",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -761,9 +746,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Coruscating Yellow Flames",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "5+",
@@ -817,31 +800,28 @@ window.data.CD = {
         "BRIMSTONE HORRORS:",
         "Brimstone"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Changecaster", "Fluxmaster"]
     },
     {
       "id": "ab00821d-d054-5125-964d-0837d7520ca9",
       "name": "Burning Chariot",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Burning Chariot"
-      ],
+      "composition": ["1 Burning Chariot"],
       "loadout": "This model is equipped with: Fire of Tzeentch; Flamer mouths; Screamer bites.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -875,10 +855,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Fire of Tzeentch – blue fire",
-              "keywords": [
-                "ignores cover",
-                "psychic"
-              ],
+              "keywords": ["ignores cover", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -888,11 +865,7 @@ window.data.CD = {
             },
             {
               "name": "Fire of Tzeentch – pink fire",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -922,9 +895,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Screamer bites",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "4+",
@@ -935,39 +906,28 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Tzeentch",
-        "Burning Chariot"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Mounted", "Chaos", "Daemon", "Tzeentch", "Burning Chariot"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "21ff17b2-3fa7-5e1d-b34c-a05356232b29",
       "name": "Changecaster",
       "faction_id": "CD",
       "leader": "This model can be attached to the following units: ■ Blue Horrors ■ Pink Horrors",
-      "composition": [
-        "1 Changecaster"
-      ],
+      "composition": ["1 Changecaster"],
       "loadout": "This model is equipped with: Arcane Fireball; Herald combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1005,9 +965,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Arcane Fireball – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1017,11 +975,7 @@ window.data.CD = {
             },
             {
               "name": "Arcane Fireball – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1037,9 +991,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Herald combat weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1059,32 +1011,27 @@ window.data.CD = {
         "Tzeentch",
         "Changecaster"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "d7bf34ae-8c48-5d7c-8004-ddc81179e195",
       "name": "Contorted Epitome",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Daemonettes",
-      "composition": [
-        "1 Contorted Epitome"
-      ],
+      "composition": ["1 Contorted Epitome"],
       "loadout": "This model is equipped with: coiled tentacles; ravaging claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1123,9 +1070,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Coiled tentacles",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "D6",
               "skill": "4+",
@@ -1139,9 +1084,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Ravaging claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -1160,32 +1103,27 @@ window.data.CD = {
         "SLaanesh",
         "Contorted Epitome"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "e697d09c-4032-564a-8548-f5954454e0e2",
       "name": "Daemon Prince Of Chaos",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Daemon Prince of Chaos"
-      ],
+      "composition": ["1 Daemon Prince of Chaos"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons. DAEMONIC ALLEGIANCE When you select this model to include in your army, you must select one of the following keywords for it to gain: ■ Khorne ■ Tzeentch ■ Nurgle ■ Slaanesh The keyword you select will also affect some of this model’s characteristics, as stated overleaf.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "215"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [
           {
             "name": "DAEMONIC ALLEGIANCE",
@@ -1289,32 +1227,27 @@ window.data.CD = {
         "Daemon",
         "Daemon Prince of Chaos"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "7d9d9ace-d9eb-5024-886d-f0f1b06da04a",
       "name": "Daemon Prince Of Chaos With Wings",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Daemon Prince of Chaos with Wings"
-      ],
+      "composition": ["1 Daemon Prince of Chaos with Wings"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons. DAEMONIC ALLEGIANCE When you select this model to include in your army, you must select one of the following keywords for it to gain: ■ Khorne ■ Tzeentch ■ Nurgle ■ Slaanesh The keyword you select will also affect some of this model’s characteristics, as stated overleaf.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [
           {
             "name": "DAEMONIC ALLEGIANCE",
@@ -1423,25 +1356,26 @@ window.data.CD = {
         "Daemon",
         "Daemon Prince of Chaos with Wings"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "06f8d9b6-0079-542c-b2aa-d0c8eca630b7",
       "name": "Daemonettes",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Alluress",
-        "9 Daemonettes"
-      ],
+      "composition": ["1 Alluress", "9 Daemonettes"],
       "loadout": "Every model is equipped with: slashing claws.",
       "wargear": [
         "1 Daemonette that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Daemonette that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1453,12 +1387,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1493,9 +1423,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Slashing claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1514,8 +1442,12 @@ window.data.CD = {
         "Slaanesh",
         "Daemonettes"
       ],
-      "factions": [
-        "Legiones Daemonica"
+      "factions": ["Legiones Daemonica"],
+      "ledBy": [
+        "Contorted Epitome",
+        "Infernal Enrapturess",
+        "Syll’esske",
+        "Tranceweaver"
       ]
     },
     {
@@ -1523,23 +1455,20 @@ window.data.CD = {
       "name": "Epidemius",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Plaguebearers",
-      "composition": [
-        "1 Epidemius – Epic Hero"
-      ],
+      "composition": ["1 Epidemius – Epic Hero"],
       "loadout": "This model is equipped with: balesword and Nurgling attendants.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1578,9 +1507,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Balesword and Nurgling attendants",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1600,32 +1527,27 @@ window.data.CD = {
         "Nurgle",
         "Epidemius"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "06ac659a-793f-5875-9b7f-7bd9d029e1e4",
       "name": "Exalted Flamer",
       "faction_id": "CD",
-      "leader": "This model can be attached to the following unit: ■ Flamers MANIFESTATION OF DESTRUCTION This model cannot be your Warlord and cannot be given Enhancements.",
-      "composition": [
-        "1 Exalted Flamer"
-      ],
+      "leader": "This model can be attached to the following unit: ■ Flamers",
+      "composition": ["1 Exalted Flamer"],
       "loadout": "This model is equipped with: Fire of Tzeentch; Flamer mouths.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1663,10 +1585,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Fire of Tzeentch – blue fire",
-              "keywords": [
-                "ignores cover",
-                "psychic"
-              ],
+              "keywords": ["ignores cover", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1676,11 +1595,7 @@ window.data.CD = {
             },
             {
               "name": "Fire of Tzeentch – pink fire",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -1716,31 +1631,27 @@ window.data.CD = {
         "Tzeentch",
         "Exalted Flamer"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "723bc56b-59c5-5507-8fcb-a507aa4b68d6",
       "name": "Exalted Seeker Chariot",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Exalted Seeker Chariot"
-      ],
+      "composition": ["1 Exalted Seeker Chariot"],
       "loadout": "This model is equipped with: lashes of torment; Exalted Seeker tongues; slashing claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1774,11 +1685,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lashes of torment",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "6\"",
               "attacks": "6",
               "skill": "3+",
@@ -1794,10 +1701,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Exalted Seeker tongues",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "8",
               "skill": "4+",
@@ -1811,9 +1715,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Slashing claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "14",
               "skill": "3+",
@@ -1831,32 +1733,27 @@ window.data.CD = {
         "Slaanesh",
         "Exalted Seeker Chariot"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "2993a6d6-e151-5d09-96b5-2f1f8b90c5d8",
       "name": "Fateskimmer",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Screamers",
-      "composition": [
-        "1 Fateskimmer"
-      ],
+      "composition": ["1 Fateskimmer"],
       "loadout": "This model is equipped with: Arcane Fireball; Herald combat weapon; Screamer bites.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1894,9 +1791,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Arcane Fireball – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1906,11 +1801,7 @@ window.data.CD = {
             },
             {
               "name": "Arcane Fireball – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1926,9 +1817,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Herald combat weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1942,9 +1831,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Screamer bites",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "4+",
@@ -1965,29 +1852,27 @@ window.data.CD = {
         "Tzeentch",
         "Fateskimmer"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "8b1e01e1-3fc5-514d-bdb6-96e69847b2e2",
       "name": "Feculent Gnarlmaw",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Feculent Gnarlmaw"
-      ],
+      "composition": ["1 Feculent Gnarlmaw"],
       "loadout": "This model is equipped with: nothing. WARGEAR OPTIONS ■   None",
       "wargear": [],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Infiltrators"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2026,33 +1911,38 @@ window.data.CD = {
       ],
       "rangedWeapons": [],
       "meleeWeapons": [],
-      "keywords": [],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": [
+        "Fortification",
+        "Chaos",
+        "Daemon",
+        "Nurgle",
+        "Feculent Gnarlmaw"
+      ],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "7c0b0ea9-e185-552d-83ff-7b249aac809e",
       "name": "Fiends",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Blissbringer",
-        "2-5 Fiends"
-      ],
+      "composition": ["1 Blissbringer", "2-5 Fiends"],
       "loadout": "Every model is equipped with: barbed tail and dissecting claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "150"
+        },
+        {
+          "models": "6",
+          "cost": "300"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2087,9 +1977,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Barbed tail and dissecting claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2100,39 +1988,32 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Daemon",
-        "Slaanesh",
-        "Fiends"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Beast", "Chaos", "Daemon", "Slaanesh", "Fiends"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "5444e4f7-36eb-5783-bffb-689f33c5942a",
       "name": "Flamers",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Pyrocaster",
-        "2-5 Flamers"
-      ],
+      "composition": ["1 Pyrocaster", "2-5 Flamers"],
       "loadout": "Every model is equipped with: Flickering Flames; Flamer mouths.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "65"
+        },
+        {
+          "models": "6",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2166,11 +2047,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Flickering Flames",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2197,32 +2074,29 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Fly",
-        "Chaos",
-        "Daemon",
-        "Tzeentch",
-        "Flamers"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Infantry", "Fly", "Chaos", "Daemon", "Tzeentch", "Flamers"],
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Exalted Flamer"]
     },
     {
       "id": "60704431-7e62-56a6-beba-9c10ad2a1171",
       "name": "Flesh Hounds",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Gore Hound",
-        "4-9 Flesh Hounds"
-      ],
+      "composition": ["1 Gore Hound", "4-9 Flesh Hounds"],
       "loadout": "The Gore Hound is equipped with: burning roar; gore-drenched fangs; collar of Khorne. Every Flesh Hound is equipped with: gore-drenched fangs; collar of Khorne.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2230,12 +2104,8 @@ window.data.CD = {
             "description": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2269,10 +2139,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Burning roar",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2299,39 +2166,29 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Daemon",
-        "Khorne",
-        "Flesh Hounds"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Beast", "Chaos", "Daemon", "Khorne", "Flesh Hounds"],
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Karanak"]
     },
     {
       "id": "6dbed53c-517a-5ddd-9f17-4078d05e6982",
       "name": "Fluxmaster",
       "faction_id": "CD",
       "leader": "This model can be attached to the following units: ■ Pink Horrors ■ Blue Horrors",
-      "composition": [
-        "1 Fluxmaster"
-      ],
+      "composition": ["1 Fluxmaster"],
       "loadout": "This model is equipped with: Arcane Fireball; Herald combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2369,9 +2226,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Arcane Fireball – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -2381,11 +2236,7 @@ window.data.CD = {
             },
             {
               "name": "Arcane Fireball – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -2401,9 +2252,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Herald combat weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -2424,33 +2273,30 @@ window.data.CD = {
         "Tzeentch",
         "Fluxmaster"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "6b7fccf5-1fe5-51e5-a673-3196ce719cb2",
       "name": "Great Unclean One",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Great Unclean One"
-      ],
+      "composition": ["1 Great Unclean One"],
       "loadout": "This model is equipped with: plague flail; putrid vomit; bilesword.",
       "wargear": [
         "This model’s plague flail can be replaced with 1 bileblade.",
         "This model’s bilesword can be replaced with 1 doomsday bell."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "280"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2464,6 +2310,10 @@ window.data.CD = {
           {
             "name": "Nurgle’s Rot (Psychic)",
             "description": "At the end of your Movement phase, you can select one enemy unit within 12\" of this model. Until the start of your next Movement phase, subtract 1 from the Toughness characteristic of models in that unit."
+          },
+          {
+            "name": "Reverberating Summons",
+            "description": "Each time a model is destroyed by this weapon, you can select one friendly Plaguebearers unit within 12\" of the bearer and return 1 destroyed Plaguebearer model to that unit."
           }
         ],
         "special": [],
@@ -2502,10 +2352,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Putrid vomit",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "2+",
@@ -2521,10 +2368,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Bileblade",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "3",
               "skill": "2+",
@@ -2538,9 +2382,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Bilesword – strike",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2550,9 +2392,7 @@ window.data.CD = {
             },
             {
               "name": "Bilesword – sweep",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "12",
               "skill": "2+",
@@ -2566,15 +2406,13 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Doomsday bell",
-              "keywords": [
-                "lethal hits",
-                "reverberating summons]   mele"
-              ],
-              "range": "6",
-              "attacks": "2+",
-              "skill": "7",
-              "strength": "-1",
-              "ap": "2"
+              "keywords": ["lethal hits", "reverberating summons"],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "2+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         }
@@ -2588,31 +2426,31 @@ window.data.CD = {
         "Nurgle",
         "Great Unclean One"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "f26ee0ad-2bb8-50e2-a8d4-aa0b2dd84e90",
       "name": "Hellflayer",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1-2 Hellflayers"
-      ],
+      "composition": ["1-2 Hellflayers"],
       "loadout": "Every model is equipped with: lashes of torment; bladed axle; Seeker tongues; slashing claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        },
+        {
+          "models": "2",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2621,11 +2459,7 @@ window.data.CD = {
         "other": [
           {
             "name": "Cutting Down the Foe",
-            "description": "Each time this unit is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if that unit is an"
-          },
-          {
-            "name": "Infantry unit",
-            "description": "on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
+            "description": "Each time this unit is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if that unit is an Infantry unit: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
           }
         ],
         "special": [],
@@ -2650,11 +2484,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lashes of torment",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "6\"",
               "attacks": "6",
               "skill": "3+",
@@ -2670,9 +2500,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Bladed axle",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -2686,10 +2514,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Seeker tongues",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -2703,9 +2528,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Slashing claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "9",
               "skill": "3+",
@@ -2716,39 +2539,28 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Slaanesh",
-        "Hellflayer"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Mounted", "Chaos", "Daemon", "Slaanesh", "Hellflayer"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "95470695-033c-5ed4-b2b6-5c67636198e1",
       "name": "Horticulous Slimux",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Beasts of Nurgle",
-      "composition": [
-        "1 Horticulous Slimux – Epic Hero"
-      ],
+      "composition": ["1 Horticulous Slimux – Epic Hero"],
       "loadout": "This model is equipped with: acidic maw; lopping shears.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2787,10 +2599,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Acidic maw",
-              "keywords": [
-                "devastating wounds",
-                "extra attacks"
-              ],
+              "keywords": ["devastating wounds", "extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -2804,9 +2613,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lopping shears",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2826,32 +2633,27 @@ window.data.CD = {
         "Nurgle",
         "Horticulous Slimux"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "73ce7eb3-eba7-5b49-b445-2997882ce3b0",
       "name": "Infernal Enrapturess",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Daemonettes",
-      "composition": [
-        "1 Infernal Enrapturess"
-      ],
+      "composition": ["1 Infernal Enrapturess"],
       "loadout": "This model is equipped with: heartstring lyre; ravaging claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2889,9 +2691,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Heartstring lyre – cacophonous melody",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "6",
               "skill": "3+",
@@ -2901,9 +2701,7 @@ window.data.CD = {
             },
             {
               "name": "Heartstring lyre – euphonic blast",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -2919,9 +2717,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Ravaging claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -2940,32 +2736,27 @@ window.data.CD = {
         "Slaanesh",
         "Infernal Enrapturess"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "b6121698-cc24-5d82-9131-60726b8b49e7",
       "name": "Kairos Fateweaver",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Kairos Fateweaver – Epic Hero"
-      ],
+      "composition": ["1 Kairos Fateweaver – Epic Hero"],
       "loadout": "This model is equipped with: Infernal Gateway; Staff of Tomorrow.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "285"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3003,11 +2794,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Infernal Gateway – witchfire",
-              "keywords": [
-                "blast",
-                "indirect fire",
-                "psychic"
-              ],
+              "keywords": ["blast", "indirect fire", "psychic"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "2+",
@@ -3017,12 +2804,7 @@ window.data.CD = {
             },
             {
               "name": "Infernal Gateway – focused witchfire",
-              "keywords": [
-                "blast",
-                "indirect fire",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["blast", "indirect fire", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D3+6",
               "skill": "2+",
@@ -3038,9 +2820,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Staff of Tomorrow",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3062,23 +2842,23 @@ window.data.CD = {
         "Tzeentch",
         "Kairos Fateweaver"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "1d9dbbb2-e18b-532b-90c9-a14cd65892b0",
       "name": "Karanak",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Flesh Hounds",
-      "composition": [
-        "1 Karanak – Epic Hero"
-      ],
+      "composition": ["1 Karanak – Epic Hero"],
       "loadout": "This model is equipped with: soul-rending fangs; collar of Khorne.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3086,13 +2866,8 @@ window.data.CD = {
             "description": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3131,9 +2906,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Soul-rending fangs",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -3153,23 +2926,25 @@ window.data.CD = {
         "Khorne",
         "Karanak"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "5aaecdd2-4226-5150-aecb-fc3aaaae4e6b",
       "name": "Keeper Of Secrets",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Keeper of Secrets"
-      ],
+      "composition": ["1 Keeper of Secrets"],
       "loadout": "This model is equipped with: Phantasmagoria; snapping claws; witstealer sword.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ Living whip ◦ Ritual knife ◦ Shining aegis"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "330"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3177,13 +2952,8 @@ window.data.CD = {
             "description": "The bearer has the Feel No Pain 5+ ability."
           }
         ],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3221,9 +2991,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Living whip",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "6",
               "skill": "2+",
@@ -3237,10 +3005,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Phantasmagoria – witchfire",
-              "keywords": [
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "6",
               "skill": "2+",
@@ -3250,11 +3015,7 @@ window.data.CD = {
             },
             {
               "name": "Phantasmagoria – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "18\"",
               "attacks": "9",
               "skill": "2+",
@@ -3270,9 +3031,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Ritual knife",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "2+",
@@ -3286,10 +3045,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Snapping claws",
-              "keywords": [
-                "devastating wounds",
-                "extra attacks"
-              ],
+              "keywords": ["devastating wounds", "extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -3323,32 +3079,29 @@ window.data.CD = {
         "Slaanesh",
         "Keeper of Secrets"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "3fa40a27-1150-5961-84dc-af14d253b7d5",
       "name": "Lord Of Change",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Lord of Change"
-      ],
+      "composition": ["1 Lord of Change"],
       "loadout": "This model is equipped with: Bolt of Change; staff of Tzeentch.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 rod of sorcery ◦ 1 baleful sword"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3390,9 +3143,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Rod of sorcery",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "12\"",
               "attacks": "6",
               "skill": "2+",
@@ -3406,9 +3157,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Bolt of Change – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "9",
               "skill": "2+",
@@ -3418,10 +3167,7 @@ window.data.CD = {
             },
             {
               "name": "Bolt of Change – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["hazardous", "psychic"],
               "range": "18\"",
               "attacks": "9",
               "skill": "2+",
@@ -3437,9 +3183,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Baleful sword",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -3453,9 +3197,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Staff of Tzeentch",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3476,32 +3218,35 @@ window.data.CD = {
         "Tzeentch",
         "Lord of Change"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "7b434980-9618-5566-b4e6-3c3f59bdcfd0",
       "name": "Nurglings",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "3-9 Nurgling Swarms"
-      ],
+      "composition": ["3-9 Nurgling Swarms"],
       "loadout": "Every model is equipped with: diseased claws and teeth.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "40"
+        },
+        {
+          "models": "6",
+          "cost": "80"
+        },
+        {
+          "models": "9",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Infiltrators"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -3536,9 +3281,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Diseased claws and teeth",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "5+",
@@ -3557,24 +3300,26 @@ window.data.CD = {
         "Nurgle",
         "Nurglings"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "d2443789-3dc2-5cfb-9e36-37e771610a42",
       "name": "Pink Horrors",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "10 Pink Horrors"
-      ],
+      "composition": ["10 Pink Horrors"],
       "loadout": "Every Pink Horror is equipped with: Coruscating Pink Flames; pink claws. Every Blue Horror added to this unit using the Split ability is equipped with: Coruscating Blue Flames; blue claws. Every Brimstone Horror added to this unit using the Split ability is equipped with: Coruscating Yellow Flames; yellow claws. HORRORS ARE PINK. HORRORS ARE BLUE. WHERE ONCE THERE WAS ONE, NOW THERE ARE TWO. If, at any point, this unit contains no Pink Horror models, use the Blue Horrors datasheet for this unit. Designer’s Note: While this unit contains one or more Pink Horror models, the Cackling Horrors and Exploding Horrors abilities from the Blue Horrors datasheet do not apply to this unit.",
       "wargear": [
         "1 Pink Horror that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Pink Horror that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3586,12 +3331,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3634,9 +3375,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Coruscating Pink Flames",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3650,9 +3389,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Coruscating Blue Flames",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -3666,9 +3403,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Coruscating Yellow Flames",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "18\"",
               "attacks": "2",
               "skill": "5+",
@@ -3731,25 +3466,31 @@ window.data.CD = {
         "Tzeentch",
         "Horrors"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Changecaster", "Fluxmaster"]
     },
     {
       "id": "b214a7a1-f34e-5855-8c03-15953cef43bc",
       "name": "Plague Drones",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Plaguebringer",
-        "2-5 Plague Drones"
-      ],
+      "composition": ["1 Plaguebringer", "2-5 Plague Drones"],
       "loadout": "Every model is equipped with: death’s heads; foul mouthparts; plaguesword.",
       "wargear": [
         "1 Plague Drone that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Plague Drone that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "120"
+        },
+        {
+          "models": "6",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3761,12 +3502,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3800,10 +3537,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Death’s heads",
-              "keywords": [
-                "blast",
-                "lethal hits"
-              ],
+              "keywords": ["blast", "lethal hits"],
               "range": "12\"",
               "attacks": "D3",
               "skill": "4+",
@@ -3819,10 +3553,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Foul mouthparts",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -3836,9 +3567,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Plaguesword",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -3857,25 +3586,26 @@ window.data.CD = {
         "Nurgle",
         "Plague Drones"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "1759402b-33ad-5750-804d-6262c560900f",
       "name": "Plaguebearers",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Plagueridden",
-        "9 Plaguebearers"
-      ],
+      "composition": ["1 Plagueridden", "9 Plaguebearers"],
       "loadout": "Every model is equipped with: plaguesword.",
       "wargear": [
         "1 Plaguebearer that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Plaguebearer that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3887,12 +3617,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3927,9 +3653,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Plaguesword",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -3948,8 +3672,12 @@ window.data.CD = {
         "Nurgle",
         "Plaguebearers"
       ],
-      "factions": [
-        "Legiones Daemonica"
+      "factions": ["Legiones Daemonica"],
+      "ledBy": [
+        "Epidemius",
+        "Poxbringer",
+        "Sloppity Bilepiper",
+        "Spoilpox Scrivener"
       ]
     },
     {
@@ -3957,24 +3685,20 @@ window.data.CD = {
       "name": "Poxbringer",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Plaguebearers",
-      "composition": [
-        "1 Poxbringer"
-      ],
+      "composition": ["1 Poxbringer"],
       "loadout": "This model is equipped with: foul balesword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 5+", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4013,9 +3737,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Foul balesword",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4035,31 +3757,27 @@ window.data.CD = {
         "Nurgle",
         "Poxbringer"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "3cd09f82-fab8-5f13-9c09-940dffac6081",
       "name": "Rendmaster On Blood Throne",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Rendmaster on Blood Throne"
-      ],
+      "composition": ["1 Rendmaster on Blood Throne"],
       "loadout": "This model is equipped with: attendants’ hellblades; blade of blood.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4098,9 +3816,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Attendants’ hellblades",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4133,32 +3849,27 @@ window.data.CD = {
         "Khorne",
         "Rendmaster on Blood throne"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "4dbec06c-b48b-54bd-8ad2-6992566644e8",
       "name": "Rotigus",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Rotigus – Epic Hero"
-      ],
+      "composition": ["1 Rotigus – Epic Hero"],
       "loadout": "This model is equipped with: streams of brackish filth; gnarlrod.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "285"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4196,11 +3907,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Streams of brackish filth",
-              "keywords": [
-                "devastating wounds",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -4216,10 +3923,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Gnarlrod – strike",
-              "keywords": [
-                "lethal hits",
-                "psychic"
-              ],
+              "keywords": ["lethal hits", "psychic"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -4229,10 +3933,7 @@ window.data.CD = {
             },
             {
               "name": "Gnarlrod – sweep",
-              "keywords": [
-                "lethal hits",
-                "psychic"
-              ],
+              "keywords": ["lethal hits", "psychic"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -4253,31 +3954,31 @@ window.data.CD = {
         "Nurgle",
         "Rotigus"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "81d73edc-6787-5524-88ec-16a2ee9b8b24",
       "name": "Screamers",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "3-6 Screamers"
-      ],
+      "composition": ["3-6 Screamers"],
       "loadout": "Every model is equipped with: lamprey bite.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "90"
+        },
+        {
+          "models": "6",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4323,39 +4024,33 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Fly",
-        "Chaos",
-        "Daemon",
-        "Tzeentch",
-        "Screamers"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Beast", "Fly", "Chaos", "Daemon", "Tzeentch", "Screamers"],
+      "factions": ["Legiones Daemonica"],
+      "ledBy": ["Fateskimmer"]
     },
     {
       "id": "63f69a3c-0e96-56a8-ace9-5de1ce1f3834",
       "name": "Seeker Chariot",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1-2 Seeker Chariots"
-      ],
+      "composition": ["1-2 Seeker Chariots"],
       "loadout": "Every model is equipped with: lashes of torment; Seeker tongues; slashing claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        },
+        {
+          "models": "2",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4389,11 +4084,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lashes of torment",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "6\"",
               "attacks": "6",
               "skill": "3+",
@@ -4409,10 +4100,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Seeker tongues",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -4426,9 +4114,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Slashing claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "9",
               "skill": "3+",
@@ -4439,32 +4125,31 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Slaanesh",
-        "Seeker Chariot"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Mounted", "Chaos", "Daemon", "Slaanesh", "Seeker Chariot"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "1fa4c551-ad0e-5873-9f40-b851fe412f39",
       "name": "Seekers",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Heartseeker",
-        "4-9 Seekers"
-      ],
+      "composition": ["1 Heartseeker", "4-9 Seekers"],
       "loadout": "Every model is equipped with: lashing tongue; slashing claws.",
       "wargear": [
         "1 Seeker that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.",
         "1 Seeker that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4476,13 +4161,8 @@ window.data.CD = {
             "description": "Add 1 to Charge rolls made for the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Scouts 9\""
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Scouts 9\""],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4517,10 +4197,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lashing tongue",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -4534,9 +4211,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Slashing claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4547,40 +4222,28 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Slaanesh",
-        "Seekers"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Mounted", "Chaos", "Daemon", "Slaanesh", "Seekers"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "aece117c-f387-5601-9bd7-9282c5d59b9c",
       "name": "Shalaxi Helbane",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Shalaxi Helbane – Epic Hero"
-      ],
+      "composition": ["1 Shalaxi Helbane – Epic Hero"],
       "loadout": "This model is equipped with: lash of Slaanesh; Pavane of Slaanesh; snapping claws; soulpiercer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "400"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike",
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 5+"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4618,9 +4281,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lash of Slaanesh",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "6",
               "skill": "2+",
@@ -4634,10 +4295,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Pavane of Slaanesh – witchfire",
-              "keywords": [
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "2+",
@@ -4668,10 +4326,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Snapping claws",
-              "keywords": [
-                "devastating wounds",
-                "extra attacks"
-              ],
+              "keywords": ["devastating wounds", "extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -4685,9 +4340,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Soulpiercer",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -4708,32 +4361,27 @@ window.data.CD = {
         "Slaanesh",
         "Shalaxi Helbane"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "a1bce1fd-f1af-58a5-a64b-39e8813b3959",
       "name": "Skarbrand",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Skarbrand – Epic Hero"
-      ],
+      "composition": ["1 Skarbrand – Epic Hero"],
       "loadout": "This model is equipped with: bellow of endless fury; Slaughter and Carnage.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "365"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4771,10 +4419,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Bellow of endless fury",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -4820,29 +4465,27 @@ window.data.CD = {
         "Khorne",
         "Skarbrand"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "6477c669-2d71-50d3-a739-b8e8f932ecb8",
       "name": "Skull Altar",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Skull Altar"
-      ],
+      "composition": ["1 Skull Altar"],
       "loadout": "This model is equipped with: nothing. WARGEAR OPTIONS ■   None",
       "wargear": [],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Infiltrators"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4881,32 +4524,28 @@ window.data.CD = {
       ],
       "rangedWeapons": [],
       "meleeWeapons": [],
-      "keywords": [],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Fortification", "Chaos", "Daemon", "Khorne", "Skull Altar"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "d288fe4f-64b9-52a9-8c3e-28844f83d17c",
       "name": "Skull Cannon",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Skull Cannon"
-      ],
+      "composition": ["1 Skull Cannon"],
       "loadout": "This model is equipped with: skull cannon; attendants’ hellblades; biting maw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4940,9 +4579,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Skull cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+2",
               "skill": "3+",
@@ -4958,9 +4595,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Attendants’ hellblades",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4985,39 +4620,28 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Khorne",
-        "Skull Cannon"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Mounted", "Chaos", "Daemon", "Khorne", "Skull Cannon"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "e71974e0-7fff-55c6-8207-8e9d5ededfb1",
       "name": "Skullmaster",
       "faction_id": "CD",
       "leader": "This model can be attached to the following units: ■ Bloodcrushers",
-      "composition": [
-        "1 Skullmaster"
-      ],
+      "composition": ["1 Skullmaster"],
       "loadout": "This model is equipped with: blade of blood; Juggernaut’s bladed horn.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5070,10 +4694,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Juggernaut’s bladed horn",
-              "keywords": [
-                "extra attacks",
-                "lance"
-              ],
+              "keywords": ["extra attacks", "lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -5092,32 +4713,27 @@ window.data.CD = {
         "Khorne",
         "Skullmaster"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "b4d5c7ca-e189-5eb3-a9b4-f7d875684a64",
       "name": "Skulltaker",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Bloodletters",
-      "composition": [
-        "1 Skulltaker – Epic Hero"
-      ],
+      "composition": ["1 Skulltaker – Epic Hero"],
       "loadout": "This model is equipped with: the Slayer Sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5156,10 +4772,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "The Slayer Sword",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -5179,32 +4792,27 @@ window.data.CD = {
         "Khorne",
         "Skulltaker"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "b37ad4ff-c5b5-5030-85a9-6c37637459b5",
       "name": "Sloppity Bilepiper",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Plaguebearers",
-      "composition": [
-        "1 Sloppity Bilepiper"
-      ],
+      "composition": ["1 Sloppity Bilepiper"],
       "loadout": "This model is equipped with: marotter.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5243,9 +4851,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Marotter",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5264,32 +4870,27 @@ window.data.CD = {
         "Nurgle",
         "Sloppity Bilepiper"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "03ca041c-bfbd-5b28-a804-2f69d5238dcd",
       "name": "Soul Grinder",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Soul Grinder"
-      ],
+      "composition": ["1 Soul Grinder"],
       "loadout": "This model is equipped with: harvester cannon; iron claw; warpsword.",
-      "wargear": [
-        "This model’s warpsword can be replaced with 1 warpclaw."
-      ],
+      "wargear": ["This model’s warpsword can be replaced with 1 warpclaw."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "215"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [
           {
             "name": "DAEMONIC ALLEGIANCE",
@@ -5363,10 +4964,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Torrent of burning blood",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -5380,11 +4978,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Phlegm bombardment",
-              "keywords": [
-                "blast",
-                "indirect fire",
-                "lethal hits"
-              ],
+              "keywords": ["blast", "indirect fire", "lethal hits"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -5398,10 +4992,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Scream of despair",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -5415,9 +5006,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Warp gaze",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "3+",
@@ -5447,9 +5036,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Warpclaw",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -5463,9 +5050,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Warpsword",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -5476,39 +5061,28 @@ window.data.CD = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Daemon",
-        "Soul Grinder"
-      ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Daemon", "Soul Grinder"],
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "dda65565-bf12-5680-81ab-1b9631937882",
       "name": "Spoilpox Scrivener",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Plaguebearers",
-      "composition": [
-        "1 Spoilpox Scrivener"
-      ],
+      "composition": ["1 Spoilpox Scrivener"],
       "loadout": "This model is equipped with: disgusting sneezes; plaguesword and distended maw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5546,10 +5120,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Disgusting sneezes",
-              "keywords": [
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["pistol", "torrent"],
               "range": "6\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5565,9 +5136,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Plaguesword and distended maw",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -5586,32 +5155,27 @@ window.data.CD = {
         "Nurgle",
         "Spoilpox Scrivener"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "1e8cc116-d5f4-5574-b069-865316656cb5",
       "name": "Syll’esske",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Daemonettes",
-      "composition": [
-        "1 Syll’Esske – Epic Hero"
-      ],
+      "composition": ["1 Syll’Esske – Epic Hero"],
       "loadout": "This model is equipped with: Cacophonic Choir; scourging whip; Axe of Dominion.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5663,8 +5227,14 @@ window.data.CD = {
               "damage": "1"
             },
             {
-              "name": "Cacophonic choir – focused witchfire [PSYCHIC,",
-              "keywords": [],
+              "name": "Cacophonic choir – focused witchfire",
+              "keywords": [
+                "psychic",
+                "hazardous",
+                "ignores cover",
+                "devastating wounds",
+                "torrent"
+              ],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -5678,9 +5248,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Scourging whip",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "9\"",
               "attacks": "6",
               "skill": "3+",
@@ -5710,9 +5278,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Scourging whip",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -5733,32 +5299,27 @@ window.data.CD = {
         "Slaanesh",
         "Syll’esske"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "2883a92d-8f1a-5847-8cb5-e7bc961fc5e3",
       "name": "The Blue Scribes",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 The Blue Scribes – Epic Hero"
-      ],
+      "composition": ["1 The Blue Scribes – Epic Hero"],
       "loadout": "This model is equipped with: sharp quills.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Lone Operative"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Lone Operative"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5797,9 +5358,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Sharp quills",
-              "keywords": [
-                "anti-psyker 2+"
-              ],
+              "keywords": ["anti-psyker 2+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "5+",
@@ -5820,33 +5379,27 @@ window.data.CD = {
         "Tzeentch",
         "The Blue Scribes"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "6dedfdda-e85d-59b3-ade9-d5044c7e56e8",
       "name": "The Changeling",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 The Changeling – Epic Hero"
-      ],
+      "composition": ["1 The Changeling – Epic Hero"],
       "loadout": "This model is equipped with: Infernal Flames; the Trickster’s Staff.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Lone Operative",
-          "Stealth"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Lone Operative", "Stealth"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5884,11 +5437,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Infernal Flames – witchfire",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5898,12 +5447,7 @@ window.data.CD = {
             },
             {
               "name": "Infernal Flames – focused witchfire",
-              "keywords": [
-                "ignores cover",
-                "hazardous",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "hazardous", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -5919,9 +5463,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "The Trickster’s Staff",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -5942,33 +5484,27 @@ window.data.CD = {
         "Tzeentch",
         "The Changeling"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "472a16be-bfd5-5c86-b3da-4acbeeb96fc1",
       "name": "The Masque Of Slaanesh",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 The Masque of Slaanesh – Epic Hero"
-      ],
+      "composition": ["1 The Masque of Slaanesh – Epic Hero"],
       "loadout": "This model is equipped with: serrated claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Fights First",
-          "Lone Operative"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Fights First", "Lone Operative"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6007,9 +5543,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Serrated claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -6030,31 +5564,27 @@ window.data.CD = {
         "Slaanesh",
         "The Masque of Slaanesh"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "6f4ab458-410d-511c-bf68-7a3f59c26a2b",
       "name": "Tormentbringer On Exalted Seeker Chariot",
       "faction_id": "CD",
       "leader": "",
-      "composition": [
-        "1 Tormentbringer on Exalted Seeker Chariot"
-      ],
+      "composition": ["1 Tormentbringer on Exalted Seeker Chariot"],
       "loadout": "This model is equipped with: lashes of torment; Exalted Seeker tongues; ravaging claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6092,11 +5622,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Lashes of torment",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "6\"",
               "attacks": "6",
               "skill": "3+",
@@ -6112,10 +5638,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Exalted Seeker tongues",
-              "keywords": [
-                "extra attacks",
-                "lethal hits"
-              ],
+              "keywords": ["extra attacks", "lethal hits"],
               "range": "Melee",
               "attacks": "8",
               "skill": "4+",
@@ -6129,9 +5652,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Ravaging claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "15",
               "skill": "3+",
@@ -6151,32 +5672,27 @@ window.data.CD = {
         "Slaanesh",
         "Tormentbringer on Exalted Seeker Chariot"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     },
     {
       "id": "6ad89be2-0453-522d-92a7-03a3eac93456",
       "name": "Tranceweaver",
       "faction_id": "CD",
       "leader": "This model can be attached to the following unit: ■ Daemonettes",
-      "composition": [
-        "1 Tranceweaver"
-      ],
+      "composition": ["1 Tranceweaver"],
       "loadout": "This model is equipped with: ravaging claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "The Shadow of Chaos"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["The Shadow of Chaos"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -6215,9 +5731,7 @@ window.data.CD = {
           "profiles": [
             {
               "name": "Ravaging claws",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -6237,9 +5751,11 @@ window.data.CD = {
         "Slaanesh",
         "Tranceweaver"
       ],
-      "factions": [
-        "Legiones Daemonica"
-      ]
+      "factions": ["Legiones Daemonica"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#202224",
+    "header": "#393940"
+  }
 }

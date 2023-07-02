@@ -3,28 +3,58 @@ window.data.TS = {
   "id": "TS",
   "link": "https://game-datacards.eu",
   "name": "Thousand Sons",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Arcane Vortex",
+      "description": "Thousand Sons model only. Add 1 to the Strength and Damage characteristics of Psychic weapons equipped by the bearer.",
+      "keywords": ["Thousand Sons"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Athenaean Scrolls",
+      "description": "Thousand Sons Psyker model only. In your Command phase, if the bearer is on the battlefield and is not Battle-shocked, it generates you 1 additional Cabal point this phase.",
+      "keywords": ["Thousand Sons", "Psyker"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Lord of Forbidden Lore",
+      "description": "Thousand Sons Psyker model only. The bearer can be selected to use a Ritual even if another Psyker from your army has already been selected to use that Ritual this phase.",
+      "keywords": ["Thousand Sons", "Psyker"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Umbralefic Crystal",
+      "description": "Thousand Sons model only. Once per battle, in your Command phase, you can remove the bearer’s unit from the battlefield. If you do, in the Reinforcements step of your next Movement phase, set that unit back up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.",
+      "keywords": ["Thousand Sons"],
+      "excludes": [],
+      "cost": "20"
+    }
+  ],
   "datasheets": [
     {
       "id": "76048a0a-8f11-512e-a836-34c97882259b",
       "name": "Ahriman",
       "faction_id": "TS",
-      "leader": "This model can be attached to the following unit: ■ Rubric Marines AHRIMAN Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch.",
-      "composition": [
-        "1 Ahriman – Epic Hero"
-      ],
+      "leader": "",
+      "composition": ["1 Ahriman – Epic Hero"],
       "loadout": "This model is equipped with: inferno bolt pistol; Psychic Stalk; Black Staff of Ahriman.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 3"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 3"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -67,9 +97,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -83,10 +111,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Psychic Stalk",
-              "keywords": [
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["precision", "psychic"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -102,9 +127,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Black Staff of Ahriman",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -124,31 +147,27 @@ window.data.TS = {
         "Tzeentch",
         "Ahriman"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "d5bd0573-49dc-5686-b2b9-a69411549958",
       "name": "Ahriman On Disc Of Tzeentch",
       "faction_id": "TS",
-      "leader": "This model can be attached to the following unit: ■ Rubric Marines AHRIMAN Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch.",
-      "composition": [
-        "1 Ahriman – Epic Hero"
-      ],
+      "leader": "",
+      "composition": ["1 Ahriman – Epic Hero"],
       "loadout": "This model is equipped with: Psychic Stalk; inferno bolt pistol; Black Staff of Ahriman.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 3"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 3"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -191,9 +210,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -207,10 +224,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Psychic Stalk",
-              "keywords": [
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["precision", "psychic"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -226,9 +240,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Black Staff of Ahriman",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -249,32 +261,30 @@ window.data.TS = {
         "Tzeentch",
         "Ahriman on Disc of Tzeentch"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "b44de2c6-587b-51e3-86b0-7b1ca9d113e7",
       "name": "Exalted Sorcerer",
       "faction_id": "TS",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
-      "composition": [
-        "1 Exalted Sorcerer"
-      ],
+      "composition": ["1 Exalted Sorcerer"],
       "loadout": "This model is equipped with: Astral Blast; inferno bolt pistol; force weapon.",
       "wargear": [
         "This model’s inferno bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 warpflame pistol",
         "This model can be equipped with 1 Prosperine khopesh."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 2"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 2"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -312,11 +322,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Astral Blast",
-              "keywords": [
-                "blast",
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["blast", "devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "2+",
@@ -330,9 +336,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -346,9 +350,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -358,10 +360,7 @@ window.data.TS = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -375,11 +374,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Warpflame pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -395,9 +390,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -431,32 +424,30 @@ window.data.TS = {
         "Tzeentch",
         "Exalted Sorcerer"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "30b886e4-88fd-5a6a-a85f-ccdc99ac2f28",
       "name": "Exalted Sorcerer On Disc Of Tzeentch",
       "faction_id": "TS",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
-      "composition": [
-        "1 Exalted Sorcerer"
-      ],
+      "composition": ["1 Exalted Sorcerer"],
       "loadout": "This model is equipped with: Arcane Fire; inferno bolt pistol; force weapon.",
       "wargear": [
         "This model’s inferno bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 warpflame pistol",
         "This model can be equipped with 1 Prosperine khopesh."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 2"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 2"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -494,11 +485,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Arcane Fire",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -512,9 +499,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -528,9 +513,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -540,10 +523,7 @@ window.data.TS = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -557,11 +537,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Warpflame pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -577,9 +553,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -613,31 +587,27 @@ window.data.TS = {
         "Tzeentch",
         "Exalted Sorcerer"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "fa38ccf7-a6fc-5328-9f65-d7631b1c7a12",
       "name": "Infernal Master",
       "faction_id": "TS",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
-      "composition": [
-        "1 Infernal Master"
-      ],
+      "composition": ["1 Infernal Master"],
       "loadout": "This model is equipped with: inferno bolt pistol; Screamer Invocation; force weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 2"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 2"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -675,9 +645,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -691,10 +659,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Screamer Invocation – witchfire",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "18\"",
               "attacks": "2D3",
               "skill": "N/A",
@@ -704,11 +669,7 @@ window.data.TS = {
             },
             {
               "name": "Screamer Invocation – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["hazardous", "psychic", "torrent"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -724,9 +685,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -746,32 +705,27 @@ window.data.TS = {
         "Tzeentch",
         "Infernal Master"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "4c38a598-03aa-5f90-9407-33bd484da21c",
       "name": "Magnus The Red",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Magnus the Red – Epic Hero"
-      ],
+      "composition": ["1 Magnus the Red – Epic Hero"],
       "loadout": "This model is equipped with: Gaze of Magnus; Tzeentch’s Firestorm; Blade of Magnus.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "410"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 4"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["Cabal of Sorcerers 4"],
         "primarch": [
           {
             "name": "CRIMSON KING",
@@ -832,10 +786,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Gaze of Magnus",
-              "keywords": [
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "psychic"],
               "range": "24\"",
               "attacks": "3D3",
               "skill": "2+",
@@ -849,10 +800,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Tzeentch’s Firestorm",
-              "keywords": [
-                "blast",
-                "psychic"
-              ],
+              "keywords": ["blast", "psychic"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "2+",
@@ -868,10 +816,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Blade of Magnus – strike",
-              "keywords": [
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "psychic"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -881,9 +826,7 @@ window.data.TS = {
             },
             {
               "name": "Blade of Magnus – sweep",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -906,29 +849,26 @@ window.data.TS = {
         "Primarch",
         "Magnus the Red"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "450a9b48-7ec3-55b6-818a-42145ac02450",
       "name": "Mutalith Vortex Beast",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Mutalith Vortex Beast"
-      ],
+      "composition": ["1 Mutalith Vortex Beast"],
       "loadout": "This model is equipped with: warp vortex; betentacled maw; Mutalith claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Feel No Pain 5+"
-        ],
+        "core": ["Deadly Demise D6", "Feel No Pain 5+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -967,9 +907,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Warp vortex – blast",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -979,9 +917,7 @@ window.data.TS = {
             },
             {
               "name": "Warp vortex – beam",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -991,10 +927,7 @@ window.data.TS = {
             },
             {
               "name": "Warp vortex – torrent",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -1042,19 +975,14 @@ window.data.TS = {
         "Tzeentch",
         "Mutalith Vortex Beast"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "0887ff5d-6af0-5557-bc10-c984572b3c04",
       "name": "Rubric Marines",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Aspiring Sorcerer",
-        "4-9 Rubric Marines"
-      ],
+      "composition": ["1 Aspiring Sorcerer", "4-9 Rubric Marines"],
       "loadout": "The Aspiring Sorcerer is equipped with: inferno bolt pistol; Warpsmite; force weapon. Every Rubric Marine is equipped with: inferno boltgun; close combat weapon.",
       "wargear": [
         "The Aspiring Sorcerer’s inferno bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 warpflame pistol",
@@ -1063,6 +991,16 @@ window.data.TS = {
         "1 Rubric Marine can be equipped with 1 icon of flame."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1071,9 +1009,7 @@ window.data.TS = {
           }
         ],
         "core": [],
-        "faction": [
-          "Cabal of Sorcerers 1*"
-        ],
+        "faction": ["Cabal of Sorcerers 1*"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1107,9 +1043,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1137,9 +1071,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1149,10 +1081,7 @@ window.data.TS = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1166,9 +1095,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Soulreaper cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1201,11 +1128,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Warpflame pistol",
-              "keywords": [
-                "pistol",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["pistol", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1219,10 +1142,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Warpflamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1252,9 +1172,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1275,8 +1193,12 @@ window.data.TS = {
         "ASPIRING SORCERER:",
         "Psyker"
       ],
-      "factions": [
-        "Thousand Sons"
+      "factions": ["Thousand Sons"],
+      "ledBy": [
+        "Exalted Sorcerer",
+        "Exalted Sorcerer On Disc Of Tzeentch",
+        "Infernal Master",
+        "Thousand Sons Sorcerer"
       ]
     },
     {
@@ -1295,14 +1217,20 @@ window.data.TS = {
         "For every 5 models in this unit, 1 Scarab Occult Terminator can be equipped with 1 hellfyre missile rack."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "205"
+        },
+        {
+          "models": "10",
+          "cost": "410"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 1*"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Cabal of Sorcerers 1*"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1336,10 +1264,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Heavy warpflamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1367,9 +1292,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1383,9 +1306,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Soulreaper cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1420,9 +1341,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -1457,28 +1376,27 @@ window.data.TS = {
         "SCARAB OCCULT SORCERER:",
         "Psyker"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"],
+      "ledBy": ["Thousand Sons Sorcerer In Terminator Armour"]
     },
     {
       "id": "d45b410a-deec-598f-bf5e-0638da19c52a",
       "name": "Thousand Sons Chaos Spawn",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "2 Chaos Spawn"
-      ],
+      "composition": ["2 Chaos Spawn"],
       "loadout": "Every model is equipped with: hideous mutations.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
+        "core": ["Feel No Pain 5+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1525,15 +1443,8 @@ window.data.TS = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Tzeentch",
-        "Spawn"
-      ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "keywords": ["Beast", "Chaos", "Tzeentch", "Spawn"],
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "d847b289-1fff-5b5b-aa51-551200307307",
@@ -1551,11 +1462,19 @@ window.data.TS = {
         "For every 10 models in this unit, 1 Thousand Sons Cultist’s Cultist Firearm can be replaced with 1 grenade launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "65"
+        },
+        {
+          "models": "20",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 6\""
-        ],
+        "core": ["Scouts 6\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1604,10 +1523,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1621,9 +1537,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1647,9 +1561,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1676,37 +1588,28 @@ window.data.TS = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Tzeentch",
-        "Cultists"
-      ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "keywords": ["Infantry", "Chaos", "Tzeentch", "Cultists"],
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "b381d363-e8ae-565a-8ce7-03ed5cfa8839",
       "name": "Thousand Sons Daemon Prince",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Daemon Prince"
-      ],
+      "composition": ["1 Thousand Sons Daemon Prince"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 2"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Cabal of Sorcerers 2"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1760,9 +1663,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Hellforged weapons – strike",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1772,9 +1673,7 @@ window.data.TS = {
             },
             {
               "name": "Hellforged weapons – sweep",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -1794,31 +1693,27 @@ window.data.TS = {
         "Tzeentch",
         "Daemon Prince"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "d15760a8-e0cc-5a34-9661-97ef9524a78f",
       "name": "Thousand Sons Daemon Prince With Wings",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Daemon Prince with Wings"
-      ],
+      "composition": ["1 Thousand Sons Daemon Prince with Wings"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 2"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Cabal of Sorcerers 2"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1872,9 +1767,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Hellforged weapons – strike",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1884,9 +1777,7 @@ window.data.TS = {
             },
             {
               "name": "Hellforged weapons – sweep",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -1907,18 +1798,14 @@ window.data.TS = {
         "Tzeentch",
         "Daemon Prince"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "8d3c3611-78e1-553c-8e58-b310a756f88e",
       "name": "Thousand Sons Defiler",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Defiler"
-      ],
+      "composition": ["1 Thousand Sons Defiler"],
       "loadout": "This model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.",
       "wargear": [
         "This model’s twin heavy flamer can be replaced with one of the following: ◦ 1 Defiler scourge ◦ 1 havoc launcher",
@@ -1926,11 +1813,15 @@ window.data.TS = {
         "This model can be equipped with 1 inferno combi-weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1965,9 +1856,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Defiler cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1981,9 +1870,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1997,9 +1884,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2031,10 +1916,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -2056,10 +1938,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Twin inferno heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2089,9 +1968,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Defiler scourge",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2111,29 +1988,29 @@ window.data.TS = {
         "Tzeentch",
         "Defiler"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "db29ab57-ac26-5b23-bb8c-3eddc889371c",
       "name": "Thousand Sons Forgefiend",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Forgefiend"
-      ],
+      "composition": ["1 Thousand Sons Forgefiend"],
       "loadout": "This model is equipped with: 2 Hades autocannons; 1 Forgefiend jaws.",
       "wargear": [
         "This model’s 2 Hades autocannons can be replaced with 2 ectoplasma cannons.",
         "This model’s Forgefiend jaws can be replaced with 1 ectoplasma cannon and 1 Forgefiend claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2168,9 +2045,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Ectoplasma cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -2233,18 +2108,14 @@ window.data.TS = {
         "Tzeentch",
         "Forgefiend"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "517b09b0-362d-5389-941a-f779c1458605",
       "name": "Thousand Sons Helbrute",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Helbrute"
-      ],
+      "composition": ["1 Thousand Sons Helbrute"],
       "loadout": "This model is equipped with: missile launcher; multi-melta; close combat weapon.",
       "wargear": [
         "This model’s multi-melta can be replaced with one of the following: ◦ 1 Helbrute plasma cannon ◦ 1 twin autocannon ◦ 1 twin inferno heavy bolter ◦ 1 twin lascannon ◦ 1 Helbrute fist",
@@ -2252,11 +2123,15 @@ window.data.TS = {
         "For each Helbrute fist this model is equipped with, it can be equipped with one of the following: ◦ 1 inferno combi-bolter ◦ 1 heavy flamer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
+        "core": ["Deadly Demise 1"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2295,10 +2170,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2312,10 +2184,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Helbrute plasma cannon",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -2329,9 +2198,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2345,9 +2212,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2371,9 +2236,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2387,9 +2250,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -2403,10 +2264,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Twin inferno heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2420,9 +2278,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2491,36 +2347,29 @@ window.data.TS = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Tzeentch",
-        "Helbrute"
-      ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Tzeentch", "Helbrute"],
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "6183c016-0094-5967-bc81-f847e457d4cc",
       "name": "Thousand Sons Heldrake",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Heldrake"
-      ],
+      "composition": ["1 Thousand Sons Heldrake"],
       "loadout": "This model is equipped with: Hades autocannon; Heldrake claws.",
       "wargear": [
         "This model’s Hades autocannon can be replaced with 1 baleflamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2555,10 +2404,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Baleflamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -2588,10 +2434,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Heldrake claws",
-              "keywords": [
-                "anti-fly 2+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-fly 2+", "devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2611,29 +2454,29 @@ window.data.TS = {
         "Tzeentch",
         "Heldrake"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "81c68c2b-1d97-55b3-8b07-f715b083121b",
       "name": "Thousand Sons Land Raider",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Land Raider"
-      ],
+      "composition": ["1 Thousand Sons Land Raider"],
       "loadout": "This model is equipped with: 2 soulshatter lascannons; twin inferno heavy bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 inferno combi-bolter ◦ 1 inferno combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 Thousand Sons Infantry models (excluding Cultist and Tzaangor models). Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2668,9 +2511,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2684,9 +2525,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2732,10 +2571,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Twin inferno heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -2770,28 +2606,28 @@ window.data.TS = {
         "Tzeentch",
         "Land Raider"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "4c972846-787c-574f-a79b-fc3f05280468",
       "name": "Thousand Sons Maulerfiend",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Maulerfiend"
-      ],
+      "composition": ["1 Thousand Sons Maulerfiend"],
       "loadout": "This model is equipped with: lasher tendrils; Maulerfiend fists.",
       "wargear": [
         "This model’s lasher tendrils can be replaced with 2 magma cutters."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2826,9 +2662,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Magma cutter",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "6\"",
               "attacks": "2",
               "skill": "3+",
@@ -2844,9 +2678,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Lasher tendrils",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -2879,18 +2711,14 @@ window.data.TS = {
         "Tzeentch",
         "Maulerfiend"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "ac4e5ad8-3467-557e-b0d5-9031b0a3cf1f",
       "name": "Thousand Sons Predator Annihilator",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Predator Annihilator"
-      ],
+      "composition": ["1 Thousand Sons Predator Annihilator"],
       "loadout": "This model is equipped with: Predator twin lascannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 lascannons ◦ 2 inferno heavy bolters",
@@ -2898,11 +2726,15 @@ window.data.TS = {
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2937,9 +2769,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2953,9 +2783,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2987,9 +2815,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -3017,9 +2843,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Predator twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3053,18 +2877,14 @@ window.data.TS = {
         "Tzeentch",
         "Predator Annihilator"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "60c487e7-5ca9-5398-9951-6e0836d4c03e",
       "name": "Thousand Sons Predator Destructor",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Predator Destructor"
-      ],
+      "composition": ["1 Thousand Sons Predator Destructor"],
       "loadout": "This model is equipped with: Predator autocannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 lascannons ◦ 2 inferno heavy bolters",
@@ -3072,11 +2892,15 @@ window.data.TS = {
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3111,9 +2935,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3127,9 +2949,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3161,9 +2981,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -3191,9 +3009,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Predator autocannon",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "48\"",
               "attacks": "4",
               "skill": "3+",
@@ -3227,29 +3043,29 @@ window.data.TS = {
         "Tzeentch",
         "Predator Destructor"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "8cdb60fc-c16c-55c2-b441-e445c0e7f26b",
       "name": "Thousand Sons Rhino",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Rhino"
-      ],
+      "composition": ["1 Thousand Sons Rhino"],
       "loadout": "This model is equipped with: inferno combi-bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 additional inferno combi-bolter ◦ 1 inferno combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 Thousand Sons Infantry models (excluding Cultist, Tzaangor and Terminator models).",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3284,9 +3100,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3300,9 +3114,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3355,31 +3167,29 @@ window.data.TS = {
         "Tzeentch",
         "Rhino"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "d8b758bf-642e-5d09-a15b-d4c565538d29",
       "name": "Thousand Sons Sorcerer",
       "faction_id": "TS",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
-      "composition": [
-        "1 Thousand Sons Sorcerer"
-      ],
+      "composition": ["1 Thousand Sons Sorcerer"],
       "loadout": "This model is equipped with: Fires of the Abyss; inferno bolt pistol; force weapon.",
       "wargear": [
         "This model’s inferno bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 warpflame pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 1"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 1"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3417,11 +3227,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Fires of the Abyss",
-              "keywords": [
-                "pistol",
-                "psychic",
-                "sustained hits 3"
-              ],
+              "keywords": ["pistol", "psychic", "sustained hits 3"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "2+",
@@ -3435,9 +3241,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3451,9 +3255,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3463,10 +3265,7 @@ window.data.TS = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3480,11 +3279,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Warpflame pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3500,9 +3295,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -3522,32 +3315,24 @@ window.data.TS = {
         "Tzeentch",
         "Sorcerer"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "143c0245-2ac6-54a7-8bc9-334c793a115a",
       "name": "Thousand Sons Sorcerer In Terminator Armour",
       "faction_id": "TS",
       "leader": "This model can be attached to the following unit: ■ Scarab Occult Terminators",
-      "composition": [
-        "1 Thousand Sons Sorcerer in Terminator Armour"
-      ],
+      "composition": ["1 Thousand Sons Sorcerer in Terminator Armour"],
       "loadout": "This model is equipped with: Coruscating Flames; inferno combi-bolter; force weapon.",
       "wargear": [
         "This model’s inferno combi-bolter can be replaced with one of the following: ◦ 1 inferno combi-weapon ◦ 1 Prosperine khopesh"
       ],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 2"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Cabal of Sorcerers 2"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3604,9 +3389,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3640,9 +3423,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3676,29 +3457,29 @@ window.data.TS = {
         "Tzeentch",
         "Sorcerer"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "4f69fa1f-800d-5963-bfa9-68ea87a4c8da",
       "name": "Thousand Sons Vindicator",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Thousand Sons Vindicator"
-      ],
+      "composition": ["1 Thousand Sons Vindicator"],
       "loadout": "This model is equipped with: demolisher cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 inferno combi-bolter ◦ 1 inferno combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3733,9 +3514,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Demolisher cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -3749,9 +3528,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3765,9 +3542,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Inferno combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3812,31 +3587,30 @@ window.data.TS = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Chaos",
-        "Tzeentch",
-        "Vindicator"
-      ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Chaos", "Tzeentch", "Vindicator"],
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "9262f9fe-d276-5924-8816-9e200656a466",
       "name": "Tzaangor Enlightened",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Aviarch",
-        "2-5 Enlightened"
-      ],
+      "composition": ["1 Aviarch", "2-5 Enlightened"],
       "loadout": "Every model is equipped with: divining spear.",
       "wargear": [
         "Any number of models can each have their divining spear replaced with one of the following: ◦ 1 autopistol and 1 chainsword ◦  1 fatecaster greatbow and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "45"
+        },
+        {
+          "models": "6",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -3874,9 +3648,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3890,10 +3662,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Fatecaster greatbow",
-              "keywords": [
-                "lethal hits",
-                "precision"
-              ],
+              "keywords": ["lethal hits", "precision"],
               "range": "30\"",
               "attacks": "2",
               "skill": "4+",
@@ -3937,10 +3706,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Divining spear",
-              "keywords": [
-                "lance",
-                "precision"
-              ],
+              "keywords": ["lance", "precision"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -3958,31 +3724,28 @@ window.data.TS = {
         "Tzeentch",
         "Tzaangor Enlightened"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"],
+      "ledBy": ["Tzaangor Shaman"]
     },
     {
       "id": "867d4f01-a499-5f02-ae56-be3461285c68",
       "name": "Tzaangor Shaman",
       "faction_id": "TS",
       "leader": "This model can be attached to the following units: ■ Tzaangor Enlightened ■ Tzaangors",
-      "composition": [
-        "1 Tzaangor Shaman"
-      ],
+      "composition": ["1 Tzaangor Shaman"],
       "loadout": "This model is equipped with: mutating orbs; Shaman’s stave.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Cabal of Sorcerers 1"
-        ],
+        "core": ["Leader"],
+        "faction": ["Cabal of Sorcerers 1"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -4020,11 +3783,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Mutating orbs",
-              "keywords": [
-                "blast",
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["blast", "devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -4040,9 +3799,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Shaman’s stave",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4062,19 +3819,14 @@ window.data.TS = {
         "Tzeentch",
         "Tzaangor Shaman"
       ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "factions": ["Thousand Sons"]
     },
     {
       "id": "e6a01d5b-aafa-5195-9052-45eae4dadbbe",
       "name": "Tzaangors",
       "faction_id": "TS",
       "leader": "",
-      "composition": [
-        "1 Twistbray",
-        "9-19 Tzaangors"
-      ],
+      "composition": ["1 Twistbray", "9-19 Tzaangors"],
       "loadout": "Every model is equipped with: Tzaangor blades.",
       "wargear": [
         "Any number of models can each have their Tzaangor blades replaced with: ◦ 1 autopistol and 1 chainsword",
@@ -4082,6 +3834,16 @@ window.data.TS = {
         "1 Tzaangor not equipped with a brayhorn can be equipped with 1 herd banner."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "65"
+        },
+        {
+          "models": "20",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4128,9 +3890,7 @@ window.data.TS = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -4171,16 +3931,13 @@ window.data.TS = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Chaos",
-        "Tzeentch",
-        "Tzaangors"
-      ],
-      "factions": [
-        "Thousand Sons"
-      ]
+      "keywords": ["Infantry", "Battleline", "Chaos", "Tzeentch", "Tzaangors"],
+      "factions": ["Thousand Sons"],
+      "ledBy": ["Tzaangor Shaman"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#0b3645",
+    "header": "#185862"
+  }
 }

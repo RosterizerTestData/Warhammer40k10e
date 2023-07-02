@@ -3,29 +3,60 @@ window.data.GK = {
   "id": "GK",
   "link": "https://game-datacards.eu",
   "name": "Grey Knights",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "First to the Fray",
+      "description": "Grey Knights model with the Deep Strike ability only. The bearer’s unit must start the battle in Reserves, but neither it, nor any Transport it is embarked within, is counted towards any limits the mission places on the number of Strategic Reserves units you can have. That unit can be set up using its Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules.",
+      "keywords": ["Grey Knights", "Deep Strike"],
+      "excludes": [],
+      "cost": "35"
+    },
+    {
+      "name": "Domina Liber Daemonica",
+      "description": "Grey Knights model only. Each time the bearer makes a melee attack add 1 to the Wound roll and, if that attack targets a Daemon unit, add 1 to the Damage characteristic of that attack as well.",
+      "keywords": ["Grey Knights"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Sigil of Exigence",
+      "description": "Grey Knights model only. Once per battle, in your opponent’s Shooting phase, when the bearer’s unit is selected as the target of a ranged attack, you can remove the bearer’s unit from the battlefield and then set it back up again anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the bearer is no longer an eligible target, your opponent can then select new targets for any attacks that had targeted the bearer’s unit.",
+      "keywords": ["Grey Knights"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "Inescapable Wrath",
+      "description": "Grey Knights model only. Add 1 to Charge rolls made for the bearer’s unit.",
+      "keywords": ["Grey Knights"],
+      "excludes": [],
+      "cost": "15"
+    }
+  ],
   "datasheets": [
     {
       "id": "f2ec85ee-5971-5c49-beac-3575cbbc6030",
       "name": "Brother-captain",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Brother-Captain"
-      ],
+      "composition": ["1 Brother-Captain"],
       "loadout": "This model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "This model’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -63,10 +94,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -80,10 +108,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
@@ -97,9 +122,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "2+",
@@ -113,9 +136,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -131,9 +152,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -152,32 +171,27 @@ window.data.GK = {
         "Imperium",
         "Brother-Captain"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "29dae550-63b2-50fa-9176-d68af9541d34",
       "name": "Brother-captain Stern",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Brother-Captain Stern – Epic Hero"
-      ],
+      "composition": ["1 Brother-Captain Stern – Epic Hero"],
       "loadout": "This model is equipped with: storm bolter; Nemesis force sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -215,9 +229,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -233,9 +245,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force sword",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -255,33 +265,27 @@ window.data.GK = {
         "Terminator",
         "Brother-Captain Stern"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "116708b0-8e85-502e-bade-efc6cffe2251",
       "name": "Brotherhood Champion",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Purgation Squad ■ Strike Squad",
-      "composition": [
-        "1 Brotherhood Champion"
-      ],
+      "composition": ["1 Brotherhood Champion"],
       "loadout": "This model is equipped with: storm bolter; Nemesis force weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Fights First",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Fights First", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -319,9 +323,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -337,10 +339,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["precision", "psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -358,31 +357,27 @@ window.data.GK = {
         "Imperium",
         "Brotherhood Champion"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "a196334f-705a-5c01-939c-29532382942a",
       "name": "Brotherhood Chaplain",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Brotherhood Chaplain"
-      ],
+      "composition": ["1 Brotherhood Chaplain"],
       "loadout": "This model is equipped with: storm bolter; crozius arcanum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -420,9 +415,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -457,32 +450,29 @@ window.data.GK = {
         "Imperium",
         "Brotherhood Chaplain"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "ed58e505-b825-5724-83a6-a0271413d051",
       "name": "Brotherhood Librarian",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Brotherhood Librarian"
-      ],
+      "composition": ["1 Brotherhood Librarian"],
       "loadout": "This model is equipped with: Purge Soul; Nemesis force weapon.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 storm bolter"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -538,9 +528,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Purge Soul – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -550,11 +538,7 @@ window.data.GK = {
             },
             {
               "name": "Purge Soul – focused witchfire",
-              "keywords": [
-                "precision",
-                "psychic",
-                "hazardous"
-              ],
+              "keywords": ["precision", "psychic", "hazardous"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -568,9 +552,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -586,9 +568,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -599,39 +579,28 @@ window.data.GK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Terminator",
-        "Psyker",
-        "Imperium"
-      ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "keywords": ["Infantry", "Character", "Terminator", "Psyker", "Imperium"],
+      "factions": ["Grey Knights"]
     },
     {
       "id": "eeb060e8-3807-55c1-a07d-c836e0cd370d",
       "name": "Brotherhood Techmarine",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Servitors ■ Strike Squad",
-      "composition": [
-        "1 Brotherhood Techmarine"
-      ],
+      "composition": ["1 Brotherhood Techmarine"],
       "loadout": "This model is equipped with: boltgun; flamer; plasma cutter; Omnissian power axe; servo-arms.",
-      "wargear": [
-        "This model’s boltgun can be replaced with 1 bolt pistol."
-      ],
+      "wargear": ["This model’s boltgun can be replaced with 1 bolt pistol."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -673,9 +642,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -703,10 +670,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -736,9 +700,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Plasma cutter – standard",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -748,10 +710,7 @@ window.data.GK = {
             },
             {
               "name": "Plasma cutter – supercharge",
-              "keywords": [
-                "extra attacks",
-                "hazardous"
-              ],
+              "keywords": ["extra attacks", "hazardous"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -765,9 +724,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Servo-arms",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -785,19 +742,14 @@ window.data.GK = {
         "Imperium",
         "Brotherhood Techmarine"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "09b7e6e4-9a1c-5fa8-bcd2-119f1feda5fe",
       "name": "Brotherhood Terminator Squad",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Terminator Justicar",
-        "4-9 Brotherhood Terminators"
-      ],
+      "composition": ["1 Terminator Justicar", "4-9 Brotherhood Terminators"],
       "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "For every 5 models in this unit, 1 Brotherhood Terminator’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon",
@@ -805,6 +757,16 @@ window.data.GK = {
         "1 Brotherhood Terminator can have its storm bolter replaced with 1 narthecium.* *You cannot select both of these options for the same model."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "225"
+        },
+        {
+          "models": "10",
+          "cost": "450"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -816,12 +778,8 @@ window.data.GK = {
             "description": "In your Command phase, you can return 1 destroyed model (excluding Characters) to the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -855,10 +813,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -872,10 +827,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -889,9 +841,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -905,9 +855,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -923,9 +871,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -945,8 +891,15 @@ window.data.GK = {
         "Imperium",
         "Brotherhood Terminator Squad"
       ],
-      "factions": [
-        "Grey Knights"
+      "factions": ["Grey Knights"],
+      "ledBy": [
+        "Brother-captain",
+        "Brother-captain Stern",
+        "Brotherhood Chaplain",
+        "Brotherhood Librarian",
+        "Grand Master",
+        "Grand Master Voldus",
+        "Kaldor Draigo"
       ]
     },
     {
@@ -954,23 +907,20 @@ window.data.GK = {
       "name": "Castellan Crowe",
       "faction_id": "GK",
       "leader": "This model can be attached to the following unit: ■ Purifier Squad",
-      "composition": [
-        "1 Castellan Crowe – Epic Hero"
-      ],
+      "composition": ["1 Castellan Crowe – Epic Hero"],
       "loadout": "This model is equipped with: Purifying Flame; storm bolter; Black Blade of Antwyr.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1008,11 +958,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Purifying Flame",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "2+",
@@ -1026,9 +972,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -1044,10 +988,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Black Blade of Antwyr",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1066,32 +1007,29 @@ window.data.GK = {
         "Imperium",
         "Castellan Crowe"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "f29aef55-8607-5cfb-8bac-1d235c1ca41a",
       "name": "Grand Master",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Grand Master"
-      ],
+      "composition": ["1 Grand Master"],
       "loadout": "This model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "This model’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1129,10 +1067,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1146,10 +1081,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
@@ -1163,9 +1095,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "2+",
@@ -1179,9 +1109,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -1197,9 +1125,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1219,33 +1145,30 @@ window.data.GK = {
         "Imperium",
         "Grand Master"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "cf718708-be2e-50fc-80e7-4da3f6637da3",
       "name": "Grand Master In Nemesis Dreadknight",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Grand Master in Nemesis Dreadknight"
-      ],
+      "composition": ["1 Grand Master in Nemesis Dreadknight"],
       "loadout": "This model is equipped with: dreadfists.",
       "wargear": [
         "This model’s dreadfists can be replaced with one of the following: ◦ 1 Nemesis daemon greathammer ◦ 1 Nemesis greatsword",
         "This model can be equipped with up to two of the following, but cannot take duplicates: ◦ 1 gatling psilencer ◦ 1 heavy incinerator ◦ 1 heavy psycannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "245"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1283,10 +1206,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Gatling psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -1300,10 +1220,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -1317,9 +1234,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1349,9 +1264,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis daemon greathammer",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "4+",
@@ -1365,9 +1278,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis greatsword – strike",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1377,9 +1288,7 @@ window.data.GK = {
             },
             {
               "name": "Nemesis greatsword – sweep",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "10",
               "skill": "3+",
@@ -1398,32 +1307,27 @@ window.data.GK = {
         "Imperium",
         "Grand Master in Nemesis Dreadknight"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "149469d0-61a1-5592-98ca-2a94ca358bc8",
       "name": "Grand Master Voldus",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Grand Master Voldus – Epic Hero"
-      ],
+      "composition": ["1 Grand Master Voldus – Epic Hero"],
       "loadout": "This model is equipped with: storm bolter; Malleus Argyrum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1461,9 +1365,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -1479,9 +1381,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Malleus Argyrum",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1501,18 +1401,14 @@ window.data.GK = {
         "Imperium",
         "Grand Master Voldus"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "689e1001-9d6b-5dd2-a513-9346daaf23b4",
       "name": "Grey Knights Land Raider",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Land Raider"
-      ],
+      "composition": ["1 Land Raider"],
       "loadout": "This model is equipped with: 2 godhammer lascannons; twin heavy bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -1520,11 +1416,15 @@ window.data.GK = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 12 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1573,9 +1473,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -1589,9 +1487,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1605,9 +1501,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1621,10 +1515,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1651,25 +1542,15 @@ window.data.GK = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Smoke",
-        "Imperium",
-        "Land Raider"
-      ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "keywords": ["Vehicle", "Transport", "Smoke", "Imperium", "Land Raider"],
+      "factions": ["Grey Knights"]
     },
     {
       "id": "4d3bc053-81dd-5d13-b4eb-9701facf25dd",
       "name": "Grey Knights Land Raider Crusader",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Land Raider Crusader"
-      ],
+      "composition": ["1 Land Raider Crusader"],
       "loadout": "This model is equipped with: 2 hurricane bolters; twin assault cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -1677,11 +1558,15 @@ window.data.GK = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 16 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1716,9 +1601,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -1732,10 +1615,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1749,9 +1629,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1765,9 +1643,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1781,10 +1657,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1820,18 +1693,14 @@ window.data.GK = {
         "Land Raider",
         "Crusader"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "46942d4e-2b3b-5f7a-b034-0a067a3629f3",
       "name": "Grey Knights Land Raider Redeemer",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Land Raider Redeemer"
-      ],
+      "composition": ["1 Land Raider Redeemer"],
       "loadout": "This model is equipped with: 2 flamestorm cannons; twin assault cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -1839,11 +1708,15 @@ window.data.GK = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 14 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "290"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1878,10 +1751,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Flamestorm cannon",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -1895,9 +1765,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -1911,9 +1779,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1927,9 +1793,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1943,10 +1807,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1982,18 +1843,14 @@ window.data.GK = {
         "Land Raider",
         "Redeemer"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "3f5d25a5-f5ca-5398-90d0-9c702d2a65a9",
       "name": "Grey Knights Razorback",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Razorback"
-      ],
+      "composition": ["1 Razorback"],
       "loadout": "This model is equipped with: twin heavy bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -2001,11 +1858,15 @@ window.data.GK = {
         "This model’s twin heavy bolter can be replaced with one of the following: ◦ 1 twin assault cannon ◦ 1 twin lascannon"
       ],
       "transport": "This model has a transport capacity of 6 Grey Knights Infantry models. It cannot transport Terminator models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2040,9 +1901,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -2056,9 +1915,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2072,10 +1929,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2089,10 +1943,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2106,9 +1957,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2143,30 +1992,29 @@ window.data.GK = {
         "Imperium",
         "Razorback"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "6c474964-4d5f-5f57-8b1b-b8c3b373bd9b",
       "name": "Grey Knights Rhino",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Rhino"
-      ],
+      "composition": ["1 Rhino"],
       "loadout": "This model is equipped with: storm bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
         "This model can be equipped with 1 additional storm bolter."
       ],
       "transport": "This model has a transport capacity of 12 Grey Knights Infantry models. It cannot transport Terminator models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 2"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2201,9 +2049,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -2217,9 +2063,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2254,30 +2098,29 @@ window.data.GK = {
         "Imperium",
         "Rhino"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "ca1ff249-da22-5041-81b3-c5dbc117454a",
       "name": "Grey Knights Stormhawk Interceptor",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Stormhawk Interceptor"
-      ],
+      "composition": ["1 Stormhawk Interceptor"],
       "loadout": "This model is equipped with: las-talon; skyhammer missile launcher; twin assault cannon; armoured hull.",
       "wargear": [
         "This model’s las-talon can be replaced with 1 icarus stormcannon.",
         "This model’s skyhammer missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 typhoon missile launcher"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2312,9 +2155,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Icarus stormcannon",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "6",
               "skill": "3+",
@@ -2342,9 +2183,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Skyhammer missile launcher",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -2358,10 +2197,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2375,10 +2211,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2392,9 +2225,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -2439,18 +2270,14 @@ window.data.GK = {
         "Imperium",
         "Stormhawk Interceptor"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "ff40724d-a84a-5684-8eeb-6917bd57f2eb",
       "name": "Grey Knights Stormraven Gunship",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Stormraven Gunship"
-      ],
+      "composition": ["1 Stormraven Gunship"],
       "loadout": "This model is equipped with: 2 stormstrike missile launchers; twin assault cannon; typhoon missile launcher; armoured hull.",
       "wargear": [
         "This model can be equipped with 2 hurricane bolters.",
@@ -2458,12 +2285,15 @@ window.data.GK = {
         "This model’s typhoon missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin multi-melta"
       ],
       "transport": "This model has a transport capacity of 12 Grey Knights Infantry models and 1 Grey Knights Venerable Dreadnought model. Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "265"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Hover"
-        ],
+        "core": ["Deadly Demise D6", "Hover"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2498,10 +2328,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2529,10 +2356,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2546,10 +2370,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2563,10 +2384,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin heavy plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2576,11 +2394,7 @@ window.data.GK = {
             },
             {
               "name": "Twin heavy plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "hazardous", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2594,9 +2408,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2610,10 +2422,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin multi-melta",
-              "keywords": [
-                "melta 2",
-                "twin-linked"
-              ],
+              "keywords": ["melta 2", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2627,9 +2436,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -2674,29 +2481,28 @@ window.data.GK = {
         "Imperium",
         "Stormraven Gunship"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "c9a5a5d4-76dc-5845-b86e-7b1818200853",
       "name": "Grey Knights Stormtalon Gunship",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Stormtalon Gunship"
-      ],
+      "composition": ["1 Stormtalon Gunship"],
       "loadout": "This model is equipped with: skyhammer missile launcher; twin assault cannon; armoured hull.",
       "wargear": [
         "This model’s skyhammer missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin lascannon ◦ 1 typhoon missile launcher"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2731,9 +2537,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Skyhammer missile launcher",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -2747,10 +2551,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2764,10 +2565,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2781,9 +2579,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2797,9 +2593,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -2843,29 +2637,183 @@ window.data.GK = {
         "Imperium",
         "Stormtalon Gunship"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
+    },
+    {
+      "id": "ce388f5e-eacb-5433-a787-d00ca5b0b4bf",
+      "name": "Grey Knights Thunderhawk Gunship",
+      "faction_id": "GK",
+      "leader": "",
+      "composition": ["1 Grey Knights Thunderhawk Gunship"],
+      "loadout": "This model is equipped with: 2 lascannons; Thunderhawk heavy cannon; 4 twin heavy bolters; armoured hull; Thunderhawk cluster bombs.",
+      "wargear": [
+        "This model’s Thunderhawk heavy cannon can be replaced with 1 turbo-laser destructor.",
+        "This model’s Thunderhawk cluster bombs can be replaced with 1 hellstrike missile battery."
+      ],
+      "transport": "This model has a transport capacity of 30 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "805"
+        }
+      ],
+      "abilities": {
+        "wargear": [
+          {
+            "name": "Thunderhawk Cluster Bombs",
+            "description": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."
+          }
+        ],
+        "core": ["Deadly Demise D6+2", "Hover"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Aerial Assault",
+            "description": "Each time a unit with the Deep Strike ability disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-10 WOUNDS REMAINING",
+          "description": "While this model has 1-10 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "30",
+          "ld": "6+",
+          "oc": "0",
+          "name": "Grey Knights Thunderhawk Gunship"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hellstrike missile battery",
+              "keywords": ["anti-fly 4+"],
+              "range": "72\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Thunderhawk heavy cannon",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+6",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Turbo-laser destructor",
+              "keywords": ["blast"],
+              "range": "96\"",
+              "attacks": "D3+1",
+              "skill": "3+",
+              "strength": "20",
+              "ap": "-4",
+              "damage": "D6+6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Titanic",
+        "Fly",
+        "Aircraft",
+        "Transport",
+        "Imperium",
+        "Thunderhawk Gunship"
+      ],
+      "factions": ["Grey Knights"]
     },
     {
       "id": "84079d1f-0353-5ea0-a39a-c33a1a17c3f4",
       "name": "Grey Knights Venerable Dreadnought",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Venerable Dreadnought"
-      ],
+      "composition": ["1 Venerable Dreadnought"],
       "loadout": "This model is equipped with: assault cannon; storm bolter; Dreadnought combat weapon.",
       "wargear": [
         "This model’s assault cannon can be replaced with one of the following: ◦ 1 heavy plasma cannon ◦ 1 multi-melta ◦ 1 twin lascannon",
         "This model’s storm bolter and Dreadnought combat weapon can be replaced with one of the following: ◦  1 missile launcher and 1 armoured feet ◦  1 heavy flamer and 1 Dreadnought combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
+        "core": ["Deadly Demise 1"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2900,9 +2848,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastatig wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2916,10 +2862,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "torrent",
-                "ignores cover"
-              ],
+              "keywords": ["torrent", "ignores cover"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2933,9 +2876,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -2945,10 +2886,7 @@ window.data.GK = {
             },
             {
               "name": "Heavy plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -2962,9 +2900,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2988,9 +2924,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3004,9 +2938,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -3020,9 +2952,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3071,32 +3001,33 @@ window.data.GK = {
         "Imperium",
         "Venerable Dreadnought"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "dbba5ea4-3390-573f-b26a-2251b7a7e472",
       "name": "Interceptor Squad",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Interceptor Justicar",
-        "4-9 Interceptors"
-      ],
+      "composition": ["1 Interceptor Justicar", "4-9 Interceptors"],
       "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "For every 5 models in this unit, 1 Interceptor’s storm bolter and Nemesis force weapon can be replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "160"
+        },
+        {
+          "models": "10",
+          "cost": "320"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3130,10 +3061,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3147,10 +3075,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3164,9 +3089,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3180,9 +3103,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3212,9 +3133,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -3233,32 +3152,27 @@ window.data.GK = {
         "Imperium",
         "Interceptor Squad"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "ed70155e-e7bf-5d8f-968f-bd71c2821012",
       "name": "Kaldor Draigo",
       "faction_id": "GK",
       "leader": "This model can be attached to the following units: ■ Brotherhood Terminator Squad ■ Paladin Squad",
-      "composition": [
-        "1 Kaldor Draigo – Epic Hero"
-      ],
+      "composition": ["1 Kaldor Draigo – Epic Hero"],
       "loadout": "This model is equipped with: Scourging; storm bolter; the Titansword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3301,11 +3215,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Scourging",
-              "keywords": [
-                "anti-daemon 2+",
-                "ignores cover",
-                "psychic"
-              ],
+              "keywords": ["anti-daemon 2+", "ignores cover", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "2+",
@@ -3319,9 +3229,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -3337,10 +3245,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "The Titansword",
-              "keywords": [
-                "anti-daemon 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-daemon 2+", "psychic"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -3361,33 +3266,179 @@ window.data.GK = {
         "Imperium",
         "Kaldor Draigo"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
+    },
+    {
+      "id": "3c7a2d6a-ccc8-5bfc-855e-79dbcff9a034",
+      "name": "Land Raider Banisher",
+      "faction_id": "GK",
+      "leader": "",
+      "composition": ["1 Land Raider Banisher"],
+      "loadout": "This model is equipped with: 2 heavy incinerators; twin psycannon; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with 1 storm bolter.",
+        "This model can be equipped with 1 multi-melta."
+      ],
+      "transport": "This model has a transport capacity of 12 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "255"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Assault Ramp",
+            "description": "Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "16",
+          "ld": "6+",
+          "oc": "5",
+          "name": "Land Raider Banisher"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy incinerator",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "18\"",
+              "attacks": "2D6",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multi-melta",
+              "keywords": ["melta 2"],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin psycannon",
+              "keywords": ["psychic", "sustained hits 1", "twin-linked"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Transport",
+        "Smoke",
+        "Imperium",
+        "Land Raider",
+        "Banisher"
+      ],
+      "factions": ["Grey Knights"]
     },
     {
       "id": "ae017e4f-88b0-5a26-8fc3-52b3865bcd12",
       "name": "Nemesis Dreadknight",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Nemesis Dreadknight"
-      ],
+      "composition": ["1 Nemesis Dreadknight"],
       "loadout": "This model is equipped with: dreadfists.",
       "wargear": [
         "This model’s dreadfists can be replaced with one of the following: ◦ 1 Nemesis daemon greathammer ◦ 1 Nemesis greatsword",
         "This model can be equipped with up to two of the following, but cannot take duplicates: ◦ 1 gatling psilencer ◦ 1 heavy incinerator ◦ 1 heavy psycannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "215"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3421,10 +3472,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Gatling psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -3438,10 +3486,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -3455,9 +3500,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3487,9 +3530,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis daemon greathammer",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "4+",
@@ -3503,9 +3544,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis greatsword – strike",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3515,9 +3554,7 @@ window.data.GK = {
             },
             {
               "name": "Nemesis greatsword – sweep",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "10",
               "skill": "3+",
@@ -3535,25 +3572,30 @@ window.data.GK = {
         "Imperium",
         "Nemesis Dreadknight"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"]
     },
     {
       "id": "d34447ce-96dc-5248-8b8c-067b4951590d",
       "name": "Paladin Squad",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Paragon",
-        "4-9 Paladins"
-      ],
+      "composition": ["1 Paragon", "4-9 Paladins"],
       "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "For every 5 models in this unit, up to 2 Paladins can each have their storm bolter replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon",
         "1 Paladin equipped with a storm bolter and Nemesis force weapon can be equipped with 1 Ancient’s banner. That model’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "255"
+        },
+        {
+          "models": "10",
+          "cost": "510"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3561,12 +3603,8 @@ window.data.GK = {
             "description": "Add 1 to the Objective Control characteristic of models in the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3600,10 +3638,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3617,10 +3652,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
@@ -3634,9 +3666,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "2+",
@@ -3650,9 +3680,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -3668,9 +3696,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -3689,8 +3715,15 @@ window.data.GK = {
         "Imperium",
         "Paladin Squad"
       ],
-      "factions": [
-        "Grey Knights"
+      "factions": ["Grey Knights"],
+      "ledBy": [
+        "Brother-captain",
+        "Brother-captain Stern",
+        "Brotherhood Chaplain",
+        "Brotherhood Librarian",
+        "Grand Master",
+        "Grand Master Voldus",
+        "Kaldor Draigo"
       ]
     },
     {
@@ -3698,23 +3731,26 @@ window.data.GK = {
       "name": "Purgation Squad",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Purgator Justicar",
-        "4-9 Purgators"
-      ],
+      "composition": ["1 Purgator Justicar", "4-9 Purgators"],
       "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "Up to 4 Purgators can each have their storm bolter and Nemesis force weapon replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "165"
+        },
+        {
+          "models": "10",
+          "cost": "275"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3748,10 +3784,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3765,10 +3798,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3782,9 +3812,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3798,9 +3826,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3830,9 +3856,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -3850,32 +3874,34 @@ window.data.GK = {
         "Imperium",
         "Purgation Squad"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"],
+      "ledBy": ["Brotherhood Champion"]
     },
     {
       "id": "d10cbe49-479b-5d84-b030-e7a1ed0bcfb0",
       "name": "Purifier Squad",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Knight of the Flame",
-        "4-9 Purifiers"
-      ],
+      "composition": ["1 Knight of the Flame", "4-9 Purifiers"],
       "loadout": "Every model is equipped with: Purifying Flame; storm bolter; Nemesis force weapon.",
       "wargear": [
         "For every 5 models in this unit, up to 2 Purifiers can each have their storm bolter and Nemesis force weapon replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "150"
+        },
+        {
+          "models": "10",
+          "cost": "300"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3909,10 +3935,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3926,10 +3949,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3943,9 +3963,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3959,11 +3977,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Purifying Flame",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "psychic"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -3977,9 +3991,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4009,9 +4021,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4029,23 +4039,30 @@ window.data.GK = {
         "Imperium",
         "Purifier Squad"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"],
+      "ledBy": ["Castellan Crowe"]
     },
     {
       "id": "98f32d4e-f2e4-5b8a-a274-bf31c4467a77",
       "name": "Servitors",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "4 Servitors"
-      ],
+      "composition": ["4 Servitors"],
       "loadout": "Every model is equipped with: Servitor’s servo-arm.",
       "wargear": [
         "Up to 2 models can each have their Servitor’s servo-arm replaced with one of the following: ◦ 1 heavy bolter and 1 Servitor’s tools ◦ 1 multi-melta and 1 Servitor’s tools ◦ 1 plasma cannon and 1 Servitor’s tools"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "50"
+        },
+        {
+          "models": "4",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -4092,10 +4109,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -4109,10 +4123,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -4126,10 +4137,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -4139,11 +4147,7 @@ window.data.GK = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -4184,38 +4188,35 @@ window.data.GK = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Servitors"
-      ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "keywords": ["Infantry", "Imperium", "Servitors"],
+      "factions": ["Grey Knights"],
+      "ledBy": ["Brotherhood Techmarine"]
     },
     {
       "id": "c5e2fdc0-70ae-50af-907a-6c8c4714c95b",
       "name": "Strike Squad",
       "faction_id": "GK",
       "leader": "",
-      "composition": [
-        "1 Justicar",
-        "4-9 Grey Knights"
-      ],
+      "composition": ["1 Justicar", "4-9 Grey Knights"],
       "loadout": "Every model is equipped with: storm bolter; Nemesis force weapon.",
       "wargear": [
         "For every 5 models in this unit, 1 Grey Knight’s storm bolter and Nemesis force weapon can be replaced with one of the following: ◦ 1 incinerator and 1 close combat weapon ◦ 1 psilencer and 1 close combat weapon ◦ 1 psycannon and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "135"
+        },
+        {
+          "models": "10",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Teleport Assault"
-        ],
+        "core": ["Deep Strike", "Scouts 6\""],
+        "faction": ["Teleport Assault"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4249,10 +4250,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4266,10 +4264,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psilencer",
-              "keywords": [
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["psychic", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -4283,9 +4278,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Psycannon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4299,9 +4292,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4331,9 +4322,7 @@ window.data.GK = {
           "profiles": [
             {
               "name": "Nemesis force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4352,9 +4341,12 @@ window.data.GK = {
         "Imperium",
         "Strike Squad"
       ],
-      "factions": [
-        "Grey Knights"
-      ]
+      "factions": ["Grey Knights"],
+      "ledBy": ["Brotherhood Champion", "Brotherhood Techmarine"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#325b68",
+    "header": "#4a5e67"
+  }
 }

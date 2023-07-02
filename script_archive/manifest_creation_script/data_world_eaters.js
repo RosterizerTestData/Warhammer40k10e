@@ -3,29 +3,58 @@ window.data.WE = {
   "id": "WE",
   "link": "https://game-datacards.eu",
   "name": "World Eaters",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Battle-lust",
+      "description": " World Eaters model only. You can select the bearer’s unit for the Heroic Intervention Stratagem for  0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.",
+      "keywords": ["World Eaters"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Berzerker Glaive",
+      "description": "World Eaters model only. Add 1 to the Attacks and Damage characteristics of melee weapons equipped by the bearer. Each time the bearer ends a Charge move, roll one D3; until the end of the turn, add the result of that roll to the Attacks and Damage characteristics of those melee weapons instead.",
+      "keywords": ["World Eaters"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Favoured of Khorne",
+      "description": "World Eaters model only. Each time you make a Blessings of Khorne roll, before doing anything else, the bearer can use this Enhancement. If it does, discard all of the dice from that roll and make a new Blessings of Khorne roll. This new roll does not count as a re-roll, so any rules that enable you to re-roll or manipulate individual dice (e.g. Icon of Khorne) can still be used.",
+      "keywords": ["World Eaters"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "Helm of Brazen Ire",
+      "description": "World Eaters model only. Each time an attack  is allocated to the bearer, halve the Damage characteristic of that attack.",
+      "keywords": ["World Eaters"],
+      "excludes": [],
+      "cost": "25"
+    }
+  ],
   "datasheets": [
     {
       "id": "39a6eb68-07ea-563e-a629-bd72b89b4dc7",
       "name": "Angron",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 Angron – Epic Hero"
-      ],
+      "composition": ["1 Angron – Epic Hero"],
       "loadout": "This model is equipped with: Samni’arius and Spinegrinder.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "415"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [
           {
             "name": "WRATHFUL PRESENCE",
@@ -119,9 +148,7 @@ window.data.WE = {
         "Primarch",
         "Angron"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "cfa88513-93d0-5a70-b068-6059ecc48138",
@@ -137,14 +164,20 @@ window.data.WE = {
         "The Eightbound Champion’s lacerators can be replaced with 1 heavy chainglaive."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "155"
+        },
+        {
+          "models": "6",
+          "cost": "310"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -218,16 +251,9 @@ window.data.WE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Khorne",
-        "Daemon",
-        "Eightbound"
-      ],
-      "factions": [
-        "World Eaters"
-      ]
+      "keywords": ["Infantry", "Chaos", "Khorne", "Daemon", "Eightbound"],
+      "factions": ["World Eaters"],
+      "ledBy": ["Lord Invocatus", "World Eaters Lord On Juggernaut"]
     },
     {
       "id": "d9e28d2d-c9cf-57ee-8343-7dc622678ab4",
@@ -243,15 +269,20 @@ window.data.WE = {
         "The Exalted Eightbound Champion’s Eightbound eviscerator and Eightbound chainfist can be replaced with one of the following: ◦ 1 paired Eightbound chainfists ◦ 1 heavy chainglaive"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "180"
+        },
+        {
+          "models": "6",
+          "cost": "360"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 6+"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -328,9 +359,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Paired Eightbound chainfists",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -348,9 +377,8 @@ window.data.WE = {
         "Daemon",
         "Exalted Eightbound"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"],
+      "ledBy": ["Lord Invocatus", "World Eaters Lord On Juggernaut"]
     },
     {
       "id": "d03e0726-20ac-5498-99ac-6732e375a337",
@@ -368,6 +396,16 @@ window.data.WE = {
         "For every 10 models in this unit, 1 Jakhal can be equipped with 1 icon of Khorne."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "75"
+        },
+        {
+          "models": "20",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -375,12 +413,8 @@ window.data.WE = {
             "description": "Each time you make a Blessings of Khorne roll, if the bearer’s unit is within range of an objective marker you control, you can re-roll one of the dice."
           }
         ],
-        "core": [
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Feel No Pain 6+"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -414,9 +448,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -432,9 +464,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Jakhal chainblades",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -448,9 +478,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Dishonoured chainblades",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -464,9 +492,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Mauler chainblade",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "2",
               "skill": "5+",
@@ -491,38 +517,28 @@ window.data.WE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Chaos",
-        "Khorne",
-        "Jakhals"
-      ],
-      "factions": [
-        "World Eaters"
-      ]
+      "keywords": ["Infantry", "Battleline", "Chaos", "Khorne", "Jakhals"],
+      "factions": ["World Eaters"]
     },
     {
       "id": "a0490c2c-9890-57f4-b242-bb089d42bd3a",
       "name": "Khârn The Betrayer",
       "faction_id": "WE",
       "leader": "This model can be attached to the following unit: ■ Khorne Berzerkers",
-      "composition": [
-        "1 Khârn the Betrayer – Epic Hero"
-      ],
+      "composition": ["1 Khârn the Betrayer – Epic Hero"],
       "loadout": "This model is equipped with: Khârn’s plasma pistol; Gorechild.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Leader"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -564,9 +580,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Khârn’s plasma pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -602,19 +616,14 @@ window.data.WE = {
         "Khorne",
         "Khârn the Betrayer"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "c7cdcaef-03ab-5051-ac97-17286d4bcb34",
       "name": "Khorne Berzerkers",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 Khorne Berzerker Champion",
-        "4-9 Khorne Berzerkers"
-      ],
+      "composition": ["1 Khorne Berzerker Champion", "4-9 Khorne Berzerkers"],
       "loadout": "Every model is equipped with: bolt pistol; Berzerker chainblade.",
       "wargear": [
         "The Khorne Berzerker Champion’s bolt pistol can be replaced with 1 plasma pistol.",
@@ -623,6 +632,16 @@ window.data.WE = {
         "1 model can be equipped with 1 icon of Khorne."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "115"
+        },
+        {
+          "models": "10",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -631,9 +650,7 @@ window.data.WE = {
           }
         ],
         "core": [],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -667,9 +684,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -683,9 +698,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -695,10 +708,7 @@ window.data.WE = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -747,8 +757,12 @@ window.data.WE = {
         "Khorne",
         "Berzerkers"
       ],
-      "factions": [
-        "World Eaters"
+      "factions": ["World Eaters"],
+      "ledBy": [
+        "Khârn The Betrayer",
+        "Lord Invocatus",
+        "World Eaters Lord On Juggernaut",
+        "World Eaters Master Of Executions"
       ]
     },
     {
@@ -756,23 +770,27 @@ window.data.WE = {
       "name": "Khorne Lord Of Skulls",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 Khorne Lord of Skulls"
-      ],
+      "composition": ["1 Khorne Lord of Skulls"],
       "loadout": "This model is equipped with: gorestorm cannon; Hades gatling cannon; great cleaver of Khorne.",
       "wargear": [
         "This model’s gorestorm cannon can be replaced with one of the following: ◦ 1 daemongore cannon ◦ 1 ichor cannon",
         "This model’s Hades gatling cannon can be replaced with 1 skullhurler."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "420"
+        },
+        {
+          "models": "1",
+          "cost": "420"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -806,9 +824,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Daemongore cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -822,9 +838,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Gorestorm cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -838,9 +852,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Hades gatling cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "48\"",
               "attacks": "12",
               "skill": "3+",
@@ -854,9 +866,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Ichor cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -916,32 +926,27 @@ window.data.WE = {
         "Daemon",
         "Lord of Skulls"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "bfeb3ccf-b548-5794-91ea-ef93e2b96063",
       "name": "Lord Invocatus",
       "faction_id": "WE",
       "leader": "This model can be attached to the following units: ■ Eightbound ■ Exalted Eightbound ■ Khorne Berzerkers",
-      "composition": [
-        "1 Lord Invocatus – Epic Hero"
-      ],
+      "composition": ["1 Lord Invocatus – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Coward’s Bane, Juggernaut’s bladed horn.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Leader", "Scouts 6\""],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -979,9 +984,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -997,9 +1000,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Coward’s Bane",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -1013,10 +1014,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Juggernaut’s bladed horn",
-              "keywords": [
-                "extra attacks",
-                "lance"
-              ],
+              "keywords": ["extra attacks", "lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -1036,31 +1034,27 @@ window.data.WE = {
         "Khorne",
         "Lord Invocatus"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "81be3c7a-4460-500f-ad9f-ac91d21f2fb2",
       "name": "World Eaters Chaos Spawn",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "2 Chaos Spawn"
-      ],
+      "composition": ["2 Chaos Spawn"],
       "loadout": "Every model is equipped with: hideous mutations.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1106,37 +1100,28 @@ window.data.WE = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Khorne",
-        "Spawn"
-      ],
-      "factions": [
-        "World Eaters"
-      ]
+      "keywords": ["Beast", "Chaos", "Khorne", "Spawn"],
+      "factions": ["World Eaters"]
     },
     {
       "id": "4fbc3727-5371-588b-a09e-a5b2b7661d60",
       "name": "World Eaters Daemon Prince",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Daemon Prince"
-      ],
+      "composition": ["1 World Eaters Daemon Prince"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1219,32 +1204,27 @@ window.data.WE = {
         "Daemon",
         "Daemon Prince"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "79872903-e82a-53fc-a479-118db50964c2",
       "name": "World Eaters Daemon Prince With Wings",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Daemon Prince with Wings"
-      ],
+      "composition": ["1 World Eaters Daemon Prince with Wings"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "215"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1328,18 +1308,14 @@ window.data.WE = {
         "Daemon",
         "Daemon Prince"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "0dd975a0-338d-5778-8dc3-dcd76b0beca7",
       "name": "World Eaters Defiler",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Defiler"
-      ],
+      "composition": ["1 World Eaters Defiler"],
       "loadout": "This model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.",
       "wargear": [
         "This model’s twin heavy flamer can be replaced with one of the following: ◦ 1 havoc launcher ◦ 1 Defiler scourge",
@@ -1347,14 +1323,16 @@ window.data.WE = {
         "This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1388,9 +1366,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1422,9 +1398,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Defiler cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1438,9 +1412,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1454,10 +1426,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -1471,10 +1440,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1488,11 +1454,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1506,9 +1468,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1538,9 +1498,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Defiler scourge",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1560,32 +1518,30 @@ window.data.WE = {
         "Daemon",
         "Defiler"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "cec61990-041e-5754-b96f-4d81dae02134",
       "name": "World Eaters Forgefiend",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Forgefiend"
-      ],
+      "composition": ["1 World Eaters Forgefiend"],
       "loadout": "This model is equipped with: 2 Hades autocannons; 1 Forgefiend jaws.",
       "wargear": [
         "This model’s 2 Hades autocannons can be replaced with 2 ectoplasma cannons.",
         "This model’s Forgefiend jaws can be replaced with 1 ectoplasma cannon and 1 Forgefiend claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1619,9 +1575,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Ectoplasma cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1684,18 +1638,14 @@ window.data.WE = {
         "Daemon",
         "Forgefiend"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "25ede58e-24b8-5b41-89f5-cf37dd296364",
       "name": "World Eaters Helbrute",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Helbrute"
-      ],
+      "composition": ["1 World Eaters Helbrute"],
       "loadout": "This model is equipped with: missile launcher; multi-melta; close combat weapon.",
       "wargear": [
         "This model’s multi-melta can be replaced with one of the following: ◦ 1 Helbrute plasma cannon ◦ 1 twin autocannon ◦ 1 twin heavy bolter ◦ 1 twin lascannon ◦ 1 Helbrute fist",
@@ -1703,14 +1653,16 @@ window.data.WE = {
         "For each Helbrute fist this model is equipped with, it can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 heavy flamer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1748,9 +1700,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1764,10 +1714,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1781,10 +1728,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Helbrute plasma cannon",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1798,9 +1742,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1824,9 +1766,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1840,9 +1780,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -1856,10 +1794,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1873,9 +1808,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1944,39 +1877,30 @@ window.data.WE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Khorne",
-        "Helbrute"
-      ],
-      "factions": [
-        "World Eaters"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Khorne", "Helbrute"],
+      "factions": ["World Eaters"]
     },
     {
       "id": "b36b533e-f9ad-580d-8826-fd0cd3fd7819",
       "name": "World Eaters Heldrake",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Heldrake"
-      ],
+      "composition": ["1 World Eaters Heldrake"],
       "loadout": "This model is equipped with: Hades autocannon; Heldrake claws.",
       "wargear": [
         "This model’s Hades autocannon can be replaced with 1 baleflamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "215"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2010,10 +1934,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Baleflamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -2043,10 +1964,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Heldrake claws",
-              "keywords": [
-                "anti-fly 2+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-fly 2+", "devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2066,32 +1984,30 @@ window.data.WE = {
         "Daemon",
         "Heldrake"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "a592e52f-ae58-58d4-ba55-fb0611066f78",
       "name": "World Eaters Land Raider",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Land Raider"
-      ],
+      "composition": ["1 World Eaters Land Raider"],
       "loadout": "This model is equipped with: 2 soulshatter lascannons; twin heavy bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 World Eaters Infantry models. Each Eightbound, Exalted Eightbound and Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2125,9 +2041,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2159,9 +2073,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2189,10 +2101,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2227,31 +2136,27 @@ window.data.WE = {
         "Khorne",
         "Land Raider"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "065b5f13-4615-577e-8b4f-f453b55d7309",
       "name": "World Eaters Lord On Juggernaut",
       "faction_id": "WE",
       "leader": "This model can be attached to the following units: ■ Eightbound ■ Exalted Eightbound ■ Khorne Berzerkers",
-      "composition": [
-        "1 World Eaters Lord on Juggernaut"
-      ],
+      "composition": ["1 World Eaters Lord on Juggernaut"],
       "loadout": "This model is equipped with: plasma pistol; exalted chainblade; Juggernaut’s bladed horn.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Leader"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2289,9 +2194,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2301,10 +2204,7 @@ window.data.WE = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2334,10 +2234,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Juggernaut’s bladed horn",
-              "keywords": [
-                "extra attacks",
-                "lance"
-              ],
+              "keywords": ["extra attacks", "lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2356,31 +2253,27 @@ window.data.WE = {
         "Khorne",
         "Lord on Juggernaut"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "4589dbe5-a6fc-5a57-b3e1-1cfc93921ecf",
       "name": "World Eaters Master Of Executions",
       "faction_id": "WE",
       "leader": "This model can be attached to the following unit: ■ Khorne Berzerkers",
-      "composition": [
-        "1 World Eaters Master of Executions"
-      ],
+      "composition": ["1 World Eaters Master of Executions"],
       "loadout": "This model is equipped with: bolt pistol; axe of dismemberment.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Leader"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2418,9 +2311,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2436,10 +2327,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Axe of dismemberment",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -2457,31 +2345,29 @@ window.data.WE = {
         "Khorne",
         "Master of Executions"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "a2477841-2f7f-500d-be28-1242ed236ec9",
       "name": "World Eaters Maulerfiend",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Maulerfiend"
-      ],
+      "composition": ["1 World Eaters Maulerfiend"],
       "loadout": "This model is equipped with: lasher tendrils; Maulerfiend fists.",
       "wargear": [
         "This model’s lasher tendrils can be replaced with 2 magma cutters."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "175"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2515,9 +2401,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Magma cutter",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "6\"",
               "attacks": "2",
               "skill": "3+",
@@ -2533,9 +2417,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Lasher tendrils",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -2568,18 +2450,14 @@ window.data.WE = {
         "Daemon",
         "Maulerfiend"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "9fa76b7e-e47d-5a66-b616-a4642e705964",
       "name": "World Eaters Predator Annihilator",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Predator Annihilator"
-      ],
+      "composition": ["1 World Eaters Predator Annihilator"],
       "loadout": "This model is equipped with: Predator twin lascannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
@@ -2587,14 +2465,16 @@ window.data.WE = {
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2628,9 +2508,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2662,9 +2540,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2678,9 +2554,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -2708,9 +2582,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Predator twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2744,18 +2616,14 @@ window.data.WE = {
         "Khorne",
         "Predator Annihilator"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "c790af14-8da5-5f23-854a-5f42ce5920e1",
       "name": "World Eaters Predator Destructor",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Predator Destructor"
-      ],
+      "composition": ["1 World Eaters Predator Destructor"],
       "loadout": "This model is equipped with: Predator autocannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
@@ -2763,14 +2631,16 @@ window.data.WE = {
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2804,9 +2674,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2838,9 +2706,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2854,9 +2720,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -2918,32 +2782,30 @@ window.data.WE = {
         "Khorne",
         "Predator Destructor"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "1a5c5d9b-cba4-5366-ae9f-727f20c67411",
       "name": "World Eaters Rhino",
       "faction_id": "WE",
       "leader": "",
-      "composition": [
-        "1 World Eaters Rhino"
-      ],
+      "composition": ["1 World Eaters Rhino"],
       "loadout": "This model is equipped with: combi-bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 additional combi-bolter ◦ 1 combi-weapon",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 World Eaters Infantry models. It cannot transport Eightbound or Terminator models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2977,9 +2839,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3011,9 +2871,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3049,9 +2907,7 @@ window.data.WE = {
         "Khorne",
         "Rhino"
       ],
-      "factions": [
-        "World Eaters"
-      ]
+      "factions": ["World Eaters"]
     },
     {
       "id": "f15f19fc-0c00-51c2-aaf3-6951f8587d6c",
@@ -3071,14 +2927,20 @@ window.data.WE = {
         "For every 5 models in this unit, 1 model’s accursed weapon can be replaced with 1 chainfist."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "195"
+        },
+        {
+          "models": "10",
+          "cost": "390"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Blessings of Khorne"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Blessings of Khorne"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3112,9 +2974,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3146,10 +3006,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3163,10 +3020,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -3196,9 +3050,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Paired accursed weapons",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3212,9 +3064,7 @@ window.data.WE = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -3246,9 +3096,11 @@ window.data.WE = {
         "Terminator",
         "Terminator Squad"
       ],
-      "factions": [
-        "World eaters"
-      ]
+      "factions": ["World eaters"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#611013",
+    "header": "#4d161a"
+  }
 }

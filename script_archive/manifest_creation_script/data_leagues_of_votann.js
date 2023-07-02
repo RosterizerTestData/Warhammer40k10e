@@ -3,6 +3,38 @@ window.data.LoV = {
   "id": "LoV",
   "link": "https://game-datacards.eu",
   "name": "Votann",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "APPRAISING GLARE",
+      "description": "Leagues of Votann model only. In your Command phase, you can select one objective marker your opponent controls. Until the end of the phase, while an enemy unit is within range of that objective marker, it counts as having one more Judgement token than it actually has (to a maximum of 2).",
+      "keywords": ["Leagues of Votann"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "A LONG LIST",
+      "description": "Leagues of Votann model only. Each time the bearer’s unit destroys an enemy unit, if that enemy unit has one or more Judgement tokens, you can select one other enemy unit that is visible to the bearer. That other unit gains one Judgement token.",
+      "keywords": ["Leagues of Votann"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "GRIM DEMEANOUR",
+      "description": "Leagues of Votann model only. You can re-roll Battle-shock tests taken for the bearer’s unit, and models in that unit can ignore any or all modifiers to their characteristics and/or to any rolls or tests made for them (excluding modifiers to saving throws).",
+      "keywords": ["Leagues of Votann"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "WAYFARER’S GRACE",
+      "description": "Leagues of Votann model only. The first time the bearer is destroyed, after placing a Judgement token next to the unit that destroyed it, roll one D6 at the end of the phase. On a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with its full wounds remaining.",
+      "keywords": ["Leagues of Votann"],
+      "excludes": [],
+      "cost": "25"
+    }
+  ],
   "datasheets": [
     {
       "id": "8d066aa5-47e9-5d02-861b-bcd5abfe8b04",
@@ -15,18 +47,18 @@ window.data.LoV = {
         "3 E-COGs* *  If this unit’s Iron-master is ever destroyed, this unit’s Ironkyn Assistant and all remaining E-COGs are also destroyed."
       ],
       "loadout": "The Iron-master is equipped with: graviton rifle; graviton hammer. The Ironkin Assistant is equipped with: las-beam cutter; close combat weapon. One E-COG is equipped with: Autoch-pattern bolt pistol; close combat weapon. One other E-COG is equipped with: plasma torch. One other E-COG is equipped with: manipulator arms.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Leader"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -56,7 +88,7 @@ window.data.LoV = {
           "w": "4",
           "ld": "7+",
           "oc": "1",
-          "name": "BRÔKHYR IRON-MASTER 5\" 5 4+ 1 7+ 1 E-COG"
+          "name": "BRÔKHYR IRON-MASTER"
         },
         {
           "m": "5\"",
@@ -66,6 +98,15 @@ window.data.LoV = {
           "ld": "7+",
           "oc": "1",
           "name": "IRONKIN ASSISTANT"
+        },
+        {
+          "m": "5\"",
+          "t": "5",
+          "sv": "4+",
+          "w": "1",
+          "ld": "7+",
+          "oc": "1",
+          "name": "E-COG"
         }
       ],
       "rangedWeapons": [
@@ -87,9 +128,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Graviton rifle",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -133,9 +172,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Graviton hammer",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -181,30 +218,34 @@ window.data.LoV = {
         "BRÔKHYR IRON-MASTER MODEL:",
         "Character"
       ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "6c6112d4-601f-5bc8-b253-5d211b7900e3",
       "name": "Brôkhyr Thunderkyn",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "3-6 Brôkhyr Thunderkyn"
-      ],
+      "composition": ["3-6 Brôkhyr Thunderkyn"],
       "loadout": "Every model is equipped with: bolt cannon; close combat weapon.",
       "wargear": [
         "All models in this unit can each have their bolt cannon replaced with 1 graviton blast cannon.",
         "All models in this unit can each have their bolt cannon replaced with 1 SP conversion beamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "95"
+        },
+        {
+          "models": "6",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -238,9 +279,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Bolt cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -254,10 +293,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Graviton blast cannon",
-              "keywords": [
-                "anti-vehicle 2+",
-                "blast"
-              ],
+              "keywords": ["anti-vehicle 2+", "blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -271,10 +307,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "SP conversion beamer",
-              "keywords": [
-                "conversion",
-                "sustained hits d3"
-              ],
+              "keywords": ["conversion", "sustained hits d3"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -301,23 +334,16 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Exo-frame",
-        "Brôkhyr Thunderkyn"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Exo-frame", "Brôkhyr Thunderkyn"],
+      "factions": ["Leagues of Votann"],
+      "ledBy": ["Brôkhyr Iron-master"]
     },
     {
       "id": "e01321d0-cdcf-5427-85a0-656d03e62368",
       "name": "Cthonian Beserks",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "5-10 Cthonian Beserks"
-      ],
+      "composition": ["5-10 Cthonian Beserks"],
       "loadout": "Every model is equipped with: heavy plasma axe.",
       "wargear": [
         "All models in this unit can each have their heavy plasma axe replaced with 1 concussion maul.",
@@ -325,14 +351,20 @@ window.data.LoV = {
         "For every 5 models in this unit, 1 model that is not equipped with a twin concussion gauntlet can be equipped with 1 mole grenade launcher. If a model is equipped with a mole grenade launcher, add 1 to its Wounds and Attacks characteristics.* *  Designer’s Note: If a Cthonian Beserk is equipped with a mole grenade launcher, it will be accompanied by an L-COG unit: both models should be placed on the same base and together they act as a single model for all rules purposes (albeit one with improved characteristics)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "135"
+        },
+        {
+          "models": "10",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -370,10 +402,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Mole grenade launcher",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "4+",
@@ -427,9 +456,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Twin concussion gauntlet",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -440,28 +467,27 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Cthonian Beserks"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Cthonian Beserks"],
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "4ac8c768-6d3b-544b-93d6-ce5ef82a7286",
       "name": "Einhyr Champion",
       "faction_id": "LoV",
       "leader": "This model can be attached to the following unit: ■ Einhyr Hearthguard",
-      "composition": [
-        "1 Einhyr Champion"
-      ],
+      "composition": ["1 Einhyr Champion"],
       "loadout": "This model is equipped with: Autoch-pattern combi-bolter; mass hammer; weavefield crest.",
       "wargear": [
         "This model’s mass hammer can be replaced with 1 darkstar axe.",
         "This model’s weavefield crest can be replaced with 1 teleport crest."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -473,12 +499,8 @@ window.data.LoV = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Leader"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -557,25 +579,15 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Exo-armour",
-        "Einhyr Champion"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Character", "Exo-armour", "Einhyr Champion"],
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "cfd5032a-2dc7-507a-a400-a0fc45d1e82a",
       "name": "Einhyr Hearthguard",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "1 Hesyr",
-        "4-9 Hearthguard"
-      ],
+      "composition": ["1 Hesyr", "4-9 Hearthguard"],
       "loadout": "Every model is equipped with: EtaCarn plasma gun; exo-armour grenade launcher; concussion gauntlet. The Hesyr is additionally equipped with: weavefield crest.",
       "wargear": [
         "All models in this unit can each have their EtaCarn plasma gun replaced with 1 volkanite disintegrator.",
@@ -584,6 +596,16 @@ window.data.LoV = {
         "The Hesyr’s weavefield crest can be replaced with 1 teleport crest."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "165"
+        },
+        {
+          "models": "10",
+          "cost": "330"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -596,9 +618,7 @@ window.data.LoV = {
           }
         ],
         "core": [],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -646,9 +666,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Exo-armour grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -662,9 +680,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Volkanite disintegrator",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -719,14 +735,9 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Exo-armour",
-        "Einhyr Hearthguard"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Exo-armour", "Einhyr Hearthguard"],
+      "factions": ["Leagues of Votann"],
+      "ledBy": ["Einhyr Champion", "Kâhl", "Ûthar The Destined"]
     },
     {
       "id": "e2762237-0be3-570b-a1f2-f49c8e865a37",
@@ -738,18 +749,18 @@ window.data.LoV = {
         "2 CORVs* * If this unit’s Grimnyr model is ever destroyed, all of this unit’s remaining CORV models are also destroyed."
       ],
       "loadout": "The Grimnyr is equipped with: Ancestral Wrath; ancestral ward stave. Every CORV is equipped with: Autoch-pattern bolter; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Leader"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -810,9 +821,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Ancestral Wrath – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "3",
               "skill": "2+",
@@ -822,10 +831,7 @@ window.data.LoV = {
             },
             {
               "name": "Ancestral Wrath – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["hazardous", "psychic"],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
@@ -841,9 +847,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Ancestral ward stave",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -876,19 +880,14 @@ window.data.LoV = {
         "Character",
         "Psyker"
       ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "0fd9319f-37fc-5325-8bbe-3bc58f5834f2",
       "name": "Hearthkyn Warriors",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "1 Theyn",
-        "9 Hearthkyn Warriors"
-      ],
+      "composition": ["1 Theyn", "9 Hearthkyn Warriors"],
       "loadout": "Every model is equipped with: Autoch-pattern bolt pistol; Autoch-pattern bolter; close combat weapon. The Theyn is additionally equipped with: weavefield crest.",
       "wargear": [
         "All models in this unit can each have their Autoch-pattern bolter replaced with 1 ion blaster.",
@@ -898,6 +897,12 @@ window.data.LoV = {
         "The Theyn’s Autoch-pattern bolter or ion blaster can be replaced with 1 Kin melee weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -918,9 +923,7 @@ window.data.LoV = {
           }
         ],
         "core": [],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -954,9 +957,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Autoch-pattern bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -984,9 +985,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "EtaCarn plasma beamer",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -1000,9 +999,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "EtaCarn plasma pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "4+",
@@ -1016,10 +1013,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "HYLas auto rifle",
-              "keywords": [
-                "assault",
-                "rapid fire 3"
-              ],
+              "keywords": ["assault", "rapid fire 3"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -1033,10 +1027,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "HYLas rotary cannon",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "5+",
@@ -1064,9 +1055,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Ion pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1080,9 +1069,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "L7 missile launcher – blast",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "4+",
@@ -1106,10 +1093,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Magna-rail rifle",
-              "keywords": [
-                "devastating wounds",
-                "heavy"
-              ],
+              "keywords": ["devastating wounds", "heavy"],
               "range": "18\"",
               "attacks": "1",
               "skill": "5+",
@@ -1150,24 +1134,16 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Grenades",
-        "Hearthkyn Warriors"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Battleline", "Grenades", "Hearthkyn Warriors"],
+      "factions": ["Leagues of Votann"],
+      "ledBy": ["Brôkhyr Iron-master", "Grimnyr", "Kâhl", "Ûthar The Destined"]
     },
     {
       "id": "3b568802-2de2-5f29-8a5b-e2797105a2a2",
       "name": "Hekaton Land Fortress",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "1 Hekaton Land Fortress"
-      ],
+      "composition": ["1 Hekaton Land Fortress"],
       "loadout": "This model is equipped with: cyclic ion cannon; MATR autocannon; 2 twin bolt cannons; armoured wheels; pan spectral scanner.",
       "wargear": [
         "This model can do one of the following: ◦  Replace 1 twin bolt cannon with 1 twin ion beamer ◦  Replace 2 twin bolt cannons with 2 twin ion beamers",
@@ -1175,6 +1151,12 @@ window.data.LoV = {
         "This model’s pan spectral scanner can be replaced with 1 Hekaton warhead."
       ],
       "transport": "This model has a transport capacity of 12 Leagues of Votann Infantry models. Each Exo-armour model takes up the space of 2 models and each Exo-frame model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "245"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1182,12 +1164,8 @@ window.data.LoV = {
             "description": "Ranged weapons equipped by the bearer have the [IGNORES COVER] ability."
           }
         ],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1221,9 +1199,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Cyclic ion cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -1237,10 +1213,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Heavy magna-rail cannon",
-              "keywords": [
-                "devastating wounds",
-                "heavy"
-              ],
+              "keywords": ["devastating wounds", "heavy"],
               "range": "30\"",
               "attacks": "1",
               "skill": "4+",
@@ -1254,11 +1227,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Hekaton warhead",
-              "keywords": [
-                "blast",
-                "indirect fire",
-                "one shot"
-              ],
+              "keywords": ["blast", "indirect fire", "one shot"],
               "range": "36\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -1286,10 +1255,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "SP heavy conversion beamer",
-              "keywords": [
-                "conversion",
-                "sustained hits d3"
-              ],
+              "keywords": ["conversion", "sustained hits d3"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -1303,10 +1269,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Twin ion beamer",
-              "keywords": [
-                "sustained hits d3",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits d3", "twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "4+",
@@ -1333,29 +1296,31 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Hekaton Land Fortress"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Vehicle", "Transport", "Hekaton Land Fortress"],
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "2465cf66-bef0-5d7d-b921-01ce915dff2f",
       "name": "Hernkyn Pioneers",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "3-6 Hernkyn Pioneers"
-      ],
+      "composition": ["3-6 Hernkyn Pioneers"],
       "loadout": "Every model is equipped with: bolt revolver; bolt shotgun; magna-coil autocannon; plasma knife.",
       "wargear": [
         "For every 3 models in this unit, 1 model can be equipped with one of the following (if a model is equipped with any of these weapons, add 1 to its Wounds characteristic): ◦ 1 HYLas rotary cannon ◦ 1 ion beamer",
         "Up to 3 different models that are not equipped with either a HYLas rotary cannon or an ion beamer can each be equipped with 1 of the following (to a maximum of 1 of each per unit): ◦ 1 comms array* ◦ 1 pan spectral scanner* ◦ 1 rollbar searchlight* *  This model cannot be equipped with a HYLas rotary cannon or an ion beamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "105"
+        },
+        {
+          "models": "6",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1371,12 +1336,8 @@ window.data.LoV = {
             "description": "Each time a model in the bearer’s unit makes an attack that targets a unit that contains one or more models with the Stealth ability, add 1 to the Hit roll."
           }
         ],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1410,9 +1371,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Bolt revolver",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "9\"",
               "attacks": "1",
               "skill": "4+",
@@ -1426,9 +1385,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Bolt shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -1442,9 +1399,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "HYLas rotary cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "4+",
@@ -1458,9 +1413,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Ion beamer",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "18\"",
               "attacks": "3",
               "skill": "4+",
@@ -1501,24 +1454,15 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Fly",
-        "Hernkyn Pioneers"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Mounted", "Grenades", "Fly", "Hernkyn Pioneers"],
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "01690642-8d27-5bfc-a8f8-47cdc05539a3",
       "name": "Kâhl",
       "faction_id": "LoV",
       "leader": "This model can be attached to the following units: ■ Einhyr Hearthguard ■ Hearthkyn Warriors",
-      "composition": [
-        "1 Kâhl"
-      ],
+      "composition": ["1 Kâhl"],
       "loadout": "This model is equipped with: Autoch-pattern combi-bolter; forgewrought plasma axe; rampart crest.",
       "wargear": [
         "This model’s Autoch-pattern combi-bolter can be replaced with 1 volkanite disintegrator.",
@@ -1526,6 +1470,12 @@ window.data.LoV = {
         "This model’s rampart crest can be replaced with 1 teleport crest."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1537,12 +1487,8 @@ window.data.LoV = {
             "description": "While this model is leading a unit, models in that unit have the Deep Strike ability."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Leader"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1594,9 +1540,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Volkanite disintegrator",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "3",
               "skill": "2+",
@@ -1637,37 +1581,30 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Kâhl"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Character", "Kâhl"],
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "6d880dd3-d9e1-5a41-a2fd-5354f8c988c4",
       "name": "Sagitaur",
       "faction_id": "LoV",
       "leader": "",
-      "composition": [
-        "1 Sagitaur"
-      ],
+      "composition": ["1 Sagitaur"],
       "loadout": "This model is equipped with: HYLas beam cannon; twin bolt cannon; armoured wheels.",
       "wargear": [
         "This model’s HYLas beam cannon can be replaced with one of the following: ◦  1 L7 missile launcher and 1 Sagitaur missile launcher ◦ 1 MATR autocannon"
       ],
       "transport": "This model has a transport capacity of 6 Leagues of Votann Infantry models. It cannot transport Exo-armour or Exo-frame models. At the start of the Declare Battle Formations step, you can select one Hearthkyn Warriors unit from your army and split it into two units, each containing 5 models (when splitting a unit in this way, make a note of which models form each of the two new units). One of these units must start the battle embarked within this Transport; the other can start the battle embarked within another Transport, or it can be deployed as a separate unit.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Deadly Demise 1", "Scouts 6\""],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1701,9 +1638,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "HYLas beam cannon",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -1717,9 +1652,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "L7 missile launcher – blast",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "4+",
@@ -1771,10 +1704,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Twin bolt cannon",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1801,29 +1731,24 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Dedicated Transport",
-        "Sagitaur"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Vehicle", "Transport", "Dedicated Transport", "Sagitaur"],
+      "factions": ["Leagues of Votann"]
     },
     {
       "id": "ece83336-6b7b-552d-b5a4-620fa7226371",
       "name": "Ûthar The Destined",
       "faction_id": "LoV",
       "leader": "This model can be attached to the following units: ■ Einhyr Hearthguard ■ Hearthkyn Warriors",
-      "composition": [
-        "1 Ûthar the Destined – Epic Hero"
-      ],
+      "composition": ["1 Ûthar the Destined – Epic Hero"],
       "loadout": "This model is equipped with: volkanite disintegrator; Blade of the Ancestors; rampart crest.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1831,12 +1756,8 @@ window.data.LoV = {
             "description": "While the bearer is leading a unit, models in that unit have a 5+ invulnerable save."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Eye of the Ancestors"
-        ],
+        "core": ["Leader"],
+        "faction": ["Eye of the Ancestors"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1878,9 +1799,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Volkanite disintegrator",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "3",
               "skill": "2+",
@@ -1896,9 +1815,7 @@ window.data.LoV = {
           "profiles": [
             {
               "name": "Blade of the Ancestors",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1909,15 +1826,12 @@ window.data.LoV = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Ûthar the Destined"
-      ],
-      "factions": [
-        "Leagues of Votann"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Ûthar the Destined"],
+      "factions": ["Leagues of Votann"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#572d0a",
+    "header": "#3c4b3f"
+  }
 }

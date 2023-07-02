@@ -3,29 +3,58 @@ window.data.ASM = {
   "id": "AM",
   "link": "https://game-datacards.eu",
   "name": "Astra Militarum",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Death Mask of Ollanius",
+      "description": "Officer model only. While the bearer’s unit is Battle-shocked, subtract 1 from the Objective Control characteristic of models in that unit, instead of changing it to 0.",
+      "keywords": ["Officer"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "Drill Commander",
+      "description": "Officer model only. While the bearer is leading a unit, each time a model in that unit makes a ranged attack, if that unit Remained Stationary this turn, a Critical Hit is scored on a successful unmodified Hit roll of 5+.",
+      "keywords": ["Officer"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Grand Strategist",
+      "description": "Officer model only. In your Command phase, the bearer can issue one additional Order.",
+      "keywords": ["Officer"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Kurov’s Aquila",
+      "description": "Officer model only. Once per battle, just after your opponent has used a Stratagem, the bearer can use this Enhancement. If it does, until the end of the battle, the CP cost your opponent must pay to use that Stratagem again is increased by 1CP.",
+      "keywords": ["Officer"],
+      "excludes": [],
+      "cost": "40"
+    }
+  ],
   "datasheets": [
     {
       "id": "67fe0db3-86b2-59a8-a674-7402385d616a",
       "name": "‘iron Hand’ Straken",
       "faction_id": "AM",
       "leader": "This model can be attached to the following unit: ■ Catachan Jungle Fighters",
-      "composition": [
-        "1 ‘Iron Hand’ Straken – Epic Hero"
-      ],
+      "composition": ["1 ‘Iron Hand’ Straken – Epic Hero"],
       "loadout": "This model is equipped with: auto shotgun; plasma pistol; bionic arm with devil’s claw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Leader", "Scouts 6\""],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -38,10 +67,15 @@ window.data.ASM = {
           },
           {
             "name": "Been There, Seen it, Killed it",
-            "description": "Each time this model makes a melee attack, if it made a Charge move this turn, you can re-roll the Hit roll and you can re-roll the Wound roll. ORDERS This Officer can issue up to 2 Orders to Regiment units."
+            "description": "Each time this model makes a melee attack, if it made a Charge move this turn, you can re-roll the Hit roll and you can re-roll the Wound roll."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue up to 2 Orders to Regiment units."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -63,9 +97,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Auto shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "3",
               "skill": "3+",
@@ -79,9 +111,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -91,10 +121,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -110,9 +137,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bionic arm with devil’s claw",
-              "keywords": [
-                "anti-monster 4+"
-              ],
+              "keywords": ["anti-monster 4+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -132,18 +157,14 @@ window.data.ASM = {
         "Officer",
         "‘Iron Hand’ Straken"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "56eaf04a-5f63-59fc-b025-381848088631",
       "name": "Armoured Sentinels",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1-3 Armoured Sentinels"
-      ],
+      "composition": ["1-3 Armoured Sentinels"],
       "loadout": "Every model is equipped with: Militarum multi-laser; close combat weapon.",
       "wargear": [
         "Any number of models can each have their Militarum multi-laser replaced with one of the following: ◦ 1 autocannon ◦ 1 heavy flamer ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 plasma cannon",
@@ -151,11 +172,23 @@ window.data.ASM = {
         "Any number of models can each be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        },
+        {
+          "models": "2",
+          "cost": "140"
+        },
+        {
+          "models": "3",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
+        "core": ["Deadly Demise 1"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -204,10 +237,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -221,9 +251,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -265,10 +293,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -278,9 +303,7 @@ window.data.ASM = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -294,9 +317,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -306,10 +327,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -359,9 +377,7 @@ window.data.ASM = {
         "Smoke",
         "Armoured Sentinels"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "3d9bbfed-6870-50dc-91e1-863c74d8696b",
@@ -372,6 +388,7 @@ window.data.ASM = {
       "loadout": "",
       "wargear": [],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -394,9 +411,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Autocannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "5+",
@@ -410,9 +425,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+*",
@@ -426,9 +439,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Boltgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -442,10 +453,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -459,9 +467,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "5+",
@@ -475,10 +481,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -488,9 +491,7 @@ window.data.ASM = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "5+",
@@ -504,11 +505,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Mortar",
-              "keywords": [
-                "blast",
-                "heavy",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "heavy", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -522,9 +519,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+*",
@@ -534,10 +529,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+*",
@@ -550,25 +542,30 @@ window.data.ASM = {
       ],
       "meleeWeapons": [],
       "keywords": [],
-      "factions": [
-        ""
-      ]
+      "factions": [""]
     },
     {
       "id": "0e37d396-4380-5f39-b941-719f05b6a376",
       "name": "Attilan Rough Riders",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Rough Rider Sergeant",
-        "4-9 Rough Riders"
-      ],
+      "composition": ["1 Rough Rider Sergeant", "4-9 Rough Riders"],
       "loadout": "Every model is equipped with: lasgun; laspistol; hunting lance; steed’s hooves.",
       "wargear": [
         "For every 5 models in this unit, 1 model’s hunting lance can be replaced with 1 goad lance.",
         "The Rough Rider Sergeant can be equipped with 1 power sabre."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -606,9 +603,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -622,9 +617,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -640,9 +633,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Goad lance",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -656,9 +647,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunting lance – frag tip",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "D6",
               "skill": "3+",
@@ -668,9 +657,7 @@ window.data.ASM = {
             },
             {
               "name": "Hunting lance – melta tip",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -698,9 +685,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Steed’s hooves",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -718,29 +703,146 @@ window.data.ASM = {
         "Regiment",
         "Attilan Rough Riders"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"],
+      "ledBy": ["Lord Solar Leontus"]
+    },
+    {
+      "id": "2be420d2-e4c2-5d95-aa9c-ee61903ff086",
+      "name": "Avenger Strike Fighter",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Avenger Strike Fighter"],
+      "loadout": "This model is equipped with: Avenger bolt cannon; heavy stubber; 2 lascannons; armoured hull.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Fiery Vengeance",
+            "description": "Once per turn, in your opponent’s Shooting phase, when another friendly Astra Militarum unit within 6\" of this model is destroyed by an attack made by a unit that can Fly, one model from your army with this ability can use it. If it does, after the attacking unit has finished making its attacks, that model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target)."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "14",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Avenger Strike Fighter"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Avenger bolt cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "10",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Fly",
+        "Aircraft",
+        "Imperium",
+        "Avenger Strike Fighter"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "3dad9e7f-e0e5-554d-ae96-4021554a8dd6",
       "name": "Baneblade",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Baneblade"
-      ],
+      "composition": ["1 Baneblade"],
       "loadout": "This model is equipped with: Baneblade cannon; co-axial autocannon; demolisher cannon; heavy stubber; 2 lascannons; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "540"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
+        "core": ["Deadly Demise D6+2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -775,9 +877,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Baneblade cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "72\"",
               "attacks": "3D6",
               "skill": "4+",
@@ -805,9 +905,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Demolisher cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -821,9 +919,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -851,10 +947,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -868,11 +961,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -899,37 +988,30 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Imperium",
-        "Smoke",
-        "Baneblade"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Baneblade"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "16ef8376-8491-5ebb-a8fc-47c86f38d841",
       "name": "Banehammer",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Banehammer"
-      ],
+      "composition": ["1 Banehammer"],
       "loadout": "This model is equipped with: 2 lascannons; tremor cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "This model has a transport capacity of 26 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "490"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2",
-          "Firing Deck 12"
-        ],
+        "core": ["Deadly Demise D6+2", "Firing Deck 12"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -978,9 +1060,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Tremor cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6+3",
               "skill": "4+",
@@ -994,10 +1074,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1011,11 +1088,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1050,29 +1123,29 @@ window.data.ASM = {
         "Smoke",
         "Banehammer"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "7f1333f1-5d75-5076-a03c-dd9adbaebc1a",
       "name": "Banesword",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Banesword"
-      ],
+      "composition": ["1 Banesword"],
       "loadout": "This model is equipped with: 2 lascannons; quake cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "515"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
+        "core": ["Deadly Demise D6+2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1121,10 +1194,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Quake cannon",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "72\"",
               "attacks": "D6+6",
               "skill": "4+",
@@ -1138,10 +1208,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1155,11 +1222,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1186,36 +1249,30 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Imperium",
-        "Smoke",
-        "Banesword"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Banesword"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "12c4bcc5-8a34-512e-8c0d-c999f37fd020",
       "name": "Basilisk",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Basilisk"
-      ],
+      "composition": ["1 Basilisk"],
       "loadout": "This model is equipped with: earthshaker cannon; heavy bolter; armoured tracks.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 heavy flamer.",
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1250,11 +1307,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Earthshaker cannon",
-              "keywords": [
-                "blast",
-                "heavy",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "heavy", "indirect fire"],
               "range": "240\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -1268,9 +1321,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1284,10 +1335,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1301,9 +1349,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -1338,25 +1384,30 @@ window.data.ASM = {
         "Smoke",
         "Basilisk"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "3133ebae-9886-5aa6-abf1-d8be2febf99b",
       "name": "Bullgryn Squad",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Bullgryn Bone ‘ead",
-        "2-5 Bullgryns"
-      ],
+      "composition": ["1 Bullgryn Bone ‘ead", "2-5 Bullgryns"],
       "loadout": "Every model is equipped with: grenadier gauntlet; close combat weapon; slabshield.",
       "wargear": [
         "Any number of models can each have their grenadier gauntlet replaced with 1 Bullgryn maul.",
         "Any number of models can each have their slabshield replaced with 1 brute shield."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "90"
+        },
+        {
+          "models": "6",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1368,9 +1419,7 @@ window.data.ASM = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Feel No Pain 6+"
-        ],
+        "core": ["Feel No Pain 6+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1405,9 +1454,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenadier gauntlet",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -1455,32 +1502,30 @@ window.data.ASM = {
         "Ogryn",
         "Bullgryn Squad"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "ca0a3af9-15a2-522a-956d-07c0948d68a2",
       "name": "Cadian Castellan",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Cadian Shock Troops ■ Infantry Squad ■ Kasrkin",
-      "composition": [
-        "1 Cadian Castellan"
-      ],
+      "composition": ["1 Cadian Castellan"],
       "loadout": "This model is equipped with: laspistol; chainsword.",
       "wargear": [
         "This model’s chainsword can be replaced with one of the following: ◦ 1 boltgun ◦ 1 power fist ◦ 1 power weapon",
         "This model’s laspistol can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 plasma pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Leader"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1493,10 +1538,15 @@ window.data.ASM = {
           },
           {
             "name": "Get Back in the Fight",
-            "description": "While this model is leading a unit, that unit is eligible to shoot in a turn in which it Fell Back. ORDERS This Officer can issue 1 Order to Regiment units."
+            "description": "While this model is leading a unit, that unit is eligible to shoot in a turn in which it Fell Back."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue 1 Order to Regiment units."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -1518,9 +1568,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1534,9 +1582,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Boltgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1550,9 +1596,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1566,9 +1610,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1578,10 +1620,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1645,19 +1684,14 @@ window.data.ASM = {
         "Cadian",
         "Cadian Castellan"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "d2188f5b-7080-5831-93c3-f438a73d11aa",
       "name": "Cadian Command Squad",
       "faction_id": "AM",
       "leader": "This unit can be attached to the following unit: ■ Cadian Shock Troops",
-      "composition": [
-        "1 Cadian Commander",
-        "4 Cadian Veteran Guardsmen"
-      ],
+      "composition": ["1 Cadian Commander", "4 Cadian Veteran Guardsmen"],
       "loadout": "The Cadian Commander is equipped with: laspistol; chainsword. 1 Cadian Veteran Guardsman is equipped with: las pistol; chainsword. 1 other Cadian Veteran Guardsman is equipped with: lasgun; master vox; close combat weapon. 1 other Cadian Veteran Guardsman is equipped with: lasgun; medi-pack; close combat weapon. 1 other Cadian Veteran Guardsman is equipped with: lasgun; regimental standard; close combat weapon.",
       "wargear": [
         "1 Cadian Veteran Guardsman’s lasgun and regimental standard can be replaced with one of the following: ◦ 1 flamer ◦ 1 grenade launcher  ◦ 1 meltagun ◦ 1 plasma gun",
@@ -1667,6 +1701,12 @@ window.data.ASM = {
         "The Cadian Commander’s chainsword can be  replaced with one of the following:  ◦ 1 power fist ◦ 1 power weapon  *  The profiles of these weapons can be found on the Astra Militarum Infantry Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1682,12 +1722,8 @@ window.data.ASM = {
             "description": "Add 1 to the Objective Control characteristic of models in the bearer’s unit. ORDERS This unit’s Officer can issue 1 Order to a Regiment unit."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Leader"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1699,7 +1735,12 @@ window.data.ASM = {
             "description": "While this unit contains a Cadian Officer, you can ignore any or all modifiers to the characteristics of models in this unit and to any roll or test made for models in this unit (excluding modifiers to saving throws)."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This unit’s Officer can issue 1 Order to a Regiment unit."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -1730,10 +1771,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1747,9 +1785,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1773,9 +1809,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -1789,9 +1823,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1805,9 +1837,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1821,9 +1851,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -1833,10 +1861,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -1911,9 +1936,7 @@ window.data.ASM = {
         "Character",
         "Officer"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "f19c1e48-ee95-5516-9bd6-bf7be6f57024",
@@ -1932,15 +1955,21 @@ window.data.ASM = {
         "Any number of Shock Trooper Sergeants can each have their laspistol and chainsword replaced with 1 drum-fed autogun and 1 close combat weapon. *  You cannot select the same weapon more than once per unit unless it contains 20 models, in which case you cannot select the same weapon more than twice per unit."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "65"
+        },
+        {
+          "models": "20",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
             "name": "Vox-caster",
-            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
-          },
-          {
-            "name": "one or more friendly Officer models within 6\"",
-            "description": "on a 5+, you gain 1CP."
+            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
           }
         ],
         "core": [],
@@ -1978,9 +2007,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2008,10 +2035,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2025,9 +2049,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2051,9 +2073,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2067,9 +2087,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2083,9 +2101,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2099,9 +2115,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2111,10 +2125,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2165,9 +2176,243 @@ window.data.ASM = {
         "Cadian",
         "Cadian Shock Troops"
       ],
-      "factions": [
-        "Astra Militarum"
+      "factions": ["Astra Militarum"],
+      "ledBy": [
+        "Cadian Castellan",
+        "Cadian Command Squad",
+        "Commissar",
+        "Lord Solar Leontus",
+        "Primaris Psyker",
+        "Regimental Enginseer",
+        "Regimental Preacher",
+        "Ursula Creed"
       ]
+    },
+    {
+      "id": "6469b4b2-c04f-5b12-ad65-deb78d406756",
+      "name": "Carnodon",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Carnodon"],
+      "loadout": "This model is equipped with: 2 autocannons; Carnodon twin autocannon; armoured tracks.",
+      "wargear": [
+        "This model’s Carnodon twin autocannon can be replaced with one of the following: ◦ 1 Carnodon twin lascannon ◦ 1 Carnodon twin multi-laser ◦  1 volkite culverin",
+        "This model’s 2 autocannons can be replaced with one of the following: ◦ 2 heavy bolters ◦ 2 heavy flamers ◦ 2 lascannons ◦ 2 Militarum multi-lasers ◦ 2 volkite calivers",
+        "This model can be equipped with 1 hunter-killer missile."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D3"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Ancient Conquest",
+            "description": "Each time this model makes an attack that targets an enemy unit that is within your opponent’s deployment zone, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-4 WOUNDS REMAINING",
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "12",
+          "ld": "7+",
+          "oc": "3",
+          "name": "Carnodon"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autocannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Carnodon twin autocannon",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Carnodon twin lascannon",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Carnodon twin multi-laser",
+              "keywords": ["twin-linked"],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Militarum Multi-laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Volkite caliver",
+              "keywords": ["devastating wounds"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Volkite culverin",
+              "keywords": ["devastating wounds"],
+              "range": "36\"",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Imperium", "Squadron", "Smoke", "Carnodon"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "71600359-698a-51e6-aee4-dad676bc7827",
@@ -2184,20 +2429,24 @@ window.data.ASM = {
         "For every 10 models in this unit, 1 Jungle Fighter equipped with a lasgun can be equipped with 1 vox-caster (that model’s lasgun cannot be replaced)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "65"
+        },
+        {
+          "models": "20",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
             "name": "Vox-caster",
-            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
-          },
-          {
-            "name": "one or more friendly Officer models within 6\"",
-            "description": "on a 5+, you gain 1CP."
+            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Scouts 6\""
-        ],
+        "core": ["Scouts 6\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2232,10 +2481,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2249,9 +2495,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2265,9 +2509,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2303,8 +2545,16 @@ window.data.ASM = {
         "Platoon",
         "Catachan Jungle Fighters"
       ],
-      "factions": [
-        "Astra Militarum"
+      "factions": ["Astra Militarum"],
+      "ledBy": [
+        "‘iron Hand’ Straken",
+        "Commissar",
+        "Lord Solar Leontus",
+        "Platoon Command Squad",
+        "Primaris Psyker",
+        "Regimental Enginseer",
+        "Regimental Preacher",
+        "Sergeant Harker"
       ]
     },
     {
@@ -2312,9 +2562,7 @@ window.data.ASM = {
       "name": "Chimera",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Chimera"
-      ],
+      "composition": ["1 Chimera"],
       "loadout": "This model is equipped with: Chimera multi-laser; heavy bolter; lasgun array; armoured tracks.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 heavy flamer.",
@@ -2323,12 +2571,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 2"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2363,9 +2614,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Chimera heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -2379,10 +2628,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Chimera heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2410,9 +2656,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -2426,10 +2670,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2443,9 +2684,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -2459,9 +2698,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -2475,9 +2712,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun array",
-              "keywords": [
-                "rapid fire 6"
-              ],
+              "keywords": ["rapid fire 6"],
               "range": "24\"",
               "attacks": "6",
               "skill": "4+",
@@ -2491,9 +2726,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -2529,32 +2762,157 @@ window.data.ASM = {
         "Smoke",
         "Chimera"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "05398a15-528b-5d13-b16b-b2e44fb07bfd",
+      "name": "Colossus",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Colossus"],
+      "loadout": "This model is equipped with: Colossus siege mortar; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Tracking Target",
+            "description": "Each time this model is selected to shoot, provided it Remained Stationary this turn, its Colossus siege mortar has the [ANTI-MONSTER 5+] and [ANTI-VEHICLE 5+] abilities while resolving those attacks."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-4 WOUNDS REMAINING",
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "11",
+          "ld": "7+",
+          "oc": "3",
+          "name": "Colossus"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Colossus siege mortar",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "120\"",
+              "attacks": "D6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Imperium", "Squadron", "Smoke", "Colossus"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "55268629-29e8-5fee-8342-e54c8a6df337",
       "name": "Commissar",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Cadian Shock Troops ■ Catachan Jungle Fighters ■ Death Korps of Krieg ■ Infantry Squad ■ Kasrkin ■ Tempestus Scions",
-      "composition": [
-        "1 Commissar"
-      ],
+      "composition": ["1 Commissar"],
       "loadout": "This model is equipped with: bolt pistol; chainsword.",
       "wargear": [
         "This model’s bolt pistol can be replaced with 1 plasma pistol.",
         "This model’s chainsword can be replaced with 1 power weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "35"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Leader"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2567,10 +2925,15 @@ window.data.ASM = {
           },
           {
             "name": "Political Overwatch",
-            "description": "While another Officer model is in the same unit as this model, you can re-roll Battle-shock tests taken for that unit. ORDERS This Officer can issue 1 Order to a Regiment unit. This Officer can only issue the Duty and Honour! and Fix Bayonets! Orders."
+            "description": "While another Officer model is in the same unit as this model, you can re-roll Battle-shock tests taken for that unit."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue 1 Order to a Regiment unit. This Officer can only issue the Duty and Honour! and Fix Bayonets! Orders."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -2592,9 +2955,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2608,9 +2969,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2620,10 +2979,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2664,16 +3020,316 @@ window.data.ASM = {
           ]
         }
       ],
+      "keywords": ["Infantry", "Character", "Imperium", "Officer", "Commissar"],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "04b01f35-3155-5eeb-a203-97fdc4d50c63",
+      "name": "Crassus",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Crassus"],
+      "loadout": "This model is equipped with: 4 heavy bolters; armoured tracks.",
+      "wargear": [
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "This model has a transport capacity of 35 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Fire Support",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the end of the phase, each time a friendly model that disembarked from this Transport this turn makes an attack that targets that enemy unit, you can re-roll the Wound roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Crassus"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Imperium",
+        "Squadron",
+        "Transport",
+        "Smoke",
+        "Crassus"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "cf709a8d-a7dd-54f5-b4a6-c6e7e3a8599a",
+      "name": "Cyclops Demolition Vehicle",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Cyclops Demolition Vehicle"],
+      "loadout": "This model is equipped with: nothing.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "25"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 1"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Demolition Charges",
+            "description": "Each time this model or an enemy unit ends a move, if this model is within 3\" of one or more enemy units, select one of those enemy units. This model is destroyed, but instead of rolling for its Deadly Demise ability, roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers D6 mortal wounds."
+          },
+          {
+            "name": "Unstable Payload",
+            "description": "When rolling for this model’s Deadly Demise ability, units within 6\" suffer mortal wounds on a 4+, instead of on a 6."
+          }
+        ],
+        "special": [
+          {
+            "name": "COMPACT",
+            "description": "This model can embark within an Astra Militarum Transport model as if it were an Infantry model. If it does, it takes up the space of 7 models."
+          }
+        ],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [],
+      "rangedWeapons": [],
+      "meleeWeapons": [],
+      "keywords": ["Vehicle", "Cyclops Demolition Vehicle"],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "6f200e1e-d78d-5ebb-b4a9-0b35c11a2403",
+      "name": "Death Korps Marshal",
+      "faction_id": "AM",
+      "leader": "This model can be attached to the following units: ■ Death Korps of Krieg ■ Infantry Squad",
+      "composition": ["1 Death Korps Marshal"],
+      "loadout": "This model is equipped with: laspistol; power sword.",
+      "wargear": [
+        "This model’s laspistol can be replaced with one of the following: ◦ 1 bolt pistol ◦  1 plasma pistol"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Voice of Command"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Martial Dedication",
+            "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
+          },
+          {
+            "name": "Cult of Sacrifice",
+            "description": "Once per battle, you can target this model’s unit with the Insane Bravery Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase. This cannot allow you to use the Insane Bravery Stratagem more than twice per phase."
+          }
+        ],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue 1 Order to Regiment units."
+          }
+        ],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "6\"",
+          "t": "3",
+          "sv": "5+",
+          "w": "4",
+          "ld": "7+",
+          "oc": "1",
+          "name": "Death Korps Marshal"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bolt pistol",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Laspistol",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma pistol – standard",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma pistol – supercharge",
+              "keywords": ["hazardous", "pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Power weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
       "keywords": [
         "Infantry",
         "Character",
         "Imperium",
+        "Grenades",
         "Officer",
-        "Commissar"
+        "Death Korps Marshal"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "75399a95-5436-5eee-ba91-8172529e66b3",
@@ -2692,15 +3348,21 @@ window.data.ASM = {
         "Any number of Death Korps Watchmasters can each have their laspistol replaced with one of the following:** ◦ 1 bolt pistol ◦ 1 boltgun ◦ 1 plasma pistol  *  You cannot select the same weapon more than once per unit unless it contains 20 models, in which case you cannot select the same weapon more than twice per unit.  **  The profiles of these weapons can be found on the Astra Militarum Infantry Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "65"
+        },
+        {
+          "models": "20",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
             "name": "Vox-caster",
-            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
-          },
-          {
-            "name": "one or more friendly Officer models within 6\"",
-            "description": "on a 5+, you gain 1CP."
+            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
           },
           {
             "name": "Death Korps Medi-pack",
@@ -2742,10 +3404,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2759,9 +3418,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2785,9 +3442,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2801,9 +3456,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2817,9 +3470,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2833,9 +3484,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2845,10 +3494,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2862,10 +3508,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -2929,29 +3572,337 @@ window.data.ASM = {
         "Platoon",
         "Death Korps of Krieg"
       ],
-      "factions": [
-        "Astra Militarum"
+      "factions": ["Astra Militarum"],
+      "ledBy": [
+        "Commissar",
+        "Death Korps Marshal",
+        "Lord Solar Leontus",
+        "Platoon Command Squad",
+        "Primaris Psyker",
+        "Regimental Enginseer",
+        "Regimental Preacher"
       ]
+    },
+    {
+      "id": "2f72b922-8d03-5307-be9a-a370400d2290",
+      "name": "Death Rider Squadron",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Ridemaster", "4-9 Death Riders"],
+      "loadout": "Every model is equipped with: laspistol; Death Rider hunting lance; savage claws.",
+      "wargear": [
+        "The Ridemaster’s laspistol can be replaced with one of the following: ◦ 1 bolt pistol ◦  1 plasma pistol"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": [],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Screening Line",
+            "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\"."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "4",
+          "sv": "4+",
+          "w": "2",
+          "ld": "7+",
+          "oc": "1",
+          "name": "Death Rider Squadron"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bolt pistol",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Laspistol",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma pistol – standard",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma pistol – supercharge",
+              "keywords": ["hazardous", "pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Death Rider hunting lance",
+              "keywords": ["lance"],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Savage claws",
+              "keywords": ["extra attacks"],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Mounted",
+        "Imperium",
+        "Grenades",
+        "Regiment",
+        "Death Rider Squadron"
+      ],
+      "factions": ["Astra Militarum"],
+      "ledBy": ["Death Rider Squadron Commander"]
+    },
+    {
+      "id": "72a75b1e-af61-5b29-8ea3-080a837ccbad",
+      "name": "Death Rider Squadron Commander",
+      "faction_id": "AM",
+      "leader": "This model can be attached to the following unit: ■ Death Rider Squadron",
+      "composition": ["1 Death Rider Squadron Commander"],
+      "loadout": "This model is equipped with: laspistol; Death Rider hunting lance; savage claws.",
+      "wargear": [
+        "This model’s laspistol can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 plasma pistol"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Leader"],
+        "faction": ["Voice of Command"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Rapid Reconnaissance",
+            "description": "While this model is leading a unit, models in that unit have the Infiltrators ability."
+          },
+          {
+            "name": "Glorious Charge",
+            "description": "Each time this model makes a Charge move, until the end of the turn, its Death Rider hunting lance has the [DEVASTATING WOUNDS] ability."
+          }
+        ],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue 1 Order to Regiment units."
+          }
+        ],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "4",
+          "sv": "4+",
+          "w": "5",
+          "ld": "7+",
+          "oc": "1",
+          "name": "Death Rider Squadron Commander"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Bolt pistol",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Laspistol",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma pistol – standard",
+              "keywords": ["pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "1"
+            },
+            {
+              "name": "Plasma pistol – supercharge",
+              "keywords": ["hazardous", "pistol"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Death Rider hunting lance",
+              "keywords": ["lance"],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Savage claws",
+              "keywords": ["extra attacks"],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Mounted",
+        "Character",
+        "Imperium",
+        "Grenades",
+        "Officer",
+        "Death Rider Squadron Commander"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "afa5ded6-303a-5c0e-be6d-4e05d71849c1",
       "name": "Deathstrike",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Deathstrike"
-      ],
+      "composition": ["1 Deathstrike"],
       "loadout": "This model is equipped with: heavy bolter; Deathstrike missile; armoured tracks.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 heavy flamer.",
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2962,6 +3913,10 @@ window.data.ASM = {
           {
             "name": "Deathstrike Missile",
             "description": "In your Shooting phase, each time this model is selected to shoot, if it has not shot with its Deathstrike missile this battle, you can do one of the following in addition to resolving this model’s ranged attacks: ■  Designate Target: If this model does not have a Deathstrike Target marker on the battlefield, place a Deathstrike Target marker for this model anywhere on the battlefield. ■  Adjust Target: If this model has a Deathstrike Target marker on the battlefield, move that marker to anywhere else on the battlefield."
+          },
+          {
+            "name": "Plasma Warhead",
+            "description": "The bearer can only shoot with this weapon in your Shooting phase, and only if it Remained Stationary this turn and you did not use its Deathstrike Missile ability to Designate Target or Adjust Target this phase. When the bearer shoots with this weapon, do not select a target. Instead, resolve this weapon’s attacks, rolling for each unit within 6\" of the centre of its Deathstrike Target marker individually."
           }
         ],
         "special": [],
@@ -2986,11 +3941,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Deathstrike missile",
-              "keywords": [
-                "blast",
-                "one shot",
-                "plasma warhead"
-              ],
+              "keywords": ["blast", "one shot", "plasma warhead"],
               "range": "N/A",
               "attacks": "2D6",
               "skill": "2+",
@@ -3003,64 +3954,8 @@ window.data.ASM = {
         {
           "profiles": [
             {
-              "name": "Plasma Warhead: The bearer can only shoot with this we",
-              "keywords": [],
-              "range": "apon",
-              "attacks": "in",
-              "skill": "your",
-              "strength": "Shooting",
-              "ap": "phase,",
-              "damage": "and"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "Remained Stationary this turn and you did not use its",
-              "keywords": [],
-              "range": "Deathstrike",
-              "attacks": "Missile",
-              "skill": "ability",
-              "strength": "to",
-              "ap": "Designate",
-              "damage": "Target"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "or Adjust Target this phase. When the bearer shoots wi",
-              "keywords": [],
-              "range": "th",
-              "attacks": "this",
-              "skill": "weapon,",
-              "strength": "do",
-              "ap": "not",
-              "damage": "select"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "resolve this weapon’s attacks, rolling for each unit w",
-              "keywords": [],
-              "range": "ithin",
-              "attacks": "6\"",
-              "skill": "of",
-              "strength": "the",
-              "ap": "centre",
-              "damage": "of"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "marker individually.",
-              "keywords": [],
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3073,10 +3968,22 @@ window.data.ASM = {
         {
           "profiles": [
             {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3111,30 +4018,29 @@ window.data.ASM = {
         "Smoke",
         "Deathstrike"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "8eb847f9-373a-5adb-966e-d8a58675b9df",
       "name": "Doomhammer",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Doomhammer"
-      ],
+      "composition": ["1 Doomhammer"],
       "loadout": "This model is equipped with: 2 lascannons; magma cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "This model has a transport capacity of 26 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "455"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2",
-          "Firing Deck 12"
-        ],
+        "core": ["Deadly Demise D6+2", "Firing Deck 12"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3183,10 +4089,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Magma cannon",
-              "keywords": [
-                "blast",
-                "melta 6"
-              ],
+              "keywords": ["blast", "melta 6"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -3200,10 +4103,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3217,11 +4117,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3256,23 +4152,114 @@ window.data.ASM = {
         "Smoke",
         "Doomhammer"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "389e9a15-fefc-5170-8b5e-1058c115e330",
+      "name": "Earthshaker Carriage Battery",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Earthshaker Carriage"],
+      "loadout": "This model is equipped with: earthshaker cannon; battery close combat weapons. Designer’s Note: Place five Heavy Artillery Crew tokens next to each Earthshaker Carriage model when this unit is first set up, removing one each time its Earthshaker Carriage model loses a wound (an Earthshaker Carriage model itself is considered to represent its final wound). These do not count as models for any rules purposes.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": [],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Earthshaker Rounds",
+            "description": "In your Shooting phase, after this model has shot, if one or more of those attacks made with its earthshaker cannon scored a hit against an Infantry unit, until the end of your opponent’s next turn, that Infantry unit is shaken. While a unit is shaken, subtract 2\" from its Move characteristic and subtract 2 from Advance and Charge rolls made for it."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "4\"",
+          "t": "7",
+          "sv": "4+",
+          "w": "6",
+          "ld": "7+",
+          "oc": "2",
+          "name": "Earthshaker Carriage Battery"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Earthshaker cannon",
+              "keywords": ["blast", "heavy", "indirect fire"],
+              "range": "240\"",
+              "attacks": "D6+3",
+              "skill": "5+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Battery close combat weapons",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Artillery",
+        "Imperium",
+        "Grenades",
+        "Regiment",
+        "Earthshaker Carriage Battery"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "7ef00ad5-7f46-53ec-8fc8-7eac89de1157",
       "name": "Field Ordnance Battery",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "2 Ordnance Teams"
-      ],
+      "composition": ["2 Ordnance Teams"],
       "loadout": "Every model is equipped with: malleus rocket launcher; lasgun; laspistol; battery close combat weapons.",
       "wargear": [
         "Any number of models can each have their malleus rocket launcher replaced with one of the following: ◦ 1 bombast field gun ◦ 1 heavy lascannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -3310,11 +4297,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bombast field gun",
-              "keywords": [
-                "blast",
-                "heavy",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "heavy", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -3328,9 +4311,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "5+",
@@ -3344,9 +4325,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -3360,9 +4339,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -3376,10 +4353,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Malleus rocket launcher",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6+6",
               "skill": "5+",
@@ -3414,35 +4388,27 @@ window.data.ASM = {
         "Regiment",
         "Field Ordnance Battery"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "048ec1f5-98f4-5280-89c8-ed75df29977b",
       "name": "Gaunt’s Ghosts",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Ibram Gaunt",
-        "5 Tanith Ghosts"
-      ],
+      "composition": ["1 Ibram Gaunt", "5 Tanith Ghosts"],
       "loadout": "Ibram Gaunt is equipped with: bolt pistol; Gaunt’s chainsword. 1 Tanith Ghost is equipped with: Corbec’s hot-shot lascarbine; straight silver knife. 1 Tanith Ghost is equipped with: Rawne’s lascarbine; straight silver knife. 1 Tanith Ghost is equipped with: Larkin’s long-las; straight silver knife. 1 Tanith Ghost is equipped with: Bragg’s autocannon; straight silver knife. 1 Tanith Ghost is equipped with: lascarbine; Mkoll’s straight silver knife.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "6",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Infiltrators",
-          "Lone Operative",
-          "Stealth"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Fights First", "Infiltrators", "Lone Operative", "Stealth"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3455,10 +4421,15 @@ window.data.ASM = {
           },
           {
             "name": "Covert Stealth Team",
-            "description": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. ORDERS This unit’s Officer can issue up to 2 Orders to Regiment or Gaunt’s Ghosts units."
+            "description": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This unit’s Officer can issue up to 2 Orders to Regiment or Gaunt’s Ghosts units."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -3489,9 +4460,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bragg’s autocannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "4",
               "skill": "5+",
@@ -3505,9 +4474,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3521,9 +4488,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Corbec’s hot-shot lascarbine",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3537,10 +4502,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Larkin’s long-las",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "2+",
@@ -3554,9 +4516,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lascarbine",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3570,10 +4530,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Rawne’s lascarbine",
-              "keywords": [
-                "assault",
-                "sustained hits"
-              ],
+              "keywords": ["assault", "sustained hits"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3617,10 +4574,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Mkoll’s straight silver knife",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -3632,27 +4586,92 @@ window.data.ASM = {
         }
       ],
       "keywords": [
-        "IBRAM GAUNT: Character",
+        "ALL MODELS:",
+        "Infantry",
+        "Imperium",
+        "Grenades",
+        "Gaunt’s Ghosts",
+        "IBRAM GAUNT:",
+        "Character",
         "Epic Hero",
         "Officer"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "b501d1c6-22ef-5326-9dd9-c4ba80fd6892",
+      "name": "Hades Breaching Drill",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Hades Breaching Drill"],
+      "loadout": "This model is equipped with: melta-cutter drill.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deep Strike"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Subterranean Assault",
+            "description": "Each time you set up this model on the battlefield using the Deep Strike ability, you can select one friendly Astra Militarum Infantry unit in Strategic Reserves. If you do, set up that unit anywhere on the battlefield that is wholly within 9\" of this model and more than 9\" away from all enemy units."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [],
+      "rangedWeapons": [],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Melta-cutter drill",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6+2"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Imperium", "Hades Breaching Drill"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "b70c2637-565f-5ac9-92d9-52e3803e3b1c",
       "name": "Heavy Weapons Squad",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "3 Heavy Weapons Teams"
-      ],
+      "composition": ["3 Heavy Weapons Teams"],
       "loadout": "Every model is equipped with: heavy bolter; las small arms; weapons team close combat weapons.",
       "wargear": [
         "Any number of models can each have their heavy bolter replaced with one of the following: ◦ 1 autocannon ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 mortar"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -3690,9 +4709,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Autocannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "5+",
@@ -3706,10 +4723,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -3723,9 +4737,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Las small arms",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -3739,9 +4751,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "5+",
@@ -3755,10 +4765,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -3768,9 +4775,7 @@ window.data.ASM = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "5+",
@@ -3784,11 +4789,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Mortar",
-              "keywords": [
-                "blast",
-                "heavy",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "heavy", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "5+",
@@ -3822,29 +4823,29 @@ window.data.ASM = {
         "Regiment",
         "Heavy Weapons Squad"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "d31614d2-c878-59c7-87ae-7da76cd72b34",
       "name": "Hellhammer",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Hellhammer"
-      ],
+      "composition": ["1 Hellhammer"],
       "loadout": "This model is equipped with: co-axial autocannon; demolisher cannon; heavy stubber; Hellhammer cannon; 2 lascannons; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "510"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
+        "core": ["Deadly Demise D6+2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3893,9 +4894,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Demolisher cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -3909,9 +4908,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3925,10 +4922,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hellhammer cannon",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "30\"",
               "attacks": "4D6",
               "skill": "4+",
@@ -3956,10 +4950,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3973,11 +4964,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4004,25 +4991,15 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Imperium",
-        "Smoke",
-        "Hellhammer"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Hellhammer"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "95afa0b2-ec46-5e39-a4cc-c51dee3df948",
       "name": "Hellhound",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Hellhound"
-      ],
+      "composition": ["1 Hellhound"],
       "loadout": "This model is equipped with: heavy flamer; inferno cannon; armoured tracks.",
       "wargear": [
         "This model’s inferno cannon can be replaced with one of the following: ◦ 1 chem cannon ◦ 1 melta cannon",
@@ -4030,11 +5007,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -4069,10 +5050,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Chem cannon",
-              "keywords": [
-                "anti-infantry 2+",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "torrent"],
               "range": "12\"",
               "attacks": "D6+1",
               "skill": "N/A",
@@ -4086,9 +5064,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -4102,10 +5078,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4119,9 +5092,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -4135,10 +5106,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Inferno cannon",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -4152,10 +5120,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Melta cannon",
-              "keywords": [
-                "blast",
-                "melta 4"
-              ],
+              "keywords": ["blast", "melta 4"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "4+",
@@ -4169,9 +5134,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -4198,36 +5161,30 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Imperium",
-        "Squadron",
-        "Smoke",
-        "Hellhound"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Imperium", "Squadron", "Smoke", "Hellhound"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "f98b9276-38e9-5c44-9630-201aa197151a",
       "name": "Hydra",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Hydra"
-      ],
+      "composition": ["1 Hydra"],
       "loadout": "This model is equipped with: heavy bolter; Hydra autocannon; armoured tracks.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 heavy flamer.",
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -4262,9 +5219,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -4278,10 +5233,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4295,9 +5247,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -4311,10 +5261,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hydra autocannon",
-              "keywords": [
-                "anti-fly 2+",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 2+", "twin-linked"],
               "range": "72\"",
               "attacks": "4",
               "skill": "4+",
@@ -4341,16 +5288,8 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Imperium",
-        "Squadron",
-        "Smoke",
-        "Hydra"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Imperium", "Squadron", "Smoke", "Hydra"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "13375e02-0039-59de-a527-2d967a6e6476",
@@ -4374,15 +5313,21 @@ window.data.ASM = {
         "Each Heavy Weapons Team’s heavy bolter can be replaced with one of the following:* ◦ 1 autocannon ◦ 1 lascannon ◦ 1 missile launcher  ◦ 1 mortar *  The profiles of these weapons can be found on the Astra Militarum Infantry Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "65"
+        },
+        {
+          "models": "20",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
             "name": "Vox-caster",
-            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
-          },
-          {
-            "name": "one or more friendly Officer models within 6\"",
-            "description": "on a 5+, you gain 1CP."
+            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
           }
         ],
         "core": [],
@@ -4429,10 +5374,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4446,9 +5388,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -4472,10 +5412,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -4489,9 +5426,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -4505,9 +5440,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -4521,9 +5454,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -4537,9 +5468,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -4549,10 +5478,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -4566,10 +5492,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -4633,8 +5556,17 @@ window.data.ASM = {
         "Platoon",
         "Infantry Squad"
       ],
-      "factions": [
-        "Astra Militarum"
+      "factions": ["Astra Militarum"],
+      "ledBy": [
+        "Cadian Castellan",
+        "Commissar",
+        "Death Korps Marshal",
+        "Lord Solar Leontus",
+        "Platoon Command Squad",
+        "Primaris Psyker",
+        "Regimental Enginseer",
+        "Regimental Preacher",
+        "Ursula Creed"
       ]
     },
     {
@@ -4642,10 +5574,7 @@ window.data.ASM = {
       "name": "Kasrkin",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Kasrkin Sergeant",
-        "9 Kasrkin Troopers"
-      ],
+      "composition": ["1 Kasrkin Sergeant", "9 Kasrkin Troopers"],
       "loadout": "The Kasrkin Sergeant is equipped with: hot-shot laspistol; chainsword. Every Kasrkin Trooper is equipped with: hot-shot lasgun; close combat weapon.",
       "wargear": [
         "Up to 4 Kasrkin Troopers can each have their hot-shot lasgun replaced with one of the following:*  ◦ 1 flamer ◦ 1 grenade launcher ◦ 1 hot-shot volley gun  ◦ 1 meltagun  ◦ 1 plasma gun",
@@ -4656,24 +5585,24 @@ window.data.ASM = {
         "The Kasrkin Sergeant’s hot-shot laspistol can be replaced with one of the following:** ◦ 1 bolt pistol  ◦ 1 plasma pistol  *  You cannot select the same weapon from this list more than twice per unit. **   The profiles of these weapons can be found on the Astra Militarum Infantry Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
             "name": "Vox-caster",
-            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
-          },
-          {
-            "name": "one or more friendly Officer models within 6\"",
-            "description": "on a 5+, you gain 1CP."
+            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
           },
           {
             "name": "Melta Mine",
             "description": "Once per battle, at the start of any phase, you can select one enemy unit within 3\" of the bearer and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds, or 2D3 mortal wounds instead if it is a Vehicle unit."
           }
         ],
-        "core": [
-          "Scouts 6\""
-        ],
+        "core": ["Scouts 6\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -4708,10 +5637,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4725,9 +5651,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -4751,9 +5675,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4767,9 +5689,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4783,10 +5703,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot marksman rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -4800,9 +5717,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot volley gun",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "30\"",
               "attacks": "2",
               "skill": "3+",
@@ -4816,9 +5731,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4832,9 +5745,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4844,10 +5755,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4902,15 +5810,16 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Grenades",
-        "Regiment",
-        "Kasrkin"
-      ],
-      "factions": [
-        "Astra Militarum"
+      "keywords": ["Infantry", "Imperium", "Grenades", "Regiment", "Kasrkin"],
+      "factions": ["Astra Militarum"],
+      "ledBy": [
+        "Cadian Castellan",
+        "Commissar",
+        "Lord Solar Leontus",
+        "Primaris Psyker",
+        "Regimental Enginseer",
+        "Regimental Preacher",
+        "Ursula Creed"
       ]
     },
     {
@@ -4918,9 +5827,7 @@ window.data.ASM = {
       "name": "Leman Russ Battle Tank",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Battle Tank"
-      ],
+      "composition": ["1 Leman Russ Battle Tank"],
       "loadout": "This model is equipped with: lascannon; Leman Russ battle cannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -4929,11 +5836,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -4968,9 +5879,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -4984,10 +5893,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5001,9 +5907,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5017,9 +5921,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -5047,9 +5949,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Leman Russ battle cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -5063,9 +5963,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -5079,9 +5977,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5091,10 +5987,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5108,9 +6001,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -5144,18 +6035,14 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Battle Tank"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "aac11582-7219-55ea-ae6b-85ee08a56935",
       "name": "Leman Russ Demolisher",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Demolisher"
-      ],
+      "composition": ["1 Leman Russ Demolisher"],
       "loadout": "This model is equipped with: demolisher battle cannon; lascannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -5164,11 +6051,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -5203,9 +6094,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Demolisher battle cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -5219,9 +6108,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5235,10 +6122,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5252,9 +6136,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5268,9 +6150,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -5298,9 +6178,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -5314,9 +6192,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5326,10 +6202,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5343,9 +6216,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -5379,18 +6250,14 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Demolisher"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "5baa7d69-6599-5667-afe1-51caff374015",
       "name": "Leman Russ Eradicator",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Eradicator"
-      ],
+      "composition": ["1 Leman Russ Eradicator"],
       "loadout": "This model is equipped with: eradicator nova cannon; lascannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -5399,11 +6266,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -5438,10 +6309,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Eradicator nova cannon",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "36\"",
               "attacks": "D3+6",
               "skill": "4+",
@@ -5455,9 +6323,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5471,10 +6337,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5488,9 +6351,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5504,9 +6365,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -5534,9 +6393,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -5550,9 +6407,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5562,10 +6417,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5579,9 +6431,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -5615,18 +6465,14 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Eradicator"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "3114e22d-f95c-554d-ad97-77acddb98b73",
       "name": "Leman Russ Executioner",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Executioner"
-      ],
+      "composition": ["1 Leman Russ Executioner"],
       "loadout": "This model is equipped with: executioner plasma cannon; lascannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -5635,11 +6481,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -5674,9 +6524,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Executioner plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -5686,10 +6534,7 @@ window.data.ASM = {
             },
             {
               "name": "Executioner plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -5703,9 +6548,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5719,10 +6562,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5736,9 +6576,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5752,9 +6590,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -5782,9 +6618,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -5798,9 +6632,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5810,10 +6642,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -5827,9 +6656,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -5863,18 +6690,14 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Executioner"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "c671810a-bd41-589c-a77d-e4992821eb0d",
       "name": "Leman Russ Exterminator",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Exterminator"
-      ],
+      "composition": ["1 Leman Russ Exterminator"],
       "loadout": "This model is equipped with: exterminator autocannon; lascannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -5883,11 +6706,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -5922,10 +6749,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Exterminator autocannon",
-              "keywords": [
-                "rapid fire 4",
-                "twin -linked"
-              ],
+              "keywords": ["rapid fire 4", "twin-linked"],
               "range": "48\"",
               "attacks": "4",
               "skill": "4+",
@@ -5939,9 +6763,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5955,10 +6777,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5972,9 +6791,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -5988,9 +6805,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6018,9 +6833,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -6034,9 +6847,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6046,10 +6857,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6063,9 +6871,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -6099,18 +6905,14 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Exterminator"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "d39181c7-36f8-50f4-9432-9bffc627c8f4",
       "name": "Leman Russ Punisher",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Punisher"
-      ],
+      "composition": ["1 Leman Russ Punisher"],
       "loadout": "This model is equipped with: lascannon; punisher gatling cannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -6119,11 +6921,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -6158,9 +6964,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6174,10 +6978,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6191,9 +6992,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6207,9 +7006,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6237,9 +7034,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -6253,9 +7048,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6265,10 +7058,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6296,9 +7086,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -6332,18 +7120,14 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Punisher"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "10d82aa9-6d6b-5a5e-af42-bfeb4dd0da2e",
       "name": "Leman Russ Vanquisher",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Leman Russ Vanquisher"
-      ],
+      "composition": ["1 Leman Russ Vanquisher"],
       "loadout": "This model is equipped with: lascannon; vanquisher battle cannon; armoured tracks.",
       "wargear": [
         "This model’s lascannon can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer",
@@ -6352,11 +7136,15 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -6391,9 +7179,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6407,10 +7193,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6424,9 +7207,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6440,9 +7221,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6470,9 +7249,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -6486,9 +7263,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6498,10 +7273,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -6515,9 +7287,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -6531,9 +7301,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Vanquisher battle cannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "72\"",
               "attacks": "1",
               "skill": "4+",
@@ -6567,31 +7335,27 @@ window.data.ASM = {
         "Smoke",
         "Leman Russ Vanquisher"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "b09f212d-318a-5a0b-94af-8e39dfd2542a",
       "name": "Lord Solar Leontus",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Attilan Rough Riders ■ Cadian Shock Troops ■ Catachan Jungle Fighters ■ Death Korps of Krieg ■ Infantry Squad ■ Kasrkin",
-      "composition": [
-        "1 Lord Solar Leontus – Epic Hero"
-      ],
+      "composition": ["1 Lord Solar Leontus – Epic Hero"],
       "loadout": "This model is equipped with: Sol’s Righteous Gaze; Conquest; Konstantin’s hooves.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Leader"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6604,13 +7368,17 @@ window.data.ASM = {
           },
           {
             "name": "The Collegiate Astrolex",
-            "description": "After both players have deployed their armies, select up to three Astra Militarum units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves. ORDERS This Officer can issue up to 3 Orders to Astra Militarum units."
+            "description": "After both players have deployed their armies, select up to three Astra Militarum units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
           }
         ],
         "special": [
           {
             "name": "SUPREME COMMANDER",
             "description": "If this model is in your army, it must be your Warlord."
+          },
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue up to 3 Orders to Astra Militarum units."
           }
         ],
         "damaged": {
@@ -6634,9 +7402,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Sol’s Righteous Gaze",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "2",
               "skill": "2+",
@@ -6666,9 +7432,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Konstantin’s hooves",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -6687,29 +7451,1273 @@ window.data.ASM = {
         "Officer",
         "Lord Solar Leontus"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "6cf07190-3331-5ec4-9a46-32b6571bf05c",
+      "name": "Macharius",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Macharius"],
+      "loadout": "This model is equipped with: 2 heavy stubbers; Macharius twin battle cannon; twin heavy stubber; armoured tracks.",
+      "wargear": [
+        "This model’s 2 heavy stubbers can be replaced with one of the following: ◦ 2 heavy bolters ◦ 2 heavy flamers",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "310"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Battlefield Control",
+            "description": "Each time this model makes a ranged attack, if it is within range of an objective marker you control, re-roll a Hit roll of 1."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "9\"",
+          "t": "13",
+          "sv": "2+",
+          "w": "20",
+          "ld": "7+",
+          "oc": "8",
+          "name": "Macharius"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Macharius twin battle cannon",
+              "keywords": ["blast", "twin-linked"],
+              "range": "48\"",
+              "attacks": "D6+3",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy stubber",
+              "keywords": ["rapid fire 3", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Macharius"],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "43859b58-e0a5-5281-846e-f82bb7b1922e",
+      "name": "Macharius Vanquisher",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Macharius Vanquisher"],
+      "loadout": "This model is equipped with: 2 heavy stubbers; Macharius twin vanquisher cannon; twin heavy stubber; armoured tracks.",
+      "wargear": [
+        "This model’s 2 heavy stubbers can be replaced with one of the following: ◦ 2 heavy bolters ◦ 2 heavy flamers",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "285"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Tank Hunter",
+            "description": "Each time this model makes a ranged attack with its Macharius twin vanquisher cannon that targets a Monster or Vehicle unit, you can re-roll the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "9\"",
+          "t": "13",
+          "sv": "2+",
+          "w": "20",
+          "ld": "7+",
+          "oc": "8",
+          "name": "Macharius Vanquisher"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Macharius twin vanquisher cannon",
+              "keywords": ["heavy", "twin-linked"],
+              "range": "72\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "18",
+              "ap": "-4",
+              "damage": "D6+6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy stubber",
+              "keywords": ["rapid fire 3", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Titanic",
+        "Imperium",
+        "Smoke",
+        "Macharius Vanquisher"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "2fa3d8da-e3b2-58bb-a4f8-2e3534486252",
+      "name": "Macharius Vulcan",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Macharius Vulcan"],
+      "loadout": "This model is equipped with: 2 heavy stubbers; Macharius vulcan mega-bolter; twin heavy stubber; armoured tracks",
+      "wargear": [
+        "This model’s 2 heavy stubbers can be replaced with one of the following: ◦ 2 heavy bolters ◦ 2 heavy flamers",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "310"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Armoured Aggressor",
+            "description": "Each time this model makes a ranged attack, it does not suffer the penalty to the Hit roll for being within Engagement Range of one or more enemy units."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "9\"",
+          "t": "13",
+          "sv": "2+",
+          "w": "20",
+          "ld": "7+",
+          "oc": "8",
+          "name": "Macharius Vulcan"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Macharius vulcan mega-bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "48\"",
+              "attacks": "16",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy stubber",
+              "keywords": ["rapid fire 3", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Titanic",
+        "Imperium",
+        "Smoke",
+        "Macharius Vulcan"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "298d17dd-60b2-5070-9db1-7c0043393406",
+      "name": "Malcador",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Malcador"],
+      "loadout": "This model is equipped with: 2 autocannons; heavy bolter; Malcador battle cannon; armoured tracks.",
+      "wargear": [
+        "This model’s 2 autocannons can be replaced with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
+        "This model’s heavy bolter can be replaced with one of the following: ◦ 1 autocannon ◦  1 lascannon",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "250"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Rugged Reliability",
+            "description": "Each time a ranged attack targets this model, worsen the Armour Penetration characteristic of that attack by 1."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Malcador"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autocannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Malcador battle cannon",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+3",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Imperium", "Squadron", "Smoke", "Malcador"],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "d66fff5c-1cbe-5c05-a5cc-09570612b99e",
+      "name": "Malcador Annihilator",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Malcador Annihilator"],
+      "loadout": "This model is equipped with: demolisher cannon; 2 heavy bolters; Malcador twin lascannon; armoured tracks.",
+      "wargear": [
+        "This model’s 2 heavy bolters can be replaced with one of the following: ◦ 2 autocannons ◦ 2 lascannons",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "270"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Battlefield Dominance",
+            "description": "Ranged weapons equipped by this model have the [IGNORES COVER] ability while targeting an enemy unit within half range."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Malcador Annihilator"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autocannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Demolisher cannon",
+              "keywords": ["blast"],
+              "range": "24\"",
+              "attacks": "D6+3",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Malcador twin lascannon",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Imperium",
+        "Squadron",
+        "Smoke",
+        "Malcador Annihilator"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "ed1950ce-4c5f-5ff6-a32c-2f660881c898",
+      "name": "Malcador Defender",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Malcador Defender"],
+      "loadout": "This model is equipped with: demolisher cannon; 7 heavy bolters; armoured tracks.",
+      "wargear": [
+        "2 of this model’s heavy bolters can be replaced with one of the following: ◦ 2 autocannons ◦ 2 lascannons",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "310"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Armoured Defender",
+            "description": "Each time you target this model with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ while resolving that Stratagem."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Malcador Defender"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autocannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Demolisher cannon",
+              "keywords": ["blast"],
+              "range": "24\"",
+              "attacks": "D6+3",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Imperium",
+        "Squadron",
+        "Smoke",
+        "Malcador Defender"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "092f98f9-e09b-5763-8a2e-17a2e00cf311",
+      "name": "Malcador Infernus",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Malcador Infernus"],
+      "loadout": "This model is equipped with: 2 heavy stubbers; inferno gun; armoured tracks.",
+      "wargear": [
+        "This model’s 2 heavy stubbers can be replaced with one of the following: ◦ 2 autocannons ◦ 2 heavy bolters ◦ 2 heavy flamers ◦ 2 lascannons",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "235"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Malcador Infernus"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autocannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno gun",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "18\"",
+              "attacks": "D6+3",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Imperium",
+        "Squadron",
+        "Smoke",
+        "Malcador Infernus"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "f3aaebf4-bb38-5594-a348-bb06ce8bd406",
       "name": "Manticore",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Manticore"
-      ],
+      "composition": ["1 Manticore"],
       "loadout": "This model is equipped with: heavy bolter; storm eagle rockets; armoured tracks.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 heavy flamer.",
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -6744,9 +8752,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6760,10 +8766,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6777,9 +8780,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6793,11 +8794,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm eagle rockets",
-              "keywords": [
-                "blast",
-                "heavy",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "heavy", "indirect fire"],
               "range": "120\"",
               "attacks": "D6+1",
               "skill": "4+",
@@ -6832,19 +8829,343 @@ window.data.ASM = {
         "Smoke",
         "Manticore"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "3346a10f-61d2-5bd4-a202-d0ab1bab08c6",
+      "name": "Marauder Bomber",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Marauder Bomber"],
+      "loadout": "This model is equipped with: heavy bombs; 2 heavy bolters; 2 lascannons; armoured hull.",
+      "wargear": [
+        "This model’s heavy bombs can be replaced with 1 inferno bombs."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "345"
+        }
+      ],
+      "abilities": {
+        "wargear": [
+          {
+            "name": "Heavy Bombs",
+            "description": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll nine D6, adding 1 to each result if that unit is a Monster or Vehicle: for each 5+, that unit suffers 1 mortal wound."
+          },
+          {
+            "name": "Inferno Bombs",
+            "description": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll nine D6, adding 1 to each result if that unit is not a Monster or Vehicle: for each 5+, that unit suffers 1 mortal wound."
+          }
+        ],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [],
+        "special": [],
+        "damaged": {
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "20",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Marauder Bomber"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Titanic",
+        "Fly",
+        "Aircraft",
+        "Imperium",
+        "Marauder Bomber"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "b7b29e5e-b797-5b1d-a02f-736d40989092",
+      "name": "Marauder Destroyer",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Marauder Destroyer"],
+      "loadout": "This model is equipped with: 2 assault cannons; 2 heavy bolters; Marauder nose autocannons; armoured hull.",
+      "wargear": ["This model can be equipped with 1 hellstrike missile rack."],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "375"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Bomb Drop",
+            "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "20",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Marauder Destroyer"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Assault cannon",
+              "keywords": ["devastating wounds"],
+              "range": "24\"",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hellstrike missile rack",
+              "keywords": ["anti-fly 2+"],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Marauder nose autocannons",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Titanic",
+        "Fly",
+        "Aircraft",
+        "Imperium",
+        "Marauder Destroyer"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "7f56fa74-73ca-529f-a432-d5d9aa2c7f10",
+      "name": "Medusa Carriage Battery",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Medusa Carriage"],
+      "loadout": "This model is equipped with: Medusa siege cannon; battery close combat weapons. Designer’s Note: Place five Heavy Artillery Crew tokens next to each Medusa Carriage model when this unit is first set up, removing one each time its Medusa Carriage model loses a wound (a Medusa Carriage model itself is considered to represent its final wound). These do not count as models for any rules purposes.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": [],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Siege Bombardment",
+            "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "4\"",
+          "t": "7",
+          "sv": "4+",
+          "w": "6",
+          "ld": "7+",
+          "oc": "2",
+          "name": "Medusa Carriage Battery"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Medusa siege cannon",
+              "keywords": ["blast", "heavy", "indirect fire"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "5+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Battery close combat weapons",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Artillery",
+        "Imperium",
+        "Grenades",
+        "Regiment",
+        "Medusa Carriage Battery"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "a5712db3-875c-5c29-82ed-2a5f455ca1c5",
       "name": "Militarum Tempestus Command Squad",
       "faction_id": "AM",
-      "leader": "This unit can be attached to the following unit: ■ Tempestus Scions TEMPESTOR PRIME If this unit’s Tempestor Prime model is your Warlord, Tempestus Scions units from your army have the Battleline keyword.",
-      "composition": [
-        "1 Tempestor Prime",
-        "4 Tempestus Scions"
-      ],
+      "leader": "This unit can be attached to the following unit: ■ Tempestus Scions",
+      "composition": ["1 Tempestor Prime", "4 Tempestus Scions"],
       "loadout": "The Tempestor Prime is equipped with: bolt pistol; Tempestus dagger. Every Tempestus Scion is equipped with: hot-shot lasgun; close combat weapon.",
       "wargear": [
         "Any number of Tempestus Scions can each have their hot-shot lasgun replaced with one of the following:* ◦ 1 flamer ◦ 1 grenade launcher ◦ 1 hot-shot volley gun  ◦ 1 meltagun ◦ 1 plasma gun",
@@ -6854,6 +9175,12 @@ window.data.ASM = {
         "The Tempestor Prime’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 command rod *  You cannot select the same weapon from this list more than once per unit. ** That model’s hot-shot lasgun cannot be replaced."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6873,10 +9200,7 @@ window.data.ASM = {
             "description": "Each time the Officer in the bearer’s unit issues an Order, it can issue it to an eligible unit up to 24\" away. ORDERS This unit’s Officer can issue 1 Order to a Regiment unit."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -6889,7 +9213,16 @@ window.data.ASM = {
             "description": "While this unit contains a Tempestor Prime, ranged weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "TEMPESTOR PRIME",
+            "description": "If this unit’s Tempestor Prime model is your Warlord, Tempestus Scions units from your army have the Battleline keyword."
+          },
+          {
+            "name": "ORDERS",
+            "description": " This unit’s Officer can issue 1 Order to a Regiment unit."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -6920,9 +9253,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6936,10 +9267,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6953,9 +9281,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -6979,9 +9305,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -6995,9 +9319,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7011,9 +9333,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot volley gun",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "30\"",
               "attacks": "2",
               "skill": "3+",
@@ -7027,9 +9347,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7043,9 +9361,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -7055,10 +9371,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -7072,9 +9385,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7084,10 +9395,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7128,30 +9436,26 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Grenades",
-        "Regiment",
-        "Militarum"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Infantry", "Imperium", "Grenades", "Regiment", "Militarum"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "c6440514-2819-570e-ab48-09a895e09ce3",
       "name": "Munitorum Servitors",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "4 Munitorum Servitors"
-      ],
+      "composition": ["4 Munitorum Servitors"],
       "loadout": "Every model is equipped with: Servitor’s servo-arm.",
       "wargear": [
         "Up to 2 models can each have their Servitor’s servo-arm replaced with one of the following: ◦ 1 heavy bolter ◦ 1 multi-melta ◦ 1 plasma cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "35"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -7194,10 +9498,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "6+",
@@ -7211,10 +9512,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "6+",
@@ -7228,10 +9526,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "6+",
@@ -7241,11 +9536,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "6+",
@@ -7286,33 +9577,28 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Munitorum Servitors"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Infantry", "Imperium", "Munitorum Servitors"],
+      "factions": ["Astra Militarum"],
+      "ledBy": ["Regimental Enginseer"]
     },
     {
       "id": "2aa9ed72-e758-5a5e-9316-80096aa9f049",
       "name": "Nork Deddog",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Nork Deddog – Epic Hero"
-      ],
+      "composition": ["1 Nork Deddog – Epic Hero"],
       "loadout": "This model is equipped with: ripper gun; huge knife. LOYAL PROTECTOR At the start of the Declare Battle Formations step, this model must join one Command Squad unit from your army (a Command Squad cannot have more than one Loyal Protector model joined to it). This model then counts as part of that Command Squad for the rest of the battle, and its Starting Strength is increased accordingly. If it is not possible to join this model to a Command Squad, it does not take part in the battle and counts as having been destroyed. While this model is joined to a unit, it can embark within any Transport that unit can embark within, and takes up the space of 3 models.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
+        "core": ["Feel No Pain 5+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -7351,9 +9637,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Ripper gun",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -7369,9 +9653,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Huge knife",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -7391,24 +9673,26 @@ window.data.ASM = {
         "Ogryn",
         "Nork Deddog"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "04b1e654-c5cd-55e2-939d-0cf21b200bfb",
       "name": "Ogryn Bodyguard",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Ogryn Bodyguard"
-      ],
+      "composition": ["1 Ogryn Bodyguard"],
       "loadout": "This model is equipped with: ripper gun; huge knife. LOYAL PROTECTOR At the start of the Declare Battle Formations step, this model must join one Command Squad unit from your army (a Command Squad cannot have more than one Loyal Protector model joined to it). This model then counts as part of that Command Squad for the rest of the battle, and its Starting Strength is increased accordingly. If it is not possible to join this model to a Command Squad, it does not take part in the battle and counts as having been destroyed. While this model is joined to a unit, it can embark within any Transport that unit can embark within, and takes up the space of 3 models.",
       "wargear": [
         "This model’s ripper gun can be replaced with one of the following: ◦ 1 grenadier gauntlet ◦ 1 Bullgryn maul",
         "This model’s huge knife can be replaced with one of the following: ◦ 1 brute shield ◦ 1 slabshield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -7420,9 +9704,7 @@ window.data.ASM = {
             "description": "The bearer has a Wounds characteristic of 7."
           }
         ],
-        "core": [
-          "Feel No Pain 6+"
-        ],
+        "core": ["Feel No Pain 6+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -7461,9 +9743,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenadier gauntlet",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -7477,9 +9757,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Ripper gun",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "18\"",
               "attacks": "3",
               "skill": "4+",
@@ -7542,29 +9820,30 @@ window.data.ASM = {
         "Ogryn",
         "Ogryn Bodyguard"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "d94a69fb-7df3-5835-a62e-153a2dfd9d93",
       "name": "Ogryn Squad",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Ogryn Bone ‘ead",
-        "2-5 Ogryns"
-      ],
+      "composition": ["1 Ogryn Bone ‘ead", "2-5 Ogryns"],
       "loadout": "Every model is equipped with: ripper gun.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+"
-        ],
+        "core": ["Feel No Pain 6+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -7599,9 +9878,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Ripper gun",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "18\"",
               "attacks": "3",
               "skill": "4+",
@@ -7628,16 +9905,8 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Grenades",
-        "Ogryn",
-        "Ogryn Squad"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Infantry", "Imperium", "Grenades", "Ogryn", "Ogryn Squad"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "37d8de29-bb46-57f2-a2c7-1404e78ccec8",
@@ -7660,6 +9929,12 @@ window.data.ASM = {
         "The Veteran Heavy Weapons Team’s heavy bolter can be replaced with one of the following:***  ◦ 1 autocannon ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 mortar  ** *  The profiles of these weapons can be found on the Astra   Militarum Infantry Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -7675,12 +9950,8 @@ window.data.ASM = {
             "description": "Add 1 to the Objective Control characteristic of models in the bearer’s unit. ORDERS This unit’s Officer can issue 1 Order to a Regiment unit."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Leader"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7692,7 +9963,12 @@ window.data.ASM = {
             "description": "While a friendly Platoon unit is within 6\" of this unit’s Platoon Commander, you can target that unit with Stratagems even while it is Battle-shocked."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This unit’s Officer can issue 1 Order to a Regiment unit."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -7706,7 +9982,16 @@ window.data.ASM = {
           "w": "3",
           "ld": "7+",
           "oc": "1",
-          "name": "PLATOON COMMANDER 6\" 3 5+ 2 7+ 2 VETERAN HEAVY"
+          "name": "PLATOON COMMANDER "
+        },
+        {
+          "m": "6\"\"",
+          "t": "3",
+          "sv": "5+",
+          "w": "2",
+          "ld": "7+",
+          "oc": "2",
+          "name": "VETERAN HEAVY"
         },
         {
           "m": "6\"",
@@ -7723,10 +10008,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7740,9 +10022,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -7766,10 +10046,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -7783,9 +10060,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7799,9 +10074,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -7815,9 +10088,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -7831,9 +10102,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7843,10 +10112,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -7860,10 +10126,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -7938,28 +10201,168 @@ window.data.ASM = {
         "Character",
         "Officer"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "ac9daa90-5179-508f-b9f5-1f66286d6a00",
+      "name": "Praetor",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Praetor"],
+      "loadout": "This model is equipped with: 2 heavy bolters; Praetor launcher; armoured tracks",
+      "wargear": [
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "225"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Targeting Coordinates",
+            "description": "While this model is being affected by an Order, each time it makes an attack with its Praetor launcher, it does not suffer the penalty to the Hit roll for attacking a unit that is not visible to it."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "18",
+          "ld": "7+",
+          "oc": "5",
+          "name": "Praetor"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Praetor launcher – firestorm",
+              "keywords": ["blast", "heavy", "ignores cover", "indirect fire"],
+              "range": "120\"",
+              "attacks": "2D6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            },
+            {
+              "name": "Praetor launcher – foehammer",
+              "keywords": [
+                "anti-monster 4+",
+                "anti-vehicle 4+",
+                "blast",
+                "heavy",
+                "indirect fire"
+              ],
+              "range": "120\"",
+              "attacks": "D6+1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Imperium", "Squadron", "Smoke", "Praetor"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "79bd8092-0f99-59cd-afc3-9a2e47193f24",
       "name": "Primaris Psyker",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Cadian Shock Troops ■ Catachan Jungle Fighters ■ Death Korps of Krieg ■ Infantry Squad ■ Kasrkin ■ Tempestus Scions",
-      "composition": [
-        "1 Primaris Psyker"
-      ],
+      "composition": ["1 Primaris Psyker"],
       "loadout": "This model is equipped with: laspistol; Psychic Maelstrom; force weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -7998,9 +10401,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8014,11 +10415,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Psychic Maelstrom – witchfire",
-              "keywords": [
-                "blast",
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["blast", "devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -8049,9 +10446,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -8069,29 +10464,123 @@ window.data.ASM = {
         "Imperium",
         "Primaris Psyker"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "ba31f169-9b19-5658-8e1c-ca15ecf43fde",
+      "name": "Rapier Laser Destroyer Battery",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1-3 Rapier Laser Destroyers"],
+      "loadout": "Every model is equipped with: laser destroyer; close combat weapon. Designer’s Note: Place two Artillery Crew tokens next to each Rapier Laser Destroyer model when this unit is first set up, removing one each time its Rapier Laser Destroyer model loses a wound (a Rapier Laser Destroyer model itself is considered to represent its final wound).",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "30"
+        },
+        {
+          "models": "2",
+          "cost": "60"
+        },
+        {
+          "models": "3",
+          "cost": "90"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": [],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Powerful Volley",
+            "description": "While this unit is being affected by an Order, provided it Remained Stationary this turn, Heavy weapons equipped by models in this unit have the [LETHAL HITS] ability."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "6\"",
+          "t": "4",
+          "sv": "4+",
+          "w": "3",
+          "ld": "7+",
+          "oc": "1",
+          "name": "Rapier Laser Destroyer Battery"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Laser destroyer",
+              "keywords": ["heavy", "twin-linked"],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "5+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Artillery",
+        "Grenades",
+        "Regiment",
+        "Imperium",
+        "Rapier Laser Destroyer Battery"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "39883be9-51a6-568e-a219-8d8410c3f7f9",
       "name": "Ratling Snipers",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "5 Ratling Snipers"
-      ],
+      "composition": ["5 Ratling Snipers"],
       "loadout": "Every model is equipped with: sniper rifle; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
+        "core": ["Infiltrators", "Stealth"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -8126,10 +10615,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -8156,14 +10642,8 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Ratling Snipers"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Infantry", "Imperium", "Ratling Snipers"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "ba1233c4-f392-5a45-a1d7-1359f5f4c6fa",
@@ -8174,10 +10654,14 @@ window.data.ASM = {
         "1 Master of Ordnance, 1 Officer of the Fleet and 1 Astropath."
       ],
       "loadout": "The Master of Ordnance and Officer of the Fleet are both equipped with: laspistol; close combat weapon. The Astropath is equipped with: laspistol; Astropath’s stave.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -8228,9 +10712,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -8260,9 +10742,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Astropath’s stave",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
@@ -8274,30 +10754,33 @@ window.data.ASM = {
         }
       ],
       "keywords": [
-        "ASTROPATH: Psyker"
+        "ALL MODELS:",
+        "Infantry",
+        "Imperium",
+        "Regimental Attachés",
+        "ASTROPATH:",
+        "Psyker"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "dcda8d1a-8d70-5055-a186-c81a04af7e39",
       "name": "Regimental Enginseer",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Cadian Shock Troops ■ Catachan Jungle Fighters ■ Death Korps of Krieg ■ Infantry Squad ■ Kasrkin ■ Munitorum Servitors",
-      "composition": [
-        "1 Regimental Enginseer"
-      ],
+      "composition": ["1 Regimental Enginseer"],
       "loadout": "This model is equipped with: archeotech pistol; Enginseer axe; servo-arm.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -8340,10 +10823,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8373,9 +10853,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Servo-arm",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
@@ -8386,34 +10864,29 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Imperium",
-        "Regimental Enginseer"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Infantry", "Character", "Imperium", "Regimental Enginseer"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "c065c66d-a4e0-5213-8126-f9f49c9c54db",
       "name": "Regimental Preacher",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Cadian Shock Troops ■ Catachan Jungle Fighters ■ Death Korps of Krieg ■ Infantry Squad ■ Kasrkin ■ Tempestus Scions",
-      "composition": [
-        "1 Regimental Preacher"
-      ],
+      "composition": ["1 Regimental Preacher"],
       "loadout": "This model is equipped with: holy pistol; power weapon.",
       "wargear": [
         "This model’s power weapon can be replaced with one of the following: ◦ 1 autogun and 1 chainsword ◦  1 Preacher shotgun and 1 chainsword"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "35"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -8452,9 +10925,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Autogun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -8468,9 +10939,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Holy pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "3",
               "skill": "4+",
@@ -8484,9 +10953,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Preacher shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -8534,18 +11001,14 @@ window.data.ASM = {
         "Grenades",
         "Regimental Preacher"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "8d01f1ba-a813-5e47-9a04-520b6d74f0e2",
       "name": "Rogal Dorn Battle Tank",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Rogal Dorn Battle Tank"
-      ],
+      "composition": ["1 Rogal Dorn Battle Tank"],
       "loadout": "This model is equipped with: castigator gatling cannon; heavy stubber; twin battle cannon; armoured tracks.",
       "wargear": [
         "This model’s twin battle cannon can be replaced with 1 oppressor cannon and 1 co-axial autocannon.",
@@ -8554,11 +11017,15 @@ window.data.ASM = {
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 multi-meltas"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "285"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
+        "core": ["Deadly Demise D6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -8621,9 +11088,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -8637,9 +11102,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -8653,9 +11116,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -8669,9 +11130,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -8685,9 +11144,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Oppressor cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "72\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -8701,9 +11158,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Pulveriser cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "4+",
@@ -8717,10 +11172,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin battle cannon",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -8754,18 +11206,14 @@ window.data.ASM = {
         "Smoke",
         "Rogal Dorn Battle Tank"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "0ea8f7c0-0699-5076-9aa1-eaa75e23aef6",
       "name": "Scout Sentinels",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1-3 Scout Sentinels"
-      ],
+      "composition": ["1-3 Scout Sentinels"],
       "loadout": "Every model is equipped with: Militarum multi-laser; close combat weapon.",
       "wargear": [
         "Any number of models can each have their Militarum multi-laser replaced with one of the following: ◦ 1 autocannon ◦ 1 heavy flamer ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 plasma cannon",
@@ -8773,12 +11221,23 @@ window.data.ASM = {
         "Any number of models can each be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        },
+        {
+          "models": "2",
+          "cost": "100"
+        },
+        {
+          "models": "3",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Scouts 9\""
-        ],
+        "core": ["Deadly Demise 1", "Scouts 9\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -8827,10 +11286,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -8844,9 +11300,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -8888,10 +11342,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -8901,9 +11352,7 @@ window.data.ASM = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -8917,9 +11366,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -8929,10 +11376,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -8982,33 +11426,27 @@ window.data.ASM = {
         "Smoke",
         "Scout Sentinels"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "288165f1-a3f2-5e85-8643-6111bf083fff",
       "name": "Sergeant Harker",
       "faction_id": "AM",
       "leader": "This model can be attached to the following unit: ■ Catachan Jungle Fighters",
-      "composition": [
-        "1 Sergeant Harker – Epic Hero"
-      ],
+      "composition": ["1 Sergeant Harker – Epic Hero"],
       "loadout": "This model is equipped with: Payback; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Feel No Pain 6+", "Leader", "Scouts 6\""],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -9021,10 +11459,15 @@ window.data.ASM = {
           },
           {
             "name": "Payback Time",
-            "description": "Once per battle, when this model is selected to shoot, it can use this ability. If it does, until the end of the phase, its Payback weapon has an Attacks characteristic of 6 and the [SUSTAINED HITS 3] ability instead of the [SUSTAINED HITS 1] ability. ORDERS This Officer can issue 1 Order to a Catachan Jungle Fighters unit."
+            "description": "Once per battle, when this model is selected to shoot, it can use this ability. If it does, until the end of the phase, its Payback weapon has an Attacks characteristic of 6 and the [SUSTAINED HITS 3] ability instead of the [SUSTAINED HITS 1] ability."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue 1 Order to a Catachan Jungle Fighters unit."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -9046,9 +11489,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Payback",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -9084,29 +11525,29 @@ window.data.ASM = {
         "Officer",
         "Sergeant Harker"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "62baec66-a524-59fc-996c-09704aa94053",
       "name": "Shadowsword",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Shadowsword"
-      ],
+      "composition": ["1 Shadowsword"],
       "loadout": "T  his model is equipped with: 2 lascannons; twin heavy bolter; 2 twin heavy flamers; volcano cannon; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "440"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
+        "core": ["Deadly Demise D6+2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -9155,10 +11596,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -9172,11 +11610,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -9190,10 +11624,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Volcano cannon",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "96\"",
               "attacks": "D3+1",
               "skill": "4+",
@@ -9220,37 +11651,27 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Imperium",
-        "Smoke",
-        "Shadowsword"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Shadowsword"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "2c3f29b7-300b-58a7-b5a0-17682f0ab772",
       "name": "Sly Marbo",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Sly Marbo – Epic Hero"
-      ],
+      "composition": ["1 Sly Marbo – Epic Hero"],
       "loadout": "This model is equipped with: ripper pistol; envenomed blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Lone Operative",
-          "Stealth"
-        ],
+        "core": ["Infiltrators", "Lone Operative", "Stealth"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -9294,11 +11715,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Ripper pistol",
-              "keywords": [
-                "anti-infantry 2+",
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 2+", "pistol", "precision"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -9314,10 +11731,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Envenomed blade",
-              "keywords": [
-                "anti-infantry 2+",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 2+", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -9337,30 +11751,210 @@ window.data.ASM = {
         "Regiment",
         "Sly Marbo"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "07925a21-282f-5b05-89ea-7175aa18f629",
+      "name": "Stormblade",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Stormblade"],
+      "loadout": "This model is equipped with: 2 lascannons; 1 Stormblade plasma blastgun; 2 twin heavy bolters; armoured tracks.",
+      "wargear": [
+        "This model’s 2 twin heavy bolters can be replaced with 2 twin heavy flamers.",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter",
+        "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "415"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Close-range Devastation",
+            "description": "Each time this model makes a ranged attack with its Stormblade plasma blastgun that targets a unit within half range, you can re-roll the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-8 WOUNDS REMAINING",
+          "description": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "9\"",
+          "t": "13",
+          "sv": "2+",
+          "w": "24",
+          "ld": "7+",
+          "oc": "8",
+          "name": "Stormblade"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Stormblade plasma blastgun – standard",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+3",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "3"
+            },
+            {
+              "name": "Stormblade plasma blastgun – supercharge",
+              "keywords": ["blast", "hazardous"],
+              "range": "48\"",
+              "attacks": "D6+3",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy flamer",
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Stormblade"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "4c3c3338-8ac7-5542-b413-755736d151db",
       "name": "Stormlord",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Stormlord"
-      ],
+      "composition": ["1 Stormlord"],
       "loadout": "This model is equipped with: 2 heavy stubbers; 2 lascannons; twin heavy bolter; 2 twin heavy flamers; vulcan mega-bolter; armoured tracks",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "This model has a transport capacity of 40 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "460"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2",
-          "Firing Deck 24"
-        ],
+        "core": ["Deadly Demise D6+2", "Firing Deck 24"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -9395,9 +11989,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -9425,10 +12017,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -9442,11 +12031,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -9460,9 +12045,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Vulcan mega-bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "48\"",
               "attacks": "20",
               "skill": "4+",
@@ -9497,29 +12080,29 @@ window.data.ASM = {
         "Smoke",
         "Stormlord"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "2cc958fb-b677-5085-885d-3c78a6d5200c",
       "name": "Stormsword",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Stormsword"
-      ],
+      "composition": ["1 Stormsword"],
       "loadout": "This model is equipped with: 2 lascannons; Stormsword siege cannon; twin heavy bolter; 2 twin heavy flamers; armoured tracks.",
       "wargear": [
         "This model’s 2 twin heavy flamers can be replaced with 2 twin heavy bolters.",
         "This model can be equipped with one of the following: ◦ 2 lascannons and 2 twin heavy bolters ◦ 2 lascannons and 2 twin heavy flamers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "520"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+2"
-        ],
+        "core": ["Deadly Demise D6+2"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -9568,10 +12151,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Stormsword siege cannon",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "48\"",
               "attacks": "D6+6",
               "skill": "4+",
@@ -9585,10 +12165,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -9602,11 +12179,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -9633,25 +12206,15 @@ window.data.ASM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Imperium",
-        "Smoke",
-        "Stormsword"
-      ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Stormsword"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "be0d234a-e718-5fdd-a738-7dcda061e497",
       "name": "Tank Commander",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Tank Commander"
-      ],
+      "composition": ["1 Tank Commander"],
       "loadout": "This model is equipped with: lascannon; Leman Russ battle cannon; armoured tracks.",
       "wargear": [
         "This model’s Leman Russ battle cannon can be replaced with one of the following:* ◦ 1 demolisher battle cannon ◦ 1 eradicator nova cannon ◦ 1 executioner plasma cannon ◦ 1 exterminator autocannon ◦ 1 punisher gatling cannon ◦ 1 vanquisher battle cannon",
@@ -9661,14 +12224,16 @@ window.data.ASM = {
         "This model can be equipped with 1 hunter-killer missile. *   The profiles of these weapons can be found on the Astra Militarum Vehicle Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Voice of Command"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -9681,10 +12246,15 @@ window.data.ASM = {
           },
           {
             "name": "Death Befitting An Officer",
-            "description": "When this model is destroyed , roll one D6: on a 2+, do not remove it from play – it can, after the attacking model’s unit has finished making its attacks, shoot as if it were your Shooting phase and as if it had its full wounds remaining. This model is then removed from play. ORDERS This Officer can issue 1 Order to Squadron units."
+            "description": "When this model is destroyed , roll one D6: on a 2+, do not remove it from play – it can, after the attacking model’s unit has finished making its attacks, shoot as if it were your Shooting phase and as if it had its full wounds remaining. This model is then removed from play."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue 1 Order to Squadron units. DAMAGED: 1-4 WOUNDS REMAINING While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+          }
+        ],
         "damaged": {
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
@@ -9706,9 +12276,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -9722,10 +12290,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -9739,9 +12304,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -9755,9 +12318,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -9785,9 +12346,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Leman Russ battle cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -9801,9 +12360,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Militarum plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -9813,10 +12370,7 @@ window.data.ASM = {
             },
             {
               "name": "Militarum plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -9830,9 +12384,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -9846,9 +12398,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -9883,28 +12433,132 @@ window.data.ASM = {
         "Officer",
         "Tank Commander"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "5f21cbc0-678d-5000-b9f9-b86324439b0f",
+      "name": "Tarantula Battery",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1-3 Tarantula Sentry Guns"],
+      "loadout": "Every model is equipped with: twin heavy bolter; close combat weapon.",
+      "wargear": [
+        "Any number of models can each have their twin heavy bolter replaced with 1 twin lascannon."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "35"
+        },
+        {
+          "models": "2",
+          "cost": "70"
+        },
+        {
+          "models": "3",
+          "cost": "105"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 1"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Sentry Programming",
+            "description": "You can target this unit with the Fire Overwatch Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "-",
+          "t": "5",
+          "sv": "3+",
+          "w": "4",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Tarantula Battery"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Imperium", "Tarantula Battery"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "05755bb1-69d5-599c-b66a-49e1eb8ff541",
       "name": "Taurox",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Taurox"
-      ],
+      "composition": ["1 Taurox"],
       "loadout": "This model is equipped with: twin autocannon; armoured tracks.",
-      "wargear": [
-        "This model can be equipped with 1 storm bolter."
-      ],
+      "wargear": ["This model can be equipped with 1 storm bolter."],
       "transport": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -9939,9 +12593,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "4+",
@@ -9955,9 +12607,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -9992,18 +12642,14 @@ window.data.ASM = {
         "Dedicated Transport",
         "Taurox"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "0b4eff47-d171-5168-8bcb-58ab356db8cf",
       "name": "Taurox Prime",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Taurox Prime"
-      ],
+      "composition": ["1 Taurox Prime"],
       "loadout": "This model is equipped with: Taurox battle cannon; twin Taurox hot-shot volley gun; armoured tracks.",
       "wargear": [
         "This model’s Taurox battle cannon can be replaced with one of the following: ◦ 1 Taurox gatling cannon ◦ 1 Taurox missile launcher",
@@ -10011,11 +12657,15 @@ window.data.ASM = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 12 Militarum Tempestus Infantry or Astra Militarum Infantry Character models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -10050,9 +12700,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -10066,9 +12714,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Taurox battle cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -10096,9 +12742,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Taurox missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -10122,9 +12766,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -10138,10 +12780,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Twin Taurox hot-shot volley gun",
-              "keywords": [
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 3", "twin-linked"],
               "range": "30\"",
               "attacks": "3",
               "skill": "3+",
@@ -10176,19 +12815,14 @@ window.data.ASM = {
         "Dedicated Transport",
         "Taurox Prime"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "3389bf1d-bb6a-5a66-9789-3d867ceabecb",
       "name": "Tempestus Scions",
       "faction_id": "AM",
       "leader": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Tempestor",
-        "4-9 Tempestus Scions"
-      ],
+      "composition": ["1 Tempestor", "4-9 Tempestus Scions"],
       "loadout": "The Tempestor is equipped with: hot-shot laspistol; chainsword. Every Tempestus Scion is equipped with: hot-shot lasgun; close combat weapon.",
       "wargear": [
         "For every 5 models in this unit, up to two Tempestus Scions can each have their hot-shot lasgun replaced with one of the following:* ◦ 1 flamer ◦ 1 grenade launcher ◦ 1 hot-shot volley gun  ◦ 1 meltagun  ◦ 1 plasma gun",
@@ -10197,20 +12831,24 @@ window.data.ASM = {
         "The Tempestor’s hot-shot laspistol can be replaced with one of the following:** ◦ 1 bolt pistol ◦ 1 plasma pistol *  You cannot select the same weapon from this list more than once per unit, unless this unit contains 10 models, in which case you cannot select the same weapon more than twice  per unit.  **  The profiles of these weapons can be found on the Astra Militarum Infantry Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "60"
+        },
+        {
+          "models": "10",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
             "name": "Vox-caster",
-            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
-          },
-          {
-            "name": "one or more friendly Officer models within 6\"",
-            "description": "on a 5+, you gain 1CP."
+            "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
+        "core": ["Deep Strike"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -10245,10 +12883,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -10262,9 +12897,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -10288,9 +12921,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -10304,9 +12935,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -10320,9 +12949,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hot-shot volley gun",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "30\"",
               "attacks": "2",
               "skill": "3+",
@@ -10336,9 +12963,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -10352,9 +12977,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -10364,10 +12987,7 @@ window.data.ASM = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -10444,29 +13064,270 @@ window.data.ASM = {
         "Militarum Tempestus",
         "Tempestus Scions"
       ],
-      "factions": [
-        "Astra Militarum"
+      "factions": ["Astra Militarum"],
+      "ledBy": [
+        "Commissar",
+        "Militarum Tempestus Command Squad",
+        "Primaris Psyker",
+        "Regimental Preacher"
       ]
+    },
+    {
+      "id": "a011f2a0-6787-5be0-96e8-ebeb4415d2b8",
+      "name": "Thunderbolt Heavy Fighter",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Thunderbolt Heavy Fighter"],
+      "loadout": "This model is equipped with: Thunderbolt nose autocannons; 2 lascannons; armoured hull.",
+      "wargear": [
+        "This model can be equipped with 1 Thunderbolt hellstrike rack."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "190"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Fighter Craft",
+            "description": "Each time this model makes a ranged attack that targets a unit that can Fly, add 1 to the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "10",
+          "sv": "3+",
+          "w": "15",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Thunderbolt Heavy Fighter"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Thunderbolt hellstrike rack",
+              "keywords": ["anti-fly 2+"],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Thunderbolt nose autocannons",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Fly",
+        "Aircraft",
+        "Imperium",
+        "Thunderbolt Heavy Fighter"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "5ce20c8b-d7fc-5873-b77f-1d9dba73265c",
+      "name": "Trojan Support Vehicle",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Trojan Support Vehicle"],
+      "loadout": "This model is equipped with: heavy bolter; armoured tracks.",
+      "wargear": [
+        "This model’s heavy bolter can be replaced with 1 heavy flamer.",
+        "This model can be equipped with 1 hunter-killer missile."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D3"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Support Vehicle",
+            "description": "In your Command phase, select one friendly Astra Militarum Vehicle model within 3\" of this model. That Vehicle model regains up to D3 lost wounds and, until the start of your next Command phase, each time that Vehicle model makes an attack, re-roll a Hit roll of 1. The same Vehicle model cannot be selected for both this ability and the Regimental Enginseer's Omnissiah’s Blessing ability in the same turn, and each model can only be selected for this ability once per Command phase."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "11",
+          "ld": "7+",
+          "oc": "2",
+          "name": "Trojan Support Vehicle"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Squadron",
+        "Smoke",
+        "Imperium",
+        "Trojan Support Vehicle"
+      ],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "fc122308-0133-5f4a-a07c-587b9e32791f",
       "name": "Ursula Creed",
       "faction_id": "AM",
       "leader": "This model can be attached to the following units: ■ Cadian Shock Troops ■ Infantry Squad ■ Kasrkin",
-      "composition": [
-        "1 Ursula Creed – Epic Hero"
-      ],
+      "composition": ["1 Ursula Creed – Epic Hero"],
       "loadout": "This model is equipped with: Duty and Vengeance; power weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Voice of Command"
-        ],
+        "faction": ["Voice of Command"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -10479,10 +13340,15 @@ window.data.ASM = {
           },
           {
             "name": "Tactical Genius",
-            "description": "Once per battle round, one unit from your army within 12\" of this model can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase. ORDERS This Officer can issue up to 2 Orders to Regiment units."
+            "description": "Once per battle round, one unit from your army within 12\" of this model can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase."
           }
         ],
-        "special": [],
+        "special": [
+          {
+            "name": "ORDERS",
+            "description": " This Officer can issue up to 2 Orders to Regiment units."
+          }
+        ],
         "damaged": {
           "range": "",
           "description": ""
@@ -10504,9 +13370,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Duty and Vengeance",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "4",
               "skill": "3+",
@@ -10541,18 +13405,198 @@ window.data.ASM = {
         "Officer",
         "Ursula Creed"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "331e84a5-47be-505c-99d9-6d9bed5f45f3",
+      "name": "Valdor",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Valdor"],
+      "loadout": "This model is equipped with: autocannon; Valdor neutron laser; armoured tracks.",
+      "wargear": [
+        "This model’s autocannon can be replaced with one of the following: ◦ 1 heavy bolter ◦  1 heavy flamer ◦ 1 lascannon",
+        "This model can be equipped with 1 hunter-killer missile.",
+        "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "285"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Power Overload",
+            "description": "Each time this model makes an attack that targets a Monster or Vehicle unit, you can re-roll the Damage roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "9\"",
+          "t": "13",
+          "sv": "2+",
+          "w": "20",
+          "ld": "7+",
+          "oc": "8",
+          "name": "Valdor"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Autocannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy flamer",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hunter-killer missile",
+              "keywords": ["one shot"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Valdor neutron laser",
+              "keywords": ["heavy"],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "16",
+              "ap": "-4",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured tracks",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Smoke", "Valdor"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "e13c0399-951f-5348-9403-5b088ba94d19",
       "name": "Valkyrie",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Valkyrie"
-      ],
+      "composition": ["1 Valkyrie"],
       "loadout": "This model is equipped with: hellstrike missiles; Militarum multi-laser; armoured hull.",
       "wargear": [
         "This model’s Militarum multi-laser can be replaced with 1 lascannon.",
@@ -10560,12 +13604,15 @@ window.data.ASM = {
         "This model can be equipped with 2 heavy bolters."
       ],
       "transport": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Hover"
-        ],
+        "core": ["Deadly Demise D6", "Hover"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -10600,9 +13647,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -10616,9 +13661,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hellstrike missiles",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -10660,9 +13703,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Multiple rocket pod",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6",
               "skill": "4+",
@@ -10697,29 +13738,267 @@ window.data.ASM = {
         "Transport",
         "Valkyrie"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "021f984f-fded-54cd-8faf-1ce147bcaecf",
+      "name": "Voss-pattern Lightning",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Voss-pattern Lightning"],
+      "loadout": "This model is equipped with: 2 lascannons; armoured hull.",
+      "wargear": [
+        "This model can be equipped with 1 Lightning hellstrike rack."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Agile Dogfighter",
+            "description": "Each time an attack targets this model, subtract 1 from the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "14",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Voss-pattern Lightning"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lightning hellstrike rack",
+              "keywords": ["anti-fly 2+"],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": ".",
+              "keywords": []
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Fly",
+        "Aircraft",
+        "Imperium",
+        "Voss-pattern Lightning"
+      ],
+      "factions": ["Astra Militarum"]
+    },
+    {
+      "id": "4fe87652-e49a-54de-8d0c-b60b00aa95ed",
+      "name": "Vulture Gunship",
+      "faction_id": "AM",
+      "leader": "",
+      "composition": ["1 Vulture Gunship"],
+      "loadout": "This model is equipped with: heavy bolter; 2 multiple rocket pods; Vulture hellstrike racks; armoured hull.",
+      "wargear": [
+        "This model’s 2 multiple rocket pods and Vulture hellstrike rack can be replaced with 2 Vulture gatling cannons."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "225"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6", "Hover"],
+        "faction": [],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Gunship Barrage",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "10",
+          "sv": "2+",
+          "w": "14",
+          "ld": "7+",
+          "oc": "0",
+          "name": "Vulture Gunship"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Heavy bolter",
+              "keywords": ["sustained hits 1"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Multiple rocket pod",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Vulture gatling cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "18",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Vulture hellstrike rack",
+              "keywords": ["anti-fly 2+"],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Fly", "Aircraft", "Imperium", "Vulture Gunship"],
+      "factions": ["Astra Militarum"]
     },
     {
       "id": "24e3f75d-1609-5e2e-802e-6c8871b6b028",
       "name": "Wyvern",
       "faction_id": "AM",
       "leader": "",
-      "composition": [
-        "1 Wyvern"
-      ],
+      "composition": ["1 Wyvern"],
       "loadout": "This model is equipped with: heavy bolter; Wyvern quad stormshard mortar; armoured tracks.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 heavy flamer.",
         "This model can be equipped with 1 hunter-killer missile."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
+        "core": ["Deadly Demise D3"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -10754,9 +14033,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -10770,10 +14047,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -10787,9 +14061,7 @@ window.data.ASM = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -10810,11 +14082,12 @@ window.data.ASM = {
                 "indirect fire",
                 "twin-linked"
               ],
-              "range": "2D6",
-              "attacks": "4+",
-              "skill": "5",
-              "strength": "0",
-              "ap": "1"
+              "range": "48\"",
+              "attacks": "2D6",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         }
@@ -10843,9 +14116,11 @@ window.data.ASM = {
         "Smoke",
         "Wyvern"
       ],
-      "factions": [
-        "Astra Militarum"
-      ]
+      "factions": ["Astra Militarum"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#0a2118",
+    "header": "#324935"
+  }
 }

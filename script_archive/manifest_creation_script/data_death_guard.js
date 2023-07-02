@@ -3,29 +3,58 @@ window.data.DG = {
   "id": "DG",
   "link": "https://game-datacards.eu",
   "name": "Death Guard",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Living Plague",
+      "description": "Death Guard model only. Add 3\" to the range of the bearer’s Aura abilities (including Nurgle’s Gift).",
+      "keywords": ["Death Guard"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "The Droning (Aura)",
+      "description": "Death Guard model only. While an enemy unit is within Contagion Range of the bearer, each time that unit fails a Battle-shock test, roll one D6: on a 2-5, that unit suffers 1 mortal wound; on a 6, that unit suffers D3 mortal wounds.",
+      "keywords": ["Death Guard"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "Deadly Pathogen",
+      "description": "Death Guard model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons. While the bearer is within range of an Infected objective marker you control, add 2 to the Strength and Attacks characteristics of the bearer’s melee weapons instead.",
+      "keywords": ["Death Guard"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Shamblerot",
+      "description": "Death Guard model only. Each time the bearer’s unit is selected as a target of an enemy unit’s charge, until the end of the phase, subtract 2 from Charge rolls made for that enemy unit.",
+      "keywords": ["Death Guard"],
+      "excludes": [],
+      "cost": "25"
+    }
+  ],
   "datasheets": [
     {
       "id": "951a1b17-e101-525a-abef-b5ccb761c0f4",
       "name": "Biologus Putrifier",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines You can attach this model to a Plague Marines unit, even if one other Leader unit has already been attached to it (you cannot attach more than one of the same leader to the same unit). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Biologus Putrifier"
-      ],
+      "composition": ["1 Biologus Putrifier"],
       "loadout": "This model is equipped with: hyper blight grenades; injector pistol; plague knives.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise 1", "Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -63,11 +92,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Hyper blight grenades",
-              "keywords": [
-                "assault",
-                "blast",
-                "lethal hits"
-              ],
+              "keywords": ["assault", "blast", "lethal hits"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "3+",
@@ -81,9 +106,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Injector pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "3\"",
               "attacks": "1",
               "skill": "3+",
@@ -99,9 +122,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague knives",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -120,32 +141,33 @@ window.data.DG = {
         "Grenades",
         "Biologus Putrifier"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "03151889-d649-524b-a300-a012a530cb1e",
       "name": "Blightlord Terminators",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Blightlord Champion",
-        "4-9 Blightlord Terminators"
-      ],
+      "composition": ["1 Blightlord Champion", "4-9 Blightlord Terminators"],
       "loadout": "Every model is equipped with: plague combi-bolter; bubotic blade.",
       "wargear": [
         "For every 5 models in this unit: ◦  Up to 3 models’ plague combi-bolters can each be replaced with 1 combi-weapon. ◦  1 Blightlord Terminator’s plague combi-bolter can be replaced with one of the following: 1 blight launcher; 1 reaper autocannon. ◦  1 Blightlord Terminator’s plague combi-bolter can be replaced with 1 plague spewer. ◦  1 Blightlord Terminator’s plague combi-bolter and bubotic blade can be replaced with 1 flail of corruption."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "175"
+        },
+        {
+          "models": "10",
+          "cost": "350"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -179,9 +201,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Blight launcher",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -213,10 +233,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -230,11 +247,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague spewer",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -248,10 +261,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -267,9 +277,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Bubotic blade",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -283,9 +291,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Flail of corruption",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -303,8 +309,13 @@ window.data.DG = {
         "Terminator",
         "Blightlord Terminators"
       ],
-      "factions": [
-        "Death Guard"
+      "factions": ["Death Guard"],
+      "ledBy": [
+        "Death Guard Chaos Lord In Terminator Armour",
+        "Death Guard Sorcerer In Terminator Armour",
+        "Lord Of Contagion",
+        "Lord Of Virulence",
+        "Typhus"
       ]
     },
     {
@@ -312,9 +323,7 @@ window.data.DG = {
       "name": "Death Guard Chaos Lord",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines",
-      "composition": [
-        "1 Death Guard Chaos Lord"
-      ],
+      "composition": ["1 Death Guard Chaos Lord"],
       "loadout": "This model is equipped with: plague bolt pistol; Astartes chainsword.",
       "wargear": [
         "This model’s plague bolt pistol can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter ◦ 1 plague fist ◦ 1 plague-encrusted exalted weapon ◦ 1 plasma pistol",
@@ -322,14 +331,16 @@ window.data.DG = {
         "This model’s plague bolt pistol and Astartes chainsword can be replaced with 1 twin lighting claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -385,9 +396,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague bolt pistol",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -401,10 +410,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -418,9 +424,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -430,10 +434,7 @@ window.data.DG = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -463,9 +464,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague fist",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -479,9 +478,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague-encrusted exalted weapon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -495,9 +492,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin lightning claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -516,18 +511,14 @@ window.data.DG = {
         "Grenades",
         "Chaos Lord"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "680c41ca-3123-5d64-be0e-c99612794441",
       "name": "Death Guard Chaos Lord In Terminator Armour",
       "faction_id": "DG",
       "leader": "This model can be attached to the following units: ■ Blightlord Terminators ■ Deathshroud Terminators",
-      "composition": [
-        "1 Death Guard Chaos Lord in Terminator Armour"
-      ],
+      "composition": ["1 Death Guard Chaos Lord in Terminator Armour"],
       "loadout": "This model is equipped with: plague combi-bolter; plague-encrusted exalted weapon.",
       "wargear": [
         "This model’s plague combi-bolter can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 plague-encrusted exalted weapon",
@@ -535,15 +526,16 @@ window.data.DG = {
         "This model’s plague combi-bolter and plague-encrusted exalted weapon can be replaced with 1 twin lighting claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -599,10 +591,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -618,9 +607,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -634,9 +621,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague fist",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -650,9 +635,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague-encrusted exalted weapon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -666,9 +649,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin lightning claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -687,31 +668,27 @@ window.data.DG = {
         "Terminator",
         "Chaos Lord"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "22bd8e91-e3b7-53aa-954e-4e719196d091",
       "name": "Death Guard Chaos Spawn",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "2 Chaos Spawn"
-      ],
+      "composition": ["2 Chaos Spawn"],
       "loadout": "Every model is equipped with: hideous mutations.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -757,15 +734,8 @@ window.data.DG = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Chaos",
-        "Nurgle",
-        "Spawn"
-      ],
-      "factions": [
-        "Death Guard"
-      ]
+      "keywords": ["Beast", "Chaos", "Nurgle", "Spawn"],
+      "factions": ["Death Guard"]
     },
     {
       "id": "51fb865e-eb87-530e-a12c-2d2214fa3b8c",
@@ -783,14 +753,20 @@ window.data.DG = {
         "For every 10 models in the unit, 1 Death Guard Cultist’s Cultist firearm can be replaced with 1 grenade launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "55"
+        },
+        {
+          "models": "20",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -833,10 +809,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -850,9 +823,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -876,9 +847,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -905,37 +874,28 @@ window.data.DG = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Nurgle",
-        "Cultists"
-      ],
-      "factions": [
-        "Death Guard"
-      ]
+      "keywords": ["Infantry", "Chaos", "Nurgle", "Cultists"],
+      "factions": ["Death Guard"]
     },
     {
       "id": "7bbfe002-937e-5116-a7fd-0296425e4ccc",
       "name": "Death Guard Daemon Prince",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Daemon Prince"
-      ],
+      "composition": ["1 Death Guard Daemon Prince"],
       "loadout": "This model is equipped with: plague spewer; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -969,11 +929,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague spewer",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1019,31 +975,27 @@ window.data.DG = {
         "Daemon",
         "Daemon Prince"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "09acd391-9b66-56a9-a3a0-a1afb0a56d45",
       "name": "Death Guard Daemon Prince With Wings",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Daemon Prince with Wings"
-      ],
+      "composition": ["1 Death Guard Daemon Prince with Wings"],
       "loadout": "This model is equipped with: plague spewer; hellforged weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "215"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1081,11 +1033,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague spewer",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1132,18 +1080,14 @@ window.data.DG = {
         "Daemon",
         "Daemon Prince with Wings"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "21299ff3-f747-5ee2-adf9-e337de8f3707",
       "name": "Death Guard Defiler",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Defiler"
-      ],
+      "composition": ["1 Death Guard Defiler"],
       "loadout": "This model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.",
       "wargear": [
         "This model’s twin heavy flamer can be replaced with one of the following: ◦ 1 Defiler scourge ◦ 1 havoc launcher",
@@ -1151,14 +1095,16 @@ window.data.DG = {
         "This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "205"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1210,9 +1156,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Defiler cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1226,9 +1170,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1242,10 +1184,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1259,10 +1198,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -1276,11 +1212,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin heavy flamer",
-              "keywords": [
-                "torrent",
-                "ignores cover",
-                "twin-linked"
-              ],
+              "keywords": ["torrent", "ignores cover", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1294,9 +1226,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1310,11 +1240,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin plague heavy bolter",
-              "keywords": [
-                "lethal hits",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["lethal hits", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1344,9 +1270,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Defiler scourge",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1366,18 +1290,14 @@ window.data.DG = {
         "Smoke",
         "Defiler"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "3754d350-aa5d-5860-9821-48d62bf489e0",
       "name": "Death Guard Helbrute",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Helbrute"
-      ],
+      "composition": ["1 Death Guard Helbrute"],
       "loadout": "This model is equipped with: multi-melta; missile launcher; close combat weapon.",
       "wargear": [
         "This model’s multi-melta can be replaced with one of the following: ◦ 1 Helbrute plasma cannon ◦ 1 twin autocannon ◦ 1 twin lascannon ◦ 1 twin plague heavy bolter ◦ 1 Helbrute fist",
@@ -1385,14 +1305,16 @@ window.data.DG = {
         "For each Helbrute fist this model is equipped with, it can be equipped with one of the following: ◦ 1 plague combi-bolter ◦ 1 heavy flamer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1434,10 +1356,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1451,10 +1370,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Helbrute plasma cannon",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1468,9 +1384,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1494,9 +1408,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1510,10 +1422,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1527,9 +1436,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -1543,9 +1450,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1559,11 +1464,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin plague heavy bolter",
-              "keywords": [
-                "lethal hits",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["lethal hits", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1632,38 +1533,28 @@ window.data.DG = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Chaos",
-        "Nurgle",
-        "Helbrute"
-      ],
-      "factions": [
-        "Death Guard"
-      ]
+      "keywords": ["Vehicle", "Walker", "Chaos", "Nurgle", "Helbrute"],
+      "factions": ["Death Guard"]
     },
     {
       "id": "c62864a6-263d-59eb-b6d0-74f9b56b5b35",
       "name": "Death Guard Icon Bearer",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines You can attach this model to a Plague Marines unit, even if one other Leader unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Death Guard Icon Bearer"
-      ],
+      "composition": ["1 Death Guard Icon Bearer"],
       "loadout": "This model is equipped with: plague boltgun; plague knife.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1701,9 +1592,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague boltgun",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1719,9 +1608,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague knife",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -1740,32 +1627,30 @@ window.data.DG = {
         "Grenades",
         "Death Guard Icon Bearer"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "27360100-1b19-5afe-9f81-b72eb46a5284",
       "name": "Death Guard Land Raider",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Land Raider"
-      ],
+      "composition": ["1 Death Guard Land Raider"],
       "loadout": "This model is equipped with: 2 soulshatter lascannons; twin plague heavy bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 plague combi-bolter",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 Death Guard Infantry models (excluding Cultist and Poxwalker models). Each Terminator model takes up the space of 2 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1817,9 +1702,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1833,10 +1716,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1864,11 +1744,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin plague heavy bolter",
-              "keywords": [
-                "lethal hits",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["lethal hits", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1903,18 +1779,14 @@ window.data.DG = {
         "Smoke",
         "Land Raider"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "c2bc7f7b-9748-5cf4-b7c9-b705189ff448",
       "name": "Death Guard Predator Annihilator",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Predator Annihilator"
-      ],
+      "composition": ["1 Death Guard Predator Annihilator"],
       "loadout": "This model is equipped with: Predator twin lascannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 lascannons ◦ 2 plague heavy bolters",
@@ -1922,14 +1794,16 @@ window.data.DG = {
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1981,9 +1855,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2011,10 +1883,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2028,10 +1897,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague heavy bolter",
-              "keywords": [
-                "lethal hits",
-                "sustained hits 1"
-              ],
+              "keywords": ["lethal hits", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2065,18 +1931,14 @@ window.data.DG = {
         "Smoke",
         "Predator Annihilator"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "c26b2349-ac3b-5477-b2b7-387398a0d092",
       "name": "Death Guard Predator Destructor",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Predator Destructor"
-      ],
+      "composition": ["1 Death Guard Predator Destructor"],
       "loadout": "This model is equipped with: predator autocannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 lascannons ◦ 2 plague heavy bolters",
@@ -2084,14 +1946,16 @@ window.data.DG = {
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2143,9 +2007,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2173,10 +2035,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2190,10 +2049,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague heavy bolter",
-              "keywords": [
-                "lethal hits",
-                "sustained hits 1"
-              ],
+              "keywords": ["lethal hits", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2207,9 +2063,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Predator autocannon",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "48\"",
               "attacks": "4",
               "skill": "3+",
@@ -2243,33 +2097,30 @@ window.data.DG = {
         "Smoke",
         "Predator Destructor"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "d99d9230-872e-5f37-8ebd-c5eb5fd6b624",
       "name": "Death Guard Rhino",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Death Guard Rhino"
-      ],
+      "composition": ["1 Death Guard Rhino"],
       "loadout": "This model is equipped with: plague combi-bolter; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 additional plague combi-bolter",
         "This model can be equipped with 1 havoc launcher."
       ],
       "transport": "This model has a transport capacity of 12 Death Guard Infantry models. It cannot transport Terminator, Cultist or Poxwalker models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 2"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 2"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2321,9 +2172,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Havoc launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2337,10 +2186,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2376,18 +2222,14 @@ window.data.DG = {
         "Smoke",
         "Rhino"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "c94bd1fc-18af-5742-ba7a-ad40d8abcc0d",
       "name": "Death Guard Sorcerer In Terminator Armour",
       "faction_id": "DG",
       "leader": "This model can be attached to the following units: ■ Blightlord Terminators ■ Deathshroud Terminators",
-      "composition": [
-        "1 Death Guard Sorcerer in Terminator Armour"
-      ],
+      "composition": ["1 Death Guard Sorcerer in Terminator Armour"],
       "loadout": "This model is equipped with: Curse of the Leper; plague combi-bolter; force weapon.",
       "wargear": [
         "This model’s plague combi-bolter can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 plague-encrusted exalted weapon",
@@ -2395,15 +2237,16 @@ window.data.DG = {
         "This model’s plague combi-bolter and force weapon can be replaced with 1 twin lighting claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2459,9 +2302,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Curse of the Leper – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2471,10 +2312,7 @@ window.data.DG = {
             },
             {
               "name": "Curse of the Leper – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["hazardous", "psychic"],
               "range": "24\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -2488,10 +2326,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague combi-bolter",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2507,9 +2342,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -2523,9 +2356,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2539,9 +2370,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague fist",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2555,9 +2384,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague-encrusted exalted weapon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2571,9 +2398,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Twin lightning claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2593,32 +2418,33 @@ window.data.DG = {
         "Terminator",
         "Sorcerer"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "eb5e8c1b-7044-5a1c-9fa7-6acc0917b4c8",
       "name": "Deathshroud Terminators",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Deathshroud Champion",
-        "2-5 Deathshroud Terminators"
-      ],
+      "composition": ["1 Deathshroud Champion", "2-5 Deathshroud Terminators"],
       "loadout": "Every model is equipped with: plaguespurt gauntlet; manreaper.",
       "wargear": [
         "The Deathshroud Champion can be equipped with 1 additional plaguespurt gauntlet."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "140"
+        },
+        {
+          "models": "6",
+          "cost": "280"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2673,9 +2499,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Manreaper – strike",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -2685,9 +2509,7 @@ window.data.DG = {
             },
             {
               "name": "Manreaper – sweep",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2705,8 +2527,13 @@ window.data.DG = {
         "Terminator",
         "Deathshroud Terminators"
       ],
-      "factions": [
-        "Death Guard"
+      "factions": ["Death Guard"],
+      "ledBy": [
+        "Death Guard Chaos Lord In Terminator Armour",
+        "Death Guard Sorcerer In Terminator Armour",
+        "Lord Of Contagion",
+        "Lord Of Virulence",
+        "Typhus"
       ]
     },
     {
@@ -2714,22 +2541,22 @@ window.data.DG = {
       "name": "Foetid Bloat-drone",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Foetid Bloat-drone"
-      ],
+      "composition": ["1 Foetid Bloat-drone"],
       "loadout": "This model is equipped with: fleshmower; plague probe.",
       "wargear": [
         "This model’s fleshmower can be replaced with one of the following: ◦ 1 heavy blight launcher ◦ 2 plaguespitters"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2763,9 +2590,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Heavy blight launcher",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "36\"",
               "attacks": "6",
               "skill": "3+",
@@ -2779,11 +2604,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plaguespitter",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2799,9 +2620,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Fleshmower",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "10",
               "skill": "3+",
@@ -2815,9 +2634,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague probe",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2836,31 +2653,27 @@ window.data.DG = {
         "Daemon",
         "Foetid Bloat-drone"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "d5fb5b79-6dc0-5394-ab44-31363d11a8fd",
       "name": "Foul Blightspawn",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines You can attach this model to a Plague Marines unit, even if one other Leader unit has already been attached to it (you cannot attach more than one of the same leader to the same unit). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Foul Blightspawn"
-      ],
+      "composition": ["1 Foul Blightspawn"],
       "loadout": "This model is equipped with: plague sprayer; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2894,11 +2707,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague sprayer",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2933,32 +2742,27 @@ window.data.DG = {
         "Grenades",
         "Foul Blightspawn"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "b21749fa-3cad-5c12-922b-1924b0e628bf",
       "name": "Lord Of Contagion",
       "faction_id": "DG",
       "leader": "This model can be attached to the following units: ■ Blightlord Terminators ■ Deathshroud Terminators",
-      "composition": [
-        "1 Lord of Contagion"
-      ],
+      "composition": ["1 Lord of Contagion"],
       "loadout": "This model is equipped with: plagueblade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2997,9 +2801,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plagueblade – strike",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -3009,9 +2811,7 @@ window.data.DG = {
             },
             {
               "name": "Plagueblade – sweep",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "10",
               "skill": "2+",
@@ -3031,32 +2831,27 @@ window.data.DG = {
         "Grenades",
         "Lord of Contagion"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "720ed0f6-a035-582e-80ae-2caa1397496a",
       "name": "Lord Of Virulence",
       "faction_id": "DG",
       "leader": "This model can be attached to the following units: ■ Blightlord Terminators ■ Deathshroud Terminators",
-      "composition": [
-        "1 Lord of Virulence"
-      ],
+      "composition": ["1 Lord of Virulence"],
       "loadout": "This model is equipped with: twin plague spewer; heavy plague fist.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3115,9 +2910,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Heavy plague fist",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3136,31 +2929,27 @@ window.data.DG = {
         "Terminator",
         "Lord of Virulence"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "bcf0fc13-638a-51d7-b0b6-630b22f34cba",
       "name": "Malignant Plaguecaster",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines",
-      "composition": [
-        "1 Malignant Plaguecaster"
-      ],
+      "composition": ["1 Malignant Plaguecaster"],
       "loadout": "This model is equipped with: plague bolt pistol; Plague Wind; corrupted staff.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3198,9 +2987,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague bolt pistol",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3214,10 +3001,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague Wind – witchfire",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3227,11 +3011,7 @@ window.data.DG = {
             },
             {
               "name": "Plague Wind – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["hazardous", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -3247,10 +3027,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Corrupted staff",
-              "keywords": [
-                "lethal hits",
-                "psychic"
-              ],
+              "keywords": ["lethal hits", "psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -3269,32 +3046,27 @@ window.data.DG = {
         "Psyker",
         "Malignant Plaguecaster"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "f8f8d778-fea0-5af6-be79-9d3c09870662",
       "name": "Miasmic Malignifier",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Miasmic Malignifier"
-      ],
+      "composition": ["1 Miasmic Malignifier"],
       "loadout": "This model is equipped with: noxious stink.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Infiltrators"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3", "Infiltrators"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3336,10 +3108,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Noxious stink",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "6\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -3351,38 +3120,28 @@ window.data.DG = {
         }
       ],
       "meleeWeapons": [],
-      "keywords": [
-        "Fortification",
-        "Chaos",
-        "Nurgle",
-        "Miasmic Malignifier"
-      ],
-      "factions": [
-        "Death Guard"
-      ]
+      "keywords": ["Fortification", "Chaos", "Nurgle", "Miasmic Malignifier"],
+      "factions": ["Death Guard"]
     },
     {
       "id": "53013666-f538-593a-b245-e9af5213228c",
       "name": "Mortarion",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Mortarion – Epic Hero"
-      ],
+      "composition": ["1 Mortarion – Epic Hero"],
       "loadout": "This model is equipped with: Rotwind; the Lantern; Silence.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "370"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D6", "Feel No Pain 5+"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [
           {
             "name": "HOST OF PLAGUES",
@@ -3462,10 +3221,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "The Lantern",
-              "keywords": [
-                "pistol",
-                "sustained hits d3"
-              ],
+              "keywords": ["pistol", "sustained hits d3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -3481,9 +3237,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Silence – strike",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -3493,9 +3247,7 @@ window.data.DG = {
             },
             {
               "name": "Silence – sweep",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "15",
               "skill": "2+",
@@ -3519,31 +3271,35 @@ window.data.DG = {
         "Primarch",
         "Mortarion"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "b8be53ee-dc97-54c2-a384-c109c3ac807e",
       "name": "Myphitic Blight-haulers",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1-3 Myphitic Blight-hulers"
-      ],
+      "composition": ["1-3 Myphitic Blight-hulers"],
       "loadout": "Every model is equipped with: bile spurt; missile launcher; multi-melta; gnashing maw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        },
+        {
+          "models": "2",
+          "cost": "230"
+        },
+        {
+          "models": "3",
+          "cost": "345"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3577,9 +3333,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Bile spurt",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "12\"",
               "attacks": "3",
               "skill": "3+",
@@ -3593,9 +3347,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3619,9 +3371,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3637,9 +3387,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Gnashing maw",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -3658,31 +3406,27 @@ window.data.DG = {
         "Smoke",
         "Myphitic Blight-haulers"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "d1cbfd48-6aed-5140-ad04-6f047ad5565e",
       "name": "Noxious Blightbringer",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines You can attach this model to a Plague Marines unit, even if one other Leader unit has already been attached to it (you cannot attach more than one of the same Leader to the same unit). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Noxious Blightbringer"
-      ],
+      "composition": ["1 Noxious Blightbringer"],
       "loadout": "This model is equipped with: plasma pistol; cursed plague bell.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3720,9 +3464,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3732,10 +3474,7 @@ window.data.DG = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "pistol",
-                "hazardous"
-              ],
+              "keywords": ["pistol", "hazardous"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3751,9 +3490,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Cursed plague bell",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3771,19 +3508,14 @@ window.data.DG = {
         "Nurgle",
         "Noxious Blightbringer"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "27c961bb-dde0-57b3-abca-1e9823dfa9c9",
       "name": "Plague Marines",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Plague Champion",
-        "4-9 Plague Marines"
-      ],
+      "composition": ["1 Plague Champion", "4-9 Plague Marines"],
       "loadout": "Every model is equipped with: plague boltgun; plague knives.",
       "wargear": [
         "The Plague Champion’s plague boltgun can be replaced with one of the following: ◦ 1 plague bolt pistol ◦ 1 plasma gun ◦ 1 plasma pistol",
@@ -3795,12 +3527,20 @@ window.data.DG = {
         "For every 5 models in this unit, up to 2 Plague Marines can each have their plague boltgun replaced with 1 heavy plague weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "100"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3834,9 +3574,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Blight launcher",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3850,9 +3588,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3866,11 +3602,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague belcher",
-              "keywords": [
-                "anti-infantry 4+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 4+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3884,9 +3616,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague bolt pistol",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3900,9 +3630,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague boltgun",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3916,11 +3644,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague spewer",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3934,9 +3658,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -3946,10 +3668,7 @@ window.data.DG = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -3963,9 +3682,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3975,10 +3692,7 @@ window.data.DG = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3994,9 +3708,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Bubotic weapons",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4010,9 +3722,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Heavy plague weapon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -4026,9 +3736,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague knives",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4047,8 +3755,16 @@ window.data.DG = {
         "Battleline",
         "Plague Marines"
       ],
-      "factions": [
-        "Death Guard"
+      "factions": ["Death Guard"],
+      "ledBy": [
+        "Biologus Putrifier",
+        "Death Guard Chaos Lord",
+        "Death Guard Icon Bearer",
+        "Foul Blightspawn",
+        "Malignant Plaguecaster",
+        "Noxious Blightbringer",
+        "Plague Surgeon",
+        "Tallyman"
       ]
     },
     {
@@ -4056,22 +3772,20 @@ window.data.DG = {
       "name": "Plague Surgeon",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines You can attach this model to a Plague Marines unit, even if one other Leader unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Plague Surgeon"
-      ],
+      "composition": ["1 Plague Surgeon"],
       "loadout": "This model is equipped with: plague bolt pistol; balesword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4109,9 +3823,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plague bolt pistol",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4127,9 +3839,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Balesword",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4147,32 +3857,30 @@ window.data.DG = {
         "Nurgle",
         "Plague Surgeon"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "191a9eb3-9820-5145-b378-2fc699702fce",
       "name": "Plagueburst Crawler",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "1 Plagueburst Crawler"
-      ],
+      "composition": ["1 Plagueburst Crawler"],
       "loadout": "This model is equipped with: 2 entropy cannons; heavy slugger; Plagueburst mortar; armoured tracks.",
       "wargear": [
         "This model’s 2 entropy cannons can be replaced with 2 plaguespitters.",
         "This model’s heavy slugger can be replaced with 1 rothail volley gun."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "175"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4206,9 +3914,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Entropy cannon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -4236,11 +3942,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plagueburst mortar",
-              "keywords": [
-                "blast",
-                "indirect fire",
-                "lethal hits"
-              ],
+              "keywords": ["blast", "indirect fire", "lethal hits"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -4254,11 +3956,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Plaguespitter",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4272,10 +3970,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Rothail volley gun",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 3"
-              ],
+              "keywords": ["lethal hits", "rapid fire 3"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4309,31 +4004,31 @@ window.data.DG = {
         "Daemon",
         "Plagueburst Crawler"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     },
     {
       "id": "1494009a-18dc-5ebb-9d53-263e2f975278",
       "name": "Poxwalkers",
       "faction_id": "DG",
       "leader": "",
-      "composition": [
-        "10-20 Poxwalkers"
-      ],
+      "composition": ["10-20 Poxwalkers"],
       "loadout": "Every model is equipped with: improvised weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "60"
+        },
+        {
+          "models": "20",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4368,9 +4063,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Improvised weapon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "2",
               "skill": "5+",
@@ -4381,37 +4074,29 @@ window.data.DG = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Chaos",
-        "Nurgle",
-        "Poxwalkers"
-      ],
-      "factions": [
-        "Death Guard"
-      ]
+      "keywords": ["Infantry", "Chaos", "Nurgle", "Poxwalkers"],
+      "factions": ["Death Guard"],
+      "ledBy": ["Typhus"]
     },
     {
       "id": "e364784e-08a1-55cc-bf39-18df5f3efca2",
       "name": "Tallyman",
       "faction_id": "DG",
       "leader": "This model can be attached to the following unit: ■ Plague Marines You can attach this model to a Plague Marines unit, even if one other Leader unit has already been attached to it (you cannot attach more than one of the same leader to the same unit). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Tallyman"
-      ],
+      "composition": ["1 Tallyman"],
       "loadout": "This model is equipped with: infected plasma pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4449,10 +4134,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Infected plasma pistol – standard",
-              "keywords": [
-                "pistol",
-                "sustained hits d3"
-              ],
+              "keywords": ["pistol", "sustained hits d3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4462,11 +4144,7 @@ window.data.DG = {
             },
             {
               "name": "Infected plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol",
-                "sustained hits d3"
-              ],
+              "keywords": ["hazardous", "pistol", "sustained hits d3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4493,39 +4171,28 @@ window.data.DG = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Chaos",
-        "Nurgle",
-        "Tallyman"
-      ],
-      "factions": [
-        "Death Guard"
-      ]
+      "keywords": ["Infantry", "Character", "Chaos", "Nurgle", "Tallyman"],
+      "factions": ["Death Guard"]
     },
     {
       "id": "0108df02-9869-5b94-9596-80f0fe42b689",
       "name": "Typhus",
       "faction_id": "DG",
       "leader": "This model can be attached to the following units: ■ Blightlord Terminators ■ Deathshroud Terminators ■ Poxwalkers",
-      "composition": [
-        "1 Typhus – Epic Hero"
-      ],
+      "composition": ["1 Typhus – Epic Hero"],
       "loadout": "This model is equipped with: master-crafted manreaper.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Nurgle’s Gift (Aura)"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Nurgle’s Gift (Aura)"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4564,9 +4231,7 @@ window.data.DG = {
           "profiles": [
             {
               "name": "Master-crafted manreaper – strike",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -4576,9 +4241,7 @@ window.data.DG = {
             },
             {
               "name": "Master-crafted manreaper – sweep",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "10",
               "skill": "2+",
@@ -4599,9 +4262,11 @@ window.data.DG = {
         "Terminator",
         "Typhus"
       ],
-      "factions": [
-        "Death Guard"
-      ]
+      "factions": ["Death Guard"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#2c290c",
+    "header": "#4d560e"
+  }
 }

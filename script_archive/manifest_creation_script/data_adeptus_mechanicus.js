@@ -3,20 +3,56 @@ window.data.ADM = {
   "id": "AdM",
   "link": "https://game-datacards.eu",
   "name": "Adeptus Mechanicus",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Archived Purge Protocols",
+      "description": "Skitarii Marshal model only. At the start of the battle round, you can select one friendly Skitarii unit within 12\" of the bearer. Until the start of the next battle round, if the Protector Imperative is active for your army, the Conqueror Imperative is active for that unit instead, and if the Conqueror Imperative is active for your army, the Protector Imperative is active for that unit instead.",
+      "keywords": ["Skitarii Marshal"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "Excoriating Emanation",
+      "description": "Adeptus Mechanicus model only. While the bearer is leading a unit, models in that unit have the Stealth ability.",
+      "keywords": ["Adeptus Mechanicus"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Master Annihilator",
+      "description": "Adeptus Mechanicus model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
+      "keywords": ["Adeptus Mechanicus"],
+      "excludes": [],
+      "cost": "35"
+    },
+    {
+      "name": "Omni-steriliser",
+      "description": "Adeptus Mechanicus model only. Add 3 to the Attacks characteristic of the bearer's ranged weapons. In addition, the bearer's ranged weapons have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.",
+      "keywords": ["Adeptus Mechanicus"],
+      "excludes": [],
+      "cost": "20"
+    }
+  ],
   "datasheets": [
     {
       "id": "91f25fb4-4f2b-56e8-a5ef-911b61833a59",
       "name": "Archaeopter Fusilave",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Archaeopter Fusilave"
-      ],
+      "composition": ["1 Archaeopter Fusilave"],
       "loadout": "This model is equipped with: cognis heavy stubber array; armoured hull; command uplink.",
       "wargear": [
         "This model’s command uplink can be replaced with 1 chaff launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -28,13 +64,8 @@ window.data.ADM = {
             "description": "Each time you select the bearer’s unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -68,11 +99,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber array",
-              "keywords": [
-                "rapid fire 9",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 9", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "9",
               "skill": "4+",
@@ -107,23 +134,25 @@ window.data.ADM = {
         "Skitarii",
         "Archaeopter Fusilave"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "a4830798-deae-5bf2-9f49-4b5e5e5bd4bb",
       "name": "Archaeopter Stratoraptor",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Archaeopter Stratoraptor"
-      ],
+      "composition": ["1 Archaeopter Stratoraptor"],
       "loadout": "This model is equipped with: 2 cognis heavy stubbers; 2 heavy phosphor blasters; twin cognis lascannon; armoured hull; command uplink.",
       "wargear": [
         "This model’s command uplink can be replaced with 1 chaff launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -135,13 +164,8 @@ window.data.ADM = {
             "description": "Each time you select the bearer’s unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -175,10 +199,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber",
-              "keywords": [
-                "rapid fire 3",
-                "sustained hits 1"
-              ],
+              "keywords": ["rapid fire 3", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -192,9 +213,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy phosphor blaster",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -208,10 +227,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin cognis lascannon",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -246,23 +262,25 @@ window.data.ADM = {
         "Skitarii",
         "Archaeopter Stratoraptor"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "b8f2f15a-f7ca-5d18-a8fd-9532d26292c7",
       "name": "Archaeopter Transvector",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Archaeopter Transvector"
-      ],
+      "composition": ["1 Archaeopter Transvector"],
       "loadout": "This model is equipped with: cognis heavy stubber array; armoured hull; command uplink.",
       "wargear": [
         "This model’s command uplink can be replaced with 1 chaff launcher."
       ],
       "transport": "This model has a transport capacity of 11 Skitarii Infantry or Tech-Priest Infantry models. It cannot transport Jump Pack or Kataphron models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -274,14 +292,8 @@ window.data.ADM = {
             "description": "Each time you select the bearer’s unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike",
-          "Hover"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike", "Hover"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -315,11 +327,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber array",
-              "keywords": [
-                "rapid fire 9",
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 9", "sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "9",
               "skill": "4+",
@@ -355,23 +363,23 @@ window.data.ADM = {
         "Skitarii",
         "Archaeopter Transvector"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "3f62892a-43a7-59c6-89b7-405b1e72cbd6",
       "name": "Belisarius Cawl",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Belisarius Cawl – Epic Hero"
-      ],
+      "composition": ["1 Belisarius Cawl – Epic Hero"],
       "loadout": "This model is equipped with: solar atomiser; arc scourge; Cawl’s Omnissian axe; mechadendrite hive.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "185"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -440,10 +448,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Solar atomiser",
-              "keywords": [
-                "blast",
-                "melta d3"
-              ],
+              "keywords": ["blast", "melta d3"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "2+",
@@ -491,9 +496,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Mechadendrite hive",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2D6",
               "skill": "3+",
@@ -512,28 +515,30 @@ window.data.ADM = {
         "Tech-Priest",
         "Belisarius Cawl"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "4cf53304-aa75-538d-ac25-d186e6cbee2c",
       "name": "Corpuscarii Electro-priests",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "5-10 Corpuscarii Electro-Priests"
-      ],
+      "composition": ["5-10 Corpuscarii Electro-Priests"],
       "loadout": "Every model is equipped with: electrostatic gauntlets.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "65"
+        },
+        {
+          "models": "10",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
+        "core": ["Feel No Pain 5+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -568,10 +573,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Electrostatic gauntlets",
-              "keywords": [
-                "pistol",
-                "sustained hits 2"
-              ],
+              "keywords": ["pistol", "sustained hits 2"],
               "range": "12\"",
               "attacks": "3",
               "skill": "3+",
@@ -587,9 +589,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Electrostatic gauntlets",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -600,14 +600,13 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Electro-Priests",
-        "Corpuscarii"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
+      "keywords": ["Infantry", "Imperium", "Electro-Priests", "Corpuscarii"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": [
+        "Tech-priest Dominus",
+        "Tech-priest Enginseer",
+        "Tech-priest Manipulus",
+        "Technoarcheologist"
       ]
     },
     {
@@ -615,19 +614,19 @@ window.data.ADM = {
       "name": "Cybernetica Datasmith",
       "faction_id": "AdM",
       "leader": "This model must be attached to the following unit: ■ Kastelan Robots You must attach this model to a Kastelan Robots unit, even if one or more other Cybernetica Datasmith models have already been attached to it. In such cases, if that Bodyguard unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths. If you cannot attach this model to a Kastelan Robots unit, this model cannot be deployed and counts as having been destroyed during the first battle round.",
-      "composition": [
-        "1 Cybernetica Datasmith"
-      ],
+      "composition": ["1 Cybernetica Datasmith"],
       "loadout": "This model is equipped with: archeotech pistol; power fist.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "35"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -662,10 +661,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -699,28 +695,30 @@ window.data.ADM = {
         "Tech-Priest",
         "Cybernetica Datasmith"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "f6c2e253-82e2-54bf-9125-5e195516b349",
       "name": "Fulgurite Electro-priests",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "5-10 Fulgurite Electro-Priests"
-      ],
+      "composition": ["5-10 Fulgurite Electro-Priests"],
       "loadout": "Every model is equipped with: electroleech stave.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
+        "core": ["Feel No Pain 5+"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -756,9 +754,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Electroleech stave",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -769,14 +765,13 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Electro-Priests",
-        "Fulgurite"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
+      "keywords": ["Infantry", "Imperium", "Electro-Priests", "Fulgurite"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": [
+        "Tech-priest Dominus",
+        "Tech-priest Enginseer",
+        "Tech-priest Manipulus",
+        "Technoarcheologist"
       ]
     },
     {
@@ -784,22 +779,30 @@ window.data.ADM = {
       "name": "Ironstrider Ballistarii",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1-3 Ironstrider Ballistarii"
-      ],
+      "composition": ["1-3 Ironstrider Ballistarii"],
       "loadout": "Every model is equipped with: twin cognis autocannon; Ironstrider feet.",
       "wargear": [
         "Any number of models can each have their twin cognis autocannon replaced with 1 twin cognis lascannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        },
+        {
+          "models": "2",
+          "cost": "100"
+        },
+        {
+          "models": "3",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -837,10 +840,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin cognis autocannon",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "4+",
@@ -854,10 +854,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin cognis lascannon",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -892,29 +889,33 @@ window.data.ADM = {
         "Skitarii",
         "Ironstrider Ballistarii"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "11fd9afc-58f4-5280-94a2-7f30776436af",
       "name": "Kastelan Robots",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "2-4 Kastelan Robots"
-      ],
+      "composition": ["2-4 Kastelan Robots"],
       "loadout": "Every model is equipped with: incendine combustor; twin Kastelan fist.",
       "wargear": [
         "Any number of models can each have their twin Kastelan fist replaced with one of the following: ◦  1 Kastelan phosphor blaster and 1 Kastelan fist ◦ 1 twin Kastelan phosphor blaster and 1 close combat weapon",
         "Any number of models can each have their incendine combustor replaced with 1 heavy phosphor blaster."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "215"
+        },
+        {
+          "models": "4",
+          "cost": "430"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
+        "core": ["Deadly Demise 1"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -953,9 +954,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy phosphor blaster",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -969,10 +968,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Incendine combustor",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -986,9 +982,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Kastelan phosphor blaster",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -1002,10 +996,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin Kastelan phosphor blaster",
-              "keywords": [
-                "ignores cover",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -1049,9 +1040,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin Kastelan fist",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -1062,36 +1051,36 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Imperium",
-        "Kastelan Robots"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Vehicle", "Walker", "Imperium", "Kastelan Robots"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": ["Cybernetica Datasmith"]
     },
     {
       "id": "8277da97-bfc9-5597-99dc-cbed85744e0e",
       "name": "Kataphron Breachers",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "3-6 Kataphron Breachers"
-      ],
+      "composition": ["3-6 Kataphron Breachers"],
       "loadout": "Every model is equipped with: heavy arc rifle; arc claw.",
       "wargear": [
         "Any number of models can each have their heavy arc rifle replaced with 1 torsion cannon.",
         "Any number of models can each have their arc claw replaced with 1 hydraulic claw."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "150"
+        },
+        {
+          "models": "6",
+          "cost": "300"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1125,10 +1114,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy arc rifle",
-              "keywords": [
-                "anti-vehicle 4+",
-                "rapid fire 2"
-              ],
+              "keywords": ["anti-vehicle 4+", "rapid fire 2"],
               "range": "36\"",
               "attacks": "2",
               "skill": "4+",
@@ -1142,10 +1128,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Torsion cannon",
-              "keywords": [
-                "anti-infantry 2+",
-                "blast"
-              ],
+              "keywords": ["anti-infantry 2+", "blast"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1161,9 +1144,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Arc claw",
-              "keywords": [
-                "anti-vehicle 4+"
-              ],
+              "keywords": ["anti-vehicle 4+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -1188,14 +1169,13 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Kataphron",
-        "Breachers"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
+      "keywords": ["Infantry", "Imperium", "Kataphron", "Breachers"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": [
+        "Tech-priest Dominus",
+        "Tech-priest Enginseer",
+        "Tech-priest Manipulus",
+        "Technoarcheologist"
       ]
     },
     {
@@ -1203,21 +1183,27 @@ window.data.ADM = {
       "name": "Kataphron Destroyers",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "3-6 Kataphron Destroyers"
-      ],
+      "composition": ["3-6 Kataphron Destroyers"],
       "loadout": "Every model is equipped with: heavy grav-cannon; phosphor blaster; close combat weapon.",
       "wargear": [
         "Any number of models can each have their heavy grav-cannon replaced with 1 Kataphron plasma culverin.",
         "Any number of models can each have their phosphor blaster replaced with 1 cognis flamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "120"
+        },
+        {
+          "models": "6",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1251,10 +1237,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1268,9 +1251,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy grav-cannon",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "30\"",
               "attacks": "4",
               "skill": "4+",
@@ -1294,9 +1275,7 @@ window.data.ADM = {
             },
             {
               "name": "Kataphron plasma culverin – supercharge",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "36\"",
               "attacks": "4",
               "skill": "4+",
@@ -1310,10 +1289,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor blaster",
-              "keywords": [
-                "ignores cover",
-                "rapid fire 1"
-              ],
+              "keywords": ["ignores cover", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -1340,14 +1316,13 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Kataphron",
-        "Destroyers"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
+      "keywords": ["Infantry", "Imperium", "Kataphron", "Destroyers"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": [
+        "Tech-priest Dominus",
+        "Tech-priest Enginseer",
+        "Tech-priest Manipulus",
+        "Technoarcheologist"
       ]
     },
     {
@@ -1355,9 +1330,7 @@ window.data.ADM = {
       "name": "Onager Dunecrawler",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Onager Dunecrawler"
-      ],
+      "composition": ["1 Onager Dunecrawler"],
       "loadout": "This model is equipped with: eradication beamer; Dunecrawler legs.",
       "wargear": [
         "This model’s eradication beamer can be replaced with one of the following: ◦ 1 daedalus missile launcher and 1 Icarus array ◦  1 neutron laser and 1 cognis heavy stubber ◦ 1 twin Onager heavy phosphor blaster",
@@ -1365,6 +1338,12 @@ window.data.ADM = {
         "This model can be equipped with one of the following: ◦ 1 broad spectrum data-tether ◦ 1 smoke launchers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1376,12 +1355,8 @@ window.data.ADM = {
             "description": "The bearer has the Smoke keyword."
           }
         ],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1415,10 +1390,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber",
-              "keywords": [
-                "rapid fire 3",
-                "sustained hits 1"
-              ],
+              "keywords": ["rapid fire 3", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1432,9 +1404,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Daedalus missile launcher",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -1448,10 +1418,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Eradication beamer – dissipated",
-              "keywords": [
-                "blast",
-                "sustained hits d3"
-              ],
+              "keywords": ["blast", "sustained hits d3"],
               "range": "36\"",
               "attacks": "D6",
               "skill": "4+",
@@ -1461,10 +1428,7 @@ window.data.ADM = {
             },
             {
               "name": "Eradication beamer – focused",
-              "keywords": [
-                "blast",
-                "sustained hits d3"
-              ],
+              "keywords": ["blast", "sustained hits d3"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -1478,9 +1442,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy phosphor blaster",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1494,10 +1456,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Neutron laser",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "4+",
@@ -1511,10 +1470,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Icarus array",
-              "keywords": [
-                "anti-fly 4+",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 4+", "twin-linked"],
               "range": "48\"",
               "attacks": "6",
               "skill": "4+",
@@ -1528,10 +1484,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin Onager heavy phosphor blaster",
-              "keywords": [
-                "ignores cover",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "twin-linked"],
               "range": "36\"",
               "attacks": "4",
               "skill": "4+",
@@ -1565,9 +1518,7 @@ window.data.ADM = {
         "Skitarii",
         "Onager Dunecrawler"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "b745d158-f5fd-54c0-8564-e1a67b432621",
@@ -1579,18 +1530,22 @@ window.data.ADM = {
         "4-9 Pteraxii Skystalkers"
       ],
       "loadout": "The Pteraxii Skystalker Alpha model is equipped with: flechette blaster; taser goad. Every Pteraxii Skystalker model is equipped with: flechette carbine; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1624,9 +1579,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Flechette blaster",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "5",
               "skill": "4+",
@@ -1670,9 +1623,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Taser goad",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1692,9 +1643,7 @@ window.data.ADM = {
         "Skitarii",
         "Pteraxii Skystalkers"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "c2cae0ff-1d6d-54ad-8f3f-f2b1b18f5450",
@@ -1706,18 +1655,22 @@ window.data.ADM = {
         "4-9 Pteraxii Sterylizors"
       ],
       "loadout": "The Pteraxii Sterylizor Alpha model is equipped with: flechette blaster; Pteraxii talons; taser goad. Every Pteraxii Sterylizor model is equipped with: phosphor torch; Pteraxii talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1751,9 +1704,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Flechette blaster",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "5",
               "skill": "4+",
@@ -1767,10 +1718,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor torch",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1800,9 +1748,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Taser goad",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1821,24 +1767,29 @@ window.data.ADM = {
         "Skitarii",
         "Pteraxii Sterylizors"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "70269b85-1b31-543f-8c14-697547dafe48",
       "name": "Serberys Raiders",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Serberys Raider Alpha",
-        "2-5 Serberys Raiders"
-      ],
+      "composition": ["1 Serberys Raider Alpha", "2-5 Serberys Raiders"],
       "loadout": "The Serberys Raider Alpha model is equipped with: archeotech pistol; galvanic carbine; cavalry sabre and clawed limbs. Every Serberys Raider model is equipped with: galvanic carbine; cavalry sabre and clawed limbs.",
       "wargear": [
         "1 Serberys Raider can be equipped with 1 enhanced data-tether."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1846,12 +1797,8 @@ window.data.ADM = {
             "description": "Each time you select the bearer’s unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1885,10 +1832,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1902,9 +1846,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Galvanic carbine",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "3",
               "skill": "4+",
@@ -1931,15 +1873,8 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Imperium",
-        "Skitarii",
-        "Serberys Raiders"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Mounted", "Imperium", "Skitarii", "Serberys Raiders"],
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "766d924f-db7c-5ccf-866d-5ed47c6bdfbe",
@@ -1955,12 +1890,20 @@ window.data.ADM = {
         "For every 3 models in this unit, 1 Serberys Sulphurhound’s twin phosphor pistols can be replaced with 1 phosphor blast carbine and 1 phosphor pistol."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "65"
+        },
+        {
+          "models": "6",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1994,10 +1937,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor blast carbine",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -2011,10 +1951,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor blast pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol"
-              ],
+              "keywords": ["ignores cover", "pistol"],
               "range": "12\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2028,10 +1965,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol"
-              ],
+              "keywords": ["ignores cover", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2045,11 +1979,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Sulphur breath",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "9\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2063,11 +1993,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Twin phosphor pistols",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "pistol", "twin-linked"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -2108,35 +2034,34 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Imperium",
-        "Skitarii",
-        "Serberys Sulphurhounds"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Mounted", "Imperium", "Skitarii", "Serberys Sulphurhounds"],
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "98f32d4e-f2e4-5b8a-a274-bf31c4467a77",
       "name": "Servitors",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "4 Servitors"
-      ],
+      "composition": ["4 Servitors"],
       "loadout": "Every model is equipped with: Servitor’s servo-arm.",
       "wargear": [
         "Up to 2 models can each have their Servitor’s servo-arm replaced with one of the following: ◦ 1 heavy bolter and 1 Servitor’s tools ◦ 1 multi-melta and 1 Servitor’s tools ◦ 1 plasma cannon and 1 Servitor’s tools"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "50"
+        },
+        {
+          "models": "4",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2175,10 +2100,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "6+",
@@ -2192,10 +2114,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "6+",
@@ -2209,10 +2128,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "heavy",
-                "blast"
-              ],
+              "keywords": ["heavy", "blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "6+",
@@ -2222,11 +2138,7 @@ window.data.ADM = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "heavy",
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["heavy", "blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "6+",
@@ -2267,14 +2179,9 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Servitors"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Infantry", "Imperium", "Servitors"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": ["Tech-priest Enginseer"]
     },
     {
       "id": "3b98c029-9ae1-54d3-a3c4-f008382cca2b",
@@ -2290,15 +2197,20 @@ window.data.ADM = {
         "Any number of models can each have their stubcarbine and power weapon replaced with 1 flechette blaster and 1 taser goad."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2332,9 +2244,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Flechette blaster",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "5",
               "skill": "4+",
@@ -2348,9 +2258,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Stubcarbine",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "3",
               "skill": "4+",
@@ -2380,9 +2288,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Taser goad",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -2393,15 +2299,8 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Skitarii",
-        "Sicarian Infiltrators"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Infantry", "Imperium", "Skitarii", "Sicarian Infiltrators"],
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "ed740a5b-3573-596f-845e-81c03469e598",
@@ -2418,14 +2317,20 @@ window.data.ADM = {
         "The Sicarian Ruststalker Princeps’ transonic razor and chordclaw can be replaced with 1 transonic blades and chordclaw."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Stealth"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Stealth"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2460,10 +2365,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Transonic blades",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -2495,10 +2397,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Transonic razor and chordclaw",
-              "keywords": [
-                "anti-infantry 3+",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 3+", "precision"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -2509,29 +2408,24 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Skitarii",
-        "Sicarian Ruststalkers"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Infantry", "Imperium", "Skitarii", "Sicarian Ruststalkers"],
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "5a618444-fd19-5bba-b585-7d8618bdb84e",
       "name": "Skitarii Marshal",
       "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Skitarii Rangers ■ Skitarii Vanguard",
-      "composition": [
-        "1 Skitarii Marshal"
-      ],
+      "composition": ["1 Skitarii Marshal"],
       "loadout": "This model is equipped with: archeotech pistol; control stave.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2539,12 +2433,8 @@ window.data.ADM = {
             "description": "The bearer’s unit can still be selected as the target of a Stratagem while Battle-shocked."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Leader"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2582,10 +2472,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2612,26 +2499,15 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Imperium",
-        "Skitarii",
-        "Marshal"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Infantry", "Character", "Imperium", "Skitarii", "Marshal"],
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "dce7d828-db1b-5c95-9190-0fe0b05960bc",
       "name": "Skitarii Rangers",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Skitarii Ranger Alpha",
-        "9 Skitarii Rangers"
-      ],
+      "composition": ["1 Skitarii Ranger Alpha", "9 Skitarii Rangers"],
       "loadout": "Every model is equipped with: galvanic rifle; close combat weapon.",
       "wargear": [
         "The Skitarii Ranger Alpha can be equipped with 1 Alpha combat weapon.",
@@ -2642,6 +2518,12 @@ window.data.ADM = {
         "1 Skitarii Ranger equipped with a galvanic rifle can be equipped with one of the following: ◦ 1 enhanced data-tether* ◦ 1 omnispex* *  That model’s galvanic rifle cannot be replaced."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2653,12 +2535,8 @@ window.data.ADM = {
             "description": "Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability."
           }
         ],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2692,10 +2570,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2751,9 +2626,7 @@ window.data.ADM = {
             },
             {
               "name": "Plasma caliver – supercharge",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "30\"",
               "attacks": "2",
               "skill": "4+",
@@ -2767,10 +2640,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Transuranic arquebus",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -2811,15 +2681,14 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Imperium",
-        "Skitarii",
-        "Rangers"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
+      "keywords": ["Infantry", "Battleline", "Imperium", "Skitarii", "Rangers"],
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": [
+        "Skitarii Marshal",
+        "Tech-priest Dominus",
+        "Tech-priest Enginseer",
+        "Tech-priest Manipulus",
+        "Technoarcheologist"
       ]
     },
     {
@@ -2827,10 +2696,7 @@ window.data.ADM = {
       "name": "Skitarii Vanguard",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Skitarii Vanguard Alpha",
-        "9 Skitarii Vanguard"
-      ],
+      "composition": ["1 Skitarii Vanguard Alpha", "9 Skitarii Vanguard"],
       "loadout": "Every model is equipped with: radium carbine; close combat weapon.",
       "wargear": [
         "The Skitarii Vanguard Alpha can be equipped with 1 Alpha combat weapon.",
@@ -2841,6 +2707,12 @@ window.data.ADM = {
         "1 Skitarii Vanguard equipped with a radium carbine can be equipped with one of the following: ◦ 1 enhanced data-tether* ◦ 1 omnispex* *  That model’s radium carbine cannot be replaced."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2853,9 +2725,7 @@ window.data.ADM = {
           }
         ],
         "core": [],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2889,10 +2759,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2934,9 +2801,7 @@ window.data.ADM = {
             },
             {
               "name": "Plasma caliver – supercharge",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "30\"",
               "attacks": "2",
               "skill": "4+",
@@ -2950,9 +2815,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Radium carbine",
-              "keywords": [
-                "anti-infantry 4+"
-              ],
+              "keywords": ["anti-infantry 4+"],
               "range": "18\"",
               "attacks": "3",
               "skill": "4+",
@@ -2966,10 +2829,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Transuranic arquebus",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -3017,8 +2877,13 @@ window.data.ADM = {
         "Skitarii",
         "Vanguard"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
+      "factions": ["Adeptus Mechanicus"],
+      "ledBy": [
+        "Skitarii Marshal",
+        "Tech-priest Dominus",
+        "Tech-priest Enginseer",
+        "Tech-priest Manipulus",
+        "Technoarcheologist"
       ]
     },
     {
@@ -3026,22 +2891,22 @@ window.data.ADM = {
       "name": "Skorpius Disintegrator",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Skorpius Disintegrator"
-      ],
+      "composition": ["1 Skorpius Disintegrator"],
       "loadout": "This model is equipped with: belleros energy cannon; 3 cognis heavy stubbers; disruptor missile launcher; armoured hull.",
       "wargear": [
         "This model’s belleros energy cannon can be replaced with 1 ferrumite cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3079,10 +2944,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Belleros energy cannon",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "4+",
@@ -3096,10 +2958,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber",
-              "keywords": [
-                "rapid fire 3",
-                "sustained hits 1"
-              ],
+              "keywords": ["rapid fire 3", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3113,9 +2972,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Disruptor missile launcher",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -3156,37 +3013,28 @@ window.data.ADM = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Imperium",
-        "Skitarii",
-        "Skorpius Disintegrator"
-      ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "keywords": ["Vehicle", "Imperium", "Skitarii", "Skorpius Disintegrator"],
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "dc18d2fa-e4ee-5be2-97a7-c62d66da93aa",
       "name": "Skorpius Dunerider",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1 Skorpius Dunerider"
-      ],
+      "composition": ["1 Skorpius Dunerider"],
       "loadout": "This model is equipped with: cognis heavy stubber array; armoured hull.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 12 Adeptus Mechanicus Infantry models. It cannot transport Jump Pack or Kataphron models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3224,10 +3072,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Cognis heavy stubber array",
-              "keywords": [
-                "rapid fire 9",
-                "sustained hits 1"
-              ],
+              "keywords": ["rapid fire 9", "sustained hits 1"],
               "range": "36\"",
               "attacks": "9",
               "skill": "4+",
@@ -3262,33 +3107,38 @@ window.data.ADM = {
         "Skitarii",
         "Skorpius Dunerider"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "6a0662fc-5077-5df6-ae33-776050a450ba",
       "name": "Sydonian Dragoons",
       "faction_id": "AdM",
       "leader": "",
-      "composition": [
-        "1-3 Sydonian Dragoons"
-      ],
+      "composition": ["1-3 Sydonian Dragoons"],
       "loadout": "Every model is equipped with: taser lance.",
       "wargear": [
         "Any number of models can each have their taser lance replaced with 1 radium jezzail and 1 Ironstrider feet.",
         "Any number of models can each be equipped with 1 phosphor serpenta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        },
+        {
+          "models": "2",
+          "cost": "150"
+        },
+        {
+          "models": "3",
+          "cost": "225"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Stealth"
-        ],
-        "faction": [
-          "Doctrina Imperatives"
-        ],
+        "core": ["Deadly Demise 1", "Stealth"],
+        "faction": ["Doctrina Imperatives"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3326,9 +3176,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor serpenta",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -3342,11 +3190,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Radium jezzail",
-              "keywords": [
-                "anti-infantry 3+",
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 3+", "heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -3376,11 +3220,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Taser lance",
-              "keywords": [
-                "anti-walker 2+",
-                "lance",
-                "sustained hits 2"
-              ],
+              "keywords": ["anti-walker 2+", "lance", "sustained hits 2"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -3393,34 +3233,34 @@ window.data.ADM = {
       ],
       "keywords": [
         "Imperium",
-        "V  ehicle",
+        "Vehicle",
         "Walker",
         "Skitarii",
         "Sydonian Dragoons"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "4ee67673-d09b-59b6-ab04-659b15cc35a6",
       "name": "Tech-priest Dominus",
       "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Skitarii Rangers ■ Skitarii Vanguard",
-      "composition": [
-        "1 Tech-Priest Dominus"
-      ],
+      "composition": ["1 Tech-Priest Dominus"],
       "loadout": "This model is equipped with: macrostubber; volkite blaster; Omnissian axe.",
       "wargear": [
         "This model’s macrostubber can be replaced with 1 phosphor serpenta.",
         "This model’s volkite blaster can be replaced with 1 eradication ray."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3483,9 +3323,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Macrostubber",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "5",
               "skill": "3+",
@@ -3499,9 +3337,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Phosphor serpenta",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -3515,9 +3351,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Volkite blaster",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3551,28 +3385,26 @@ window.data.ADM = {
         "Tech-Priest",
         "Dominus"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "8d5f2317-c4d1-5591-8a54-7f153f91e212",
       "name": "Tech-priest Enginseer",
       "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Servitors ■ Skitarii Rangers ■ Skitarii Vanguard",
-      "composition": [
-        "1 Tech-Priest Enginseer"
-      ],
+      "composition": ["1 Tech-Priest Enginseer"],
       "loadout": "This model is equipped with: archeotech pistol; Omnissian axe; servo-arm.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3615,10 +3447,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3648,9 +3477,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Servo-arm",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "4+",
@@ -3668,28 +3495,28 @@ window.data.ADM = {
         "Tech-Priest",
         "Enginseer"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "7fc12fcd-9030-53ac-9a4c-bc5b861368f3",
       "name": "Tech-priest Manipulus",
       "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Skitarii Rangers ■ Skitarii Vanguard",
-      "composition": [
-        "1 Tech-Priest Manipulus"
-      ],
+      "composition": ["1 Tech-Priest Manipulus"],
       "loadout": "This model is equipped with: magnarail lance; Omnissian staff.",
       "wargear": [
         "This model’s magnarail lance can be replaced with 1 transonic cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3728,9 +3555,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Magnarail lance",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -3744,10 +3569,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Transonic cannon",
-              "keywords": [
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3781,28 +3603,26 @@ window.data.ADM = {
         "Tech-Priest",
         "Manipulus"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     },
     {
       "id": "0f22e6a2-5162-5a89-847d-54d8b9a931f1",
       "name": "Technoarcheologist",
       "faction_id": "AdM",
       "leader": "This model can be attached to the following units: ■ Corpuscarii Electro-Priests ■ Fulgurite Electro-Priests ■ Kataphron Breachers ■ Kataphron Destroyers ■ Skitarii Rangers ■ Skitarii Vanguard",
-      "composition": [
-        "1 Technoarcheologist"
-      ],
+      "composition": ["1 Technoarcheologist"],
       "loadout": "This model is equipped with: archeotech pistol; servo-arc claw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
+        "core": ["Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -3841,10 +3661,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Archeotech pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3860,10 +3677,7 @@ window.data.ADM = {
           "profiles": [
             {
               "name": "Servo-arc claw",
-              "keywords": [
-                "anti-vehicle 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-vehicle 4+", "devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -3881,9 +3695,11 @@ window.data.ADM = {
         "Tech-Priest",
         "Technoarcheologist"
       ],
-      "factions": [
-        "Adeptus Mechanicus"
-      ]
+      "factions": ["Adeptus Mechanicus"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#5d1615",
+    "header": "#9f2628"
+  }
 }

@@ -3,30 +3,64 @@ window.data.GSC = {
   "id": "GSC",
   "link": "https://game-datacards.eu",
   "name": "Genestealer Cults",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Prowling Agitant",
+      "description": "Genestealer Cults model only. Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of the bearer’s unit, if the bearer’s unit is not within Engagement Range of any enemy units, it can make a Normal move of up to D6\".",
+      "keywords": ["Genestealer Cults"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Inscrutable Cunning",
+      "description": "Genestealer Cults model only. While the bearer is leading a unit, models in that unit have the Infiltrators ability and each time you select that unit as the target of a Stratagem, roll one D6: on a 4+, you gain 1CP.",
+      "keywords": ["Genestealer Cults"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "Meticulous Planner",
+      "description": "Genestealer Cults model only. Once per battle, just after your opponent uses a Stratagem, if the bearer is on the battlefield, it can use this ability. If it does, until the end of the battle, the CP cost your opponent must pay to use that Stratagem again is increased by 1CP.",
+      "keywords": ["Genestealer Cults"],
+      "excludes": [],
+      "cost": "40"
+    },
+    {
+      "name": "Focus of Adoration",
+      "description": "Genestealer Cults model only. While the bearer is leading a unit, you can target that unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.",
+      "keywords": ["Genestealer Cults"],
+      "excludes": [],
+      "cost": "10"
+    }
+  ],
   "datasheets": [
     {
       "id": "f4c5f27a-5cb4-5868-a895-d8d6c1236708",
       "name": "Aberrants",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Aberrant Hypermorph",
-        "4-9 Aberrants"
-      ],
+      "composition": ["1 Aberrant Hypermorph", "4-9 Aberrants"],
       "loadout": "The Aberrant Hypermorph is equipped with: heavy power weapon; hypermorph tail. Every Aberrant is equipped with: heavy power weapon.",
       "wargear": [
         "The Aberrant Hypermorph’s heavy power weapon can be replaced with 1 heavy improvised weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "165"
+        },
+        {
+          "models": "10",
+          "cost": "330"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 4+"
-        ],
-        "faction": [
-          "Cult Ambush"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 4+"],
+        "faction": ["Cult Ambush"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -89,9 +123,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Hypermorph tail",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -102,35 +134,28 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Aberrants"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Aberrants"],
+      "factions": ["Genestealer Cults"],
+      "ledBy": ["Abominant", "Biophagus"]
     },
     {
       "id": "7513b7ed-5c02-570f-b1a3-974cd2526952",
       "name": "Abominant",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following unit: ■ Aberrants",
-      "composition": [
-        "1 Abominant"
-      ],
+      "composition": ["1 Abominant"],
       "loadout": "This model is equipped with: power sledgehammer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 4+",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 4+", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -181,30 +206,31 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Abominant"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Abominant"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "5d8d96bd-da91-5ee6-aad3-e9eea1a4c84e",
       "name": "Achilles Ridgerunners",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1-2 Achilles Ridgerunners"
-      ],
+      "composition": ["1-2 Achilles Ridgerunners"],
       "loadout": "Every model is equipped with: heavy mining laser; twin heavy stubbers; Ridgerunner wheels; flare launcher.",
       "wargear": [
         "Any number of models can each have their heavy mining laser replaced with one of the following: ◦ 1 achilles missile launcher ◦ 1 heavy mortar",
         "Any number of models can each have their flare launcher replaced with one of the following: ◦ 1 spotter ◦ 1 survey augur"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        },
+        {
+          "models": "2",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -220,10 +246,7 @@ window.data.GSC = {
             "description": "Each time the bearer’s unit has shot, select one enemy unit that was hit by one or more attacks made by the bearer this phase. Until the end of the phase, each time a friendly Genestealer Cults model makes an attack against that unit, that attack has the [IGNORES COVER] ability."
           }
         ],
-        "core": [
-          "Deadly Demise 1",
-          "Scouts 9\""
-        ],
+        "core": ["Deadly Demise 1", "Scouts 9\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -272,9 +295,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy mining laser",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -288,10 +309,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy mortar",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -305,10 +323,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Twin heavy stubber",
-              "keywords": [
-                "twin-linked",
-                "rapid fire 3"
-              ],
+              "keywords": ["twin-linked", "rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -335,24 +350,15 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Great Devourer",
-        "Achilles Ridgerunners"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Vehicle", "Great Devourer", "Achilles Ridgerunners"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "86ddd50f-f055-592b-807d-342f8b97960d",
       "name": "Acolyte Hybrids",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Acolyte Leader",
-        "4-9 Acolyte Hybrids"
-      ],
+      "composition": ["1 Acolyte Leader", "4-9 Acolyte Hybrids"],
       "loadout": "Every model is equipped with: autopistol; cult claws and knife.",
       "wargear": [
         "Any number of models can each have their autopistol replaced with 1 hand flamer.",
@@ -361,6 +367,16 @@ window.data.GSC = {
         "The Acolyte Leader’s cult claws and knife can be replaced with 1 Leader’s cult weapons."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -368,12 +384,8 @@ window.data.GSC = {
             "description": "In the Reinforcements step of your Movement phase, you can return up to D3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to 3 destroyed models to that unit instead. This ability cannot be used to return destroyed Character models in Attached units."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Cult Ambush"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Cult Ambush"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -407,9 +419,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -423,12 +433,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Demolition charges",
-              "keywords": [
-                "assault",
-                "blast",
-                "hazardous",
-                "one shot"
-              ],
+              "keywords": ["assault", "blast", "hazardous", "one shot"],
               "range": "6\"",
               "attacks": "D6+3",
               "skill": "5+",
@@ -442,11 +447,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -508,8 +509,15 @@ window.data.GSC = {
         "Great Devourer",
         "Acolyte Hybrids"
       ],
-      "factions": [
-        "Genestealer Cults"
+      "factions": ["Genestealer Cults"],
+      "ledBy": [
+        "Acolyte Iconward",
+        "Biophagus",
+        "Clamavus",
+        "Locus",
+        "Magus",
+        "Nexos",
+        "Primus"
       ]
     },
     {
@@ -517,20 +525,19 @@ window.data.GSC = {
       "name": "Acolyte Iconward",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids",
-      "composition": [
-        "1 Acolyte Iconward"
-      ],
+      "composition": ["1 Acolyte Iconward"],
       "loadout": "This model is equipped with: autopistol; cult claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -569,9 +576,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -605,9 +610,7 @@ window.data.GSC = {
         "Great Devourer",
         "Acolyte Iconward"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "8402f9e4-eda8-559e-96fb-6a64a44110a0",
@@ -625,14 +628,20 @@ window.data.GSC = {
         "Any number of Atalan Wolfquads can each have their heavy stubber replaced with one of the following: ◦ 1 Atalan incinerator ◦ 1 mining laser"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Cult Ambush"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Cult Ambush"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -679,10 +688,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Atalan incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -696,9 +702,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Atalan small arms",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -712,9 +716,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -738,9 +740,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -795,29 +795,25 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Great Devourer",
-        "Atalan Jackals"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Mounted", "Grenades", "Great Devourer", "Atalan Jackals"],
+      "factions": ["Genestealer Cults"],
+      "ledBy": ["Jackal Alphus"]
     },
     {
       "id": "cfdb4aa9-ff45-5a9e-8a4e-ea6f50128ad3",
       "name": "Biophagus",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Aberrants ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids You can attach this model to a Genestealer Cults Battleline unit, even if a Primus, Magus or Acolyte Iconward model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Biophagus"
-      ],
+      "composition": ["1 Biophagus"],
       "loadout": "This model is equipped with: autopistol; chemical vials; injector goad.",
-      "wargear": [
-        "This model can be equipped with 1 alchemicus familiar."
-      ],
+      "wargear": ["This model can be equipped with 1 alchemicus familiar."],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -825,10 +821,7 @@ window.data.GSC = {
             "description": "Once per battle, when the bearer’s unit is selected to fight, the bearer can use its alchemicus familiar. If it does, until the end of the phase, melee weapons equipped by models in that unit have the [ANTI-INFANTRY 2+] ability."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -867,9 +860,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -883,9 +874,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Chemical vials",
-              "keywords": [
-                "anti-infantry 2+"
-              ],
+              "keywords": ["anti-infantry 2+"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -901,9 +890,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Injector goad",
-              "keywords": [
-                "anti-infantry 2+"
-              ],
+              "keywords": ["anti-infantry 2+"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -914,35 +901,27 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Biophagus"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Biophagus"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "ea424452-a5a5-5a1c-a78d-54162f5267f4",
       "name": "Clamavus",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids You can attach this model to a Genestealer Cults Battleline unit, even if a Primus, Magus or Acolyte Iconward model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Clamavus"
-      ],
+      "composition": ["1 Clamavus"],
       "loadout": "This model is equipped with: autopistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -981,9 +960,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1010,35 +987,29 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Clamavus"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Clamavus"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "0e213523-9fb4-5f6f-9fa7-3c06a2d101a3",
       "name": "Goliath Rockgrinder",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Goliath Rockgrinder"
-      ],
+      "composition": ["1 Goliath Rockgrinder"],
       "loadout": "This model is equipped with: heavy mining laser; heavy stubber; drilldozer blade; demolition charge cache.",
       "wargear": [
         "This model’s heavy mining laser can be replaced with one of the following: ◦ 1 clearance incinerator ◦ 1 heavy seismic cannon"
       ],
       "transport": "This model has a transport capacity of 6 Genestealer Cults Infantry models. It cannot transport a Patriarch.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 6"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 6"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1073,10 +1044,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Clearance incinerator",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -1090,11 +1058,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Demolition charge cache",
-              "keywords": [
-                "assault",
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["assault", "blast", "hazardous"],
               "range": "6\"",
               "attacks": "D6+3",
               "skill": "5+",
@@ -1108,9 +1072,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy mining laser",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1124,9 +1086,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy seismic cannon",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "4",
               "skill": "4+",
@@ -1140,9 +1100,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1158,9 +1116,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Drilldozer blade",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -1177,29 +1133,26 @@ window.data.GSC = {
         "Great Devourer",
         "Goliath Rockgrinder"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "8ef21ea8-18fc-59ee-b096-146e535232fb",
       "name": "Goliath Truck",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Goliath Truck"
-      ],
+      "composition": ["1 Goliath Truck"],
       "loadout": "This model is equipped with: heavy stubber; twin autocannon; demolition charge cache; Goliath wheels.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 12 Genestealer Cults Infantry models. It cannot transport a Patriarch.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 12"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 12"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1234,11 +1187,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Demolition charge cache",
-              "keywords": [
-                "assault",
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["assault", "blast", "hazardous"],
               "range": "6\"",
               "attacks": "D6+3",
               "skill": "5+",
@@ -1252,9 +1201,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1268,9 +1215,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Twin autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "2",
               "skill": "4+",
@@ -1304,25 +1249,30 @@ window.data.GSC = {
         "Great Devourer",
         "Goliath Truck"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "5e67b9d9-f2fb-5659-b6b6-29c78ea6f7cb",
       "name": "Hybrid Metamorphs",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Metamorph Leader",
-        "4-9 Hybrid Metamorphs"
-      ],
+      "composition": ["1 Metamorph Leader", "4-9 Hybrid Metamorphs"],
       "loadout": "The Metamorph Leader is equipped with: autopistol; Leader’s cult weapons. Every Hybrid Metamorph is equipped with: autopistol; Metamorph mutations.",
       "wargear": [
         "Any number of models can each have their autopistol replaced with 1 hand flamer.",
         "One Hybrid Metamorph’s autopistol can be replaced with 1 cult icon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1330,13 +1280,8 @@ window.data.GSC = {
             "description": "In the Reinforcements step of your Movement phase, you can return up to D3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to 3 destroyed models to that unit instead. This ability cannot be used to return destroyed Character models in Attached units."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Cult Ambush"
-        ],
+        "core": ["Deep Strike", "Scouts 6\""],
+        "faction": ["Cult Ambush"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1370,9 +1315,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1386,11 +1329,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1447,8 +1386,15 @@ window.data.GSC = {
         "Great Devourer",
         "Hybrid Metamorphs"
       ],
-      "factions": [
-        "Genestealer Cults"
+      "factions": ["Genestealer Cults"],
+      "ledBy": [
+        "Acolyte Iconward",
+        "Biophagus",
+        "Clamavus",
+        "Locus",
+        "Magus",
+        "Nexos",
+        "Primus"
       ]
     },
     {
@@ -1456,20 +1402,19 @@ window.data.GSC = {
       "name": "Jackal Alphus",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following unit: ■ Atalan Jackals",
-      "composition": [
-        "1 Jackal Alphus"
-      ],
+      "composition": ["1 Jackal Alphus"],
       "loadout": "This model is equipped with: autopistol; cult sniper rifle; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Scouts 9\""
-        ],
+        "core": ["Leader", "Scouts 9\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1508,9 +1453,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1524,10 +1467,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Cult sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -1561,29 +1501,26 @@ window.data.GSC = {
         "Great Devourer",
         "Jackal Alphus"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "dfedd2b9-1c09-5540-b1eb-4db139e1a860",
       "name": "Kelermorph",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Kelermorph"
-      ],
+      "composition": ["1 Kelermorph"],
       "loadout": "This model is equipped with: liberator autostubs; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Lone Operative"
-        ],
+        "core": ["Deep Strike", "Lone Operative"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1654,36 +1591,27 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Kelermorph"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Kelermorph"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "83a5765a-556e-5072-9035-2f972f434876",
       "name": "Locus",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids You can attach this model to a Genestealer Cults Battleline unit, even if a Primus, Magus or Acolyte Iconward model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Locus"
-      ],
+      "composition": ["1 Locus"],
       "loadout": "This model is equipped with: Locus blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Fights First",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Fights First", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1734,35 +1662,27 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Locus"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Locus"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "ab65d861-6ce0-53d3-acc2-695be18ba436",
       "name": "Magus",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids",
-      "composition": [
-        "1 Magus"
-      ],
+      "composition": ["1 Magus"],
       "loadout": "This model is equipped with: autopistol; Magus stave.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1805,9 +1725,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1823,9 +1741,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Magus stave",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1843,19 +1759,14 @@ window.data.GSC = {
         "Great Devourer",
         "Magus"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "ec6bdc77-1eec-501e-be1a-1e4105102db9",
       "name": "Neophyte Hybrids",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Neophyte Leader",
-        "9-19 Neophyte Hybrids"
-      ],
+      "composition": ["1 Neophyte Leader", "9-19 Neophyte Hybrids"],
       "loadout": "Every model is equipped with: autopistol; Hybrid firearm; close combat weapon.",
       "wargear": [
         "One Neophyte Hybrid equipped with a Hybrid firearm can be equipped with 1 cult icon.",
@@ -1864,6 +1775,16 @@ window.data.GSC = {
         "The Neophyte Leader’s Hybrid firearm and close combat weapon can be replaced with 1 of the following:  ◦ 1 Leader pistol and 1 chainsword ◦ 1 Leader pistol and 1 power weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "80"
+        },
+        {
+          "models": "20",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1871,12 +1792,8 @@ window.data.GSC = {
             "description": "In the Reinforcements step of your Movement phase, you can return up to 3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to D3+3 destroyed models to that unit instead. This ability cannot be used to return destroyed Character models in Attached units."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Cult Ambush"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Cult Ambush"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1910,9 +1827,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1926,9 +1841,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Hybrid firearm",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -1942,9 +1855,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Leader pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1958,10 +1869,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1975,9 +1883,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2001,9 +1907,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -2017,9 +1921,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Mining laser",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "24\"",
               "attacks": "1",
               "skill": "5+",
@@ -2033,10 +1935,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Seismic cannon",
-              "keywords": [
-                "heavy",
-                "rapid fire 2"
-              ],
+              "keywords": ["heavy", "rapid fire 2"],
               "range": "24\"",
               "attacks": "4",
               "skill": "5+",
@@ -2050,10 +1949,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Webber",
-              "keywords": [
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2115,8 +2011,15 @@ window.data.GSC = {
         "Great Devourer",
         "Neophyte Hybrids"
       ],
-      "factions": [
-        "Genestealer Cults"
+      "factions": ["Genestealer Cults"],
+      "ledBy": [
+        "Acolyte Iconward",
+        "Biophagus",
+        "Clamavus",
+        "Locus",
+        "Magus",
+        "Nexos",
+        "Primus"
       ]
     },
     {
@@ -2124,20 +2027,19 @@ window.data.GSC = {
       "name": "Nexos",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids You can attach this model to a Genestealer Cults Battleline unit, even if a Primus, Magus or Acolyte Iconward model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Nexos"
-      ],
+      "composition": ["1 Nexos"],
       "loadout": "This model is equipped with: autopistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2176,9 +2078,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2205,36 +2105,27 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Nexos"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Nexos"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "c39cb3e9-b054-5588-ab06-e2b08ec6506e",
       "name": "Patriarch",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following unit: ■ Purestrain Genestealers",
-      "composition": [
-        "1 Patriarch – Epic Hero"
-      ],
+      "composition": ["1 Patriarch – Epic Hero"],
       "loadout": "This model is equipped with: Patriarch’s claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Infiltrators", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2283,10 +2174,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Patriarch’s claws",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -2305,29 +2193,26 @@ window.data.GSC = {
         "Epic Hero",
         "Patriarch"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "6bc7aa70-cfae-5340-ad63-c7e925499136",
       "name": "Primus",
       "faction_id": "GSC",
       "leader": "This model can be attached to the following units: ■ Acolyte Hybrids ■ Hybrid Metamorphs ■ Neophyte Hybrids",
-      "composition": [
-        "1 Primus"
-      ],
+      "composition": ["1 Primus"],
       "loadout": "This model is equipped with: scoped needle pistol; cult bonesword; toxin injector claw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
+        "core": ["Deep Strike", "Leader"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2366,11 +2251,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Scoped needle pistol",
-              "keywords": [
-                "anti-infantry 2+",
-                "ignores cover",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "ignores cover", "pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -2400,10 +2281,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Toxin injector claw",
-              "keywords": [
-                "anti-infantry 2+",
-                "extra attacks"
-              ],
+              "keywords": ["anti-infantry 2+", "extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -2414,38 +2292,32 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Primus"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Primus"],
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "a070396e-3f03-567d-984c-8f65dc57e5ea",
       "name": "Purestrain Genestealers",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "5-10 Purestrain Genestealers"
-      ],
+      "composition": ["5-10 Purestrain Genestealers"],
       "loadout": "Every model is equipped with: cult claws and talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators"
-        ],
-        "faction": [
-          "Cult Ambush"
-        ],
+        "core": ["Deep Strike", "Infiltrators"],
+        "faction": ["Cult Ambush"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2491,36 +2363,28 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Purestrain Genestealers"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Great Devourer", "Purestrain Genestealers"],
+      "factions": ["Genestealer Cults"],
+      "ledBy": ["Patriarch"]
     },
     {
       "id": "0ad632db-93d0-5fd1-82ad-37461921747e",
       "name": "Reductus Saboteur",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Reductus Saboteur"
-      ],
+      "composition": ["1 Reductus Saboteur"],
       "loadout": "This model is equipped with: autopistol; demolition charges; remote explosives; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators",
-          "Lone Operative",
-          "Stealth"
-        ],
+        "core": ["Deep Strike", "Infiltrators", "Lone Operative", "Stealth"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2559,9 +2423,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2575,11 +2437,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Demolition charges",
-              "keywords": [
-                "assault",
-                "blast",
-                "one shot"
-              ],
+              "keywords": ["assault", "blast", "one shot"],
               "range": "6\"",
               "attacks": "D6+3",
               "skill": "2+",
@@ -2593,10 +2451,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Remote explosives",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -2630,31 +2485,28 @@ window.data.GSC = {
         "Great Devourer",
         "Reductus Saboteur"
       ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "factions": ["Genestealer Cults"]
     },
     {
       "id": "68761649-a23b-59dd-94a5-0ccaa4d13d85",
       "name": "Sanctus",
       "faction_id": "GSC",
       "leader": "",
-      "composition": [
-        "1 Sanctus"
-      ],
+      "composition": ["1 Sanctus"],
       "loadout": "This model is equipped with: Sanctus bio-dagger.",
       "wargear": [
         "This model’s Sanctus bio-dagger can be replaced with 1 cult sniper rifle and 1 close combat weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators",
-          "Lone Operative",
-          "Stealth"
-        ],
+        "core": ["Deep Strike", "Infiltrators", "Lone Operative", "Stealth"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -2693,11 +2545,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Cult sniper rifle",
-              "keywords": [
-                "anti-psyker 2+",
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["anti-psyker 2+", "heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -2713,10 +2561,7 @@ window.data.GSC = {
           "profiles": [
             {
               "name": "Sanctus bio-dagger",
-              "keywords": [
-                "anti-infantry 3+",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 3+", "precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2741,15 +2586,12 @@ window.data.GSC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Great Devourer",
-        "Sanctus"
-      ],
-      "factions": [
-        "Genestealer Cults"
-      ]
+      "keywords": ["Infantry", "Character", "Great Devourer", "Sanctus"],
+      "factions": ["Genestealer Cults"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#291221",
+    "header": "#391625"
+  }
 }

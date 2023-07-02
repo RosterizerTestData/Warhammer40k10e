@@ -3,28 +3,62 @@ window.data.CHDA = {
   "id": "CHDA",
   "link": "https://game-datacards.eu",
   "name": "Dark Angels",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Shroud of Heroes",
+      "description": "Adeptus Astartes model only. The first time the bearer is destroyed, roll one D6 at the end of the phase. On a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining (if the bearer was Battle-shocked when it was destroyed, it is instead returned with its full wounds remaining).",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Stubborn Tenacity",
+      "description": "Adeptus Astartes model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if the bearer’s unit is below its Starting Strength, and add 1 to the Wound roll as well if the bearer’s unit is Battle-shocked.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Heavenfall Blade",
+      "description": "Adeptus Astartes model only. Add 1 to the Attacks, Strength, and Damage characteristics of the bearer’s melee weapons. While the bearer is Battle-shocked, add 2 to the Attacks, Strength, and Damage characteristics of the bearer’s melee weapons instead.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Pennant of Remembrance",
+      "description": "Bladeguard Ancient, Primaris Ancient, or Terminator Ancient model only. While the bearer is leading a unit, models in that unit have the Feel No Pain 6+ ability. While that unit is Battle-shocked, models in that unit have the Feel No Pain 4+ ability instead.",
+      "keywords": [
+        "Bladeguard Ancient",
+        "Primaris Ancient",
+        "Terminator Ancient model"
+      ],
+      "excludes": [],
+      "cost": "10"
+    }
+  ],
   "datasheets": [
     {
       "id": "73dea935-78f8-5af7-a400-04c431a64bd8",
       "name": "Asmodai",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Asmodai – Epic Hero"
-      ],
+      "composition": ["1 Asmodai – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Blades of Reason; crozius arcanum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -62,9 +96,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -80,11 +112,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Blades of Reason",
-              "keywords": [
-                "anti-character 2+",
-                "extra attacks",
-                "precision"
-              ],
+              "keywords": ["anti-character 2+", "extra attacks", "precision"],
               "range": "Melee",
               "attacks": "3",
               "skill": "2+",
@@ -118,24 +146,23 @@ window.data.CHDA = {
         "Chaplain",
         "Asmodai"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "dba448cc-ea5e-5fd9-bd91-c795467fd1d2",
       "name": "Azrael",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Hellblaster Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Azrael – Epic Hero"
-      ],
+      "composition": ["1 Azrael – Epic Hero"],
       "loadout": "This model is equipped with: Lion’s Wrath; the Sword of Secrets; the Lion Helm.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -143,12 +170,8 @@ window.data.CHDA = {
             "description": "Models in the bearer’s unit have a 4+ invulnerable save. In addition, once per battle, at any time, the bearer can summon a Watcher in the Dark. When it does, until the end of the phase, models in the bearer’s unit have the Feel No Pain 4+ ability against mortal wounds."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -205,10 +228,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "The Sword of Secrets ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "The Sword of Secrets",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -229,33 +250,27 @@ window.data.CHDA = {
         "Chapter Master",
         "Azrael"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "b0e28fbd-1d1d-5c84-acc7-ee729e62fe99",
       "name": "Belial",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Deathwing Command Squad ■ Deathwing Knights ■ Deathwing Squad ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad",
-      "composition": [
-        "1 Belial – Epic Hero"
-      ],
+      "composition": ["1 Belial – Epic Hero"],
       "loadout": "This model is equipped with: master-crafted storm bolter; the Sword of Silence.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -297,10 +312,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Master-crafted storm bolter",
-              "keywords": [
-                "precision",
-                "rapid fire 2"
-              ],
+              "keywords": ["precision", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -315,10 +327,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "The Sword of Silence ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "The Sword of Silence",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -338,10 +348,7 @@ window.data.CHDA = {
         "Captain",
         "Belial"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "0a16e1a6-afee-5421-8445-d0eccde8d7d2",
@@ -362,6 +369,16 @@ window.data.CHDA = {
         "This unit can be equipped with 1 Watcher in the Dark.* * The rules for a Watcher in the Dark can be found on the Deathwing Knights datasheet."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "215"
+        },
+        {
+          "models": "10",
+          "cost": "430"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -369,12 +386,8 @@ window.data.CHDA = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -397,9 +410,7 @@ window.data.CHDA = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -423,9 +434,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -439,9 +448,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -465,10 +472,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -482,9 +486,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -494,10 +496,7 @@ window.data.CHDA = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -511,9 +510,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -528,10 +525,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -544,10 +539,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Halberd of Caliban ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Halberd of Caliban",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -588,10 +581,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -604,10 +595,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -624,25 +613,28 @@ window.data.CHDA = {
         "Terminator",
         "Deathwing Command Squad"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"],
+      "ledBy": ["Belial", "Deathwing Strikemaster"]
     },
     {
       "id": "0a59cf75-fb0a-540f-9206-4ff05900b6a4",
       "name": "Deathwing Knights",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Knight Master",
-        "4-9 Deathwing Knights"
-      ],
+      "composition": ["1 Knight Master", "4-9 Deathwing Knights"],
       "loadout": "The Knight Master is equipped with: flail of the Unforgiven. Every Deathwing Knight is equipped with: mace of absolution.",
-      "wargear": [
-        "This unit can be equipped with 1 Watcher in the Dark."
-      ],
+      "wargear": ["This unit can be equipped with 1 Watcher in the Dark."],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "235"
+        },
+        {
+          "models": "10",
+          "cost": "470"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -650,12 +642,8 @@ window.data.CHDA = {
             "description": "Once per battle, at any time, this unit can summon a Watcher in the Dark. When it does, until the end of the phase, models in this unit have the Feel No Pain 4+ ability against mortal wounds."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -670,9 +658,7 @@ window.data.CHDA = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -697,10 +683,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Flail of the Unforgiven",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -725,30 +708,27 @@ window.data.CHDA = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Terminator",
-        "Deathwing Knights"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "keywords": ["Infantry", "Imperium", "Terminator", "Deathwing Knights"],
+      "factions": ["Adeptus Astartes", "Dark Angels"],
+      "ledBy": ["Belial"]
     },
     {
       "id": "07279e32-bea5-56f0-83d5-031c5a19458e",
       "name": "Deathwing Strikemaster",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Deathwing Command Squad ■ Deathwing Squad ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad You can attach this model to one of the above units even if one Captain model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Deathwing Strikemaster"
-      ],
+      "composition": ["1 Deathwing Strikemaster"],
       "loadout": "This model is equipped with: storm bolter; master-crafted power weapon.",
       "wargear": [
         "This model’s storm bolter and master-crafted power weapon can be replaced with either 1 twin lightning claws, or two different weapons from the following list: ◦ 1 storm bolter ◦ 1 chainfist ◦ 1 mace of absolution ◦ 1 power fist ◦ 1 thunder hammer ◦ 1 storm shield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -756,13 +736,8 @@ window.data.CHDA = {
             "description": "The bearer has a Wounds characteristic of 6."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -800,9 +775,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -817,10 +790,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -875,10 +846,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -891,10 +860,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -913,20 +880,14 @@ window.data.CHDA = {
         "Lieutenant",
         "Deathwing Strikemaster"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "76f2cda0-0d76-57a6-9b61-7db0598b1683",
       "name": "Deathwing Terminator Squad",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Deathwing Sergeant",
-        "4-9 Deathwing Terminators"
-      ],
+      "composition": ["1 Deathwing Sergeant", "4-9 Deathwing Terminators"],
       "loadout": "The Deathwing Sergeant is equipped with: storm bolter; power weapon. Every Deathwing Terminator is equipped with: storm bolter; power fist.",
       "wargear": [
         "Any number of Deathwing Terminators can each have their storm bolter and power fist replaced with one of the following: ◦ 1 twin lightning claws ◦ 1 thunder hammer and 1 storm shield",
@@ -935,6 +896,16 @@ window.data.CHDA = {
         "This unit can be equipped with 1 Watcher in the Dark.* * The rules for a Watcher in the Dark can be found on the Deathwing Knights datasheet."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "205"
+        },
+        {
+          "models": "10",
+          "cost": "410"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -942,12 +913,8 @@ window.data.CHDA = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -962,9 +929,7 @@ window.data.CHDA = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -988,9 +953,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -1004,9 +967,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -1030,10 +991,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1047,9 +1005,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1059,10 +1015,7 @@ window.data.CHDA = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1076,9 +1029,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1093,10 +1044,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1137,10 +1086,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1153,10 +1100,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1173,24 +1118,23 @@ window.data.CHDA = {
         "Terminator",
         "Deathwing Terminator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "72e9446e-116a-5ef1-9ecf-956c1ce11c9e",
       "name": "Ezekiel",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Ezekiel – Epic Hero"
-      ],
+      "composition": ["1 Ezekiel – Epic Hero"],
       "loadout": "This model is equipped with: the Deliverer; Mind Wipe; Traitor’s Bane; Book of Salvation.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1198,12 +1142,8 @@ window.data.CHDA = {
             "description": "While this model is leading a unit, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. When this model is destroyed, each friendly Adeptus Astartes unit within 6\" of this model must take a Battle-shock test."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1241,10 +1181,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "The Deliverer",
-              "keywords": [
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["pistol", "precision"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1258,11 +1195,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Mind Wipe – witchfire",
-              "keywords": [
-                "devastating wounds",
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "precision", "psychic"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1271,8 +1204,14 @@ window.data.CHDA = {
               "damage": "D6"
             },
             {
-              "name": "Mind Wipe – focused witchfire [ANTI-CHARACTER 4+,",
-              "keywords": [],
+              "name": "Mind Wipe – focused witchfire",
+              "keywords": [
+                "anti-character 4+",
+                "devastating wounds",
+                "hazardous",
+                "precision",
+                "psychic"
+              ],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1287,11 +1226,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Traitor’s Bane ",
-              "keywords": [
-                "anti-chaos 2+",
-                "psychic"
-              ],
+              "name": "Traitor’s Bane",
+              "keywords": ["anti-chaos 2+", "psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -1311,32 +1247,27 @@ window.data.CHDA = {
         "Imperium",
         "Ezekiel"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "7e3ea0b9-3d47-53aa-9bb5-757c44eb1ec1",
       "name": "Lazarus",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Lazarus – Epic Hero"
-      ],
+      "composition": ["1 Lazarus – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Enmity’s Edge.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1374,9 +1305,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1391,10 +1320,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Enmity’s Edge ",
-              "keywords": [
-                "anti-psyker 2+"
-              ],
+              "name": "Enmity’s Edge",
+              "keywords": ["anti-psyker 2+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1415,33 +1342,27 @@ window.data.CHDA = {
         "Captain",
         "Lazarus"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "1cecd901-d66e-5d61-a0eb-6540650e63f6",
       "name": "Lion El’jonson",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Lion El’Jonson – Epic Hero"
-      ],
+      "composition": ["1 Lion El’Jonson – Epic Hero"],
       "loadout": "This model is equipped with: Arma Luminis; Fealty.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "380"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Fights First"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Fights First"],
+        "faction": ["Oath of Moment"],
         "primarch": [
           {
             "name": "PRIMARCH OF THE FIRST LEGION",
@@ -1482,9 +1403,7 @@ window.data.CHDA = {
         "special": [
           {
             "name": "SUPREME COMMANDER",
-            "description": "If this model is in your army, it must be your Warlord.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If this model is in your army, it must be your Warlord."
           }
         ],
         "damaged": {
@@ -1508,9 +1427,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Arma Luminis – bolt",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "4",
               "skill": "2+",
@@ -1520,9 +1437,7 @@ window.data.CHDA = {
             },
             {
               "name": "Arma Luminis – plasma",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "2",
               "skill": "2+",
@@ -1537,10 +1452,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "Fealty – strike ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "Fealty – strike",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -1549,10 +1462,8 @@ window.data.CHDA = {
               "damage": "4"
             },
             {
-              "name": "Fealty – sweep ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Fealty – sweep",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "16",
               "skill": "2+",
@@ -1571,33 +1482,29 @@ window.data.CHDA = {
         "Primarch",
         "Lion El’Jonson"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "101d5e2e-9a10-59a2-830a-92c827f9f203",
       "name": "Nephilim Jetfighter",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Nephilim Jetfighter"
-      ],
+      "composition": ["1 Nephilim Jetfighter"],
       "loadout": "This model is equipped with: avenger mega bolter; blacksword missiles; twin heavy bolter; armoured hull.",
       "wargear": [
         "This model’s avenger mega bolter can be replaced with 1 Nephilim lascannons."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1631,9 +1538,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Avenger mega bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "10",
               "skill": "3+",
@@ -1647,9 +1552,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Blacksword missiles",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "36\"",
               "attacks": "2",
               "skill": "3+",
@@ -1677,10 +1580,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1714,31 +1614,33 @@ window.data.CHDA = {
         "Imperium",
         "Nephilim Jetfighter"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "18601d27-010d-50a9-84b8-e30b26dac1b7",
       "name": "Ravenwing Black Knights",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Ravenwing Huntmaster",
-        "2-5 Ravenwing Black Knights"
-      ],
+      "composition": ["1 Ravenwing Huntmaster", "2-5 Ravenwing Black Knights"],
       "loadout": "Every model is equipped with: bolt pistol; plasma talon; Black Knight combat weapon.",
       "wargear": [
         "For every 3 models in this unit, 1 model can replace its plasma talon with 1 Astartes grenade launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "115"
+        },
+        {
+          "models": "6",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1753,9 +1655,7 @@ window.data.CHDA = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to an Outrider Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to an Outrider Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -1779,9 +1679,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Astartes grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1805,9 +1703,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1821,9 +1717,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Plasma talon – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1833,10 +1727,7 @@ window.data.CHDA = {
             },
             {
               "name": "Plasma talon – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1869,10 +1760,8 @@ window.data.CHDA = {
         "Imperium",
         "Ravenwing Black Knights"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"],
+      "ledBy": ["Sammael"]
     },
     {
       "id": "65697143-7593-5759-a841-ef1aaddef7f6",
@@ -1890,12 +1779,20 @@ window.data.CHDA = {
         "For every 3 models in this unit, 1 model’s plasma talon can be replaced with 1 Astartes grenade launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "145"
+        },
+        {
+          "models": "6",
+          "cost": "290"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1918,9 +1815,7 @@ window.data.CHDA = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Outrider Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Outrider Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -1944,9 +1839,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Astartes grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1970,9 +1863,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1986,9 +1877,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Plasma talon – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1998,10 +1887,7 @@ window.data.CHDA = {
             },
             {
               "name": "Plasma talon – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2048,33 +1934,28 @@ window.data.CHDA = {
         "Imperium",
         "Ravenwing Command Squad"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"],
+      "ledBy": ["Sammael"]
     },
     {
       "id": "eab64694-a982-55df-80a6-73d5036f7d8f",
       "name": "Ravenwing Dark Talon",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Ravenwing Dark Talon"
-      ],
+      "composition": ["1 Ravenwing Dark Talon"],
       "loadout": "This model is equipped with: rift cannon; 2 hurricane bolters; armoured hull.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2108,10 +1989,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2125,10 +2003,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Rift cannon",
-              "keywords": [
-                "blast",
-                "devastating wounds"
-              ],
+              "keywords": ["blast", "devastating wounds"],
               "range": "18\"",
               "attacks": "D3+1",
               "skill": "3+",
@@ -2162,32 +2037,29 @@ window.data.CHDA = {
         "Imperium",
         "Ravenwing Dark Talon"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "a3a7cf44-57f6-55cd-aef8-6da96e65dd21",
       "name": "Ravenwing Darkshroud",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Ravenwing Darkshroud"
-      ],
+      "composition": ["1 Ravenwing Darkshroud"],
       "loadout": "This model is equipped with: heavy bolter; close combat weapon.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 assault cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2221,9 +2093,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2237,9 +2107,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2266,38 +2134,30 @@ window.data.CHDA = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Ravenwing Darkshroud"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Ravenwing Darkshroud"],
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "e063e96f-7443-55ea-94bd-4637d8526392",
       "name": "Ravenwing Land Speeder Vengeance",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Ravenwing Land Speeder Vengeance"
-      ],
+      "composition": ["1 Ravenwing Land Speeder Vengeance"],
       "loadout": "This model is equipped with: heavy bolter; plasma storm battery; close combat weapon.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 assault cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2331,9 +2191,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2347,9 +2205,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2363,10 +2219,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Plasma storm battery – standard",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -2376,11 +2229,7 @@ window.data.CHDA = {
             },
             {
               "name": "Plasma storm battery – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "hazardous", "twin-linked"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -2413,33 +2262,27 @@ window.data.CHDA = {
         "Imperium",
         "Ravenwing Land Speeder Vengeance"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "d425ac5f-4616-5714-b360-94abfe35e9f6",
       "name": "Ravenwing Talonmaster",
       "faction_id": "CHDA",
       "leader": "",
-      "composition": [
-        "1 Ravenwing Talonmaster"
-      ],
+      "composition": ["1 Ravenwing Talonmaster"],
       "loadout": "This model is equipped with: twin assault cannon; twin heavy bolter; power weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2481,10 +2324,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -2498,10 +2338,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2535,32 +2372,27 @@ window.data.CHDA = {
         "Imperium",
         "Ravenwing Talonmaster"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     },
     {
       "id": "171df937-ae5f-5b45-8d8d-2685fe36fcc2",
       "name": "Sammael",
       "faction_id": "CHDA",
       "leader": "This model can be attached to the following units: ■ Bike Squad ■ Outrider Squad ■ Ravenwing Black Knights ■ Ravenwing Command Squad",
-      "composition": [
-        "1 Sammael – Epic Hero"
-      ],
+      "composition": ["1 Sammael – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted plasma cannon; twin storm bolter; the Raven Sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2598,9 +2430,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2614,9 +2444,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Master-crafted plasma cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "2+",
@@ -2630,10 +2458,7 @@ window.data.CHDA = {
           "profiles": [
             {
               "name": "Twin storm bolter",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -2648,10 +2473,8 @@ window.data.CHDA = {
         {
           "profiles": [
             {
-              "name": "The Raven Sword ",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "name": "The Raven Sword",
+              "keywords": ["sustained hits 2"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2672,10 +2495,11 @@ window.data.CHDA = {
         "Captain",
         "Sammael"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Dark Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Dark Angels"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#16291a",
+    "header": "#013a17"
+  }
 }

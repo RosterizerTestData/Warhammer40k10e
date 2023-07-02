@@ -196,11 +196,13 @@ Object.keys(window.data).forEach(key => {
           keywords: {Keywords: ['Special']}
         }
       });
-      datasheet.abilities.wargear.forEach(ability => {
-        manifest.manifest.assetCatalog['Wargear§'+titleCase(ability.name)] = {
-          text: formatText(ability.description)
-        }
-      });
+      if(Array.isArray(datasheet.abilities.wargear)){
+        datasheet.abilities.wargear.forEach(ability => {
+          manifest.manifest.assetCatalog['Wargear§'+titleCase(ability.name)] = {
+            text: formatText(ability.description)
+          }
+        });
+      }
       // assign traits to units
       unit.assets = {}
       unit.assets.traits = [
@@ -238,8 +240,10 @@ Object.keys(window.data).forEach(key => {
         ...(datasheet.abilities.faction.map(ability => 'Ability§'+titleCase(ability)) || []),
         ...(datasheet.abilities.other.map(ability => 'Ability§'+titleCase(ability.name)) || []),
         ...(datasheet.abilities.special.map(ability => 'Ability§'+titleCase(ability.name)) || []),
-        ...(datasheet.abilities.wargear.map(ability => 'Wargear§'+titleCase(ability.name)) || []),
-      ]
+      ];
+      if(Array.isArray(datasheet.abilities.wargear)){
+        unit.assets.traits.push(...(datasheet.abilities.wargear.map(ability => 'Wargear§'+titleCase(ability.name)) || []));
+      }
       delete a[i].abilities.core;
       delete a[i].abilities.faction;
       delete a[i].abilities.primarch;

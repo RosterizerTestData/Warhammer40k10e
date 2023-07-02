@@ -3,28 +3,60 @@ window.data.NEC = {
   "id": "NEC",
   "link": "https://game-datacards.eu",
   "name": "Necrons",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "VEIL OF DARKNESS",
+      "description": "Necrons model only. Once per battle, at the end of your opponent’s turn, if the bearer’s unit is not within Engagement Range of any enemy units, the bearer can use this Enhancement. If it does, remove that unit from the battlefield. Then, in the Reinforcements step of your next Movement phase, set up that unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.",
+      "keywords": ["Necrons"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "HYPERMATERIAL ABLATOR",
+      "description": "Necrons model only. While the bearer is leading a unit, models in that unit have the Stealth ability. In addition, each time a ranged attack targets the bearer’s unit, if the attacker is not within 12\", models in that unit have the Benefit of Cover.",
+      "keywords": ["Necrons"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "THE SOVEREIGN CORONAL (AURA)",
+      "description": "Necrons model only. While a friendly Necrons unit is within 6\" of the bearer, that unit counts as being led by a Necrons Character model.\n\nDesigner’s Note: This means that units within range of this Aura ability will benefit from the Command Protocols ability and will count as containing a Character for the purposes of any Awakened Dynasty Stratagems.",
+      "keywords": ["Necrons"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "SEMPITERNAL WEAVE",
+      "description": "Necrons model only. The bearer has the Feel No Pain 4+ ability.",
+      "keywords": ["Necrons"],
+      "excludes": [],
+      "cost": "10"
+    }
+  ],
   "datasheets": [
     {
       "id": "a80a9cb1-793f-59b4-b0e6-ec18824c6acc",
       "name": "Annihilation Barge",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Annihilation Barge"
-      ],
+      "composition": ["1 Annihilation Barge"],
       "loadout": "This model is equipped with: gauss cannon; twin tesla destructor; armoured bulk.",
       "wargear": [
         "This model’s gauss cannon can be replaced with 1 tesla cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -58,9 +90,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss cannon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -74,9 +104,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tesla cannon",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -90,10 +118,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin tesla destructor",
-              "keywords": [
-                "sustained hits 2",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 2", "twin-linked"],
               "range": "36\"",
               "attacks": "6",
               "skill": "3+",
@@ -120,36 +145,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Annihilation Barge"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Fly", "Annihilation Barge"],
+      "factions": ["Necrons"]
     },
     {
       "id": "88736a30-2818-553f-a25f-658aeef45a53",
       "name": "Anrakyr The Traveller",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following unit: ■ Immortals",
-      "composition": [
-        "1 Anrakyr the Traveller – Epic Hero"
-      ],
+      "composition": ["1 Anrakyr the Traveller – Epic Hero"],
       "loadout": "This model is equipped with: tachyon arrow; warscythe.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -187,9 +204,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tachyon arrow",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "72\"",
               "attacks": "1",
               "skill": "2+",
@@ -205,9 +220,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Warscythe",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -225,32 +238,27 @@ window.data.NEC = {
         "Noble",
         "Anrakyr the Traveller"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "3aa4c97e-e10e-5022-9b5e-1c03ab55e9be",
       "name": "C’tan Shard Of The Deceiver",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 C’tan Shard of the Deceiver – Epic Hero"
-      ],
+      "composition": ["1 C’tan Shard of the Deceiver – Epic Hero"],
       "loadout": "This model is equipped with: cosmic insanity; golden fists.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "265"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Stealth"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6", "Stealth"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -331,31 +339,27 @@ window.data.NEC = {
         "Fly",
         "C’tan Shard of the Deceiver"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "380b6d75-fffb-5746-9eee-42d7d9dbdabc",
       "name": "C’tan Shard Of The Nightbringer",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 C’tan Shard of the Nightbringer – Epic Hero"
-      ],
+      "composition": ["1 C’tan Shard of the Nightbringer – Epic Hero"],
       "loadout": "This model is equipped with: gaze of death; Scythe of the Nightbringer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -394,9 +398,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gaze of death",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "2+",
@@ -412,9 +414,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Scythe of the Nightbringer – strike",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -442,31 +442,27 @@ window.data.NEC = {
         "Fly",
         "C’tan Shard of the Nightbringer"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "248c90ab-ba41-548a-b6c5-b908d9a067c5",
       "name": "C’tan Shard Of The Void Dragon",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 C’tan Shard of the Void Dragon – Epic Hero"
-      ],
+      "composition": ["1 C’tan Shard of the Void Dragon – Epic Hero"],
       "loadout": "This model is equipped with: Spear of the Void Dragon; voltaic storm; Canoptek tail blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -509,9 +505,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Spear of the Void Dragon",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -525,10 +519,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Voltaic storm",
-              "keywords": [
-                "blast",
-                "sustained hits 2"
-              ],
+              "keywords": ["blast", "sustained hits 2"],
               "range": "18\"",
               "attacks": "D6+3",
               "skill": "2+",
@@ -544,9 +535,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Spear of the Void Dragon – strike",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -570,9 +559,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Canoptek tail blades",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -590,31 +577,113 @@ window.data.NEC = {
         "Epic Hero",
         "C’tan Shard of the Void Dragon"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
+    },
+    {
+      "id": "0c18a5f3-364d-515a-b900-0674d9cbf1e7",
+      "name": "Canoptek Acanthrites",
+      "faction_id": "NEC",
+      "leader": "",
+      "composition": ["3-6 Canoptek Acanthrites"],
+      "loadout": "Every model is equipped with: cutting beam; voidblade.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "85"
+        },
+        {
+          "models": "6",
+          "cost": "170"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Infiltrators"],
+        "faction": ["Reanimation Protocols"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Damaged Armour",
+            "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly Necrons model makes an attack that targets that unit, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "5",
+          "sv": "3+",
+          "w": "2",
+          "ld": "8+",
+          "oc": "2",
+          "name": "Canoptek Acanthrites"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Cutting beam",
+              "keywords": ["melta 2"],
+              "range": "12\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "9",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Voidblade",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Beasts", "Fly", "Canoptek", "Acanthrites"],
+      "factions": ["Necrons"]
     },
     {
       "id": "7dfc54da-b57e-55f9-a991-8de1ccf802a0",
       "name": "Canoptek Doomstalker",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Canoptek Doomstalker"
-      ],
+      "composition": ["1 Canoptek Doomstalker"],
       "loadout": "This model is equipped with: doomsday blaster; twin gauss flayer; Doomstalker limbs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -648,10 +717,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Doomsday blaster",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6+1",
               "skill": "4+",
@@ -665,11 +731,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin gauss flayer",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 1",
-                "twin-linked"
-              ],
+              "keywords": ["lethal hits", "rapid fire 1", "twin-linked"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -696,37 +758,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Canoptek",
-        "Doomstalker"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Walker", "Canoptek", "Doomstalker"],
+      "factions": ["Necrons"]
     },
     {
       "id": "7b8c53c9-c127-5ada-9eab-20ef9850f9f8",
       "name": "Canoptek Reanimator",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Canoptek Reanimator"
-      ],
+      "composition": ["1 Canoptek Reanimator"],
       "loadout": "This model is equipped with: 2 atomiser beams; Reanimator’s claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 4+"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Feel No Pain 4+"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -787,37 +840,32 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Canoptek",
-        "Reanimator"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Walker", "Canoptek", "Reanimator"],
+      "factions": ["Necrons"]
     },
     {
       "id": "44f4d714-cd8c-5925-a5aa-e201ca586e96",
       "name": "Canoptek Scarab Swarms",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "3-6 Canoptek Scarab Swarms"
-      ],
+      "composition": ["3-6 Canoptek Scarab Swarms"],
       "loadout": "Every model is equipped with: feeder mandibles.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "40"
+        },
+        {
+          "models": "6",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -856,9 +904,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Feeder mandibles",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "5+",
@@ -869,24 +915,15 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Swarm",
-        "Fly",
-        "Canoptek",
-        "Scarab Swarms"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Swarm", "Fly", "Canoptek", "Scarab Swarms"],
+      "factions": ["Necrons"]
     },
     {
       "id": "6dae1d03-f361-5929-8ef7-1c39901387f8",
       "name": "Canoptek Spyders",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1-2 Canoptek Spyders"
-      ],
+      "composition": ["1-2 Canoptek Spyders"],
       "loadout": "Every model is equipped with: automaton claws.",
       "wargear": [
         "Any number of models can each be equipped with 2 particle beamers.",
@@ -894,6 +931,16 @@ window.data.NEC = {
         "Any number of models can each be equipped with 1 gloom prism."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        },
+        {
+          "models": "2",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -905,12 +952,8 @@ window.data.NEC = {
             "description": "While a friendly Necrons unit is within 6\" of the bearer, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks."
           }
         ],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -944,10 +987,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Particle beamer",
-              "keywords": [
-                "blast",
-                "devastating wounds"
-              ],
+              "keywords": ["blast", "devastating wounds"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -974,36 +1014,209 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Canoptek",
-        "Spyders"
+      "keywords": ["Vehicle", "Fly", "Canoptek", "Spyders"],
+      "factions": ["Necrons"]
+    },
+    {
+      "id": "f7f79059-f88a-5fcc-bdb4-503e4332b6c9",
+      "name": "Canoptek Tomb Sentinel",
+      "faction_id": "NEC",
+      "leader": "",
+      "composition": ["1 Canoptek Tomb Sentinel"],
+      "loadout": "This model is equipped with: exile cannon; Tomb Sentinel claws; gloom prism.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "abilities": {
+        "wargear": [
+          {
+            "name": "Gloom Prism (Aura)",
+            "description": "While a friendly Necrons unit is within 6\" of the bearer, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks."
+          }
+        ],
+        "core": ["Deep Strike"],
+        "faction": ["Reanimation Protocols"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Aggressor Guardian",
+            "description": "Each time an attack targets this model, if this model is within range of an objective marker, worsen the Armour Penetration characteristic of that attack by 1. In addition, each time this model makes an attack that targets a unit within range of an objective marker, improve the Armour Penetration characteristic of that attack by 1."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "9",
+          "ld": "8+",
+          "oc": "3",
+          "name": "Canoptek Tomb Sentinel"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Exile cannon",
+              "keywords": ["blast"],
+              "range": "18\"",
+              "attacks": "D6+1",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Tomb Sentinel claws",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Monster", "Canoptek", "Tomb Sentinel"],
+      "factions": ["Necrons"]
+    },
+    {
+      "id": "4b3e4c5d-9a26-55a6-984c-4a9b21df6a7a",
+      "name": "Canoptek Tomb Stalker",
+      "faction_id": "NEC",
+      "leader": "",
+      "composition": ["1 Canoptek Tomb Stalker"],
+      "loadout": "This model is equipped with: gauss slicers; Tomb Stalker claws; gloom prism.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
+      "abilities": {
+        "wargear": [
+          {
+            "name": "Gloom Prism (Aura)",
+            "description": "While a friendly Necrons unit is within 6\" of the bearer, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks."
+          }
+        ],
+        "core": ["Deep Strike"],
+        "faction": ["Reanimation Protocols"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Snaking Ambush",
+            "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "9",
+          "ld": "8+",
+          "oc": "3",
+          "name": "Canoptek Tomb Stalker"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Gauss slicers",
+              "keywords": ["lethal hits"],
+              "range": "24\"",
+              "attacks": "8",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Tomb Stalker claws",
+              "keywords": ["sustained hits 1"],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Monster", "Canoptek", "Tomb Stalker"],
+      "factions": ["Necrons"]
     },
     {
       "id": "4793e7d8-15bd-5e65-81a8-9ab86598479f",
       "name": "Canoptek Wraiths",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "3-6 Canoptek Wraiths"
-      ],
+      "composition": ["3-6 Canoptek Wraiths"],
       "loadout": "Every model is equipped with: vicious claws.",
       "wargear": [
         "Any number of models can each be equipped with one of the following: ◦ 1 particle caster ◦ 1 transdimensional beamer",
         "Any number of models can each have their vicious claws replaced with whip coils."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "110"
+        },
+        {
+          "models": "6",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1037,10 +1250,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Particle caster",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -1095,24 +1305,15 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Beasts",
-        "Fly",
-        "Canoptek",
-        "Wraiths"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Beasts", "Fly", "Canoptek", "Wraiths"],
+      "factions": ["Necrons"]
     },
     {
       "id": "8cbe6f65-d230-53c3-b557-1515956cdf40",
       "name": "Catacomb Command Barge",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Catacomb Command Barge"
-      ],
+      "composition": ["1 Catacomb Command Barge"],
       "loadout": "This model is equipped with: gauss cannon; staff of light.",
       "wargear": [
         "This model’s gauss cannon can be replaced with 1 tesla cannon.",
@@ -1120,6 +1321,12 @@ window.data.NEC = {
         "This model can be equipped with 1 resurrection orb."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1127,12 +1334,8 @@ window.data.NEC = {
             "description": "At the end of your opponent’s Command phase, select one friendly Necrons Infantry or Necrons Mounted unit within 6\" of this model; that unit’s Reanimation Protocols activate."
           }
         ],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1170,9 +1373,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss cannon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -1200,9 +1401,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tesla cannon",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -1218,9 +1417,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Overlord’s blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -1245,37 +1442,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Character",
-        "Fly",
-        "Catacomb Command Barge"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Character", "Fly", "Catacomb Command Barge"],
+      "factions": ["Necrons"]
     },
     {
       "id": "faa0ece4-e8aa-531f-a556-193d430a23de",
       "name": "Chronomancer",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Lychguard ■ Immortals ■ Necron Warriors You can attach this model to one of the above units even if one Royal Warden or Noble model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Chronomancer"
-      ],
+      "composition": ["1 Chronomancer"],
       "loadout": "This model is equipped with: aeonstave.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1313,9 +1501,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Aeonstave",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -1342,35 +1528,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Cryptek",
-        "Chronomancer"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Cryptek", "Chronomancer"],
+      "factions": ["Necrons"]
     },
     {
       "id": "1ec67138-9438-5b99-bf7b-cc59c9d1d16c",
       "name": "Convergence Of Dominion",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "3 Convergence of Dominion Starsteles"
-      ],
+      "composition": ["3 Convergence of Dominion Starsteles"],
       "loadout": "Every model is equipped with: transdimensional abductor.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1429,36 +1608,28 @@ window.data.NEC = {
         }
       ],
       "meleeWeapons": [],
-      "keywords": [
-        "Fortification",
-        "Vehicle",
-        "Convergence of Dominion"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Fortification", "Vehicle", "Convergence of Dominion"],
+      "factions": ["Necrons"]
     },
     {
       "id": "2b6c7723-5a54-52f7-ba27-4b47ad968ea1",
       "name": "Cryptothralls",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "2 Cryptothralls"
-      ],
+      "composition": ["2 Cryptothralls"],
       "loadout": "Every model is equipped with: scouring eye; scythed limbs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 4+"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Feel No Pain 4+"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1528,35 +1699,32 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Cryptothralls"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Cryptothralls"],
+      "factions": ["Necrons"]
     },
     {
       "id": "3dbc5d26-50ae-5ed4-a9e6-974cf2e353ec",
       "name": "Deathmarks",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "5-10 Deathmarks"
-      ],
+      "composition": ["5-10 Deathmarks"],
       "loadout": "Every model is equipped with: synaptic disintegrator; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "65"
+        },
+        {
+          "models": "10",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1590,10 +1758,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Synaptic disintegrator",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -1620,35 +1785,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Deathmarks"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Deathmarks"],
+      "factions": ["Necrons"]
     },
     {
       "id": "e6efa570-5edd-5de2-9018-ec0d0673bd44",
       "name": "Doom Scythe",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Doom Scythe"
-      ],
+      "composition": ["1 Doom Scythe"],
       "loadout": "This model is equipped with: heavy death ray; twin tesla destructor; armoured bulk.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "225"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1686,9 +1844,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Heavy death ray",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1702,10 +1858,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin tesla destructor",
-              "keywords": [
-                "sustained hits 2",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 2", "twin-linked"],
               "range": "36\"",
               "attacks": "6",
               "skill": "3+",
@@ -1732,37 +1885,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Aircraft",
-        "Fly",
-        "Doom Scythe"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Aircraft", "Fly", "Doom Scythe"],
+      "factions": ["Necrons"]
     },
     {
       "id": "ef8f605c-4b7d-575e-a1e6-c70fe7f573f7",
       "name": "Doomsday Ark",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Doomsday Ark"
-      ],
+      "composition": ["1 Doomsday Ark"],
       "loadout": "This model is equipped with: doomsday cannon; 2 gauss flayer arrays; armoured bulk.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "185"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1796,10 +1940,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Doomsday cannon",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "72\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -1813,10 +1954,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss flayer array",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 5"
-              ],
+              "keywords": ["lethal hits", "rapid fire 5"],
               "range": "24\"",
               "attacks": "5",
               "skill": "3+",
@@ -1843,37 +1981,32 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Doomsday Ark"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Fly", "Doomsday Ark"],
+      "factions": ["Necrons"]
     },
     {
       "id": "5d274edb-3e83-5f71-91f9-b5e3e9e135b7",
       "name": "Flayed Ones",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "5-10 Flayed Ones"
-      ],
+      "composition": ["5-10 Flayed Ones"],
       "loadout": "Every model is equipped with: flayer claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1908,10 +2041,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Flayer claws",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -1922,35 +2052,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Flayed Ones"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Flayed Ones"],
+      "factions": ["Necrons"]
     },
     {
       "id": "a8d89da6-daf1-5add-9281-46d513b11f4f",
       "name": "Ghost Ark",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Ghost Ark"
-      ],
+      "composition": ["1 Ghost Ark"],
       "loadout": "This model is equipped with: 2 gauss flayer arrays; armoured bulk.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 10 Necron Warrior models and 1 Necrons Infantry Character model.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1984,10 +2107,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss flayer array",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 5"
-              ],
+              "keywords": ["lethal hits", "rapid fire 5"],
               "range": "24\"",
               "attacks": "5",
               "skill": "3+",
@@ -2021,32 +2141,27 @@ window.data.NEC = {
         "Dedicated Transport",
         "Ghost Ark"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "7f1eb736-4929-509a-aac5-5aae1241b66e",
       "name": "Hexmark Destroyer",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Hexmark Destroyer"
-      ],
+      "composition": ["1 Hexmark Destroyer"],
       "loadout": "Every model is equipped with: enmitic disintegrator pistols; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Lone Operative"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deep Strike", "Lone Operative"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2084,10 +2199,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Enmitic disintegrator pistols",
-              "keywords": [
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["pistol", "precision"],
               "range": "18\"",
               "attacks": "6",
               "skill": "2+",
@@ -2114,36 +2226,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Hexmark Destroyer"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Hexmark Destroyer"],
+      "factions": ["Necrons"]
     },
     {
       "id": "9127c007-d192-57d9-905b-7f517f825569",
       "name": "Illuminor Szeras",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Illuminor Szeras – Epic Hero"
-      ],
+      "composition": ["1 Illuminor Szeras – Epic Hero"],
       "loadout": "This model is equipped with: eldritch lance; impaling legs.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 4+"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Feel No Pain 4+"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2215,9 +2319,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Impaling legs",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2235,29 +2337,33 @@ window.data.NEC = {
         "Cryptek",
         "Illuminor Szeras"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "4b64f825-bb29-57d8-8fce-58444942ba38",
       "name": "Immortals",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "5-10 Immortals"
-      ],
+      "composition": ["5-10 Immortals"],
       "loadout": "Every model is equipped with: gauss blaster; close combat weapon.",
       "wargear": [
         "All models in this unit can each have their gauss blaster replaced with 1 tesla carbine."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2291,9 +2397,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss blaster",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2307,10 +2411,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tesla carbine",
-              "keywords": [
-                "assault",
-                "sustained hits 2"
-              ],
+              "keywords": ["assault", "sustained hits 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2337,13 +2438,22 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Immortals"
-      ],
-      "factions": [
-        "Necrons"
+      "keywords": ["Infantry", "Battleline", "Immortals"],
+      "factions": ["Necrons"],
+      "ledBy": [
+        "Anrakyr The Traveller",
+        "Chronomancer",
+        "Imotekh The Stormlord",
+        "Lord",
+        "Nemesor Zahndrekh",
+        "Orikan The Diviner",
+        "Overlord",
+        "Plasmancer",
+        "Psychomancer",
+        "Royal Warden",
+        "Technomancer",
+        "Trazyn The Infinite",
+        "Vargard Obyron"
       ]
     },
     {
@@ -2351,22 +2461,20 @@ window.data.NEC = {
       "name": "Imotekh The Stormlord",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors",
-      "composition": [
-        "1 Imotekh the Stormlord – Epic Hero"
-      ],
+      "composition": ["1 Imotekh the Stormlord – Epic Hero"],
       "loadout": "This model is equipped with: Gauntlet of Fire; Staff of the Destroyer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2404,10 +2512,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauntlet of Fire",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2437,9 +2542,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Staff of the Destroyer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -2457,29 +2560,39 @@ window.data.NEC = {
         "Noble",
         "Imotekh the Stormlord"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "2bbffcec-ad3b-5277-802d-1c9e486a0666",
       "name": "Lokhust Destroyers",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1-6 Lokhust Destroyers"
-      ],
+      "composition": ["1-6 Lokhust Destroyers"],
       "loadout": "Every model is equipped with: gauss cannon; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "30"
+        },
+        {
+          "models": "2",
+          "cost": "60"
+        },
+        {
+          "models": "3",
+          "cost": "90"
+        },
+        {
+          "models": "6",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2513,9 +2626,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss cannon",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -2542,34 +2653,39 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Lokhust Destroyers"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Mounted", "Fly", "Lokhust Destroyers"],
+      "factions": ["Necrons"],
+      "ledBy": ["Lokhust Lord"]
     },
     {
       "id": "deb1c9d5-feb2-56fe-b925-b3fc37add660",
       "name": "Lokhust Heavy Destroyers",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1-3 Lokhust Heavy Destroyers"
-      ],
+      "composition": ["1-3 Lokhust Heavy Destroyers"],
       "loadout": "Every model is equipped with: gauss destructor; close combat weapon.",
       "wargear": [
         "Any number of models can each have their gauss destructor replaced with 1 enmitic exterminator."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        },
+        {
+          "models": "2",
+          "cost": "90"
+        },
+        {
+          "models": "3",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2603,11 +2719,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Enmitic exterminator",
-              "keywords": [
-                "heavy",
-                "rapid fire 6",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "rapid fire 6", "sustained hits 1"],
               "range": "36\"",
               "attacks": "6",
               "skill": "3+",
@@ -2621,10 +2733,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss destructor",
-              "keywords": [
-                "heavy",
-                "lethal hits"
-              ],
+              "keywords": ["heavy", "lethal hits"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -2651,29 +2760,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Lokhust Heavy Destroyers"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Mounted", "Fly", "Lokhust Heavy Destroyers"],
+      "factions": ["Necrons"],
+      "ledBy": ["Lokhust Lord"]
     },
     {
       "id": "c2de5f45-5c43-5f22-9160-fee26a35b5a5",
       "name": "Lokhust Lord",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Lokhust Destroyers ■ Lokhust Heavy Destroyers",
-      "composition": [
-        "1 Lokhust Lord"
-      ],
+      "composition": ["1 Lokhust Lord"],
       "loadout": "This model is equipped with: staff of light.",
       "wargear": [
         "This model’s staff of light can be replaced with 1 Lord’s blade.",
         "This model can be equipped with one of the following: ◦ 1 phylactery ◦ 1 resurrection orb"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2685,12 +2793,8 @@ window.data.NEC = {
             "description": "While the bearer is leading a unit, that unit’s Reanimation Protocols activate at the end of your opponent’s Command phase in addition to at the end of yours."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2744,9 +2848,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Lord’s blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -2771,30 +2873,27 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Character",
-        "Fly",
-        "Lokhust Lord"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Mounted", "Character", "Fly", "Lokhust Lord"],
+      "factions": ["Necrons"]
     },
     {
       "id": "8224d3d2-388b-5bde-8afc-8c1cc74f7572",
       "name": "Lord",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors",
-      "composition": [
-        "1 Lord"
-      ],
+      "composition": ["1 Lord"],
       "loadout": "This model is equipped with: staff of light.",
       "wargear": [
         "This model’s staff of light can be replaced with 1 Lord’s blade.",
         "This model can be equipped with 1 resurrection orb."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2802,12 +2901,8 @@ window.data.NEC = {
             "description": "While the bearer is leading a unit, that unit’s Reanimation Protocols activate at the end of your opponent’s Command phase in addition to at the end of yours."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2875,9 +2970,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Lord’s blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2888,29 +2981,30 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Noble",
-        "Lord"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Noble", "Lord"],
+      "factions": ["Necrons"]
     },
     {
       "id": "ec70c87c-6091-5671-81a8-403c0bf283f7",
       "name": "Lychguard",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "5-10 Lychguard"
-      ],
+      "composition": ["5-10 Lychguard"],
       "loadout": "Every model is equipped with: warscythe.",
       "wargear": [
         "All models in this unit can each have their warscythe replaced with 1 hyperphase sword and 1 dispersion shield."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2919,9 +3013,7 @@ window.data.NEC = {
           }
         ],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2970,9 +3062,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Warscythe",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -2983,12 +3073,20 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Lychguard"
-      ],
-      "factions": [
-        "Necrons"
+      "keywords": ["Infantry", "Lychguard"],
+      "factions": ["Necrons"],
+      "ledBy": [
+        "Chronomancer",
+        "Imotekh The Stormlord",
+        "Lord",
+        "Nemesor Zahndrekh",
+        "Orikan The Diviner",
+        "Overlord",
+        "Plasmancer",
+        "Psychomancer",
+        "Technomancer",
+        "Trazyn The Infinite",
+        "Vargard Obyron"
       ]
     },
     {
@@ -2996,23 +3094,22 @@ window.data.NEC = {
       "name": "Monolith",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Monolith"
-      ],
+      "composition": ["1 Monolith"],
       "loadout": "This model is equipped with: 4 gauss flux arcs; particle whip; portal of exile.",
       "wargear": [
         "This model’s 4 gauss flux arcs can be replaced with 4 death rays."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "385"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3046,9 +3143,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Death ray",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -3062,10 +3157,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss flux arc",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 3"
-              ],
+              "keywords": ["lethal hits", "rapid fire 3"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3079,10 +3171,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Particle whip",
-              "keywords": [
-                "blast",
-                "devastating wounds"
-              ],
+              "keywords": ["blast", "devastating wounds"],
               "range": "24\"",
               "attacks": "3D6",
               "skill": "3+",
@@ -3109,36 +3198,34 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Fly",
-        "Towering",
-        "Monolith"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Fly", "Towering", "Monolith"],
+      "factions": ["Necrons"]
     },
     {
       "id": "82668436-e355-57ef-9312-3c5cafe0cff4",
       "name": "Necron Warriors",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "10-20 Necron Warriors"
-      ],
+      "composition": ["10-20 Necron Warriors"],
       "loadout": "Every model is equipped with: gauss flayer; close combat weapon.",
       "wargear": [
         "Any number of models can each have their gauss flayer replaced with 1 gauss reaper."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "120"
+        },
+        {
+          "models": "20",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3172,10 +3259,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss flayer",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 1"
-              ],
+              "keywords": ["lethal hits", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -3189,9 +3273,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Gauss reaper",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -3218,13 +3300,21 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Necron Warriors"
-      ],
-      "factions": [
-        "Necrons"
+      "keywords": ["Infantry", "Battleline", "Necron Warriors"],
+      "factions": ["Necrons"],
+      "ledBy": [
+        "Chronomancer",
+        "Imotekh The Stormlord",
+        "Lord",
+        "Nemesor Zahndrekh",
+        "Orikan The Diviner",
+        "Overlord",
+        "Plasmancer",
+        "Psychomancer",
+        "Royal Warden",
+        "Technomancer",
+        "Trazyn The Infinite",
+        "Vargard Obyron"
       ]
     },
     {
@@ -3232,22 +3322,20 @@ window.data.NEC = {
       "name": "Nemesor Zahndrekh",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors",
-      "composition": [
-        "1 Nemesor Zahndrekh – Epic Hero"
-      ],
+      "composition": ["1 Nemesor Zahndrekh – Epic Hero"],
       "loadout": "This model is equipped with: staff of light.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3323,31 +3411,27 @@ window.data.NEC = {
         "Noble",
         "Nemesor Zahndrekh"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "b48568f8-e4b8-5bf4-9d88-d688768bcf52",
       "name": "Night Scythe",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Night Scythe"
-      ],
+      "composition": ["1 Night Scythe"],
       "loadout": "This model is equipped with: twin tesla destructor; armoured bulk.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 1 Necrons Infantry unit.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3381,10 +3465,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin tesla destructor",
-              "keywords": [
-                "sustained hits 2",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 2", "twin-linked"],
               "range": "36\"",
               "attacks": "6",
               "skill": "3+",
@@ -3411,39 +3492,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Aircraft",
-        "Fly",
-        "Transport",
-        "Night Scythe"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Aircraft", "Fly", "Transport", "Night Scythe"],
+      "factions": ["Necrons"]
     },
     {
       "id": "e63764d8-2928-51f1-b48b-6399c027c282",
       "name": "Obelisk",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Obelisk"
-      ],
+      "composition": ["1 Obelisk"],
       "loadout": "This model is equipped with: 4 tesla spheres; armoured bulk.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "325"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3481,10 +3551,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tesla sphere",
-              "keywords": [
-                "anti-fly 4+",
-                "sustained hits 2"
-              ],
+              "keywords": ["anti-fly 4+", "sustained hits 2"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3511,30 +3578,30 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Fly",
-        "Towering",
-        "Obelisk"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Fly", "Towering", "Obelisk"],
+      "factions": ["Necrons"]
     },
     {
       "id": "c6c09fa6-5cc1-5dad-ade1-126b27279748",
       "name": "Ophydian Destroyers",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "3-6 Ophydian Destroyers"
-      ],
+      "composition": ["3-6 Ophydian Destroyers"],
       "loadout": "Every model is equipped with: Ophydian hyperphase weapons.",
       "wargear": [
         "For every 3 models in this unit, this unit can have 1 Plasmacyte."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "110"
+        },
+        {
+          "models": "6",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3542,12 +3609,8 @@ window.data.NEC = {
             "description": "Once per battle for each Plasmacyte this unit has, when this unit is selected to fight, you can use this ability. If you do, until the end of the phase, melee weapons equipped by models in this unit have the [DEVASTATING WOUNDS] ability."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3593,35 +3656,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Ophydian Destroyers"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Ophydian Destroyers"],
+      "factions": ["Necrons"]
     },
     {
       "id": "39ce6f7f-bda6-5d3f-a085-b6a98abb4bba",
       "name": "Orikan The Diviner",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors You can attach this model to one of the above units even if one Royal Warden or Noble model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Orikan the Diviner – Epic Hero"
-      ],
+      "composition": ["1 Orikan the Diviner – Epic Hero"],
       "loadout": "This model is equipped with: Staff of Tomorrow.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3660,9 +3716,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Staff of Tomorrow",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -3681,24 +3735,26 @@ window.data.NEC = {
         "Chronomancer",
         "Orikan the Diviner"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "b277b119-cbc7-54a1-9069-c004e2b4f977",
       "name": "Overlord",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors",
-      "composition": [
-        "1 Overlord"
-      ],
+      "composition": ["1 Overlord"],
       "loadout": "This model is equipped with: tachyon arrow; Overlord’s blade.",
       "wargear": [
         "This model’s tachyon arrow and Overlord’s blade can be replaced with one of the following: ◦ 1 Overlord’s blade ◦ 1 staff of light ◦ 1 voidscythe",
         "If this model is not equipped with a tachyon arrow, it can be equipped with 1 resurrection orb."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3706,12 +3762,8 @@ window.data.NEC = {
             "description": "While the bearer is leading a unit, that unit’s Reanimation Protocols activate at the end of your opponent’s Command phase in addition to at the end of yours."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3763,9 +3815,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tachyon arrow",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "72\"",
               "attacks": "1",
               "skill": "2+",
@@ -3781,9 +3831,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Overlord’s blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -3811,9 +3859,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Voidscythe",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -3824,37 +3870,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Noble",
-        "Overlord"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Noble", "Overlord"],
+      "factions": ["Necrons"]
     },
     {
       "id": "b6d6c4a7-4a8c-562e-a839-3fd476ce08a0",
       "name": "Plasmancer",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors You can attach this model to one of the above units even if one Royal Warden or Noble model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Plasmancer"
-      ],
+      "composition": ["1 Plasmancer"],
       "loadout": "This model is equipped with: plasmic lance.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3919,37 +3956,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Cryptek",
-        "Plasmancer"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Cryptek", "Plasmancer"],
+      "factions": ["Necrons"]
     },
     {
       "id": "3ebad3d7-fc84-58a4-87fc-160adfda7708",
       "name": "Psychomancer",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors You can attach this model to one of the above units even if one Royal Warden or Noble model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Psychomancer"
-      ],
+      "composition": ["1 Psychomancer"],
       "loadout": "This model is equipped with: abyssal lance.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4014,37 +4042,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Cryptek",
-        "Psychomancer"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Cryptek", "Psychomancer"],
+      "factions": ["Necrons"]
     },
     {
       "id": "57ac88bc-bc0f-5865-8bcb-663f9c6126e1",
       "name": "Royal Warden",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Necron Warriors",
-      "composition": [
-        "1 Royal Warden"
-      ],
+      "composition": ["1 Royal Warden"],
       "loadout": "This model is equipped with: relic gauss blaster; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4082,10 +4101,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Relic gauss blaster",
-              "keywords": [
-                "lethal hits",
-                "rapid fire 2"
-              ],
+              "keywords": ["lethal hits", "rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4112,28 +4128,162 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Royal Warden"
+      "keywords": ["Infantry", "Character", "Royal Warden"],
+      "factions": ["Necrons"]
+    },
+    {
+      "id": "9e73708e-63b1-5a21-8c87-734ae7a9c16d",
+      "name": "Seraptek Heavy Construct",
+      "faction_id": "NEC",
+      "leader": "",
+      "composition": ["1 Seraptek Heavy Construct"],
+      "loadout": "This model is equipped with: 2 singularity generators; titanic forelimbs.",
+      "wargear": [
+        "This model’s 2 singularity generators can be replaced with 2 synaptic obliterators and 2 transdimensional projectors."
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "470"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Reanimation Protocols"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Terrifying Monstrosity",
+            "description": "At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test."
+          },
+          {
+            "name": "Titanic Walker",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4\" or less in height as if they were not there."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-9 WOUNDS REMAINING",
+          "description": "While this model has 1-9 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "12",
+          "sv": "3+",
+          "w": "24",
+          "ld": "7+",
+          "oc": "10",
+          "name": "Seraptek Heavy Construct"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Singularity generator",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "36\"",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Synaptic obliterator",
+              "keywords": ["sustained hits 2"],
+              "range": "48\"",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Transdimensional projector",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "24",
+              "ap": "-4",
+              "damage": "D6+4"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Titanic forelimbs – strike",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "5"
+            },
+            {
+              "name": "Titanic forelimbs – sweep",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "12",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Walker",
+        "Titanic",
+        "Towering",
+        "Seraptek Heavy Construct"
+      ],
+      "factions": ["Necrons"]
     },
     {
       "id": "575dd16a-9a30-54d4-8c21-c7e3a5f2bce5",
       "name": "Skorpekh Destroyers",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "3-6 Skorpekh Destroyers"
-      ],
+      "composition": ["3-6 Skorpekh Destroyers"],
       "loadout": "Every model is equipped with: Skorpekh hyperphase weapons.",
       "wargear": [
         "For every 3 models in this unit, this unit can have 1 Plasmacyte."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "110"
+        },
+        {
+          "models": "6",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4142,9 +4292,7 @@ window.data.NEC = {
           }
         ],
         "core": [],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4190,35 +4338,29 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Skorpekh Destroyers"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Skorpekh Destroyers"],
+      "factions": ["Necrons"],
+      "ledBy": ["Skorpekh Lord"]
     },
     {
       "id": "dc0545fd-6c44-55ac-8f68-c4be42cd29bf",
       "name": "Skorpekh Lord",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following unit: ■ Skorpekh Destroyers",
-      "composition": [
-        "1 Skorpekh Lord"
-      ],
+      "composition": ["1 Skorpekh Lord"],
       "loadout": "This model is equipped with: enmitic annihilator; flensing claw; hyperphase harvester.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4256,9 +4398,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Enmitic annihilator",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "2+",
@@ -4299,28 +4439,26 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Skorpekh Lord"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Skorpekh Lord"],
+      "factions": ["Necrons"]
     },
     {
       "id": "c802633b-69bf-578d-bcd0-d6fe7f8df65b",
       "name": "Technomancer",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors You can attach this model to one of the above units even if one Royal Warden or Noble model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Technomancer"
-      ],
+      "composition": ["1 Technomancer"],
       "loadout": "This model is equipped with: staff of light; Canoptek cloak.",
       "wargear": [
         "This model’s Canoptek cloak can be replaced with 1 Canoptek control node."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4332,12 +4470,8 @@ window.data.NEC = {
             "description": "While a friendly Canoptek unit is within 6\" of the bearer, each time a Canoptek model in that unit makes an attack, add 1 to the Hit roll."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4402,37 +4536,164 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Cryptek",
-        "Technomancer"
+      "keywords": ["Infantry", "Character", "Cryptek", "Technomancer"],
+      "factions": ["Necrons"]
+    },
+    {
+      "id": "277cba7f-1bcd-5e66-bf12-3c3305219cab",
+      "name": "Tesseract Ark",
+      "faction_id": "NEC",
+      "leader": "",
+      "composition": ["1 Tesseract Ark"],
+      "loadout": "This model is equipped with: tesseract singularity chamber; 2 tesla cannons; armoured bulk.",
+      "wargear": [
+        "This model’s 2 tesla cannons can be replaced with one of the following: ◦ 2 gauss cannons ◦  2 particle beamers"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Reanimation Protocols"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Gravitational Field",
+            "description": "Each time an enemy unit selects this model as the target of a charge, subtract 2 from the Charge roll (this is not cumulative with any other reductions to that Charge roll)."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "9\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "10",
+          "ld": "6+",
+          "oc": "3",
+          "name": "Tesseract Ark"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Gauss cannon",
+              "keywords": ["lethal hits"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Particle beamer",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "18\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Tesla cannon",
+              "keywords": ["sustained hits 2"],
+              "range": "24\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Tesseract singularity chamber – particle",
+              "keywords": ["ignores cover", "torrent"],
+              "range": "12\"",
+              "attacks": "D6+3",
+              "skill": "N/A",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            },
+            {
+              "name": "Tesseract singularity chamber – seismic lash",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured bulk",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Fly", "Tesseract Ark"],
+      "factions": ["Necrons"]
     },
     {
       "id": "aaf70701-a3e2-5308-994f-7310ec7d0018",
       "name": "Tesseract Vault",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Tesseract Vault"
-      ],
+      "composition": ["1 Tesseract Vault"],
       "loadout": "This model is equipped with: 4 tesla spheres; armoured bulk.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "425"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6+3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4466,9 +4727,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Tesla spheres",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -4496,11 +4755,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Antimatter Meteor",
-              "keywords": [
-                "blast",
-                "devastating wounds",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "devastating wounds", "indirect fire"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -4514,11 +4769,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Cosmic Fire",
-              "keywords": [
-                "ignores cover",
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "devastating wounds", "torrent"],
               "range": "18\"",
               "attacks": "3D6",
               "skill": "N/A",
@@ -4563,39 +4814,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Titanic",
-        "Fly",
-        "Towering",
-        "Tesseract Vault"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Titanic", "Fly", "Towering", "Tesseract Vault"],
+      "factions": ["Necrons"]
     },
     {
       "id": "ed8cc019-30d5-504d-9fea-e4fb09e74646",
       "name": "The Silent King",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Szarekh – Epic Hero",
-        "2 Triarchal Menhirs"
-      ],
+      "composition": ["1 Szarekh – Epic Hero", "2 Triarchal Menhirs"],
       "loadout": "Szarekh is equipped with: Sceptre of Eternal Glory; Staff of Stars; Scythe of Dust. Every Triarchal Menhir is equipped with: annihilator beam; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "470"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6+3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D6+3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [
           {
             "name": "TRIARCH ABILITIES",
@@ -4683,9 +4923,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Sceptre of Eternal Glory",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -4699,9 +4937,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Staff of Stars",
-              "keywords": [
-                "indirect fire"
-              ],
+              "keywords": ["indirect fire"],
               "range": "24\"",
               "attacks": "12",
               "skill": "2+",
@@ -4731,9 +4967,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Scythe of Dust",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "12",
               "skill": "2+",
@@ -4751,18 +4985,14 @@ window.data.NEC = {
         "Fly",
         "The Silent King"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "ce716b5c-68fc-5063-944b-e022b7ab9c63",
       "name": "Tomb Blades",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "3-6 Tomb Blades"
-      ],
+      "composition": ["3-6 Tomb Blades"],
       "loadout": "Every model is equipped with: twin gauss blaster; close combat weapon.",
       "wargear": [
         "Any number of models can each have their twin gauss blaster replaced with one of the following: ◦ 1 particle beamer ◦ 1 twin tesla carbine",
@@ -4770,6 +5000,16 @@ window.data.NEC = {
         "Any number of models can each be equipped with one of the following: ◦ 1 nebuloscope ◦ 1 shadowloom"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "80"
+        },
+        {
+          "models": "6",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4785,12 +5025,8 @@ window.data.NEC = {
             "description": "The bearer has a 3+ Save characteristic."
           }
         ],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4824,10 +5060,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Particle beamer",
-              "keywords": [
-                "blast",
-                "devastating wounds"
-              ],
+              "keywords": ["blast", "devastating wounds"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "2+",
@@ -4841,10 +5074,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin gauss blaster",
-              "keywords": [
-                "lethal hits",
-                "twin-linked"
-              ],
+              "keywords": ["lethal hits", "twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4858,11 +5088,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin tesla carbine",
-              "keywords": [
-                "assault",
-                "sustained hits 2",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "sustained hits 2", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -4889,34 +5115,27 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Tomb Blades"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Mounted", "Fly", "Tomb Blades"],
+      "factions": ["Necrons"]
     },
     {
       "id": "b5df5f0e-d689-5cae-ac2b-7cf92a0b7bde",
       "name": "Transcendent C’tan",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Transcendent C’tan"
-      ],
+      "composition": ["1 Transcendent C’tan"],
       "loadout": "This model is equipped with: seismic assault; crackling tendrils.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "280"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Deep Strike"
-        ],
+        "core": ["Deadly Demise D6", "Deep Strike"],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -4960,10 +5179,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Seismic assault",
-              "keywords": [
-                "assault",
-                "sustained hits 1"
-              ],
+              "keywords": ["assault", "sustained hits 1"],
               "range": "12\"",
               "attacks": "6",
               "skill": "2+",
@@ -4979,9 +5195,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Crackling tendrils",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -4992,37 +5206,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Character",
-        "Fly",
-        "Transcendent C’tan"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Monster", "Character", "Fly", "Transcendent C’tan"],
+      "factions": ["Necrons"]
     },
     {
       "id": "4a3408a8-f4aa-50cb-908c-b6717b1a6a75",
       "name": "Trazyn The Infinite",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors",
-      "composition": [
-        "1 Trazyn the Infinite – Epic Hero"
-      ],
+      "composition": ["1 Trazyn the Infinite – Epic Hero"],
       "loadout": "This model is equipped with: Empathic Obliterator.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5061,9 +5266,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Empathic Obliterator",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -5081,31 +5284,33 @@ window.data.NEC = {
         "Noble",
         "Trazyn the Infinite"
       ],
-      "factions": [
-        "Necrons"
-      ]
+      "factions": ["Necrons"]
     },
     {
       "id": "9a78c91e-bc1a-5f50-ac1b-d36016a80465",
       "name": "Triarch Praetorians",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "5-10 Triarch Praetorians"
-      ],
+      "composition": ["5-10 Triarch Praetorians"],
       "loadout": "Every model is equipped with: rod of covenant.",
       "wargear": [
         "All models in this unit can each have their rod of covenant replaced with 1 particle caster and 1 voidblade."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "135"
+        },
+        {
+          "models": "10",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5139,10 +5344,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Particle caster",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -5197,36 +5399,30 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Fly",
-        "Triarch Praetorians"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Fly", "Triarch Praetorians"],
+      "factions": ["Necrons"]
     },
     {
       "id": "83a47f9c-54be-527b-a12a-1d057ce9b871",
       "name": "Triarch Stalker",
       "faction_id": "NEC",
       "leader": "",
-      "composition": [
-        "1 Triarch Stalker"
-      ],
+      "composition": ["1 Triarch Stalker"],
       "loadout": "This model is equipped with: heat ray; Stalker’s forelimbs.",
       "wargear": [
         "This model’s heat ray can be replaced with one of the following: ◦ 1 particle shredder ◦ 1 twin heavy gauss cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5260,10 +5456,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Heat ray – dispersed",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -5273,9 +5466,7 @@ window.data.NEC = {
             },
             {
               "name": "Heat ray – focused",
-              "keywords": [
-                "melta 4"
-              ],
+              "keywords": ["melta 4"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -5289,10 +5480,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Particle shredder",
-              "keywords": [
-                "blast",
-                "devastating wounds"
-              ],
+              "keywords": ["blast", "devastating wounds"],
               "range": "18\"",
               "attacks": "D6+6",
               "skill": "2+",
@@ -5306,10 +5494,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Twin heavy gauss cannon",
-              "keywords": [
-                "lethal hits",
-                "twin-linked"
-              ],
+              "keywords": ["lethal hits", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -5336,36 +5521,28 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Triarch Stalker"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Vehicle", "Walker", "Triarch Stalker"],
+      "factions": ["Necrons"]
     },
     {
       "id": "06a4f5cc-ddf7-5e79-89b4-1c7d9913d7aa",
       "name": "Vargard Obyron",
       "faction_id": "NEC",
       "leader": "This model can be attached to the following units: ■ Immortals ■ Lychguard ■ Necron Warriors This model can be attached to a unit even if Nemesor Zahndrekh has already been attached to it. If it is, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Vargard Obyron – Epic Hero"
-      ],
+      "composition": ["1 Vargard Obyron – Epic Hero"],
       "loadout": "This model is equipped with: warscythe.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Reanimation Protocols"
-        ],
+        "core": ["Leader"],
+        "faction": ["Reanimation Protocols"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5404,10 +5581,7 @@ window.data.NEC = {
           "profiles": [
             {
               "name": "Warscythe",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -5418,15 +5592,12 @@ window.data.NEC = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Vargard Obyron"
-      ],
-      "factions": [
-        "Necrons"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Vargard Obyron"],
+      "factions": ["Necrons"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#032b16",
+    "header": "#04532a"
+  }
 }

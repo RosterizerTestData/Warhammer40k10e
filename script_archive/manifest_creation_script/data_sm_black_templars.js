@@ -3,6 +3,8 @@ window.data.CHBT = {
   "id": "CHBT",
   "link": "https://game-datacards.eu",
   "name": "Black Templar",
+  "is_subfaction": false,
+  "parent_id": "",
   "datasheets": [
     {
       "id": "2eb12b32-f988-5a53-b8b7-cc508f8479db",
@@ -13,6 +15,7 @@ window.data.CHBT = {
       "loadout": "",
       "wargear": [],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -53,10 +56,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Grav-cannon",
-              "keywords": [
-                "anti-vehicle 2+",
-                "heavy"
-              ],
+              "keywords": ["anti-vehicle 2+", "heavy"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -70,10 +70,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -87,11 +84,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -105,10 +98,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -122,10 +112,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -139,10 +126,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -156,9 +140,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -172,10 +154,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -189,10 +168,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -202,9 +178,7 @@ window.data.CHBT = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -218,10 +192,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -231,11 +202,7 @@ window.data.CHBT = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -249,9 +216,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -261,10 +226,7 @@ window.data.CHBT = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -278,9 +240,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -293,18 +253,14 @@ window.data.CHBT = {
       ],
       "meleeWeapons": [],
       "keywords": [],
-      "factions": [
-        ""
-      ]
+      "factions": [""]
     },
     {
       "id": "122c2c04-7cc2-5e7e-803f-22ae2923e1d1",
       "name": "Black Templars Gladiator Lancer",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Gladiator Lancer"
-      ],
+      "composition": ["1 Gladiator Lancer"],
       "loadout": "This model is equipped with: Lancer laser destroyer; 2 storm bolters; armoured hull.",
       "wargear": [
         "This model’s 2 storm bolters can be replaced with 2 fragstorm grenade launchers.",
@@ -312,14 +268,16 @@ window.data.CHBT = {
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -353,9 +311,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -369,9 +325,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -385,9 +339,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -401,9 +353,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Lancer laser destroyer",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "72\"",
               "attacks": "2",
               "skill": "3+",
@@ -417,9 +367,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -433,9 +381,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -462,39 +408,31 @@ window.data.CHBT = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Gladiator Lancer"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Gladiator Lancer"],
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "ce555c3a-05d3-53f6-93d4-4d5f974bc800",
       "name": "Black Templars Gladiator Reaper",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Gladiator Reaper"
-      ],
+      "composition": ["1 Gladiator Reaper"],
       "loadout": "This model is equipped with: 2 tempest bolters; twin heavy onslaught gatling cannon; armoured hull.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta",
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "175"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -528,9 +466,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -544,9 +480,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -560,9 +494,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -576,9 +508,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Tempest bolter",
-              "keywords": [
-                "rapid fire 4"
-              ],
+              "keywords": ["rapid fire 4"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -592,10 +522,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Twin heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -622,39 +549,31 @@ window.data.CHBT = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Gladiator Reaper"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Gladiator Reaper"],
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "91cab762-d65b-5cb5-815b-0d937f31eb2d",
       "name": "Black Templars Gladiator Valiant",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Gladiator Valiant"
-      ],
+      "composition": ["1 Gladiator Valiant"],
       "loadout": "This model is equipped with: 2 multi-meltas; twin las-talon; armoured hull.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta",
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -688,9 +607,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -704,9 +621,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -720,9 +635,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -736,9 +649,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Twin las-talon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "2",
               "skill": "3+",
@@ -765,25 +676,15 @@ window.data.CHBT = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Gladiator Valiant"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Gladiator Valiant"],
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "2614b505-bdc4-5619-bb9c-9693b3dfdaf6",
       "name": "Black Templars Impulsor",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Impulsor"
-      ],
+      "composition": ["1 Impulsor"],
       "loadout": "This model is equipped with: 2 storm bolters; armoured hull.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 ironhail heavy stubber ◦ 1 multi-melta",
@@ -791,6 +692,12 @@ window.data.CHBT = {
         "This model can be equipped with one of the following: ◦ 1 bellicatus missile array ◦ 1 ironhail skytalon array ◦ 1 orbital comms array ◦ 1 shield dome"
       ],
       "transport": "This model has a transport capacity of 6 Tacticus or Phobos Infantry models. It cannot transport Jump Pack models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -802,13 +709,8 @@ window.data.CHBT = {
             "description": "The bearer has a 5+ invulnerable save."
           }
         ],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -842,9 +744,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Bellicatus missile array – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -854,9 +754,7 @@ window.data.CHBT = {
             },
             {
               "name": "Bellicatus missile array – Icarus",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "3+",
@@ -880,9 +778,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -896,9 +792,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -912,10 +806,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ironhail skytalon array",
-              "keywords": [
-                "anti-fly 4+",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-fly 4+", "sustained hits 1"],
               "range": "36\"",
               "attacks": "8",
               "skill": "3+",
@@ -929,9 +820,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -945,9 +834,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -981,19 +868,14 @@ window.data.CHBT = {
         "Imperium",
         "Impulsor"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "2e63eb7b-1573-524a-9fde-f08f44773d50",
       "name": "Black Templars Repulsor",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Repulsor"
-      ],
+      "composition": ["1 Repulsor"],
       "loadout": "This model is equipped with: heavy onslaught gatling cannon; hunter-slayer missile; Repulsor defensive array; twin heavy bolter; armoured hull.",
       "wargear": [
         "This model’s twin heavy bolter can be replaced with 1 twin lascannon.",
@@ -1001,14 +883,16 @@ window.data.CHBT = {
         "This model can be equipped with 1 multi-melta."
       ],
       "transport": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. Each Jump Pack, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1042,9 +926,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -1058,10 +940,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Hunter-slayer missile",
-              "keywords": [
-                "indirect fire",
-                "one shot"
-              ],
+              "keywords": ["indirect fire", "one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -1089,9 +968,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1119,10 +996,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1136,9 +1010,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1165,26 +1037,15 @@ window.data.CHBT = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Transport",
-        "Imperium",
-        "Repulsor"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Transport", "Imperium", "Repulsor"],
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "2d30c7c4-6bb8-5b1c-9fb1-e1012942d22b",
       "name": "Black Templars Repulsor Executioner",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Repulsor Executioner"
-      ],
+      "composition": ["1 Repulsor Executioner"],
       "loadout": "This model is equipped with: heavy onslaught gatling cannon; macro plasma incinerator; Repulsor Executioner defensive array; twin heavy bolter; twin Icarus ironhail heavy stubber; armoured hull.",
       "wargear": [
         "This model’s macro plasma incinerator can be replaced with 1 heavy laser destroyer.",
@@ -1192,14 +1053,16 @@ window.data.CHBT = {
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. Each Jump Pack, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "245"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1233,9 +1096,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy laser destroyer",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "72\"",
               "attacks": "2",
               "skill": "3+",
@@ -1249,9 +1110,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -1265,9 +1124,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1281,9 +1138,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1297,9 +1152,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Macro plasma incinerator – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -1309,10 +1162,7 @@ window.data.CHBT = {
             },
             {
               "name": "Macro plasma incinerator – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -1326,9 +1176,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1356,10 +1204,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1373,11 +1218,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Twin Icarus ironhail heavy stubber",
-              "keywords": [
-                "anti-fly 4+",
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 4+", "rapid fire 3", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1411,33 +1252,30 @@ window.data.CHBT = {
         "Imperium",
         "Repulsor Executioner"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "c754e3a4-fcdb-51bd-a458-8296733b3ea6",
       "name": "Castellan",
       "faction_id": "CHBT",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Infernus Squad ■ Intercessor Squad ■ Primaris Crusader Squad ■ Primaris Sword Brethren ■ Sternguard Veteran Squad You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Castellan"
-      ],
+      "composition": ["1 Castellan"],
       "loadout": "This model is equipped with: combi-weapon; master-crafted power weapon.",
       "wargear": [
         "This model’s combi-weapon can be replaced with 1 heavy bolt pistol.",
         "This model’s master-crafted power weapon can be replaced with 1 Astartes chainsword."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1493,9 +1331,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -1544,10 +1380,7 @@ window.data.CHBT = {
         "Tacticus",
         "Castellan"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "68bd0bd6-bbf1-5464-a004-0074c02e764a",
@@ -1559,19 +1392,18 @@ window.data.CHBT = {
         "3 Cenobyte Servitors"
       ],
       "loadout": "Chaplain Grimaldus is equipped with: plasma pistol; artificer crozius. Every Cenobyte Servitor is equipped with: close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [
           {
             "name": "RELICS OF THE EMPEROR ASCENDANT",
@@ -1636,9 +1468,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1648,10 +1478,7 @@ window.data.CHBT = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1693,34 +1520,41 @@ window.data.CHBT = {
         }
       ],
       "keywords": [
+        "ALL MODELS:",
         "Infantry",
         "Imperium",
-        "Tacticus"
+        "Tacticus",
+        "GRIMALDUS:",
+        "Character",
+        "Epic Hero",
+        "Grenades",
+        "Chaplain Grimaldus"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "e7576cd7-d91f-5864-bc14-9b38345b9417",
       "name": "Crusader Squad",
       "faction_id": "CHBT",
       "leader": "",
-      "composition": [
-        "1 Sword Brother",
-        "4-9 Initiates",
-        "0-10 Neophytes"
-      ],
+      "composition": ["1 Sword Brother", "4-9 Initiates", "0-10 Neophytes"],
       "loadout": "Every model is equipped with: boltgun; bolt pistol; close combat weapon.",
       "wargear": [],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1735,9 +1569,7 @@ window.data.CHBT = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character from your army with the Leader ability can be attached to a Tactical Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character from your army with the Leader ability can be attached to a Tactical Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -1770,9 +1602,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Astartes shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1814,10 +1644,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1831,9 +1658,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1847,9 +1672,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1863,9 +1686,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1875,10 +1696,7 @@ window.data.CHBT = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1963,10 +1781,8 @@ window.data.CHBT = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -1979,10 +1795,8 @@ window.data.CHBT = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2000,32 +1814,27 @@ window.data.CHBT = {
         "Imperium",
         "Crusader Squad"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "42779506-fcd1-5145-a0ed-5df12d5b4096",
       "name": "High Marshal Helbrecht",
       "faction_id": "CHBT",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Intercessor Squad ■ Primaris Crusader Squad ■ Primaris Sword Brethren",
-      "composition": [
-        "1 High Marshal Helbrecht – Epic Hero"
-      ],
+      "composition": ["1 High Marshal Helbrecht – Epic Hero"],
       "loadout": "This model is equipped with: Ferocity; Sword of the High Marshals.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2063,10 +1872,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Ferocity",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-infantry 4+", "devastating wounds"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -2112,32 +1918,29 @@ window.data.CHBT = {
         "Tacticus",
         "High Marshal Helbrecht"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "9892bec6-67ae-5ad3-b020-86a6f127fce7",
       "name": "Marshal",
       "faction_id": "CHBT",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Infernus Squad ■ Intercessor Squad ■ Primaris Crusader Squad ■ Primaris Sword Brethren ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Marshal"
-      ],
+      "composition": ["1 Marshal"],
       "loadout": "This model is equipped with: plasma pistol; master-crafted power weapon.",
       "wargear": [
         "This model’s plasma pistol can be replaced with one combi-weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2193,9 +1996,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2205,10 +2006,7 @@ window.data.CHBT = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2243,10 +2041,7 @@ window.data.CHBT = {
         "Tacticus",
         "Marshal"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     },
     {
       "id": "98766136-bd99-5bf9-85e2-cfa97cfc2030",
@@ -2266,14 +2061,20 @@ window.data.CHBT = {
         "For every 10 models in this unit, up to 2 Primaris Initiates can each have their bolt rifle replaced with one of the following: ◦ 1 heavy bolt pistol and 1 power fist ◦ 1 pyreblaster"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "160"
+        },
+        {
+          "models": "20",
+          "cost": "320"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2288,9 +2089,7 @@ window.data.CHBT = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -2323,9 +2122,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2339,10 +2136,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Bolt rifle",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2356,9 +2150,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2372,9 +2164,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Neophyte firearm",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2388,11 +2178,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Pyre pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2406,10 +2192,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Pyreblaster",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2486,9 +2269,13 @@ window.data.CHBT = {
         "Tacticus",
         "Primaris Crusader Squad"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
+      "factions": ["Adeptus Astartes", "Black Templars"],
+      "ledBy": [
+        "Castellan",
+        "Chaplain Grimaldus",
+        "High Marshal Helbrecht",
+        "Marshal",
+        "The Emperor’s Champion"
       ]
     },
     {
@@ -2509,12 +2296,20 @@ window.data.CHBT = {
         "The Sword Brother Castellan’s heavy bolt pistol and Astartes chainsword can be replaced with one of the following: ◦ 1 combi-weapon and 1 Astartes chainsword. ◦ 1 combi-weapon and 1 master-crafted power weapon. ◦ 1 heavy bolt pistol and 1 master-crafted power weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "150"
+        },
+        {
+          "models": "11",
+          "cost": "330"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2529,9 +2324,7 @@ window.data.CHBT = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -2573,9 +2366,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2589,9 +2380,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2601,10 +2390,7 @@ window.data.CHBT = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2618,11 +2404,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Pyre pistol",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2679,10 +2461,8 @@ window.data.CHBT = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -2700,9 +2480,13 @@ window.data.CHBT = {
         "Tacticus",
         "Primaris Sword Brethren"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
+      "factions": ["Adeptus Astartes", "Black Templars"],
+      "ledBy": [
+        "Castellan",
+        "Chaplain Grimaldus",
+        "High Marshal Helbrecht",
+        "Marshal",
+        "The Emperor’s Champion"
       ]
     },
     {
@@ -2710,22 +2494,20 @@ window.data.CHBT = {
       "name": "The Emperor’s Champion",
       "faction_id": "CHBT",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Intercessor Squad ■ Primaris Crusader Squad ■ Primaris Sword Brethren ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Emperor’s Champion – Epic Hero"
-      ],
+      "composition": ["1 Emperor’s Champion – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Black Sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2763,9 +2545,7 @@ window.data.CHBT = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2780,10 +2560,8 @@ window.data.CHBT = {
         {
           "profiles": [
             {
-              "name": "Black Sword – strike ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Black Sword – strike",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2813,10 +2591,11 @@ window.data.CHBT = {
         "Tacticus",
         "The Emperor’s Champion"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Black Templars"
-      ]
+      "factions": ["Adeptus Astartes", "Black Templars"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#202a2f",
+    "header": "#142637"
+  }
 }

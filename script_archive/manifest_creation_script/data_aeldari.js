@@ -3,28 +3,58 @@ window.data.AE = {
   "id": "AE",
   "link": "https://game-datacards.eu",
   "name": "Aeldari",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Fate’s Messenger",
+      "description": "Aeldari model only. Once per turn, just after making a Hit roll, a Wound roll, or a saving throw for a model in the bearer’s unit, you can treat the result as an unmodified roll of 6 instead.",
+      "keywords": ["Aeldari"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Reader of the Runes",
+      "description": "Aeldari Psyker model only. In your Command phase, you can select one dice in your Fate dice pool, re-roll it, then add it back to your Fate dice pool displaying the result you just rolled.",
+      "keywords": ["Aeldari", "Psyker"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "The Phoenix Gem",
+      "description": "Aeldari model only. The first time the bearer is destroyed, roll one D6: on a 2+, keep it to one side. At the end of the phase, set the bearer back up again, as close as possible to its previous position and not within Engagement Range of any enemy models, with its full wounds remaining.",
+      "keywords": ["Aeldari"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "The Weeping Stones",
+      "description": "Aeldari model only. Each time the bearer’s unit destroys an enemy unit, roll one D6 and add it to your Fate dice pool displaying the result you just rolled.",
+      "keywords": ["Aeldari"],
+      "excludes": [],
+      "cost": "15"
+    }
+  ],
   "datasheets": [
     {
       "id": "a45ca96b-644e-570a-916e-7e8fd860b06b",
       "name": "Asurmen",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Dire Avengers",
-      "composition": [
-        "1 Asurmen – Epic Hero"
-      ],
+      "composition": ["1 Asurmen – Epic Hero"],
       "loadout": "This model is equipped with: the Bloody Twins; the Sword of Asur.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "3+",
@@ -62,11 +92,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Bloody Twins",
-              "keywords": [
-                "assault",
-                "lethal hits",
-                "pistol"
-              ],
+              "keywords": ["assault", "lethal hits", "pistol"],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
@@ -82,9 +108,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Sword of Asur",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -102,18 +126,14 @@ window.data.AE = {
         "Phoenix Lord",
         "Asurmen"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "0debaad1-ddae-5650-8b46-e72bf0dcf222",
       "name": "Autarch",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Guardian Defenders ■ Storm Guardians",
-      "composition": [
-        "1 Autarch"
-      ],
+      "composition": ["1 Autarch"],
       "loadout": "This model is equipped with: shuriken pistol; star glaive.",
       "wargear": [
         "This model’s shuriken pistol can be replaced with one of the following: ◦ 1 death spinner ◦ 1 Dragon fusion gun ◦ 1 Reaper launcher",
@@ -122,6 +142,12 @@ window.data.AE = {
         "If this model is not equipped with 1 Howling Banshee mask, this model’s shuriken pistol and star glaive can be replaced with all of the following: ◦ 1 fusion pistol ◦ 1 Banshee blade ◦ 1 mandiblasters"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -133,12 +159,8 @@ window.data.AE = {
             "description": "Melee weapons equipped by the bearer have the [DEVASTATING WOUNDS] ability when targeting units without the Monster or Vehicle keywords."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -176,10 +198,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Death spinner",
-              "keywords": [
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -193,10 +212,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Dragon fusion gun",
-              "keywords": [
-                "assault",
-                "melta 3"
-              ],
+              "keywords": ["assault", "melta 3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -210,11 +226,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Fusion pistol",
-              "keywords": [
-                "assault",
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["assault", "melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -228,9 +240,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Reaper launcher – starshot",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -240,9 +250,7 @@ window.data.AE = {
             },
             {
               "name": "Reaper launcher – starswarm",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -256,10 +264,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -289,9 +294,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Scorpion chainsword",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -316,37 +319,30 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Grenades",
-        "Autarch"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Character", "Grenades", "Autarch"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "67ce1dec-dce4-5323-be1b-e118c347213f",
       "name": "Autarch Skyrunner",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Windriders",
-      "composition": [
-        "1 Autarch Skyrunner"
-      ],
+      "composition": ["1 Autarch Skyrunner"],
       "loadout": "This model is equipped with: laser lance; twin shuriken catapult.",
       "wargear": [
         "This model’s laser lance can be replaced with one of the following: ◦ 1 Dragon fusion gun ◦ 1 Banshee blade"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -384,10 +380,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Dragon fusion gun",
-              "keywords": [
-                "assault",
-                "melta 3"
-              ],
+              "keywords": ["assault", "melta 3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -401,9 +394,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Laser lance",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -417,10 +408,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "2+",
@@ -450,9 +438,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Laser lance",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -470,18 +456,14 @@ window.data.AE = {
         "Autarch",
         "Autarch Skyrunner"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "78b09f0d-6943-5caa-9c6f-683f9ddfe3c5",
       "name": "Autarch Wayleaper",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Autarch Wayleaper"
-      ],
+      "composition": ["1 Autarch Wayleaper"],
       "loadout": "This model is equipped with: shuriken pistol; star glaive.",
       "wargear": [
         "This model’s shuriken pistol can be replaced with one of the following: ◦ 1 death spinner ◦ 1 Dragon fusion gun ◦ 1 Reaper launcher",
@@ -490,6 +472,12 @@ window.data.AE = {
         "If this model is not equipped with 1 Howling Banshee mask, this model’s shuriken pistol and star glaive can be replaced with all of the following: ◦ 1 fusion pistol ◦ 1 Banshee blade ◦ 1 mandiblasters"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -501,13 +489,8 @@ window.data.AE = {
             "description": "Melee weapons equipped by the bearer have the [DEVASTATING WOUNDS] ability when targeting units without the Monster or Vehicle keywords."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Lone Operative"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deep Strike", "Lone Operative"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -545,10 +528,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Death spinner",
-              "keywords": [
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -562,10 +542,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Dragon fusion gun",
-              "keywords": [
-                "assault",
-                "melta 3"
-              ],
+              "keywords": ["assault", "melta 3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -579,11 +556,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Fusion pistol",
-              "keywords": [
-                "assault",
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["assault", "melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -597,9 +570,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Reaper launcher – starshot",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -609,9 +580,7 @@ window.data.AE = {
             },
             {
               "name": "Reaper launcher – starswarm",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -625,10 +594,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -658,9 +624,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Scorpion chainsword",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -693,31 +657,27 @@ window.data.AE = {
         "Grenades",
         "Autarch Wayleaper"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "08f53265-923c-5309-8ced-573127f1defa",
       "name": "Avatar Of Khaine",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Avatar of Khaine – Epic Hero"
-      ],
+      "composition": ["1 Avatar of Khaine – Epic Hero"],
       "loadout": "This model is equipped with: the Wailing Doom",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "295"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -755,9 +715,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Wailing Doom",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -801,32 +759,27 @@ window.data.AE = {
         "Daemon",
         "Avatar of Khaine"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "723f90b5-bacb-5347-8a66-8eb48e0ffdaa",
       "name": "Baharroth",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Swooping Hawks",
-      "composition": [
-        "1 Baharroth – Epic Hero"
-      ],
+      "composition": ["1 Baharroth – Epic Hero"],
       "loadout": "This model is equipped with: Fury of the Tempest; the Shining Blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -864,10 +817,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Fury of the Tempest",
-              "keywords": [
-                "assault",
-                "lethal hits"
-              ],
+              "keywords": ["assault", "lethal hits"],
               "range": "24\"",
               "attacks": "4",
               "skill": "2+",
@@ -883,9 +833,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Shining Blade",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -906,19 +854,178 @@ window.data.AE = {
         "Phoenix Lord",
         "Baharroth"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "b1db34cb-2c3b-5f15-991f-9581c9cf3423",
+      "name": "Cobra",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Cobra"],
+      "loadout": "This model is equipped with: D-impaler; shuriken cannon; wraithbone hull.",
+      "wargear": [
+        "This model’s shuriken cannon can be replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 starcannon"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "415"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "D-rift",
+            "description": "In your Shooting phase, just after selecting a target for this model’s D-impaler, roll one D6 for the target unit and every other unit within 3\" of that unit: on a 5+, the unit being rolled for is struck by a D-rift. After this model has finished making its attacks against that target unit this phase, each unit struck by a D-rift this phase suffers D3 mortal wounds."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-8 WOUNDS REMAINING",
+          "description": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "14\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "24",
+          "ld": "6+",
+          "oc": "8",
+          "name": "Cobra"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Aeldari missile launcher – starshot",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            },
+            {
+              "name": "Aeldari missile launcher – sunburst",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Bright lance",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "D-impaler",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "36\"",
+              "attacks": "D6+3",
+              "skill": "3+",
+              "strength": "16",
+              "ap": "-4",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Scatter laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Wraithbone hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Fly", "Cobra"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "cf793a0d-edbd-55f6-946b-3021177779f1",
       "name": "Corsair Voidreavers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Voidreaver Felarch",
-        "4-9 Corsair Voidreavers"
-      ],
+      "composition": ["1 Voidreaver Felarch", "4-9 Corsair Voidreavers"],
       "loadout": "Every model is equipped with: shuriken pistol; Aeldari power sword",
       "wargear": [
         "The Voidreaver Felarch’s shuriken pistol can be replaced with one of the following: ◦ 1 neuro disruptor ◦ 1 shuriken rifle",
@@ -928,6 +1035,16 @@ window.data.AE = {
         "If this unit contains 10 models, 1 Corsair Voidreaver’s shuriken rifle can be replaced with one of the following: ◦ 1 shuriken cannon ◦ 1 wraithcannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -935,9 +1052,7 @@ window.data.AE = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Scouts 7\""
-        ],
+        "core": ["Scouts 7\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -972,9 +1087,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Corsair blaster",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -988,10 +1101,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Corsair shredder",
-              "keywords": [
-                "assault",
-                "torrent"
-              ],
+              "keywords": ["assault", "torrent"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1005,11 +1115,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Neuro disruptor",
-              "keywords": [
-                "anti-infantry 2+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1023,9 +1129,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -1039,10 +1143,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1056,10 +1157,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken rifle",
-              "keywords": [
-                "assault",
-                "rapid fire 1"
-              ],
+              "keywords": ["assault", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1073,9 +1171,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Wraithcannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1109,9 +1205,8 @@ window.data.AE = {
         "Anhrathe",
         "Corsair Voidreavers"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"],
+      "ledBy": ["Prince Yriel", "The Visarch", "Yvraine"]
     },
     {
       "id": "e9ea6d32-6a27-5001-b786-4eed3a007a31",
@@ -1137,6 +1232,16 @@ window.data.AE = {
         "If this unit contains 10 models, 1 Corsair Voidscarred’s shuriken rifle can be replaced with 1 Ranger long rifle.  If this unit contains 10 models, 1 Corsair Voidscarred’s Aeldari power sword can be  replaced with 1 fusion pistol.  1 Corsair Voidscarred model equipped with a shuriken pistol and Aeldari power sword can be equipped with 1 Faolchú."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1152,9 +1257,7 @@ window.data.AE = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Scouts 7\""
-        ],
+        "core": ["Scouts 7\""],
         "faction": [],
         "primarch": [],
         "invul": {
@@ -1189,9 +1292,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Corsair blaster",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1205,10 +1306,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Corsair shredder",
-              "keywords": [
-                "assault",
-                "torrent"
-              ],
+              "keywords": ["assault", "torrent"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1222,10 +1320,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Executioner",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1239,11 +1334,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Fusion pistol",
-              "keywords": [
-                "assault",
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["assault", "melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -1257,11 +1348,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Neuro disruptor",
-              "keywords": [
-                "anti-infantry 2+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1275,10 +1362,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Ranger long rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -1292,9 +1376,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -1308,10 +1390,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1325,10 +1404,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken rifle",
-              "keywords": [
-                "assault",
-                "rapid fire 1"
-              ],
+              "keywords": ["assault", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1342,9 +1418,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Wraithcannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1374,9 +1448,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Paired Hekatarii blades",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -1390,10 +1462,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witch staff",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -1404,35 +1473,31 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Anhrathe",
-        "Corsair Voidscarred"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Grenades", "Anhrathe", "Corsair Voidscarred"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Prince Yriel", "The Visarch", "Yvraine"]
     },
     {
       "id": "8a6759ff-6329-522a-a734-a677658dfa40",
       "name": "Crimson Hunter",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Crimson Hunter"
-      ],
+      "composition": ["1 Crimson Hunter"],
       "loadout": "This model is equipped with: 2 starcannons; pulse laser; wraithbone hull.",
       "wargear": [
         "This model’s 2 starcannons can be replaced with 2 bright lances."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1521,36 +1586,34 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Aircraft",
-        "Crimson Hunter"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Fly", "Aircraft", "Crimson Hunter"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "5f7a4231-39b5-5746-b5a0-c1adb7fa87f1",
       "name": "Dark Reapers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Dark Reaper Exarch",
-        "4-9 Dark Reapers"
-      ],
+      "composition": ["1 Dark Reaper Exarch", "4-9 Dark Reapers"],
       "loadout": "Every model is equipped with: Reaper launcher.",
       "wargear": [
         "The Dark Reaper Exarch’s Reaper launcher can be replaced with 1 of the following: ◦ 1 Aeldari missile launcher ◦ 1 shuriken cannon ◦ 1 tempest launcher"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1593,9 +1656,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Aeldari missile launcher – starshot",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1605,10 +1666,7 @@ window.data.AE = {
             },
             {
               "name": "Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1622,9 +1680,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Reaper launcher – starshot",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -1634,9 +1690,7 @@ window.data.AE = {
             },
             {
               "name": "Reaper launcher – starswarm",
-              "keywords": [
-                "ignores cover"
-              ],
+              "keywords": ["ignores cover"],
               "range": "48\"",
               "attacks": "2",
               "skill": "3+",
@@ -1650,10 +1704,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "ignores cover",
-                "sustained hits 1"
-              ],
+              "keywords": ["ignores cover", "sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -1667,10 +1718,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Tempest launcher",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -1697,35 +1745,29 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Dark Reapers"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Dark Reapers"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Maugan Ra"]
     },
     {
       "id": "df8d1aa0-9916-5aad-82c7-7385c70f3822",
       "name": "Death Jester",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Death Jester"
-      ],
+      "composition": ["1 Death Jester"],
       "loadout": "This model is equipped with: shrieker cannon; Jester’s blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Lone Operative"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Lone Operative"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1763,9 +1805,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shrieker cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "3",
               "skill": "2+",
@@ -1792,25 +1832,15 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Harlequins",
-        "Death Jester"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Character", "Harlequins", "Death Jester"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "1aa15be4-e8f8-516d-bcc3-1cce97f1143c",
       "name": "Dire Avengers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Dire Avenger Exarch",
-        "4-9 Dire Avengers"
-      ],
+      "composition": ["1 Dire Avenger Exarch", "4-9 Dire Avengers"],
       "loadout": "Every model is equipped with: Avenger shuriken catapult.",
       "wargear": [
         "The Dire Avenger Exarch’s Avenger shuriken catapult can be replaced with 1 shuriken pistol and one of the following: ◦ 1 diresword ◦ 1 power glaive",
@@ -1818,6 +1848,16 @@ window.data.AE = {
         "The Dire Avenger Exarch’s shuriken pistol can be replaced with: ◦ 1 shimmershield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1826,9 +1866,7 @@ window.data.AE = {
           }
         ],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1871,10 +1909,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Avenger shuriken catapult",
-              "keywords": [
-                "assault",
-                "lethal hits"
-              ],
+              "keywords": ["assault", "lethal hits"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1888,10 +1923,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1921,9 +1953,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Diresword",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1948,36 +1978,29 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Dire Avengers"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Grenades", "Dire Avengers"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Asurmen"]
     },
     {
       "id": "07769191-da02-50bd-b2dd-3c3a4e90c01a",
       "name": "Eldrad Ulthran",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Guardian Defenders ■ Storm Guardians ■ Warlock Conclave",
-      "composition": [
-        "1 Eldrad Ulthran – Epic Hero"
-      ],
+      "composition": ["1 Eldrad Ulthran – Epic Hero"],
       "loadout": "This model is equipped with: shuriken pistol; Mind War; the Staff of Ulthamar and witchblade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2015,10 +2038,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2032,11 +2052,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Mind War",
-              "keywords": [
-                "anti-character 4+",
-                "precision",
-                "psychic"
-              ],
+              "keywords": ["anti-character 4+", "precision", "psychic"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -2052,10 +2068,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Staff of Ulthamar and witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "2+",
@@ -2074,33 +2087,30 @@ window.data.AE = {
         "Farseer",
         "Eldrad Ulthran"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "2ece8450-cd96-54db-9eea-f29ec2b1616d",
       "name": "Falcon",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Falcon"
-      ],
+      "composition": ["1 Falcon"],
       "loadout": "This model is equipped with: pulse laser; scatter laser; twin shuriken catapult; wraithbone hull.",
       "wargear": [
         "This model’s scatter laser can be replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 shuriken cannon ◦ 1 starcannon",
         "This model’s twin shuriken catapult can be replaced with 1 shuriken cannon."
       ],
       "transport": "This model has a transport capacity of 6 Aeldari Infantry models. Each Wraith Construct model takes the space of 2 models. It cannot transport Jump Pack models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2144,9 +2154,7 @@ window.data.AE = {
             },
             {
               "name": "Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2202,9 +2210,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -2232,10 +2238,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2262,37 +2265,30 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Fly",
-        "Falcon"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Transport", "Fly", "Falcon"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "05ee8795-7154-5b71-bac6-a5d0f00b9d14",
       "name": "Farseer",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Guardian Defenders ■ Storm Guardians ■ Warlock Conclave",
-      "composition": [
-        "1 Farseer"
-      ],
+      "composition": ["1 Farseer"],
       "loadout": "This model is equipped with: shuriken pistol; Eldritch Storm; witchblade.",
       "wargear": [
         "This model’s witchblade can be replaced with 1 singing spear."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2330,10 +2326,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Eldritch Storm",
-              "keywords": [
-                "blast",
-                "psychic"
-              ],
+              "keywords": ["blast", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2347,10 +2340,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2364,10 +2354,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "assault",
-                "psychic"
-              ],
+              "keywords": ["assault", "psychic"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2383,9 +2370,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -2399,10 +2384,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -2413,37 +2395,30 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Character",
-        "Infantry",
-        "Psyker",
-        "Farseer"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Character", "Infantry", "Psyker", "Farseer"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "08f7afa4-1e01-54f1-a3ac-854d1be37640",
       "name": "Farseer Skyrunner",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Warlock Skyrunner Conclave ■ Windriders",
-      "composition": [
-        "1 Farseer Skyrunner"
-      ],
+      "composition": ["1 Farseer Skyrunner"],
       "loadout": "This model is equipped with: shuriken pistol; twin shuriken catapult; Eldritch Storm; witchblade.",
       "wargear": [
         "This model’s witchblade can be replaced with 1 singing spear."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2481,10 +2456,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Eldritch Storm",
-              "keywords": [
-                "blast",
-                "psychic"
-              ],
+              "keywords": ["blast", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2498,10 +2470,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2515,10 +2484,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "assault",
-                "psychic"
-              ],
+              "keywords": ["assault", "psychic"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2532,10 +2498,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2551,9 +2514,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -2567,10 +2528,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -2589,30 +2547,33 @@ window.data.AE = {
         "Farseer",
         "Farseer Skyrunner"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "dd651ab0-2c1d-548b-bfc2-9720ebf428ed",
       "name": "Fire Dragons",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Fire Dragon Exarch",
-        "4-9 Fire Dragons"
-      ],
+      "composition": ["1 Fire Dragon Exarch", "4-9 Fire Dragons"],
       "loadout": "Every model is equipped with: Dragon fusion gun; close combat weapon.",
       "wargear": [
         "The Fire Dragon Exarch’s Dragon fusion gun can be replaced with 1 of the following: ◦ 1 Dragon’s breath flamer ◦ 1 firepike"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "85"
+        },
+        {
+          "models": "10",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2655,10 +2616,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Dragon fusion gun",
-              "keywords": [
-                "assault",
-                "melta 3"
-              ],
+              "keywords": ["assault", "melta 3"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2672,10 +2630,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Dragon’s breath flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2689,9 +2644,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Firepike",
-              "keywords": [
-                "melta 3"
-              ],
+              "keywords": ["melta 3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2718,36 +2671,31 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Fire Dragons"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Grenades", "Fire Dragons"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Fuegan"]
     },
     {
       "id": "34ab4d87-ae76-58d1-96b7-eb47d553562e",
       "name": "Fire Prism",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Fire Prism"
-      ],
+      "composition": ["1 Fire Prism"],
       "loadout": "This model is equipped with: prism cannon; twin shuriken catapult; wraithbone hull.",
       "wargear": [
         "This model’s twin shuriken catapult can be replaced with 1 shuriken cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2781,9 +2729,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Prism cannon – dispersed pulse",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "60\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -2793,14 +2739,13 @@ window.data.AE = {
             },
             {
               "name": "Prism cannon – focused lances",
-              "keywords": [
-                "linked fire"
-              ],
-              "range": "2",
-              "attacks": "3+",
-              "skill": "18",
-              "strength": "-4",
-              "ap": "6"
+              "keywords": ["linked fire"],
+              "range": "60\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "18",
+              "ap": "-4",
+              "damage": "6"
             }
           ]
         },
@@ -2808,14 +2753,13 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
-              "range": "3",
-              "attacks": "3+",
-              "skill": "6",
-              "strength": "-1",
-              "ap": "2"
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
             }
           ]
         },
@@ -2823,10 +2767,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2853,37 +2794,28 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Fire Prism"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Fly", "Fire Prism"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "147ca91a-b950-53fd-988f-b9f657b1f38f",
       "name": "Fuegan",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Fire Dragons",
-      "composition": [
-        "1 Fuegan – Epic Hero"
-      ],
+      "composition": ["1 Fuegan – Epic Hero"],
       "loadout": "This model is equipped with: Searsong; the Fire Axe.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2921,9 +2853,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Searsong – beam",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -2933,9 +2863,7 @@ window.data.AE = {
             },
             {
               "name": "Searsong – lance",
-              "keywords": [
-                "melta 6"
-              ],
+              "keywords": ["melta 6"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -2969,30 +2897,29 @@ window.data.AE = {
         "Phoenix Lord",
         "Fuegan"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "dff35a09-3399-56d0-8c16-3801f800357d",
       "name": "Guardian Defenders",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "10 Guardian Defenders",
-        "1 Heavy Weapon Platform"
-      ],
+      "composition": ["10 Guardian Defenders", "1 Heavy Weapon Platform"],
       "loadout": "Every Guardian Defender is equipped with: shuriken catapult; close combat weapon. The Heavy Weapon Platform is equipped with: shuriken cannon; close combat weapon.",
       "wargear": [
         "The Heavy Weapon Platform can replace its shuriken cannon with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 starcannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3049,9 +2976,7 @@ window.data.AE = {
             },
             {
               "name": "Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3093,9 +3018,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3109,9 +3032,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken catapult",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3159,8 +3080,15 @@ window.data.AE = {
         "Guardians",
         "Guardian Defenders"
       ],
-      "factions": [
-        "Aeldari"
+      "factions": ["Aeldari"],
+      "ledBy": [
+        "Autarch",
+        "Eldrad Ulthran",
+        "Farseer",
+        "Prince Yriel",
+        "The Visarch",
+        "Warlock",
+        "Yvraine"
       ]
     },
     {
@@ -3168,20 +3096,20 @@ window.data.AE = {
       "name": "Hemlock Wraithfighter",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Hemlock Wraithfighter"
-      ],
+      "composition": ["1 Hemlock Wraithfighter"],
       "loadout": "This model is equipped with: 2 heavy D-scythes; wraithbone hull.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3215,9 +3143,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Heavy D-scythe",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "4+",
@@ -3252,33 +3178,198 @@ window.data.AE = {
         "Wraith Construct",
         "Hemlock Wraithfighter"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "4988e545-1f39-50ea-b46e-10b13d972a25",
+      "name": "Hornet",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Hornet"],
+      "loadout": "This model is equipped with: 2 Hornet pulse lasers; wraithbone hull.",
+      "wargear": [
+        "Each of this model’s Hornet pulse lasers can be replaced with one of the following: ◦ Aeldari missile launcher ◦ Bright lance ◦ Scatter laser ◦ Shuriken cannon ◦ Starcannon"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Lightning Assault",
+            "description": "Each time this model ends a Normal move, you can select one enemy unit (excluding Monster and Vehicle units) that it moved over during that move, then roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "14\"",
+          "t": "7",
+          "sv": "3+",
+          "w": "8",
+          "ld": "6+",
+          "oc": "2",
+          "name": "Hornet"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Aeldari missile launcher – starshot",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            },
+            {
+              "name": "Aeldari missile launcher – sunburst",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Bright lance",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Hornet pulse laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Scatter laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Wraithbone hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Fly", "Hornet"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "f919ee87-1632-5d48-baf1-39f3534a169a",
       "name": "Howling Banshees",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Howling Banshee Exarch",
-        "4-9 Howling Banshees"
-      ],
+      "composition": ["1 Howling Banshee Exarch", "4-9 Howling Banshees"],
       "loadout": "Every model is equipped with: shuriken pistol; Banshee blade.",
       "wargear": [
         "The Howling Banshee Exarch’s Banshee blade can be replaced with 1 of the following: ◦ 1 executioner ◦ 1 triskele",
         "The Howling Banshee Exarch’s shuriken pistol and Banshee blade can be replaced with 1 mirrorswords."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "85"
+        },
+        {
+          "models": "10",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Fights First"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3321,10 +3412,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3338,9 +3426,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Triskele",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "3",
               "skill": "3+",
@@ -3409,37 +3495,29 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Howling Banshees"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Howling Banshees"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Jain Zar"]
     },
     {
       "id": "623547c2-3a7d-5d0a-8200-4b05dc98caa6",
       "name": "Illic Nightspear",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Rangers",
-      "composition": [
-        "1 Illic Nightspear – Epic Hero"
-      ],
+      "composition": ["1 Illic Nightspear – Epic Hero"],
       "loadout": "This model is equipped with: Voidbringer; shuriken pistol; Aeldari power sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Leader",
-          "Stealth"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Infiltrators", "Leader", "Stealth"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -3477,10 +3555,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3494,11 +3569,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Voidbringer",
-              "keywords": [
-                "devastating wounds",
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "heavy", "precision"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -3525,38 +3596,120 @@ window.data.AE = {
           ]
         }
       ],
+      "keywords": ["Infantry", "Character", "Epic Hero", "Illic Nightspear"],
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "17fe1673-7bbc-5b85-a8b3-b42ba995f059",
+      "name": "Irillyth",
+      "faction_id": "AE",
+      "leader": "This model can be attached to the following unit: ■ Shadow Spectres",
+      "composition": ["1 Irillyth – Epic Hero"],
+      "loadout": "This model is equipped with: Spear of Starlight.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Leader", "Deep Strike", "Stealth"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Reaper of Souls",
+            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+          },
+          {
+            "name": "Shadow of Death (Aura)",
+            "description": "While an enemy unit is within 6\" of this model, each time that unit takes a Battle-shock or Leadership test, subtract 1 from that test."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "3",
+          "sv": "2+",
+          "w": "5",
+          "ld": "6+",
+          "oc": "1",
+          "name": "Irillyth"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Spear of Starlight",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "4"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Spear of Starlight",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
       "keywords": [
         "Infantry",
         "Character",
         "Epic Hero",
-        "Illic Nightspear"
+        "Phoenix Lord",
+        "Irillyth"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "750c6e6e-773d-591a-8e2a-f2e26b2e4573",
       "name": "Jain Zar",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Howling Banshees",
-      "composition": [
-        "1 Jain Zar – Epic Hero"
-      ],
+      "composition": ["1 Jain Zar – Epic Hero"],
       "loadout": "This model is equipped with: the Silent Death; the Blade of Destruction.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Fights First", "Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3594,9 +3747,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Silent Death",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "6",
               "skill": "2+",
@@ -3640,23 +3791,23 @@ window.data.AE = {
         "Phoenix Lord",
         "Jain Zar"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "124bb7b9-7b78-5721-ae9a-323dce700218",
       "name": "Karandras",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Striking Scorpions",
-      "composition": [
-        "1 Karandras – Epic Hero"
-      ],
+      "composition": ["1 Karandras – Epic Hero"],
       "loadout": "This model is equipped with: Arhra’s Bane; Isirmathil; the Scorpion’s Bite.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3664,13 +3815,8 @@ window.data.AE = {
             "description": "Melee weapons equipped by the bearer have the [DEVASTATING WOUNDS] ability when targeting units without the Titanic keyword."
           }
         ],
-        "core": [
-          "Infiltrators",
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Infiltrators", "Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3708,10 +3854,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Arhra’s Bane",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "2",
               "skill": "2+",
@@ -3727,9 +3870,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Arhra’s Bane",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -3743,9 +3884,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Isirmathil",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -3763,30 +3902,191 @@ window.data.AE = {
         "Phoenix Lord",
         "Karandras"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "60d3e229-db6d-5088-b786-2abc8017df6f",
+      "name": "Lynx",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Lynx"],
+      "loadout": "This model is equipped with: Lynx pulsar; shuriken cannon; wraithbone hull.",
+      "wargear": [
+        "This model’s shuriken cannon can be replaced with one of the following: ◦ Aeldari missile launcher ◦ Bright lance ◦ Scatter laser ◦ Starcannon"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Speed of Vaul",
+            "description": "Each time this model Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 9\" to the Move characteristic of this model."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "14\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "16",
+          "ld": "6+",
+          "oc": "4",
+          "name": "Lynx"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Aeldari missile launcher – starshot",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            },
+            {
+              "name": "Aeldari missile launcher – sunburst",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Bright lance",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lynx pulsar",
+              "keywords": ["assault"],
+              "range": "48\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "16",
+              "ap": "-3",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Scatter laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Wraithbone hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Fly", "Lynx"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "a3dff7ee-a03f-5c56-b1fb-259bc952131e",
       "name": "Maugan Ra",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Dark Reapers",
-      "composition": [
-        "1 Maugan Ra"
-      ],
+      "composition": ["1 Maugan Ra"],
       "loadout": "This model is equipped with: the Maugetar.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Leader",
-          "Strands of Fate"
-        ],
+        "faction": ["Leader", "Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3824,10 +4124,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Maugetar",
-              "keywords": [
-                "devastating wounds",
-                "ignores cover"
-              ],
+              "keywords": ["devastating wounds", "ignores cover"],
               "range": "36\"",
               "attacks": "6",
               "skill": "2+",
@@ -3861,31 +4158,29 @@ window.data.AE = {
         "Phoenix Lord",
         "Maugan Ra"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "d06e11cd-84bf-5174-8f23-096d8322ee71",
       "name": "Night Spinner",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Night Spinner"
-      ],
+      "composition": ["1 Night Spinner"],
       "loadout": "This model is equipped with: doomweaver; twin shuriken catapult; wraithbone hull.",
       "wargear": [
         "This model’s twin shuriken catapult can be replaced with 1 shuriken cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3938,9 +4233,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -3954,10 +4247,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3984,36 +4274,305 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Night Spinner"
+      "keywords": ["Vehicle", "Fly", "Night Spinner"],
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "078ab98e-cae4-54b3-8913-e195f79c5e4c",
+      "name": "Nightwing",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Nightwing"],
+      "loadout": "This model is equipped with: twin bright lance; twin shuriken cannon; wraithbone hull.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "abilities": {
+        "wargear": [],
+        "core": ["Hover"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Interceptor",
+            "description": "Each time this model makes a ranged attack that targets a unit that can Fly, add 1 to the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-4 WOUNDS REMAINING",
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "8",
+          "sv": "3+",
+          "w": "12",
+          "ld": "6+",
+          "oc": "0",
+          "name": "Nightwing"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Twin bright lance",
+              "keywords": ["twin-linked"],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin shuriken cannon",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Wraithbone hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Aircaft", "Fly", "Nightwing"],
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "0239a89d-d163-59e4-837c-334d92d94c71",
+      "name": "Phantom Titan",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Phantom Titan"],
+      "loadout": "This model is equipped with: D-bombard; Phantom pulsar; Phantom starcannon; voidstorm missile launcher; Phantom feet.",
+      "wargear": [
+        "This model’s D-bombard can be replaced with one of the following: ◦ 2 Phantom starcannons and 1 wraith glaive ◦ 1 Phantom starcannon, 1 pulse laser and 1 wraith glaive ◦ 2 pulse lasers and 1 wraith glaive ◦  1 Phantom pulsar",
+        "This model’s Phantom pulsar can be replaced with one of the following: ◦ 1 D-bombard ◦ 2 Phantom starcannons and 1 wraith glaive ◦ 1 Phantom starcannon, 1 pulse laser and 1 wraith glaive ◦ 2 pulse lasers and 1 wraith glaive",
+        "This model’s Phantom starcannon can be replaced with 1 pulse laser."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "2100"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+6"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": "* Against ranged attacks only"
+        },
+        "other": [
+          {
+            "name": "Titanic Advance",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4\" or less in height as if they were not there."
+          },
+          {
+            "name": "Towering Wraith Construct",
+            "description": "Each time you target this model with a Stratagem, you must spend three times that Stratagem’s stated CP cost to do so."
+          },
+          {
+            "name": "Flawless Poise",
+            "description": "This model is eligible to shoot and declare a charge in a turn in which it Fell Back."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-16 WOUNDS REMAINING",
+          "description": "While this model has 1-16 wounds remaining, subtract 10 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "14\"",
+          "t": "14",
+          "sv": "2+",
+          "w": "55",
+          "ld": "6+",
+          "oc": "20",
+          "name": "Phantom Titan"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "D-bombard",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "72\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "20",
+              "ap": "-4",
+              "damage": "2D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Phantom pulsar",
+              "keywords": [],
+              "range": "120\"",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "18",
+              "ap": "-4",
+              "damage": "6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Phantom starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Pulse laser",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-2",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Voidstorm missile launcher",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Phantom feet",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-2",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Wraith glaive – strike",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "18",
+              "ap": "-4",
+              "damage": "12"
+            },
+            {
+              "name": "Wraith glaive – sweep",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "12",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "4"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Monster",
+        "Titanic",
+        "Towering",
+        "Walker",
+        "Wraith Construct",
+        "Phantom Titan"
+      ],
+      "factions": ["Aeldari"]
     },
     {
       "id": "3d23908b-2375-537d-92c2-66b388b7374c",
       "name": "Prince Yriel",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Corsair Voidreavers ■ Corsair Voidscarred ■ Guardian Defenders ■ Storm Guardians",
-      "composition": [
-        "1 Prince Yriel – Epic Hero"
-      ],
+      "composition": ["1 Prince Yriel – Epic Hero"],
       "loadout": "This model is equipped with: the Eye of Wrath; the Spear of Twilight.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4051,9 +4610,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "The Eye of Wrath",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -4080,38 +4637,32 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Prince Yriel"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Prince Yriel"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "854a02eb-6a01-5734-a1b6-43a5de76571f",
       "name": "Rangers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "5-10 Rangers"
-      ],
+      "composition": ["5-10 Rangers"],
       "loadout": "Every model is equipped with: Ranger long rifle; shuriken pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "55"
+        },
+        {
+          "models": "10",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4145,10 +4696,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Ranger long rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -4162,10 +4710,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4192,36 +4737,435 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Rangers"
+      "keywords": ["Infantry", "Rangers"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Illic Nightspear"]
+    },
+    {
+      "id": "b3bccfe6-2efd-5765-8c51-58307e0eaffc",
+      "name": "Revenant Titan",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Revenant Titan"],
+      "loadout": "This model is equipped with: cloudburst missile launcher; Revenant pulsar; sonic lance; Revenant feet.",
+      "wargear": [
+        "This model’s Revenant pulsar can be replaced with 1 sonic lance.",
+        "This model’s sonic lance can be replaced with 1 Revenant pulsar."
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "1100"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 2D6"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": "* Against ranged attacks only"
+        },
+        "other": [
+          {
+            "name": "Titanic Advance",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4\" or less in height as if they were not there."
+          },
+          {
+            "name": "Towering Wraith Construct",
+            "description": "Each time you target this model with a Stratagem, you must spend twice that Stratagem’s stated CP cost to do so."
+          },
+          {
+            "name": "Revenant Jet Pack",
+            "description": "Each time this model Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 8\" to the Move characteristic of this model."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-10 WOUNDS REMAINING",
+          "description": "While this model has 1-10 wounds remaining, subtract 8 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "16\"",
+          "t": "13",
+          "sv": "2+",
+          "w": "30",
+          "ld": "6+",
+          "oc": "16",
+          "name": "Revenant Titan"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Cloudburst missile launcher",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "2D6",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Revenant pulsar",
+              "keywords": ["assault"],
+              "range": "60\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "14",
+              "ap": "-3",
+              "damage": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Sonic lance",
+              "keywords": [
+                "anti-monster 4+",
+                "anti-vehicle 4+",
+                "assault",
+                "torrent"
+              ],
+              "range": "18\"",
+              "attacks": "D6+6",
+              "skill": "N/A",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Revenant feet",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "8",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Monster",
+        "Titanic",
+        "Towering",
+        "Walker",
+        "Fly",
+        "Wraith Construct",
+        "Revenant Titan"
+      ],
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "29269392-e970-54c3-9de3-6a76745ec6d8",
+      "name": "Scorpion",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Scorpion"],
+      "loadout": "This model is equipped with: shuriken cannon; twin Scorpion pulsar; wraithbone hull.",
+      "wargear": [
+        "This model’s shuriken cannon can be replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 starcannon"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "410"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Lanced Obliteration",
+            "description": "Each time an attack made with this model’s twin Scorpion pulsar destroys an enemy model that has the Deadly Demise ability, that model’s Deadly Demise ability inflicts mortal wounds on a D6 roll of 4+ instead of on a 6."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-8 WOUNDS REMAINING",
+          "description": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "14\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "24",
+          "ld": "6+",
+          "oc": "8",
+          "name": "Scorpion"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Aeldari missile launcher – starshot",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            },
+            {
+              "name": "Aeldari missile launcher – sunburst",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Bright lance",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Scatter laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin Scorpion pulsar",
+              "keywords": ["twin-linked"],
+              "range": "60\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "18",
+              "ap": "-3",
+              "damage": "5"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Wraithbone hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Fly", "Scorpion"],
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "80ce60b7-660e-58e9-8c48-7b1686e1e309",
+      "name": "Shadow Spectres",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["0-1 Shadow Spectre Exarch", "5-10 Shadow Spectres"],
+      "loadout": "Every model is equipped with: prism rifle; close combat weapon.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deep Strike", "Stealth"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Shade of Twilight",
+            "description": "In your Shooting phase, after this unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\". If it does, until the end of the turn, this unit is not eligible to declare a charge."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "12\"",
+          "t": "3",
+          "sv": "3+",
+          "w": "1",
+          "ld": "6+",
+          "oc": "1",
+          "name": "SHADOW SPECTRE"
+        },
+        {
+          "m": "12\"",
+          "t": "3",
+          "sv": "5+",
+          "w": "2",
+          "ld": "6+",
+          "oc": "1",
+          "name": "SHADOW SPECTRE EXARCH"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Prism rifle – dispersed",
+              "keywords": ["blast"],
+              "range": "18\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            },
+            {
+              "name": "Prism rifle – focused",
+              "keywords": [],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Close combat weapon",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "3",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Infantry", "Jump Pack", "Fly", "Shadow Spectres"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Irillyth"]
     },
     {
       "id": "1b5d57e8-e866-5fa1-a017-dd224ae1a3c3",
       "name": "Shadowseer",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Troupe",
-      "composition": [
-        "1 Shadowseer"
-      ],
+      "composition": ["1 Shadowseer"],
       "loadout": "This model is equipped with: shuriken pistol; miststave.",
       "wargear": [
         "This model’s shuriken pistol can be replaced with 1 neuro disruptor."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Stealth"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader", "Stealth"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4259,11 +5203,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Neuro disruptor",
-              "keywords": [
-                "anti-infantry 2+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4277,10 +5217,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4296,9 +5233,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Miststave",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -4317,19 +5252,14 @@ window.data.AE = {
         "Harlequins",
         "Shadowseer"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "f5f48c3a-78bc-5ecc-81f1-9de5a9b5bd12",
       "name": "Shining Spears",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Shining Spear Exarch",
-        "2-5 Shining Spears"
-      ],
+      "composition": ["1 Shining Spear Exarch", "2-5 Shining Spears"],
       "loadout": "Every model is equipped with: laser lance; twin shuriken catapult.",
       "wargear": [
         "The Shining Spear Exarch’s laser lance can be replaced with one of the following: ◦ 1 paragon sabre ◦ 1 star lance",
@@ -4337,6 +5267,16 @@ window.data.AE = {
         "The Shining Spear Exarch can be equipped with 1 shimmershield."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "120"
+        },
+        {
+          "models": "6",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4345,9 +5285,7 @@ window.data.AE = {
           }
         ],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4390,9 +5328,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Laser lance",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -4406,9 +5342,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4422,9 +5356,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Star lance",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -4438,10 +5370,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -4457,9 +5386,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Laser lance",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4487,9 +5414,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Star lance",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -4500,37 +5425,32 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Shining Spears"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Mounted", "Fly", "Shining Spears"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "d336eae8-70ca-574e-9717-99835426785d",
       "name": "Shroud Runners",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "3-6 Shroud Runners"
-      ],
+      "composition": ["3-6 Shroud Runners"],
       "loadout": "Every model is equipped with: Ranger long rifle; scatter laser; shuriken pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "80"
+        },
+        {
+          "models": "6",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 9\"",
-          "Stealth"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Scouts 9\"", "Stealth"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -4564,9 +5484,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Ranger long rifle",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -4594,10 +5512,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4624,35 +5539,201 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Shroud Runners"
+      "keywords": ["Mounted", "Fly", "Shroud Runners"],
+      "factions": ["Aeldari"]
+    },
+    {
+      "id": "9cd7492d-eeef-53d2-9819-7853fac13cc1",
+      "name": "Skathach Wraithknight",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Skathach Wraithknight"],
+      "loadout": "This model is equipped with: inferno lance; titanic feet; scattershield.",
+      "wargear": [
+        "This model’s inferno lance can be replaced with 1 deathshroud cannon.",
+        "This model’s scattershield can be replaced with one of the following: ◦ 1 inferno lance ◦ 1 deathshroud cannon",
+        "This model can be equipped with up to two of the following: ◦ 1 scatter laser ◦ 1 shuriken cannon ◦ 1 starcannon"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "385"
+        }
+      ],
+      "abilities": {
+        "wargear": {
+          "name": "Scattershield",
+          "description": "The bearer has a 4+ invulnerable save."
+        },
+        "core": ["Deadly Demise D6", "Deep Strike"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Agile",
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over other models (excluding Titanic models) and terrain features that are 4\" or less in height as if they were not there."
+          },
+          {
+            "name": "Webway Shunt Generator",
+            "description": "Once per battle, at the end of your opponent’s turn, if this model is not within Engagement Range of one or more enemy units, you can remove this model from the battlefield and place it into Strategic Reserves."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, subtract 5 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "18",
+          "ld": "6+",
+          "oc": "10",
+          "name": "Skathach Wraithknight"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Deathshroud cannon – dispersed",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "12\"",
+              "attacks": "3D6",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "1"
+            },
+            {
+              "name": "Deathshroud cannon – focused",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Inferno lance",
+              "keywords": ["melta 2"],
+              "range": "24\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Scatter laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Titanic feet",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "5",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Monster",
+        "Titanic",
+        "Towering",
+        "Walker",
+        "Wraith Construct",
+        "Skathach Wraithknight"
+      ],
+      "factions": ["Aeldari"]
     },
     {
       "id": "220255f7-7940-52f9-802b-2354b0943d98",
       "name": "Skyweavers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "2-4 Skyweavers"
-      ],
+      "composition": ["2-4 Skyweavers"],
       "loadout": "Every model is equipped with: shuriken cannon; star bolas; close combat weapon.",
       "wargear": [
         "Any number of models can each have their shuriken cannon replaced with 1 Skyweaver haywire cannon.",
         "Any number of models can each have their star bolas replaced with 1 zephyrglaive."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "95"
+        },
+        {
+          "models": "4",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4686,9 +5767,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4716,10 +5795,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Skyweaver haywire cannon",
-              "keywords": [
-                "anti-vehicle 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-vehicle 4+", "devastating wounds"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4760,39 +5836,28 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Smoke",
-        "Harlequins",
-        "Skyweavers"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Mounted", "Fly", "Smoke", "Harlequins", "Skyweavers"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "ce7717de-ecfc-57bc-809a-5644eaac1162",
       "name": "Solitaire",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Solitaire – Epic Hero"
-      ],
+      "composition": ["1 Solitaire – Epic Hero"],
       "loadout": "This model is equipped with: Solitaire weapons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Lone Operative"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Fights First", "Lone Operative"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "3+",
@@ -4836,9 +5901,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Solitaire weapons",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "9",
               "skill": "2+",
@@ -4856,31 +5919,27 @@ window.data.AE = {
         "Harlequins",
         "Solitaire"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "da7696c5-35af-571b-8891-c7f8e87f0353",
       "name": "Spiritseer",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Wraithblades ■ Wraithguard ■ Wraithlord",
-      "composition": [
-        "1 Spiritseer"
-      ],
+      "composition": ["1 Spiritseer"],
       "loadout": "This model is equipped with: shuriken pistol; witch staff.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4918,10 +5977,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4937,10 +5993,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witch staff",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -4951,38 +6004,28 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Character",
-        "Infantry",
-        "Psyker",
-        "Spiritseer"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Character", "Infantry", "Psyker", "Spiritseer"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "a2ab60bb-cde1-5c04-9a9e-ab83e75b5b83",
       "name": "Starweaver",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Starweaver"
-      ],
+      "composition": ["1 Starweaver"],
       "loadout": "This model is equipped with: 2 shuriken cannons; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 6 Harlequins Infantry models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Firing Deck 6"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise 1", "Firing Deck 6"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5016,9 +6059,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -5054,19 +6095,14 @@ window.data.AE = {
         "Harlequins",
         "Starweaver"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "f439bfc5-13ef-56e7-a954-091dedf6b831",
       "name": "Storm Guardians",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "10 Storm Guardians",
-        "1 Serpent’s Scale Platform"
-      ],
+      "composition": ["10 Storm Guardians", "1 Serpent’s Scale Platform"],
       "loadout": "Every Storm Guardian is equipped with: shuriken pistol; Guardian combat weapon. The Serpent’s Scale Platform is equipped with: Guardian combat weapon; Serpent shield.",
       "wargear": [
         "Up to 2 Storm Guardians can each have their shuriken pistol and Guardian combat weapon replaced with 1 Aeldari flamer.",
@@ -5074,6 +6110,12 @@ window.data.AE = {
         "Up to 2 Storm Guardians can each have their Guardian combat weapon replaced with 1 Aeldari power sword."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5082,9 +6124,7 @@ window.data.AE = {
           }
         ],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5131,11 +6171,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Aeldari flamer",
-              "keywords": [
-                "assault",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["assault", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5149,10 +6185,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Guardian fusion gun",
-              "keywords": [
-                "assault",
-                "melta 2"
-              ],
+              "keywords": ["assault", "melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5166,10 +6199,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5217,8 +6247,14 @@ window.data.AE = {
         "Guardians",
         "Storm Guardians"
       ],
-      "factions": [
-        "Aeldari"
+      "factions": ["Aeldari"],
+      "ledBy": [
+        "Autarch",
+        "Eldrad Ulthran",
+        "Farseer",
+        "Prince Yriel",
+        "The Visarch",
+        "Warlock"
       ]
     },
     {
@@ -5226,16 +6262,23 @@ window.data.AE = {
       "name": "Striking Scorpions",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Striking Scorpion Exarch",
-        "4-9 Striking Scorpions"
-      ],
+      "composition": ["1 Striking Scorpion Exarch", "4-9 Striking Scorpions"],
       "loadout": "Every model is equipped with: shuriken pistol; Scorpion chainsword; mandiblasters.",
       "wargear": [
         "The Striking Scorpion Exarch’s Scorpion chainsword can be replaced with 1 Scorpion’s claw.",
         "The Striking Scorpion Exarch’s shuriken pistol and Scorpion chainsword can be replaced with 1 biting blade."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5243,12 +6286,8 @@ window.data.AE = {
             "description": "Melee weapons equipped by the bearer have the [DEVASTATING WOUNDS] ability when targeting units without the Monster or Vehicle keywords."
           }
         ],
-        "core": [
-          "Infiltrators"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Infiltrators"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5286,10 +6325,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Scorpion’s claw",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "2",
               "skill": "3+",
@@ -5303,10 +6339,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5322,9 +6355,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Biting blade",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -5338,9 +6369,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Scorpion chainsword",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5354,9 +6383,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Scorpion’s claw",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -5367,33 +6394,31 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Striking Scorpions"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Striking Scorpions"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Karandras"]
     },
     {
       "id": "4b91cd9c-5102-53f1-9df5-83ac8622bc1e",
       "name": "Support Weapons",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Support Weapon"
-      ],
+      "composition": ["1 Support Weapon"],
       "loadout": "This model is equipped with: shadow weaver; shuriken catapult; close combat weapon.",
       "wargear": [
         "Any number of models can each have their shadow weaver replaced with one of the following: ◦ 1 D-cannon ◦ 1 vibro cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5465,9 +6490,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken catapult",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -5481,9 +6504,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Vibro cannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -5510,37 +6531,35 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Support Weapons"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Support Weapons"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "54f6fc00-6f4a-5639-82fc-f3a31357345b",
       "name": "Swooping Hawks",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Swooping Hawk Exarch",
-        "4-9 Swooping Hawks"
-      ],
+      "composition": ["1 Swooping Hawk Exarch", "4-9 Swooping Hawks"],
       "loadout": "Every model is equipped with: lasblaster; close combat weapon.",
       "wargear": [
         "The Swooping Hawk Exarch’s lasblaster can be replaced with 1 Hawk’s talon.",
         "The Swooping Hawk Exarch can be equipped with 1 Aeldari power sword."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5583,10 +6602,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Hawk’s talon",
-              "keywords": [
-                "assault",
-                "lethal hits"
-              ],
+              "keywords": ["assault", "lethal hits"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -5600,10 +6616,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Lasblaster",
-              "keywords": [
-                "assault",
-                "lethal hits"
-              ],
+              "keywords": ["assault", "lethal hits"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -5651,31 +6664,28 @@ window.data.AE = {
         "Grenades",
         "Swooping Hawks"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"],
+      "ledBy": ["Baharroth"]
     },
     {
       "id": "ebc4b618-c08e-5c19-9633-3a9c63bc3ec3",
       "name": "The Visarch",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Corsair Voidreavers ■ Corsair Voidscarred ■ Guardian Defenders ■ Kabalite Warriors (see Drukhari) ■ Storm Guardians ■ Troupe ■ Wyches (see Drukhari) You can attach this unit to one of the above units, even if Yvraine has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Visarch – Epic Hero"
-      ],
+      "composition": ["1 Visarch – Epic Hero"],
       "loadout": "This model is equipped with: Asu-var, the Sword of Silent Screams.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5714,9 +6724,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Asu-var, the Sword of Silent Screams",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -5734,31 +6742,27 @@ window.data.AE = {
         "Ynnari",
         "The Visarch"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "2906941e-fa4b-5aa4-bb53-72cf83da47f1",
       "name": "The Yncarne",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Yncarne – Epic Hero"
-      ],
+      "composition": ["1 Yncarne – Epic Hero"],
       "loadout": "This model is equipped with: swirling soul energy; Vilith-zhar, the Sword of Souls.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5796,11 +6800,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Swirling soul energy",
-              "keywords": [
-                "ignores cover",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -5847,19 +6847,14 @@ window.data.AE = {
         "Ynnari",
         "The Yncarne"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "1238411f-7d33-52d3-8fdc-4259230538fe",
       "name": "Troupe",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Lead Player",
-        "4-11 Players"
-      ],
+      "composition": ["1 Lead Player", "4-11 Players"],
       "loadout": "Every model is equipped with: shuriken pistol; Harlequin’s blade.",
       "wargear": [
         "Any number of models can each have their Harlequin’s blade replaced with 1 Harlequin’s special weapon.",
@@ -5868,12 +6863,28 @@ window.data.AE = {
         "If this unit contains 11 or more models: ◦  Up to four models can each have their shuriken pistol replaced with 1 neuro disruptor ◦  Up to four models can each have their shuriken pistol replaced with 1 fusion pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "90"
+        },
+        {
+          "models": "11",
+          "cost": "165"
+        },
+        {
+          "models": "12",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5907,11 +6918,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Fusion pistol",
-              "keywords": [
-                "assault",
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["assault", "melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -5925,11 +6932,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Neuro disruptor",
-              "keywords": [
-                "anti-infantry 2+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5943,10 +6946,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6001,38 +7001,32 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Harlequins",
-        "Troupe"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Grenades", "Harlequins", "Troupe"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Shadowseer", "The Visarch"]
     },
     {
       "id": "058d7578-2cb1-5b5e-bc57-f17c171ea9f0",
       "name": "Troupe Master",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Troupe Master"
-      ],
+      "composition": ["1 Troupe Master"],
       "loadout": "This model is equipped with: shuriken pistol; Troupe Master’s blade.",
       "wargear": [
         "This model’s shuriken pistol can be replaced with one of the following: ◦ 1 fusion pistol ◦ 1 neuro disruptor",
         "This model’s Troupe Master’s blade can be replaced with 1 Harlequin’s special weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6075,11 +7069,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Fusion pistol",
-              "keywords": [
-                "assault",
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["assault", "melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -6093,11 +7083,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Neuro disruptor",
-              "keywords": [
-                "anti-infantry 2+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -6111,10 +7097,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -6162,31 +7145,29 @@ window.data.AE = {
         "Harlequins",
         "Troupe Master"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "587ed562-f847-58b6-9366-8e9245b9ac6f",
       "name": "Voidweaver",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Voidweaver"
-      ],
+      "composition": ["1 Voidweaver"],
       "loadout": "This model is equipped with: 2 shuriken cannons; Voidweaver haywire cannon; close combat weapon.",
       "wargear": [
         "This model’s Voidweaver haywire cannon can be replaced with 1 prismatic cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6220,9 +7201,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Prismatic cannon – dispersed pulse",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -6246,9 +7225,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -6262,10 +7239,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Voidweaver haywire cannon",
-              "keywords": [
-                "anti-vehicle 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-vehicle 4+", "devastating wounds"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -6292,38 +7266,30 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Smoke",
-        "Harlequins",
-        "Voidweaver"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Fly", "Smoke", "Harlequins", "Voidweaver"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "303e56a0-4c0f-50c9-bfa4-e57d30bf2b0a",
       "name": "Vypers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Vyper"
-      ],
+      "composition": ["1 Vyper"],
       "loadout": "This model is equipped with: shuriken cannon; twin shuriken catapult; wraithbone hull.",
       "wargear": [
         "Any number of models can each have their shuriken cannon replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 starcannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6367,9 +7333,7 @@ window.data.AE = {
             },
             {
               "name": "Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6411,9 +7375,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -6441,10 +7403,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -6471,36 +7430,30 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Vypers"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Fly", "Vypers"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "91d66514-b08f-545c-ab78-e48c999d8e90",
       "name": "War Walkers",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 War Walker"
-      ],
+      "composition": ["1 War Walker"],
       "loadout": "This model is equipped with: 2 shuriken cannons; War Walker feet.",
       "wargear": [
         "Each model can have each shuriken cannon it is equipped with replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 starcannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6544,9 +7497,7 @@ window.data.AE = {
             },
             {
               "name": "Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6588,9 +7539,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -6631,36 +7580,30 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "War Walkers"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Vehicle", "Walker", "War Walkers"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "c9393df2-5191-5d34-b260-5dbafbfa7deb",
       "name": "Warlock",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Guardian Defenders ■ Storm Guardians You can attach this model to one of the above units, even if one other Leader unit (excluding Warlock units) has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Warlock"
-      ],
+      "composition": ["1 Warlock"],
       "loadout": "This model is equipped with: Destructor; shuriken pistol; witchblade.",
       "wargear": [
         "This model’s witchblade can be replaced with 1 singing spear."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6694,10 +7637,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Destructor",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6711,10 +7651,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6728,10 +7665,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "assault",
-                "psychic"
-              ],
+              "keywords": ["assault", "psychic"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6747,9 +7681,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -6763,10 +7695,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -6777,35 +7706,34 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Psyker",
-        "Warlock"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Character", "Psyker", "Warlock"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "9a4c27e9-42d1-5228-8f74-43a7871b709e",
       "name": "Warlock Conclave",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "2-4 Warlocks"
-      ],
+      "composition": ["2-4 Warlocks"],
       "loadout": "Every model is equipped with: Destructor; shuriken pistol; witchblade.",
       "wargear": [
         "Any number of models can each have their witchblade replaced with 1 singing spear."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "60"
+        },
+        {
+          "models": "4",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6843,10 +7771,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Destructor",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6860,10 +7785,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6877,10 +7799,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic",
-                "assault"
-              ],
+              "keywords": ["psychic", "assault"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6896,9 +7815,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -6912,10 +7829,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -6926,36 +7840,31 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Psyker",
-        "Warlocks",
-        "Warlock Conclave"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Psyker", "Warlocks", "Warlock Conclave"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Eldrad Ulthran", "Farseer"]
     },
     {
       "id": "60c8afc3-c477-588d-9d8e-829c6f110d4b",
       "name": "Warlock Skyrunner",
       "faction_id": "AE",
       "leader": "This model can be attached to the following unit: ■ Windriders You can attach this unit to the above unit, even if one other Leader unit (excluding Warlock units) has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Warlock Skyrunner"
-      ],
+      "composition": ["1 Warlock Skyrunner"],
       "loadout": "This model is equipped with: Destructor; shuriken pistol; twin shuriken catapult; witchblade.",
       "wargear": [
         "This model’s witchblade can be replaced with 1 singing spear."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Leader",
-          "Strands of Fate"
-        ],
+        "faction": ["Leader", "Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -6989,10 +7898,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Destructor",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7006,10 +7912,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7023,10 +7926,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "assault",
-                "psychic"
-              ],
+              "keywords": ["assault", "psychic"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7040,10 +7940,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -7059,9 +7956,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -7075,10 +7970,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -7097,29 +7989,33 @@ window.data.AE = {
         "Warlock",
         "Warlock Skyrunner"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "83cb9507-f3bb-598b-8eed-8672a2ef2f13",
       "name": "Warlock Skyrunner Conclave",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "2-3 Warlock Skyrunners"
-      ],
+      "composition": ["2-3 Warlock Skyrunners"],
       "loadout": "Every model is equipped with: Destructor; shuriken pistol; twin shuriken catapult; witchblade.",
       "wargear": [
         "Any number of models can each have their witchblade replaced with 1 singing spear."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "100"
+        },
+        {
+          "models": "3",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -7157,10 +8053,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Destructor",
-              "keywords": [
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["psychic", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7174,10 +8067,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken pistol",
-              "keywords": [
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7191,10 +8081,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "assault",
-                "psychic"
-              ],
+              "keywords": ["assault", "psychic"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7208,10 +8095,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -7227,9 +8111,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Singing spear",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -7243,10 +8125,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Witchblade",
-              "keywords": [
-                "anti-infantry 2+",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "psychic"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -7264,32 +8143,156 @@ window.data.AE = {
         "Warlocks",
         "Warlock Skyrunner Conclave"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"],
+      "ledBy": ["Farseer Skyrunner"]
+    },
+    {
+      "id": "b0c7ed8d-7e1f-516a-b729-3d124ff20265",
+      "name": "Warp Hunter",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Warp Hunter"],
+      "loadout": "This model is equipped with: D-flail; twin shuriken catapult; wraithbone hull.",
+      "wargear": [
+        "This model’s twin shuriken catapult can be replaced with 1 shuriken cannon."
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Devastating Assault",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-4 WOUNDS REMAINING",
+          "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "14\"",
+          "t": "9",
+          "sv": "3+",
+          "w": "12",
+          "ld": "6+",
+          "oc": "3",
+          "name": "Warp Hunter"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "D-flail – blast",
+              "keywords": ["blast", "devastating wounds"],
+              "range": "24\"",
+              "attacks": "D3",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-4",
+              "damage": "3"
+            },
+            {
+              "name": "D-flail – rift",
+              "keywords": ["devastating wounds", "torrent"],
+              "range": "12\"",
+              "attacks": "D3",
+              "skill": "N/A",
+              "strength": "12",
+              "ap": "-4",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin shuriken catapult",
+              "keywords": ["assault", "twin-linked"],
+              "range": "18\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "3",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Wraithbone hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Fly", "Warp Hunter"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "2e5ac6c6-6fa1-5004-b268-249397354dd6",
       "name": "Warp Spiders",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Warp Spider Exarch",
-        "4-9 Warp Spiders"
-      ],
+      "composition": ["1 Warp Spider Exarch", "4-9 Warp Spiders"],
       "loadout": "Every model is equipped with: death spinner; close combat weapon.",
       "wargear": [
         "The Warp Spider Exarch can be equipped with 1 additional death spinner and 1 powerblades."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "100"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -7332,10 +8335,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Death spinner",
-              "keywords": [
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -7376,38 +8376,31 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Jump Pack",
-        "Fly",
-        "Warp Spiders"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Jump Pack", "Fly", "Warp Spiders"],
+      "factions": ["Aeldari"]
     },
     {
       "id": "09b47c07-47b5-53d3-8758-9a4705bbb61a",
       "name": "Wave Serpent",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Wave Serpent"
-      ],
+      "composition": ["1 Wave Serpent"],
       "loadout": "This model is equipped with: twin shuriken cannon; twin shuriken catapult; wraithbone hull.",
       "wargear": [
         "This model’s twin shuriken cannon can be replaced with one of the following: ◦ 1 twin Aeldari missile launcher ◦ 1 twin bright lance ◦ 1 twin scatter laser ◦ 1 twin starcannon",
         "This model’s twin shuriken catapult can be replaced with 1 shuriken cannon."
       ],
       "transport": "This model has a transport capacity of 12 Aeldari Infantry models. Each Wraith Construct model takes the space of 2 models. It cannot transport Jump Pack models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -7441,9 +8434,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -7457,9 +8448,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin Aeldari missile launcher – starshot",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -7469,10 +8458,7 @@ window.data.AE = {
             },
             {
               "name": "Twin Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -7486,9 +8472,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin bright lance",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -7502,9 +8486,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin scatter laser",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "6",
               "skill": "3+",
@@ -7518,10 +8500,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken cannon",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -7535,10 +8514,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -7552,9 +8528,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin starcannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -7588,29 +8562,37 @@ window.data.AE = {
         "Fly",
         "Wave Serpent"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "e92afdeb-bee6-5c0a-bfc5-453ab2f9baa8",
       "name": "Windriders",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "3-9 Windriders"
-      ],
+      "composition": ["3-9 Windriders"],
       "loadout": "Every model is equipped with: twin shuriken catapult; close combat weapon.",
       "wargear": [
         "Any number of models can each have their twin shuriken catapult replaced with one of the following: ◦ 1 scatter laser ◦ 1 shuriken cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "80"
+        },
+        {
+          "models": "6",
+          "cost": "160"
+        },
+        {
+          "models": "9",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7658,9 +8640,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -7674,10 +8654,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Twin shuriken catapult",
-              "keywords": [
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -7704,28 +8681,31 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Windriders"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Mounted", "Fly", "Windriders"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Autarch Skyrunner", "Farseer Skyrunner", "Warlock Skyrunner"]
     },
     {
       "id": "9c9af29d-b7a3-5de1-8ff6-41a86a998ca7",
       "name": "Wraithblades",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "5-10 Wraithblades"
-      ],
+      "composition": ["5-10 Wraithblades"],
       "loadout": "Every model is equipped with: ghostswords.",
       "wargear": [
         "All of the models in this unit can each have their ghostswords replaced with 1 ghostaxe and 1 forceshield."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "170"
+        },
+        {
+          "models": "10",
+          "cost": "340"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -7734,9 +8714,7 @@ window.data.AE = {
           }
         ],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7796,34 +8774,35 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Wraith Construct",
-        "Wraithblades"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Wraith Construct", "Wraithblades"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Spiritseer"]
     },
     {
       "id": "527e915f-9575-5968-99bf-04dae1d145d0",
       "name": "Wraithguard",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "5-10 Wraithguard"
-      ],
+      "composition": ["5-10 Wraithguard"],
       "loadout": "Every model is equipped with: wraithcannon; close combat weapon.",
       "wargear": [
         "All of the models in this unit can each have their wraithcannon replaced with 1 D-scythe."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "155"
+        },
+        {
+          "models": "10",
+          "cost": "310"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7857,9 +8836,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Wraithcannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -7900,23 +8877,16 @@ window.data.AE = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Wraith Construct",
-        "Wraithguard"
-      ],
-      "factions": [
-        "Aeldari"
-      ]
+      "keywords": ["Infantry", "Wraith Construct", "Wraithguard"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Spiritseer"]
     },
     {
       "id": "fd526d7e-34b9-517a-bab1-b7baa1e1c1e4",
       "name": "Wraithknight",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Wraithknight"
-      ],
+      "composition": ["1 Wraithknight"],
       "loadout": "This model is equipped with: titanic ghostglaive; titanic feet; scattershield.",
       "wargear": [
         "This model’s titanic ghostglaive can be replaced with one of the following: ◦ 1 heavy wraithcannon ◦ 1 suncannon",
@@ -7924,6 +8894,12 @@ window.data.AE = {
         "This model can be equipped with up to two of the following: ◦ 1 scatter laser ◦ 1 shuriken cannon ◦ 1 starcannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "370"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -7931,12 +8907,8 @@ window.data.AE = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7974,10 +8946,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Heavy wraithcannon",
-              "keywords": [
-                "blast",
-                "devastating wounds"
-              ],
+              "keywords": ["blast", "devastating wounds"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -8005,9 +8974,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -8094,18 +9061,14 @@ window.data.AE = {
         "Wraith Construct",
         "Wraithknight"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "97d00630-43f0-5063-9c3b-a23f407385bf",
       "name": "Wraithlord",
       "faction_id": "AE",
       "leader": "",
-      "composition": [
-        "1 Wraithlord"
-      ],
+      "composition": ["1 Wraithlord"],
       "loadout": "This model is equipped with: 2 shuriken catapults; wraithbone fists.",
       "wargear": [
         "Each of this model’s shuriken catapults can be replaced with 1 Aeldari flamer.",
@@ -8113,14 +9076,16 @@ window.data.AE = {
         "This model can be equipped with up to two of the following: ◦  1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 shuriken cannon ◦ 1 starcannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8164,9 +9129,7 @@ window.data.AE = {
             },
             {
               "name": "Aeldari missile launcher – sunburst",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -8180,11 +9143,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Aeldari flamer",
-              "keywords": [
-                "assault",
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["assault", "ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -8226,9 +9185,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken cannon",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -8242,9 +9199,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Shuriken catapult",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -8309,38 +9264,223 @@ window.data.AE = {
           ]
         }
       ],
+      "keywords": ["Monster", "Walker", "Wraith Construct", "Wraithlord"],
+      "factions": ["Aeldari"],
+      "ledBy": ["Spiritseer"]
+    },
+    {
+      "id": "63e5a52c-23e4-54df-ac74-250e04a3f859",
+      "name": "Wraithseer",
+      "faction_id": "AE",
+      "leader": "",
+      "composition": ["1 Wraithseer"],
+      "loadout": "This model is equipped with: destructor; ghostspear. SPIRIT BOND If a Spiritseer model from your army with the Leader ability can be attached to a Wraithlord, it can be attached to this unit instead.",
+      "wargear": [
+        "This model can be equipped with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 shuriken cannon ◦ 1 starcannon ◦ 1 Wraithseer D-cannon"
+      ],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Strands of Fate"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Horrify (Psychic)",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "8\"",
+          "t": "11",
+          "sv": "2+",
+          "w": "10",
+          "ld": "6+",
+          "oc": "3",
+          "name": "Wraithseer"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Aeldari missile launcher – starshot",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "D6"
+            },
+            {
+              "name": "Aeldari missile launcher – sunburst",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6",
+              "skill": "4+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Bright lance",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Destructor",
+              "keywords": ["psychic", "torrent"],
+              "range": "12\"",
+              "attacks": "D6",
+              "skill": "N/A",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Scatter laser",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "5",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Shuriken cannon",
+              "keywords": ["sustained hits 1"],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "4+",
+              "strength": "6",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Starcannon",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Wraithseer D-cannon",
+              "keywords": ["devastating wounds"],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "4+",
+              "strength": "14",
+              "ap": "-4",
+              "damage": "D6"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Ghostspear – strike",
+              "keywords": ["anti-infantry 2+", "precision", "psychic"],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "4+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "3"
+            },
+            {
+              "name": "Ghostspear – sweep",
+              "keywords": ["anti-infantry 2+", "psychic"],
+              "range": "Melee",
+              "attacks": "12",
+              "skill": "4+",
+              "strength": "7",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
       "keywords": [
         "Monster",
+        "Psyker",
         "Walker",
         "Wraith Construct",
-        "Wraithlord"
+        "Wraithseer"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     },
     {
       "id": "4fe3eb62-3ab8-50a4-bbbc-2886a6cef808",
       "name": "Yvraine",
       "faction_id": "AE",
       "leader": "This model can be attached to the following units: ■ Corsair Voidscarred ■ Corsair Voidreavers ■ Guardian Defenders ■ Kabalite Warriors (see Drukhari) ■ Storm Guardians ■ Troupe ■ Wyches (see Drukhari)",
-      "composition": [
-        "1 Yvraine – Epic Hero"
-      ],
+      "composition": ["1 Yvraine – Epic Hero"],
       "loadout": "This model is equipped with: Storm of Whispers; Kha-vir, the Sword of Sorrows.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Strands of Fate"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Strands of Fate"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -8378,11 +9518,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Storm of Whispers",
-              "keywords": [
-                "anti-infantry 2+",
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 2+", "devastating wounds", "psychic"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "2+",
@@ -8398,9 +9534,7 @@ window.data.AE = {
           "profiles": [
             {
               "name": "Kha-vir, the Sword of Sorrows",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -8419,9 +9553,11 @@ window.data.AE = {
         "Psyker",
         "Yvraine"
       ],
-      "factions": [
-        "Aeldari"
-      ]
+      "factions": ["Aeldari"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#0a353a",
+    "header": "#347379"
+  }
 }

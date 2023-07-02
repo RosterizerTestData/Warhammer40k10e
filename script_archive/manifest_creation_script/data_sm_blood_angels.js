@@ -3,29 +3,58 @@ window.data.CHBA = {
   "id": "CHBA",
   "link": "https://game-datacards.eu",
   "name": "Blood Angels",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Archangel’s Shard",
+      "description": "Adeptus Astartes model only. The bearer’s melee weapons have the [ANTI-CHAOS 5+] and [LANCE] abilities.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "Artisan of War",
+      "description": "Adeptus Astartes model only. Improve the Armour Penetration characteristic of the bearer’s weapons by 1, and the bearer has a Save characteristic of 2+.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Icon of the Angel",
+      "description": "Adeptus Astartes model only. Each time an enemy unit (excluding Monsters and Vehicles) within Engagement Range of the bearer’s unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle-shocked. When doing so, if that enemy unit is also Battle-shocked by other means, subtract 1 from each of those Desperate Escape tests.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "Visage of Death",
+      "description": "Adeptus Astartes model only. While an enemy unit (excluding Monsters and Vehicles) is within Engagement Range of the bearer’s unit, halve the Objective Control characteristic of models in that unit.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "15"
+    }
+  ],
   "datasheets": [
     {
       "id": "4c4b1340-4603-51d7-91a8-3b715d94241a",
       "name": "Astorath",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following unit: ■ Death Company Marines with Jump Packs",
-      "composition": [
-        "1 Astorath – Epic Hero"
-      ],
+      "composition": ["1 Astorath – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; the Executioner’s Axe.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -63,9 +92,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -80,10 +107,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "The Executioner’s Axe ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "The Executioner’s Axe",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "2+",
@@ -105,19 +130,14 @@ window.data.CHBA = {
         "Chaplain",
         "Astorath"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "9ce6d8b7-7943-518e-be4d-d89fd9f9a057",
       "name": "Baal Predator",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "1 Baal Predator"
-      ],
+      "composition": ["1 Baal Predator"],
       "loadout": "This model is equipped with: twin assault cannon; armoured tracks.",
       "wargear": [
         "This model’s twin assault cannon can be replaced with 1 Baal flamestorm cannon.",
@@ -126,12 +146,16 @@ window.data.CHBA = {
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 heavy flamers"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -165,10 +189,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Baal flamestorm cannon",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "18\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -182,9 +203,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -198,10 +217,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -215,9 +231,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -231,9 +245,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -247,10 +259,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -277,38 +286,28 @@ window.data.CHBA = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Baal Predator"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Baal Predator"],
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "938102da-0715-5260-bd09-cb8c5eb44b30",
       "name": "Brother Corbulo",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Devastator Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Brother Corbulo – Epic Hero"
-      ],
+      "composition": ["1 Brother Corbulo – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Heaven’s Teeth.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -346,9 +345,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -363,10 +360,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Heaven’s Teeth ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Heaven’s Teeth",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -386,32 +381,27 @@ window.data.CHBA = {
         "Sanguinary Priest",
         "Brother Corbulo"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "3324eec6-662c-52c9-ba6e-b1cb445e411e",
       "name": "Captain Tycho",
       "faction_id": "CHBA",
-      "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad TYCHO Your army cannot contain both Captain Tycho and Tycho the Lost.",
-      "composition": [
-        "1 Captain Tycho – Epic Hero"
-      ],
-      "loadout": "",
-      "wargear": [
-        "None"
-      ],
+      "leader": "",
+      "composition": ["1 Captain Tycho – Epic Hero"],
+      "loadout": "This model is equipped with: Blood Song; bolt pistol; Dead Man’s Hand.",
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -430,9 +420,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "TYCHO",
-            "description": "Your army cannot contain both Captain Tycho and Tycho the Lost.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "Your army cannot contain both Captain Tycho and Tycho the Lost."
           }
         ],
         "damaged": {
@@ -456,11 +444,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Blood Song",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds",
-                "melta 2"
-              ],
+              "keywords": ["anti-infantry 4+", "devastating wounds", "melta 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -474,9 +458,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -512,33 +494,27 @@ window.data.CHBA = {
         "Captain",
         "Tycho"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "dc788dd1-8d00-5724-a0df-a5ab92a159c6",
       "name": "Chief Librarian Mephiston",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Chief Librarian Mephiston – Epic Hero"
-      ],
+      "composition": ["1 Chief Librarian Mephiston – Epic Hero"],
       "loadout": "This model is equipped with: plasma pistol; Fury of the Ancients; Vitarus.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -580,11 +556,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Fury of the Ancients – witchfire",
-              "keywords": [
-                "pistol",
-                "psychic",
-                "sustained hits 1"
-              ],
+              "keywords": ["pistol", "psychic", "sustained hits 1"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -613,9 +585,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -625,10 +595,7 @@ window.data.CHBA = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -643,10 +610,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Vitarus ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Vitarus",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -667,33 +632,27 @@ window.data.CHBA = {
         "Tacticus",
         "Chief Librarian Mephiston"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "e5145978-72b9-5509-a15a-d1213bda57a0",
       "name": "Commander Dante",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following units: ■ Assault Squad with Jump Packs ■ Sanguinary Guard ■ Vanguard Veteran Squad with Jump Packs",
-      "composition": [
-        "1 Commander Dante – Epic Hero"
-      ],
+      "composition": ["1 Commander Dante – Epic Hero"],
       "loadout": "This model is equipped with: Perdition; the Axe Mortalis.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -731,11 +690,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Perdition",
-              "keywords": [
-                "melta 2",
-                "pistol",
-                "sustained hits d3"
-              ],
+              "keywords": ["melta 2", "pistol", "sustained hits d3"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -750,10 +705,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "The Axe Mortalis ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "The Axe Mortalis",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -776,20 +729,15 @@ window.data.CHBA = {
         "Chapter Master",
         "Commander Dante"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "3ee2094c-aa41-580b-bc63-43da2b51f238",
       "name": "Death Company Dreadnought",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "1 Death Company Dreadnought"
-      ],
-      "loadout": "",
+      "composition": ["1 Death Company Dreadnought"],
+      "loadout": "This model is equipped with: meltagun; storm bolter; twin Furioso fists.",
       "wargear": [
         "This model’s storm bolter can be replaced with 1 heavy flamer.",
         "This model’s meltagun can be replaced with 1 heavy flamer.",
@@ -797,6 +745,12 @@ window.data.CHBA = {
         "This model can be equipped with 1 magna-grapple."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -804,13 +758,8 @@ window.data.CHBA = {
             "description": "The bearer loses the Smoke keyword, but add 2 to Charge rolls made for the bearer if one or more of the targets of that charge is a Monster or Vehicle unit."
           }
         ],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -848,10 +797,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -865,9 +811,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -881,9 +825,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -898,10 +840,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Blood talons ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Blood talons",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "3+",
@@ -914,10 +854,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Twin Furioso fists ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin Furioso fists",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -935,20 +873,15 @@ window.data.CHBA = {
         "Imperium",
         "Death Company Dreadnought"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "24e8b799-ddc4-547b-bb5a-f58d494021d6",
       "name": "Death Company Intercessors",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "5-10 Death Company Intercessors"
-      ],
-      "loadout": "",
+      "composition": ["5-10 Death Company Intercessors"],
+      "loadout": "Every model is equipped with: bolt pistol; bolt rifle; close combat weapon.",
       "wargear": [
         "All models in this unit can each have their bolt pistol and bolt rifle replaced with 1 heavy bolt pistol and 1 Astartes chainsword.",
         "1 model’s heavy bolt pistol can be replaced with one of the following: ◦ 1 hand flamer ◦ 1 plasma pistol",
@@ -956,14 +889,20 @@ window.data.CHBA = {
         "1 model can replace its bolt rifle or Astartes chainsword with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -982,9 +921,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "DEATH COMPANY",
-            "description": "If a Chaplain model from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Chaplain model from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -1008,9 +945,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Astartes grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -1034,9 +969,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1064,11 +997,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1082,9 +1011,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1098,9 +1025,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1110,10 +1035,7 @@ window.data.CHBA = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1184,10 +1106,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1205,34 +1125,35 @@ window.data.CHBA = {
         "Tacticus",
         "Death Company Intercessors"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "8b22cef6-4f2b-599c-8504-b457c3f430fc",
       "name": "Death Company Marines",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "5-10 Death Company Marines"
-      ],
-      "loadout": "",
+      "composition": ["5-10 Death Company Marines"],
+      "loadout": "Every model is equipped with: boltgun; close combat weapon.",
       "wargear": [
         "Any number of models can each have their boltgun and close combat weapon replaced with one of the following: ◦ 1 Astartes chainsword and 1 bolt pistol ◦ 1 thunder hammer",
         "Any number of models can each have their bolt pistol replaced with one of the following: ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol",
         "Any number of models can each have their Astartes chainsword replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "130"
+        },
+        {
+          "models": "10",
+          "cost": "260"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1251,9 +1172,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "DEATH COMPANY",
-            "description": "If a Chaplain model from your army with the Leader ability can be attached to a Tactical Squad, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Chaplain model from your army with the Leader ability can be attached to a Tactical Squad, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -1277,9 +1196,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1307,11 +1224,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1325,10 +1238,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -1342,9 +1252,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1354,10 +1262,7 @@ window.data.CHBA = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1428,10 +1333,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1442,41 +1345,36 @@ window.data.CHBA = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Death Company Marines"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "keywords": ["Infantry", "Grenades", "Imperium", "Death Company Marines"],
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "e1536aff-8310-5ae5-965f-0316afc8023e",
       "name": "Death Company Marines With Jump Packs",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "5-10 Death Company Marines with Jump Packs"
-      ],
-      "loadout": "",
+      "composition": ["5-10 Death Company Marines with Jump Packs"],
+      "loadout": "Every model is equipped with: boltgun; close combat weapon.",
       "wargear": [
         "Any number of models can each have their boltgun and close combat weapon replaced with one of the following: ◦ 1 Astartes chainsword and 1 bolt pistol ◦ 1 thunder hammer",
         "Any number of models can each have their bolt pistol replaced with one of the following: ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol",
         "Any number of models can each have their Astartes chainsword replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "155"
+        },
+        {
+          "models": "10",
+          "cost": "310"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1495,9 +1393,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "DEATH COMPANY",
-            "description": "If a Chaplain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Chaplain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -1521,9 +1417,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1551,11 +1445,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1569,10 +1459,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -1586,9 +1473,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1598,10 +1483,7 @@ window.data.CHBA = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1658,10 +1540,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devestating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1694,19 +1574,15 @@ window.data.CHBA = {
         "Imperium",
         "Death Company Marines with Jump Packs"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"],
+      "ledBy": ["Astorath", "Lemartes"]
     },
     {
       "id": "58f4f83e-cc8d-5ca8-8e9e-c254c3e665d9",
       "name": "Furioso Dreadnought",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "1 Furioso Dreadnought"
-      ],
+      "composition": ["1 Furioso Dreadnought"],
       "loadout": "This model is equipped with: heavy frag cannon; Furioso fist; storm bolter.",
       "wargear": [
         "This model’s heavy frag cannon and Furioso fist can be replaced with one of the following: ◦ 1 Blood Talons and 1 meltagun ◦ 1 twin Furioso fist and 1 meltagun",
@@ -1715,6 +1591,12 @@ window.data.CHBA = {
         "This model can be equipped with 1 magna-grapple."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1722,12 +1604,8 @@ window.data.CHBA = {
             "description": "The bearer loses the Smoke keyword, but add 2 to Charge rolls made for the bearer if one or more of the targets of that charge is a Monster or Vehicle unit."
           }
         ],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1736,11 +1614,7 @@ window.data.CHBA = {
         "other": [
           {
             "name": "Wrathful Rampage",
-            "description": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model"
-          },
-          {
-            "name": "made a Charge move this turn",
-            "description": "on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
+            "description": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a Charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
           }
         ],
         "special": [],
@@ -1765,10 +1639,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1782,10 +1653,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy frag cannon",
-              "keywords": [
-                "blast",
-                "rapid fire d6"
-              ],
+              "keywords": ["blast", "rapid fire d6"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1799,9 +1667,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1815,9 +1681,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1832,10 +1696,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Blood talons ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Blood talons",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "3+",
@@ -1862,10 +1724,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Twin Furioso fists ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin Furioso fists",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1876,38 +1736,28 @@ window.data.CHBA = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Imperium",
-        "Furioso Dreadnought"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "keywords": ["Vehicle", "Walker", "Imperium", "Furioso Dreadnought"],
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "f159f71a-cd68-5bb6-9001-ba434f01e748",
       "name": "Gabriel Seth",
       "faction_id": "CHBA",
-      "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad FLESH TEARERS This model is from the Flesh Tearers Chapter, a successor of the Blood Angels. For all rules purposes, it is treated as a Blood Angels model, but cannot be included in an army that includes any other Blood Angels Epic Hero models.",
-      "composition": [
-        "1 Gabriel Seth – Epic Hero"
-      ],
+      "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
+      "composition": ["1 Gabriel Seth – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Blood Reaver.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1926,9 +1776,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "FLESH TEARERS",
-            "description": "This model is from the Flesh Tearers Chapter, a successor of the Blood Angels. For all rules purposes, it is treated as a Blood Angels model, but cannot be included in an army that includes any other Blood Angels Epic Hero models.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model is from the Flesh Tearers Chapter, a successor of the Blood Angels. For all rules purposes, it is treated as a Blood Angels model, but cannot be included in an army that includes any other Blood Angels Epic Hero models."
           }
         ],
         "damaged": {
@@ -1952,9 +1800,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1969,10 +1815,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Blood Reaver ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Blood Reaver",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1992,34 +1836,27 @@ window.data.CHBA = {
         "Chapter Master",
         "Gabriel Seth"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "1e784468-8db7-572a-922f-87d8a0060dd2",
       "name": "Lemartes",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following unit: ■ Death Company Marines with Jump Packs",
-      "composition": [
-        "1 Lemartes – Epic Hero"
-      ],
+      "composition": ["1 Lemartes – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; the Blood Crozius.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Feel No Pain 6+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2057,9 +1894,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2074,10 +1909,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "The Blood Crozius ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "The Blood Crozius",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -2099,32 +1932,29 @@ window.data.CHBA = {
         "Chaplain",
         "Lemartes"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "a5a75670-2c87-557a-a77d-cbc682a2f5e3",
       "name": "Librarian Dreadnought",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "1 Librarian Dreadnought"
-      ],
+      "composition": ["1 Librarian Dreadnought"],
       "loadout": "This model is equipped with: Blood Lance; storm bolter; Furioso fist, Furioso force halberd.",
       "wargear": [
         "This model’s storm bolter can be replaced with one of the following: ◦ 1 heavy flamer ◦ 1 meltagun"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "185"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2162,10 +1992,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Blood Lance – witchfire",
-              "keywords": [
-                "psychic",
-                "sustained hits d3"
-              ],
+              "keywords": ["psychic", "sustained hits d3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2175,11 +2002,7 @@ window.data.CHBA = {
             },
             {
               "name": "Blood Lance – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic",
-                "sustained hits d3"
-              ],
+              "keywords": ["hazardous", "psychic", "sustained hits d3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2193,10 +2016,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2210,9 +2030,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2226,9 +2044,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2257,11 +2073,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Furioso force halberd ",
-              "keywords": [
-                "extra attacks",
-                "psychic"
-              ],
+              "name": "Furioso force halberd",
+              "keywords": ["extra attacks", "psychic"],
               "range": "Melee",
               "attacks": "1",
               "skill": "2+",
@@ -2279,19 +2092,14 @@ window.data.CHBA = {
         "Imperium",
         "Librarian Dreadnought"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "3ba1b185-c189-5eec-8440-679398e4b683",
       "name": "Sanguinary Guard",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "5-10 Sanguinary Guard"
-      ],
+      "composition": ["5-10 Sanguinary Guard"],
       "loadout": "Every model is equipped with: angelus boltgun; encarmine blade.",
       "wargear": [
         "Any number of models can each have their angelus boltgun replaced with one of the following: ◦ 1 inferno pistol ◦ 1 plasma pistol",
@@ -2299,6 +2107,16 @@ window.data.CHBA = {
         "1 model can be equipped with 1 sanguinary banner."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "215"
+        },
+        {
+          "models": "10",
+          "cost": "430"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2306,12 +2124,8 @@ window.data.CHBA = {
             "description": "Add 1 to the Objective Control characteristic of models in the bearer’s unit."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2330,9 +2144,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Captain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs unit, it can be attached to this unit instead.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Captain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs unit, it can be attached to this unit instead."
           }
         ],
         "damaged": {
@@ -2356,9 +2168,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Angelus boltgun",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "2",
               "skill": "3+",
@@ -2372,10 +2182,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -2389,9 +2196,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2401,10 +2206,7 @@ window.data.CHBA = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2453,32 +2255,28 @@ window.data.CHBA = {
         "Imperium",
         "Sanguinary Guard"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"],
+      "ledBy": ["Commander Dante"]
     },
     {
       "id": "d893b19a-cb3f-59e5-8a1f-bd75238d3ff8",
       "name": "Sanguinary Priest",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Devastator Squad ■ Tactical Squad ■ Vanguard Veteran Squad You can attach this model to one of the above units, even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Sanguinary Priest"
-      ],
+      "composition": ["1 Sanguinary Priest"],
       "loadout": "This model is equipped with: bolt pistol; Astartes chainsword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2516,9 +2314,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2552,33 +2348,27 @@ window.data.CHBA = {
         "Imperium",
         "Sanguinary Priest"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "5c7d67d6-95de-5d69-8dac-ac0345c0d45d",
       "name": "Sanguinary Priest With Jump Pack",
       "faction_id": "CHBA",
       "leader": "This model can be attached to the following units: ■ Assault Squad with Jump Packs ■ Vanguard Veteran Squad with Jump packs You can attach this model to one of the above units, even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Sanguinary Priest"
-      ],
+      "composition": ["1 Sanguinary Priest"],
       "loadout": "This model is equipped with: bolt pistol; Astartes chainsword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2616,9 +2406,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2654,34 +2442,27 @@ window.data.CHBA = {
         "Jump Pack",
         "Sanguinary Priest"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "ea9e7286-4775-5e55-b2e0-b1c2c7c63b12",
       "name": "The Sanguinor",
       "faction_id": "CHBA",
       "leader": "",
-      "composition": [
-        "1 The Sanguinor – Epic Hero"
-      ],
+      "composition": ["1 The Sanguinor – Epic Hero"],
       "loadout": "This model is equipped with: encarmine broadsword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Fights First",
-          "Lone Operative"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Fights First", "Lone Operative"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2719,10 +2500,8 @@ window.data.CHBA = {
         {
           "profiles": [
             {
-              "name": "Encarmine broadsword ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Encarmine broadsword",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -2742,33 +2521,27 @@ window.data.CHBA = {
         "Imperium",
         "The Sanguinor"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     },
     {
       "id": "3ef8a822-5a80-5c3e-b980-2a2f50355c85",
       "name": "Tycho The Lost",
       "faction_id": "CHBA",
-      "leader": "This model can be attached to the following unit: ■ Death Company Marines TYCHO Your army cannot contain both Captain Tycho and Tycho the Lost.",
-      "composition": [
-        "1 Tycho the Lost – Epic Hero"
-      ],
-      "loadout": "",
-      "wargear": [
-        "None"
-      ],
+      "leader": "",
+      "composition": ["1 Tycho the Lost – Epic Hero"],
+      "loadout": "This model is equipped with: Blood Song; bolt pistol; Dead Man’s Hand.",
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader", "Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2791,9 +2564,7 @@ window.data.CHBA = {
         "special": [
           {
             "name": "TYCHO",
-            "description": "Your army cannot contain both Captain Tycho and Tycho the Lost.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "Your army cannot contain both Captain Tycho and Tycho the Lost."
           }
         ],
         "damaged": {
@@ -2817,11 +2588,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Blood Song",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds",
-                "melta 2"
-              ],
+              "keywords": ["anti-infantry 4+", "devastating wounds", "melta 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -2835,9 +2602,7 @@ window.data.CHBA = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2873,10 +2638,11 @@ window.data.CHBA = {
         "Captain",
         "Tycho the Lost"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Blood Angels"
-      ]
+      "factions": ["Adeptus Astartes", "Blood Angels"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#631210",
+    "header": "#72191c"
+  }
 }

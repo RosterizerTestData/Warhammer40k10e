@@ -3,28 +3,60 @@ window.data.DRU = {
   "id": "DRU",
   "link": "https://game-datacards.eu",
   "name": "Drukhari",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Crucible of Malediction",
+      "description": "Haemonculus model only. Once per battle, at the start of any Shooting phase, the bearer can use this Enhancement. When it does, every enemy unit within 12\" must take a Battle-shock test, subtracting 1 from that test if the bearer’s unit is currently Empowered. Each time a Psyker unit fails this test, it suffers D3 mortal wounds.",
+      "keywords": ["Haemonculus"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "Labyrinthine Cunning",
+      "description": "Archon model only. Each time you select the bearer’s unit as the target of a Stratagem, roll one D6, adding 3 to the result if the Stratagem being used is Alliance of Agony. On a 4+, you gain 1 Command Point.",
+      "keywords": ["Archon"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "Blood Dancer",
+      "description": "Succubus model only. Improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 1. While the bearer is Empowered, improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
+      "keywords": ["Succubus"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "The Art of Pain",
+      "description": "Drukhari model only. In your Command phase, if the bearer is on the battlefield, you gain 1 Pain token.",
+      "keywords": ["Drukhari"],
+      "excludes": [],
+      "cost": "25"
+    }
+  ],
   "datasheets": [
     {
       "id": "f0164c73-b047-5e23-9ed1-b8068a690340",
       "name": "Archon",
       "faction_id": "DRU",
       "leader": "This model can be attached to the following units: ■ Court of the Archon ■ Kabalite Warriors",
-      "composition": [
-        "1 Archon"
-      ],
+      "composition": ["1 Archon"],
       "loadout": "This model is equipped with: splinter pistol; huskblade.",
       "wargear": [
         "This model’s splinter pistol can be replaced with 1 blast pistol."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Leader"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "2+",
@@ -62,9 +94,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blast pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -78,11 +108,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -98,9 +124,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Huskblade",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -111,16 +135,8 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Kabal",
-        "Character",
-        "Aeldari",
-        "Archon"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Kabal", "Character", "Aeldari", "Archon"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "8af13920-b98d-5157-933e-ce13909c384c",
@@ -134,18 +150,18 @@ window.data.DRU = {
         "3 Razorwing Flocks"
       ],
       "loadout": "The Beastmaster is equipped with: splinter pods; agoniser. Every Clawed Fiend is equipped with: Clawed Fiend fists. Every Khymerae is equipped with: Khymerae talons. Every Razorwing Flock is equipped with: Razorwing feathers.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "7",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -188,10 +204,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pods",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault"
-              ],
+              "keywords": ["anti-infantry 3+", "assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -207,9 +220,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Agoniser",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -223,9 +234,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Clawed Fiend fists",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "4+",
@@ -239,9 +248,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Khymerae talons",
-              "keywords": [
-                "lethal hits"
-              ],
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -255,9 +262,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Razorwing feathers",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "4+",
@@ -280,32 +285,27 @@ window.data.DRU = {
         "Fly",
         "Beastmaster"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "8fa325ab-46ea-51ab-816d-b2ce75c66434",
       "name": "Court Of The Archon",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Lhamaean",
-        "1 Sslyth",
-        "1 Medusae",
-        "1 Ur-ghul"
-      ],
+      "composition": ["1 Lhamaean", "1 Sslyth", "1 Medusae", "1 Ur-ghul"],
       "loadout": "A Lhamaean is equipped with: shaimeshi blade. A Medusae is equipped with: eyeburst; close combat weapon. A Sslyth is equipped with: shardcarbine; splinter pistol; Sslyth battle-blade. An Ur-ghul is equipped with: Ur-ghul talons. COURT OF THE ARCHON In the Declare Battle Formations step, this unit can join one Kabalite Warriors unit from your army that is being led by an Archon (a Kabalite Warriors unit cannot have more than one Court of the Archon unit joined to it). If it does, until the end of the battle, every model in this unit counts as part of that Kabalite Warriors unit, and its Starting Strength is increased accordingly.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Power from Pain"
-        ],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -351,10 +351,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Eyeburst",
-              "keywords": [
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -368,10 +365,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Shardcarbine",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault"
-              ],
+              "keywords": ["anti-infantry 3+", "assault"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -385,11 +379,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -419,9 +409,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Shaimeshi blade",
-              "keywords": [
-                "anti-infantry 2+"
-              ],
+              "keywords": ["anti-infantry 2+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -449,9 +437,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Ur-ghul talons",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -462,38 +448,35 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Kabal",
-        "Aeldari",
-        "Court of the Archon"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Kabal", "Aeldari", "Court of the Archon"],
+      "factions": ["Drukhari"],
+      "ledBy": ["Archon"]
     },
     {
       "id": "3d07f339-ebba-5e0e-85a9-016952e80876",
       "name": "Cronos",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1-2 Cronos"
-      ],
+      "composition": ["1-2 Cronos"],
       "loadout": "Every Cronos is equipped with: spirit syphon; spirit-leech tentacles.",
       "wargear": [
         "Any number of models can each be equipped with 1 spirit vortex."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        },
+        {
+          "models": "2",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 5+"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -527,10 +510,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Spirit syphon",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -544,10 +524,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Spirit vortex",
-              "keywords": [
-                "blast",
-                "ignores cover"
-              ],
+              "keywords": ["blast", "ignores cover"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -574,38 +551,28 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Haemonculus Covens",
-        "Fly",
-        "Aeldari",
-        "Cronos"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Monster", "Haemonculus Covens", "Fly", "Aeldari", "Cronos"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "f5df79b5-3976-53b1-9679-d08cbde8a167",
       "name": "Drazhar",
       "faction_id": "DRU",
       "leader": "This model can be attached to the following unit: ■ Incubi",
-      "composition": [
-        "1 Drazhar – Epic Hero"
-      ],
+      "composition": ["1 Drazhar – Epic Hero"],
       "loadout": "This model is equipped with: the Executioner’s demiklaives.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Leader"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -644,9 +611,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "The Executioner’s demiklaives – single blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -656,9 +621,7 @@ window.data.DRU = {
             },
             {
               "name": "The Executioner’s demiklaives – dual blades",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -669,38 +632,34 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Epic Hero",
-        "Aeldari",
-        "Drazhar"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Character", "Epic Hero", "Aeldari", "Drazhar"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "4f21ef96-b509-556f-83ed-5b97ddc122e1",
       "name": "Grotesques",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "3-6 Grotesques"
-      ],
+      "composition": ["3-6 Grotesques"],
       "loadout": "Every model is equipped with: monstrous weapons.",
       "wargear": [
         "Any number of models can each be equipped with 1 liquifier gun."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "105"
+        },
+        {
+          "models": "6",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -734,9 +693,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Liquifier gun",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -763,38 +720,28 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Haemonculus Covens",
-        "Aeldari",
-        "Grotesques"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Haemonculus Covens", "Aeldari", "Grotesques"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "d41a6f29-d084-508a-b020-5f207c0c8e90",
       "name": "Haemonculus",
       "faction_id": "DRU",
       "leader": "This model can be attached to the following unit: ■ Wracks",
-      "composition": [
-        "1 Haemonculus"
-      ],
+      "composition": ["1 Haemonculus"],
       "loadout": "This model is equipped with: stinger pistol; Haemonculus tools and scissorhands.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -832,11 +779,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Stinger pistol",
-              "keywords": [
-                "anti-infantry 2+",
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 2+", "pistol", "precision"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -852,10 +795,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Haemonculus tools and scissorhands",
-              "keywords": [
-                "anti-infantry 2+",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 2+", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -873,25 +813,30 @@ window.data.DRU = {
         "Aeldari",
         "Haemonculus"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "686583a0-8333-5d5d-8668-912d9d8ad6a4",
       "name": "Hellions",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Helliarch",
-        "4-9 Hellions"
-      ],
+      "composition": ["1 Helliarch", "4-9 Hellions"],
       "loadout": "Every model is equipped with: splinter pods; hellglaive.",
       "wargear": [
         "The Helliarch can be equipped with 1 phantasm grenade launcher.",
         "The Helliarch’s hellglaive can be replaced with 1 splinter pistol and 1 Helliarch weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "110"
+        },
+        {
+          "models": "10",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -900,9 +845,7 @@ window.data.DRU = {
           }
         ],
         "core": [],
-        "faction": [
-          "Power from Pain"
-        ],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -936,11 +879,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -954,11 +893,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pods",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "twin-linked"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -974,10 +909,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Helliarch weapon",
-              "keywords": [
-                "anti-infantry 3+",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-infantry 3+", "sustained hits 1"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -991,9 +923,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Hellglaive",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1004,37 +934,32 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Fly",
-        "Aeldari",
-        "Wych Cult",
-        "Hellions"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Mounted", "Fly", "Aeldari", "Wych Cult", "Hellions"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "a87d6522-7e1a-5f02-a6cd-f32bacdf03c0",
       "name": "Incubi",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Klaivex",
-        "4-9 Incubi"
-      ],
+      "composition": ["1 Klaivex", "4-9 Incubi"],
       "loadout": "Every model is equipped with: klaive.",
-      "wargear": [
-        "The Klaivex’s klaive can be replaced with 1 demilklaives."
-      ],
+      "wargear": ["The Klaivex’s klaive can be replaced with 1 demilklaives."],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "85"
+        },
+        {
+          "models": "10",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Power from Pain"
-        ],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1054,12 +979,12 @@ window.data.DRU = {
       },
       "stats": [
         {
-          "m": "3",
-          "t": "3+",
-          "sv": "1",
-          "w": "6+",
-          "ld": "1",
-          "oc": "INCUBI",
+          "m": "7\"",
+          "t": "3",
+          "sv": "3+",
+          "w": "1",
+          "ld": "6+",
+          "oc": "1",
           "name": "Incubi"
         },
         {
@@ -1088,9 +1013,7 @@ window.data.DRU = {
             },
             {
               "name": "Demiklaives – dual blades",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -1115,24 +1038,16 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Aeldari",
-        "Incubi"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Aeldari", "Incubi"],
+      "factions": ["Drukhari"],
+      "ledBy": ["Drazhar"]
     },
     {
       "id": "ed01e2f2-7522-597f-913f-1205c8df3ace",
       "name": "Kabalite Warriors",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Sybarite",
-        "9 Kabalite Warriors"
-      ],
+      "composition": ["1 Sybarite", "9 Kabalite Warriors"],
       "loadout": "Every model is equipped with: splinter rifle; close combat weapon.",
       "wargear": [
         "The Sybarite’s close combat weapon can be replaced with 1 Sybarite weapon.",
@@ -1144,6 +1059,12 @@ window.data.DRU = {
         "1 Kabalite Warrior’s splinter rifle can be replaced with 1 splinter cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "120"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1152,9 +1073,7 @@ window.data.DRU = {
           }
         ],
         "core": [],
-        "faction": [
-          "Power from Pain"
-        ],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1188,9 +1107,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blast pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -1204,9 +1121,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blaster",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1220,9 +1135,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Dark lance",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -1236,10 +1149,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Shredder",
-              "keywords": [
-                "assault",
-                "torrent"
-              ],
+              "keywords": ["assault", "torrent"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1253,11 +1163,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter cannon",
-              "keywords": [
-                "anti-infantry 3+",
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-infantry 3+", "heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1271,11 +1177,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1289,10 +1191,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter rifle",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault"
-              ],
+              "keywords": ["anti-infantry 3+", "assault"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1308,9 +1207,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Sybarite weapon",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1342,32 +1239,28 @@ window.data.DRU = {
         "Aeldari",
         "Kabalite Warriors"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"],
+      "ledBy": ["Archon"]
     },
     {
       "id": "e69027cf-35e4-500e-ab20-0fb01cd281b0",
       "name": "Lelith Hesperax",
       "faction_id": "DRU",
       "leader": "This model can be attached to the following unit: ■ Wyches",
-      "composition": [
-        "1 Lelith Hesperax – Epic Hero"
-      ],
+      "composition": ["1 Lelith Hesperax – Epic Hero"],
       "loadout": "This model is equipped with: Lelith’s blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Fights First",
-          "Leader"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Fights First", "Leader"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1406,10 +1299,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Lelith’s blades",
-              "keywords": [
-                "anti-infantry 2+",
-                "sustained hits 2"
-              ],
+              "keywords": ["anti-infantry 2+", "sustained hits 2"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -1429,33 +1319,31 @@ window.data.DRU = {
         "Succubus",
         "Lelith Hesperax"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "163eda0b-b737-5705-8fcc-32284892df01",
       "name": "Mandrakes",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Nightfiend",
-        "4-9 Mandrakes"
-      ],
+      "composition": ["1 Nightfiend", "4-9 Mandrakes"],
       "loadout": "Every model is equipped with: baleblast; glimmersteel blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1489,10 +1377,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Baleblast",
-              "keywords": [
-                "assault",
-                "devastating wounds"
-              ],
+              "keywords": ["assault", "devastating wounds"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1519,38 +1404,30 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Aeldari",
-        "Mandrakes"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Aeldari", "Mandrakes"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "85c03b0d-973a-5b99-bf38-8b869a4b8a99",
       "name": "Raider",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Raider"
-      ],
+      "composition": ["1 Raider"],
       "loadout": "This model is equipped with: dark lance; bladevanes.",
       "wargear": [
         "This model’s dark lance can be replaced with 1 disintegrator cannon."
       ],
       "transport": "This model has a transport capacity of 11 Drukhari Infantry models. Each Grotesque model takes up the space of 3 models. This model cannot transport models that can Fly.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike",
-          "Firing Deck 11"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike", "Firing Deck 11"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1633,32 +1510,29 @@ window.data.DRU = {
         "Aeldari",
         "Raider"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "075546f0-4a15-560e-a1fd-488f9937204c",
       "name": "Ravager",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Ravager"
-      ],
+      "composition": ["1 Ravager"],
       "loadout": "This model is equipped with: 3 dark lances; bladevanes.",
       "wargear": [
         "Any number of this model’s dark lances can each be replaced with 1 disintegrator cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1733,40 +1607,31 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Kabal",
-        "Fly",
-        "Aeldari",
-        "Ravager"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Vehicle", "Kabal", "Fly", "Aeldari", "Ravager"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "6d9f1792-a381-5b5f-94de-beffb94e1604",
       "name": "Razorwing Jetfighter",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Razorwing Jetfighter"
-      ],
+      "composition": ["1 Razorwing Jetfighter"],
       "loadout": "This model is equipped with: 2 dark lances; Razorwing missiles; twin splinter rifle; bladed wings.",
       "wargear": [
         "This model’s 2 dark lances can be replaced with 2 disintegrator cannons.",
         "This model’s twin splinter rifle can be replaced with 1 splinter cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Stealth"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise D3", "Stealth"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1828,9 +1693,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Razorwing missiles – monoscythe missiles",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1840,10 +1703,7 @@ window.data.DRU = {
             },
             {
               "name": "Razorwing missiles – nuerotoxin missiles",
-              "keywords": [
-                "anti-infantry 2+",
-                "blast"
-              ],
+              "keywords": ["anti-infantry 2+", "blast"],
               "range": "48\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -1853,9 +1713,7 @@ window.data.DRU = {
             },
             {
               "name": "Razorwing missiles – shatterfield missiles",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1869,7 +1727,18 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Twin splinter rifle",
-              "keywords": []
+              "keywords": [
+                "anti-infantry 3+",
+                "assault",
+                "rapid fire 1",
+                "twin-linked"
+              ],
+              "range": "24\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "2",
+              "ap": "0",
+              "damage": "1"
             }
           ]
         },
@@ -1877,10 +1746,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter cannon",
-              "keywords": [
-                "anti-infantry 3+",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-infantry 3+", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1914,19 +1780,14 @@ window.data.DRU = {
         "Aeldari",
         "Razorwing Jetfighter"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "a52a5ba0-7c76-5719-bb74-93d8cd740f5c",
       "name": "Reavers",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Arena Champion",
-        "2-5 Reavers"
-      ],
+      "composition": ["1 Arena Champion", "2-5 Reavers"],
       "loadout": "Every model is equipped with: splinter pistol; splinter rifle; bladevanes.",
       "wargear": [
         "The Arena Champion can be equipped with 1 agoniser.",
@@ -1934,6 +1795,16 @@ window.data.DRU = {
         "For every 3 models in this unit, 1 model can be equipped with one of the following: ◦ 1 grav-talon ◦ 1 cluster caltrops"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1946,9 +1817,7 @@ window.data.DRU = {
           }
         ],
         "core": [],
-        "faction": [
-          "Power from Pain"
-        ],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1982,9 +1851,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blaster",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1998,10 +1865,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Heat lance",
-              "keywords": [
-                "assault",
-                "melta 3"
-              ],
+              "keywords": ["assault", "melta 3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2015,11 +1879,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2033,10 +1893,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter rifle",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault"
-              ],
+              "keywords": ["anti-infantry 3+", "assault"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2052,9 +1909,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Agoniser",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2079,26 +1934,15 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Wych Cult",
-        "Fly",
-        "Aeldari",
-        "Reavers"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Mounted", "Wych Cult", "Fly", "Aeldari", "Reavers"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "df49e14a-d6d6-528b-ad8f-246a9bcf2b3a",
       "name": "Scourges",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Solarite",
-        "4-9 Scourges"
-      ],
+      "composition": ["1 Solarite", "4-9 Scourges"],
       "loadout": "Every model is equipped with: shardcarbine; close combat weapon.",
       "wargear": [
         "The Solarite can be equipped with 1 Solarite weapon.",
@@ -2106,14 +1950,20 @@ window.data.DRU = {
         "Up to 4 Scourges can each replace their shardcarbine with one of the following: ◦ 1 blaster ◦ 1 dark lance ◦ 1 Drukhari haywire blaster ◦ 1 heat lance ◦ 1 shredder ◦ 1 splinter cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "120"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -2147,9 +1997,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blast pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -2163,9 +2011,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blaster",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2179,9 +2025,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Dark lance",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "36\"",
               "attacks": "1",
               "skill": "4+",
@@ -2195,11 +2039,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Drukhari haywire blaster",
-              "keywords": [
-                "anti-vehicle 4+",
-                "devastating wounds",
-                "heavy"
-              ],
+              "keywords": ["anti-vehicle 4+", "devastating wounds", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -2213,11 +2053,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Heat lance",
-              "keywords": [
-                "assault",
-                "heavy",
-                "melta 3"
-              ],
+              "keywords": ["assault", "heavy", "melta 3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -2231,10 +2067,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Shardcarbine",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault"
-              ],
+              "keywords": ["anti-infantry 3+", "assault"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -2248,10 +2081,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Shredder",
-              "keywords": [
-                "assault",
-                "torrent"
-              ],
+              "keywords": ["assault", "torrent"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2265,11 +2095,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter cannon",
-              "keywords": [
-                "anti-infantry 3+",
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-infantry 3+", "heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -2283,11 +2109,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2303,9 +2125,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Solarite weapon",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2338,31 +2158,29 @@ window.data.DRU = {
         "Aeldari",
         "Scourges"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "0663ebd8-7d9f-5e90-baca-a6b938468f23",
       "name": "Succubus",
       "faction_id": "DRU",
       "leader": "This model can be attached to the following unit: ■ Wyches",
-      "composition": [
-        "1 Succubus"
-      ],
+      "composition": ["1 Succubus"],
       "loadout": "This model is equipped with: Succubus weapons.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 blast pistol ◦ 1 splinter pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Leader"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2400,9 +2218,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blast pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -2416,11 +2232,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2436,9 +2248,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Succubus weapons",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2449,25 +2259,15 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Wych Cult",
-        "Character",
-        "Aeldari",
-        "Succubus"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Wych Cult", "Character", "Aeldari", "Succubus"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "1e30664e-db2c-535b-bb85-4d6759053a26",
       "name": "Talos",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1-2 Talos"
-      ],
+      "composition": ["1-2 Talos"],
       "loadout": "Every model is equipped with: twin splinter cannon; 2 macro-scalpels.",
       "wargear": [
         "Any number of models can each replace their twin splinter cannon with one of the following: ◦ 1 twin Drukhari haywire blasters ◦ 1 twin heat lance ◦ 1 stinger pod",
@@ -2475,15 +2275,20 @@ window.data.DRU = {
         "Any number of models can each replace one of their macro-scalpels with one of the following: ◦ 1 chain-flails ◦ 1 Talos gauntlet"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        },
+        {
+          "models": "2",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 5+"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2535,11 +2340,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Twin heat lance",
-              "keywords": [
-                "assault",
-                "melta 3",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "melta 3", "twin-linked"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -2585,10 +2386,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Twin liquifier gun",
-              "keywords": [
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2646,9 +2444,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Talos ichor injector",
-              "keywords": [
-                "extra attacks"
-              ],
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -2659,39 +2455,110 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Monster",
-        "Haemonculus Covens",
-        "Fly",
-        "Aeldari",
-        "Talos"
+      "keywords": ["Monster", "Haemonculus Covens", "Fly", "Aeldari", "Talos"],
+      "factions": ["Drukhari"]
+    },
+    {
+      "id": "b972d176-9a6c-5ab2-8695-764dc8fe3817",
+      "name": "Tantalus",
+      "faction_id": "DRU",
+      "leader": "",
+      "composition": ["1 Tantalus"],
+      "loadout": "This model is equipped with: pulse disintegrators; dire scythe blades.",
+      "wargear": ["None"],
+      "transport": "This model has a transport capacity of 16 Drukhari Infantry models. Each Grotesque model takes up the space of 3 models. This model cannot transport models that can Fly.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "230"
+        }
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6", "Deep Strike", "Firing Deck 16"],
+        "faction": ["Power from Pain"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Scything Charge",
+            "description": "Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-6 WOUNDS REMAINING",
+          "description": "While this model has 1-6 wounds remaining, each time it makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "16\"",
+          "t": "10",
+          "sv": "4+",
+          "w": "18",
+          "ld": "6+",
+          "oc": "5",
+          "name": "Tantalus"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Pulse disintegrators",
+              "keywords": ["assault"],
+              "range": "36\"",
+              "attacks": "12",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Dire scythe blades",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Transport", "Fly", "Aeldari", "Tantalus"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "805c5224-bee4-5c3d-9d31-e0e3e4947500",
       "name": "Urien Rakarth",
       "faction_id": "DRU",
       "leader": "This model can be attached to the following unit: ■ Wracks",
-      "composition": [
-        "1 Urien Rakarth – Epic Hero"
-      ],
+      "composition": ["1 Urien Rakarth – Epic Hero"],
       "loadout": "This model is equipped with: Casket of Flensing; Haemonculus tools and scissorhands.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 4+",
-          "Leader"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Feel No Pain 4+", "Leader"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2729,11 +2596,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Casket of Flensing",
-              "keywords": [
-                "devastating wounds",
-                "one shot",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "one shot", "torrent"],
               "range": "12\"",
               "attacks": "3D6",
               "skill": "N/A",
@@ -2749,10 +2612,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Haemonculus tools and scissorhands",
-              "keywords": [
-                "anti-infantry 2+",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 2+", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -2772,34 +2632,29 @@ window.data.DRU = {
         "Haemonculus",
         "Urien Rakarth"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "4c3ce51c-97f7-5dfb-a0a0-a2d9599ec48e",
       "name": "Venom",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Venom"
-      ],
+      "composition": ["1 Venom"],
       "loadout": "This model is equipped with: splinter cannon; twin splinter rifle; bladevanes.",
       "wargear": [
         "This model’s twin splinter rifle can be replaced with 1 splinter cannon."
       ],
       "transport": "This model has a transport capacity of 6 Drukhari Infantry models. This model cannot transport Grotesque models or models that can Fly. Before the battle, at the start of the Declare Battle Formations step, you can select one Kabalite Warriors or Wyches unit from your army. If you do, that unit is split into two units, each containing as equal a number of models as possible (when splitting a unit in this way, make a note of which models form each of the two new units). One of these units must start the battle embarked within this Transport; the other can start the battle embarked within another Transport, or it can be deployed as a separate unit.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Deep Strike",
-          "Firing Deck 6",
-          "Stealth"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise 1", "Deep Strike", "Firing Deck 6", "Stealth"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2833,10 +2688,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter cannon",
-              "keywords": [
-                "anti-infantry 3+",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-infantry 3+", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2890,33 +2742,30 @@ window.data.DRU = {
         "Aeldari",
         "Venom"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"]
     },
     {
       "id": "31b00211-e1f3-52c2-a019-956f8b4afe54",
       "name": "Voidraven Bomber",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Voidraven Bomber"
-      ],
+      "composition": ["1 Voidraven Bomber"],
       "loadout": "This model is equipped with: 2 void lances; bladed wings.",
       "wargear": [
         "This model can be equipped with 1 Voidraven missiles.",
         "The model’s 2 void lances can be replaced with 2 dark scythes."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Stealth"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Deadly Demise D3", "Stealth"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -2978,9 +2827,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Voidraven missiles – implosion missiles",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "3+",
@@ -2990,9 +2837,7 @@ window.data.DRU = {
             },
             {
               "name": "Voidraven missiles – shatterfield missiles",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3019,38 +2864,34 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Aircraft",
-        "Aeldari",
-        "Voidraven Bomber"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Vehicle", "Aircraft", "Aeldari", "Voidraven Bomber"],
+      "factions": ["Drukhari"]
     },
     {
       "id": "ce4db86a-c461-5977-9294-533b4ddb15dc",
       "name": "Wracks",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Acothyst",
-        "4-9 Wracks"
-      ],
+      "composition": ["1 Acothyst", "4-9 Wracks"],
       "loadout": "Every model is equipped with: Wrack blades.",
       "wargear": [
         "For every 5 models in the unit: ◦ 1 model can be equipped with 1 hexrifle* ◦ 1 model can be equipped with 1 liquifier gun* ◦ 1 model can be equipped with 1 ossefactor* ◦ 1 model can be equipped with 1 stinger pistol* * Each model cannot be equipped with more than 1 ranged weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "65"
+        },
+        {
+          "models": "10",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Power from Pain"
-        ],
+        "core": ["Feel No Pain 5+"],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -3084,10 +2925,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Hexrifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -3101,9 +2939,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Liquifier gun",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3117,10 +2953,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Ossefactor",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds"
-              ],
+              "keywords": ["anti-infantry 4+", "devastating wounds"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -3134,10 +2967,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Stinger pistol",
-              "keywords": [
-                "anti-infantry 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3153,9 +2983,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Wrack blades",
-              "keywords": [
-                "anti-infantry 4+"
-              ],
+              "keywords": ["anti-infantry 4+"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -3173,25 +3001,27 @@ window.data.DRU = {
         "Aeldari",
         "Wracks"
       ],
-      "factions": [
-        "Drukhari"
-      ]
+      "factions": ["Drukhari"],
+      "ledBy": ["Haemonculus", "Urien Rakarth"]
     },
     {
       "id": "cb257844-3bd9-5053-9f57-bb6ad6589bc4",
       "name": "Wyches",
       "faction_id": "DRU",
       "leader": "",
-      "composition": [
-        "1 Hekatrix",
-        "9 Wyches"
-      ],
+      "composition": ["1 Hekatrix", "9 Wyches"],
       "loadout": "Every model is equipped with: splinter pistol; Hekatarii blade.",
       "wargear": [
         "The Hekatrix can be equipped with 1 phantasm grenade launcher.",
         "The Hekatrix’s splinter pistol can be replaced with 1 blast pistol."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3200,9 +3030,7 @@ window.data.DRU = {
           }
         ],
         "core": [],
-        "faction": [
-          "Power from Pain"
-        ],
+        "faction": ["Power from Pain"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -3236,9 +3064,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Blast pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -3252,11 +3078,7 @@ window.data.DRU = {
           "profiles": [
             {
               "name": "Splinter pistol",
-              "keywords": [
-                "anti-infantry 4+",
-                "assault",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 4+", "assault", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3283,16 +3105,13 @@ window.data.DRU = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Battleline",
-        "Wych Cult",
-        "Aeldari",
-        "Wyches"
-      ],
-      "factions": [
-        "Drukhari"
-      ]
+      "keywords": ["Infantry", "Battleline", "Wych Cult", "Aeldari", "Wyches"],
+      "factions": ["Drukhari"],
+      "ledBy": ["Lelith Hesperax", "Succubus"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#102929",
+    "header": "#0f454e"
+  }
 }

@@ -3,20 +3,24 @@ window.data.AoI = {
   "id": "AoI",
   "link": "https://game-datacards.eu",
   "name": "Agents of the Imperium",
+  "is_subfaction": false,
+  "parent_id": "",
   "datasheets": [
     {
       "id": "91aed3a7-1ae0-56b8-9c64-3265b497a0df",
       "name": "Callidus Assassin",
       "faction_id": "AoI",
       "leader": "",
-      "composition": [
-        "1 Callidus Assassin – Epic Hero"
-      ],
+      "composition": ["1 Callidus Assassin – Epic Hero"],
       "loadout": "This model is equipped with: neural shredder; phase sword and poison blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [
@@ -25,9 +29,7 @@ window.data.AoI = {
           "Infiltrators",
           "Lone Operative"
         ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -65,11 +67,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Neural shredder",
-              "keywords": [
-                "anti-infantry 2+",
-                "precision",
-                "torrent"
-              ],
+              "keywords": ["anti-infantry 2+", "precision", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -85,10 +83,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Phase sword and poison blades",
-              "keywords": [
-                "lethal hits",
-                "precision"
-              ],
+              "keywords": ["lethal hits", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -106,33 +101,130 @@ window.data.AoI = {
         "Imperium",
         "Callidus Assassin"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
+    },
+    {
+      "id": "c7e7c652-94cb-5c31-aaf9-487b39d8c5e2",
+      "name": "Culexus Assassin",
+      "faction_id": "AoI",
+      "leader": "",
+      "composition": ["1 Culexus Assassin – Epic Hero"],
+      "loadout": "This model is equipped with: animus speculum; life-draining touch.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deep Strike", "Lone Operative", "Stealth"],
+        "faction": ["Assigned Agents"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Abomination",
+            "description": "This model has the Feel No Pain 2+ ability against Psychic Attacks."
+          },
+          {
+            "name": "Soulless Horror (Aura)",
+            "description": "While an enemy unit is within 6\" of this model, worsen that unit’s Leadership characteristic by 1, or by 2 instead if that unit is a Psyker. In addition, once per battle, at the start of any Command phase, this model can use this ability. If it does, each enemy unit within 6\" of this model must take a Battle-shock test."
+          }
+        ],
+        "special": [
+          {
+            "name": "Psychic Assassin",
+            "description": "Each time you select a Psyker unit as the target for this weapon, until those attacks are resolved, change the Attacks characteristic of this weapon to 6."
+          }
+        ],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "7\"",
+          "t": "4",
+          "sv": "6+",
+          "w": "4",
+          "ld": "6+",
+          "oc": "1",
+          "name": "Culexus Assassin"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Animus speculum",
+              "keywords": [
+                "anti-psyker 2+",
+                "assault",
+                "precision",
+                "psychic assassin"
+              ],
+              "range": "24\"",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "D3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Life-draining touch",
+              "keywords": ["anti-psyker 2+", "devastating wounds", "precision"],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-2",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Epic Hero",
+        "Grenades",
+        "Imperium",
+        "Culexus Assassin"
+      ],
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "82566d83-6c6d-51fa-8bd5-b64877fffebb",
       "name": "Eversor Assassin",
       "faction_id": "AoI",
       "leader": "",
-      "composition": [
-        "1 Eversor Assassin – Epic Hero"
-      ],
+      "composition": ["1 Eversor Assassin – Epic Hero"],
       "loadout": "This model is equipped with: executioner pistol; power sword and neuro gauntlet.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Lone Operative",
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Deadly Demise D3", "Lone Operative", "Scouts 9\""],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -170,10 +262,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Executioner pistol",
-              "keywords": [
-                "anti-infantry 3+",
-                "pistol"
-              ],
+              "keywords": ["anti-infantry 3+", "pistol"],
               "range": "12\"",
               "attacks": "4",
               "skill": "2+",
@@ -189,9 +278,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Power sword and neuro gauntlet",
-              "keywords": [
-                "anti-infantry 3+"
-              ],
+              "keywords": ["anti-infantry 3+"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -210,9 +297,7 @@ window.data.AoI = {
         "Imperium",
         "Eversor Assassin"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "5a9b9c02-d23d-5319-bd02-f29cdab04a6f",
@@ -233,6 +318,16 @@ window.data.AoI = {
         "The Proctor-Exactant can be equipped with 1 nuncio aquila. *  That model’s Arbites combat shotgun cannot be replaced."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "35"
+        },
+        {
+          "models": "11",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -249,9 +344,7 @@ window.data.AoI = {
           }
         ],
         "core": [],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -285,9 +378,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites combat shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -301,9 +392,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -327,9 +416,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites shotpistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -343,10 +430,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Executioner shotgun",
-              "keywords": [
-                "ignores cover",
-                "precision"
-              ],
+              "keywords": ["ignores cover", "precision"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -360,9 +444,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -376,11 +458,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Webber",
-              "keywords": [
-                "assault",
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["assault", "devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -442,19 +520,14 @@ window.data.AoI = {
         "Retinue",
         "Exaction Squad"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "77016539-3dc1-5d1b-a9a4-8c4830429c71",
       "name": "Imperial Navy Breachers",
       "faction_id": "AoI",
       "leader": "",
-      "composition": [
-        "1 Navis Sergeant-at-Arms",
-        "9 Navis Armsmen"
-      ],
+      "composition": ["1 Navis Sergeant-at-Arms", "9 Navis Armsmen"],
       "loadout": "One Navis Armsman is equipped with: Navis las-volley; close combat weapon. One other Navis Armsman is equipped with: Navis heavy shotgun; close combat weapon; endurant shield. Every other model is equipped with: Navis shotgun; close combat weapon.",
       "wargear": [
         "The Navis Sergeant-at-Arms’ Navis shotgun can be replaced with one of the following: ◦ 1 autopistol and 1 chainsword ◦ 1 bolt pistol and 1 power weapon",
@@ -464,6 +537,12 @@ window.data.AoI = {
         "1 Navis Armsman can be equipped with 1 demolition charge and 1 grenade belts."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -476,9 +555,7 @@ window.data.AoI = {
           }
         ],
         "core": [],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -512,9 +589,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Autopistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -528,9 +603,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -544,12 +617,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Demolition charge",
-              "keywords": [
-                "assault",
-                "blast",
-                "hazardous",
-                "one shot"
-              ],
+              "keywords": ["assault", "blast", "hazardous", "one shot"],
               "range": "6\"",
               "attacks": "D6+3",
               "skill": "4+",
@@ -563,9 +631,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -579,9 +645,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Navis heavy shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "4",
               "skill": "4+",
@@ -609,9 +673,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Navis shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -625,9 +687,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -637,10 +697,7 @@ window.data.AoI = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -656,9 +713,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "1",
               "skill": "5+",
@@ -719,18 +774,15 @@ window.data.AoI = {
         "Retinue",
         "Imperial Navy Breachers"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"],
+      "ledBy": ["Rogue Trader Entourage"]
     },
     {
       "id": "97b523fd-b753-5103-b5e9-04aa7ee7f477",
       "name": "Inquisitor",
       "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
-      "composition": [
-        "1 Inquisitor"
-      ],
+      "composition": ["1 Inquisitor"],
       "loadout": "This model is equipped with: bolt pistol; Inquisitorial melee weapon; blessed wardings.",
       "wargear": [
         "This model’s bolt pistol can be replaced with 1 combi-weapon.",
@@ -738,6 +790,12 @@ window.data.AoI = {
         "If this model is equipped with 1 psychic gifts, its Inquisitorial melee weapon can be replaced with 1 force weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -749,12 +807,8 @@ window.data.AoI = {
             "description": "The bearer has the Psyker keyword."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Leader"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -792,9 +846,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -826,11 +878,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Psychic Shock Wave",
-              "keywords": [
-                "devastating wounds",
-                "psychic",
-                "torrent"
-              ],
+              "keywords": ["devastating wounds", "psychic", "torrent"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "N/A",
@@ -860,9 +908,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -880,31 +926,27 @@ window.data.AoI = {
         "Imperium",
         "Inquisitor"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "0a6dcec2-75d1-555e-9372-d49a60189f2e",
       "name": "Inquisitor Coteaz",
       "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
-      "composition": [
-        "1 Inquisitor Coteaz – Epic Hero"
-      ],
+      "composition": ["1 Inquisitor Coteaz – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Psychic Blast; Nemesis daemon hammer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Leader"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -946,9 +988,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -962,11 +1002,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Psychic Blast",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds",
-                "psychic"
-              ],
+              "keywords": ["anti-infantry 4+", "devastating wounds", "psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -982,9 +1018,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Nemesis daemon hammer",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1004,32 +1038,27 @@ window.data.AoI = {
         "Inquisitor",
         "Coteaz"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "f8ed00c8-b411-560a-9126-d8bad2200a16",
       "name": "Inquisitor Eisenhorn",
       "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
-      "composition": [
-        "1 Inquisitor Eisenhorn – Epic Hero"
-      ],
+      "composition": ["1 Inquisitor Eisenhorn – Epic Hero"],
       "loadout": "This model is equipped with: artificer bolt pistol; Mind Assault; runestaff and Barbarisater",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1106,9 +1135,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Runestaff and Barbarisater",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1129,31 +1156,27 @@ window.data.AoI = {
         "Inquisitor",
         "Eisenhorn"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "23ba73f2-1cfd-5bf9-9409-0adf6fbe3e45",
       "name": "Inquisitor Greyfax",
       "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
-      "composition": [
-        "1 Inquisitor Greyfax – Epic Hero"
-      ],
+      "composition": ["1 Inquisitor Greyfax – Epic Hero"],
       "loadout": "This model is equipped with: Castigation; condemnor stake; master-crafter power sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Leader"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1196,6 +1219,9 @@ window.data.AoI = {
             {
               "name": "Castigation",
               "keywords": [
+                "anti-character 4+",
+                "devastating wounds",
+                "precision",
                 "psychic"
               ],
               "range": "18\"",
@@ -1212,7 +1238,10 @@ window.data.AoI = {
             {
               "name": "Condemnor stake",
               "keywords": [
-                "fire 1"
+                "anti-psyker 2+",
+                "devastating wounds",
+                "precision",
+                "rapid fire 1"
               ],
               "range": "24\"",
               "attacks": "1",
@@ -1250,31 +1279,27 @@ window.data.AoI = {
         "Inquisitor",
         "Greyfax"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "164eb5c0-341e-5ce8-a80b-4ea96b74521d",
       "name": "Inquisitor Karamazov",
       "faction_id": "AoI",
       "leader": "",
-      "composition": [
-        "1 Inquisitor Karamazov – Epic Hero"
-      ],
+      "composition": ["1 Inquisitor Karamazov – Epic Hero"],
       "loadout": "This model is equipped with: master-crafted multi-melta; master-crafted power sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1312,9 +1337,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Master-crafted multi-melta",
-              "keywords": [
-                "melta 3"
-              ],
+              "keywords": ["melta 3"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1350,9 +1373,7 @@ window.data.AoI = {
         "Inquisitor",
         "Karamazov"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "6dc851be-1f06-524c-936d-5de230184396",
@@ -1373,12 +1394,28 @@ window.data.AoI = {
         "1 Gun Servitor’s heavy bolter can be replaced with one of the following: ◦ 1 multi-melta ◦ 1 plasma cannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "40"
+        },
+        {
+          "models": "6",
+          "cost": "60"
+        },
+        {
+          "models": "10",
+          "cost": "100"
+        },
+        {
+          "models": "14",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1424,9 +1461,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Acolyte firearm",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1440,10 +1475,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "5+",
@@ -1471,10 +1503,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "5+",
@@ -1488,10 +1517,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "heavy",
-                "blast"
-              ],
+              "keywords": ["heavy", "blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "5+",
@@ -1501,11 +1527,7 @@ window.data.AoI = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "5+",
@@ -1519,9 +1541,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1531,10 +1551,7 @@ window.data.AoI = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1548,10 +1565,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Unholy Gaze",
-              "keywords": [
-                "psychic",
-                "sustained hits d3"
-              ],
+              "keywords": ["psychic", "sustained hits d3"],
               "range": "18\"",
               "attacks": "1",
               "skill": "4+",
@@ -1581,9 +1595,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Eviscerator",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -1597,9 +1609,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Warp grasp",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "4+",
@@ -1617,8 +1627,13 @@ window.data.AoI = {
         "Retinue",
         "Inquisitorial Henchmen"
       ],
-      "factions": [
-        "Agents of the Imperium"
+      "factions": ["Agents of the Imperium"],
+      "ledBy": [
+        "Inquisitor",
+        "Inquisitor Coteaz",
+        "Inquisitor Eisenhorn",
+        "Inquisitor Greyfax",
+        "Lord Inquisitor Kyria Draxus"
       ]
     },
     {
@@ -1626,22 +1641,20 @@ window.data.AoI = {
       "name": "Lord Inquisitor Kyria Draxus",
       "faction_id": "AoI",
       "leader": "This model can be attached to the following units: ■ Imperium Battleline Infantry ■ Inquisitorial Henchmen",
-      "composition": [
-        "1 Lord Inquisitor Kyria Draxus – Epic Hero"
-      ],
+      "composition": ["1 Lord Inquisitor Kyria Draxus – Epic Hero"],
       "loadout": "This model is equipped with: Dirgesinger; Psychic Tempest; power fist.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Leader"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -1683,11 +1696,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Dirgesinger",
-              "keywords": [
-                "anti-infantry 4+",
-                "devastating wounds",
-                "assault"
-              ],
+              "keywords": ["anti-infantry 4+", "devastating wounds", "assault"],
               "range": "18\"",
               "attacks": "4",
               "skill": "3+",
@@ -1701,11 +1710,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Psychic Tempest",
-              "keywords": [
-                "indirect fire",
-                "psychic",
-                "sustained hits 2"
-              ],
+              "keywords": ["indirect fire", "psychic", "sustained hits 2"],
               "range": "18\"",
               "attacks": "6",
               "skill": "3+",
@@ -1742,24 +1747,23 @@ window.data.AoI = {
         "Inquisitor",
         "Lord Inquisitor Kyria Draxus"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "3782157e-f35b-531b-b70f-b0bbf33c1915",
       "name": "Rogue Trader Entourage",
       "faction_id": "AoI",
       "leader": "This unit can be attached to the following units: ■ Imperial Navy Breachers ■ Voidsmen-at-Arms",
-      "composition": [
-        "1 Rogue Trader",
-        "3 Rogue Trader Specialists"
-      ],
+      "composition": ["1 Rogue Trader", "3 Rogue Trader Specialists"],
       "loadout": "The Rogue Trader is equipped with: household pistol; monomolecular cane-rapier. One Rogue Trader Specialist is equipped with: dartmask; Death Cult power blade. One other Rogue Trader Specialist is equipped with: voltaic pistol; close combat weapon. One other Rogue Trader Specialist is equipped with: laspistol; close combat weapon; healing serum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1767,13 +1771,8 @@ window.data.AoI = {
             "description": "Models in the bearer’s unit have the Feel No Pain 5+ ability."
           }
         ],
-        "core": [
-          "Infiltrators",
-          "Leader"
-        ],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "core": ["Infiltrators", "Leader"],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1824,11 +1823,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Dartmask",
-              "keywords": [
-                "anti-infantry 2+",
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["anti-infantry 2+", "pistol", "precision"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1842,10 +1837,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Household pistol",
-              "keywords": [
-                "pistol",
-                "devastating wounds"
-              ],
+              "keywords": ["pistol", "devastating wounds"],
               "range": "12\"",
               "attacks": "2",
               "skill": "3+",
@@ -1859,9 +1851,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -1875,10 +1865,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Voltaic pistol",
-              "keywords": [
-                "pistol",
-                "sustained hits 2"
-              ],
+              "keywords": ["pistol", "sustained hits 2"],
               "range": "12\"",
               "attacks": "3",
               "skill": "3+",
@@ -1908,9 +1895,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Death Cult power blade",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1946,9 +1931,7 @@ window.data.AoI = {
         "ROGUE TRADER:",
         "Character"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "bd0c66bf-5fa0-5c52-8ce4-88858b2d8c5f",
@@ -1965,6 +1948,12 @@ window.data.AoI = {
         "The Proctor-Subductor can be equipped with 1 nuncio aquila."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1973,9 +1962,7 @@ window.data.AoI = {
           }
         ],
         "core": [],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2009,9 +1996,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites shotpistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2059,26 +2044,26 @@ window.data.AoI = {
         "Retinue",
         "Subductor Squad"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "353ff980-8867-549a-bec2-bb1841817d7d",
       "name": "Vigilant Squad",
       "faction_id": "AoI",
       "leader": "",
-      "composition": [
-        "1 Proctor-Vigilant",
-        "9 Vigilants",
-        "0-1 Cyber-mastiff"
-      ],
+      "composition": ["1 Proctor-Vigilant", "9 Vigilants", "0-1 Cyber-mastiff"],
       "loadout": "Every Proctor-Vigilant and Vigilant is equipped with: Arbites combat shotgun; Arbites shotpistol; close combat weapon. The Cyber-mastiff is equipped with: mechanical bite.",
       "wargear": [
         "Up to 2 Vigilants can each have their Arbites combat shotgun replaced with one of the following (duplicates are not allowed): ◦ 1 executioner shotgun ◦ 1 Arbites grenade launcher ◦ 1 heavy stubber ◦ 1 webber",
         "The Proctor-Vigilant can be equipped with 1 nuncio aquila."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2087,9 +2072,7 @@ window.data.AoI = {
           }
         ],
         "core": [],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2123,9 +2106,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites combat shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -2139,9 +2120,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2165,9 +2144,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Arbites shotpistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2181,10 +2158,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Executioner shotgun",
-              "keywords": [
-                "ignores cover",
-                "precision"
-              ],
+              "keywords": ["ignores cover", "precision"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2198,9 +2172,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -2214,11 +2186,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Webber",
-              "keywords": [
-                "assault",
-                "devastating wounds",
-                "torrent"
-              ],
+              "keywords": ["assault", "devastating wounds", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2267,31 +2235,148 @@ window.data.AoI = {
         "Retinue",
         "Vigilant Squad"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"]
+    },
+    {
+      "id": "6b4fbdf3-01ad-59ee-be4a-56c5b779b07c",
+      "name": "Vindicare Assassin",
+      "faction_id": "AoI",
+      "leader": "",
+      "composition": ["1 Vindicare Assassin – Epic Hero"],
+      "loadout": "This model is equipped with: exitus pistol; exitus rifle; Vindicare combat knife.",
+      "wargear": ["None"],
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Infiltrators", "Lone Operative", "Stealth"],
+        "faction": ["Assigned Agents"],
+        "primarch": [],
+        "invul": {
+          "value": "4+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Deadshot",
+            "description": "Each time this model makes a ranged attack, if a Critical Hit is scored, add 3 to the Damage characteristic of that attack. After this model has resolved its ranged attacks, select one enemy unit that was hit by one or more of those attacks. That unit must take a Battle-shock test."
+          },
+          {
+            "name": "Shieldbreaker",
+            "description": "Once per battle, when selecting targets for this model’s exitus rifle, it can fire a shieldbreaker round. If it does, until the end of the phase, each time this model makes an attack with that weapon, no saving throws of any kind can be made against that attack."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "",
+          "description": ""
+        }
+      },
+      "stats": [
+        {
+          "m": "7\"",
+          "t": "4",
+          "sv": "6+",
+          "w": "4",
+          "ld": "6+",
+          "oc": "1",
+          "name": "Vindicare Assassin"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Exitus pistol",
+              "keywords": [
+                "devastating wounds",
+                "ignores cover",
+                "pistol",
+                "precision"
+              ],
+              "range": "12\"",
+              "attacks": "3",
+              "skill": "2+",
+              "strength": "5",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Exitus rifle",
+              "keywords": [
+                "devastating wounds",
+                "ignores cover",
+                "heavy",
+                "precision"
+              ],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "2+",
+              "strength": "7",
+              "ap": "-3",
+              "damage": "D3+3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Vindicare combat knife",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "4",
+              "skill": "2+",
+              "strength": "4",
+              "ap": "-1",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Infantry",
+        "Character",
+        "Epic Hero",
+        "Smoke",
+        "Imperium",
+        "Vindicare Assassin"
+      ],
+      "factions": ["Agents of the Imperium"]
     },
     {
       "id": "be68fcbd-8764-576e-8e7f-f1d5b8ed089b",
       "name": "Voidsmen-at-arms",
       "faction_id": "AoI",
       "leader": "",
-      "composition": [
-        "1 Voidmaster",
-        "4-8 Voidsmen",
-        "0-1 Canid"
-      ],
+      "composition": ["1 Voidmaster", "4-8 Voidsmen", "0-1 Canid"],
       "loadout": "The Voidmaster is equipped with: artificer shotgun; laspistol; close combat weapon. For every 5 models in this unit, 1 Voidsman is equipped with: laspistol; Voidsman rotor cannon; close combat weapon. Every other Voidsman is equipped with: lasgun; laspistol; close combat weapon. The Canid is equipped with: vicious bite.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "40"
+        },
+        {
+          "models": "10",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Assigned Agents"
-        ],
+        "faction": ["Assigned Agents"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2325,9 +2410,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Artificer shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "12\"",
               "attacks": "2",
               "skill": "4+",
@@ -2341,9 +2424,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Lasgun",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "4+",
@@ -2357,9 +2438,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Laspistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "4+",
@@ -2373,10 +2452,7 @@ window.data.AoI = {
           "profiles": [
             {
               "name": "Voidsman rotor cannon",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "24\"",
               "attacks": "6",
               "skill": "5+",
@@ -2426,9 +2502,12 @@ window.data.AoI = {
         "Retinue",
         "Voidsmen-at-Arms"
       ],
-      "factions": [
-        "Agents of the Imperium"
-      ]
+      "factions": ["Agents of the Imperium"],
+      "ledBy": ["Rogue Trader Entourage"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#1a3445",
+    "header": "#244b6a"
+  }
 }

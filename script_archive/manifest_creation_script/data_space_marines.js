@@ -3,6 +3,38 @@ window.data.sm = {
   "id": "SM",
   "link": "https://game-datacards.eu",
   "name": "Space Marines",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "ADEPT OF THE CODEX",
+      "description": "Captain model only. At the start of your Command phase, if the bearer is on the battlefield, instead of selecting a Combat Doctrine to be active for your army, you can select the Tactical Doctrine. If you do, until the start of your next Command phase, that doctrine is active for the bearer’s unit only, even if you have already selected that doctrine to be active for your army this battle.",
+      "keywords": ["Captain"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "ARTIFICER ARMOUR",
+      "description": "Adeptus Astartes model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "BOLTER DISCIPLINE",
+      "description": "Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, each time a model in that unit makes a ranged attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "THE HONOUR VEHEMENT",
+      "description": "Adeptus Astartes model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "15"
+    }
+  ],
   "datasheets": [
     {
       "id": "ab5376e1-cfeb-5287-ab51-a51cbd71610b",
@@ -13,6 +45,7 @@ window.data.sm = {
       "loadout": "",
       "wargear": [],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -25,17 +58,13 @@ window.data.sm = {
         "other": [
           {
             "name": "Special Weapons",
-            "description": "* If a Captain or Lieutenant model is equipped with this weapon, improve this weapon’s Ballistic Skill characteristic by 1.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "* If a Captain or Lieutenant model is equipped with this weapon, improve this weapon’s Ballistic Skill characteristic by 1."
           }
         ],
         "special": [
           {
             "name": "WEAPON LISTS",
-            "description": "Several Adeptus Astartes models have the option to be equipped with one or more weapons whose profiles are not listed on their datasheet. The profiles for these weapons are instead listed on this card.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "Several Adeptus Astartes models have the option to be equipped with one or more weapons whose profiles are not listed on their datasheet. The profiles for these weapons are instead listed on this card."
           }
         ],
         "damaged": {
@@ -49,9 +78,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -97,10 +124,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-cannon",
-              "keywords": [
-                "anti-vehicle 2+",
-                "heavy"
-              ],
+              "keywords": ["anti-vehicle 2+", "heavy"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -114,10 +138,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+*",
@@ -131,11 +152,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -149,10 +166,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -166,10 +180,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -183,10 +194,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+*",
@@ -200,9 +208,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -216,10 +222,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -233,10 +236,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -246,9 +246,7 @@ window.data.sm = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -262,10 +260,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -275,11 +270,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -293,9 +284,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+*",
@@ -305,10 +294,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+*",
@@ -322,9 +308,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+*",
@@ -337,31 +321,27 @@ window.data.sm = {
       ],
       "meleeWeapons": [],
       "keywords": [],
-      "factions": [
-        ""
-      ]
+      "factions": [""]
     },
     {
       "id": "a79c6651-690d-51b2-8cc8-d3d52f997ef3",
       "name": "Adrax Agatone",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Adrax Agatone – Epic Hero"
-      ],
+      "composition": ["1 Adrax Agatone – Epic Hero"],
       "loadout": "This model is equipped with: Drakkis; Malleus Noctum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -399,11 +379,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Drakkis",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -438,31 +414,33 @@ window.data.sm = {
         "Captain",
         "Adrax Agatone"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Salamanders"
-      ]
+      "factions": ["Adeptus Astartes", "Salamanders"]
     },
     {
       "id": "c9e75539-37ab-5990-a16a-952209ccad7a",
       "name": "Aggressor Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Aggressor Sergeant",
-        "2-5 Aggressors"
-      ],
+      "composition": ["1 Aggressor Sergeant", "2-5 Aggressors"],
       "loadout": "Every model is equipped with: flamestorm gauntlets; power fist.",
       "wargear": [
         "All models in this unit can each have their flamestorm gauntlets replaced with 1 auto boltstorm gauntlets and 1 fragstorm grenade launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "110"
+        },
+        {
+          "models": "6",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -496,9 +474,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Auto boltstorm gauntlets",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -512,11 +488,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamestorm gauntlets",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6+1",
               "skill": "N/A",
@@ -530,9 +502,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -547,10 +517,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Power fist ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Power fist",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -561,14 +529,14 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Gravis",
-        "Aggressor Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
+      "keywords": ["Infantry", "Imperium", "Gravis", "Aggressor Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Apothecary Biologis",
+        "Captain In Gravis Armour",
+        "Iron Father Feirros",
+        "Marneus Calgar",
+        "Tor Garadon"
       ]
     },
     {
@@ -576,15 +544,19 @@ window.data.sm = {
       "name": "Ancient In Terminator Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Squad ■ Terminator Assault Squad You can attach this model to one of the above units even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Ancient in Terminator Armour"
-      ],
+      "composition": ["1 Ancient in Terminator Armour"],
       "loadout": "This model is equipped with: storm bolter; power fist.",
       "wargear": [
         "This model’s power fist can be replaced with one of the following: ◦ 1 chainfist ◦ 1 close combat weapon ◦ 1 power weapon ◦ 1 thunder hammer",
         "This model’s storm bolter and power fist can be replaced with one of the following: ◦ 1 twin lightning claws ◦  1 thunder hammer and 1 Terminator storm shield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -592,13 +564,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 6."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -636,9 +603,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -653,10 +618,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -711,10 +674,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -727,10 +688,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -748,31 +707,27 @@ window.data.sm = {
         "Terminator",
         "Ancient"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "7af3435c-e3c2-5096-a4e8-45b5066d0e46",
       "name": "Apothecary Biologis",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Aggressor Squad ■ Eradicator Squad ■ Heavy Intercessor Squad You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Apothecary Biologis"
-      ],
+      "composition": ["1 Apothecary Biologis"],
       "loadout": "This model is equipped with: absolvor bolt pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -810,9 +765,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Absolvor bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -846,9 +799,7 @@ window.data.sm = {
         "Gravis",
         "Apothecary Biologis"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "f17f9afa-b67f-54db-94eb-4e3b3cb3eee9",
@@ -865,12 +816,20 @@ window.data.sm = {
         "The Assault Intercessor Sergeant’s Astartes chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -904,11 +863,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -922,9 +877,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -938,9 +891,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -950,10 +901,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1010,10 +958,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1032,8 +978,22 @@ window.data.sm = {
         "Tacticus",
         "Assault Intercessor Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Adrax Agatone",
+        "Chief Librarian Tigurius",
+        "Judiciar",
+        "Kor’sarro Khan",
+        "Marneus Calgar",
+        "Primaris Ancient",
+        "Primaris Apothecary",
+        "Primaris Captain",
+        "Primaris Chaplain",
+        "Primaris Company Champion",
+        "Primaris Librarian",
+        "Primaris Lieutenant",
+        "Primaris Techmarine",
+        "Uriel Ventris"
       ]
     },
     {
@@ -1041,10 +1001,7 @@ window.data.sm = {
       "name": "Assault Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Assault Sergeant",
-        "4-9 Assault Marines"
-      ],
+      "composition": ["1 Assault Sergeant", "4-9 Assault Marines"],
       "loadout": "Every model is equipped with: bolt pistol; Astartes chainsword.",
       "wargear": [
         "The Assault Sergeant’s bolt pistol can be replaced with one of the following: ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol* ◦ 1 plasma pistol",
@@ -1054,6 +1011,16 @@ window.data.sm = {
         "For every 5 models in this unit, 1 model’s Astartes chainsword can be replaced with 1 eviscerator. *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1062,9 +1029,7 @@ window.data.sm = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1098,9 +1063,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1114,10 +1077,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1131,9 +1091,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1147,9 +1105,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1159,10 +1115,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1176,9 +1129,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1188,10 +1139,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1220,10 +1168,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Eviscerator ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Eviscerator",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1264,10 +1210,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1280,10 +1224,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1294,14 +1236,16 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Assault Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
+      "keywords": ["Infantry", "Grenades", "Imperium", "Assault Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain",
+        "Captain Sicarius",
+        "Chaplain",
+        "Chaplain Cassius",
+        "Librarian",
+        "Lieutenant",
+        "Vulkan He’stan"
       ]
     },
     {
@@ -1322,6 +1266,16 @@ window.data.sm = {
         "For every 5 models in this unit, 1 model’s Astartes chainsword can be replaced with 1 eviscerator. *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "115"
+        },
+        {
+          "models": "10",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1329,12 +1283,8 @@ window.data.sm = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1368,9 +1318,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1384,10 +1332,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1401,9 +1346,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1417,9 +1360,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1429,10 +1370,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1446,9 +1384,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1458,10 +1394,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1490,10 +1423,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Eviscerator ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Eviscerator",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1534,10 +1465,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1550,10 +1479,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -1572,8 +1499,12 @@ window.data.sm = {
         "Imperium",
         "Assault Squad with Jump Packs"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain With Jump Pack",
+        "Chaplain With Jump Pack",
+        "Kayvaan Shrike",
+        "Librarian With Jump Pack"
       ]
     },
     {
@@ -1581,14 +1512,18 @@ window.data.sm = {
       "name": "Astartes Servitors",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "4 Astartes Servitors"
-      ],
+      "composition": ["4 Astartes Servitors"],
       "loadout": "Every model is equipped with: Servitor servo-arm.",
       "wargear": [
         "Up to 2 models can each have their Servitor servo-arm replaced with one of the following: ◦ 1 heavy bolter and 1 close combat weapon ◦ 1 multi-melta and 1 close combat weapon ◦  1 plasma cannon and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "4",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -1607,9 +1542,7 @@ window.data.sm = {
         "special": [
           {
             "name": "SERVITOR RETINUE",
-            "description": "At the start of the Declare Battle Formations step, this unit can join one other unit from your army that is being led by a Techmarine. If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "At the start of the Declare Battle Formations step, this unit can join one other unit from your army that is being led by a Techmarine. If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly."
           }
         ],
         "damaged": {
@@ -1633,10 +1566,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1650,10 +1580,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -1667,10 +1594,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1680,11 +1604,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1725,34 +1645,219 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Astartes Servitors"
+      "keywords": ["Infantry", "Imperium", "Astartes Servitors"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Primaris Techmarine", "Techmarine"]
+    },
+    {
+      "id": "743808c1-22b5-56a7-8ab2-1782a3ab6995",
+      "name": "Astraeus",
+      "faction_id": "SM",
+      "leader": "",
+      "composition": ["1 Astraeus"],
+      "loadout": "This model is equipped with: 2 Astraeus las-rippers; ironhail heavy stubber; storm bolter; twin heavy bolter; twin macro-accelerator cannon; armoured hull.",
+      "wargear": [
+        "This model’s 2 Astraeus las-rippers can be replaced with 2 plasma eradicators.",
+        "This model’s twin heavy bolter can be replaced with 1 twin lascannon.",
+        "This model can be equipped with 1 ironhail heavy stubber."
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "525"
+        }
+      ],
+      "abilities": {
+        "wargear": [],
+        "core": ["Deadly Demise D6+2"],
+        "faction": ["Oath of Moment"],
+        "primarch": [],
+        "invul": {
+          "value": "5+",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Suppression Fire",
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more attacks made with its twin macro-accelerator cannon this phase. Until the start of your next turn, while this model is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-8 WOUNDS REMAINING",
+          "description": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll. *This model has a 5+ invulnerable save against ranged attacks."
+        }
+      },
+      "stats": [
+        {
+          "m": "10\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "24",
+          "ld": "6+",
+          "oc": "8",
+          "name": "Astraeus"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Astraeus las-ripper",
+              "keywords": [],
+              "range": "36\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Ironhail heavy stubber",
+              "keywords": ["rapid fire 3"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Plasma eradicator – standard",
+              "keywords": ["blast"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "7",
+              "ap": "-2",
+              "damage": "2"
+            },
+            {
+              "name": "Plasma eradicator – supercharge",
+              "keywords": ["blast", "hazardous"],
+              "range": "36\"",
+              "attacks": "D6",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-3",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Storm bolter",
+              "keywords": ["rapid fire 2"],
+              "range": "24\"",
+              "attacks": "2",
+              "skill": "3+",
+              "strength": "4",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin lascannon",
+              "keywords": ["twin-linked"],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin macro-accelerator cannon",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "72\"",
+              "attacks": "12",
+              "skill": "3+",
+              "strength": "9",
+              "ap": "-1",
+              "damage": "3"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": ["Vehicle", "Titanic", "Imperium", "Astraeus"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "b4346525-fabe-5425-9a10-e229bc80773e",
       "name": "Attack Bike Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1-3 Attack Bikes"
-      ],
+      "composition": ["1-3 Attack Bikes"],
       "loadout": "Every model is equipped with: bolt pistol; heavy bolter; twin boltgun; close combat weapon.",
       "wargear": [
         "Any number of models can each have their heavy bolter replaced with 1 multi-melta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        },
+        {
+          "models": "2",
+          "cost": "110"
+        },
+        {
+          "models": "3",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1786,9 +1891,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1802,9 +1905,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -1818,9 +1919,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1834,9 +1933,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin boltgun",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1863,37 +1960,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Imperium",
-        "Attack Bike Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Mounted", "Grenades", "Imperium", "Attack Bike Squad"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "6bf98fa4-49c6-5958-a542-888f09955ffb",
       "name": "Ballistus Dreadnought",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Ballistus Dreadnought"
-      ],
+      "composition": ["1 Ballistus Dreadnought"],
       "loadout": "This model is equipped with: Ballistus missile launcher; Ballistus lascannon; twin storm bolter; armoured feet.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1927,9 +2015,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ballistus missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -1967,10 +2053,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin storm bolter",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1997,15 +2080,8 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Imperium",
-        "Ballistus Dreadnought"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Imperium", "Ballistus Dreadnought"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "dac0bd3a-b8c0-53de-b56c-b16a6444aab0",
@@ -2025,12 +2101,20 @@ window.data.sm = {
         "An Attack Bike’s heavy bolter can be replaced with 1 multi-melta.  *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "80"
+        },
+        {
+          "models": "6",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2073,9 +2157,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2089,10 +2171,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2106,11 +2185,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2124,9 +2199,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2140,10 +2213,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -2157,9 +2227,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2173,9 +2241,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2185,10 +2251,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2202,9 +2265,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin boltgun",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2275,10 +2336,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -2289,37 +2348,29 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Imperium",
-        "Bike Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Mounted", "Grenades", "Imperium", "Bike Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Captain On Bike", "Chaplain On Bike"]
     },
     {
       "id": "01dd9844-2d3e-5c90-ad47-5da21d4dd9ff",
       "name": "Bladeguard Ancient",
       "faction_id": "SM",
       "leader": "This model can be attached to the following unit: ■ Bladeguard Veteran Squad You can attach this model to the above unit even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Bladeguard Ancient"
-      ],
+      "composition": ["1 Bladeguard Ancient"],
       "loadout": "This model is equipped with: heavy bolt pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "50"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2357,9 +2408,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2394,9 +2443,7 @@ window.data.sm = {
         "Tacticus",
         "Bladeguard Ancient"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "3a13a631-0ca2-5801-91bf-3ed7b2a524ab",
@@ -2412,12 +2459,20 @@ window.data.sm = {
         "The Bladeguard Veteran Sergeant’s heavy bolt pistol can be replaced with one of the following: ◦ 1 neo-volkite pistol ◦ 1 plasma pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "100"
+        },
+        {
+          "models": "6",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2451,9 +2506,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2467,10 +2520,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Neo-volkite pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2484,9 +2534,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2496,10 +2544,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2533,8 +2578,15 @@ window.data.sm = {
         "Tacticus",
         "Bladeguard Veteran Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Bladeguard Ancient",
+        "Judiciar",
+        "Marneus Calgar",
+        "Primaris Captain",
+        "Primaris Chaplain",
+        "Primaris Company Champion",
+        "Primaris Lieutenant"
       ]
     },
     {
@@ -2542,23 +2594,23 @@ window.data.sm = {
       "name": "Brutalis Dreadnought",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Brutalis Dreadnought"
-      ],
+      "composition": ["1 Brutalis Dreadnought"],
       "loadout": "This model is equipped with: twin Icarus ironhail heavy stubber; twin heavy bolter; Brutalis bolt rifles; Brutalis fists.",
       "wargear": [
         "This model’s twin heavy bolter can be replaced with 1 twin multi-melta.",
         "This model’s Brutalis fists and Brutalis bolt rifles can be replaced with 1 Brutalis talons."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2592,9 +2644,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Brutalis bolt rifles",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -2608,10 +2658,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2625,11 +2672,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin Icarus ironhail heavy stubber",
-              "keywords": [
-                "anti-fly 4+",
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 4+", "rapid fire 3", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -2643,10 +2686,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin multi-melta",
-              "keywords": [
-                "melta 2",
-                "twin-linked"
-              ],
+              "keywords": ["melta 2", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2661,10 +2701,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Brutalis fists ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Brutalis fists",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -2677,10 +2715,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Brutalis talons – strike ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Brutalis talons – strike",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -2689,10 +2725,8 @@ window.data.sm = {
               "damage": "3"
             },
             {
-              "name": "Brutalis talons – sweep ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Brutalis talons – sweep",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "10",
               "skill": "3+",
@@ -2710,18 +2744,14 @@ window.data.sm = {
         "Dreadnought",
         "Brutalis Dreadnought"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "1abbc533-9ffb-5095-8cb4-b8f948061854",
       "name": "Captain",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Captain"
-      ],
+      "composition": ["1 Captain"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted boltgun; Astartes chainsword.",
       "wargear": [
         "This model’s master-crafted boltgun can be replaced with one of the following: ◦ 1 combi-weapon** ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 storm bolter** ◦ 1 power fist ◦ 1 relic shield* ◦ 1 relic weapon ◦ 1 thunder hammer",
@@ -2729,6 +2759,12 @@ window.data.sm = {
         "This model’s master-crafted boltgun and Astartes chainsword can be replaced with 1 twin lightning claws. * Maximum one per model. **  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2736,12 +2772,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 6."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2779,9 +2811,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2795,10 +2825,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2812,11 +2839,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2830,10 +2853,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -2861,9 +2881,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2873,10 +2891,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2947,10 +2962,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2963,10 +2976,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -2977,37 +2988,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Grenades",
-        "Imperium",
-        "Captain"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Infantry", "Character", "Grenades", "Imperium", "Captain"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "6be6254a-af8a-51f6-a317-0405f91e6963",
       "name": "Captain In Gravis Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Aggressor Squad ■ Eradicator Squad ■ Heavy Intercessor Squad",
-      "composition": [
-        "1 Captain in Gravis Armour"
-      ],
+      "composition": ["1 Captain in Gravis Armour"],
       "loadout": "This model is equipped with: master-crafted heavy bolt rifle; master-crafted power weapon.",
       "wargear": [
         "This model’s master-crafted heavy bolt rifle and master-crafted power weapon can be replaced with: ◦  1 boltstorm gauntlet, 1 power fist and 1 relic chainsword ◦  1 boltstorm gauntlet, 1 power fist and 1 relic blade ◦  1 boltstorm gauntlet, 1 power fist and 1 relic fist"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Leader",
-          "Oath of Moment"
-        ],
+        "faction": ["Leader", "Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3045,9 +3049,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Boltstorm gauntlet",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "3",
               "skill": "2+",
@@ -3104,10 +3106,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Relic blade ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Relic blade",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "2+",
@@ -3120,10 +3120,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Relic chainsword ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Relic chainsword",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "2+",
@@ -3136,10 +3134,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Relic fist ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Relic fist",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "2+",
@@ -3158,33 +3154,27 @@ window.data.sm = {
         "Gravis",
         "Captain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "3bcd32e4-b4fe-5f5e-8bf4-dba4da3a48b6",
       "name": "Captain In Phobos Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Eliminator Squad ■ Incursor Squad ■ Infiltrator Squad ■ Reiver Squad ■ Scout Squad ■ Scout Sniper Squad",
-      "composition": [
-        "1 Captain in Phobos Armour"
-      ],
+      "composition": ["1 Captain in Phobos Armour"],
       "loadout": "This model is equipped with: bolt pistol; instigator bolt carbine; combat knife.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Leader",
-          "Stealth"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Leader", "Stealth"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3222,9 +3212,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3238,9 +3226,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Instigator bolt carbine",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "24\"",
               "attacks": "1",
               "skill": "2+",
@@ -3275,18 +3261,14 @@ window.data.sm = {
         "Phobos",
         "Captain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "a61cd885-4d38-5de2-bcd7-d74522a8c9f8",
       "name": "Captain In Terminator Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad",
-      "composition": [
-        "1 Captain in Terminator Armour"
-      ],
+      "composition": ["1 Captain in Terminator Armour"],
       "loadout": "This model is equipped with: storm bolter; relic weapon.",
       "wargear": [
         "This model’s storm bolter can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 power fist ◦ 1 relic shield* ◦ 1 relic weapon ◦ 1 thunder hammer",
@@ -3295,6 +3277,12 @@ window.data.sm = {
         "If this model is equipped with a power fist, it can be equipped with 1 auxiliary grenade launcher. * Maximum one per model."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3306,13 +3294,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 7."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3368,9 +3351,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -3385,10 +3366,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3429,10 +3408,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3445,10 +3422,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -3466,18 +3441,14 @@ window.data.sm = {
         "Terminator",
         "Captain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "b59a6260-99a9-5bbf-9cdd-6df93aea97e6",
       "name": "Captain On Bike",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Bike Squad ■ Outrider Squad",
-      "composition": [
-        "1 Captain on Bike"
-      ],
+      "composition": ["1 Captain on Bike"],
       "loadout": "This model is equipped with: bolt pistol; twin boltgun; Astartes chainsword.",
       "wargear": [
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 combi-weapon** ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 master-crafted boltgun  ◦ 1 plasma pistol ◦ 1 storm bolter** ◦ 1 relic shield*  ◦ 1 relic weapon ◦ 1 power fist",
@@ -3485,6 +3456,12 @@ window.data.sm = {
         "This model’s bolt pistol and Astartes chainsword can be replaced with 1 twin lightning claws. * Maximum one per model.  **  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3492,12 +3469,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 7."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3535,9 +3508,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3551,10 +3522,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3568,11 +3536,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3586,10 +3550,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -3617,9 +3578,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3629,10 +3588,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3646,9 +3602,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin boltgun",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -3719,10 +3673,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -3735,10 +3687,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -3749,38 +3699,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Character",
-        "Grenades",
-        "Imperium",
-        "Captain"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Mounted", "Character", "Grenades", "Imperium", "Captain"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "2ce922b0-d248-5152-bbc2-856ef8e49186",
       "name": "Captain Sicarius",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Sternguard Veteran Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Captain Sicarius – Epic Hero"
-      ],
+      "composition": ["1 Captain Sicarius – Epic Hero"],
       "loadout": "This model is equipped with: artisan plasma pistol; Talassarian Tempest Blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3818,9 +3758,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Artisan plasma pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3835,10 +3773,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Talassarian Tempest Blade ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "Talassarian Tempest Blade",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -3857,19 +3793,14 @@ window.data.sm = {
         "Captain",
         "Sicarius"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "dfaa283d-f1f4-55f4-b674-3715eda043c2",
       "name": "Captain With Jump Pack",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad with Jump Packs ■ Vanguard Veteran Squad with Jump Packs",
-      "composition": [
-        "1 Captain with Jump Pack"
-      ],
+      "composition": ["1 Captain with Jump Pack"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted boltgun; Astartes chainsword.",
       "wargear": [
         "This model’s master-crafted boltgun can be replaced with one of the following: ◦ 1 combi-weapon** ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 storm bolter** ◦ 1 power fist ◦ 1 relic shield* ◦ 1 relic weapon ◦ 1 thunder hammer",
@@ -3877,6 +3808,12 @@ window.data.sm = {
         "This model’s master-crafted boltgun and Astartes chainsword can be replaced with 1 twin lightning claws. * Maximum one per model. **  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3884,13 +3821,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 6."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3928,9 +3860,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3944,10 +3874,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3961,11 +3888,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3979,10 +3902,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "pistol",
-                "melta 2"
-              ],
+              "keywords": ["pistol", "melta 2"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -4010,9 +3930,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4022,10 +3940,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4096,10 +4011,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -4112,10 +4025,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -4135,25 +4046,30 @@ window.data.sm = {
         "Imperium",
         "Captain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "5689c57d-bec3-54f4-92dc-d5cca77534f0",
       "name": "Centurion Assault Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Assault Centurion Sergeant",
-        "2-5 Assault Centurions"
-      ],
+      "composition": ["1 Assault Centurion Sergeant", "2-5 Assault Centurions"],
       "loadout": "Every model is equipped with: twin flamer; siege drills; Centurion bolters.",
       "wargear": [
         "Any number of models can each have their twin flamer replaced with 1 twin meltagun.",
         "Any number of models can each have their Centurion bolters replaced with 1 Centurion assault launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "175"
+        },
+        {
+          "models": "6",
+          "cost": "350"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4162,9 +4078,7 @@ window.data.sm = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4198,10 +4112,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Centurion bolters",
-              "keywords": [
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 3", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4215,11 +4126,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4233,10 +4140,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin meltagun",
-              "keywords": [
-                "melta 2",
-                "twin-linked"
-              ],
+              "keywords": ["melta 2", "twin-linked"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4251,10 +4155,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Siege drills ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Siege drills",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -4271,9 +4173,7 @@ window.data.sm = {
         "Centurion",
         "Centurion Assault Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "d08f3b3f-ff1c-557b-b582-d2b5383a97f7",
@@ -4290,12 +4190,20 @@ window.data.sm = {
         "Any number of models can each have their grav-cannon replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin lascannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "205"
+        },
+        {
+          "models": "6",
+          "cost": "410"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4329,10 +4237,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Centurion bolters",
-              "keywords": [
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 3", "twin-linked"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4346,9 +4251,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Centurion missile launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -4362,9 +4265,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-cannon",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "24\"",
               "attacks": "3",
               "skill": "3+",
@@ -4378,10 +4279,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -4395,9 +4293,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -4430,31 +4326,29 @@ window.data.sm = {
         "Centurion",
         "Centurion Devastator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "617d09bb-af62-5df9-9454-263132cbd00b",
       "name": "Chaplain",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Chaplain"
-      ],
+      "composition": ["1 Chaplain"],
       "loadout": "This model is equipped with: bolt pistol; crozius arcanum.",
       "wargear": [
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter ◦ 1 power fist"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4492,9 +4386,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4540,10 +4432,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4557,11 +4446,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -4575,10 +4460,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -4592,9 +4474,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4604,10 +4484,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4621,9 +4498,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4664,39 +4539,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Grenades",
-        "Imperium",
-        "Chaplain"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Infantry", "Character", "Grenades", "Imperium", "Chaplain"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "35a9d1d2-73bd-5f29-bf88-afd1782bad21",
       "name": "Chaplain Cassius",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Sternguard Veteran Squad ■ Tactical Squad ■ Tyrannic War Veterans ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Chaplain Cassius – Epic Hero"
-      ],
+      "composition": ["1 Chaplain Cassius – Epic Hero"],
       "loadout": "This model is equipped with: Infernus; artificer crozius.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 5+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 5+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4773,33 +4637,29 @@ window.data.sm = {
         "Imperium",
         "Chaplain Cassius"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "30fe2cd6-9c34-59f5-910e-3f5fcbab2413",
       "name": "Chaplain In Terminator Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad",
-      "composition": [
-        "1 Chaplain in Terminator Armour"
-      ],
+      "composition": ["1 Chaplain in Terminator Armour"],
       "loadout": "This model is equipped with: storm bolter; crozius arcanum.",
       "wargear": [
         "This model’s storm bolter can be replaced with 1 combi-weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4855,9 +4715,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4891,31 +4749,27 @@ window.data.sm = {
         "Terminator",
         "Chaplain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "68e51be1-da54-5873-a47e-242434d86e04",
       "name": "Chaplain On Bike",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Bike Squad ■ Outrider Squad",
-      "composition": [
-        "1 Chaplain on Bike"
-      ],
+      "composition": ["1 Chaplain on Bike"],
       "loadout": "This model is equipped with: absolvor bolt pistol; twin bolt rifle; crozius arcanum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4953,9 +4807,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Absolvor bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -4969,9 +4821,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin bolt rifle",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4998,39 +4848,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Character",
-        "Grenades",
-        "Imperium",
-        "Chaplain"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Mounted", "Character", "Grenades", "Imperium", "Chaplain"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "d6954fe8-4a09-5f1e-b9cf-29de7e511081",
       "name": "Chaplain With Jump Pack",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad with Jump Packs ■ Vanguard Veteran Squad with Jump Packs",
-      "composition": [
-        "1 Chaplain with Jump Pack"
-      ],
+      "composition": ["1 Chaplain with Jump Pack"],
       "loadout": "This model is equipped with: bolt pistol; crozius arcanum.",
       "wargear": [
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter ◦ 1 power fist"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5068,9 +4909,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5116,10 +4955,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5133,11 +4969,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5151,10 +4983,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -5168,9 +4997,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5180,10 +5007,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5197,9 +5021,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -5248,31 +5070,27 @@ window.data.sm = {
         "Imperium",
         "Chaplain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "aad0f52c-e204-5ddd-a9db-84b0a4707b2e",
       "name": "Chief Librarian Tigurius",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Chief Librarian Tigurius – Epic Hero"
-      ],
+      "composition": ["1 Chief Librarian Tigurius – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Storm of the Emperor’s Wrath; Rod of Tigurius.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5310,9 +5128,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -5326,10 +5142,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm of the Emperor’s Wrath – witchfire",
-              "keywords": [
-                "blast",
-                "psychic"
-              ],
+              "keywords": ["blast", "psychic"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "2+",
@@ -5339,11 +5152,7 @@ window.data.sm = {
             },
             {
               "name": "Storm of the Emperor’s Wrath – focused witchfire",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["blast", "hazardous", "psychic"],
               "range": "18\"",
               "attacks": "2D6",
               "skill": "2+",
@@ -5358,10 +5167,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Rod of Tigurius ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Rod of Tigurius",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -5380,10 +5187,7 @@ window.data.sm = {
         "Imperium",
         "Chief Librarian Tigurius"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "59dea85f-cc3f-5001-b591-3de575734304",
@@ -5405,6 +5209,12 @@ window.data.sm = {
         "Any number of Company Veterans can each have their boltgun replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 Astartes shield ◦ 1 combi-weapon* ◦ 1 flamer ◦ 1 heavy bolter*  ◦ 1 heavy flamer* ◦ 1 grav-cannon*  ◦ 1 grav-gun  ◦ 1 lascannon* ◦ 1 meltagun  ◦ 1 missile launcher*  ◦ 1 multi-melta*  ◦ 1 plasma cannon*  ◦ 1 storm bolter* ◦ 1 power fist  ◦ 1 power weapon ◦ 1 thunder hammer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5413,9 +5223,7 @@ window.data.sm = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5457,9 +5265,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5487,10 +5293,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5504,9 +5307,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -5520,9 +5321,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5536,9 +5335,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -5548,10 +5345,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -5594,10 +5388,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Champion’s blade ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Champion’s blade",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5638,10 +5430,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -5654,10 +5444,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5668,14 +5456,17 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Command Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
+      "keywords": ["Infantry", "Grenades", "Imperium", "Command Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain",
+        "Captain Sicarius",
+        "Chaplain",
+        "Chaplain Cassius",
+        "Librarian",
+        "Lieutenant",
+        "Pedro Kantor",
+        "Vulkan He’stan"
       ]
     },
     {
@@ -5683,22 +5474,22 @@ window.data.sm = {
       "name": "Contemptor Dreadnought",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Contemptor Dreadnought"
-      ],
+      "composition": ["1 Contemptor Dreadnought"],
       "loadout": "This model is equipped with: combi-bolter; multi-melta; Dreadnought combat weapon.",
       "wargear": [
         "This model’s multi-melta can be replaced with 1 Kheres-pattern assault cannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "5+",
@@ -5732,9 +5523,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -5748,9 +5537,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Kheres-pattern assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -5764,9 +5551,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -5793,38 +5578,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Imperium",
-        "Contemptor Dreadnought"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Imperium", "Contemptor Dreadnought"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "5a09a60a-8d85-5328-911f-0f1fd393900a",
       "name": "Darnath Lysander",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad",
-      "composition": [
-        "1 Darnath Lysander – Epic Hero"
-      ],
+      "composition": ["1 Darnath Lysander – Epic Hero"],
       "loadout": "This model is equipped with: Fist of Dorn.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5862,10 +5637,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Fist of Dorn ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Fist of Dorn",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -5885,32 +5658,34 @@ window.data.sm = {
         "Captain",
         "Darnath Lysander"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Imperial Fists"
-      ]
+      "factions": ["Adeptus Astartes", "Imperial Fists"]
     },
     {
       "id": "89a5bc47-72bc-50c4-a6c0-7952a6d8fb41",
       "name": "Desolation Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Desolation Sergeant",
-        "4-9 Desolation Marines"
-      ],
+      "composition": ["1 Desolation Sergeant", "4-9 Desolation Marines"],
       "loadout": "Every model is equipped with: bolt pistol; castellan launcher; superfrag rocket launcher; close combat weapon.",
       "wargear": [
         "All of the models in this unit can each have their superfrag rocket launcher replaced with 1 superkrak rocket launcher.",
         "The Desolation Sergeant’s superfrag rocket launcher or superkrak rocket launcher can be replaced with 1 vengor launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "120"
+        },
+        {
+          "models": "10",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5944,9 +5719,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5960,10 +5733,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Castellan launcher",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -5977,10 +5747,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Superfrag rocket launcher",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6+1",
               "skill": "4+",
@@ -5994,9 +5761,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Superkrak rocket launcher",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6010,10 +5775,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Vengor launcher",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "2+",
@@ -6047,19 +5809,15 @@ window.data.sm = {
         "Tacticus",
         "Desolation Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Primaris Ancient", "Primaris Apothecary", "Primaris Librarian"]
     },
     {
       "id": "f715322f-e40b-5c04-bbee-e34a13203a6b",
       "name": "Devastator Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Devastator Sergeant",
-        "4-9 Devastator Marines"
-      ],
+      "composition": ["1 Devastator Sergeant", "4-9 Devastator Marines"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "Up to 4 Devastator Marines can each have their boltgun replaced with one of the following: ◦ 1 grav-cannon ◦ 1 heavy bolter ◦ 1 heavy flamer* ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 multi-melta ◦ 1 plasma cannon*",
@@ -6067,12 +5825,20 @@ window.data.sm = {
         "The Devastator Sergeant’s bolt pistol and boltgun can be replaced with two different weapons from the following list:** ◦ 1 Astartes chainsword ◦ 1 bolt pistol ◦ 1 boltgun ◦ 1 combi-weapon* ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol*  ◦ 1 plasma pistol* ◦ 1 storm bolter* ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "120"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6110,9 +5876,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6140,10 +5904,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-cannon",
-              "keywords": [
-                "anti-vehicle 2+",
-                "heavy"
-              ],
+              "keywords": ["anti-vehicle 2+", "heavy"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -6157,10 +5918,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6174,9 +5932,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6190,10 +5946,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -6203,9 +5956,7 @@ window.data.sm = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6219,10 +5970,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -6293,10 +6041,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -6309,10 +6055,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -6323,38 +6067,31 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Devastator Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Infantry", "Grenades", "Imperium", "Devastator Squad"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "9ae4aba2-748d-5e1f-96f9-f71efd85a5b6",
       "name": "Dreadnought",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Dreadnought"
-      ],
+      "composition": ["1 Dreadnought"],
       "loadout": "This model is equipped with: assault cannon; storm bolter; Dreadnought combat weapon.",
       "wargear": [
         "This model’s assault cannon can be replaced with one of the following: ◦ 1 heavy plasma cannon ◦ 1 multi-melta ◦ 1 twin lascannon",
         "This model’s Dreadnought combat weapon and storm bolter can be replaced with one of the following: ◦  1 missile launcher and 1 close combat weapon ◦  1 heavy flamer and 1 Dreadnought combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6388,9 +6125,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -6404,10 +6139,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6421,9 +6153,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -6433,10 +6163,7 @@ window.data.sm = {
             },
             {
               "name": "Heavy plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -6450,9 +6177,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -6476,9 +6201,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -6492,9 +6215,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -6508,9 +6229,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -6551,39 +6270,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Smoke",
-        "Imperium",
-        "Dreadnought"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Smoke", "Imperium", "Dreadnought"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "799e25f4-a120-560f-bcec-719ea05533ac",
       "name": "Drop Pod",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Drop Pod"
-      ],
+      "composition": ["1 Drop Pod"],
       "loadout": "This model is equipped with: storm bolter.",
       "wargear": [
         "This model’s storm bolter can be replaced with 1 deathwind launcher."
       ],
       "transport": "This model has a transport capacity of 10 Adeptus Astartes Infantry models. It cannot transport Jump Pack, Wulfen, Gravis, Centurion or Terminator models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6617,9 +6327,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Deathwind launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "12\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -6633,9 +6341,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -6647,40 +6353,31 @@ window.data.sm = {
         }
       ],
       "meleeWeapons": [],
-      "keywords": [
-        "Vehicle",
-        "Transport",
-        "Imperium",
-        "Drop Pod"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Transport", "Imperium", "Drop Pod"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "ad3d4f6f-6c7b-5668-aeef-79be5d3e1b26",
       "name": "Eliminator Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Eliminator Sergeant",
-        "2 Eliminators"
-      ],
+      "composition": ["1 Eliminator Sergeant", "2 Eliminators"],
       "loadout": "Every model is equipped with: bolt pistol; bolt sniper rifle; close combat weapon.",
       "wargear": [
         "The Eliminator Sergeant’s bolt sniper rifle can be replaced with one of the following: ◦ 1 instigator bolt carbine ◦ 1 las fusil",
         "All Eliminators in this unit can each have their bolt sniper rifle replaced with 1 las fusil."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6718,9 +6415,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6734,10 +6429,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -6751,9 +6443,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Instigator bolt carbine",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -6767,9 +6457,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Las fusil",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -6803,30 +6491,34 @@ window.data.sm = {
         "Phobos",
         "Eliminator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Captain In Phobos Armour", "Librarian In Phobos Armour"]
     },
     {
       "id": "b3a4b88e-2164-580c-8fb1-a5c6e4e8e62a",
       "name": "Eradicator Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Eradicator Sergeant",
-        "2-5 Eradicators"
-      ],
+      "composition": ["1 Eradicator Sergeant", "2-5 Eradicators"],
       "loadout": "Every model is equipped with: bolt pistol; melta rifle; close combat weapon.",
       "wargear": [
         "For every 3 models in this unit, 1 Eradicator’s melta rifle can be replaced with 1 multi-melta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "95"
+        },
+        {
+          "models": "6",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6860,9 +6552,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6876,10 +6566,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Melta rifle",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -6893,10 +6580,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -6930,8 +6614,13 @@ window.data.sm = {
         "Gravis",
         "Eradicator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Apothecary Biologis",
+        "Captain In Gravis Armour",
+        "Iron Father Feirros",
+        "Marneus Calgar",
+        "Tor Garadon"
       ]
     },
     {
@@ -6939,20 +6628,26 @@ window.data.sm = {
       "name": "Firestrike Servo-turrets",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1-2 Firestrike Servo-turrets"
-      ],
+      "composition": ["1-2 Firestrike Servo-turrets"],
       "loadout": "Every model is equipped with: twin Firestrike las-talon; close combat weapon.",
       "wargear": [
         "Any number of models can each have their twin Firestrike las-talon replaced with 1 twin Firestrike autocannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        },
+        {
+          "models": "2",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6986,9 +6681,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin Firestrike autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "3",
               "skill": "2+",
@@ -7002,9 +6695,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin Firestrike las-talon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "2",
               "skill": "2+",
@@ -7037,18 +6728,14 @@ window.data.sm = {
         "Imperium",
         "Firestrike Servo-turrets"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "b22e3ef7-6afa-5dda-8637-067fc98a4e31",
       "name": "Gladiator Lancer",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Gladiator Lancer"
-      ],
+      "composition": ["1 Gladiator Lancer"],
       "loadout": "This model is equipped with: Lancer laser destroyer; 2 storm bolters; armoured hull.",
       "wargear": [
         "This model’s 2 storm bolters can be replaced with 2 fragstorm grenade launchers.",
@@ -7056,14 +6743,16 @@ window.data.sm = {
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7097,9 +6786,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -7113,9 +6800,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -7129,9 +6814,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -7145,9 +6828,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Lancer laser destroyer",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "72\"",
               "attacks": "2",
               "skill": "3+",
@@ -7161,9 +6842,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -7190,38 +6869,31 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Gladiator Lancer"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Gladiator Lancer"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "0fae5944-73f5-5791-b835-ba2938f5d76f",
       "name": "Gladiator Reaper",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Gladiator Reaper"
-      ],
+      "composition": ["1 Gladiator Reaper"],
       "loadout": "This model is equipped with: 2 tempest bolters; twin heavy onslaught gatling cannon; armoured hull.",
       "wargear": [
         "This model can be equipped with 1 ironhail heavy stubber.",
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7255,9 +6927,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -7271,9 +6941,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -7287,9 +6955,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Tempest bolter",
-              "keywords": [
-                "rapid fire 4"
-              ],
+              "keywords": ["rapid fire 4"],
               "range": "24\"",
               "attacks": "4",
               "skill": "3+",
@@ -7303,10 +6969,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -7333,38 +6996,31 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Gladiator Reaper"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Gladiator Reaper"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "6bbb474f-faae-5610-8e6c-941d01509be8",
       "name": "Gladiator Valiant",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Gladiator Valiant"
-      ],
+      "composition": ["1 Gladiator Valiant"],
       "loadout": "This model is equipped with: 2 multi-meltas; twin las-talon; armoured hull.",
       "wargear": [
         "This model can be equipped with 1 ironhail heavy stubber.",
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7398,9 +7054,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -7414,9 +7068,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -7430,9 +7082,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -7446,9 +7096,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin las-talon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "2",
               "skill": "3+",
@@ -7475,37 +7123,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Gladiator Valiant"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Gladiator Valiant"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "4d5b4ec3-22a0-5ede-b3e9-9bfd070f2cc8",
       "name": "Hammerfall Bunker",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Hammerfall Bunker"
-      ],
+      "composition": ["1 Hammerfall Bunker"],
       "loadout": "This model is equipped with: Hammerfall heavy bolter array; Hammerfall missile launcher.",
       "wargear": [
         "This model’s Hammerfall heavy bolter array can be replaced with 1 Hammerfall heavy flamer array."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7580,9 +7221,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hammerfall missile launcher – superfrag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6+2",
               "skill": "4+",
@@ -7604,35 +7243,34 @@ window.data.sm = {
         }
       ],
       "meleeWeapons": [],
-      "keywords": [
-        "Fortification",
-        "Imperium",
-        "Hammerfall Bunker"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Fortification", "Imperium", "Hammerfall Bunker"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "f5fd658b-bc18-5e73-85d4-94f8678198cd",
       "name": "Heavy Intercessor Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Heavy Intercessor Sergeant",
-        "4-9 Heavy Intercessors"
-      ],
+      "composition": ["1 Heavy Intercessor Sergeant", "4-9 Heavy Intercessors"],
       "loadout": "Every model is equipped with: bolt pistol; heavy bolt rifle; close combat weapon.",
       "wargear": [
         "For every 5 models in this unit, 1 Heavy Intercessor’s heavy bolt rifle can be replaced with 1 heavy bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "110"
+        },
+        {
+          "models": "10",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7666,9 +7304,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7682,10 +7318,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt rifle",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "30\"",
               "attacks": "2",
               "skill": "3+",
@@ -7699,11 +7332,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "assault",
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["assault", "heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -7738,8 +7367,13 @@ window.data.sm = {
         "Gravis",
         "Heavy Intercessor Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Apothecary Biologis",
+        "Captain In Gravis Armour",
+        "Iron Father Feirros",
+        "Marneus Calgar",
+        "Tor Garadon"
       ]
     },
     {
@@ -7747,21 +7381,26 @@ window.data.sm = {
       "name": "Hellblaster Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Hellblaster Sergeant",
-        "4-9 Hellblasters"
-      ],
+      "composition": ["1 Hellblaster Sergeant", "4-9 Hellblasters"],
       "loadout": "Every model is equipped with: bolt pistol; plasma incinerator; close combat weapon.",
       "wargear": [
         "All models in this unit can each have their bolt pistol replaced with 1 plasma pistol."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "125"
+        },
+        {
+          "models": "10",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7795,9 +7434,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7811,10 +7448,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma incinerator – standard",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -7824,11 +7458,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma incinerator – supercharge",
-              "keywords": [
-                "assault",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["assault", "hazardous", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -7842,9 +7472,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7854,10 +7482,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -7891,8 +7516,14 @@ window.data.sm = {
         "Tacticus",
         "Hellblaster Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Primaris Ancient",
+        "Primaris Apothecary",
+        "Primaris Captain",
+        "Primaris Chaplain",
+        "Primaris Librarian",
+        "Primaris Lieutenant"
       ]
     },
     {
@@ -7900,23 +7531,23 @@ window.data.sm = {
       "name": "Hunter",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Hunter"
-      ],
+      "composition": ["1 Hunter"],
       "loadout": "This model is equipped with: skyspear missile launcher; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -7950,9 +7581,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -7966,11 +7595,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Skyspear missile launcher",
-              "keywords": [
-                "anti-fly 3+",
-                "devastating wounds",
-                "heavy"
-              ],
+              "keywords": ["anti-fly 3+", "devastating wounds", "heavy"],
               "range": "36\"",
               "attacks": "1",
               "skill": "2+",
@@ -7984,9 +7609,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -8013,24 +7636,15 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Hunter"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Hunter"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "5fe8f17a-a8fb-5a0a-9b91-d61114df7d56",
       "name": "Impulsor",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Impulsor"
-      ],
+      "composition": ["1 Impulsor"],
       "loadout": "This model is equipped with: 2 storm bolters; armoured hull.",
       "wargear": [
         "This model can be equipped with 1 ironhail heavy stubber.",
@@ -8038,6 +7652,12 @@ window.data.sm = {
         "This model can be equipped with one of the following: ◦ 1 bellicatus missile array ◦ 1 ironhail skytalon array ◦ 1 orbital comms array ◦ 1 shield dome"
       ],
       "transport": "This model has a transport capacity of 6 Tacticus or Phobos Infantry models. It cannot transport Jump Pack models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -8049,13 +7669,8 @@ window.data.sm = {
             "description": "The bearer has a 5+ invulnerable save."
           }
         ],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8089,9 +7704,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bellicatus missile array – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -8101,9 +7714,7 @@ window.data.sm = {
             },
             {
               "name": "Bellicatus missile array – Icarus",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "D3",
               "skill": "3+",
@@ -8127,9 +7738,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -8143,9 +7752,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -8159,10 +7766,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ironhail skytalon array",
-              "keywords": [
-                "anti-fly 4+",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-fly 4+", "sustained hits 1"],
               "range": "36\"",
               "attacks": "8",
               "skill": "3+",
@@ -8176,9 +7780,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -8212,32 +7814,33 @@ window.data.sm = {
         "Imperium",
         "Impulsor"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "e9978935-9b9f-5858-92c9-381d9378953b",
       "name": "Inceptor Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Inceptor Sergeant",
-        "2-5 Inceptors"
-      ],
+      "composition": ["1 Inceptor Sergeant", "2-5 Inceptors"],
       "loadout": "Every model is equipped with: assault bolters; close combat weapon.",
       "wargear": [
         "All models in this unit can each have their assault bolters replaced with 1 plasma exterminators."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "115"
+        },
+        {
+          "models": "6",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8290,11 +7893,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma exterminators – standard",
-              "keywords": [
-                "assault",
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "pistol", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -8304,12 +7903,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma exterminators – supercharge",
-              "keywords": [
-                "assault",
-                "pistol",
-                "hazardous",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "pistol", "hazardous", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -8344,24 +7938,27 @@ window.data.sm = {
         "Gravis",
         "Inceptor Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "6e3736a3-d5fa-5320-9fc7-1978c08644ef",
       "name": "Incursor Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Incursor Sergeant",
-        "4-9 Incursors"
-      ],
+      "composition": ["1 Incursor Sergeant", "4-9 Incursors"],
       "loadout": "Every model is equipped with: bolt pistol; occulus bolt carbine; paired combat blades.",
-      "wargear": [
-        "One Incusor can be equipped with 1 haywire mine."
-      ],
+      "wargear": ["One Incusor can be equipped with 1 haywire mine."],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -8369,12 +7966,8 @@ window.data.sm = {
             "description": "Once per battle, at the start of any phase, you can select one enemy unit within 3\" of the bearer and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds, or 2D3 mortal wounds instead if it is a Vehicle unit."
           }
         ],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8408,9 +8001,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8424,10 +8015,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Occulus bolt carbine",
-              "keywords": [
-                "assault",
-                "ignores cover"
-              ],
+              "keywords": ["assault", "ignores cover"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -8442,10 +8030,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Paired combat blades ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Paired combat blades",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -8464,8 +8050,11 @@ window.data.sm = {
         "Phobos",
         "Incursor Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain In Phobos Armour",
+        "Librarian In Phobos Armour",
+        "Lieutenant In Phobos Armour"
       ]
     },
     {
@@ -8473,21 +8062,24 @@ window.data.sm = {
       "name": "Infernus Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Infernus Sergeant",
-        "4-9 Infernus Marines"
-      ],
+      "composition": ["1 Infernus Sergeant", "4-9 Infernus Marines"],
       "loadout": "Every model is equipped with: bolt pistol; pyreblaster; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8521,9 +8113,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8537,10 +8127,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Pyreblaster",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -8574,8 +8161,19 @@ window.data.sm = {
         "Tacticus",
         "Infernus Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Adrax Agatone",
+        "Judiciar",
+        "Marneus Calgar",
+        "Primaris Ancient",
+        "Primaris Apothecary",
+        "Primaris Captain",
+        "Primaris Chaplain",
+        "Primaris Company Champion",
+        "Primaris Librarian",
+        "Primaris Lieutenant",
+        "Vulkan He’stan"
       ]
     },
     {
@@ -8583,16 +8181,23 @@ window.data.sm = {
       "name": "Infiltrator Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Infiltrator Sergeant",
-        "4-9 Infiltrators"
-      ],
+      "composition": ["1 Infiltrator Sergeant", "4-9 Infiltrators"],
       "loadout": "Every model is equipped with: bolt pistol; marksman bolt carbine; close combat weapon.",
       "wargear": [
         "1 Infiltrator can be equipped with 1 helix gauntlet.*",
         "1 Infiltrator can be equipped with 1 Infiltrator comms array.* * These options cannot be taken on the same model."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -8604,12 +8209,8 @@ window.data.sm = {
             "description": "Each time you target the bearer’s unit with a Stratagem, roll one D6: on a 5+, you gain 1CP."
           }
         ],
-        "core": [
-          "Infiltrators"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8643,9 +8244,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8659,9 +8258,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Marksman bolt carbine",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -8696,8 +8293,11 @@ window.data.sm = {
         "Phobos",
         "Infiltrator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain In Phobos Armour",
+        "Librarian In Phobos Armour",
+        "Lieutenant In Phobos Armour"
       ]
     },
     {
@@ -8705,10 +8305,7 @@ window.data.sm = {
       "name": "Intercessor Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Intercessor Sergeant",
-        "4-9 Intercessors"
-      ],
+      "composition": ["1 Intercessor Sergeant", "4-9 Intercessors"],
       "loadout": "Every model is equipped with: bolt pistol; bolt rifle; close combat weapon.",
       "wargear": [
         "The Sergeant’s bolt rifle can be replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 hand flamer ◦ 1 plasma pistol ◦ 1 power weapon",
@@ -8716,12 +8313,20 @@ window.data.sm = {
         "For every 5 models in this unit, 1 model equipped with a bolt rifle can be equipped with 1 Astartes grenade launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8755,9 +8360,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Astartes grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -8781,9 +8384,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8797,10 +8398,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt rifle",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -8814,11 +8412,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -8832,9 +8426,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8844,10 +8436,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -8918,10 +8507,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -8940,8 +8527,22 @@ window.data.sm = {
         "Tacticus",
         "Intercessor Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Adrax Agatone",
+        "Chief Librarian Tigurius",
+        "Judiciar",
+        "Kor’sarro Khan",
+        "Marneus Calgar",
+        "Primaris Ancient",
+        "Primaris Apothecary",
+        "Primaris Captain",
+        "Primaris Chaplain",
+        "Primaris Company Champion",
+        "Primaris Librarian",
+        "Primaris Lieutenant",
+        "Primaris Techmarine",
+        "Uriel Ventris"
       ]
     },
     {
@@ -8949,20 +8550,26 @@ window.data.sm = {
       "name": "Invader Atv",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Invader ATV"
-      ],
+      "composition": ["1 Invader ATV"],
       "loadout": "This model is equipped with: heavy bolt pistol; twin bolt rifle, onslaught gatling cannon; close combat weapon.",
       "wargear": [
         "This model’s onslaught gatling cannon can be replaced with 1 multi-melta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        },
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -8996,9 +8603,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -9012,9 +8617,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -9028,9 +8631,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "8",
               "skill": "3+",
@@ -9044,9 +8645,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin bolt rifle",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -9073,38 +8672,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Imperium",
-        "Invader ATV"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Mounted", "Grenades", "Imperium", "Invader ATV"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "84126ce0-85ba-5960-8f4f-b5fa650ee62b",
       "name": "Invictor Tactical Warsuit",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Invictor Tactical Warsuit"
-      ],
+      "composition": ["1 Invictor Tactical Warsuit"],
       "loadout": "This model is equipped with: fragstorm grenade launcher; heavy bolter; incendium cannon; twin ironhail heavy stubber; Invictor fist.",
       "wargear": [
         "This model’s incendium cannon can be replaced with 1 twin ironhail autocannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Scouts 8\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Scouts 8\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -9138,9 +8729,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -9154,9 +8743,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -9170,10 +8757,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Incendium cannon",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -9187,9 +8771,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin ironhail autocannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -9203,10 +8785,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 3", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -9240,31 +8819,27 @@ window.data.sm = {
         "Phobos",
         "Invictor Tactical Warsuit"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "7a55a0fb-d80d-5724-9ef8-5dbe69f98112",
       "name": "Iron Father Feirros",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Aggressor Squad ■ Eradicator Squad ■ Heavy Intercessor Squad",
-      "composition": [
-        "1 Iron Father Feirros – Epic Hero"
-      ],
+      "composition": ["1 Iron Father Feirros – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Gorgon’s Wrath; Harrowhand; Medusan manipuli.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -9306,9 +8881,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -9322,9 +8895,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Gorgon’s Wrath",
-              "keywords": [
-                "sustained hits 2"
-              ],
+              "keywords": ["sustained hits 2"],
               "range": "36\"",
               "attacks": "3",
               "skill": "2+",
@@ -9353,10 +8924,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Medusan Manipuli ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Medusan Manipuli",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -9375,19 +8944,14 @@ window.data.sm = {
         "Gravis",
         "Iron Father Feirros"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Iron Hands"
-      ]
+      "factions": ["Adeptus Astartes", "Iron Hands"]
     },
     {
       "id": "62e97a7c-c4ae-54b9-9d0c-7cf1115ac7c6",
       "name": "Ironclad Dreadnought",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Ironclad Dreadnought"
-      ],
+      "composition": ["1 Ironclad Dreadnought"],
       "loadout": "This model is equipped with: meltagun; storm bolter; Dreadnought combat weapon; seismic hammer.",
       "wargear": [
         "This model’s seismic hammer can be replaced with 1 Dreadnought chainfist.",
@@ -9398,6 +8962,12 @@ window.data.sm = {
         "This model can be equipped with 1 Ironclad assault launchers."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -9405,12 +8975,8 @@ window.data.sm = {
             "description": "The bearer has the Grenades keyword."
           }
         ],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -9444,10 +9010,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -9461,9 +9024,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -9477,10 +9038,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -9494,9 +9052,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -9510,9 +9066,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -9527,10 +9081,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Dreadnought chainfist ",
-              "keywords": [
-                "anti-vechile 3+"
-              ],
+              "name": "Dreadnought chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -9577,31 +9129,27 @@ window.data.sm = {
         "Dreadnought",
         "Ironclad Dreadnought"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "975b42e0-7b09-5ece-9dfe-a5da3838b3cf",
       "name": "Judiciar",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Judiciar"
-      ],
+      "composition": ["1 Judiciar"],
       "loadout": "This model is equipped with: absolvor bolt pistol; executioner relic blade.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -9639,9 +9187,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Absolvor bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -9657,10 +9203,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Executioner relic blade",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -9671,41 +9214,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Character",
-        "Imperium",
-        "Tacticus",
-        "Judiciar"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Infantry", "Character", "Imperium", "Tacticus", "Judiciar"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "54abfd41-d81e-5238-be09-db481da796ac",
       "name": "Kayvaan Shrike",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad with Jump Packs ■ Vanguard Veteran Squad with Jump Packs",
-      "composition": [
-        "1 Kayvaan Shrike – Epic Hero"
-      ],
+      "composition": ["1 Kayvaan Shrike – Epic Hero"],
       "loadout": "This model is equipped with: Blackout; the Raven’s Talons.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "110"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader",
-          "Lone Operative",
-          "Stealth"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader", "Lone Operative", "Stealth"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -9743,10 +9273,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Blackout",
-              "keywords": [
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["pistol", "precision"],
               "range": "18\"",
               "attacks": "2",
               "skill": "2+",
@@ -9761,11 +9288,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "The Raven’s Talons ",
-              "keywords": [
-                "precision",
-                "twin-linked"
-              ],
+              "name": "The Raven’s Talons",
+              "keywords": ["precision", "twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -9786,32 +9310,27 @@ window.data.sm = {
         "Chapter Master",
         "Kayvaan Shrike"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Raven Guard"
-      ]
+      "factions": ["Adeptus Astartes", "Raven Guard"]
     },
     {
       "id": "990cf04d-3c9b-5891-8513-cc95e7a5ac0f",
       "name": "Kor’sarro Khan",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Kor’sarro Khan – Epic Hero"
-      ],
+      "composition": ["1 Kor’sarro Khan – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Moonfang.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -9849,9 +9368,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -9866,11 +9383,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Moonfang ",
-              "keywords": [
-                "devastating wounds",
-                "precision"
-              ],
+              "name": "Moonfang",
+              "keywords": ["devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -9889,19 +9403,14 @@ window.data.sm = {
         "Captain",
         "Kor’sarro Khan"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "White Scars"
-      ]
+      "factions": ["Adeptus Astartes", "White Scars"]
     },
     {
       "id": "d63b5215-7378-55b6-b363-5d768a81474d",
       "name": "Land Raider",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Raider"
-      ],
+      "composition": ["1 Land Raider"],
       "loadout": "This model is equipped with: twin heavy bolter; 2 godhammer lascannons; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -9909,14 +9418,16 @@ window.data.sm = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "275"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -9964,9 +9475,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -9980,9 +9489,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -9996,9 +9503,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -10012,10 +9517,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -10042,25 +9544,15 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Transport",
-        "Imperium",
-        "Land Raider"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Transport", "Imperium", "Land Raider"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "99c456e2-eaf2-5c78-88b7-22e7d20f2605",
       "name": "Land Raider Crusader",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Raider Crusader"
-      ],
+      "composition": ["1 Land Raider Crusader"],
       "loadout": "This model is equipped with: 2 hurricane bolters; twin assault cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -10068,14 +9560,16 @@ window.data.sm = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 16 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10109,9 +9603,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -10125,10 +9617,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -10142,9 +9631,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -10158,9 +9645,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -10174,10 +9659,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -10212,18 +9694,14 @@ window.data.sm = {
         "Imperium",
         "Land Raider Crusader"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "02779f77-6969-5f09-96af-3d742dd7b5df",
       "name": "Land Raider Redeemer",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Raider Redeemer"
-      ],
+      "composition": ["1 Land Raider Redeemer"],
       "loadout": "This model is equipped with: 2 flamestorm cannons; twin assault cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
@@ -10231,14 +9709,16 @@ window.data.sm = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 14 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "295"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10272,10 +9752,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamestorm cannon",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -10289,9 +9766,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -10305,9 +9780,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -10321,9 +9794,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -10337,10 +9808,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -10375,32 +9843,29 @@ window.data.sm = {
         "Imperium",
         "Land Raider Redeemer"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "2ddde98b-47fc-58ab-beab-1748bafff00d",
       "name": "Land Speeder",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Speeder"
-      ],
+      "composition": ["1 Land Speeder"],
       "loadout": "This model is equipped with: heavy bolter; close combat weapon.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 multi-melta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10434,9 +9899,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -10450,9 +9913,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -10479,38 +9940,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Land Speeder"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Land Speeder"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "ce97b10a-ebda-50c3-87a0-2218c8449acf",
       "name": "Land Speeder Storm",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Speeder Storm"
-      ],
+      "composition": ["1 Land Speeder Storm"],
       "loadout": "This model is equipped with: Cerberus launcher; heavy bolter; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "This model has a transport capacity of 6 models. It can only transport Scout Squad, Scout Sniper Squad and Sergeant Telion models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Firing Deck 6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Firing Deck 6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10544,9 +9995,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Cerberus launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -10560,9 +10009,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -10597,33 +10044,30 @@ window.data.sm = {
         "Imperium",
         "Land Speeder Storm"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "80a20595-c764-5930-b83c-4d1d0b4173df",
       "name": "Land Speeder Tornado",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Speeder Tornado"
-      ],
+      "composition": ["1 Land Speeder Tornado"],
       "loadout": "This model is equipped with: assault cannon; heavy bolter; close combat weapon.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 multi-melta.",
         "This model’s assault cannon can be replaced with 1 heavy flamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10657,9 +10101,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -10673,9 +10115,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -10689,10 +10129,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -10706,9 +10143,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -10735,38 +10170,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Land Speeder Tornado"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Land Speeder Tornado"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "20cb36c7-bf4d-502d-8356-85d3b3ffb752",
       "name": "Land Speeder Typhoon",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Land Speeder Typhoon"
-      ],
+      "composition": ["1 Land Speeder Typhoon"],
       "loadout": "This model is equipped with: heavy bolter; Typhoon missile launcher; close combat weapon.",
       "wargear": [
         "This model’s heavy bolter can be replaced with 1 multi-melta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10800,9 +10227,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -10816,9 +10241,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -10832,9 +10255,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -10871,37 +10292,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Land Speeder Typhoon"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Land Speeder Typhoon"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "7d6fbc0a-42a0-59f2-8fc2-579ab8e03f20",
       "name": "Librarian",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad",
-      "composition": [
-        "1 Librarian"
-      ],
+      "composition": ["1 Librarian"],
       "loadout": "This model is equipped with: bolt pistol; Smite; force weapon.",
       "wargear": [
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -10939,9 +10353,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -10987,10 +10399,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11004,11 +10413,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -11022,10 +10427,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -11039,9 +10441,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11051,10 +10451,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11068,9 +10465,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Smite – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11080,11 +10475,7 @@ window.data.sm = {
             },
             {
               "name": "Smite – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11098,9 +10489,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -11115,10 +10504,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Force weapon ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Force weapon",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -11137,32 +10524,27 @@ window.data.sm = {
         "Imperium",
         "Librarian"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "d2c541f2-7cc0-578b-b51e-46c647773ebe",
       "name": "Librarian In Phobos Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Eliminator Squad ■ Incursor Squad ■ Infiltrator Squad ■ Reiver Squad",
-      "composition": [
-        "1 Librarian in Phobos Armour"
-      ],
+      "composition": ["1 Librarian in Phobos Armour"],
       "loadout": "This model is equipped with: bolt pistol; Smite; force weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -11200,9 +10582,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11216,9 +10596,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Smite – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11228,11 +10606,7 @@ window.data.sm = {
             },
             {
               "name": "Smite – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11247,10 +10621,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Force weapon ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Force weapon",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -11270,32 +10642,29 @@ window.data.sm = {
         "Phobos",
         "Librarian"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "2253b01e-9a65-551b-b690-50a460cedced",
       "name": "Librarian In Terminator Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad",
-      "composition": [
-        "1 Librarian in Terminator Armour"
-      ],
+      "composition": ["1 Librarian in Terminator Armour"],
       "loadout": "This model is equipped with: Smite; force weapon.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 combi-weapon ◦ 1 storm bolter"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -11351,9 +10720,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Smite – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11363,11 +10730,7 @@ window.data.sm = {
             },
             {
               "name": "Smite – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11381,9 +10744,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -11398,10 +10759,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Force weapon ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Force weapon",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -11420,31 +10779,29 @@ window.data.sm = {
         "Terminator",
         "Librarian"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "7c3e0867-fcf7-5e57-8b7d-1f6fa74b9754",
       "name": "Librarian With Jump Pack",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad with Jump Packs ■ Vanguard Veteran Squad with Jump Packs",
-      "composition": [
-        "1 Librarian with Jump Pack"
-      ],
+      "composition": ["1 Librarian with Jump Pack"],
       "loadout": "This model is equipped with: bolt pistol; Smite; force weapon.",
       "wargear": [
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -11482,9 +10839,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11530,10 +10885,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11547,11 +10899,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -11565,10 +10913,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -11582,9 +10927,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11594,10 +10937,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -11611,9 +10951,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Smite – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11623,11 +10961,7 @@ window.data.sm = {
             },
             {
               "name": "Smite – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -11641,9 +10975,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -11658,10 +10990,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Force weapon ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Force weapon",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -11682,18 +11012,14 @@ window.data.sm = {
         "Imperium",
         "Librarian"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "206eeab4-32a1-57f3-99bf-d1d8e96cef39",
       "name": "Lieutenant",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Tactical Squad ■ Vanguard Veteran Squad You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Lieutenant"
-      ],
+      "composition": ["1 Lieutenant"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted boltgun; Astartes chainsword.",
       "wargear": [
         "This model’s master-crafted boltgun can be replaced with one of the following: ◦ 1 combi-weapon** ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol  ◦ 1 storm bolter ◦ 1 power fist ◦ 1 power weapon ◦ 1 storm shield*",
@@ -11701,6 +11027,12 @@ window.data.sm = {
         "This model’s master-crafted boltgun and  Astartes chainsword can be replaced with 1 twin lightning claws. * Maximum one per model. **  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -11708,12 +11040,8 @@ window.data.sm = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -11751,9 +11079,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -11767,10 +11093,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -11784,11 +11107,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -11802,10 +11121,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -11833,9 +11149,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -11845,10 +11159,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -11862,9 +11173,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -11935,10 +11244,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -11951,10 +11258,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -11972,34 +11277,27 @@ window.data.sm = {
         "Imperium",
         "Lieutenant"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "0141d981-5ebf-54d1-bbf8-20e83757a8e1",
       "name": "Lieutenant In Phobos Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Incursor Squad ■ Infiltrator Squad ■ Reiver Squad You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Lieutenant in Phobos Armour"
-      ],
+      "composition": ["1 Lieutenant in Phobos Armour"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted scoped bolt carbine; paired combat blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Infiltrators",
-          "Leader",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Infiltrators", "Leader", "Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -12037,9 +11335,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -12068,10 +11364,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Paired combat blades ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Paired combat blades",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -12090,32 +11384,27 @@ window.data.sm = {
         "Phobos",
         "Lieutenant"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "823f24d9-9549-557f-844a-564d44db7951",
       "name": "Lieutenant In Reiver Armour",
       "faction_id": "SM",
       "leader": "This model can be attached to the following unit: ■ Reiver Squad You can attach this model to the above unit even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Lieutenant in Reiver Armour"
-      ],
+      "composition": ["1 Lieutenant in Reiver Armour"],
       "loadout": "This model is equipped with: master-crafted special issue bolt pistol; combat knife.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader", "Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -12153,10 +11442,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Master-crafted special issue bolt pistol",
-              "keywords": [
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["pistol", "precision"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -12171,10 +11457,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Combat knife ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Combat knife",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -12194,23 +11478,23 @@ window.data.sm = {
         "Phobos",
         "Lieutenant in Reiver Armour"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "fff1718a-d5f7-56d5-82a0-7188d027a3f1",
       "name": "Lieutenant With Combi-weapon",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Lieutenant with Combi-weapon"
-      ],
+      "composition": ["1 Lieutenant with Combi-weapon"],
       "loadout": "This model is equipped with: combi-weapon; paired combat blades.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [
@@ -12219,9 +11503,7 @@ window.data.sm = {
           "Lone Operative",
           "Stealth"
         ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -12240,9 +11522,7 @@ window.data.sm = {
         "special": [
           {
             "name": "LAST SURVIVOR",
-            "description": "This model cannot be selected as your Warlord.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model cannot be selected as your Warlord."
           }
         ],
         "damaged": {
@@ -12286,10 +11566,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Paired combat blades",
-              "keywords": [
-                "anti-tyranids 4+",
-                "sustained hits 1"
-              ],
+              "keywords": ["anti-tyranids 4+", "sustained hits 1"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -12309,32 +11586,27 @@ window.data.sm = {
         "Phobos",
         "Lieutenant with Combi-weapon"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "0ed43323-83ec-5ecf-b6cb-d754d9cc3bd5",
       "name": "Marneus Calgar",
       "faction_id": "SM",
       "leader": "This unit can be attached to the following units: ■ Aggressor Squad ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Eradicator Squad ■ Heavy Intercessor Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Marneus Calgar – Epic Hero",
-        "2 Victrix Honour Guard"
-      ],
+      "composition": ["1 Marneus Calgar – Epic Hero", "2 Victrix Honour Guard"],
       "loadout": "Marneus Calgar is equipped with: Gauntlets of Ultramar. Every Victrix Honour Guard is equipped with: Victrix power sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "205"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -12385,10 +11657,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Gauntlets of Ultramar",
-              "keywords": [
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["pistol", "twin-linked"],
               "range": "18\"",
               "attacks": "4",
               "skill": "2+",
@@ -12403,10 +11672,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Gauntlets of Ultramar ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Gauntlets of Ultramar",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -12432,21 +11699,17 @@ window.data.sm = {
         }
       ],
       "keywords": [
-        "ALL MODELS",
+        "ALL MODELS:",
         "Infantry",
         "Imperium",
-        "|",
-        "MARNEUS CALGAR",
+        "MARNEUS CALGAR:",
         "Character",
         "Epic Hero",
         "Gravis",
         "Chapter Master",
         "Marneus Calgar"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "7a701c86-8b99-5ef2-94a7-15e3cb64e34a",
@@ -12463,12 +11726,20 @@ window.data.sm = {
         "An Invader ATV’s onslaught gatling cannon can be replaced with 1 multi-melta."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "115"
+        },
+        {
+          "models": "6",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -12511,9 +11782,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -12527,9 +11796,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -12543,9 +11810,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "8",
               "skill": "3+",
@@ -12559,9 +11824,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin bolt rifle",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -12602,38 +11865,29 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Imperium",
-        "Outrider Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Mounted", "Grenades", "Imperium", "Outrider Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Captain On Bike", "Chaplain On Bike"]
     },
     {
       "id": "a5466eb5-f937-5880-bdb0-43b0ce3cbce6",
       "name": "Pedro Kantor",
       "faction_id": "SM",
-      "leader": "This model can be attached to the following units: ■ Command Squad ■ Sternguard Veteran Squad ■ Tactical Squad CRIMSON FISTS This model is from the Crimson Fists Chapter, a successor of the Imperial Fists. For all rules purposes, it is treated as an Imperial Fists model, but it cannot be included in an army that includes any other Imperial Fists Epic Hero models.",
-      "composition": [
-        "1 Pedro Kantor – Epic Hero"
-      ],
+      "leader": "This model can be attached to the following units: ■ Command Squad ■ Sternguard Veteran Squad ■ Tactical Squad",
+      "composition": ["1 Pedro Kantor – Epic Hero"],
       "loadout": "This model is equipped with: Dorn’s Arrow; Fist of Retribution.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -12652,9 +11906,7 @@ window.data.sm = {
         "special": [
           {
             "name": "CRIMSON FISTS",
-            "description": "This model is from the Crimson Fists Chapter, a successor of the Imperial Fists. For all rules purposes, it is treated as an Imperial Fists model, but it cannot be included in an army that includes any other Imperial Fists Epic Hero models.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model is from the Crimson Fists Chapter, a successor of the Imperial Fists. For all rules purposes, it is treated as an Imperial Fists model, but it cannot be included in an army that includes any other Imperial Fists Epic Hero models."
           }
         ],
         "damaged": {
@@ -12678,10 +11930,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Dorn’s Arrow",
-              "keywords": [
-                "rapid fire 2",
-                "sustained hits 1"
-              ],
+              "keywords": ["rapid fire 2", "sustained hits 1"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -12717,19 +11966,14 @@ window.data.sm = {
         "Chapter Master",
         "Pedro Kantor"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Imperial Fists"
-      ]
+      "factions": ["Adeptus Astartes", "Imperial Fists"]
     },
     {
       "id": "ae8823f4-1e44-58db-a791-de6260571359",
       "name": "Predator Annihilator",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Predator Annihilator"
-      ],
+      "composition": ["1 Predator Annihilator"],
       "loadout": "This model is equipped with: Predator twin lascannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
@@ -12737,14 +11981,16 @@ window.data.sm = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -12778,9 +12024,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Predator twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -12794,9 +12038,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -12810,9 +12052,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -12840,9 +12080,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -12869,24 +12107,15 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Predator Annihilator"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Predator Annihilator"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "3f20009a-ac23-5a71-9fb3-314a04b85d34",
       "name": "Predator Destructor",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Predator Destructor"
-      ],
+      "composition": ["1 Predator Destructor"],
       "loadout": "This model is equipped with: Predator autocannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 2 heavy bolters ◦ 2 lascannons",
@@ -12894,14 +12123,16 @@ window.data.sm = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "135"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -12935,9 +12166,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -12951,9 +12180,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -12981,9 +12208,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Predator autocannon",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "48\"",
               "attacks": "4",
               "skill": "3+",
@@ -12997,9 +12222,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -13026,37 +12249,30 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Predator Destructor"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Predator Destructor"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "ea8e3c66-c1e3-5d1c-b8a6-e903fc9d9719",
       "name": "Primaris Ancient",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Hellblaster Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad ■ Desolation Squad You can attach this model to one of the above units even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Primaris Ancient"
-      ],
+      "composition": ["1 Primaris Ancient"],
       "loadout": "This model is equipped with: bolt pistol; bolt rifle; close combat weapon.",
       "wargear": [
         "This model’s bolt rifle and close combat weapon can be replaced with 1 power weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -13094,9 +12310,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -13110,10 +12324,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt rifle",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -13162,31 +12373,27 @@ window.data.sm = {
         "Tacticus",
         "Primaris Ancient"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "2162d470-0f65-5dbd-8ce1-8daab106ecfd",
       "name": "Primaris Apothecary",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Desolation Squad ■ Hellblaster Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad You can attach this model to one of the above units even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Primaris Apothecary"
-      ],
+      "composition": ["1 Primaris Apothecary"],
       "loadout": "This model is equipped with: absolvor bolt pistol; reductor pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -13224,9 +12431,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Absolvor bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -13240,9 +12445,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Reductor pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "3\"",
               "attacks": "1",
               "skill": "3+",
@@ -13277,24 +12480,26 @@ window.data.sm = {
         "Tacticus",
         "Primaris Apothecary"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "16f27cd6-dea9-5e95-89be-c86367865115",
       "name": "Primaris Captain",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad* ■ Hellblaster Squad* ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad *  This model cannot be attached to a Bladeguard Veteran Squad unless it is equipped with a relic shield, and cannot be attached to a Hellblaster Squad unless it is equipped with a plasma pistol.",
-      "composition": [
-        "1 Primaris Captain"
-      ],
+      "composition": ["1 Primaris Captain"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted bolt rifle; close combat weapon.",
       "wargear": [
         "This model’s bolt pistol, master-crafted bolt rifle and close combat weapon can be replaced with one of the following: ◦ 1 plasma pistol and 1 power fist ◦  1 heavy bolt pistol, 1 master-crafted power weapon and 1 relic shield",
         "This model’s close combat weapon can be replaced with one of the following: ◦ 1 master-crafted power weapon ◦ 1 power fist"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -13302,12 +12507,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 6."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -13345,9 +12546,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -13361,9 +12560,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -13391,9 +12588,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -13403,10 +12598,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -13470,31 +12662,27 @@ window.data.sm = {
         "Primaris",
         "Captain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "2bc45778-d185-5f3d-85e8-22dcb6c9e0d7",
       "name": "Primaris Chaplain",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Hellblaster Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Primaris Chaplain"
-      ],
+      "composition": ["1 Primaris Chaplain"],
       "loadout": "This model is equipped with: absolvor bolt pistol; crozius arcanum.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -13532,9 +12720,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Absolvor bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -13569,31 +12755,27 @@ window.data.sm = {
         "Tacticus",
         "Primaris Chaplain"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "d8a18490-faa0-56d6-a47a-e3a439e805b4",
       "name": "Primaris Company Champion",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Primaris Company Champion"
-      ],
+      "composition": ["1 Primaris Company Champion"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted power weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -13631,9 +12813,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -13648,10 +12828,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Master-crafted power weapon ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Master-crafted power weapon",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -13670,31 +12848,27 @@ window.data.sm = {
         "Tacticus",
         "Primaris Company Champion"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "c8191307-5675-5725-a8d5-2f8435370f9d",
       "name": "Primaris Librarian",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Desolation Squad ■ Hellblaster Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Primaris Librarian"
-      ],
+      "composition": ["1 Primaris Librarian"],
       "loadout": "This model is equipped with: bolt pistol; Smite; force weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -13732,9 +12906,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -13748,9 +12920,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Smite – witchfire",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -13760,11 +12930,7 @@ window.data.sm = {
             },
             {
               "name": "Smite – focused witchfire",
-              "keywords": [
-                "devastating wounds",
-                "hazardous",
-                "psychic"
-              ],
+              "keywords": ["devastating wounds", "hazardous", "psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -13779,10 +12945,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Force weapon ",
-              "keywords": [
-                "psychic"
-              ],
+              "name": "Force weapon",
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -13802,18 +12966,14 @@ window.data.sm = {
         "Tacticus",
         "Primaris Librarian"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "f0933f21-2018-5243-b5b8-3f1b46be1b90",
       "name": "Primaris Lieutenant",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Hellblaster Squad ■ Infernus Squad ■ Intercessor Squad ■ Sternguard Veteran Squad You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Primaris Lieutenant"
-      ],
+      "composition": ["1 Primaris Lieutenant"],
       "loadout": "This model is equipped with: bolt pistol; master-crafted bolt rifle; close combat weapon.",
       "wargear": [
         "This model’s master-crafted bolt rifle can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 master-crafted power weapon ◦ 1 power fist",
@@ -13822,6 +12982,12 @@ window.data.sm = {
         "This model’s close combat weapon can be replaced with one of the following: ◦ 1 master-crafted power weapon ◦ 1 power fist"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -13829,12 +12995,8 @@ window.data.sm = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -13872,9 +13034,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -13888,9 +13048,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "2+",
@@ -13918,10 +13076,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Neo-volkite pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -13935,9 +13090,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -13947,10 +13100,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -14013,31 +13163,27 @@ window.data.sm = {
         "Tacticus",
         "Primaris Lieutenant"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "040aad89-8de4-5c5d-aea9-132cbfa465d3",
       "name": "Primaris Techmarine",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Astartes Servitors ■ Intercessor Squad",
-      "composition": [
-        "1 Primaris Techmarine"
-      ],
+      "composition": ["1 Primaris Techmarine"],
       "loadout": "This model is equipped with: forge bolter; grav-pistol; Omnissian power axe; servo-arm.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "65"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -14093,10 +13239,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -14125,10 +13268,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Servo-arm ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Servo-arm",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -14147,18 +13288,14 @@ window.data.sm = {
         "Tacticus",
         "Primaris Techmarine"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "270018ea-69b6-553f-976f-7dff195a88bf",
       "name": "Razorback",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Razorback"
-      ],
+      "composition": ["1 Razorback"],
       "loadout": "This model is equipped with: twin heavy bolter; armoured tracks.",
       "wargear": [
         "This model’s twin heavy bolter can be replaced with one of the following: ◦ 1 twin lascannon ◦ 1 twin assault cannon",
@@ -14166,14 +13303,16 @@ window.data.sm = {
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. It cannot transport Jump Pack, Wulfen, Tacticus, Phobos, Gravis, Centurion or Terminator models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -14207,9 +13346,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -14223,9 +13360,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -14239,10 +13374,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -14256,10 +13388,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -14273,9 +13402,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -14310,18 +13437,14 @@ window.data.sm = {
         "Imperium",
         "Razorback"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "223464ee-1634-52c5-9a15-70389d6d6fd5",
       "name": "Redemptor Dreadnought",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Redemptor Dreadnought"
-      ],
+      "composition": ["1 Redemptor Dreadnought"],
       "loadout": "This model is equipped with: twin fragstorm grenade launcher; heavy flamer; heavy onslaught gatling cannon; Redemptor fist.",
       "wargear": [
         "This model can be equipped with 1 Icarus rocket pod.",
@@ -14330,14 +13453,16 @@ window.data.sm = {
         "This model’s twin fragstorm grenade launcher can be replaced with 1 twin storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "225"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -14371,10 +13496,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -14388,9 +13510,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -14404,9 +13524,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -14420,9 +13538,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Macro plasma incinerator – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -14432,10 +13548,7 @@ window.data.sm = {
             },
             {
               "name": "Macro plasma incinerator – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -14449,9 +13562,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "8",
               "skill": "3+",
@@ -14465,10 +13576,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin fragstorm grenade launcher",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -14482,10 +13590,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin storm bolter",
-              "keywords": [
-                "rapid fire 2",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 2", "twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -14512,25 +13617,15 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Walker",
-        "Imperium",
-        "Redemptor Dreadnought"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Walker", "Imperium", "Redemptor Dreadnought"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "c55fc645-90a7-5857-ab8c-8a1bd3d27e22",
       "name": "Reiver Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Reiver Sergeant",
-        "4-9 Reivers"
-      ],
+      "composition": ["1 Reiver Sergeant", "4-9 Reivers"],
       "loadout": "Every model is equipped with: special issue bolt pistol; combat knife.",
       "wargear": [
         "All models in this unit can each have their combat knife replaced with 1 bolt carbine.",
@@ -14539,6 +13634,16 @@ window.data.sm = {
         "All models in this unit can each be equipped with 1 grapnel launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -14550,12 +13655,8 @@ window.data.sm = {
             "description": "The bearer has the Deep Strike ability."
           }
         ],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -14593,9 +13694,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt carbine",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -14609,10 +13708,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Special issue bolt pistol",
-              "keywords": [
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["pistol", "precision"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -14641,10 +13737,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Combat knife ",
-              "keywords": [
-                "precision"
-              ],
+              "name": "Combat knife",
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -14663,8 +13757,12 @@ window.data.sm = {
         "Phobos",
         "Reiver Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain In Phobos Armour",
+        "Librarian In Phobos Armour",
+        "Lieutenant In Phobos Armour",
+        "Lieutenant In Reiver Armour"
       ]
     },
     {
@@ -14672,10 +13770,7 @@ window.data.sm = {
       "name": "Relic Terminator Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Relic Terminator Sergeant",
-        "4-9 Relic Terminators"
-      ],
+      "composition": ["1 Relic Terminator Sergeant", "4-9 Relic Terminators"],
       "loadout": "Every model is equipped with: combi-bolter; power fist.",
       "wargear": [
         "The Relic Terminator Sergeant’s combi-bolter can be replaced with one of the following: ◦ 1 plasma blaster ◦ 1 volkite charger",
@@ -14686,6 +13781,16 @@ window.data.sm = {
         "Any number of models can each have their combi-bolter and power fist replaced with 1 twin lightning claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "200"
+        },
+        {
+          "models": "10",
+          "cost": "400"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -14693,12 +13798,8 @@ window.data.sm = {
             "description": "The bearer has the Grenades keyword."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -14732,9 +13833,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Combi-bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -14748,10 +13847,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -14775,9 +13871,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma blaster – supercharge",
-              "keywords": [
-                "hazardous"
-              ],
+              "keywords": ["hazardous"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -14791,10 +13885,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Reaper autocannon",
-              "keywords": [
-                "devastating wounds",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
               "attacks": "4",
               "skill": "3+",
@@ -14808,9 +13899,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Volkite charger",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -14825,10 +13914,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -14869,10 +13956,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -14889,8 +13974,13 @@ window.data.sm = {
         "Terminator",
         "Relic Terminator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Ancient In Terminator Armour",
+        "Captain In Terminator Armour",
+        "Chaplain In Terminator Armour",
+        "Darnath Lysander",
+        "Librarian In Terminator Armour"
       ]
     },
     {
@@ -14898,23 +13988,23 @@ window.data.sm = {
       "name": "Repulsor",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Repulsor"
-      ],
+      "composition": ["1 Repulsor"],
       "loadout": "This model is equipped with: heavy onslaught gatling cannon; hunter-slayer missile; Repulsor defensive array; twin heavy bolter; armoured hull.",
       "wargear": [
         "This model’s twin heavy bolter can be replaced with 1 twin lascannon.",
         "This model’s heavy onslaught gatling cannon can be replaced with 1 las-talon."
       ],
       "transport": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "195"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -14948,9 +14038,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -14964,10 +14052,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-slayer missile",
-              "keywords": [
-                "indirect fire",
-                "one shot"
-              ],
+              "keywords": ["indirect fire", "one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -15009,10 +14094,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -15026,9 +14108,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -15055,25 +14135,15 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Transport",
-        "Imperium",
-        "Repulsor"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Transport", "Imperium", "Repulsor"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "40ee135b-a29f-5683-a9be-d618abe9dbd5",
       "name": "Repulsor Executioner",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Repulsor Executioner"
-      ],
+      "composition": ["1 Repulsor Executioner"],
       "loadout": "This model is equipped with: heavy onslaught gatling cannon; macro plasma incinerator; Repulsor Executioner defensive array; twin heavy bolter; twin Icarus ironhail heavy stubber; armoured hull.",
       "wargear": [
         "This model’s macro plasma incinerator can be replaced with 1 heavy laser destroyer.",
@@ -15081,14 +14151,16 @@ window.data.sm = {
         "This model can be equipped with 1 Icarus rocket pod."
       ],
       "transport": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -15122,9 +14194,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy laser destroyer",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "72\"",
               "attacks": "2",
               "skill": "3+",
@@ -15138,9 +14208,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "12",
               "skill": "3+",
@@ -15154,9 +14222,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -15170,9 +14236,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3"
-              ],
+              "keywords": ["rapid fire 3"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -15186,9 +14250,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Macro plasma incinerator – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -15198,10 +14260,7 @@ window.data.sm = {
             },
             {
               "name": "Macro plasma incinerator – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -15229,10 +14288,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -15246,11 +14302,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin Icarus ironhail heavy stubber",
-              "keywords": [
-                "anti-fly 4+",
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 4+", "rapid fire 3", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -15284,32 +14336,27 @@ window.data.sm = {
         "Imperium",
         "Repulsor Executioner"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "37ad9afa-0732-530e-ac40-a91802dcc98a",
       "name": "Rhino",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Rhino"
-      ],
+      "composition": ["1 Rhino"],
       "loadout": "This model is equipped with: storm bolter; armoured tracks.",
-      "wargear": [
-        "This model can be equipped with 1 hunter-killer missile."
-      ],
+      "wargear": ["This model can be equipped with 1 hunter-killer missile."],
       "transport": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. It cannot transport Jump Pack, Wulfen, Tacticus, Phobos, Gravis, Centurion or Terminator models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Firing Deck 2"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Firing Deck 2"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -15343,9 +14390,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -15359,9 +14404,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -15396,29 +14439,27 @@ window.data.sm = {
         "Imperium",
         "Rhino"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "278c55e7-acf2-5924-a017-dc9e4933deb2",
       "name": "Roboute Guilliman",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Roboute Guilliman – Epic Hero"
-      ],
+      "composition": ["1 Roboute Guilliman – Epic Hero"],
       "loadout": "This model is equipped with: Hand of Dominion; Emperor’s Sword.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "355"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [
           {
             "name": "AUTHOR OF THE CODEX",
@@ -15459,9 +14500,7 @@ window.data.sm = {
         "special": [
           {
             "name": "SUPREME COMMANDER",
-            "description": "If this model is in your army, it must be your Warlord.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If this model is in your army, it must be your Warlord."
           }
         ],
         "damaged": {
@@ -15485,9 +14524,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand of Dominion",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "30\"",
               "attacks": "2",
               "skill": "2+",
@@ -15502,10 +14539,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Emperor’s Sword ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Emperor’s Sword",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "14",
               "skill": "2+",
@@ -15518,10 +14553,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Hand of Dominion ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "Hand of Dominion",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "7",
               "skill": "2+",
@@ -15540,34 +14573,34 @@ window.data.sm = {
         "Primarch",
         "Roboute Guilliman"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "66ea84c4-25ed-5471-b8cd-55d9dec1ccff",
       "name": "Scout Bike Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Scout Biker Sergeant",
-        "2-5 Scout Bikers"
-      ],
+      "composition": ["1 Scout Biker Sergeant", "2-5 Scout Bikers"],
       "loadout": "Every model is equipped with: Astartes shotgun; bolt pistol; twin boltgun; combat knife.",
       "wargear": [
         "The Scout Biker Sergeant’s bolt pistol can be replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 boltgun* ◦ 1 combi-weapon* ◦ 1 hand flamer* ◦ 1 grav-pistol* ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter* ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer",
         "Any number of models can each have their twin boltgun replaced with 1 Astartes grenade launcher. *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "75"
+        },
+        {
+          "models": "6",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 9\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Scouts 9\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -15601,9 +14634,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Astartes grenade launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -15627,9 +14658,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Astartes shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -15643,9 +14672,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -15659,11 +14686,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -15677,10 +14700,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -15694,9 +14714,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -15706,10 +14724,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -15723,9 +14738,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin boltgun",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -15796,10 +14809,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -15817,33 +14828,33 @@ window.data.sm = {
         "Imperium",
         "Scout Bike Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "e60cabb9-2491-5234-b190-b340bdb1e109",
       "name": "Scout Sniper Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Scout Sniper Sergeant",
-        "4-9 Scout Snipers"
-      ],
+      "composition": ["1 Scout Sniper Sergeant", "4-9 Scout Snipers"],
       "loadout": "Every model is equipped with: bolt pistol; sniper rifle; close combat weapon.",
       "wargear": [
         "1 Scout Sniper’s scout sniper rifle can be replaced with 1 missile launcher."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "75"
+        },
+        {
+          "models": "10",
+          "cost": "150"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Stealth"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Stealth"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -15877,9 +14888,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -15893,10 +14902,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -15906,9 +14912,7 @@ window.data.sm = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -15922,10 +14926,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Scout sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -15959,19 +14960,15 @@ window.data.sm = {
         "Imperium",
         "Scout Sniper Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Captain In Phobos Armour", "Sergeant Telion"]
     },
     {
       "id": "5c07fa81-89e6-54aa-acbc-3e4499579637",
       "name": "Scout Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Scout Sergeant",
-        "4-9 Scouts"
-      ],
+      "composition": ["1 Scout Sergeant", "4-9 Scouts"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "Any number of models can each have their boltgun replaced with one of the following: ◦ 1 Astartes shotgun ◦ 1 combat knife",
@@ -15979,15 +14976,20 @@ window.data.sm = {
         "The Scout Sergeant’s bolt pistol and boltgun can be replaced with two different weapons from the following list:** ◦ 1 Astartes chainsword ◦ 1 bolt pistol  ◦ 1 boltgun ◦ 1 combi-weapon* ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol* ◦ 1 plasma pistol* ◦ 1 storm bolter* ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer *  The profile for this weapon can be found on the Adeptus Astartes Armoury card. **  This model can only be equipped with two ranged weapons if one of them is a Pistol (and it can only have one Pistol)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "70"
+        },
+        {
+          "models": "10",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16021,9 +15023,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Astartes shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -16037,9 +15037,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -16067,10 +15065,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -16084,10 +15079,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -16097,9 +15089,7 @@ window.data.sm = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -16184,10 +15174,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -16198,36 +15186,29 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Smoke",
-        "Imperium",
-        "Scout Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Infantry", "Grenades", "Smoke", "Imperium", "Scout Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": ["Captain In Phobos Armour", "Sergeant Telion"]
     },
     {
       "id": "50d536da-a4fc-5e03-a1ea-149d966905b3",
       "name": "Sergeant Chronus",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Sergeant Chronus – Epic Hero"
-      ],
+      "composition": ["1 Sergeant Chronus – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Chronus’ servo-arm.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16246,9 +15227,7 @@ window.data.sm = {
         "special": [
           {
             "name": "TANK COMMANDER",
-            "description": "If your army includes one or more of the Vehicle models listed below, Sergeant Chronus must start the battle embarked within one of those models as if it were a Transport. Sergeant Chronus can only disembark from that Vehicle if it is destroyed. While embarked in this way, Sergeant Chronus is said to be commanding that Vehicle. ■ Hunter                        ■ Predator Annihilator ■ Land Raider                   ■ Predator Destructor ■ Land Raider Crusader          ■ Stalker ■ Land Raider Redeemer          ■ Vindicator ■ Whirlwind",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If your army includes one or more of the Vehicle models listed below, Sergeant Chronus must start the battle embarked within one of those models as if it were a Transport. Sergeant Chronus can only disembark from that Vehicle if it is destroyed. While embarked in this way, Sergeant Chronus is said to be commanding that Vehicle. ■ Hunter                        ■ Predator Annihilator ■ Land Raider                   ■ Predator Destructor ■ Land Raider Crusader          ■ Stalker ■ Land Raider Redeemer          ■ Vindicator ■ Whirlwind"
           }
         ],
         "damaged": {
@@ -16272,9 +15251,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -16308,35 +15285,27 @@ window.data.sm = {
         "Imperium",
         "Sergeant Chronus"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "9dfa42f3-d374-558a-bca2-808c2a2cbc1e",
       "name": "Sergeant Telion",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Scout Squad ■ Scout Sniper Squad",
-      "composition": [
-        "1 Sergeant Telion – Epic Hero"
-      ],
+      "composition": ["1 Sergeant Telion – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Quietus; combat knife.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Leader",
-          "Scouts 6\"",
-          "Stealth"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Leader", "Scouts 6\"", "Stealth"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16374,9 +15343,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -16390,9 +15357,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Quietus",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "36\"",
               "attacks": "2",
               "skill": "2+",
@@ -16426,33 +15391,30 @@ window.data.sm = {
         "Imperium",
         "Sergeant Telion"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "fd140c7e-4195-5892-b169-4d2426bc64ad",
       "name": "Stalker",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Stalker"
-      ],
+      "composition": ["1 Stalker"],
       "loadout": "This model is equipped with: 2 Icarus stormcannons; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "140"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16486,9 +15448,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -16502,9 +15462,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus stormcannon",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "6",
               "skill": "3+",
@@ -16518,9 +15476,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -16547,15 +15503,8 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Stalker"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Stalker"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "3bf460b5-81a0-51c5-9bbb-4556fae29a26",
@@ -16572,12 +15521,20 @@ window.data.sm = {
         "For every 5 models in this unit, 1 Sternguard Veteran’s Sternguard bolt rifle can be replaced with 1 Sternguard heavy bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "105"
+        },
+        {
+          "models": "10",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16629,10 +15586,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Sternguard bolt pistol",
-              "keywords": [
-                "devastating wounds",
-                "pistol"
-              ],
+              "keywords": ["devastating wounds", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -16665,11 +15619,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Sternguard heavy bolter",
-              "keywords": [
-                "devastating wounds",
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["devastating wounds", "heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -16703,8 +15653,24 @@ window.data.sm = {
         "Tacticus",
         "Sternguard veteran Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Adrax Agatone",
+        "Captain Sicarius",
+        "Chaplain Cassius",
+        "Chief Librarian Tigurius",
+        "Judiciar",
+        "Kor’sarro Khan",
+        "Marneus Calgar",
+        "Pedro Kantor",
+        "Primaris Ancient",
+        "Primaris Apothecary",
+        "Primaris Captain",
+        "Primaris Chaplain",
+        "Primaris Company Champion",
+        "Primaris Librarian",
+        "Primaris Lieutenant",
+        "Uriel Ventris"
       ]
     },
     {
@@ -16712,23 +15678,20 @@ window.data.sm = {
       "name": "Storm Speeder Hailstrike",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Storm Speeder Hailstrike"
-      ],
+      "composition": ["1 Storm Speeder Hailstrike"],
       "loadout": "This model is equipped with: 2 fragstorm grenade launchers; onslaught gatling cannon; twin ironhail heavy stubber; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "130"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16762,9 +15725,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -16778,9 +15739,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Onslaught gatling cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "8",
               "skill": "3+",
@@ -16794,10 +15753,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin ironhail heavy stubber",
-              "keywords": [
-                "rapid fire 3",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 3", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -16824,38 +15780,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Storm Speeder Hailstrike"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Storm Speeder Hailstrike"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "79cdae87-5d70-5367-b24c-df606b276834",
       "name": "Storm Speeder Hammerstrike",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Storm Speeder Hammerstrike"
-      ],
+      "composition": ["1 Storm Speeder Hammerstrike"],
       "loadout": "This model is equipped with: Hammerstrike missile launcher; 2 krakstorm grenade launchers; melta destroyer; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -16917,9 +15863,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Melta destroyer",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -16946,38 +15890,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Storm Speeder Hammerstrike"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Storm Speeder Hammerstrike"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "ab2e1798-e58f-5c0d-a48a-247520d288d6",
       "name": "Storm Speeder Thunderstrike",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Storm Speeder Thunderstrike"
-      ],
+      "composition": ["1 Storm Speeder Thunderstrike"],
       "loadout": "This model is equipped with: stormfury missiles; Thunderstrike las-talon; twin Icarus rocket pod; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -17039,10 +15973,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin Icarus rocket pod",
-              "keywords": [
-                "anti-fly 2+",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 2+", "twin-linked"],
               "range": "24\"",
               "attacks": "D3",
               "skill": "3+",
@@ -17069,39 +16000,31 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Fly",
-        "Imperium",
-        "Storm Speeder Thunderstrike"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Fly", "Imperium", "Storm Speeder Thunderstrike"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "3c3fb08c-0ecf-57c3-bcaf-dfc9ea67b744",
       "name": "Stormhawk Interceptor",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Stormhawk Interceptor"
-      ],
+      "composition": ["1 Stormhawk Interceptor"],
       "loadout": "This model is equipped with: twin assault cannon; skyhammer missile launcher; las-talon; armoured hull.",
       "wargear": [
         "This model’s skyhammer missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 typhoon missile launcher",
         "This model’s las-talon can be replaced with 1 Icarus stormcannon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "165"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -17135,10 +16058,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Icarus stormcannon",
-              "keywords": [
-                "anti-fly 2+",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 2+", "twin-linked"],
               "range": "48\"",
               "attacks": "6",
               "skill": "3+",
@@ -17166,9 +16086,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Skyhammer missile launcher",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -17182,10 +16100,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -17199,10 +16114,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -17216,9 +16128,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -17263,18 +16173,14 @@ window.data.sm = {
         "Smoke",
         "Stormhawk Interceptor"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "d3f766f6-109b-5002-bc61-d042afef6b75",
       "name": "Stormraven Gunship",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Stormraven Gunship"
-      ],
+      "composition": ["1 Stormraven Gunship"],
       "loadout": "This model is equipped with: 2 stormstrike missile launchers; twin assault cannon; typhoon missile launcher; armoured hull.",
       "wargear": [
         "This model’s twin assault cannon can be replaced with one of the following: ◦ 1 twin heavy plasma cannon ◦ 1 twin lascannon",
@@ -17282,15 +16188,16 @@ window.data.sm = {
         "This model can be equipped with 2 hurricane bolters."
       ],
       "transport": "This model has a transport capacity of 12 Adeptus Astartes Infantry models and 1 Dreadnought model. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -17324,10 +16231,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -17355,10 +16259,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -17372,10 +16273,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -17389,10 +16287,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "twin-linked"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -17402,11 +16297,7 @@ window.data.sm = {
             },
             {
               "name": "Twin heavy plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "twin-linked"
-              ],
+              "keywords": ["blast", "hazardous", "twin-linked"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -17420,9 +16311,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -17436,10 +16325,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin multi-melta",
-              "keywords": [
-                "melta 2",
-                "twin-linked"
-              ],
+              "keywords": ["melta 2", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -17453,9 +16339,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -17500,32 +16384,29 @@ window.data.sm = {
         "Imperium",
         "Stormraven Gunship"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "76354f4a-b1a5-58d7-a0df-1066c75926e5",
       "name": "Stormtalon Gunship",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Stormtalon Gunship"
-      ],
+      "composition": ["1 Stormtalon Gunship"],
       "loadout": "This model is equipped with: skyhammer missile launcher; twin assault cannon; armoured hull.",
       "wargear": [
         "This model’s skyhammer missile launcher can be replaced with one of the following: ◦ 1 twin heavy bolter ◦ 1 twin lascannon ◦ 1 typhoon missile launcher"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "175"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -17559,10 +16440,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Skyhammer missile launcher",
-              "keywords": [
-                "anti-fly 2+",
-                "twin-linked"
-              ],
+              "keywords": ["anti-fly 2+", "twin-linked"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -17576,10 +16454,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -17593,10 +16468,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -17610,9 +16482,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -17626,9 +16496,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Typhoon missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -17672,32 +16540,27 @@ window.data.sm = {
         "Imperium",
         "Stormtalon Gunship"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "3a1b4813-01ca-5a6b-83c2-dd4d1b327fa3",
       "name": "Suppressor Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Suppressor Sergeant",
-        "2 Suppressors"
-      ],
+      "composition": ["1 Suppressor Sergeant", "2 Suppressors"],
       "loadout": "Every model is equipped with: accelerator autocannon; bolt pistol; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -17731,9 +16594,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Accelerator autocannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "3",
               "skill": "4+",
@@ -17747,9 +16608,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -17785,19 +16644,14 @@ window.data.sm = {
         "Imperium",
         "Suppressor Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "a345ee5b-b2c6-530a-9baf-73a455aba51a",
       "name": "Tactical Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Tactical Sergeant",
-        "9 Tactical Marines"
-      ],
+      "composition": ["1 Tactical Sergeant", "9 Tactical Marines"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "1 Tactical Marine’s boltgun can be replaced with one of the following: ◦ 1 flamer ◦ 1 heavy bolter* ◦ 1 heavy flamer* ◦ 1 grav-cannon* ◦ 1 grav-gun ◦ 1 lascannon* ◦ 1 meltagun ◦ 1 missile launcher* ◦ 1 multi-melta* ◦ 1 plasma cannon* ◦ 1 plasma gun",
@@ -17805,12 +16659,16 @@ window.data.sm = {
         "The Tactical Sergeant’s bolt pistol and boltgun can be replaced with 1 twin lightning claws, or two different weapons from the following list:** ◦ 1 Astartes chainsword ◦ 1 bolt pistol ◦ 1 boltgun ◦ 1 combi-weapon* ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol* ◦ 1 plasma pistol* ◦ 1 storm bolter* ◦ 1 power fist ◦ 1 power weapon  ◦ 1 thunder hammer  *  The profile for this weapon can be found on the Adeptus Astartes Armoury card. **  This model can only be equipped with two ranged weapons if one of them is a Pistol (and it can only have one Pistol)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "175"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -17844,9 +16702,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -17874,10 +16730,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -17891,9 +16744,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -17907,9 +16758,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -17923,9 +16772,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -17935,10 +16782,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -18009,10 +16853,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -18025,10 +16867,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -18046,8 +16886,17 @@ window.data.sm = {
         "Imperium",
         "Tactical Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain",
+        "Captain Sicarius",
+        "Chaplain",
+        "Chaplain Cassius",
+        "Librarian",
+        "Lieutenant",
+        "Pedro Kantor",
+        "Techmarine",
+        "Vulkan He’stan"
       ]
     },
     {
@@ -18055,9 +16904,7 @@ window.data.sm = {
       "name": "Techmarine",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Astartes Servitors ■ Tactical Squad",
-      "composition": [
-        "1 Techmarine"
-      ],
+      "composition": ["1 Techmarine"],
       "loadout": "This model is equipped with: bolt pistol; Omnissian power axe; servo-arm.",
       "wargear": [
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon* ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol ◦ 1 storm bolter*",
@@ -18065,14 +16912,16 @@ window.data.sm = {
         "This model can be equipped with 1 flamer, 1 plasma cutter and 1 servo-arm. *  The profile for this weapon can be found on the Adeptus Astartes Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "70"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -18114,9 +16963,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -18144,10 +16991,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -18161,10 +17005,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -18178,11 +17019,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -18196,10 +17033,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -18213,9 +17047,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -18225,10 +17057,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -18271,10 +17100,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Plasma cutter ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Plasma cutter",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -18301,10 +17128,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Servo-arm ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Servo-arm",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -18317,10 +17142,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -18338,9 +17161,7 @@ window.data.sm = {
         "Imperium",
         "Techmarine"
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "f995c048-454a-5054-82bf-d3eca07582d6",
@@ -18356,6 +17177,16 @@ window.data.sm = {
         "Any number of models can each have their thunder hammer and storm shield replaced with 1 twin lightning claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "200"
+        },
+        {
+          "models": "10",
+          "cost": "400"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -18363,12 +17194,8 @@ window.data.sm = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -18406,10 +17233,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -18422,10 +17247,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -18442,8 +17265,13 @@ window.data.sm = {
         "Terminator",
         "Terminator Assault Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Ancient In Terminator Armour",
+        "Captain In Terminator Armour",
+        "Chaplain In Terminator Armour",
+        "Darnath Lysander",
+        "Librarian In Terminator Armour"
       ]
     },
     {
@@ -18451,24 +17279,27 @@ window.data.sm = {
       "name": "Terminator Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Terminator Sergeant",
-        "4-9 Terminators"
-      ],
+      "composition": ["1 Terminator Sergeant", "4-9 Terminators"],
       "loadout": "The Terminator Sergeant is equipped with: storm bolter; power weapon. Every Terminator is equipped with: storm bolter; power fist.",
       "wargear": [
         "For every 5 models in this unit, 1 Terminator’s storm bolter can be replaced with one of the following: ◦ 1 assault cannon ◦ 1 heavy flamer ◦  1 cyclone missile launcher and 1 storm bolter.*",
         "Any number of models can each have their power fist replaced with 1 chainfist. *  This model’s storm bolter cannot be replaced."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "205"
+        },
+        {
+          "models": "10",
+          "cost": "410"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -18506,9 +17337,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -18522,9 +17351,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -18548,10 +17375,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -18565,9 +17389,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -18582,10 +17404,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -18624,14 +17444,14 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Terminator",
-        "Terminator Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes"
+      "keywords": ["Infantry", "Imperium", "Terminator", "Terminator Squad"],
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Ancient In Terminator Armour",
+        "Captain In Terminator Armour",
+        "Chaplain In Terminator Armour",
+        "Darnath Lysander",
+        "Librarian In Terminator Armour"
       ]
     },
     {
@@ -18639,21 +17459,20 @@ window.data.sm = {
       "name": "Thunderfire Cannon",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Techmarine Gunner",
-        "1 Thunderfire Cannon"
-      ],
+      "composition": ["1 Techmarine Gunner", "1 Thunderfire Cannon"],
       "loadout": "The Techmarine Gunner is equipped with: bolt pistol; flamer; plasma cutter; Gunner’s servo-arms; close combat weapon. The Thunderfire Cannon is equipped with: thunderfire cannon; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "2",
+          "cost": "90"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -18691,9 +17510,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -18707,10 +17524,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -18724,10 +17538,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Thunderfire cannon",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "48\"",
               "attacks": "D6+4",
               "skill": "3+",
@@ -18756,10 +17567,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Gunner’s servo-arms ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Gunner’s servo-arms",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -18772,10 +17581,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Plasma cutter ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Plasma cutter",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "2",
               "skill": "3+",
@@ -18786,37 +17593,182 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Artillery",
-        "Vehicle",
-        "Imperium",
-        "Thunderfire Cannon"
+      "keywords": ["Artillery", "Vehicle", "Imperium", "Thunderfire Cannon"],
+      "factions": ["Adeptus Astartes"]
+    },
+    {
+      "id": "bff65e3c-701c-597b-a853-019a4f0bf33c",
+      "name": "Thunderhawk Gunship",
+      "faction_id": "SM",
+      "leader": "",
+      "composition": ["1 Thunderhawk Gunship"],
+      "loadout": "This model is equipped with: 2 lascannons; Thunderhawk heavy cannon; 4 twin heavy bolters; armoured hull; Thunderhawk cluster bombs. THUNDERHAWK This model has a transport capacity of 30 Adeptus Astartes Infantry or Adeptus Astartes Mounted models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models. Each Centurion model takes up the space of 3 models. Each Mounted model takes up the space of 4 models.",
+      "wargear": [
+        "This model’s Thunderhawk heavy cannon can be replaced with 1 turbo-laser destructor.",
+        "This model’s Thunderhawk cluster bombs can be replaced with 1 hellstrike missile battery."
       ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "840"
+        }
+      ],
+      "abilities": {
+        "wargear": [
+          {
+            "name": "Thunderhawk Cluster Bombs",
+            "description": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."
+          }
+        ],
+        "core": ["Deadly Demise D6+2", "Hover"],
+        "faction": ["Oath of Moment"],
+        "primarch": [],
+        "invul": {
+          "value": "",
+          "info": ""
+        },
+        "other": [
+          {
+            "name": "Aerial Assault",
+            "description": "Each time a unit with the Deep Strike ability disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+          }
+        ],
+        "special": [],
+        "damaged": {
+          "range": "1-10 WOUNDS REMAINING",
+          "description": "While this model has 1-10 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        }
+      },
+      "stats": [
+        {
+          "m": "20+\"",
+          "t": "12",
+          "sv": "2+",
+          "w": "30",
+          "ld": "6+",
+          "oc": "0",
+          "name": "Thunderhawk Gunship"
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Hellstrike missile battery",
+              "keywords": ["anti-fly 4+"],
+              "range": "72\"",
+              "attacks": "4",
+              "skill": "3+",
+              "strength": "8",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Lascannon",
+              "keywords": [],
+              "range": "48\"",
+              "attacks": "1",
+              "skill": "3+",
+              "strength": "12",
+              "ap": "-3",
+              "damage": "D6+1"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Thunderhawk heavy cannon",
+              "keywords": ["blast"],
+              "range": "48\"",
+              "attacks": "D6+6",
+              "skill": "3+",
+              "strength": "10",
+              "ap": "-2",
+              "damage": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Turbo-laser destructor",
+              "keywords": ["blast"],
+              "range": "96\"",
+              "attacks": "D3+1",
+              "skill": "3+",
+              "strength": "20",
+              "ap": "-4",
+              "damage": "D6+6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "name": "Twin heavy bolter",
+              "keywords": ["sustained hits 1", "twin-linked"],
+              "range": "36\"",
+              "attacks": "3",
+              "skill": "3+",
+              "strength": "5",
+              "ap": "-1",
+              "damage": "2"
+            }
+          ]
+        }
+      ],
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "name": "Armoured hull",
+              "keywords": [],
+              "range": "Melee",
+              "attacks": "6",
+              "skill": "4+",
+              "strength": "8",
+              "ap": "0",
+              "damage": "1"
+            }
+          ]
+        }
+      ],
+      "keywords": [
+        "Vehicle",
+        "Titanic",
+        "Fly",
+        "Aircraft",
+        "Transport",
+        "Imperium",
+        "Thunderhawk Gunship"
+      ],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "b066706e-e32b-5cae-9e48-2d158020b0d2",
       "name": "Tor Garadon",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Aggressor Squad ■ Eradicator Squad ■ Heavy Intercessor Squad",
-      "composition": [
-        "1 Tor Garadon – Epic Hero"
-      ],
+      "composition": ["1 Tor Garadon – Epic Hero"],
       "loadout": "This model is equipped with: artificer grav-gun; Hand of Defiance.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -18854,9 +17806,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Artificer grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "2+",
@@ -18892,31 +17842,27 @@ window.data.sm = {
         "Captain",
         "Tor Garadon"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Imperial Fists"
-      ]
+      "factions": ["Adeptus Astartes", "Imperial Fists"]
     },
     {
       "id": "f2c7620f-cfbb-5a3f-92e8-f25d72264657",
       "name": "Tyrannic War Veterans",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Veteran Sergeant",
-        "4 Tyrannic War Veterans"
-      ],
+      "composition": ["1 Veteran Sergeant", "4 Tyrannic War Veterans"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -18950,10 +17896,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "anti-tyranids 4+",
-                "pistol"
-              ],
+              "keywords": ["anti-tyranids 4+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -18967,9 +17910,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Boltgun",
-              "keywords": [
-                "anti-tyranids 4+"
-              ],
+              "keywords": ["anti-tyranids 4+"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -18984,10 +17925,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Close combat weapon ",
-              "keywords": [
-                "anti-tyranids 4+"
-              ],
+              "name": "Close combat weapon",
+              "keywords": ["anti-tyranids 4+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -18998,38 +17937,29 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Tyrannic War Veterans"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "keywords": ["Infantry", "Grenades", "Imperium", "Tyrannic War Veterans"],
+      "factions": ["Adeptus Astartes", "Ultramarines"],
+      "ledBy": ["Chaplain Cassius"]
     },
     {
       "id": "896d350b-6346-59b7-941d-7164cdb4cf36",
       "name": "Uriel Ventris",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Intercessor Squad ■ Intercessor Squad ■ Sternguard Veteran Squad",
-      "composition": [
-        "1 Uriel Ventris – Epic Hero"
-      ],
+      "composition": ["1 Uriel Ventris – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Invictus; Sword of Idaeus.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -19067,9 +17997,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -19098,10 +18026,8 @@ window.data.sm = {
         {
           "profiles": [
             {
-              "name": "Sword of Idaeus ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Sword of Idaeus",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -19120,25 +18046,29 @@ window.data.sm = {
         "Captain",
         "Uriel Ventris"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Ultramarines"
-      ]
+      "factions": ["Adeptus Astartes", "Ultramarines"]
     },
     {
       "id": "d818ad4a-fd8b-5b29-8416-c0d0ad2d759b",
       "name": "Vanguard Veteran Squad",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Vanguard Veteran Sergeant",
-        "4-9 Vanguard Veterans"
-      ],
+      "composition": ["1 Vanguard Veteran Sergeant", "4-9 Vanguard Veterans"],
       "loadout": "Every model is equipped with: bolt pistol; heirloom weapon.",
       "wargear": [
         "Any number of models can each have their bolt pistol replaced one of the following: ◦ 1 storm shield ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "120"
+        },
+        {
+          "models": "10",
+          "cost": "240"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -19146,12 +18076,8 @@ window.data.sm = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -19185,9 +18111,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19201,10 +18125,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19218,11 +18139,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -19236,10 +18153,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -19253,9 +18167,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19265,10 +18177,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19301,8 +18210,14 @@ window.data.sm = {
         "Imperium",
         "Vanguard Veteran Squad"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain",
+        "Captain Sicarius",
+        "Chaplain",
+        "Chaplain Cassius",
+        "Librarian",
+        "Lieutenant"
       ]
     },
     {
@@ -19319,6 +18234,16 @@ window.data.sm = {
         "Any number of models can each have their bolt pistol replaced one of the following: ◦ 1 storm shield ◦ 1 grav-pistol ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "130"
+        },
+        {
+          "models": "10",
+          "cost": "260"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -19326,12 +18251,8 @@ window.data.sm = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -19365,9 +18286,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19381,10 +18300,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19398,11 +18314,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -19416,10 +18328,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -19433,9 +18342,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19445,10 +18352,7 @@ window.data.sm = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -19483,8 +18387,12 @@ window.data.sm = {
         "Imperium",
         "Vanguard Veteran Squad with Jump Packs"
       ],
-      "factions": [
-        "Adeptus Astartes"
+      "factions": ["Adeptus Astartes"],
+      "ledBy": [
+        "Captain With Jump Pack",
+        "Chaplain With Jump Pack",
+        "Kayvaan Shrike",
+        "Librarian With Jump Pack"
       ]
     },
     {
@@ -19492,23 +18400,23 @@ window.data.sm = {
       "name": "Vindicator",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Vindicator"
-      ],
+      "composition": ["1 Vindicator"],
       "loadout": "This model is equipped with: demolisher cannon; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "205"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -19542,9 +18450,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Demolisher cannon",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "24\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -19558,9 +18464,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -19574,9 +18478,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -19603,38 +18505,28 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Vindicator"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Vindicator"],
+      "factions": ["Adeptus Astartes"]
     },
     {
       "id": "45d31fd3-800c-5f73-9e81-4124e484e1b1",
       "name": "Vulkan He’stan",
       "faction_id": "SM",
       "leader": "This model can be attached to the following units: ■ Assault Squad ■ Command Squad ■ Infernus Squad ■ Tactical Squad",
-      "composition": [
-        "1 Vulkan He’stan – Epic Hero"
-      ],
+      "composition": ["1 Vulkan He’stan – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Gauntlet of the Forge; Spear of Vulkan.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -19672,9 +18564,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -19688,10 +18578,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Gauntlet of the Forge",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6+3",
               "skill": "N/A",
@@ -19727,33 +18614,30 @@ window.data.sm = {
         "Captain",
         "Vulkan He’stan"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Salamanders"
-      ]
+      "factions": ["Adeptus Astartes", "Salamanders"]
     },
     {
       "id": "82cf4278-37e8-5c09-8c97-b795d77f3667",
       "name": "Whirlwind",
       "faction_id": "SM",
       "leader": "",
-      "composition": [
-        "1 Whirlwind"
-      ],
+      "composition": ["1 Whirlwind"],
       "loadout": "This model is equipped with: Whirlwind vengeance launcher; armoured tracks.",
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
         "This model can be equipped with 1 storm bolter."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "125"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -19787,9 +18671,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Hunter-killer missile",
-              "keywords": [
-                "one shot"
-              ],
+              "keywords": ["one shot"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -19803,9 +18685,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -19819,10 +18699,7 @@ window.data.sm = {
           "profiles": [
             {
               "name": "Whirlwind vengeance launcher",
-              "keywords": [
-                "blast",
-                "indirect fire"
-              ],
+              "keywords": ["blast", "indirect fire"],
               "range": "72\"",
               "attacks": "D6+3",
               "skill": "3+",
@@ -19849,15 +18726,12 @@ window.data.sm = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Smoke",
-        "Imperium",
-        "Whirlwind"
-      ],
-      "factions": [
-        "Adeptus Astartes"
-      ]
+      "keywords": ["Vehicle", "Smoke", "Imperium", "Whirlwind"],
+      "factions": ["Adeptus Astartes"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#092135",
+    "header": "#4b6262"
+  }
 }

@@ -3,15 +3,45 @@ window.data.CHDW = {
   "id": "CHDW",
   "link": "https://game-datacards.eu",
   "name": "Death Watch",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "Thief of Secrets",
+      "description": "Adeptus Astartes model only. Improve the Strength, Damage, and Armour Penetration characteristics of the bearer’s melee weapons by 1. If an enemy model is destroyed as the result of a melee attack made by the bearer, at the end of that phase, until the end of the battle, improve the Strength, Damage, and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "Osseus Key",
+      "description": "Watch Master or Techmarine model only. At the start of your opponent’s Shooting phase, select one enemy Vehicle unit (excluding Titanic units) within 12\" of and visible to the bearer. That model must take a Leadership test. If that test is passed, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll; if that test is failed, that unit is not eligible to shoot this phase.",
+      "keywords": ["Watch Master", "Techmarine"],
+      "excludes": [],
+      "cost": "20"
+    },
+    {
+      "name": "Beacon Angelis",
+      "description": "Adeptus Astartes model only. Models in the bearer’s unit have the Deep Strike ability. In addition, you can target the bearer’s unit with the Rapid Ingress Stratagem for 0CP.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "30"
+    },
+    {
+      "name": "The Tome of Ectoclades",
+      "description": "Watch Master or Captain model only. Once per battle, after you have selected an enemy unit using the Oath of Moment ability in your Command phase, the bearer can use this Enhancement if they are on the battlefield. When they do, select a second enemy unit – until the start of your next Command phase, each time an Adeptus Astartes model from your army makes an attack that targets either of those enemy units, you can re-roll the Hit roll and you can re-roll the Wound roll.",
+      "keywords": ["Watch Master", "Captain"],
+      "excludes": [],
+      "cost": "40"
+    }
+  ],
   "datasheets": [
     {
       "id": "a6d0dca5-9c60-57c5-9977-cb5ce5b0ea78",
       "name": "Corvus Blackstar",
       "faction_id": "CHDW",
       "leader": "",
-      "composition": [
-        "1 Corvus Blackstar"
-      ],
+      "composition": ["1 Corvus Blackstar"],
       "loadout": "This model is equipped with: 2 Blackstar rocket launchers; twin assault cannon; armoured hull.",
       "wargear": [
         "This model’s twin assault cannon can be replaced with 1 twin lascannon.",
@@ -20,6 +50,12 @@ window.data.CHDW = {
         "This model can be equipped with one of the following: ◦ 1 auspex array ◦ 1 infernum halo-launcher"
       ],
       "transport": "This model has a transport capacity of 12 Adeptus Astartes Infantry models or one Kill Team unit. Each Jump Pack, Gravis or Terminator model takes up the space of 2 models and each Mounted model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -31,14 +67,8 @@ window.data.CHDW = {
             "description": "The bearer has the Smoke keyword."
           }
         ],
-        "core": [
-          "Deadly Demise D6",
-          "Hover",
-          "Stealth"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6", "Hover", "Stealth"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -72,9 +102,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Blackstar rocket launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "30\"",
               "attacks": "D6+1",
               "skill": "3+",
@@ -88,10 +116,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Hurricane bolter",
-              "keywords": [
-                "rapid fire 6",
-                "twin-linked"
-              ],
+              "keywords": ["rapid fire 6", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -119,10 +144,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin assault cannon",
-              "keywords": [
-                "devastating wounds",
-                "twin-linked"
-              ],
+              "keywords": ["devastating wounds", "twin-linked"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -136,9 +158,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -173,10 +193,7 @@ window.data.CHDW = {
         "Transport",
         "Corvus Blackstar"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "96138442-e791-5d7e-ab61-40f7f1dccb23",
@@ -187,6 +204,7 @@ window.data.CHDW = {
       "loadout": "",
       "wargear": [],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -209,9 +227,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -225,9 +241,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -241,9 +255,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -267,10 +279,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -284,10 +293,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Infernus heavy bolter – heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -297,10 +303,7 @@ window.data.CHDW = {
             },
             {
               "name": "Infernus heavy bolter – heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -314,10 +317,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -327,11 +327,7 @@ window.data.CHDW = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -345,9 +341,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -357,10 +351,7 @@ window.data.CHDW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -391,9 +382,7 @@ window.data.CHDW = {
       ],
       "meleeWeapons": [],
       "keywords": [],
-      "factions": [
-        ""
-      ]
+      "factions": [""]
     },
     {
       "id": "4f308a36-978b-5a6e-af9f-88b23662e882",
@@ -410,6 +399,16 @@ window.data.CHDW = {
         "Any number of models can each have their power fist and storm bolter replaced with one of the following: ◦ 1 storm bolter and 1 power weapon ◦ 1 storm bolter and 1 chainfist ◦ 1 twin lightning claws ◦ 1 thunder hammer and 1 storm shield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "210"
+        },
+        {
+          "models": "10",
+          "cost": "420"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -417,12 +416,8 @@ window.data.CHDW = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -465,9 +460,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -481,9 +474,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -507,10 +498,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -524,9 +512,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -536,10 +522,7 @@ window.data.CHDW = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -553,9 +536,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -571,9 +552,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -615,9 +594,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Thunder hammer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -631,9 +608,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin lightning claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -650,20 +625,14 @@ window.data.CHDW = {
         "Terminator",
         "Deathwatch Terminator Squad"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "c48b1394-4b28-5f92-95c4-b78096646206",
       "name": "Deathwatch Veterans",
       "faction_id": "CHDW",
       "leader": "",
-      "composition": [
-        "1 Watch Sergeant",
-        "4-9 Deathwatch Veterans"
-      ],
+      "composition": ["1 Watch Sergeant", "4-9 Deathwatch Veterans"],
       "loadout": "Every model is equipped with: boltgun; Long Vigil melee weapon.",
       "wargear": [
         "Any number of models can each have their boltgun and Long Vigil melee weapon replaced with one of the following:  ◦  1 Long Vigil ranged weapon and 1 close combat weapon ◦  1 Astartes shield, 1 boltgun and 1 close combat weapon ◦  1 Astartes shield and 1 Long Vigil melee weapon",
@@ -673,6 +642,16 @@ window.data.CHDW = {
         "The Watch Sergeant’s boltgun can be replaced  with 1 Long Vigil ranged weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "100"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -681,9 +660,7 @@ window.data.CHDW = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -736,11 +713,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Frag cannon",
-              "keywords": [
-                "blast",
-                "heavy",
-                "rapid fire d3"
-              ],
+              "keywords": ["blast", "heavy", "rapid fire d3"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "4+",
@@ -754,10 +727,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Infernus heavy bolter – heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -793,10 +763,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -806,9 +773,7 @@ window.data.CHDW = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -838,9 +803,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Deathwatch thunder hammer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -868,9 +831,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Xenophase blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -889,10 +850,8 @@ window.data.CHDW = {
         "Imperium",
         "Deathwatch Veterans"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"],
+      "ledBy": ["Watch Captain Artemis", "Watch Master"]
     },
     {
       "id": "6d6d7954-6b4c-5b5e-ab5f-b972bf64503e",
@@ -913,13 +872,20 @@ window.data.CHDW = {
         "Any number of Kill Team Intercessors with plasma incinerators can each have their bolt pistol replaced with 1 plasma pistol.* *  The profile for this weapon can be found on the Deathwatch Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "115"
+        },
+        {
+          "models": "10",
+          "cost": "230"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Kill Team",
-          "Oath of Moment"
-        ],
+        "faction": ["Kill Team", "Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -967,9 +933,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -983,10 +947,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt rifle",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1000,11 +961,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1018,9 +975,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Heavy bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1052,10 +1007,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Plasma incinerator – standard",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1065,11 +1017,7 @@ window.data.CHDW = {
             },
             {
               "name": "Plasma incinerator – supercharge",
-              "keywords": [
-                "assault",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["assault", "hazardous", "heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1083,9 +1031,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1099,9 +1045,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin bolt rifle",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1164,10 +1108,7 @@ window.data.CHDW = {
         "Tacticus",
         "Fortis Kill Team"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "dbdca121-6845-5c9d-9f5f-87bf34e025aa",
@@ -1188,6 +1129,16 @@ window.data.CHDW = {
         "Any number of models equipped with assault bolters can each have their assault bolters replaced with 1 plasma exterminators."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "135"
+        },
+        {
+          "models": "10",
+          "cost": "270"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1196,10 +1147,7 @@ window.data.CHDW = {
           }
         ],
         "core": [],
-        "faction": [
-          "Kill Team",
-          "Oath of Moment"
-        ],
+        "faction": ["Kill Team", "Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1237,7 +1185,7 @@ window.data.CHDW = {
                 "assault",
                 "pistol",
                 "sustained hits 2",
-                "twin -linked"
+                "twin-linked"
               ],
               "range": "18\"",
               "attacks": "3",
@@ -1252,9 +1200,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Auto boltstorm gauntlets",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "18\"",
               "attacks": "3",
               "skill": "3+",
@@ -1268,9 +1214,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Fragstorm grenade launcher",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "18\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1284,10 +1228,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Heavy bolt rifle",
-              "keywords": [
-                "assault",
-                "heavy"
-              ],
+              "keywords": ["assault", "heavy"],
               "range": "30\"",
               "attacks": "2",
               "skill": "3+",
@@ -1301,11 +1242,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "assault",
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["assault", "heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1319,11 +1256,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Flamestorm gauntlets",
-              "keywords": [
-                "ignores cover",
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["ignores cover", "torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6+1",
               "skill": "N/A",
@@ -1337,10 +1270,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Melta rifle",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -1354,10 +1284,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -1371,11 +1298,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Plasma exterminators – standard",
-              "keywords": [
-                "assault",
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "pistol", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1385,12 +1308,7 @@ window.data.CHDW = {
             },
             {
               "name": "Plasma exterminators – supercharge",
-              "keywords": [
-                "assault",
-                "hazardous",
-                "pistol",
-                "twin-linked"
-              ],
+              "keywords": ["assault", "hazardous", "pistol", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -1420,9 +1338,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Power fists",
-              "keywords": [
-                "twin -linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1441,10 +1357,7 @@ window.data.CHDW = {
         "Gravis",
         "Indomitor Kill Team"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "cf4bb8fe-5a47-5f28-9a32-bd4896c708ac",
@@ -1457,7 +1370,7 @@ window.data.CHDW = {
         "1 Kill Team Terminator (Garran Branatar)",
         "1 Kill Team Biker (Jetek Suberei)"
       ],
-      "loadout": "■ 1 Chaplain Cassius – Epic Hero ■ 8 Kill Team Veterans: ◦ Vael Donatus ◦ Zameon Gydrael ◦ Rodricus Grytt ◦ Antor Delassio ◦ Edryc Setorax ◦ Jensus Natorian ◦ Drenn Redblade ◦ Ennox Sorrlock ■ 1 Kill Team Terminator (Garran Branatar) ■ 1 Kill Team Biker (Jetek Suberei)",
+      "loadout": "",
       "wargear": [
         "Chaplain Cassius is equipped with: artificer crozius; bolt pistol.",
         "Vael Donatus is equipped with: boltgun; bolt pistol; close combat weapon.",
@@ -1472,6 +1385,12 @@ window.data.CHDW = {
         "Jetek Suberei is equipped with: Deathwatch twin boltgun; Long Vigil melee weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "11",
+          "cost": "255"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1483,13 +1402,8 @@ window.data.CHDW = {
             "description": "Models in the bearer’s unit have the Feel No Pain 4+ ability against Psychic Attacks."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment",
-          "Kill Team"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment", "Kill Team"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1559,9 +1473,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1603,11 +1515,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Frag cannon",
-              "keywords": [
-                "blast",
-                "heavy",
-                "rapid fire d3"
-              ],
+              "keywords": ["blast", "heavy", "rapid fire d3"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1621,10 +1529,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -1656,9 +1561,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Psychic Cleanse",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -1702,9 +1605,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Force weapon",
-              "keywords": [
-                "psychic"
-              ],
+              "keywords": ["psychic"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -1746,25 +1647,13 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin lightning claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
               "strength": "5",
               "ap": "-2",
               "damage": "1"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "name": "",
-              "keywords": [],
-              "range": "*",
-              "attacks": "C"
             }
           ]
         }
@@ -1780,10 +1669,7 @@ window.data.CHDW = {
         "Character",
         "Epic Hero"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "3020380b-4b64-5445-8f1b-f2cdce3f76d5",
@@ -1806,6 +1692,16 @@ window.data.CHDW = {
         "Any number of Kill Team Terminator models can replace their power fist and storm bolter with  one of the following:  ◦ 1 storm bolter and 1 power weapon ◦ 1 storm bolter and 1 chainfist ◦ 1 twin lightning claws ◦  1 Terminator thunder hammer and 1 storm  shield  *  The profile for this weapon can be found on the Deathwatch  Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "165"
+        },
+        {
+          "models": "10",
+          "cost": "330"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -1822,10 +1718,7 @@ window.data.CHDW = {
           }
         ],
         "core": [],
-        "faction": [
-          "Kill Team",
-          "Oath of Moment"
-        ],
+        "faction": ["Kill Team", "Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1896,11 +1789,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Frag cannon",
-              "keywords": [
-                "blast",
-                "heavy",
-                "rapid fire d3"
-              ],
+              "keywords": ["blast", "heavy", "rapid fire d3"],
               "range": "18\"",
               "attacks": "D3",
               "skill": "4+",
@@ -1914,9 +1803,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -1930,9 +1817,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin boltgun",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1962,9 +1847,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Chainfist",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -1978,9 +1861,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Deathwatch thunder hammer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -2036,9 +1917,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Terminator thunder hammer",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2052,9 +1931,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin lightning claws",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -2072,10 +1949,8 @@ window.data.CHDW = {
         "Imperium",
         "Proteus Kill Team"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"],
+      "ledBy": ["Watch Captain Artemis", "Watch Master"]
     },
     {
       "id": "55e4e25e-f3a5-5d16-919f-b82aa3e7a00f",
@@ -2094,6 +1969,16 @@ window.data.CHDW = {
         "One model equipped with a marksman bolt carbine can be equipped with one of the following: ◦ 1 helix gauntlet ◦ 1 Infiltrator comms array"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "110"
+        },
+        {
+          "models": "10",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2109,14 +1994,8 @@ window.data.CHDW = {
             "description": "The bearer has a Move characteristic of 12\" and can move over models and terrain features as if they were not there."
           }
         ],
-        "core": [
-          "Infiltrators",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Kill Team",
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Scouts 6\""],
+        "faction": ["Kill Team", "Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2150,9 +2029,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Accelerator autocannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "3",
               "skill": "4+",
@@ -2166,9 +2043,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2182,9 +2057,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt carbine",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2198,10 +2071,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt sniper rifle",
-              "keywords": [
-                "heavy",
-                "precision"
-              ],
+              "keywords": ["heavy", "precision"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -2215,9 +2085,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Las fusil",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -2231,9 +2099,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Marksman bolt carbine",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2247,10 +2113,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Occulus bolt carbine",
-              "keywords": [
-                "assault",
-                "ignores cover"
-              ],
+              "keywords": ["assault", "ignores cover"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2264,10 +2127,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Special-issue bolt pistol",
-              "keywords": [
-                "pistol",
-                "precision"
-              ],
+              "keywords": ["pistol", "precision"],
               "range": "12\"",
               "attacks": "3",
               "skill": "3+",
@@ -2297,9 +2157,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Combat knife",
-              "keywords": [
-                "precision"
-              ],
+              "keywords": ["precision"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2313,9 +2171,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Paired combat blades",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -2335,26 +2191,30 @@ window.data.CHDW = {
         "Phobos",
         "Spectrus Kill Team"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "3da0ea31-b8fb-5753-8780-0630cb41cce8",
       "name": "Veteran Bike Squad",
       "faction_id": "CHDW",
       "leader": "",
-      "composition": [
-        "1 Veteran Biker Sergeant",
-        "2-5 Veteran Bikers"
-      ],
+      "composition": ["1 Veteran Biker Sergeant", "2-5 Veteran Bikers"],
       "loadout": "Every model is equipped with: bolt pistol; close combat weapon; twin boltgun.",
       "wargear": [
         "The Veteran Biker Sergeant can be equipped with one of the following: ◦ 1 Long Vigil ranged weapon ◦ 1 Long Vigil melee weapon ◦ 1 xenophase blade ◦ 1 Astartes shield",
         "Any number of Veteran Biker models can each be equipped with 1 Long Vigil melee weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "85"
+        },
+        {
+          "models": "6",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -2363,9 +2223,7 @@ window.data.CHDW = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2404,9 +2262,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2438,9 +2294,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Twin boltgun",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2484,9 +2338,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Xenophase blade",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2497,39 +2349,28 @@ window.data.CHDW = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Imperium",
-        "Veteran Bike Squad"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "keywords": ["Mounted", "Grenades", "Imperium", "Veteran Bike Squad"],
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "8939a3d9-e5c9-5552-96e6-689e5885c77b",
       "name": "Watch Captain Artemis",
       "faction_id": "CHDW",
       "leader": "This model can be attached to the following units: ■ Deathwatch Veterans ■ Proteus Kill Team",
-      "composition": [
-        "1 Watch Captain Artemis"
-      ],
+      "composition": ["1 Watch Captain Artemis"],
       "loadout": "This model is equipped with: Hellfire Extremis; master-crafted power weapon.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "75"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2608,32 +2449,27 @@ window.data.CHDW = {
         "Captain",
         "Watch Captain Artemis"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     },
     {
       "id": "10af0717-f94a-5ae6-90f3-427da01cbe73",
       "name": "Watch Master",
       "faction_id": "CHDW",
       "leader": "This model can be attached to the following units: ■ Deathwatch Veterans ■ Proteus Kill Team",
-      "composition": [
-        "1 Watch Master"
-      ],
+      "composition": ["1 Watch Master"],
       "loadout": "This model is equipped with: vigil spear.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "115"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2687,9 +2523,7 @@ window.data.CHDW = {
           "profiles": [
             {
               "name": "Vigil spear",
-              "keywords": [
-                "lance"
-              ],
+              "keywords": ["lance"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -2708,10 +2542,11 @@ window.data.CHDW = {
         "Captain",
         "Watch Master"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Deathwatch"
-      ]
+      "factions": ["Adeptus Astartes", "Deathwatch"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#232425",
+    "header": "#3d3e41"
+  }
 }

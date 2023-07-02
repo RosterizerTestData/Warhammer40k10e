@@ -3,29 +3,58 @@ window.data.CHSW = {
   "id": "CHSW",
   "link": "https://game-datacards.eu",
   "name": "Space Wolves",
+  "is_subfaction": false,
+  "parent_id": "",
+  "enhancements": [
+    {
+      "name": "BLACK DEATH",
+      "description": "Adeptus Astartes model only. The bearer’s melee weapons have the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "25"
+    },
+    {
+      "name": "FROST WEAPON",
+      "description": "Adeptus Astartes model only. The bearer’s melee weapons have the [PRECISION] ability, and the Strength and Armour Penetration characteristics of those weapons are improved by 1.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "15"
+    },
+    {
+      "name": "THE PELT OF BALEWOLF",
+      "description": "Adeptus Astartes model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer must take a Battle-shock test.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "10"
+    },
+    {
+      "name": "WOLF TAIL TALISMAN",
+      "description": "Adeptus Astartes model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "cost": "20"
+    }
+  ],
   "datasheets": [
     {
       "id": "cede527d-411f-53f3-b0cd-f0770b1937c6",
       "name": "Arjac Rockfist",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad ■ Wolf Guard Terminators You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Arjac Rockfist – Epic Hero"
-      ],
+      "composition": ["1 Arjac Rockfist – Epic Hero"],
       "loadout": "This model is equipped with: Foehammer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -63,10 +92,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Foehammer",
-              "keywords": [
-                "anti-monster 2+",
-                "assault"
-              ],
+              "keywords": ["anti-monster 2+", "assault"],
               "range": "6\"",
               "attacks": "1",
               "skill": "2+",
@@ -81,10 +107,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Foehammer ",
-              "keywords": [
-                "anti-monster 2+"
-              ],
+              "name": "Foehammer",
+              "keywords": ["anti-monster 2+"],
               "range": "Melee",
               "attacks": "5",
               "skill": "2+",
@@ -103,33 +127,29 @@ window.data.CHSW = {
         "Terminator",
         "Arjac Rockfist"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "e2e577e1-3362-5054-a7dc-ec4a4e81b140",
       "name": "Bjorn The Fell-handed",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Bjorn the Fell-Handed– Epic Hero"
-      ],
+      "composition": ["1 Bjorn the Fell-Handed– Epic Hero"],
       "loadout": "This model is equipped with: assault cannon; heavy flamer; Trueclaw.",
       "wargear": [
         "This model’s assault cannon can be replaced with one of the following: ◦ heavy plasma cannon ◦ helfrost cannon ◦ multi-melta ◦ twin lascannon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "220"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 5+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 5+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -167,9 +187,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "2+",
@@ -183,10 +201,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -200,9 +215,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "2+",
@@ -212,10 +225,7 @@ window.data.CHSW = {
             },
             {
               "name": "Heavy plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "2+",
@@ -229,9 +239,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Helfrost cannon – dispersed",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -255,9 +263,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "2+",
@@ -271,9 +277,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "2+",
@@ -288,10 +292,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Trueclaw ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "Trueclaw",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -312,20 +314,14 @@ window.data.CHSW = {
         "Dreadnought",
         "Bjorn the Fell-Handed"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "509a8a8a-43d8-5db1-98f2-823ea51919e9",
       "name": "Blood Claws",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Blood Claw Pack Leader",
-        "9-14 Blood Claws"
-      ],
+      "composition": ["1 Blood Claw Pack Leader", "9-14 Blood Claws"],
       "loadout": "Every model is equipped with: bolt pistol; Astartes chainsword.",
       "wargear": [
         "The Blood Claw Pack Leader’s bolt pistol can be replaced with 1 plasma pistol.",
@@ -333,12 +329,20 @@ window.data.CHSW = {
         "Up to 2 Blood Claws can each have their Astartes chainsword replaced with one of the following: ◦ 1 flamer and 1 close combat weapon ◦ 1 grav-gun and 1 close combat weapon ◦ 1 meltagun and 1 close combat weapon ◦ 1 plasma gun and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "10",
+          "cost": "140"
+        },
+        {
+          "models": "15",
+          "cost": "210"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -353,9 +357,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to an Assault Squad, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to an Assault Squad, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -379,9 +381,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -409,10 +409,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -426,9 +423,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -442,9 +437,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -458,9 +451,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -470,10 +461,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -487,9 +475,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -499,10 +485,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -578,9 +561,15 @@ window.data.CHSW = {
         "Imperium",
         "Blood Claws"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": [
+        "Iron Priest",
+        "Krom Dragongaze",
+        "Lukas The Trickster",
+        "Ragnar Blackmane",
+        "Ulrik The Slayer",
+        "Wolf Guard Pack Leader",
+        "Wolf Guard Pack Leader In Terminator Armour"
       ]
     },
     {
@@ -588,22 +577,20 @@ window.data.CHSW = {
       "name": "Canis Wolfborn",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Fenrisian Wolves ■ Thunderwolf Cavalry",
-      "composition": [
-        "1 Canis Wolfborn – Epic Hero"
-      ],
+      "composition": ["1 Canis Wolfborn – Epic Hero"],
       "loadout": "This model is equipped with: crushing teeth and jaws; Wolf claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -641,9 +628,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "5+",
@@ -658,10 +643,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Crushing teeth and claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Crushing teeth and claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -674,10 +657,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Wolf claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Wolf claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -695,30 +676,27 @@ window.data.CHSW = {
         "Imperium",
         "Canis Wolfborn"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "e0803be6-0ad7-53cb-bcea-d4acbb965234",
       "name": "Cyberwolf",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following unit: ■ Fenrisian Wolves You must attach this model to the above unit, even if Canis Wolfborn has been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed. WOLFKIN This model cannot be your Warlord and cannot be given Enhancements.",
-      "composition": [
-        "1 Cyberwolf"
-      ],
+      "composition": ["1 Cyberwolf"],
       "loadout": "This model is equipped with: teeth and claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "20"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -737,9 +715,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "WOLFKIN",
-            "description": "This model cannot be your Warlord and cannot be given Enhancements.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model cannot be your Warlord and cannot be given Enhancements."
           }
         ],
         "damaged": {
@@ -775,36 +751,32 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Beast",
-        "Character",
-        "Imperium",
-        "Cyberwolf"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "keywords": ["Beast", "Character", "Imperium", "Cyberwolf"],
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "813450b5-2d22-5134-8274-91854c51eac2",
       "name": "Fenrisian Wolves",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "5-10 Fenrisian Wolves"
-      ],
+      "composition": ["5-10 Fenrisian Wolves"],
       "loadout": "Every model is equipped with: teeth and claws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "30"
+        },
+        {
+          "models": "10",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -850,25 +822,16 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Beasts",
-        "Imperium",
-        "Fenrisian Wolves"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "keywords": ["Beasts", "Imperium", "Fenrisian Wolves"],
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": ["Canis Wolfborn", "Cyberwolf"]
     },
     {
       "id": "4b6c3e90-12a2-5555-8d6a-8823a984108f",
       "name": "Grey Hunters",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Grey Hunter Pack Leader",
-        "4-9 Grey Hunters"
-      ],
+      "composition": ["1 Grey Hunter Pack Leader", "4-9 Grey Hunters"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "Any number of models can each be equipped with 1 Astartes chainsword.",
@@ -876,12 +839,20 @@ window.data.CHSW = {
         "Up to 2 Grey Hunters can each have their boltgun replaced with one of the following: ◦ 1 flamer ◦ 1 grav-gun ◦ 1 meltagun ◦ 1 plasma gun"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "90"
+        },
+        {
+          "models": "10",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -896,9 +867,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Tactical Squad, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Tactical Squad, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -922,9 +891,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -952,10 +919,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -969,9 +933,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -985,9 +947,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1001,9 +961,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1013,10 +971,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -1030,9 +985,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1042,10 +995,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1121,9 +1071,14 @@ window.data.CHSW = {
         "Imperium",
         "Grey Hunters"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": [
+        "Iron Priest",
+        "Krom Dragongaze",
+        "Ragnar Blackmane",
+        "Ulrik The Slayer",
+        "Wolf Guard Pack Leader",
+        "Wolf Guard Pack Leader In Terminator Armour"
       ]
     },
     {
@@ -1131,22 +1086,20 @@ window.data.CHSW = {
       "name": "Harald Deathwolf",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following unit: ■ Thunderwolf Cavalry",
-      "composition": [
-        "1 Harald Deathwolf – Epic Hero"
-      ],
+      "composition": ["1 Harald Deathwolf – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; crushing teeth and claws; Glacius.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1184,9 +1137,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1201,10 +1152,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Crushing teeth and claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Crushing teeth and claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "3+",
@@ -1238,33 +1187,31 @@ window.data.CHSW = {
         "Captain",
         "Harald Deathwolf"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "ca957215-0bd1-5727-a499-009f5e253530",
       "name": "Hounds Of Morkai",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Hound of Morkai Pack Leader",
-        "4-9 Hound of Morkai"
-      ],
+      "composition": ["1 Hound of Morkai Pack Leader", "4-9 Hound of Morkai"],
       "loadout": "Every model is equipped with: Morkai bolt pistol; Morkai combat knife.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "6+",
@@ -1279,9 +1226,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Reiver Squad, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Reiver Squad, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -1326,11 +1271,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Morkai combat knife",
-              "keywords": [
-                "anti-psyker 4+",
-                "devastating wounds",
-                "precision"
-              ],
+              "keywords": ["anti-psyker 4+", "devastating wounds", "precision"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -1349,32 +1290,27 @@ window.data.CHSW = {
         "Phobos",
         "Hounds of Morkai"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "36402ee1-25bb-540f-8ebd-b42ec847a408",
       "name": "Iron Priest",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Astartes Servitors ■ Blood Claws ■ Grey Hunters ■ Long Fangs",
-      "composition": [
-        "1 Iron Priest"
-      ],
+      "composition": ["1 Iron Priest"],
       "loadout": "This model is equipped with: helfrost pistol; servo-arm; tempest hammer.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "60"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1416,10 +1352,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Helfrost pistol – dispersed",
-              "keywords": [
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["pistol", "torrent"],
               "range": "12\"",
               "attacks": "D3",
               "skill": "N/A",
@@ -1429,9 +1362,7 @@ window.data.CHSW = {
             },
             {
               "name": "Helfrost pistol – focused",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1446,10 +1377,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Servo-arm ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Servo-arm",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "1",
               "skill": "3+",
@@ -1482,32 +1411,27 @@ window.data.CHSW = {
         "Techmarine",
         "Iron Priest"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "454dc0e4-a704-57b8-98ea-d953925c4783",
       "name": "Krom Dragongaze",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Blood Claws ■ Grey Hunters ■ Wolf Guard",
-      "composition": [
-        "1 Krom Dragongaze"
-      ],
+      "composition": ["1 Krom Dragongaze"],
       "loadout": "This model is equipped with: bolt pistol; Wyrmclaw.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "80"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1545,9 +1469,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -1562,10 +1484,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Wyrmclaw ",
-              "keywords": [
-                "lethal hits"
-              ],
+              "name": "Wyrmclaw",
+              "keywords": ["lethal hits"],
               "range": "Melee",
               "attacks": "6",
               "skill": "2+",
@@ -1585,33 +1505,27 @@ window.data.CHSW = {
         "Captain",
         "Krom Dragongaze"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "75374f5c-5b30-5b87-b2e4-1f8c176b21e6",
       "name": "Logan Grimnar",
       "faction_id": "CHSW",
-      "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad ■ Wolf Guard Terminators LOGAN GRIMNAR Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider.",
-      "composition": [
-        "Logan Grimnar – Epic Hero"
-      ],
-      "loadout": "",
-      "wargear": [
-        "None"
-      ],
+      "leader": "",
+      "composition": ["Logan Grimnar – Epic Hero"],
+      "loadout": "This model is equipped with: storm bolter; the Axe Morkai.",
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "145"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1630,9 +1544,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "LOGAN GRIMNAR",
-            "description": "Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider."
           }
         ],
         "damaged": {
@@ -1656,9 +1568,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -1704,33 +1614,27 @@ window.data.CHSW = {
         "Chapter Master",
         "Logan Grimnar"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "c3c8ad0e-e9f1-55d4-88e1-da119f3ceab1",
       "name": "Logan Grimnar On Stormrider",
       "faction_id": "CHSW",
-      "leader": "This model can be attached to the following unit: ■ Thunderwolf Cavalry LOGAN GRIMNAR Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider.",
-      "composition": [
-        "1 Logan Grimnar on Stormrider – Epic Hero"
-      ],
-      "loadout": "",
-      "wargear": [
-        "None"
-      ],
+      "leader": "",
+      "composition": ["1 Logan Grimnar on Stormrider – Epic Hero"],
+      "loadout": "This model is equipped with: storm bolter; the Axe of Morkai; flurry of teeth and claws.",
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "235"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D3",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D3", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -1749,9 +1653,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "LOGAN GRIMNAR",
-            "description": "Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider."
           }
         ],
         "damaged": {
@@ -1775,9 +1677,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -1816,10 +1716,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Flurry of teeth and claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Flurry of teeth and claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "6",
               "skill": "4+",
@@ -1838,20 +1736,14 @@ window.data.CHSW = {
         "Chapter Master",
         "Logan Grimnar on Stormrider"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "6abb2df6-2bbf-50f1-96ea-ef2a7d778af5",
       "name": "Long Fangs",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Long Fang Pack Leader",
-        "4-5 Long Fangs"
-      ],
+      "composition": ["1 Long Fang Pack Leader", "4-5 Long Fangs"],
       "loadout": "Every model is equipped with: boltgun; bolt pistol; close combat weapon.",
       "wargear": [
         "Any number of Long Fangs can each have their boltgun replaced with one of the following: ◦ 1 grav-cannon ◦ 1 heavy bolter ◦ 1 heavy flamer* ◦ 1 lascannon ◦ 1 missile launcher ◦ 1 multi-melta ◦ 1 plasma cannon",
@@ -1859,12 +1751,20 @@ window.data.CHSW = {
         "The Long Fang Pack Leader’s boltgun can be replace with one of the following:* ◦ 1 flamer ◦ 1 grav-gun ◦ 1 meltagun ◦ 1 plasma gun ◦ 1 plasma pistol *  The profiles for these weapons can be found on the Space Wolves Armoury card."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "150"
+        },
+        {
+          "models": "6",
+          "cost": "180"
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -1883,9 +1783,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Devastator Squad, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Devastator Squad, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -1909,9 +1807,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -1939,10 +1835,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Grav-cannon",
-              "keywords": [
-                "anti-vehicle 2+",
-                "heavy"
-              ],
+              "keywords": ["anti-vehicle 2+", "heavy"],
               "range": "24\"",
               "attacks": "3",
               "skill": "4+",
@@ -1956,10 +1849,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -1973,9 +1863,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Lascannon",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -1989,10 +1877,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -2002,9 +1887,7 @@ window.data.CHSW = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -2018,10 +1901,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "heavy",
-                "melta 2"
-              ],
+              "keywords": ["heavy", "melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "4+",
@@ -2035,10 +1915,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2048,11 +1925,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous",
-                "heavy"
-              ],
+              "keywords": ["blast", "hazardous", "heavy"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "4+",
@@ -2121,37 +1994,34 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Long Fangs"
-      ],
-      "factions": [
-        "Space Wolves"
+      "keywords": ["Infantry", "Grenades", "Imperium", "Long Fangs"],
+      "factions": ["Space Wolves"],
+      "ledBy": [
+        "Iron Priest",
+        "Ulrik The Slayer",
+        "Wolf Guard Pack Leader",
+        "Wolf Guard Pack Leader In Terminator Armour"
       ]
     },
     {
       "id": "80c6ce93-1e44-5849-94d2-4d2ff9b8eca4",
       "name": "Lukas The Trickster",
       "faction_id": "CHSW",
-      "leader": "This model can be attached to the following unit: ■ Blood Claws MASTER OF MISCHIEF This model cannot be your Warlord.",
-      "composition": [
-        "1 Lukas the Trickster – Epic Hero"
-      ],
+      "leader": "This model can be attached to the following unit: ■ Blood Claws",
+      "composition": ["1 Lukas the Trickster – Epic Hero"],
       "loadout": "This model is equipped with: plasma pistol; Claw of the Jackalwolf.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "55"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2170,9 +2040,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "MASTER OF MISCHIEF",
-            "description": "This model cannot be your Warlord.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model cannot be your Warlord."
           }
         ],
         "damaged": {
@@ -2196,9 +2064,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2208,10 +2074,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2246,33 +2109,27 @@ window.data.CHSW = {
         "Imperium",
         "Lukas the Trickster"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "cbc3fcf5-ecb4-5134-a733-a67e904e4698",
       "name": "Murderfang",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "Murderfang – Epic Hero"
-      ],
+      "composition": ["Murderfang – Epic Hero"],
       "loadout": "This model is equipped with: heavy flamer; storm bolter; the Murderclaws.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2287,9 +2144,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "FORCE OF UNTAMED DESTRUCTION",
-            "description": "This model cannot be your Warlord.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "This model cannot be your Warlord."
           }
         ],
         "damaged": {
@@ -2313,10 +2168,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2330,9 +2182,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -2347,10 +2197,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "The Murderclaws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "The Murderclaws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "8",
               "skill": "3+",
@@ -2370,33 +2218,27 @@ window.data.CHSW = {
         "Dreadnought",
         "Murderfang"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "4e1ce088-51f7-5366-90d0-bc8ad197383f",
       "name": "Njal Stormcaller",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad ■ Wolf Guard Terminators",
-      "composition": [
-        "1 Njal Stormcaller – Epic Hero"
-      ],
+      "composition": ["1 Njal Stormcaller – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Living Lightning; Staff of the Stormcaller.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2434,9 +2276,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2450,10 +2290,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Living Lightning – witchfire",
-              "keywords": [
-                "psychic",
-                "sustained hits 2"
-              ],
+              "keywords": ["psychic", "sustained hits 2"],
               "range": "24\"",
               "attacks": "D6",
               "skill": "3+",
@@ -2463,11 +2300,7 @@ window.data.CHSW = {
             },
             {
               "name": "Living Lightning – focused witchfire",
-              "keywords": [
-                "hazardous",
-                "psychic",
-                "sustained hits 2"
-              ],
+              "keywords": ["hazardous", "psychic", "sustained hits 2"],
               "range": "24\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -2482,11 +2315,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Staff of the Stormcaller ",
-              "keywords": [
-                "psychic",
-                "sustained hits 2"
-              ],
+              "name": "Staff of the Stormcaller",
+              "keywords": ["psychic", "sustained hits 2"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -2506,32 +2336,27 @@ window.data.CHSW = {
         "Terminator",
         "Njal Stormcaller"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "f7c221df-be2f-5050-9b4d-1af14f9d6716",
       "name": "Ragnar Blackmane",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Wolf Guard ■ Blood Claws ■ Grey Hunters ■ Assault Intercessor Squad ■ Bladeguard Veteran Squad ■ Intercessor Squad",
-      "composition": [
-        "1 Ragnar Blackmane – Epic Hero"
-      ],
+      "composition": ["1 Ragnar Blackmane – Epic Hero"],
       "loadout": "This model is equipped with: bolt pistol; Frostfang.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "105"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -2569,9 +2394,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -2586,10 +2409,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Frostfang ",
-              "keywords": [
-                "sustained hits 1"
-              ],
+              "name": "Frostfang",
+              "keywords": ["sustained hits 1"],
               "range": "Melee",
               "attacks": "8",
               "skill": "2+",
@@ -2610,20 +2431,14 @@ window.data.CHSW = {
         "Captain",
         "Ragnar Blackmane"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "1776e9fd-926e-503e-a319-438429ed5650",
       "name": "Skyclaws",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Skyclaw Pack Leader",
-        "4-14 Skyclaws"
-      ],
+      "composition": ["1 Skyclaw Pack Leader", "4-14 Skyclaws"],
       "loadout": "Every model is equipped with: bolt pistol; Astartes chainsword.",
       "wargear": [
         "The Skyclaw Pack Leader’s bolt pistol can be replaced with 1 plasma pistol.",
@@ -2631,14 +2446,24 @@ window.data.CHSW = {
         "Up to 2 Skyclaws can each have their bolt pistol and Astartes chainsword replaced with one of the following: ◦ 1 plasma pistol and 1 Astartes chainsword ◦ 1 flamer and 1 close combat weapon ◦ 1 grav-gun and 1 close combat weapon ◦ 1 meltagun and 1 close combat weapon ◦ 1 plasma gun and 1 close combat weapon"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        },
+        {
+          "models": "15",
+          "cost": "285"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -2653,9 +2478,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to an Assault Squad with Jump Packs, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to an Assault Squad with Jump Packs, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -2679,9 +2502,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2695,10 +2516,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2712,9 +2530,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2728,9 +2544,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2744,9 +2558,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -2756,10 +2568,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -2773,9 +2582,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2785,10 +2592,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -2865,10 +2669,8 @@ window.data.CHSW = {
         "Imperium",
         "Skyclaws"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": ["Wolf Guard Pack Leader With Jump Pack"]
     },
     {
       "id": "14ab1913-93d6-5ccf-a3fe-1b0482fcbce8",
@@ -2879,6 +2681,7 @@ window.data.CHSW = {
       "loadout": "",
       "wargear": [],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [],
         "core": [],
@@ -2919,10 +2722,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2936,9 +2736,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Grav-gun",
-              "keywords": [
-                "anti-vehicle 2+"
-              ],
+              "keywords": ["anti-vehicle 2+"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -2952,10 +2750,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Grav-pistol",
-              "keywords": [
-                "anti-vehicle 2+",
-                "pistol"
-              ],
+              "keywords": ["anti-vehicle 2+", "pistol"],
               "range": "18\"",
               "attacks": "1",
               "skill": "3+",
@@ -2969,11 +2764,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Hand flamer",
-              "keywords": [
-                "ignores cover",
-                "pistol",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -2987,10 +2778,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3004,10 +2792,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Inferno pistol",
-              "keywords": [
-                "melta 2",
-                "pistol"
-              ],
+              "keywords": ["melta 2", "pistol"],
               "range": "6\"",
               "attacks": "1",
               "skill": "3+",
@@ -3021,9 +2806,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Meltagun",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3037,9 +2820,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma gun – standard",
-              "keywords": [
-                "rapid fire 1"
-              ],
+              "keywords": ["rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -3049,10 +2830,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma gun – supercharge",
-              "keywords": [
-                "hazardous",
-                "rapid fire 1"
-              ],
+              "keywords": ["hazardous", "rapid fire 1"],
               "range": "24\"",
               "attacks": "1",
               "skill": "3+",
@@ -3066,9 +2844,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3078,10 +2854,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3095,9 +2868,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "4+",
@@ -3110,18 +2881,14 @@ window.data.CHSW = {
       ],
       "meleeWeapons": [],
       "keywords": [],
-      "factions": [
-        ""
-      ]
+      "factions": [""]
     },
     {
       "id": "438ff307-e29d-508c-9f00-2d1f9cc3c397",
       "name": "Space Wolves Venerable Dreadnought",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Space Wolves Venerable Dreadnought"
-      ],
+      "composition": ["1 Space Wolves Venerable Dreadnought"],
       "loadout": "This model is equipped with: assault cannon; storm bolter; Dreadnought combat weapon.",
       "wargear": [
         "This model’s assault cannon can be replaced with one of the following: ◦ 1 helfrost cannon ◦ 1 multi-melta ◦ 1 plasma cannon ◦ 1 twin lascannon",
@@ -3129,6 +2896,12 @@ window.data.CHSW = {
         "This model’s assault cannon, storm bolter and Dreadnought combat weapon can be replaced with one of the following: ◦  1 Fenrisian great axe, 1 blizzard shield and 1 storm bolter ◦  1 Fenrisian great axe, 1 blizzard shield and 1 heavy flamer"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "170"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3136,12 +2909,8 @@ window.data.CHSW = {
             "description": "The bearer has a 4+ invulnerable save. Before selecting targets for this weapon, select one of its profiles to make attacks with."
           }
         ],
-        "core": [
-          "Deadly Demise 1"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3175,9 +2944,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -3191,10 +2958,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3208,9 +2972,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Helfrost cannon – dispersed",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3234,9 +2996,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "3+",
@@ -3260,9 +3020,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Multi-melta",
-              "keywords": [
-                "melta 2"
-              ],
+              "keywords": ["melta 2"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3276,9 +3034,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma cannon – standard",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -3288,10 +3044,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma cannon – supercharge",
-              "keywords": [
-                "blast",
-                "hazardous"
-              ],
+              "keywords": ["blast", "hazardous"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -3305,9 +3058,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -3321,9 +3072,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3390,39 +3139,36 @@ window.data.CHSW = {
       ],
       "keywords": [
         "Vehicle",
-        "Walker Smoke",
+        "Walker",
+        "Smoke",
         "Imperium",
         "Dreadnought",
         "Venerable Dreadnought"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "26c24538-81e7-5e6c-91b8-07c238217f01",
       "name": "Stormfang Gunship",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Stormfang Gunship"
-      ],
+      "composition": ["1 Stormfang Gunship"],
       "loadout": "This model is equipped with: helfrost destructor; 2 skyhammer missile launchers; twin stormstrike missile launcher; armoured hull.",
       "wargear": [
         "This model’s 2 skyhammer missile launchers can be replaced with one of the following: ◦ 2 twin multi-meltas ◦ 2 twin heavy bolters",
         "This model’s twin stormstrike missile launcher can be replaced with 1 twin lascannon."
       ],
       "transport": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "300"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3456,9 +3202,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Helfrost destructor – dispersed",
-              "keywords": [
-                "sustained hits d3"
-              ],
+              "keywords": ["sustained hits d3"],
               "range": "36\"",
               "attacks": "D3",
               "skill": "3+",
@@ -3468,9 +3212,7 @@ window.data.CHSW = {
             },
             {
               "name": "Helfrost destructor – focused",
-              "keywords": [
-                "torrent"
-              ],
+              "keywords": ["torrent"],
               "range": "12\"",
               "attacks": "D6+6",
               "skill": "3+",
@@ -3484,9 +3226,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Skyhammer missile launcher",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -3500,10 +3240,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -3517,9 +3254,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3533,10 +3268,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin multi-melta",
-              "keywords": [
-                "melta 2",
-                "twin-linked"
-              ],
+              "keywords": ["melta 2", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3550,9 +3282,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin stormstrike missile launcher",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3586,33 +3316,29 @@ window.data.CHSW = {
         "Transport",
         "Stormfang Gunship"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "549b2934-8504-547e-9459-9995f8ec7b66",
       "name": "Stormwolf",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Stormwolf"
-      ],
+      "composition": ["1 Stormwolf"],
       "loadout": "This model is equipped with: 2 skyhammer missile launchers; twin helfrost cannon; twin lascannon; armoured hull.",
       "wargear": [
         "This model’s 2 skyhammer missile launchers can replaced with one of the following: ◦ 2 twin heavy bolters ◦ 2 twin multi-meltas"
       ],
       "transport": "This model has a transport capacity of 16 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.",
+      "points": [
+        {
+          "models": "1",
+          "cost": "250"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Deadly Demise D6",
-          "Hover"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise D6", "Hover"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3646,9 +3372,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Skyhammer missile launcher",
-              "keywords": [
-                "anti-fly 2+"
-              ],
+              "keywords": ["anti-fly 2+"],
               "range": "48\"",
               "attacks": "3",
               "skill": "3+",
@@ -3662,10 +3386,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin heavy bolter",
-              "keywords": [
-                "sustained hits 1",
-                "twin-linked"
-              ],
+              "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
               "attacks": "3",
               "skill": "3+",
@@ -3679,10 +3400,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin helfrost cannon – dispersed",
-              "keywords": [
-                "torrent",
-                "twin-linked"
-              ],
+              "keywords": ["torrent", "twin-linked"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -3692,9 +3410,7 @@ window.data.CHSW = {
             },
             {
               "name": "Twin helfrost cannon – focused",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "36\"",
               "attacks": "1",
               "skill": "3+",
@@ -3708,9 +3424,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin lascannon",
-              "keywords": [
-                "twin-linked"
-              ],
+              "keywords": ["twin-linked"],
               "range": "48\"",
               "attacks": "1",
               "skill": "3+",
@@ -3724,10 +3438,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Twin multi-melta",
-              "keywords": [
-                "melta 2",
-                "twin-linked"
-              ],
+              "keywords": ["melta 2", "twin-linked"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -3754,17 +3465,8 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Vehicle",
-        "Aircraft",
-        "Fly",
-        "Transport",
-        "Stormwolf"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "keywords": ["Vehicle", "Aircraft", "Fly", "Transport", "Stormwolf"],
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "5d78ad6a-0eaa-5cb9-877f-76b039ebac0a",
@@ -3780,6 +3482,16 @@ window.data.CHSW = {
         "Any number of models can each have their bolt pistol replaced with one of the following: ◦ 1 boltgun ◦ 1 plasma pistol ◦ 1 storm shield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "3",
+          "cost": "100"
+        },
+        {
+          "models": "6",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -3788,9 +3500,7 @@ window.data.CHSW = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -3824,9 +3534,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3854,9 +3562,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3866,10 +3572,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -3884,10 +3587,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Crushing teeth and claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Crushing teeth and claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -3912,15 +3613,13 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Mounted",
-        "Grenades",
-        "Imperium",
-        "Thunderwolf Cavalry"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
+      "keywords": ["Mounted", "Grenades", "Imperium", "Thunderwolf Cavalry"],
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": [
+        "Canis Wolfborn",
+        "Harald Deathwolf",
+        "Wolf Guard Battle Leader On Thunderwolf",
+        "Wolf Lord On Thunderwolf"
       ]
     },
     {
@@ -3928,23 +3627,20 @@ window.data.CHSW = {
       "name": "Ulrik The Slayer",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Blood Claws ■ Grey Hunters ■ Long Fangs ■ Wolf Guard",
-      "composition": [
-        "1 Ulrik the Slayer – Epic Hero"
-      ],
+      "composition": ["1 Ulrik the Slayer – Epic Hero"],
       "loadout": "This model is equipped with: plasma pistol; artificer crozius.",
-      "wargear": [
-        "None"
-      ],
+      "wargear": ["None"],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "85"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Feel No Pain 6+",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -3982,9 +3678,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -3994,10 +3688,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4032,25 +3723,29 @@ window.data.CHSW = {
         "Imperium",
         "Ulrik the Slayer"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "bd10ec7d-6877-5c3f-a760-cd6d113feb14",
       "name": "Wolf Guard",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Wolf Guard Pack Leader",
-        "4-9 Wolf Guard"
-      ],
+      "composition": ["1 Wolf Guard Pack Leader", "4-9 Wolf Guard"],
       "loadout": "Every model is equipped with: bolt pistol; heirloom weapon.",
       "wargear": [
         "Any number of models can have their bolt pistol replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 plasma pistol ◦ 1 storm bolter ◦ 1 storm shield"
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "95"
+        },
+        {
+          "models": "10",
+          "cost": "190"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4059,9 +3754,7 @@ window.data.CHSW = {
           }
         ],
         "core": [],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4076,9 +3769,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Vanguard Veteran Squad, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Vanguard Veteran Squad, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -4102,9 +3793,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4150,9 +3839,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4162,10 +3849,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4179,9 +3863,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4208,32 +3890,24 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Grenades",
-        "Imperium",
-        "Wolf Guard"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "keywords": ["Infantry", "Grenades", "Imperium", "Wolf Guard"],
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": ["Krom Dragongaze", "Ragnar Blackmane", "Ulrik The Slayer"]
     },
     {
       "id": "6792404e-8e12-58cd-b3d0-50377d1f645a",
       "name": "Wolf Guard Battle Leader In Terminator Armour",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Relic Terminator Squad ■ Terminator Assault Squad ■ Terminator Squad ■ Wolf Guard Terminators You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Wolf Guard Battle Leader in Terminator Armour"
-      ],
-      "loadout": "",
+      "composition": ["1 Wolf Guard Battle Leader in Terminator Armour"],
+      "loadout": "This model is equipped with: storm bolter; power weapon.",
       "wargear": [
         "This model’s power weapon can be replaced with one of the following: ◦ 1 chainfist ◦ 1 power fist ◦ 1 relic shield and 1 close combat weapon ◦ 1 thunder hammer",
         "This model’s storm bolter can be replaced with one of the following: ◦ 1 chainfist ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer ◦ 1 combi-weapon",
         "This model’s storm bolter and power weapon can be replaced with 1 twin lightning claws."
       ],
       "transport": "",
+      "points": [],
       "abilities": {
         "wargear": [
           {
@@ -4241,13 +3915,8 @@ window.data.CHSW = {
             "description": "The bearer has a Wounds characteristic of 6."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -4303,9 +3972,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -4320,10 +3987,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4378,10 +4043,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4394,10 +4057,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -4415,26 +4076,27 @@ window.data.CHSW = {
         "Terminator",
         "Wolf Guard Battle Leader in Terminator Armour"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "29f04894-8fed-5ddf-9d6f-4d2f45ad4add",
       "name": "Wolf Guard Battle Leader On Thunderwolf",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following unit: ■ Thunderwolf Cavalry You can attach this model to the above unit even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
-      "composition": [
-        "1 Wolf Guard Battle Leader on Thunderworlf"
-      ],
-      "loadout": "",
+      "composition": ["1 Wolf Guard Battle Leader on Thunderworlf"],
+      "loadout": "This model is equipped with: bolt pistol; crushing teeth and claws; relic weapon.",
       "wargear": [
         "This model’s relic weapon can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 power fist ◦ 1 thunder hammer ◦ 1 storm shield and 1 close combat weapon",
         "This model’s bolt pistol can be replaced with one of the following: ◦ 1 combi-weapon ◦ 1 master-crafted boltgun ◦ 1 plasma pistol ◦ 1 storm bolter ◦ 1 power fist ◦ 1 relic weapon ◦ 1 thunder hammer",
         "This model’s bolt pistol and relic weapon can be replaced with 1 twin lightning claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "95"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4442,12 +4104,8 @@ window.data.CHSW = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4485,9 +4143,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4533,9 +4189,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4545,10 +4199,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -4562,9 +4213,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -4593,10 +4242,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Crushing teeth and claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Crushing teeth and claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -4637,10 +4284,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4653,10 +4298,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "6",
               "skill": "3+",
@@ -4674,25 +4317,26 @@ window.data.CHSW = {
         "Imperium",
         "Wolf Guard Battle Leader on Thunderwolf"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "06183523-025f-5f5c-95c6-dd748b948f91",
       "name": "Wolf Guard Pack Leader",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Blood Claws ■ Grey Hunters ■ Long Fangs You must attach this model to one of the above units, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed.",
-      "composition": [
-        "1 Wolf Guard Pack Leader"
-      ],
-      "loadout": "",
+      "composition": ["1 Wolf Guard Pack Leader"],
+      "loadout": "This model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "This model’s bolt pistol and boltgun can be replaced with two different weapons from the following list:* ◦ 1 bolt pistol ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 plasma pistol ◦ 1 storm bolter ◦ 1 Astartes chainsword ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer ◦ 1 storm shield",
         "This model’s bolt pistol and boltgun can be replaced with 1 twin lightning claws. *  This model can only be equipped with two ranged weapons if one of them is a Pistol (and it can only have one Pistol)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "30"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4700,12 +4344,8 @@ window.data.CHSW = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -4743,9 +4383,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4791,9 +4429,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4803,10 +4439,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -4820,9 +4453,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -4893,10 +4524,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -4909,10 +4538,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -4931,26 +4558,27 @@ window.data.CHSW = {
         "Pack Leader",
         "Wolf Guard Pack Leader"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "50037b61-971a-5f93-b972-b0e03a140bc5",
       "name": "Wolf Guard Pack Leader In Terminator Armour",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following units: ■ Blood Claws ■ Grey Hunters ■ Long Fangs You must attach this model to one of the above units, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed.",
-      "composition": [
-        "1 Wolf Guard Pack Leader in Terminator Armour"
-      ],
-      "loadout": "",
+      "composition": ["1 Wolf Guard Pack Leader in Terminator Armour"],
+      "loadout": "This model is equipped with: storm bolter; power weapon.",
       "wargear": [
         "This model’s storm bolter and power weapon can be replaced with two different options from the following list:* ◦ 1 assault cannon ◦ 1 heavy flamer ◦ 1 cyclone missile launcher and 1 storm bolter ◦ 1 storm bolter ◦ 1 chainfist ◦ 1 power fist ◦ 1 thunder hammer ◦ 1 storm shield",
         "This model’s storm bolter and power weapon can be replaced with 1 twin lightning claws.",
         "This model’s storm bolter can be replaced with 1 combi-weapon. *  This model can only be equipped with two ranged weapons if one of them is a cyclone missile launcher and the other is either a storm bolter or a combi-weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "45"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -4958,13 +4586,8 @@ window.data.CHSW = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5002,9 +4625,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -5036,9 +4657,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -5062,10 +4681,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5079,9 +4695,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -5096,10 +4710,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -5140,10 +4752,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -5156,10 +4766,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5179,25 +4787,26 @@ window.data.CHSW = {
         "Pack Leader",
         "Wolf Guard Pack Leader in Terminator Armour"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "266d7533-7fb8-5cbd-93cb-3a1a70cbf888",
       "name": "Wolf Guard Pack Leader With Jump Pack",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following unit: ■ Skyclaws You must attach this model to the above unit, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed.",
-      "composition": [
-        "1 Wolf Guard Pack Leader with Jump Pack"
-      ],
-      "loadout": "",
+      "composition": ["1 Wolf Guard Pack Leader with Jump Pack"],
+      "loadout": "This model is equipped with: bolt pistol; Astartes chainsword.",
       "wargear": [
         "This model’s bolt pistol and Astartes chainsword can be replaced with two different weapons from the following list:* ◦ 1 bolt pistol ◦ 1 combi-weapon ◦ 1 plasma pistol ◦ 1 storm bolter ◦ 1 Astartes chainsword ◦ 1 power fist ◦ 1 power weapon ◦ 1 thunder hammer ◦ 1 storm shield",
         "This model’s bolt pistol and Astartes chainsword can be replaced with 1 twin lightning claws. *  This model can only be equipped with two ranged weapons if one of them is a Pistol (and it can only have one Pistol)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "40"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5205,13 +4814,8 @@ window.data.CHSW = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Deep Strike",
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike", "Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5249,9 +4853,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5283,9 +4885,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5295,10 +4895,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -5312,9 +4909,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -5371,10 +4966,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -5387,10 +4980,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -5411,10 +5002,7 @@ window.data.CHSW = {
         "Pack Leader",
         "Wolf Guard Pack Leader with Jump Pack"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "b2efd0c3-1e96-53b3-af25-531fda7b309b",
@@ -5432,6 +5020,16 @@ window.data.CHSW = {
         "Any number of models can each have their power fist and storm bolter or power weapon and storm bolter replaced with 1 twin lightning claws. * Each model cannot have duplicates of these pieces of wargear and cannot have both a storm bolter and a combi-weapon."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "200"
+        },
+        {
+          "models": "10",
+          "cost": "400"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5439,12 +5037,8 @@ window.data.CHSW = {
             "description": "The bearer has a Wounds characteristic of 4."
           }
         ],
-        "core": [
-          "Deep Strike"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deep Strike"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5459,9 +5053,7 @@ window.data.CHSW = {
         "special": [
           {
             "name": "ATTACHED UNIT",
-            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can instead be attached to this unit.",
-            "showAbility": true,
-            "showDescription": true
+            "description": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can instead be attached to this unit."
           }
         ],
         "damaged": {
@@ -5485,9 +5077,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Assault cannon",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "keywords": ["devastating wounds"],
               "range": "24\"",
               "attacks": "6",
               "skill": "3+",
@@ -5519,9 +5109,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Cyclone missile launcher – frag",
-              "keywords": [
-                "blast"
-              ],
+              "keywords": ["blast"],
               "range": "36\"",
               "attacks": "2D6",
               "skill": "3+",
@@ -5545,10 +5133,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -5562,9 +5147,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -5579,10 +5162,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Chainfist ",
-              "keywords": [
-                "anti-vehicle 3+"
-              ],
+              "name": "Chainfist",
+              "keywords": ["anti-vehicle 3+"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -5623,10 +5204,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -5639,10 +5218,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -5660,9 +5237,11 @@ window.data.CHSW = {
         "Terminator",
         "Wolf Guard Terminators"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
+      "factions": ["Adeptus Astartes", "Space Wolves"],
+      "ledBy": [
+        "Arjac Rockfist",
+        "Njal Stormcaller",
+        "Wolf Guard Battle Leader In Terminator Armour"
       ]
     },
     {
@@ -5670,9 +5249,7 @@ window.data.CHSW = {
       "name": "Wolf Lord On Thunderwolf",
       "faction_id": "CHSW",
       "leader": "This model can be attached to the following unit: ■ Thunderwolf Cavalry",
-      "composition": [
-        "1 Wolf Lord on Thunderwolf"
-      ],
+      "composition": ["1 Wolf Lord on Thunderwolf"],
       "loadout": "This model is equipped with: bolt pistol; crushing teeth and claws; relic weapon.",
       "wargear": [
         "This model’s relic weapon can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 power fist ◦ 1 thunder hammer ◦ 1 relic shield and 1 close combat weapon",
@@ -5680,6 +5257,12 @@ window.data.CHSW = {
         "This model’s bolt pistol and relic weapon can be replaced with 1 twin lightning claws."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "100"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -5687,12 +5270,8 @@ window.data.CHSW = {
             "description": "The bearer has a Wounds characteristic of 7."
           }
         ],
-        "core": [
-          "Leader"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Leader"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "4+",
@@ -5730,9 +5309,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -5778,9 +5355,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -5790,10 +5365,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "2+",
@@ -5807,9 +5379,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "2+",
@@ -5838,10 +5408,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Crushing teeth and claws ",
-              "keywords": [
-                "extra attacks"
-              ],
+              "name": "Crushing teeth and claws",
+              "keywords": ["extra attacks"],
               "range": "Melee",
               "attacks": "3",
               "skill": "4+",
@@ -5882,10 +5450,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "5",
               "skill": "3+",
@@ -5898,10 +5464,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "7",
               "skill": "3+",
@@ -5920,20 +5484,14 @@ window.data.CHSW = {
         "Captain",
         "Wolf Lord on Thunderwolf"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "c086546e-a615-5212-be4a-d91d1f6a1b70",
       "name": "Wolf Scouts",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Wolf Scout Pack Leader",
-        "4-9 Wolf Scouts"
-      ],
+      "composition": ["1 Wolf Scout Pack Leader", "4-9 Wolf Scouts"],
       "loadout": "Every model is equipped with: bolt pistol; boltgun; close combat weapon.",
       "wargear": [
         "Any number of models can each have their boltgun replaced with one of the following: ◦ 1 Astartes shotgun  ◦ 1 combat knife",
@@ -5942,15 +5500,20 @@ window.data.CHSW = {
         "The Wolf Scout Pack Leader’s bolt pistol and boltgun can be replaced with with 1 twin lightning claws, or two different weapons from the following list:** ◦ 1 bolt pistol  ◦ 1 boltgun  ◦ 1 combi-weapon* ◦ 1 grav-pistol* ◦ 1 hand flamer* ◦ 1 inferno pistol* ◦ 1 plasma pistol ◦ 1 storm bolter* ◦ 1 Astartes chainsword ◦ 1 power fist  ◦ 1 power weapon  ◦ 1 thunder hammer  *  The profiles for these weapons can be found on the Space Wolves Armoury card. **  This model can only be equipped with two ranged weapons if one of them is a Pistol (and it can only have one Pistol)."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "80"
+        },
+        {
+          "models": "10",
+          "cost": "160"
+        }
+      ],
       "abilities": {
         "wargear": [],
-        "core": [
-          "Infiltrators",
-          "Scouts 6\""
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Infiltrators", "Scouts 6\""],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -5984,9 +5547,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Astartes shotgun",
-              "keywords": [
-                "assault"
-              ],
+              "keywords": ["assault"],
               "range": "18\"",
               "attacks": "2",
               "skill": "3+",
@@ -6000,9 +5561,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Bolt pistol",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6030,10 +5589,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy bolter",
-              "keywords": [
-                "heavy",
-                "sustained hits 1"
-              ],
+              "keywords": ["heavy", "sustained hits 1"],
               "range": "36\"",
               "attacks": "3",
               "skill": "4+",
@@ -6047,10 +5603,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Missile launcher – frag",
-              "keywords": [
-                "blast",
-                "heavy"
-              ],
+              "keywords": ["blast", "heavy"],
               "range": "48\"",
               "attacks": "D6",
               "skill": "4+",
@@ -6060,9 +5613,7 @@ window.data.CHSW = {
             },
             {
               "name": "Missile launcher – krak",
-              "keywords": [
-                "heavy"
-              ],
+              "keywords": ["heavy"],
               "range": "48\"",
               "attacks": "1",
               "skill": "4+",
@@ -6076,9 +5627,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Plasma pistol – standard",
-              "keywords": [
-                "pistol"
-              ],
+              "keywords": ["pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6088,10 +5637,7 @@ window.data.CHSW = {
             },
             {
               "name": "Plasma pistol – supercharge",
-              "keywords": [
-                "hazardous",
-                "pistol"
-              ],
+              "keywords": ["hazardous", "pistol"],
               "range": "12\"",
               "attacks": "1",
               "skill": "3+",
@@ -6176,10 +5722,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Thunder hammer ",
-              "keywords": [
-                "devastating wounds"
-              ],
+              "name": "Thunder hammer",
+              "keywords": ["devastating wounds"],
               "range": "Melee",
               "attacks": "2",
               "skill": "4+",
@@ -6192,10 +5736,8 @@ window.data.CHSW = {
         {
           "profiles": [
             {
-              "name": "Twin lightning claws ",
-              "keywords": [
-                "twin-linked"
-              ],
+              "name": "Twin lightning claws",
+              "keywords": ["twin-linked"],
               "range": "Melee",
               "attacks": "4",
               "skill": "3+",
@@ -6214,26 +5756,30 @@ window.data.CHSW = {
         "Scout Squad",
         "Wolf Scouts"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "6f5e1517-b22e-544e-bf10-b3b3a2d66daf",
       "name": "Wulfen",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Wulfen Pack Leader",
-        "4-9 Wulfen"
-      ],
+      "composition": ["1 Wulfen Pack Leader", "4-9 Wulfen"],
       "loadout": "Every model is equipped with: Wulfen claws and melee weapons.",
       "wargear": [
         "Any number of models can each be equipped with 1 stormfrag auto-launcher.",
         "Any number of models can each have their Wulfen claws and melee weapons replaced with 1 Wulfen hammer and 1 storm shield."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "5",
+          "cost": "100"
+        },
+        {
+          "models": "10",
+          "cost": "200"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6241,12 +5787,8 @@ window.data.CHSW = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6280,10 +5822,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Stormfrag auto-launcher",
-              "keywords": [
-                "assault",
-                "blast"
-              ],
+              "keywords": ["assault", "blast"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "5+",
@@ -6324,30 +5863,27 @@ window.data.CHSW = {
           ]
         }
       ],
-      "keywords": [
-        "Infantry",
-        "Imperium",
-        "Wulfen"
-      ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "keywords": ["Infantry", "Imperium", "Wulfen"],
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     },
     {
       "id": "91b61de1-b739-56ea-9a66-5c2c3d1bf286",
       "name": "Wulfen Dreadnought",
       "faction_id": "CHSW",
       "leader": "",
-      "composition": [
-        "1 Wulfen Dreadnought"
-      ],
+      "composition": ["1 Wulfen Dreadnought"],
       "loadout": "This model is equipped with: storm bolter; Fenrisian great axe; great wolf claw.",
       "wargear": [
         "This model’s Fenrisian great axe or great wolf claw and storm bolter can be replaced with 1 blizzard shield and 1 storm bolter.",
         "Any number of this model’s storm bolters can each be replaced with 1 heavy flamer."
       ],
       "transport": "",
+      "points": [
+        {
+          "models": "1",
+          "cost": "155"
+        }
+      ],
       "abilities": {
         "wargear": [
           {
@@ -6355,13 +5891,8 @@ window.data.CHSW = {
             "description": "The bearer has a 4+ invulnerable save."
           }
         ],
-        "core": [
-          "Deadly Demise 1",
-          "Feel No Pain 6+"
-        ],
-        "faction": [
-          "Oath of Moment"
-        ],
+        "core": ["Deadly Demise 1", "Feel No Pain 6+"],
+        "faction": ["Oath of Moment"],
         "primarch": [],
         "invul": {
           "value": "",
@@ -6370,11 +5901,7 @@ window.data.CHSW = {
         "other": [
           {
             "name": "Bestial Rage",
-            "description": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made"
-          },
-          {
-            "name": "a Charge move this turn",
-            "description": "on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
+            "description": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a Charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
           }
         ],
         "special": [],
@@ -6399,10 +5926,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Heavy flamer",
-              "keywords": [
-                "ignores cover",
-                "torrent"
-              ],
+              "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
               "attacks": "D6",
               "skill": "N/A",
@@ -6416,9 +5940,7 @@ window.data.CHSW = {
           "profiles": [
             {
               "name": "Storm bolter",
-              "keywords": [
-                "rapid fire 2"
-              ],
+              "keywords": ["rapid fire 2"],
               "range": "24\"",
               "attacks": "2",
               "skill": "3+",
@@ -6476,10 +5998,11 @@ window.data.CHSW = {
         "Dreadnought",
         "Wulfen Dreadnought"
       ],
-      "factions": [
-        "Adeptus Astartes",
-        "Space Wolves"
-      ]
+      "factions": ["Adeptus Astartes", "Space Wolves"]
     }
-  ]
+  ],
+  "colours": {
+    "banner": "#283743",
+    "header": "#435d63"
+  }
 }
