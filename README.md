@@ -81,7 +81,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/League
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necrons.manifest
 
 ### Orks
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
 
 ### T'au
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifest
