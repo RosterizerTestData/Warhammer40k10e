@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.1.12",
+  "revision": "10.1.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1655,7 +1655,19 @@
         }
       },
       "Character§Platoon Command Squad": {
+        "allowed": {
+          "items": [
+            "Model§Veteran Heavy Weapons Team",
+            "Model§Veteran Guardsman"
+          ]
+        },
         "assets": {
+          "included": [
+            {
+              "item": "Model§Veteran Guardsman",
+              "quantity": 4
+            }
+          ],
           "traits": [
             {
               "item": "Ability§Leader",
@@ -1663,11 +1675,11 @@
             },
             "Ability§Voice of Command",
             "Ability§Command Structure (aura)",
-            "Wargear§Master Vox",
-            "Wargear§Medi-pack",
-            "Wargear§Regimental Standard",
-            "Model§Platoon Commander and 4 Veteran Guardsmen OR",
-            "Model§Platoon Commander, 2 Veteran Guardsmen and 1 Veteran Heavy Weapons Team"
+            "Model§Platoon Commander",
+            {
+              "item": "Ability§Orders",
+              "text": "This unit’s Officer can issue 1 Order to a Regiment unit."
+            }
           ]
         },
         "keywords": {
@@ -1678,17 +1690,77 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Command Squad",
-            "PLATOON COMMANDER:",
-            "Character",
-            "Officer"
+            "Infantry",
+            "Imperium",
+            "Grenades",
+            "Platoon",
+            "Command Squad"
           ]
+        },
+        "rules": {
+          "reduceVetGuardWithHWT": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Veteran Guardsman",
+                    "max"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Veteran Guardsman",
+                    "min"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Veteran Heavy Weapons Team"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Points": {
             "value": 60
+          },
+          "Veteran Guardsman": {
+            "max": 4,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Veteran Heavy Weapons Team": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
-        }
+        },
+        "text": ""
       },
       "Character§Primaris Psyker": {
         "assets": {
@@ -6922,6 +6994,26 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Lasgun": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Infantry Squad—Lasgun"
+                  }
+                ]
+              },
+              "Lasgun + Vox-caster": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Infantry Squad—Lasgun"
+                  },
+                  {
+                    "trait": "Wargear§Vox-caster"
+                  }
+                ]
+              },
               "Flamer": {
                 "order": 2,
                 "tracking": {
@@ -6941,26 +7033,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Infantry Squad—Grenade launcher"
-                  }
-                ]
-              },
-              "Lasgun": {
-                "order": 0,
-                "tracking": {},
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infantry Squad—Lasgun"
-                  }
-                ]
-              },
-              "Lasgun + Vox-caster": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infantry Squad—Lasgun"
-                  },
-                  {
-                    "trait": "Wargear§Vox-caster"
                   }
                 ]
               },
@@ -7030,19 +7102,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Autocannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Autocannon"
-                  }
-                ]
-              },
               "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Infantry Squad—Heavy bolter"
+                  }
+                ]
+              },
+              "Autocannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Autocannon"
                   }
                 ]
               },
@@ -7894,6 +7966,112 @@
           }
         }
       },
+      "Model§Platoon Commander": {
+        "keywords": {
+          "Keywords": [
+            "Character",
+            "Officer"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "Melee": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Close combat weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Platoon Command Squad—Close combat weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Platoon Command Squad—Power fist"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Platoon Command Squad—Power weapon"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "Close combat weapon",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Ranged": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Laspistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Platoon Command Squad—Laspistol"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Bolt pistol"
+                  }
+                ]
+              },
+              "Boltgun": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Boltgun"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Weapon§‘iron Hand’ Straken—Plasma pistol"
+                  }
+                ]
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "Laspistol",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
       "Model§Platoon Commander and 4 Veteran Guardsmen OR": {
         "stats": {
           "Ld": {
@@ -8550,19 +8728,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Chainsword": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Infantry Squad—Chainsword"
-                  }
-                ]
-              },
               "Close combat weapon": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Infantry Squad—Close combat weapon"
+                  }
+                ]
+              },
+              "Chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Infantry Squad—Chainsword"
                   }
                 ]
               },
@@ -8588,6 +8766,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Laspistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Infantry Squad—Laspistol"
+                  }
+                ]
+              },
               "Bolt pistol": {
                 "order": 1,
                 "traits": [
@@ -8601,14 +8787,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Boltgun"
-                  }
-                ]
-              },
-              "Laspistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Infantry Squad—Laspistol"
                   }
                 ]
               },
@@ -10024,6 +10202,291 @@
             "statType": "rank",
             "value": "Hot-shot lasgun",
             "visibility": "active"
+          }
+        }
+      },
+      "Model§Veteran Guardsman": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Platoon Command Squad—Close combat weapon",
+            "Ranged Weapon§Platoon Command Squad—Laspistol"
+          ]
+        },
+        "rules": {
+          "hideWargear": {
+            "evals": []
+          },
+          "lockWeapon": {
+            "evals": []
+          },
+          "Master vox, medi-pack, and regimental standard must be equipped with lasgun or chainsword": {
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Master Vox"
+                  ],
+                  [
+                    "{self}",
+                    "tally",
+                    "Medi-pack"
+                  ],
+                  [
+                    "{self}",
+                    "tally",
+                    "Regimental Standard"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "Master vox, medi-pack, and regimental standard must be equipped with lasgun or chainsword",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "min": 0,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Lasgun"
+                  ],
+                  [
+                    "{self}",
+                    "tally",
+                    "Chainsword"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          },
+          "Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "term": "none"
+              },
+              "Master vox": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Master Vox"
+                  }
+                ]
+              },
+              "Medi-pack": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Medi-pack"
+                  }
+                ]
+              },
+              "Regimental standard": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Regimental Standard"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Lasgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Platoon Command Squad—Lasgun"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Platoon Command Squad—Flamer"
+                  }
+                ]
+              },
+              "Grenade launcher": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Weapon§Platoon Command Squad—Grenade launcher"
+                  }
+                ]
+              },
+              "Heavy flamer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Heavy flamer"
+                  }
+                ]
+              },
+              "Meltagun": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Platoon Command Squad—Meltagun"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Weapon§Platoon Command Squad—Plasma gun"
+                  }
+                ]
+              },
+              "Sniper rifle": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Platoon Command Squad—Sniper rifle"
+                  }
+                ]
+              },
+              "Chainsword": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Platoon Command Squad—Chainsword"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Lasgun",
+            "visibility": "active"
+          }
+        }
+      },
+      "Model§Veteran Heavy Weapons Team": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Platoon Command Squad—Close combat weapon",
+            "Ranged Weapon§Platoon Command Squad—Laspistol"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Infantry Squad—Heavy bolter"
+                  }
+                ]
+              },
+              "Autocannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Autocannon"
+                  }
+                ]
+              },
+              "Lascannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Lascannon"
+                  }
+                ]
+              },
+              "Missile launcher": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Weapon§Astra Militarum Infantry Armoury—Missile launcher"
+                  }
+                ]
+              },
+              "Mortar": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Mortar"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
           }
         }
       },
@@ -29798,9 +30261,9 @@
                   }
                 ]
               },
-              "2 Sergeant, 14 Guardsmen and 2 Heavy Weapons Team": {
-                "order": 4,
-                "term": "2S14G2HWT",
+              "2 Sergeant, 18 Guardsmen": {
+                "order": 2,
+                "term": "2S18G",
                 "traits": [
                   {
                     "trait": "Model§Sergeant"
@@ -29811,7 +30274,7 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 12
+                      "quantity": 15
                     }
                   },
                   {
@@ -29821,10 +30284,7 @@
                     "trait": "Model§Guardsman"
                   },
                   {
-                    "trait": "Model§Heavy Weapons Team"
-                  },
-                  {
-                    "trait": "Model§Heavy Weapons Team"
+                    "trait": "Model§Guardsman"
                   }
                 ]
               },
@@ -29855,9 +30315,9 @@
                   }
                 ]
               },
-              "2 Sergeant, 18 Guardsmen": {
-                "order": 2,
-                "term": "2S18G",
+              "2 Sergeant, 14 Guardsmen and 2 Heavy Weapons Team": {
+                "order": 4,
+                "term": "2S14G2HWT",
                 "traits": [
                   {
                     "trait": "Model§Sergeant"
@@ -29868,7 +30328,7 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 15
+                      "quantity": 12
                     }
                   },
                   {
@@ -29878,7 +30338,10 @@
                     "trait": "Model§Guardsman"
                   },
                   {
-                    "trait": "Model§Guardsman"
+                    "trait": "Model§Heavy Weapons Team"
+                  },
+                  {
+                    "trait": "Model§Heavy Weapons Team"
                   }
                 ]
               }
