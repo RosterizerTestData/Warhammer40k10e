@@ -48,13 +48,13 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_K
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Agents.manifest
 
 ### Imperial_Knights
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.manifes
 
 ### Chaos_Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifes
 
 ### Chaos_Knights
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Knights.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Knights.manifes
 
 ### Chaos_Daemons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Daemons.manifest
@@ -81,13 +81,13 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/League
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necrons.manifest
 
 ### Orks
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.manifes
 
 ### T'au
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.manifest
 
 ### Tyranids
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.manifes
 
 ### Genestealer Cults
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Genestealer_Cults.manifest
