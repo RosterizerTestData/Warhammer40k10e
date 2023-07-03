@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.1.7",
+  "revision": "10.1.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,13 +9,616 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "GF36GA",
+      "slug": "123456",
       "name": "Chaos",
       "game": "Warhammer 40,000"
     }
   ],
   "manifest": {
     "assetTaxonomy": {},
+      "Unit": {
+        "rules": {
+          "AddKeywordFromMark": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Mark of Chaos",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "value"
+                  ]
+                ],
+                "value": "None"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
+          },
+          "AddKhorneMarkAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Blood Fury"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Slaves to Darkness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Khorne"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "AddNurgleMarkAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Spreading Sickness"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Slaves to Darkness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Nurgle"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "AddSlaaneshMarkAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Excessive Cruelty"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Slaves to Darkness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Slaanesh"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "AddTzeentchMarkAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Warpfire"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Slaves to Darkness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tzeentch"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "AddUndividedMarkAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Glory to Chaos"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Slaves to Darkness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaos Undivided"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "PsykersCannotBeKhorne": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "ranks"
+                  ]
+                ],
+                "value": "Khorne"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          },
+          "RemoveMarkStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "value"
+                  ]
+                ],
+                "value": "None"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaos Undivided"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Khorne"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Nurgle"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Slaanesh"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tzeentch"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Slaves to Darkness"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 1
+          },
+          "RequireMarkOnCSM": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "ranks"
+                  ]
+                ],
+                "value": "None"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
+        "stats": {
+          "Mark of Chaos": {
+            "dynamic": true,
+            "ranks": {
+              "Chaos Undivided": {
+                "order": 0
+              },
+              "Khorne": {
+                "order": 1
+              },
+              "None": {
+                "order": 5
+              },
+              "Nurgle": {
+                "order": 3
+              },
+              "Slaanesh": {
+                "order": 4
+              },
+              "Tzeentch": {
+                "order": 2
+              }
+            },
+            "statType": "rank",
+            "value": "Chaos Undivided",
+            "visibility": "normal"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§[psychic] Ability. That Unit Must Take A Leadership Test": {
         "keywords": {
@@ -112,6 +715,14 @@
           ]
         },
         "text": "Each time this unit declares a charge, if one or more of the targets of that charge are within range of an objective marker, add 2 to the Charge roll made for that charge."
+      },
+      "Ability§Blood Fury": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "text": "In the Fight phase, if this unit’s weapons gained the [LETHAL HITS] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Ability§Brutal Example": {
         "keywords": {
@@ -250,7 +861,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is Heretic Astartes, each time a unit with this ability is selected to shoot or fight, it can make a Dark Pact. If it does, select one of the following abilities for that unit’s weapons to gain until the end of the phase:\n- [LETHAL HITS]\n- [SUSTAINED HITS 1]\n\nEach time a unit makes a Dark Pact, after it has resolved its attacks, it must take a Leadership test; if that test is failed, that unit suffers D3 mortal wounds."
       },
       "Ability§Dark Ritual": {
         "keywords": {
@@ -332,6 +944,14 @@
         },
         "text": "At the end of your Movement phase, select one enemy Vehicle unit within 12″ of this model. That unit must take a Battle-shock test."
       },
+      "Ability§Excessive Cruelty": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "text": "In the Fight phase, if this unit’s weapons gained the [SUSTAINED HITS 1] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
       "Ability§Faithful Flock": {
         "keywords": {
           "Keywords": [
@@ -387,6 +1007,14 @@
           ]
         },
         "text": "Each time this model is selected to shoot or fight, after resolving its attacks, select one enemy unit hit by one or more of those attacks that had the"
+      },
+      "Ability§Glory to Chaos": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "text": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1."
       },
       "Ability§Guns Blazing": {
         "keywords": {
@@ -615,6 +1243,14 @@
         },
         "text": "At the start of your Shooting phase, select one enemy Vehicle unit within 12″ of this model. Until the end of the phase, each time a friendly Heretic Astartes model makes an attack that targets that unit, re-roll a Wound roll of 1."
       },
+      "Ability§Spreading Sickness": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "text": "In the Shooting phase, if this unit’s weapons gained the [SUSTAINED HITS 1] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
       "Ability§Stabilisation Talons": {
         "keywords": {
           "Keywords": [
@@ -719,6 +1355,14 @@
           ]
         },
         "text": "While this model is leading a unit, each time a model in that unit makes a melee attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that unit is Below Half-strength, you can re-roll the Wound roll as well."
+      },
+      "Ability§Warpfire": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "text": "In the Shooting phase, if this unit’s weapons gained the [LETHAL HITS] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Ability§Warpflames": {
         "keywords": {
@@ -2146,6 +2790,267 @@
           }
         },
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: flamer tendril; melta tendril; plasma pistol; exalted weapon.\n\nThis model’s exalted weapon can be replaced with 1 warp hammer."
+      },
+      "Detachment§Slaves to Darkness": {
+        "text": "## Marks of Chaos\n\nWhen mustering your army, each time you select a Heretic Astartes unit to include in your army, if that unit is not an Epic Hero and does not already have one or more of the keywords listed below, you must select one of the keywords listed below for that unit to gain (note which units gain which keywords in this way on your Army Roster). Each time a unit with one of these keywords makes a Dark Pact, it gains the associated ability below until the end of the phase.\n\n**Khorne - Blood Fury**: In the Fight phase, if this unit’s weapons gained the [LETHAL HITS] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.\n\n**Tzeentch - Warpfire**: In the Shooting phase, if this unit’s weapons gained the [LETHAL HITS] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.\n\n**Nurgle - Spreading Sickness**: In the Shooting phase, if this unit’s weapons gained the [SUSTAINED HITS 1] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit. \n\n**Slaanesh - Excessive Cruelty**: In the Fight phase, if this unit’s weapons gained the [SUSTAINED HITS 1] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.\n\n**Chaos Undivided - Glory to Chaos**: Each time a model in this unit makes an attack, re-roll a Hit roll of 1.\n\n### RESTRICTIONS\n- You cannot select the Khorne keyword for a Psyker unit to gain.\n- A Character unit with the Leader ability can only be attached to a Bodyguard unit if both of those units share one of the same keywords from the list above."
+      },
+      "Enhancement§Eye of Tzeentch": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "rules": {
+          "Tzeentch model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tzeentch"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "Heretic Astartes Tzeentch model only. Each time the bearer’s unit makes a Dark Pact, take a Leadership test for the bearer: if that test is passed, you gain 1CP."
+      },
+      "Enhancement§Intoxicating Elixir": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "rules": {
+          "GrantBonus": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          },
+          "Slaanesh model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Slaanesh"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Heretic Astartes Slaanesh model only. The bearer has the Feel No Pain 5+ ability. Each time the bearer shoots or fights, if the bearer’s unit made a Dark Pact this phase, after the bearer has resolved those attacks, select one enemy unit that was hit by one or more of those attacks; that enemy unit must take a Battle-shock test."
+      },
+      "Enhancement§Liber Hereticus": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "rules": {
+          "Chaos Undivided model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaos Undivided"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 40
+          }
+        },
+        "text": "Heretic Astartes Chaos Undivided model only. Each time the bearer’s unit makes a Dark Pact, that unit’s weapons gain the [LETHAL HITS] and [SUSTAINED HITS 1] ability until the end of the phase, instead of just gaining one of those abilities."
+      },
+      "Enhancement§Orbs of Unlife": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "rules": {
+          "Nurgle model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Nurgle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Heretic Astartes Nurgle model only. At the end of the Fight phase, roll one D6 for every enemy unit within 6\" of the bearer, adding 1 to the result if the bearer’s unit made a Dark Pact that phase: on a 4+, that enemy unit suffers D3 mortal wounds."
+      },
+      "Enhancement§Talisman of Burning Blood": {
+        "keywords": {
+          "Keywords": [
+            "Slaves to Darkness"
+          ]
+        },
+        "rules": {
+          "GrantBonus": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          },
+          "Khorne model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Khorne"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Heretic Astartes Khorne model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. Each time the bearer’s unit makes a Dark Pact, until the end of the phase, add D3 to the Attacks and Strength characteristics of the bearer’s melee weapons instead."
       },
       "Melee Weapon§Abaddon The Despoiler—Drach’nyen": {
         "assets": {
@@ -14084,6 +14989,20 @@
       },
       "Roster§Army": {
         "stats": {
+          "Detachment": {
+            "dynamic": false,
+            "ranks": {
+              "Slaves to Darkness": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Detachment§Slaves to Darkness"
+                  }
+                ]
+              }
+            },
+            "value": "Slaves to Darkness"
+          },
           "Faction": {
             "dynamic": false,
             "ranks": {
