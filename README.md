@@ -48,7 +48,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_K
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Agents.manifest
 
 ### Imperial_Knights
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.manifest
 
 ### Chaos_Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifes
