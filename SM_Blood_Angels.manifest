@@ -1,6 +1,6 @@
 {
   "name": "Blood Angels",
-  "revision": "10.2.0",
+  "revision": "10.2.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "3EJTTQ",
+      "slug": "XEFSJ9",
       "name": "Space Marines",
       "game": "Warhammer 40k"
     }
@@ -82,7 +82,7 @@
             "Special"
           ]
         },
-        "text": "If a Chaplain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs, it can be attached to this unit instead."
+        "text": ""
       },
       "Ability§Death Mask of Sanguinius": {
         "keywords": {
@@ -173,7 +173,7 @@
         },
         "text": "While this model is leading a unit, that unit is eligible to declare a charge in a turn in which it Advanced."
       },
-      "Ability§Lord Regent of The Imperium Nihilus": {
+      "Ability§Lord Regent of the Imperium Nihilus": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -455,7 +455,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Assault Squad\n\n\n\n* Command Squad\n\n\n\n* Tactical Squad\n\n\n\n* Vanguard Veteran Squad TYCHO Your army cannot contain both Captain Tycho and Tycho the Lost."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Assault Squad\n\n\n\n* Command Squad\n\n\n\n* Tactical Squad\n\n\n\n* Vanguard Veteran Squad"
             },
             "Ability§Oath of Moment",
             "Ability§Gifted Commander",
@@ -492,6 +492,27 @@
             "Tycho"
           ]
         },
+        "rules": {
+          "Your army cannot include Captain Tycho and Tycho the Lost.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Unit Tycho"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -510,6 +531,12 @@
           },
           "T": {
             "value": 4
+          },
+          "Unit Tycho": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "W": {
             "value": 5
@@ -606,7 +633,7 @@
               "text": "This model can be attached to the following units:\n\n\n\n* Assault Squad with Jump Packs\n\n\n\n* Sanguinary Guard\n\n\n\n* Vanguard Veteran Squad with Jump Packs"
             },
             "Ability§Oath of Moment",
-            "Ability§Lord Regent of The Imperium Nihilus",
+            "Ability§Lord Regent of the Imperium Nihilus",
             "Ability§Death Mask of Sanguinius",
             {
               "item": "Ability§Invulnerable",
@@ -1041,6 +1068,27 @@
             "Tycho the Lost"
           ]
         },
+        "rules": {
+          "Your army cannot include Captain Tycho and Tycho the Lost.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Unit Tycho"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1059,6 +1107,12 @@
           },
           "T": {
             "value": 4
+          },
+          "Unit Tycho": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "W": {
             "value": 4
@@ -1357,7 +1411,10 @@
             "Ability§Oath of Moment",
             "Ability§Black Rage",
             "Ability§Visions of Heresy",
-            "Ability§Death Company"
+            {
+              "item": "Ability§Death Company",
+              "text": "If a Chaplain model from your army with the Leader ability can be attached to an Intercessor Squad, it can be attached to this unit instead."
+            }
           ]
         },
         "keywords": {
@@ -5684,9 +5741,7 @@
       },
       "Vehicle§Baal Predator": {
         "assets": {
-          "included": [
-            "Melee Weapon§Baal Predator—Armoured tracks"
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Overcharged Engines",
@@ -5697,7 +5752,8 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Melee Weapon§Baal Predator—Armoured tracks"
           ]
         },
         "keywords": {
@@ -5722,7 +5778,7 @@
             "groupOrder": 2,
             "ranks": {
               "Baal flamestorm cannon": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Baal Predator—Baal flamestorm cannon"
@@ -5730,7 +5786,7 @@
                 ]
               },
               "Twin assault cannon": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Baal Predator—Twin assault cannon"
@@ -5738,8 +5794,9 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
-            "value": "Baal flamestorm cannon",
+            "value": "Twin assault cannon",
             "visibility": "active"
           },
           "Hunter-Killer Missile": {
@@ -5759,6 +5816,7 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
             "value": 0,
             "visibility": "normal"
@@ -5806,6 +5864,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -5827,6 +5886,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": 0,
             "visibility": "normal"
@@ -6268,6 +6328,27 @@
         }
       },
       "Wargear§Magna-grapple": {
+        "rules": {
+          "removeSmokeKeyword": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Smoke"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "text": "The bearer loses the Smoke keyword, but add 2 to Charge rolls made for the bearer if one or more of the targets of that charge is a Monster or Vehicle unit."
       },
       "Wargear§Sanguinary Banner": {
