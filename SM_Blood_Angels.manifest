@@ -1,6 +1,6 @@
 {
   "name": "Blood Angels",
-  "revision": "10.2.2",
+  "revision": "10.2.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "AXGFJE",
+      "slug": "KQBKXX",
       "name": "Space Marines",
       "game": "Warhammer 40k"
     }
@@ -17,7 +17,7 @@
   "manifest": {
     "assetTaxonomy": {},
     "assetCatalog": {
-      "Ability§An Honourable Death In Combat": {
+      "Ability§An Honourable Death in Combat": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -149,7 +149,7 @@
         },
         "text": "While this model is leading a unit, each time that unit is selected to shoot, select one of the following abilities to apply to ranged weapons equipped by models in that unit until the end of the phase: \n\n* [ASSAULT] \n\n* [HEAVY] \n\n* [RAPID FIRE 1]"
       },
-      "Ability§Guardian of The Lost": {
+      "Ability§Guardian of the Lost": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -316,7 +316,7 @@
             "Other"
           ]
         },
-        "text": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model"
+        "text": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
       },
       "Character§Astorath": {
         "aspects": {
@@ -700,7 +700,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Assault Squad\n\n\n\n* Command Squad\n\n\n\n* Tactical Squad\n\n\n\n* Vanguard Veteran Squad FLESH TEARERS This model is from the Flesh Tearers Chapter, a successor of the Blood Angels. For all rules purposes, it is treated as a Blood Angels model, but cannot be included in an army that includes any other Blood Angels Epic Hero models."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Assault Squad\n\n\n\n* Command Squad\n\n\n\n* Tactical Squad\n\n\n\n* Vanguard Veteran Squad"
             },
             "Ability§Oath of Moment",
             "Ability§Lord of Slaughter",
@@ -735,6 +735,78 @@
             "Chapter Master",
             "Gabriel Seth"
           ]
+        },
+        "rules": {
+          "Gabriel Seth cannot be included in an army that includes any other Blood Angels Epic Hero models.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Astorath",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Brother Corbulo",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Captain Tycho",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Chief Librarian Mephiston",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Commander Dante",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Lemartes",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§The Sanguinor",
+                    "quantity"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Tycho the Lost",
+                    "quantity"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Ld": {
@@ -780,7 +852,7 @@
               "text": "This model can be attached to the following unit:\n\n\n\n* Death Company Marines with Jump Packs"
             },
             "Ability§Oath of Moment",
-            "Ability§Guardian of The Lost",
+            "Ability§Guardian of the Lost",
             "Ability§Fury Unbound",
             {
               "item": "Ability§Invulnerable",
@@ -1525,6 +1597,23 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "Bolt pistol & bolt rifle": {
+                "order": 0,
+                "term": "Rifle"
+              },
+              "Heavy bolt pistol & chainsword": {
+                "order": 1,
+                "term": "Sword"
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt pistol & bolt rifle",
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -1560,8 +1649,11 @@
             },
             "Ability§Oath of Moment",
             "Ability§Black Rage",
-            "Ability§An Honourable Death In Combat",
-            "Ability§Death Company"
+            "Ability§An Honourable Death in Combat",
+            {
+              "item": "Ability§Death Company",
+              "text": "If a Chaplain model from your army with the Leader ability can be attached to a Tactical Squad, it can be attached to this unit instead."
+            }
           ]
         },
         "keywords": {
@@ -1625,7 +1717,10 @@
             "Ability§Oath of Moment",
             "Ability§Black Rage",
             "Ability§Berserk Fury",
-            "Ability§Death Company"
+            {
+              "item": "Ability§Death Company",
+              "text": "If a Chaplain model from your army with the Leader ability can be attached to an Assault Squad with Jump Packs, it can be attached to this unit instead."
+            }
           ]
         },
         "keywords": {
@@ -2816,6 +2911,11 @@
         }
       },
       "Model§Death Company Intercessor": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Death Company Intercessors—Close combat weapon"
+          ]
+        },
         "rules": {
           "Chainsword can not combine with Bolt Pistol": {
             "evals": [
@@ -2835,6 +2935,264 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "setChainswordLoadouts": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 1",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 1",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 1",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 1",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Loadout",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "Sword"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 150
+          },
+          "setRifleLoadouts": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 1",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 1",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 1",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 1",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Set 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Set 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Loadout",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "Rifle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 150
           },
           "Unique loadouts can not take other options": {
             "evals": [
@@ -2876,10 +3234,11 @@
           "M": {
             "value": 6
           },
-          "Melee Options": {
+          "Melee Set 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
+            "label": "Chainsword",
             "ranks": {
               "-": {
                 "order": 0
@@ -2933,34 +3292,52 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "-",
+            "value": "Astartes chainsword",
+            "visibility": "hidden"
+          },
+          "Melee Set 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Pistol",
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
+                  }
+                ]
+              },
+              "-": {
+                "order": 1
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "Bolt pistol",
             "visibility": "normal"
           },
           "OC": {
             "value": 1
           },
-          "Ranged Options": {
+          "Ranged Set 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
+            "label": "Heavy Pistol",
             "ranks": {
               "-": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Death Company Intercessors—Astartes grenade launcher"
-                  }
-                ]
+                "order": 0
               },
-              "Bolt pistol": {
+              "Heavy bolt pistol": {
                 "order": 1,
-                "tracking": {
-                  "bolt": 1
-                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
+                    "trait": "Ranged Weapon§Death Company Intercessors—Heavy bolt pistol"
                   }
                 ]
               },
@@ -2975,16 +3352,8 @@
                   }
                 ]
               },
-              "Heavy bolt pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Heavy bolt pistol"
-                  }
-                ]
-              },
               "Plasma pistol": {
-                "order": 4,
+                "order": 3,
                 "tracking": {
                   "special1": 1
                 },
@@ -2995,71 +3364,93 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
-            "value": "-",
-            "visibility": "active"
+            "value": "Heavy bolt pistol",
+            "visibility": "hidden"
+          },
+          "Ranged Set 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Rifle",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Bolt rifle": {
+                "order": 1,
+                "tracking": {
+                  "bolt": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
+                  }
+                ]
+              },
+              "Bolt rifle & grenade launcher": {
+                "order": 2,
+                "tracking": {
+                  "bolt": 1,
+                  "grenade": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
+                  },
+                  {
+                    "trait": "Weapon§Death Company Intercessors—Astartes grenade launcher"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 3,
+                "tracking": {
+                  "melee": 1,
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Power fist"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 4,
+                "tracking": {
+                  "melee": 1,
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Power weapon"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 5,
+                "tracking": {
+                  "melee": 1,
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Company Intercessors—Thunder hammer"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "Bolt rifle",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 3
           },
           "T": {
             "value": 4
-          },
-          "Unique Loadouts": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Bolt Rifle & Bolt Pistol": {
-                "order": 1,
-                "tracking": {
-                  "special1": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Close combat weapon"
-                  }
-                ]
-              },
-              "Bolt Rifle, Bolt Pistol, & Astartes Grenade Launcher": {
-                "order": 2,
-                "tracking": {
-                  "grenade": 1,
-                  "special1": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt rifle"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Bolt pistol"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Astartes grenade launcher – frag"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Death Company Intercessors—Astartes grenade launcher – krak"
-                  },
-                  {
-                    "trait": "Melee Weapon§Death Company Intercessors—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Bolt Rifle & Bolt Pistol",
-            "visibility": "normal"
           },
           "W": {
             "value": 2
@@ -3068,6 +3459,26 @@
       },
       "Model§Death Company Marine": {
         "rules": {
+          "Must select melee and ranged options or a unique loadout.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "selected weapons",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Unique loadouts can not take other options": {
             "evals": [
               {
@@ -3114,7 +3525,10 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0
+                "order": 0,
+                "tracking": {
+                  "selected weapons": 1
+                }
               },
               "Astartes chainsword": {
                 "order": 1,
@@ -3163,7 +3577,10 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0
+                "order": 0,
+                "tracking": {
+                  "selected weapons": 1
+                }
               },
               "Bolt pistol": {
                 "order": 1,
@@ -3214,6 +3631,12 @@
             "value": "-",
             "visibility": "active"
           },
+          "selected weapons": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Sv": {
             "value": 3
           },
@@ -3226,7 +3649,10 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0
+                "order": 0,
+                "tracking": {
+                  "selected weapons": 2
+                }
               },
               "Boltgun & Close Combat Weapon": {
                 "order": 1,
@@ -3257,7 +3683,7 @@
               }
             },
             "statType": "rank",
-            "value": "-",
+            "value": "Boltgun & Close Combat Weapon",
             "visibility": "normal"
           },
           "W": {
@@ -5491,7 +5917,7 @@
                 ]
               }
             },
-            "value": "Sons of Sanguinius"
+            "value": "-"
           },
           "Faction": {
             "dynamic": false,
@@ -6075,10 +6501,7 @@
               }
             },
             "Ability§Oath of Moment",
-            {
-              "item": "Ability§Wrathful Rampage",
-              "text": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
-            }
+            "Ability§Wrathful Rampage"
           ]
         },
         "keywords": {
