@@ -1,6 +1,6 @@
 {
   "name": "Genestealer Cults",
-  "revision": "10.2.8",
+  "revision": "10.2.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,13 +9,52 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "MWEXDY",
-      "name": "40k10e",
+      "slug": "123456",
+      "name": "Astra Militarum",
       "game": "Warhammer 40k"
     }
   ],
   "manifest": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Character": {
+        "rules": {
+          "An Astra Militarum model cannot be your Warlord.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Astra Militarum"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§A Plan Generations In The Making": {
         "keywords": {
@@ -1103,6 +1142,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Sanctus bio-dagger": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Sanctus—Sanctus bio-dagger"
+                  }
+                ]
+              },
               "Cult sniper rifle": {
                 "order": 1,
                 "traits": [
@@ -1111,14 +1158,6 @@
                   },
                   {
                     "trait": "Melee Weapon§Sanctus—Close combat weapon"
-                  }
-                ]
-              },
-              "Sanctus bio-dagger": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Sanctus—Sanctus bio-dagger"
                   }
                 ]
               }
@@ -2289,19 +2328,19 @@
             "dynamic": true,
             "group": "Loadout",
             "ranks": {
-              "Heavy improvised weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aberrants—Heavy improvised weapon"
-                  }
-                ]
-              },
               "Heavy power weapon": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Aberrants—Heavy power weapon"
+                  }
+                ]
+              },
+              "Heavy improvised weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Aberrants—Heavy improvised weapon"
                   }
                 ]
               }
@@ -2334,19 +2373,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Achilles missile launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Achilles Ridgerunners—Achilles missile launcher"
-                  }
-                ]
-              },
               "Heavy mining laser": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Achilles Ridgerunners—Heavy mining laser"
+                  }
+                ]
+              },
+              "Achilles missile launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Achilles Ridgerunners—Achilles missile launcher"
                   }
                 ]
               },
@@ -2433,18 +2472,18 @@
                   }
                 ]
               },
-              "Cult icon, cult claws and knife": {
-                "order": 4,
+              "Hand flamer, cult claws and knife": {
+                "order": 1,
                 "tracking": {
-                  "Icons": 1,
+                  "Icons": 0,
                   "specialWeapons": 0
                 },
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
+                    "trait": "Ranged Weapon§Acolyte Hybrids—Hand flamer"
                   },
                   {
-                    "trait": "Wargear§Cult Icon"
+                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
                   }
                 ]
               },
@@ -2463,21 +2502,6 @@
                   }
                 ]
               },
-              "Hand flamer, cult claws and knife": {
-                "order": 1,
-                "tracking": {
-                  "Icons": 0,
-                  "specialWeapons": 0
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Acolyte Hybrids—Hand flamer"
-                  },
-                  {
-                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
-                  }
-                ]
-              },
               "Heavy mining tool": {
                 "order": 3,
                 "tracking": {
@@ -2487,6 +2511,21 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Acolyte Hybrids—Heavy mining tool"
+                  }
+                ]
+              },
+              "Cult icon, cult claws and knife": {
+                "order": 4,
+                "tracking": {
+                  "Icons": 1,
+                  "specialWeapons": 0
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Acolyte Hybrids—Cult claws and knife"
+                  },
+                  {
+                    "trait": "Wargear§Cult Icon"
                   }
                 ]
               }
@@ -2600,19 +2639,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Atalan power weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Atalan Jackals—Atalan power weapon"
-                  }
-                ]
-              },
               "Close combat weapon": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Atalan Jackals—Close combat weapon"
+                  }
+                ]
+              },
+              "Atalan power weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Atalan Jackals—Atalan power weapon"
                   }
                 ]
               }
@@ -2682,19 +2721,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Atalan incinerator": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atalan Jackals—Atalan incinerator"
-                  }
-                ]
-              },
               "Heavy stubber": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Atalan Jackals—Heavy stubber"
+                  }
+                ]
+              },
+              "Atalan incinerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Atalan Jackals—Atalan incinerator"
                   }
                 ]
               },
@@ -2757,17 +2796,6 @@
                   }
                 ]
               },
-              "Cult icon": {
-                "order": 2,
-                "tracking": {
-                  "Icons": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Wargear§Cult Icon"
-                  }
-                ]
-              },
               "Hand flamer": {
                 "order": 1,
                 "tracking": {
@@ -2776,6 +2804,17 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Hybrid Metamorphs—Hand flamer"
+                  }
+                ]
+              },
+              "Cult icon": {
+                "order": 2,
+                "tracking": {
+                  "Icons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Cult Icon"
                   }
                 ]
               }
@@ -2861,42 +2900,6 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Flamer": {
-                "order": 2,
-                "tracking": {
-                  "HeavyWeapons": 0,
-                  "SpecialWeapons": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Flamer"
-                  }
-                ]
-              },
-              "Grenade launcher": {
-                "order": 3,
-                "tracking": {
-                  "HeavyWeapons": 0,
-                  "SpecialWeapons": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Weapon§Neophyte Hybrids—Grenade launcher"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 5,
-                "tracking": {
-                  "HeavyWeapons": 1,
-                  "SpecialWeapons": 0
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Heavy stubber"
-                  }
-                ]
-              },
               "Hybrid firearm": {
                 "order": 0,
                 "tracking": {
@@ -2926,6 +2929,54 @@
                   }
                 ]
               },
+              "Flamer": {
+                "order": 2,
+                "tracking": {
+                  "HeavyWeapons": 0,
+                  "SpecialWeapons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Flamer"
+                  }
+                ]
+              },
+              "Grenade launcher": {
+                "order": 3,
+                "tracking": {
+                  "HeavyWeapons": 0,
+                  "SpecialWeapons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Neophyte Hybrids—Grenade launcher"
+                  }
+                ]
+              },
+              "Webber": {
+                "order": 4,
+                "tracking": {
+                  "HeavyWeapons": 0,
+                  "SpecialWeapons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Webber"
+                  }
+                ]
+              },
+              "Heavy stubber": {
+                "order": 5,
+                "tracking": {
+                  "HeavyWeapons": 1,
+                  "SpecialWeapons": 0
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Neophyte Hybrids—Heavy stubber"
+                  }
+                ]
+              },
               "Mining laser": {
                 "order": 6,
                 "tracking": {
@@ -2947,18 +2998,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Neophyte Hybrids—Seismic cannon"
-                  }
-                ]
-              },
-              "Webber": {
-                "order": 4,
-                "tracking": {
-                  "HeavyWeapons": 0,
-                  "SpecialWeapons": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Neophyte Hybrids—Webber"
                   }
                 ]
               }
@@ -4627,7 +4666,139 @@
         }
       },
       "Roster§Army": {
+        "constraints": {
+          "not": [
+            "Astra Militarum",
+            "Epic Hero"
+          ],
+          "none": [
+            "Ogryn",
+            "Ratling Snipers",
+            "Militarum Tempestus",
+            "Commissar",
+            "Regimental Preacher",
+            "Regimental Enginseer",
+            "Munitorum Servitors",
+            "Aircraft"
+          ]
+        },
+        "rules": {
+          "Maximum 250 points of Astra Militarum in an Incursion game.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Incursion"
+              },
+              {
+                "actionable": true,
+                "max": 250,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Ally 1 Points",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error",
+            "order": 60
+          },
+          "Maximum 500 points of Astra Militarum in a Strike Force game.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Strike Force"
+              },
+              {
+                "actionable": true,
+                "max": 500,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Ally 1 Points",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error",
+            "order": 60
+          },
+          "Maximum 750 points of Astra Militarum in an Onslaught game.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "Onslaught"
+              },
+              {
+                "actionable": true,
+                "max": 750,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Ally 1 Points",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error",
+            "order": 60
+          }
+        },
         "stats": {
+          "Allied faction 1": {
+            "dynamic": true,
+            "ranks": {
+              "Astra Militarum": {
+                "order": 1
+              }
+            },
+            "visibility": "normal"
+          },
           "Detachment": {
             "dynamic": false,
             "ranks": {
@@ -5283,19 +5454,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Clearance incinerator": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Goliath Rockgrinder—Clearance incinerator"
-                  }
-                ]
-              },
               "Heavy mining laser": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Goliath Rockgrinder—Heavy mining laser"
+                  }
+                ]
+              },
+              "Clearance incinerator": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Goliath Rockgrinder—Clearance incinerator"
                   }
                 ]
               },
