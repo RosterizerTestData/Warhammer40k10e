@@ -22,7 +22,7 @@ const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain'
 
 Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
-  
+
   let manifest = {
     revision: '10.0.10',
     name: window.data[key].name,
@@ -36,7 +36,7 @@ Object.keys(window.data).forEach(key => {
       {
         slug: '123456',
         name: '40k10e',
-        game: 'Warhammer 40,000'
+        game: 'Warhammer 40k'
       }
     ],
     manifest: {
@@ -145,7 +145,7 @@ Object.keys(window.data).forEach(key => {
       });
       delete a[i][range[0] + 'Weapons'];
     });
-    
+
     if(datasheet.stats.length){
 
       // create blank unit
@@ -158,7 +158,7 @@ Object.keys(window.data).forEach(key => {
       }
       let unitKey = unitClass+'§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
       let unit = manifest.manifest.assetCatalog[unitKey] = {};
-    
+
       // create all abilities
       datasheet.abilities.core.forEach(ability => {
         let abilityDesignation = (ability.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
@@ -275,7 +275,7 @@ Object.keys(window.data).forEach(key => {
       }
       delete a[i].abilities.invul;
       delete a[i].abilities;
-    
+
       // create leader trait
       if(datasheet.leader){
         unit.assets = unit.assets || {};
@@ -288,7 +288,7 @@ Object.keys(window.data).forEach(key => {
         };
       }
       delete a[i].leader;
-    
+
       // create transport trait
       if(datasheet.transport){
         unit.assets = unit.assets || {};
@@ -299,7 +299,7 @@ Object.keys(window.data).forEach(key => {
         });
       }
       delete a[i].transport;
-    
+
       // set keywords
       unit.keywords = {
         Faction: datasheet.factions,
@@ -309,8 +309,8 @@ Object.keys(window.data).forEach(key => {
       if(unit.keywords.Keywords.includes('Epic Hero')) unit.aspects = {Unique: true};
       delete a[i].factions;
       delete a[i].keywords;
-    
-    
+
+
       // determine model composition
       // console.log(datasheet.composition)
       let comp = (datasheet.composition ? datasheet.composition.map(el => el.split(/ (.*)/)) : [['1',datasheet.name]]).filter(el => el[0]);
@@ -318,7 +318,7 @@ Object.keys(window.data).forEach(key => {
         if(el.length === 1) a[i] = ['1',el[0]];
       });
       delete a[i].composition;
-    
+
       // determine stats for unit/model(s)
       let singleModelUnit = !comp.length || (comp.length === 1 && comp[0][0] == 1);
       if(!singleModelUnit){
@@ -408,7 +408,7 @@ Object.keys(window.data).forEach(key => {
         });
       }
       delete a[i].stats;
-    
+
       let simpleSheet = singleModelUnit;
       if(
         (
@@ -490,13 +490,13 @@ Object.keys(window.data).forEach(key => {
         });
       }
     }
-  
-  
+
+
     // console.log(weaponList)
     // console.log(comp,singleModelUnit,simpleSheet,simpleWargear)
     // console.log(datasheet.loadout)
     // console.log(datasheet.wargear)
-  
+
     // console.log(datasheet)
   });
   let set = new Set()
