@@ -68,6 +68,9 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousa
 ### World_Eaters
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
 
+### Aeldari/Drukhari common
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.manifest
+
 ### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifest
 
