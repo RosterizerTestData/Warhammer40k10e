@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptu
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Mechanicus.manifest
 
 ### Astra_Militarum
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifest
 
 ### Grey_Knights
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.manifest
