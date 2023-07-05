@@ -54,7 +54,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperi
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.manifes
 
 ### Chaos_Knights
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Knights.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Knights.manifest
 
 ### Chaos_Daemons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Daemons.manifest
