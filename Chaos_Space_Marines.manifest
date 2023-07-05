@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.1.9",
+  "revision": "10.1.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1657,6 +1657,27 @@
             "Chaos Lord in Terminator Armour"
           ]
         },
+        "rules": {
+          "Accursed weapons can not be paired with a ranged option": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1664,19 +1685,59 @@
           "M": {
             "value": 5
           },
+          "Melee Option": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Exalted weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Exalted weapon"
+                  }
+                ]
+              },
+              "Chainfist": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Chainfist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 2,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Paired accursed weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Exalted weapon",
+            "visibility": "active"
+          },
           "OC": {
             "value": 1
           },
           "Points": {
             "value": 100
           },
-          "sampleLoadout": {
+          "Ranged Option": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
               "Combi-bolter": {
                 "order": 0,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Chaos Lord In Terminator Armour—Combi-bolter"
@@ -1685,48 +1746,22 @@
               },
               "Combi-weapon": {
                 "order": 1,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Chaos Lord In Terminator Armour—Combi-weapon"
                   }
                 ]
               },
-              "Chainfist": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Chainfist"
-                  }
-                ]
-              },
-              "Exalted weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Exalted weapon"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Paired accursed weapons"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Power fist"
-                  }
-                ]
+              "-": {
+                "order": 2
               }
             },
             "statType": "rank",
             "value": "Combi-bolter",
-            "visibility": "active"
+            "visibility": "normal"
           },
           "Sv": {
             "value": 2
@@ -1738,7 +1773,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: combi-bolter; exalted weapon.\n\nThis model’s combi-bolter can be replaced with 1 combi-weapon.\n\n*This model’s exalted weapon can be replaced with 1 chainfist.\n\n*This model’s combi-bolter and exalted weapon can be replaced with 1 paired accursed weapons."
+        "text": ""
       },
       "Character§Cypher": {
         "aspects": {
@@ -2004,7 +2039,11 @@
               }
             },
             "Ranged Weapon§Heretic Astartes Daemon Prince—Infernal cannon",
-            "Weapon§Heretic Astartes Daemon Prince—Hellforged weapons"
+            "Weapon§Heretic Astartes Daemon Prince—Hellforged weapons",
+            {
+              "item": "Ability§Daemonic Allegiance",
+              "text": "Daemon Prince of Khorne: If this model has the Khorne keyword, add 2 to the Strength characteristic of its hellforged weapons. \nDaemon Prince of Tzeentch: If this model has the Tzeentch keyword, add 3 to the Attacks characteristic of its infernal cannon. \nDaemon Prince of Nurgle: If this model has the Nurgle keyword, add 1 to its Toughness characteristic. \nDaemon Prince of Slaanesh: If this model has the Slaanesh keyword, add 2\" to its Move characteristic."
+            }
           ]
         },
         "keywords": {
@@ -2022,12 +2061,187 @@
             "Daemon Prince"
           ]
         },
+        "rules": {
+          "khorne": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "khorne"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Nurgle": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "T",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "nurgle"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Slaanesh": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "slaanesh"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Tzeentch": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "tzeentch"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
           "M": {
             "value": 8
+          },
+          "Mark of Chaos": {
+            "ranks": {
+              "Khorne": {
+                "order": 1,
+                "tracking": {
+                  "khorne": 1
+                }
+              },
+              "Tzeentch": {
+                "order": 2,
+                "tracking": {
+                  "tzeentch": 1
+                }
+              },
+              "Nurgle": {
+                "order": 3,
+                "tracking": {
+                  "nurgle": 1
+                }
+              },
+              "Slaanesh": {
+                "order": 4,
+                "tracking": {
+                  "slaanesh": 1
+                }
+              }
+            }
           },
           "OC": {
             "value": 3
@@ -2045,7 +2259,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “DAEMONIC ALLEGIANCE” that must be added to the appropriate ability: \n\n* Daemon Prince of Khorne\n* Daemon Prince of Tzeentch\n* Daemon Prince of Nurgle\n* Daemon Prince of Slaanesh"
+        "text": ""
       },
       "Character§Heretic Astartes Daemon Prince with Wings": {
         "assets": {
@@ -2071,7 +2285,11 @@
               }
             },
             "Ranged Weapon§Heretic Astartes Daemon Prince with Wings—Infernal cannon",
-            "Weapon§Heretic Astartes Daemon Prince with Wings—Hellforged weapons"
+            "Weapon§Heretic Astartes Daemon Prince with Wings—Hellforged weapons",
+            {
+              "item": "Ability§Daemonic Allegiance",
+              "text": "Daemon Prince of Khorne: If this model has the Khorne keyword, add 2 to the Strength characteristic of its hellforged weapons. Daemon Prince of Tzeentch: If this model has the Tzeentch keyword, add 3 to the Attacks characteristic of its infernal cannon. Daemon Prince of Nurgle: If this model has the Nurgle keyword, add 1 to its Toughness characteristic. Daemon Prince of Slaanesh: If this model has the Slaanesh keyword, add 2\" to its Move characteristic."
+            }
           ]
         },
         "keywords": {
@@ -2090,12 +2308,195 @@
             "Daemon Prince with Wings"
           ]
         },
+        "rules": {
+          "Khorne": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "khorne"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Nurgle": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "T",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "nurgle"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Slaanesh": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "slaanesh"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Tzeentch": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "tzeentch"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
           "M": {
             "value": 12
+          },
+          "Mark of Chaos": {
+            "dynamic": false,
+            "ranks": {
+              "Chaos Undivided": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Khorne": {
+                "order": 1,
+                "tracking": {
+                  "khorne": 1
+                }
+              },
+              "Tzeentch": {
+                "order": 2,
+                "tracking": {
+                  "tzeentch": 1
+                }
+              },
+              "Nurgle": {
+                "order": 3,
+                "tracking": {
+                  "nurgle": 1
+                }
+              },
+              "Slaanesh": {
+                "order": 4,
+                "tracking": {
+                  "slaanesh": 1
+                }
+              },
+              "None": {
+                "order": 5
+              }
+            }
           },
           "OC": {
             "value": 3
@@ -2113,7 +2514,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “DAEMONIC ALLEGIANCE” that must be added to the appropriate ability: \n\n* Daemon Prince of Khorne\n* Daemon Prince of Tzeentch\n* Daemon Prince of Nurgle\n* Daemon Prince of Slaanesh"
+        "text": ""
       },
       "Character§Huron Blackheart": {
         "aspects": {
@@ -5973,87 +6374,86 @@
         }
       },
       "Model§Aspiring Champion": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Legionaries—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "Maximum 1 Plasma pistol": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "plasma"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Chaos Icon": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Balefire tome": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Legionaries—Balefire tome"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Bolt pistol": {
+              "1": {
                 "order": 1,
+                "tracking": {
+                  "icon": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Legionaries—Bolt pistol"
+                    "trait": "Wargear§Chaos Icon"
                   }
                 ]
-              },
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Boltgun": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Legionaries—Boltgun"
                   }
                 ]
               },
-              "Flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Legionaries—Flamer"
-                  }
-                ]
-              },
-              "Havoc autocannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Legionaries—Havoc autocannon"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Legionaries—Meltagun"
-                  }
-                ]
-              },
               "Plasma pistol": {
-                "order": 6,
+                "order": 1,
+                "tracking": {
+                  "plasma": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Legionaries—Plasma pistol"
                   }
                 ]
               },
-              "Reaper chaincannon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Legionaries—Reaper chaincannon"
-                  }
-                ]
-              },
               "Accursed weapon": {
-                "order": 8,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Legionaries—Accursed weapon"
@@ -6061,23 +6461,15 @@
                 ]
               },
               "Astartes chainsword": {
-                "order": 9,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Legionaries—Astartes chainsword"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Legionaries—Close combat weapon"
-                  }
-                ]
-              },
               "Heavy melee weapon": {
-                "order": 11,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Legionaries—Heavy melee weapon"
@@ -6086,8 +6478,67 @@
               }
             },
             "statType": "rank",
-            "value": "Balefire tome",
+            "value": "Boltgun",
             "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Legionaries—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "tracking": {
+                  "plasma": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Legionaries—Plasma pistol"
+                  }
+                ]
+              },
+              "Accursed weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Legionaries—Accursed weapon"
+                  }
+                ]
+              },
+              "Astartes chainsword": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Legionaries—Astartes chainsword"
+                  }
+                ]
+              },
+              "Heavy melee weapon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Legionaries—Heavy melee weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
           },
           "Sv": {
             "value": 3
@@ -7399,48 +7850,103 @@
           }
         }
       },
-      "Model§Legionaries": {
+      "Model§Legionnarie": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Legionaries—Bolt pistol",
+            "Melee Weapon§Legionaries—Close combat weapon"
+          ]
+        },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Chaos Icon": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Balefire tome": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Legionaries—Balefire tome"
-                  }
-                ]
+              "0": {
+                "order": 0
               },
-              "Bolt pistol": {
+              "1": {
                 "order": 1,
+                "tracking": {
+                  "icon": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Legionaries—Bolt pistol"
+                    "trait": "Wargear§Chaos Icon"
                   }
                 ]
-              },
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Boltgun": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Legionaries—Boltgun"
                   }
                 ]
               },
-              "Flamer": {
+              "Astartes chainsword": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Legionaries—Astartes chainsword"
+                  }
+                ]
+              },
+              "Heavy melee weapon": {
+                "order": 2,
+                "tracking": {
+                  "hmm": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Legionaries—Heavy melee weapon"
+                  }
+                ]
+              },
+              "Balefire tome": {
                 "order": 3,
+                "tracking": {
+                  "tome": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Legionaries—Balefire tome"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 4,
+                "tracking": {
+                  "1": 1,
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Legionaries—Plasma pistol"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 5,
+                "tracking": {
+                  "2": 1,
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Legionaries—Flamer"
@@ -7448,73 +7954,99 @@
                 ]
               },
               "Havoc autocannon": {
-                "order": 4,
+                "order": 6,
+                "tracking": {
+                  "3": 1,
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Legionaries—Havoc autocannon"
                   }
                 ]
               },
+              "Heavy bolter": {
+                "order": 7,
+                "tracking": {
+                  "4": 1,
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Heretic Astartes Armoury—Heavy bolter"
+                  }
+                ]
+              },
+              "Lascannon": {
+                "order": 8,
+                "tracking": {
+                  "5": 1,
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Heretic Astartes Armoury—Lascannon"
+                  }
+                ]
+              },
               "Meltagun": {
-                "order": 5,
+                "order": 9,
+                "tracking": {
+                  "6": 1,
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Legionaries—Meltagun"
                   }
                 ]
               },
-              "Plasma pistol": {
-                "order": 6,
+              "Missile launcher": {
+                "order": 10,
+                "tracking": {
+                  "7": 1,
+                  "heavy": 1
+                },
                 "traits": [
                   {
-                    "trait": "Weapon§Legionaries—Plasma pistol"
+                    "trait": "Weapon§Heretic Astartes Armoury—Missile launcher"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 11,
+                "tracking": {
+                  "8": 1,
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Heretic Astartes Armoury—Plasma gun"
                   }
                 ]
               },
               "Reaper chaincannon": {
-                "order": 7,
+                "order": 12,
+                "tracking": {
+                  "9": 1,
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Legionaries—Reaper chaincannon"
                   }
                 ]
-              },
-              "Accursed weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Legionaries—Accursed weapon"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Legionaries—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Legionaries—Close combat weapon"
-                  }
-                ]
-              },
-              "Heavy melee weapon": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Legionaries—Heavy melee weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Balefire tome",
+            "value": "Boltgun",
             "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
           },
           "Sv": {
             "value": 3
@@ -14811,12 +15343,10 @@
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Heretic Astartes Infantry models (excluding Obliterator and Jump Pack models). Each Possessed and Terminator model takes up the space of 2 models."
             },
-            {
-              "item": "Ranged Weapon§Chaos Land Raider—Soulshatter lascannon",
-              "quantity": 2
-            },
+            "Ranged Weapon§Chaos Land Raider—Soulshatter lascannon",
             "Ranged Weapon§Chaos Land Raider—Twin heavy bolter",
-            "Melee Weapon§Chaos Land Raider—Armoured tracks"
+            "Melee Weapon§Chaos Land Raider—Armoured tracks",
+            "Ranged Weapon§Chaos Land Raider—Soulshatter lascannon"
           ]
         },
         "keywords": {
@@ -15023,10 +15553,10 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Chaos Predator Annihilator—Heavy bolter",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Chaos Predator Annihilator—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Chaos Predator Annihilator—Heavy bolter"
                   }
                 ]
               },
@@ -15034,10 +15564,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Chaos Predator Annihilator—Lascannon",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Chaos Predator Annihilator—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Chaos Predator Annihilator—Lascannon"
                   }
                 ]
               }
@@ -15172,10 +15702,10 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Chaos Predator Destructor—Heavy bolter",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Chaos Predator Destructor—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Chaos Predator Destructor—Heavy bolter"
                   }
                 ]
               },
@@ -15183,10 +15713,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Chaos Predator Destructor—Lascannon",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Chaos Predator Destructor—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Chaos Predator Destructor—Lascannon"
                   }
                 ]
               }
@@ -16051,10 +16581,10 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Forgefiend—Hades autocannon",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Forgefiend—Hades autocannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Forgefiend—Hades autocannon"
                   }
                 ]
               },
@@ -16062,10 +16592,10 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Forgefiend—Ectoplasma cannon",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Forgefiend—Ectoplasma cannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Forgefiend—Ectoplasma cannon"
                   }
                 ]
               }
@@ -16573,20 +17103,19 @@
       "Unit§Legionaries": {
         "allowed": {
           "items": [
-            "Model§Legionaries"
+            "Model§Legionnarie"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Legionaries",
+              "item": "Model§Legionnarie",
               "quantity": 4
             }
           ],
           "traits": [
             "Ability§Dark Pacts",
             "Ability§Veterans of The Long War",
-            "Wargear§Chaos Icon",
             "Model§Aspiring Champion"
           ]
         },
@@ -16605,8 +17134,233 @@
             "Legionaries"
           ]
         },
+        "rules": {
+          "1 in 5 models can have a special weapon": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have a special weapon",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Maximum 1 Balefire Tome": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "tome"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Maximum 1 Chaos Icon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "icon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Maximum 1 Heavy melee weapon for Legionnaire": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "hmm"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No duplicate special weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "3"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "4"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "5"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "6"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "7"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "8"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "9"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
-          "Legionaries": {
+          "Legionnarie": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -16624,7 +17378,7 @@
             "value": 100
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: bolt pistol; boltgun; close combat weapon.\n\nThe Aspiring Champion’s boltgun can be replaced with one of the following: ◦ 1 plasma pistol* ◦ 1 accursed weapon ◦ 1 Astartes chainsword ◦ 1 heavy melee weapon\n\n*The Aspiring Champion’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol* ◦ 1 accursed weapon ◦ 1 Astartes chainsword ◦ 1 heavy melee weapon\n\n*1 model can be equipped with 1 Chaos icon.\n\n*Any number of Legionaries can each have their boltgun replaced with 1 Astartes chainsword.\n\n*One Legionary’s boltgun can be replaced with 1 heavy melee weapon.\n\n*One Legionary’s boltgun can be replaced with 1 balefire tome.\n\n*For every 5 models in this unit, 1 Legionary’s boltgun can be replaced with one of the following (duplicates are not allowed): ◦ 1 plasma pistol ◦ 1 flamer ◦ 1 havoc autocannon ◦ 1 heavy bolter** ◦ 1 lascannon** ◦ 1 meltagun ◦ 1 missile launcher** ◦ 1 plasma gun**  ◦ 1 reaper chaincannon  * Maximum 1 per model. **  This weapon’s profile can be found on the Heretic Astartes Armoury card."
+        "text": ""
       },
       "Unit§Maulerfiend": {
         "assets": {
@@ -16694,10 +17448,10 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Maulerfiend—Magma cutters",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Maulerfiend—Magma cutters"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Maulerfiend—Magma cutters"
                   }
                 ]
               }
@@ -17143,11 +17897,9 @@
                 }
               }
             },
-            {
-              "item": "Ranged Weapon§Venomcrawler—Excruciator cannon",
-              "quantity": 2
-            },
-            "Melee Weapon§Venomcrawler—Soulflayer tendrils and claws"
+            "Ranged Weapon§Venomcrawler—Excruciator cannon",
+            "Melee Weapon§Venomcrawler—Soulflayer tendrils and claws",
+            "Ranged Weapon§Venomcrawler—Excruciator cannon"
           ]
         },
         "keywords": {
