@@ -3,13 +3,13 @@
 If you're going to author stuff for 40k, it's wise to make it similar in structure to other elements of the 40k manifest.
 
 ## 40k10Core
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifes
 
 ## Imperium
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifes
 
 ## Chaos
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifes
 
 ### Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
@@ -69,7 +69,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousa
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
 
 ### Aeldari/Drukhari common
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.manifest
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.manifes
 
 ### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.manifest
