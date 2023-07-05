@@ -9,7 +9,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warham
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifes
 
 ## Chaos
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest
 
 ### Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
