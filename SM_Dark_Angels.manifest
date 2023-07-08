@@ -1,6 +1,6 @@
 {
   "name": "Dark Angels",
-  "revision": "10.3.2",
+  "revision": "10.3.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "FBV698",
+      "slug": "H6QSTB",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
@@ -562,121 +562,131 @@
           ]
         },
         "rules": {
-          "No duplicate weapon choices": {
-            "evals": [
+          "noDups": {
+            "actions": [
               {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
+                "actionType": "remove",
+                "iterations": 1,
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "1"
+                    "stats",
+                    "Weapon 1",
+                    "ranks"
                   ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Weapon 2",
+                  "value"
                 ]
               },
               {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
+                "actionType": "remove",
+                "iterations": 1,
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "2"
+                    "stats",
+                    "Weapon 2",
+                    "ranks"
                   ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "3"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "4"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "5"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "6"
-                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Weapon 1",
+                  "value"
                 ]
               }
             ],
-            "evaluate": "AND",
-            "failState": "error"
+            "evals": []
           },
-          "Unique loadouts can not take other options": {
+          "noTwinClaws": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Weapon 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
             "evals": [
               {
                 "actionable": true,
-                "max": 1,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "special1"
+                    "stats",
+                    "Weapon 1",
+                    "value"
                   ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "special2"
-                  ]
-                ]
+                ],
+                "value": "Twin lightning claws"
               }
             ],
             "evaluate": "AND",
-            "failState": "error"
+            "failState": "pass",
+            "order": 220
+          },
+          "twinClaws": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Weapon 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Weapon 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Weapon 1",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
           }
         },
         "stats": {
@@ -698,46 +708,6 @@
           "T": {
             "value": 5
           },
-          "Unique Loadouts": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Master-crafted power weapon & Storm bolter": {
-                "order": 1,
-                "tracking": {
-                  "special1": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Strikemaster—Master-crafted power weapon"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Deathwing Strikemaster—Storm bolter"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 2,
-                "tracking": {
-                  "special1": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Strikemaster—Twin lightning claws"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Master-crafted power weapon & Storm bolter",
-            "visibility": "normal"
-          },
           "W": {
             "value": 5
           },
@@ -746,15 +716,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "-": {
-                "order": 0
+              "Storm bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Strikemaster—Storm bolter"
+                  }
+                ]
               },
               "Chainfist": {
-                "order": 2,
-                "tracking": {
-                  "2": 1,
-                  "special1": 1
-                },
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Strikemaster—Chainfist"
@@ -762,11 +733,7 @@
                 ]
               },
               "Mace of absolution": {
-                "order": 3,
-                "tracking": {
-                  "3": 1,
-                  "special1": 1
-                },
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Strikemaster—Mace of absolution"
@@ -774,56 +741,40 @@
                 ]
               },
               "Power fist": {
-                "order": 4,
-                "tracking": {
-                  "4": 1,
-                  "special1": 1
-                },
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Strikemaster—Power fist"
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 1,
-                "tracking": {
-                  "1": 1,
-                  "special1": 1
-                },
+              "Thunder hammer": {
+                "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deathwing Strikemaster—Storm bolter"
+                    "trait": "Melee Weapon§Deathwing Strikemaster—Thunder hammer"
                   }
                 ]
               },
               "Storm shield": {
-                "order": 6,
-                "tracking": {
-                  "6": 1,
-                  "special1": 1
-                },
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Wargear§Storm Shield"
                   }
                 ]
               },
-              "Thunder hammer": {
-                "order": 5,
-                "tracking": {
-                  "5": 1,
-                  "special1": 1
-                },
+              "Twin lightning claws": {
+                "order": 6,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Deathwing Strikemaster—Thunder hammer"
+                    "trait": "Melee Weapon§Deathwing Strikemaster—Twin lightning claws"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "-",
+            "value": "Storm bolter",
             "visibility": "normal"
           },
           "Weapon 2": {
@@ -831,16 +782,24 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "-": {
+              "Power weapon": {
                 "order": 0,
-                "tracking": {}
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Deathwing Strikemaster—Master-crafted power weapon"
+                  }
+                ]
+              },
+              "Storm bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Strikemaster—Storm bolter"
+                  }
+                ]
               },
               "Chainfist": {
                 "order": 2,
-                "tracking": {
-                  "2": 1,
-                  "special2": 1
-                },
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Strikemaster—Chainfist"
@@ -849,10 +808,6 @@
               },
               "Mace of absolution": {
                 "order": 3,
-                "tracking": {
-                  "3": 1,
-                  "special2": 1
-                },
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Strikemaster—Mace of absolution"
@@ -861,55 +816,34 @@
               },
               "Power fist": {
                 "order": 4,
-                "tracking": {
-                  "4": 1,
-                  "special2": 1
-                },
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Strikemaster—Power fist"
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 1,
-                "tracking": {
-                  "1": 1,
-                  "special2": 1
-                },
+              "Thunder hammer": {
+                "order": 5,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deathwing Strikemaster—Storm bolter"
+                    "trait": "Melee Weapon§Deathwing Strikemaster—Thunder hammer"
                   }
                 ]
               },
               "Storm shield": {
                 "order": 6,
-                "tracking": {
-                  "6": 1,
-                  "special2": 1
-                },
                 "traits": [
                   {
                     "trait": "Wargear§Storm Shield"
                   }
                 ]
               },
-              "Thunder hammer": {
-                "order": 5,
-                "tracking": {
-                  "5": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Strikemaster—Thunder hammer"
-                  }
-                ]
+              "-": {
+                "order": 7
               }
             },
             "statType": "rank",
-            "value": "-",
+            "value": "Power weapon",
             "visibility": "active"
           }
         },
@@ -3402,17 +3336,6 @@
               "-": {
                 "order": 0
               },
-              "Chainfist": {
-                "order": 2,
-                "tracking": {
-                  "special1": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Command Squad—Chainfist"
-                  }
-                ]
-              },
               "Power fist": {
                 "order": 1,
                 "tracking": {
@@ -3421,6 +3344,17 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Command Squad—Power fist"
+                  }
+                ]
+              },
+              "Chainfist": {
+                "order": 2,
+                "tracking": {
+                  "special1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Deathwing Command Squad—Chainfist"
                   }
                 ]
               }
@@ -3440,6 +3374,18 @@
               "-": {
                 "order": 0,
                 "tracking": {}
+              },
+              "Storm bolter": {
+                "order": 1,
+                "tracking": {
+                  "special1": 0,
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Command Squad—Storm bolter"
+                  }
+                ]
               },
               "Assault cannon": {
                 "order": 2,
@@ -3480,18 +3426,6 @@
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 1,
-                "tracking": {
-                  "special1": 0,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwing Command Squad—Storm bolter"
-                  }
-                ]
-              },
               "Storm bolter & Cyclone missile launcher": {
                 "order": 5,
                 "tracking": {
@@ -3528,6 +3462,18 @@
                 "order": 0,
                 "term": "none"
               },
+              "Twin lightning claws": {
+                "order": 1,
+                "tracking": {
+                  "special1": 1,
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Deathwing Command Squad—Twin lightning claws"
+                  }
+                ]
+              },
               "Thunder hammer & Storm shield": {
                 "order": 2,
                 "tracking": {
@@ -3540,18 +3486,6 @@
                   },
                   {
                     "trait": "Wargear§Storm Shield"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 1,
-                "tracking": {
-                  "special1": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Command Squad—Twin lightning claws"
                   }
                 ]
               }
@@ -3672,17 +3606,6 @@
               "-": {
                 "order": 0
               },
-              "Chainfist": {
-                "order": 2,
-                "tracking": {
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Terminator Squad—Chainfist"
-                  }
-                ]
-              },
               "Power fist": {
                 "order": 1,
                 "tracking": {
@@ -3691,6 +3614,17 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Deathwing Terminator Squad—Power fist"
+                  }
+                ]
+              },
+              "Chainfist": {
+                "order": 2,
+                "tracking": {
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Deathwing Terminator Squad—Chainfist"
                   }
                 ]
               }
@@ -3710,6 +3644,17 @@
               "-": {
                 "order": 0,
                 "tracking": {}
+              },
+              "Storm bolter": {
+                "order": 1,
+                "tracking": {
+                  "special1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwing Terminator Squad—Storm bolter"
+                  }
+                ]
               },
               "Assault cannon": {
                 "order": 2,
@@ -3747,17 +3692,6 @@
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 1,
-                "tracking": {
-                  "special1": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwing Terminator Squad—Storm bolter"
-                  }
-                ]
-              },
               "Storm bolter & Cyclone missile launcher": {
                 "order": 5,
                 "tracking": {
@@ -3792,6 +3726,18 @@
               "-": {
                 "order": 0
               },
+              "Twin lightning claws": {
+                "order": 1,
+                "tracking": {
+                  "special1": 1,
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Deathwing Command Squad—Twin lightning claws"
+                  }
+                ]
+              },
               "Thunder hammer & Storm shield": {
                 "order": 2,
                 "tracking": {
@@ -3804,18 +3750,6 @@
                   },
                   {
                     "trait": "Wargear§Storm Shield"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 1,
-                "tracking": {
-                  "special1": 1,
-                  "special2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwing Command Squad—Twin lightning claws"
                   }
                 ]
               }
@@ -3878,6 +3812,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Plasma talon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
+                  }
+                ]
+              },
               "Astartes grenade launcher": {
                 "order": 1,
                 "tracking": {
@@ -3886,14 +3828,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Ravenwing Command Squad—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Plasma talon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
                   }
                 ]
               }
@@ -3935,6 +3869,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Plasma talon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
+                  }
+                ]
+              },
               "Astartes grenade launcher": {
                 "order": 1,
                 "tracking": {
@@ -3943,14 +3885,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Ravenwing Command Squad—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Plasma talon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
                   }
                 ]
               }
@@ -3992,6 +3926,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Plasma talon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Ravenwing Black Knights—Plasma talon"
+                  }
+                ]
+              },
               "Astartes grenade launcher": {
                 "order": 1,
                 "tracking": {
@@ -4000,14 +3942,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Ravenwing Black Knights—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Plasma talon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Ravenwing Black Knights—Plasma talon"
                   }
                 ]
               }
@@ -4049,6 +3983,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Plasma talon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
+                  }
+                ]
+              },
               "Astartes grenade launcher": {
                 "order": 1,
                 "tracking": {
@@ -4057,14 +3999,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Ravenwing Command Squad—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Plasma talon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
                   }
                 ]
               }
@@ -4106,6 +4040,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Plasma talon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Ravenwing Black Knights—Plasma talon"
+                  }
+                ]
+              },
               "Astartes grenade launcher": {
                 "order": 1,
                 "tracking": {
@@ -4114,14 +4056,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Ravenwing Black Knights—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Plasma talon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Ravenwing Black Knights—Plasma talon"
                   }
                 ]
               }
@@ -4163,6 +4097,14 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "Plasma talon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
+                  }
+                ]
+              },
               "Astartes grenade launcher": {
                 "order": 1,
                 "tracking": {
@@ -4171,14 +4113,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Ravenwing Command Squad—Astartes grenade launcher"
-                  }
-                ]
-              },
-              "Plasma talon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Ravenwing Command Squad—Plasma talon"
                   }
                 ]
               }
@@ -6311,19 +6245,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Assault cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Ravenwing Darkshroud—Assault cannon"
-                  }
-                ]
-              },
               "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Ravenwing Darkshroud—Heavy bolter"
+                  }
+                ]
+              },
+              "Assault cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ravenwing Darkshroud—Assault cannon"
                   }
                 ]
               }
@@ -6402,19 +6336,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Assault cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Assault cannon"
-                  }
-                ]
-              },
               "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Heavy bolter"
+                  }
+                ]
+              },
+              "Assault cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ravenwing Land Speeder Vengeance—Assault cannon"
                   }
                 ]
               }
