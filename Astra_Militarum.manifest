@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.1.21",
+  "revision": "10.1.22",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "S969T8",
+      "slug": "2J83FF",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -209,6 +209,13 @@
           ]
         },
         "text": "Once per battle, you can target this model’s unit with the Insane Bravery Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase. This cannot allow you to use the Insane Bravery Stratagem more than twice per phase."
+      },
+      "Ability§Damaged:": {
+        "stats": {
+          "x": {
+            "value": "1-4 Wounds Remaining"
+          }
+        }
       },
       "Ability§Daring Recon": {
         "keywords": {
@@ -759,6 +766,61 @@
         },
         "text": "While this unit contains a Tempestor Prime, ranged weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
       },
+      "Ability§Tempestor Prime Command": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "rules": {
+          "renameAbility": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "abilityName",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "abilityName",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 200
+          }
+        },
+        "stats": {
+          "abilityName": {
+            "statType": "term",
+            "value": "Tempestor Prime",
+            "visibility": "hidden"
+          }
+        },
+        "text": "If this unit’s Tempestor Prime model is your Warlord, Tempestus Scions units from your army have the Battleline keyword."
+      },
       "Ability§The Collegiate Astrolex": {
         "keywords": {
           "Keywords": [
@@ -808,6 +870,9 @@
         "text": "In your Shooting phase, just after selecting a target for this model’s tremor cannon, the target unit and every other enemy Infantry unit within 3″ of that unit must take a Battle-shock test."
       },
       "Ability§Twin -linked": {},
+      "Ability§Unit Composition": {
+        "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+      },
       "Ability§Urban Warfare": {
         "keywords": {
           "Keywords": [
@@ -1511,9 +1576,10 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "IBRAM GAUNT: Character",
-            "Epic Hero",
-            "Officer"
+            "Gaunt's Ghosts",
+            "Grenades",
+            "Imperium",
+            "Infantry"
           ]
         },
         "stats": {
@@ -1614,14 +1680,10 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This unit can be attached to the following unit:\n\n\n\n* Tempestus Scions TEMPESTOR PRIME If this unit’s Tempestor Prime model is your Warlord, Tempestus Scions units from your army have the Battleline keyword."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis unit can be attached to the following unit:\n\n\n\n* Tempestus Scions"
             },
-            "Ability§Tempestor Prime",
-            "Wargear§Medi-pack",
-            "Wargear§Regimental Standard",
-            "Wargear§Command Rod",
-            "Wargear§Master Vox",
-            "Model§Tempestor Prime"
+            "Model§Tempestor Prime",
+            "Ability§Tempestor Prime Command"
           ]
         },
         "keywords": {
@@ -1636,12 +1698,34 @@
             "Imperium",
             "Grenades",
             "Regiment",
-            "Militarum"
+            "Militarum Tempestus",
+            "Command Squad"
           ]
         },
         "stats": {
+          "Master Vox": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Medi-pack": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Points": {
             "value": 80
+          },
+          "Regimental Standard": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Tempestus Scion": {
             "max": 4,
@@ -2777,11 +2861,13 @@
       "Infantry/Mounted§Cadian Shock Troops": {
         "allowed": {
           "items": [
-            "Model§Shock Trooper"
+            "Model§Shock Trooper",
+            "Model§Shock Trooper Sergeant"
           ]
         },
         "assets": {
           "included": [
+            "Model§Shock Trooper Sergeant",
             {
               "item": "Model§Shock Trooper",
               "quantity": 9
@@ -2790,12 +2876,7 @@
           "traits": [
             "Ability§Shock Troops",
             "Wargear§Vox-caster",
-            "Wargear§One Or More Friendly Officer Models Within 6\"",
-            {
-              "item": "Ability§Leader",
-              "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
-            },
-            "Model§Shock Trooper Sergeant"
+            "Ability§Unit Composition"
           ]
         },
         "keywords": {
@@ -3080,12 +3161,32 @@
               },
               {
                 "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "2 in 10 can have special weapon",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
                   "2 in 10 can have special weapon",
                   "evals",
-                  "0",
+                  "1",
                   "result",
                   "integer"
                 ],
@@ -3100,7 +3201,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": true,
                 "operator": "AND",
@@ -3114,6 +3215,81 @@
               }
             ],
             "evaluate": "OR",
+            "failState": "error"
+          },
+          "Must take 9 or 18 Shock Troopers": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Shock Trooper"
+                  ]
+                ],
+                "value": 9
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Shock Trooper"
+                  ]
+                ],
+                "value": 18
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Must take one Shock Trooper Sergeant per 9 Troopers": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Shock Trooper"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Shock Trooper Sergeant"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "Must take one Shock Trooper Sergeant per 9 Troopers",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evaluate": "AND",
             "failState": "error"
           }
         },
@@ -3130,6 +3306,14 @@
           "Shock Trooper": {
             "max": 18,
             "min": 9,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Shock Trooper Sergeant": {
+            "max": 2,
+            "min": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -3276,11 +3460,13 @@
       "Infantry/Mounted§Death Korps of Krieg": {
         "allowed": {
           "items": [
-            "Model§Death Korps Trooper"
+            "Model§Death Korps Trooper",
+            "Model§Death Korps Watchmaster"
           ]
         },
         "assets": {
           "included": [
+            "Model§Death Korps Watchmaster",
             {
               "item": "Model§Death Korps Trooper",
               "quantity": 9
@@ -3288,14 +3474,7 @@
           ],
           "traits": [
             "Ability§Grim Demeanour",
-            "Wargear§Vox-caster",
-            "Wargear§One Or More Friendly Officer Models Within 6\"",
-            "Wargear§Death Korps Medi-pack",
-            {
-              "item": "Ability§Leader",
-              "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
-            },
-            "Model§Death Korps Watchmaster"
+            "Ability§Unit Composition"
           ]
         },
         "keywords": {
@@ -3560,12 +3739,32 @@
               },
               {
                 "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "2 in 10 can have special weapon",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
                   "2 in 10 can have special weapon",
                   "evals",
-                  "0",
+                  "1",
                   "result",
                   "integer"
                 ],
@@ -3580,7 +3779,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": true,
                 "operator": "AND",
@@ -3594,6 +3793,81 @@
               }
             ],
             "evaluate": "OR",
+            "failState": "error"
+          },
+          "Must take 9 or 18 Death Korp Troopers": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Death Korps Trooper"
+                  ]
+                ],
+                "value": 9
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Death Korps Trooper"
+                  ]
+                ],
+                "value": 18
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Must take one Death Korp Watchmaster per 9 Troopers": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Death Korps Trooper"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Death Korps Watchmaster"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "Must take one Death Korp Watchmaster per 9 Troopers",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evaluate": "AND",
             "failState": "error"
           }
         },
@@ -5905,6 +6179,44 @@
             ],
             "evaluate": "OR",
             "failState": "error"
+          },
+          "addBattlelineIfTempPrimeIsWarlord": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Militarum Tempestus Command Squad",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
           }
         },
         "stats": {
@@ -10181,32 +10493,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Laspistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Death Korps of Krieg—Laspistol"
-                  }
-                ]
-              },
               "Chainsword": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Korps of Krieg—Chainsword"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Korps of Krieg—Close combat weapon"
-                  }
-                ]
-              },
               "Power weapon": {
-                "order": 3,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Korps of Krieg—Power weapon"
@@ -10215,7 +10511,7 @@
               }
             },
             "statType": "rank",
-            "value": "Laspistol",
+            "value": "Chainsword",
             "visibility": "active"
           },
           "OC": {
@@ -10648,6 +10944,13 @@
           "traits": [
             "Melee Weapon§Gaunt’s Ghosts—Gaunt’s chainsword",
             "Ranged Weapon§Gaunt’s Ghosts—Bolt pistol"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Character",
+            "Epic Hero",
+            "Officer"
           ]
         },
         "stats": {
@@ -12998,88 +13301,6 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Bragg’s autocannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gaunt’s Ghosts—Bragg’s autocannon"
-                  }
-                ]
-              },
-              "Bolt pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gaunt’s Ghosts—Bolt pistol"
-                  }
-                ]
-              },
-              "Corbec’s hot-shot lascarbine": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gaunt’s Ghosts—Corbec’s hot-shot lascarbine"
-                  }
-                ]
-              },
-              "Larkin’s long-las": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gaunt’s Ghosts—Larkin’s long-las"
-                  }
-                ]
-              },
-              "Lascarbine": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gaunt’s Ghosts—Lascarbine"
-                  }
-                ]
-              },
-              "Rawne’s lascarbine": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gaunt’s Ghosts—Rawne’s lascarbine"
-                  }
-                ]
-              },
-              "Gaunt’s chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Gaunt’s Ghosts—Gaunt’s chainsword"
-                  }
-                ]
-              },
-              "Straight silver knife": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Gaunt’s Ghosts—Straight silver knife"
-                  }
-                ]
-              },
-              "Mkoll’s straight silver knife": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Gaunt’s Ghosts—Mkoll’s straight silver knife"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Bragg’s autocannon",
-            "visibility": "active"
-          },
           "Sv": {
             "value": 4
           },
@@ -13352,6 +13573,12 @@
             "Melee Weapon§Militarum Tempestus Command Squad—Tempestus dagger"
           ]
         },
+        "keywords": {
+          "Keywords": [
+            "Character",
+            "Officer"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -13546,24 +13773,6 @@
           "T": {
             "value": 3
           },
-          "Vox": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0,
-                "tracking": {}
-              },
-              "✓": {
-                "order": 1,
-                "tracking": {}
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
           "W": {
             "value": 1
           },
@@ -13635,7 +13844,7 @@
                   }
                 ]
               },
-              "Hot-shot + Banner": {
+              "Hot-shot + Standard": {
                 "order": 6,
                 "tracking": {
                   "Banner": 1
@@ -13649,8 +13858,25 @@
                   }
                 ]
               },
-              "Hot-shot Pistol + Medic": {
+              "Hot-shot pistol + Master vox": {
                 "order": 7,
+                "tracking": {
+                  "Vox": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Hot-shot laspistol"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Hot-shot lasgun"
+                  },
+                  {
+                    "trait": "Wargear§Master Vox"
+                  }
+                ]
+              },
+              "Hot-shot pistol + Medic": {
+                "order": 8,
                 "tracking": {
                   "Medic": 1
                 },
@@ -13664,7 +13890,7 @@
                 ]
               },
               "Hot-shot pistol + Hot-shot lasgun + Medic": {
-                "order": 8,
+                "order": 9,
                 "tracking": {
                   "Medic": 1
                 },
@@ -32418,10 +32644,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Leman Russ Demolisher—Heavy flamer"
+                    "trait": "Ranged Weapon§Leman Russ Demolisher—Multi-melta"
                   },
                   {
-                    "trait": "Ranged Weapon§Leman Russ Demolisher—Heavy flamer"
+                    "trait": "Ranged Weapon§Leman Russ Demolisher—Multi-melta"
                   }
                 ]
               },
@@ -32896,28 +33122,16 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 10
-          },
-          "OC": {
-            "value": 3
-          },
-          "Points": {
-            "value": 200
-          },
-          "sampleLoadout": {
+          "Hull Weapon": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Exterminator autocannon": {
+              "Lascannon": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Leman Russ Exterminator—Exterminator autocannon"
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Lascannon"
                   }
                 ]
               },
@@ -32936,67 +33150,125 @@
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy flamer"
                   }
                 ]
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "Lascannon",
+            "visibility": "active"
+          },
+          "Hunter-Killer": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
               },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 4,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 3
+          },
+          "Pintle Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Heavy stubber": {
-                "order": 3,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy stubber"
                   }
                 ]
               },
-              "Hunter-killer missile": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Exterminator—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Exterminator—Lascannon"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Exterminator—Multi-melta"
-                  }
-                ]
-              },
-              "Plasma cannon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Weapon§Leman Russ Exterminator—Plasma cannon"
-                  }
-                ]
-              },
               "Storm bolter": {
-                "order": 8,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Storm bolter"
                   }
                 ]
-              },
-              "Armoured tracks": {
-                "order": 9,
+              }
+            },
+            "statOrder": 3,
+            "statType": "rank",
+            "value": "Heavy stubber",
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 200
+          },
+          "Sponson Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Heavy bolters": {
+                "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Leman Russ Exterminator—Armoured tracks"
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy bolter"
+                  }
+                ]
+              },
+              "2 Heavy flamers": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy flamer"
+                  }
+                ]
+              },
+              "2 Multi-meltas": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Multi-melta"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Exterminator—Multi-melta"
+                  }
+                ]
+              },
+              "2 Plasma cannons": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Weapon§Leman Russ Exterminator—Plasma cannon"
+                  },
+                  {
+                    "trait": "Weapon§Leman Russ Exterminator—Plasma cannon"
                   }
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "Exterminator autocannon",
-            "visibility": "active"
+            "value": "2 Heavy bolters",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 2
@@ -36742,7 +37014,7 @@
         "text": "The bearer has a Wounds characteristic of 7."
       },
       "Wargear§Vox-caster": {
-        "text": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are"
+        "text": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
       },
       "Weapon§‘Iron Hand’ Straken—Plasma pistol": {
         "assets": {
