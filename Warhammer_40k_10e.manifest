@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.19",
+  "revision": "10.1.20",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -73,9 +73,52 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 100
+          },
+          "renameAbility": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "abilityName",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "abilityName",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 200
           }
         },
         "stats": {
+          "abilityName": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
+          },
           "x": {
             "statType": "term",
             "value": null,
