@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.1.23",
+  "revision": "10.1.24",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "3WRGTK",
+      "slug": "2J83FF",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -2875,7 +2875,6 @@
           ],
           "traits": [
             "Ability§Shock Troops",
-            "Wargear§Vox-caster",
             "Ability§Unit Composition"
           ]
         },
@@ -2898,25 +2897,6 @@
           ]
         },
         "rules": {
-          "1 can have vox": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Vox-caster"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
           "1 in 10 can have a flamer": {
             "evals": [
               {
@@ -3141,6 +3121,62 @@
             "evaluate": "OR",
             "failState": "error"
           },
+          "1 in 10 can have vox": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 10
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 10 can have melta",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Vox-caster"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Vox-caster"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
           "2 in 10 can have special weapon": {
             "evals": [
               {
@@ -3324,14 +3360,14 @@
       "Infantry/Mounted§Catachan Jungle Fighters": {
         "allowed": {
           "items": [
-            "Model§Jungle Fighters",
+            "Model§Jungle Fighter",
             "Model§Jungle Fighter Sergeant"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Jungle Fighters",
+              "item": "Model§Jungle Fighter",
               "quantity": 9
             },
             "Model§Jungle Fighter Sergeant"
@@ -3347,7 +3383,6 @@
             },
             "Ability§Jungle Fighters",
             "Wargear§Vox-caster",
-            "Wargear§One Or More Friendly Officer Models Within 6\"",
             {
               "item": "Ability§Leader",
               "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
@@ -11006,6 +11041,63 @@
           }
         }
       },
+      "Model§Jungle Fighter": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Catachan Jungle Fighters—Close combat weapon",
+            "Ranged Weapon§Catachan Jungle Fighters—Laspistol"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Ranged Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Lasgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Catachan Jungle Fighters—Lasgun"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 1,
+                "tracking": {
+                  "Flamer": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Catachan Jungle Fighters—Flamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Lasgun",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
       "Model§Jungle Fighter Sergeant": {
         "assets": {
           "traits": [
@@ -11085,63 +11177,6 @@
             },
             "statType": "rank",
             "value": "Flamer",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 5
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
-        }
-      },
-      "Model§Jungle Fighters": {
-        "assets": {
-          "traits": [
-            "Melee Weapon§Catachan Jungle Fighters—Close combat weapon",
-            "Ranged Weapon§Catachan Jungle Fighters—Laspistol"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 2
-          },
-          "Ranged Weapon": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Lasgun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Catachan Jungle Fighters—Lasgun"
-                  }
-                ]
-              },
-              "Flamer": {
-                "order": 1,
-                "tracking": {
-                  "Flamer": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Catachan Jungle Fighters—Flamer"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Lasgun",
             "visibility": "active"
           },
           "Sv": {
