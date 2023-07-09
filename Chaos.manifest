@@ -1,12 +1,12 @@
 {
   "name": "Chaos",
-  "revision": "10.2.9",
+  "revision": "10.3.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "isModule": true,
   "dependencies": [
     {
@@ -1425,7 +1425,13 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "removed": {
+          "rules": {
+            "Error in this Ability’s text": {}
+          }
+        },
+        "text": "If your Army Faction is Legiones Daemonica, certain areas of the battlefield are considered to be within your army’s Shadow of Chaos, as follows:\n- Your deployment zone is always within your army’s Shadow of Chaos.\n- At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Shadow of Chaos.\n- At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Shadow of Chaos.\n\n## DAEMONIC MANIFESTATION\nWhile a Legiones Daemonica unit from your army is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a Battleline unit and that test is passed, up to D3 destroyed models can be returned to that unit instead).\n\n## DAEMONIC TERROR\nWhile an enemy unit is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds."
       },
       "Ability§This Model’s Hellforged Weapons Have That Ability": {
         "keywords": {
@@ -2278,7 +2284,7 @@
             "value": 22
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: lightning cannon; phased plasma-fusil; reaper chainsword.\n\nThis model’s reaper chainsword can be replaced with 1 hekaton siege claw and 1 twin rad cleanser."
+        "text": ""
       },
       "Character§Chaos Questoris Knight Styrix": {
         "assets": {
@@ -2385,7 +2391,7 @@
             "value": 22
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: graviton crusher; volkite chierovile; reaper chainsword.\n\nThis model’s reaper chainsword can be replaced with 1 hekaton siege claw and 1 twin rad cleanser."
+        "text": ""
       },
       "Character§Contorted Epitome": {
         "assets": {
@@ -2504,7 +2510,7 @@
                     "{self}",
                     "traits",
                     "item",
-                    "Wargear§Daemon Prince of Chaos—Hellforged weapons",
+                    "Weapon§Daemon Prince of Chaos—Hellforged weapons",
                     "traits",
                     "item",
                     "Melee Weapon§Daemon Prince of Chaos—Hellforged weapons – strike",
@@ -2535,7 +2541,7 @@
                     "{self}",
                     "traits",
                     "item",
-                    "Wargear§Daemon Prince of Chaos—Hellforged weapons",
+                    "Weapon§Daemon Prince of Chaos—Hellforged weapons",
                     "traits",
                     "item",
                     "Melee Weapon§Daemon Prince of Chaos—Hellforged weapons – sweep",
@@ -2815,7 +2821,7 @@
                     "{self}",
                     "traits",
                     "item",
-                    "Wargear§Daemon Prince of Chaos with Wings—Hellforged weapons",
+                    "Weapon§Daemon Prince of Chaos with Wings—Hellforged weapons",
                     "traits",
                     "item",
                     "Melee Weapon§Daemon Prince of Chaos with Wings—Hellforged weapons – strike",
@@ -2846,7 +2852,7 @@
                     "{self}",
                     "traits",
                     "item",
-                    "Wargear§Daemon Prince of Chaos with Wings—Hellforged weapons",
+                    "Weapon§Daemon Prince of Chaos with Wings—Hellforged weapons",
                     "traits",
                     "item",
                     "Melee Weapon§Daemon Prince of Chaos with Wings—Hellforged weapons – sweep",
@@ -3073,6 +3079,9 @@
         "text": ""
       },
       "Character§Epidemius": {
+        "aspects": {
+          "Unique": true
+        },
         "assets": {
           "traits": [
             "Ability§Deep Strike",
@@ -3102,13 +3111,13 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
-            "Character",
-            "Epic hero",
             "Chaos",
+            "Character",
             "Daemon",
-            "Nurgle",
-            "Epidemius"
+            "Epic Hero",
+            "Epidemius",
+            "Infantry",
+            "Nurgle"
           ]
         },
         "stats": {
@@ -3142,7 +3151,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following unit:\n\n\n\n* Flamers MANIFESTATION OF DESTRUCTION This model cannot be your Warlord and cannot be given Enhancements."
+              "text": "This model can be attached to the following unit:\n\n* Flamers"
             },
             "Ability§The Shadow of Chaos",
             "Ability§Blazing Warpfire (psychic)",
@@ -3175,6 +3184,16 @@
             "Tzeentch",
             "Exalted Flamer"
           ]
+        },
+        "removed": {
+          "allowed": {
+            "classifications": [
+              "Enhancement"
+            ]
+          },
+          "stats": {
+            "Warlord": {}
+          }
         },
         "stats": {
           "Ld": {
@@ -3804,8 +3823,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "Living whip": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Keeper of Secrets—Living whip"
@@ -3813,7 +3835,7 @@
                 ]
               },
               "Ritual knife": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Keeper of Secrets—Ritual knife"
@@ -3821,7 +3843,7 @@
                 ]
               },
               "Shining aegis": {
-                "order": 2,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Wargear§Shining Aegis"
@@ -3830,7 +3852,7 @@
               }
             },
             "statType": "rank",
-            "value": "Living whip",
+            "value": "-",
             "visibility": "active"
           },
           "Ld": {
@@ -4589,8 +4611,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "Rod of sorcery": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Lord of Change—Rod of sorcery"
@@ -4598,7 +4623,7 @@
                 ]
               },
               "Baleful sword": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Lord of Change—Baleful sword"
@@ -4607,7 +4632,7 @@
               }
             },
             "statType": "rank",
-            "value": "Rod of sorcery",
+            "value": "-",
             "visibility": "active"
           },
           "Ld": {
@@ -4960,7 +4985,8 @@
               "item": "Ability§Damaged:",
               "stats": {
                 "x": {
-                  "value": "1-7 wounds remaining"
+                  "value": "1-7 wounds remaining",
+                  "text": "While this model has 1-7 wounds remaining, add 2 to the Attacks characteristic of this model’s Slaughter and Carnage."
                 }
               }
             },
@@ -10122,7 +10148,7 @@
           }
         }
       },
-      "Model§Flesh Hounds": {
+      "Model§Flesh Hound": {
         "assets": {
           "traits": [
             "Melee Weapon§Flesh Hounds—Gore-drenched fangs",
@@ -10180,6 +10206,12 @@
         }
       },
       "Model§Heartseeker": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Seekers—Lashing tongue",
+            "Melee Weapon§Seekers—Slashing claws"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -10189,32 +10221,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Lashing tongue": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Seekers—Lashing tongue"
-                  }
-                ]
-              },
-              "Slashing claws": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Seekers—Slashing claws"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Lashing tongue",
-            "visibility": "active"
           },
           "Sv": {
             "value": 7
@@ -10291,6 +10297,11 @@
             "Melee Weapon§Pink Horrors—Pink claws"
           ]
         },
+        "keywords": {
+          "Keywords": [
+            "Pink"
+          ]
+        },
         "stats": {
           "Additional": {
             "dynamic": true,
@@ -10347,7 +10358,7 @@
           }
         }
       },
-      "Model§Plague Drones": {
+      "Model§Plague Drone": {
         "assets": {
           "traits": [
             "Ranged Weapon§Plague Drones—Death’s heads",
@@ -10584,6 +10595,69 @@
           }
         }
       },
+      "Model§Seeker": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Seekers—Lashing tongue",
+            "Melee Weapon§Seekers—Slashing claws"
+          ]
+        },
+        "stats": {
+          "Additional": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Instrument of Chaos": {
+                "order": 1,
+                "tracking": {
+                  "NumInstruments": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Instrument of Chaos"
+                  }
+                ]
+              },
+              "Daemonic icon": {
+                "order": 2,
+                "tracking": {
+                  "NumIcons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Daemonic Icon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 7
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
       "Model§Seeker Chariot": {
         "assets": {
           "traits": [
@@ -10610,54 +10684,6 @@
           },
           "W": {
             "value": 7
-          }
-        }
-      },
-      "Model§Seekers": {
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 14
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Lashing tongue": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Seekers—Lashing tongue"
-                  }
-                ]
-              },
-              "Slashing claws": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Seekers—Slashing claws"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Lashing tongue",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 7
-          },
-          "T": {
-            "value": 4
-          },
-          "W": {
-            "value": 2
           }
         }
       },
@@ -16054,13 +16080,13 @@
       "Unit§Flesh Hounds": {
         "allowed": {
           "items": [
-            "Model§Flesh Hounds"
+            "Model§Flesh Hound"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Flesh Hounds",
+              "item": "Model§Flesh Hound",
               "quantity": 4
             }
           ],
@@ -16346,13 +16372,13 @@
       "Unit§Plague Drones": {
         "allowed": {
           "items": [
-            "Model§Plague Drones"
+            "Model§Plague Drone"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Plague Drones",
+              "item": "Model§Plague Drone",
               "quantity": 2
             }
           ],
@@ -16673,13 +16699,13 @@
       "Unit§Seekers": {
         "allowed": {
           "items": [
-            "Model§Seekers"
+            "Model§Seeker"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Seekers",
+              "item": "Model§Seeker",
               "quantity": 4
             }
           ],
@@ -16695,8 +16721,6 @@
             },
             "Ability§The Shadow of Chaos",
             "Ability§Unholy Speed",
-            "Wargear§Daemonic Icon",
-            "Wargear§Instrument of Chaos",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -16723,6 +16747,46 @@
             "Seekers"
           ]
         },
+        "rules": {
+          "Maximum 1 daemonic icon.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "NumIcons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Maximum 1 instrument of Chaos.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "NumInstruments"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "model1stTally": {
             "value": 5
@@ -16733,7 +16797,7 @@
           "Points": {
             "value": 95
           },
-          "Seekers": {
+          "Seeker": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -16742,7 +16806,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: lashing tongue; slashing claws.\n\n1 Seeker that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.\n\n*1 Seeker that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
+        "text": ""
       },
       "Unit§Skull Altar": {
         "assets": {
@@ -17106,6 +17170,7 @@
             "value": 14
           },
           "Weapon": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
@@ -17733,12 +17798,63 @@
         "text": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks."
       },
       "Wargear§Daemonic Icon": {
+        "rules": {
+          "applyBonus": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ]
+                ],
+                "value": 6
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
         "text": "Models in the bearer’s unit have a Leadership characteristic of 6+."
       },
       "Wargear§Instrument of Chaos": {
         "text": "Add 1 to Charge rolls made for the bearer’s unit."
       },
       "Wargear§Shining Aegis": {
+        "rules": {
+          "grantAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
         "text": "The bearer has the Feel No Pain 5+ ability."
       },
       "Weapon§Be’lakor—Betraying Shades": {
