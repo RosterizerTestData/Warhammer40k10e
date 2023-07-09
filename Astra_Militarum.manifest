@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.1.22",
+  "revision": "10.1.23",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "2J83FF",
+      "slug": "3WRGTK",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -5810,13 +5810,13 @@
       "Infantry/Mounted§Tempestus Scions": {
         "allowed": {
           "items": [
-            "Model§Tempestus Scions"
+            "Model§Tempestus Scion"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Tempestus Scions",
+              "item": "Model§Tempestus Scion",
               "quantity": 4
             }
           ],
@@ -6151,20 +6151,11 @@
           "2 in 5 can have a special weapon": {
             "evals": [
               {
-                "actionable": true,
-                "max": 2,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "special weapon"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
                 "min": 10,
                 "not": false,
                 "operator": "AND",
@@ -6173,6 +6164,47 @@
                     "{self}",
                     "tally",
                     "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "2 in 5 can have a special weapon",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "2 in 5 can have a special weapon",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special weapon"
                   ]
                 ]
               }
@@ -6229,7 +6261,7 @@
           "Points": {
             "value": 60
           },
-          "Tempestus Scions": {
+          "Tempestus Scion": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -13634,7 +13666,7 @@
           }
         }
       },
-      "Model§Tempestus Scions": {
+      "Model§Tempestus Scion": {
         "assets": {
           "traits": [
             "Melee Weapon§Tempestus Scions—Close combat weapon"
@@ -13666,7 +13698,8 @@
               "Flamer": {
                 "order": 1,
                 "tracking": {
-                  "Flamer": 1
+                  "Flamer": 1,
+                  "special weapon": 1
                 },
                 "traits": [
                   {
@@ -13677,17 +13710,19 @@
               "Grenade launcher": {
                 "order": 2,
                 "tracking": {
-                  "Grenade Launcher": 1
+                  "Grenade Launcher": 1,
+                  "special weapon": 1
                 },
                 "traits": [
                   {
-                    "trait": "Wargear§Tempestus Scions—Grenade launcher"
+                    "trait": "Weapon§Tempestus Scions—Grenade launcher"
                   }
                 ]
               },
               "Hot-shot volley gun": {
                 "order": 3,
                 "tracking": {
+                  "special weapon": 1,
                   "Volly": 1
                 },
                 "traits": [
@@ -13699,7 +13734,8 @@
               "Meltagun": {
                 "order": 4,
                 "tracking": {
-                  "Melta": 1
+                  "Melta": 1,
+                  "special weapon": 1
                 },
                 "traits": [
                   {
@@ -13710,7 +13746,8 @@
               "Plasma gun": {
                 "order": 5,
                 "tracking": {
-                  "Plasma": 1
+                  "Plasma": 1,
+                  "special weapon": 1
                 },
                 "traits": [
                   {
