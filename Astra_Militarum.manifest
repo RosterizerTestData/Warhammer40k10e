@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.1.24",
+  "revision": "10.1.25",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3144,7 +3144,7 @@
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 10 can have melta",
+                  "1 in 10 can have vox",
                   "evals",
                   "0",
                   "result",
@@ -3366,11 +3366,11 @@
         },
         "assets": {
           "included": [
+            "Model§Jungle Fighter Sergeant",
             {
               "item": "Model§Jungle Fighter",
               "quantity": 9
-            },
-            "Model§Jungle Fighter Sergeant"
+            }
           ],
           "traits": [
             {
@@ -3382,11 +3382,7 @@
               }
             },
             "Ability§Jungle Fighters",
-            "Wargear§Vox-caster",
-            {
-              "item": "Ability§Leader",
-              "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
-            }
+            "Ability§Unit Composition"
           ]
         },
         "keywords": {
@@ -3407,6 +3403,62 @@
           ]
         },
         "rules": {
+          "1 in 10 can have vox": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 10
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 10 can have vox",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Vox-caster"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Vox-caster"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
           "1 in 5 can have a flamer": {
             "evals": [
               {
@@ -3458,6 +3510,81 @@
                     "Flamer"
                   ]
                 ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Must take 1 Jungle Fighter Sergeant per 9 Jungle Fighters": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Jungle Fighter"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Jungle Fighter Sergeant"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "Must take 1 Jungle Fighter Sergeant per 9 Jungle Fighters",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Must take 9 or 18 Jungle Fighters": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Jungle Fighter"
+                  ]
+                ],
+                "value": 9
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Jungle Fighter"
+                  ]
+                ],
+                "value": 18
               }
             ],
             "evaluate": "OR",
@@ -4721,8 +4848,11 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 15
+                      "quantity": 14
                     }
+                  },
+                  {
+                    "trait": "Model§Guardsman"
                   },
                   {
                     "trait": "Model§Guardsman"
@@ -11071,8 +11201,22 @@
                   }
                 ]
               },
-              "Flamer": {
+              "Lasgun + Vox-caster": {
                 "order": 1,
+                "tracking": {
+                  "vox": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Vox-caster"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Catachan Jungle Fighters—Lasgun"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 2,
                 "tracking": {
                   "Flamer": 1
                 },
@@ -33230,6 +33374,7 @@
             "visibility": "active"
           },
           "Hunter-Killer": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
@@ -33260,6 +33405,7 @@
             "value": 3
           },
           "Pintle Weapon": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
@@ -33289,6 +33435,7 @@
             "value": 200
           },
           "Sponson Weapon": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
