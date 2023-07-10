@@ -1,6 +1,6 @@
 {
   "name": "Aeldari/Drukhari common",
-  "revision": "10.2.8",
+  "revision": "10.2.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "Y37TR7",
+      "slug": "2J83FF",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -28046,6 +28046,44 @@
           ]
         },
         "rules": {
+          "addBattlelineIfTroupeMasterIsWarlord": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Troupe Master",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          },
           "apply4thModelCost": {
             "actions": [
               {
