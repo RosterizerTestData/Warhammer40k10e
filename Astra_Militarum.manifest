@@ -162,7 +162,7 @@
         },
         "text": "Each time this model’s magma cannon targets an enemy Monster or Vehicle unit, that target is always considered to be within half range of that weapon."
       },
-      "Ability§Cold Steel And Courage": {
+      "Ability§Cold Steel and Courage": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -225,7 +225,7 @@
         },
         "text": "At the start of your Shooting phase, select one enemy unit within 18″ of and visible to this unit. Until the end of the phase, each time a friendly Astra Militarum model makes an attack that targets that unit, re-roll a Hit roll of 1 and, if that attack has the [INDIRECT FIRE] ability, it does not suffer the penalty to the Hit roll for shooting at a target that is not visible to the attacking unit."
       },
-      "Ability§Death Befitting An Officer": {
+      "Ability§Death Befitting an Officer": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -410,7 +410,7 @@
         },
         "text": "Each time a model in this unit makes a melee attack, if this unit made a Charge move or was charged this turn, improve the Strength and Armour Penetration characteristics of that attack by 1."
       },
-      "Ability§Like Fighting A Shadow": {
+      "Ability§Like Fighting a Shadow": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -442,7 +442,7 @@
         },
         "text": "While this model is leading a unit, that unit can be affected by up to two different Orders at the same time."
       },
-      "Ability§Malign Wardings(psychic)": {
+      "Ability§Malign Wardings (psychic)": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -522,6 +522,270 @@
         },
         "text": "Each time an enemy unit targets a friendly Astra Militarum unit within 3″ of this model with ranged attacks, after that enemy unit has finished making its attacks, this model can shoot as if it were your Shooting phase."
       },
+      "Ability§Orders": {
+        "rules": {
+          "addOrderException": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "orderException",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "orderException",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 152
+          },
+          "addOrdersText": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "up to"
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "orderX",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "Orders to"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "orderX",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 150
+          },
+          "addOrderText": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "1 Order to a"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "orderX",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 150
+          },
+          "addOrderUnit": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "orderUnits",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "unit."
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "orderX",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 151
+          },
+          "addOrderUnits": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "orderUnits",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "units."
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "orderX",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 151
+          }
+        },
+        "stats": {
+          "orderException": {
+            "group": "Values",
+            "groupOrder": 1,
+            "statOrder": 3,
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "orderUnits": {
+            "group": "Values",
+            "groupOrder": 1,
+            "statOrder": 1,
+            "statType": "term",
+            "value": "Regiment",
+            "visibility": "hidden"
+          },
+          "orderX": {
+            "group": "Values",
+            "groupOrder": 1,
+            "statOrder": 2,
+            "statType": "numeric",
+            "value": 1,
+            "visibility": "hidden"
+          }
+        },
+        "text": "This Officer can issue"
+      },
       "Ability§Payback Time": {
         "keywords": {
           "Keywords": [
@@ -530,7 +794,9 @@
         },
         "text": "Once per battle, when this model is selected to shoot, it can use this ability. If it does, until the end of the phase, its Payback weapon has an Attacks characteristic of 6 and the [SUSTAINED HITS 3] ability instead of the [SUSTAINED HITS 1] ability. ORDERS This Officer can issue 1 Order to a Catachan Jungle Fighters unit."
       },
-      "Ability§Plasma Warhead": {},
+      "Ability§Plasma Warhead": {
+        "text": "The bearer can only shoot with this weapon in your Shooting phase, and only if it Remained Stationary this turn and you did not use its Deathstrike Missile ability to Designate Target or Adjust Target this phase. When the bearer shoots with this weapon, do not select a target. Instead, resolve this weapon’s attacks, rolling for each unit within 6\" of the centre of its Deathstrike Target marker individually."
+      },
       "Ability§Point-blank Barrage": {
         "keywords": {
           "Keywords": [
@@ -662,7 +928,7 @@
         },
         "text": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
       },
-      "Ability§Shoot Sharp And Scarper": {
+      "Ability§Shoot Sharp and Scarper": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -881,7 +1147,7 @@
         },
         "text": "When making ranged attacks with its eradicator nova cannon, this model can target enemy units within Engagement Range of it (provided no other friendly units are also within Engagement Range of that enemy unit). In addition, when making ranged attacks, this model does not suffer the penalty to its Hit rolls for being within Engagement Range of one or more enemy units."
       },
-      "Ability§Vengeance For the Omnissiah": {
+      "Ability§Vengeancefor the Omnissiah": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -894,7 +1160,8 @@
           "Keywords": [
             "Faction"
           ]
-        }
+        },
+        "text": "If your Army Faction is Astra Militarum, in your Command phase, Officer models from your army with this ability can issue Orders. Each Officer’s datasheet will specify how many Orders it can issue and which units are eligible to receive those Orders. Each time an Officer model issues an Order, select one of the Orders below, then select one eligible friendly unit within 6\" of that Officer model to issue it to.\n\nUntil the start of your next Command phase, the unit you selected is affected by that Order. Unless otherwise stated, a unit can only be affected by one Order at a time (any Order subsequently issued to that unit replaces the current one). If a unit being affected by an Order becomes Battle-shocked, that Order ceases to affect that unit.\n\n### MOVE! MOVE! MOVE!\nAdd 3\" to the Move characteristic of models in this unit.\n\n### FIX BAYONETS!\nImprove the Weapon Skill characteristic of melee weapons equipped by models in this unit by 1.\n\n### TAKE AIM!\nImprove the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1.\n\n### FIRST RANK, FIRE! SECOND RANK, FIRE!\nImprove the Attacks characteristic of Rapid Fire weapons equipped by models in this unit by 1.\n\n### TAKE COVER!\nImprove the Save characteristic of models in this unit by 1 (this cannot improve a model’s Save to better than 3+).\n\n### DUTY AND HONOUR!\nImprove the Leadership and Objective Control characteristics of models in this unit by 1."
       },
       "Ability§Vox-net": {
         "keywords": {
@@ -955,7 +1222,7 @@
               }
             },
             "Ability§Voice of Command",
-            "Ability§Cold Steel And Courage",
+            "Ability§Cold Steel and Courage",
             "Ability§Been There, Seen It, Killed It",
             {
               "item": "Ability§Invulnerable",
@@ -967,7 +1234,15 @@
             },
             "Ranged Weapon§‘Iron Hand’ Straken—Auto shotgun",
             "Weapon§‘Iron Hand’ Straken—Plasma pistol",
-            "Melee Weapon§‘Iron Hand’ Straken—Bionic arm with devil’s claw"
+            "Melee Weapon§‘Iron Hand’ Straken—Bionic arm with devil’s claw",
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderX": {
+                  "value": 2
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -1028,7 +1303,8 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Ability§Orders"
           ]
         },
         "keywords": {
@@ -1216,6 +1492,14 @@
                   "value": "5+"
                 }
               }
+            },
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderException": {
+                  "value": "This Officer can only issue the Duty and Honour! and Fix Bayonets! Orders."
+                }
+              }
             }
           ]
         },
@@ -1328,7 +1612,17 @@
             "Ability§Voice of Command",
             "Ability§Martial Dedication",
             "Ability§Cult of Sacrifice",
-            "Ability§Orders",
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderUnits": {
+                  "value": "Regiment"
+                },
+                "orderX": {
+                  "value": 1
+                }
+              }
+            },
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1620,7 +1914,18 @@
             },
             "Ranged Weapon§Lord Solar Leontus—Sol’s Righteous Gaze",
             "Melee Weapon§Lord Solar Leontus—Conquest",
-            "Melee Weapon§Lord Solar Leontus—Konstantin’s hooves"
+            "Melee Weapon§Lord Solar Leontus—Konstantin’s hooves",
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderUnits": {
+                  "value": "Astra Militarum"
+                },
+                "orderX": {
+                  "value": 3
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -1852,7 +2157,7 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following units:\n\n\n\n* Cadian Shock Troops\n\n\n\n* Catachan Jungle Fighters\n\n\n\n* Death Korps of Krieg\n\n\n\n* Infantry Squad\n\n\n\n* Kasrkin\n\n\n\n* Tempestus Scions"
             },
-            "Ability§Malign Wardings(psychic)",
+            "Ability§Malign Wardings (psychic)",
             "Ability§Psychic Barrier (psychic)",
             "Ranged Weapon§Primaris Psyker—Laspistol",
             "Weapon§Primaris Psyker—Psychic Maelstrom",
@@ -1907,7 +2212,7 @@
             },
             "Ability§Enginseer",
             "Ability§Omnissiah’s Blessing",
-            "Ability§Vengeance For the Omnissiah",
+            "Ability§Vengeancefor the Omnissiah",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -2098,7 +2403,15 @@
             "Ability§Harker’s Hellraisers",
             "Ability§Payback Time",
             "Ranged Weapon§Sergeant Harker—Payback",
-            "Melee Weapon§Sergeant Harker—Close combat weapon"
+            "Melee Weapon§Sergeant Harker—Close combat weapon",
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderUnits": {
+                  "value": "Catachan Jungle Fighters"
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -2152,7 +2465,7 @@
             "Ability§Lone Operative",
             "Ability§Stealth",
             "Ability§One-man Army",
-            "Ability§Like Fighting A Shadow",
+            "Ability§Like Fighting a Shadow",
             "Ability§Loner",
             "Ranged Weapon§Sly Marbo—Ripper pistol",
             "Melee Weapon§Sly Marbo—Envenomed blade"
@@ -2212,7 +2525,7 @@
             },
             "Ability§Voice of Command",
             "Ability§Vox-net",
-            "Ability§Death Befitting An Officer",
+            "Ability§Death Befitting an Officer",
             {
               "item": "Ability§Damaged:",
               "stats": {
@@ -2221,7 +2534,18 @@
                 }
               }
             },
-            "Melee Weapon§Tank Commander—Armoured tracks"
+            "Melee Weapon§Tank Commander—Armoured tracks",
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderX": {
+                  "value": 1
+                },
+                "orderUnits": {
+                  "value": "Squadron"
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -2488,7 +2812,15 @@
               "text": "This model can be attached to the following units:\n\n\n\n* Cadian Shock Troops\n\n\n\n* Infantry Squad\n\n\n\n* Kasrkin"
             },
             "Ranged Weapon§Ursula Creed—Duty and Vengeance",
-            "Melee Weapon§Ursula Creed—Power weapon"
+            "Melee Weapon§Ursula Creed—Power weapon",
+            {
+              "item": "Ability§Orders",
+              "stats": {
+                "orderX": {
+                  "value": 2
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -4959,7 +5291,6 @@
             },
             "Ability§Warrior Elite",
             "Wargear§Vox-caster",
-            "Wargear§One Or More Friendly Officer Models Within 6\"",
             "Wargear§Melta Mine",
             "Model§Kasrkin Sergeant"
           ]
@@ -5895,7 +6226,7 @@
           "traits": [
             "Ability§Infiltrators",
             "Ability§Stealth",
-            "Ability§Shoot Sharp And Scarper"
+            "Ability§Shoot Sharp and Scarper"
           ]
         },
         "keywords": {
@@ -5988,13 +6319,12 @@
           "traits": [
             "Ability§Deep Strike",
             "Ability§Storm Troopers",
-            "Wargear§Vox-caster",
-            "Wargear§One Or More Friendly Officer Models Within 6\"",
             {
               "item": "Ability§Leader",
               "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
-            "Model§Tempestor"
+            "Model§Tempestor",
+            "Ability§Unit Composition"
           ]
         },
         "keywords": {
@@ -13726,7 +14056,7 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Hot-shot laspistol"
+                    "trait": "Ranged Weapon§Tempestus Scions—Hot-shot laspistol"
                   }
                 ]
               },
@@ -13745,26 +14075,10 @@
                     "trait": "Weapon§Militarum Tempestus Command Squad—Plasma pistol"
                   }
                 ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Militarum Tempestus Command Squad—Close combat weapon"
-                  }
-                ]
-              },
-              "Tempestus dagger": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Militarum Tempestus Command Squad—Tempestus dagger"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Hot-shot laspistol",
             "visibility": "active"
           },
           "Sv": {
@@ -13934,10 +14248,10 @@
                   }
                 ]
               },
-              "Vox Caster + Hot-shot laspistol": {
+              "Hot-shot laspistol + vox-caster": {
                 "order": 6,
                 "tracking": {
-                  "Plasma": 1
+                  "vox": 1
                 },
                 "traits": [
                   {
@@ -18634,6 +18948,77 @@
           }
         }
       },
+      "Ranged Weapon§Deathstrike—Heavy bolter": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Heavy bolter"
+          }
+        }
+      },
+      "Ranged Weapon§Deathstrike—Heavy flamer": {
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Heavy flamer"
+          }
+        }
+      },
       "Ranged Weapon§Deathstrike—Hunter-killer missile": {
         "assets": {
           "traits": [
@@ -18662,155 +19047,6 @@
           },
           "weaponName": {
             "value": "Hunter-killer missile"
-          }
-        }
-      },
-      "Ranged Weapon§Deathstrike—marker individually.": {
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": -1
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 2
-          },
-          "Range": {
-            "value": 36
-          },
-          "S": {
-            "value": 5
-          },
-          "weaponName": {
-            "value": "marker individually."
-          }
-        }
-      },
-      "Ranged Weapon§Deathstrike—or Adjust Target this phase. When the bearer shoots wi": {
-        "stats": {
-          "A": {
-            "statType": "term",
-            "value": "this"
-          },
-          "AP": {
-            "statType": "term",
-            "value": "not"
-          },
-          "BS": {
-            "statType": "term",
-            "value": "weapon,"
-          },
-          "D": {
-            "statType": "term",
-            "value": "select"
-          },
-          "Range": {
-            "statType": "term",
-            "value": "th"
-          },
-          "S": {
-            "statType": "term",
-            "value": "do"
-          },
-          "weaponName": {
-            "value": "or Adjust Target this phase. When the bearer shoots wi"
-          }
-        }
-      },
-      "Ranged Weapon§Deathstrike—Plasma Warhead: The bearer can only shoot with this we": {
-        "stats": {
-          "A": {
-            "statType": "term",
-            "value": "in"
-          },
-          "AP": {
-            "statType": "term",
-            "value": "phase,"
-          },
-          "BS": {
-            "statType": "term",
-            "value": "your"
-          },
-          "D": {
-            "statType": "term",
-            "value": "and"
-          },
-          "Range": {
-            "statType": "term",
-            "value": "apon"
-          },
-          "S": {
-            "statType": "term",
-            "value": "Shooting"
-          },
-          "weaponName": {
-            "value": "Plasma Warhead: The bearer can only shoot with this we"
-          }
-        }
-      },
-      "Ranged Weapon§Deathstrike—Remained Stationary this turn and you did not use its": {
-        "stats": {
-          "A": {
-            "statType": "term",
-            "value": "Missile"
-          },
-          "AP": {
-            "statType": "term",
-            "value": "Designate"
-          },
-          "BS": {
-            "statType": "term",
-            "value": "ability"
-          },
-          "D": {
-            "statType": "term",
-            "value": "Target"
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Deathstrike"
-          },
-          "S": {
-            "statType": "term",
-            "value": "to"
-          },
-          "weaponName": {
-            "value": "Remained Stationary this turn and you did not use its"
-          }
-        }
-      },
-      "Ranged Weapon§Deathstrike—resolve this weapon’s attacks, rolling for each unit w": {
-        "stats": {
-          "A": {
-            "statType": "term",
-            "value": "6\""
-          },
-          "AP": {
-            "statType": "term",
-            "value": "centre"
-          },
-          "BS": {
-            "statType": "term",
-            "value": "of"
-          },
-          "D": {
-            "statType": "term",
-            "value": "of"
-          },
-          "Range": {
-            "statType": "term",
-            "value": "ithin"
-          },
-          "S": {
-            "statType": "term",
-            "value": "the"
-          },
-          "weaponName": {
-            "value": "resolve this weapon’s attacks, rolling for each unit w"
           }
         }
       },
@@ -31852,8 +32088,8 @@
                 }
               }
             },
-            "Ability§Deathstrike Missile",
-            "Melee Weapon§Deathstrike—Armoured tracks"
+            "Melee Weapon§Deathstrike—Armoured tracks",
+            "Ranged Weapon§Deathstrike—Deathstrike missile"
           ]
         },
         "keywords": {
@@ -31882,7 +32118,7 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deepstrike—Heavy bolter"
+                    "trait": "Ranged Weapon§Deathstrike—Heavy bolter"
                   }
                 ]
               },
@@ -31890,7 +32126,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deepstrike—Heavy flamer"
+                    "trait": "Ranged Weapon§Deathstrike—Heavy flamer"
                   }
                 ]
               }
@@ -31912,7 +32148,7 @@
                 "tracking": {},
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deepstrike—Hunter-killer missile"
+                    "trait": "Ranged Weapon§Deathstrike—Hunter-killer missile"
                   }
                 ]
               }
@@ -37222,9 +37458,6 @@
       },
       "Wargear§Melta Mine": {
         "text": "Once per battle, at the start of any phase, you can select one enemy unit within 3″ of the bearer and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds, or 2D3 mortal wounds instead if it is a Vehicle unit."
-      },
-      "Wargear§One Or More Friendly Officer Models Within 6\"": {
-        "text": "on a 5+, you gain 1CP."
       },
       "Wargear§Regimental Standard": {
         "text": "Add 1 to the Objective Control characteristic of models in the bearer’s unit. ORDERS This unit’s Officer can issue 1 Order to a Regiment unit."
