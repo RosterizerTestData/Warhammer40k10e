@@ -1,15 +1,15 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.2.6",
+  "revision": "10.2.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "dependencies": [
     {
-      "slug": "MVMSHA",
+      "slug": "EAYPVJ",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -763,7 +763,7 @@
             "Other"
           ]
         },
-        "text": "Once per turn, at the start of your opponent’s Shooting phase, select one enemy Vehicle unit within 12″ of and visible to one or more models from your"
+        "text": "Once per turn, at the start of your opponent’s Shooting phase, select one enemy Vehicle unit within 12″ of and visible to one or more models from your army with this ability. That unit must take a leadership test:  if that test is passed, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll; if that test is failed, that unit is not eligible to shoot this phase."
       },
       "Ability§Daemon Prince of Khorne": {
         "keywords": {
@@ -995,9 +995,10 @@
       },
       "Ability§Fortification": {
         "keywords": {
-          "Keywords": [
-            "Other"
-          ]
+          "Keywords": []
+        },
+        "removed": {
+          "text": ""
         },
         "text": "While an enemy unit is only within Engagement Range of one or more Fortifications from your army: \n\n*  That unit can still be selected as the target of ranged attacks, but each time such an attack is made, unless it is made with a Pistol weapon, subtract 1 from the Hit roll. \n\n*  Models in that unit do not need to take Desperate Escape tests due to Falling Back while Battle-shocked, except for those that will move over enemy models when doing so."
       },
@@ -1198,9 +1199,10 @@
       },
       "Ability§Scuttling Walker": {
         "keywords": {
-          "Keywords": [
-            "Other"
-          ]
+          "Keywords": []
+        },
+        "removed": {
+          "text": ""
         },
         "text": "Each time this model makes a Normal or Advance move, it can be moved over friendly Monster and Vehicle models as if they were not there. This model can move over terrain features that are 4″ or less in height as if they were not there."
       },
@@ -15993,7 +15995,7 @@
             "value": 16
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 soulshatter lascannons; twin heavy bolter; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§Chaos Predator Annihilator": {
         "assets": {
@@ -16403,7 +16405,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: combi-bolter; armoured tracks.\n\nThis model can be equipped with one of the following: ◦ 1 combi-bolter ◦ 1 combi-weapon\n\n*This model can be equipped with 1 havoc launcher."
+        "text": ""
       },
       "Unit§Chaos Spawn": {
         "allowed": {
@@ -16567,7 +16569,7 @@
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have a chainfist",
+                  "1 in 5 models can have a heavy weapon",
                   "evals",
                   "0",
                   "result",
@@ -16610,7 +16612,7 @@
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have a chainfist",
+                  "1 in 5 models can have a Paired accursed weapon",
                   "evals",
                   "0",
                   "result",
@@ -18746,6 +18748,44 @@
           ]
         },
         "rules": {
+          "addBattlelineIfLuciusIsWarlord": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Lucius The Eternal",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          },
           "Maximum 1 Blastmaster": {
             "evals": [
               {
