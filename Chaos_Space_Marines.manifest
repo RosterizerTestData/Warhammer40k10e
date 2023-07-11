@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.3.2",
+  "revision": "10.3.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "EAYPVJ",
+      "slug": "WNDHZE",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -17084,7 +17084,79 @@
         }
       },
       "Roster§Army": {
+        "rules": {
+          "setMaxLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxLostAndDamned"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
         "stats": {
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "-": {
+                "format": "-",
+                "order": 0
+              },
+              "Combat Patrol": {
+                "format": "Combat Patrol",
+                "order": 1,
+                "tracking": {
+                  "maxDaemons": 0,
+                  "maxLostAndDamned": 0,
+                  "maxPoints": 500
+                }
+              },
+              "Incursion": {
+                "format": "Incursion",
+                "order": 2,
+                "tracking": {
+                  "maxDaemons": 250,
+                  "maxLostAndDamned": 250,
+                  "maxPoints": 1000
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 3,
+                "tracking": {
+                  "maxDaemons": 500,
+                  "maxLostAndDamned": 500,
+                  "maxPoints": 2000
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 4,
+                "tracking": {
+                  "maxDaemons": 750,
+                  "maxLostAndDamned": 750,
+                  "maxPoints": 3000
+                }
+              }
+            }
+          },
           "Detachment": {
             "dynamic": false,
             "ranks": {
@@ -17111,6 +17183,13 @@
           "Faction Group": {
             "dynamic": false,
             "value": "Chaos"
+          },
+          "Lost & Damned Points": {
+            "statOrder": 7,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
@@ -19705,7 +19784,7 @@
         },
         "keywords": {
           "Faction": [
-            "World Eaters"
+            "Heretic Astartes"
           ],
           "Source": [
             "10th Edition Index"
@@ -19850,12 +19929,44 @@
             ],
             "evaluate": "OR",
             "failState": "error"
+          },
+          "copyPointsForLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
           }
         },
         "stats": {
           "Khorne Berzerkers": {
             "max": 9,
             "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Lost & Damned Points": {
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -20659,7 +20770,7 @@
         },
         "keywords": {
           "Faction": [
-            "Death Guard"
+            "Heretic Astartes"
           ],
           "Source": [
             "10th Edition Index"
@@ -20933,9 +21044,41 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "CopyPointsForLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
           }
         },
         "stats": {
+          "Lost & Damned Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -21194,7 +21337,7 @@
         },
         "keywords": {
           "Faction": [
-            "Thousand Sons"
+            "Heretic Astartes"
           ],
           "Source": [
             "10th Edition Index"
@@ -21209,6 +21352,32 @@
           ]
         },
         "rules": {
+          "copyPointsForLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
           "Maximum 1 icon of flame.": {
             "evals": [
               {
@@ -21275,6 +21444,12 @@
           }
         },
         "stats": {
+          "Lost & Damned Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "model1stTally": {
             "value": 5
           },
