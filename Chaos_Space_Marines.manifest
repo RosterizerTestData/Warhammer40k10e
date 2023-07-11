@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.2.5",
+  "revision": "10.2.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "WNDHZE",
+      "slug": "MVMSHA",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -675,7 +675,7 @@
             "Other"
           ]
         },
-        "text": "Each time this model is destroyed by an attack made by an enemy unit, that unit must take a"
+        "text": "Each time this model is destroyed by an attack made by an enemy unit, that unit must take a Leadership test: if that test is passed, that enemy unit suffers D3 mortal wounds; if that test is failed, that enemy unit suffers D6 mortal wounds. If mortal wounds inflicted in this way destroy that enemy unit, set this model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with D3 wounds remaining. If this model was attached to a unit when it was destroyed, it must be set back up attached to that unit."
       },
       "Ability§Army With This Ability. That Unit Must Take A Leadership Test": {
         "keywords": {
@@ -1007,7 +1007,7 @@
             "Other"
           ]
         },
-        "text": "Each time this model is selected to shoot or fight, after resolving its attacks, select one enemy unit hit by one or more of those attacks that had the"
+        "text": "Each time this model is selected to shoot or fight, after resolving its attacks, select one enemy unit hit by one or more of those attacks that had the [PSYCHIC] ability. That unit must take a Leadership test: if that test is failed, that unit suffers D3 mortal wounds."
       },
       "Ability§Glory to Chaos": {
         "keywords": {
@@ -2013,6 +2013,52 @@
           }
         }
       },
+      "Character§Fabius Bile": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            {
+              "item": "Ability§Leader",
+              "text": "This unit can be attached to the following units:\n\n\n\n* Chosen\n\n\n\n* Legionaries"
+            },
+            "Ability§Dark Pacts",
+            "Ability§Enhanced Warriors",
+            "Ability§Surgeon Acolyte",
+            "Ability§Chirurgeon",
+            "Model§Fabius Bile",
+            "Model§Surgeon Acolyte"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Heretic Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Chaos",
+            "Chaos Undivided",
+            "Character",
+            "Epic Hero",
+            "Fabius Bile",
+            "Infantry"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 100
+          }
+        },
+        "text": ""
+      },
       "Character§Haarken Worldclaimer": {
         "aspects": {
           "Unique": true
@@ -2949,7 +2995,6 @@
             "Ability§Dark Pacts",
             "Ability§Prescience (psychic)",
             "Ability§Gift of Chaos (psychic)",
-            "Ability§[psychic] Ability. That Unit Must Take A Leadership Test",
             "Ranged Weapon§Sorcerer—Bolt pistol",
             "Melee Weapon§Sorcerer—Force weapon",
             "Weapon§Sorcerer—Infernal Gaze"
@@ -6947,6 +6992,17 @@
                     "trait": "Weapon§Chaos Bikers—Plasma gun"
                   }
                 ]
+              },
+              "Combi-Weapon": {
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Bikers—Combi-weapon"
+                  }
+                ]
               }
             },
             "statType": "rank",
@@ -7739,7 +7795,8 @@
           "traits": [
             "Ranged Weapon§Fabius Bile—Xyclos Needler",
             "Ability§Chirurgeon",
-            "Melee Weapon§Fabius Bile—Rod of Torment"
+            "Melee Weapon§Fabius Bile—Rod of Torment",
+            "Melee Weapon§Fabius Bile—Chirurgeon"
           ]
         },
         "stats": {
@@ -8840,6 +8897,9 @@
               },
               "Plasma pistol & Astartes Chainsword": {
                 "order": 1,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Weapon§Raptors—Plasma pistol"
@@ -17393,52 +17453,6 @@
         },
         "text": ""
       },
-      "Unit§Fabius Bile": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Feel No Pain",
-              "stats": {
-                "x": {
-                  "value": "5+"
-                }
-              }
-            },
-            {
-              "item": "Ability§Leader",
-              "text": "This unit can be attached to the following units:\n\n\n\n* Chosen\n\n\n\n* Legionaries"
-            },
-            "Ability§Dark Pacts",
-            "Ability§Enhanced Warriors",
-            "Ability§Surgeon Acolyte",
-            "Ability§Chirurgeon",
-            "Model§Fabius Bile",
-            "Model§Surgeon Acolyte"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Heretic Astartes"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Chaos",
-            "Chaos Undivided",
-            "Character",
-            "Epic Hero",
-            "Fabius Bile",
-            "Infantry"
-          ]
-        },
-        "stats": {
-          "Points": {
-            "value": 100
-          }
-        },
-        "text": ""
-      },
       "Unit§Fellgor Beastmen": {
         "allowed": {
           "items": [
@@ -18732,44 +18746,6 @@
           ]
         },
         "rules": {
-          "addBattlelineIfLuciusIsWarlord": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Battleline"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Character§Lucius The Eternal",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
-          },
           "Maximum 1 Blastmaster": {
             "evals": [
               {
