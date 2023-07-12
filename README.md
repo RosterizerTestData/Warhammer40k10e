@@ -38,6 +38,9 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptu
 ### Adeptus_Mechanicus
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Mechanicus.manifest
 
+### Adeptus_Titanicus
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Titanicus.manifes
+
 ### Astra_Militarum
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifest
 
