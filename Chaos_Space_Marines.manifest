@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.3.0",
+  "revision": "10.3.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "EAYPVJ",
+      "slug": "WNDHZE",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -717,6 +717,14 @@
         },
         "text": "Each time this unit declares a charge, if one or more of the targets of that charge are within range of an objective marker, add 2 to the Charge roll made for that charge."
       },
+      "Ability§Blessings of Khorne": {
+        "keywords": {
+          "Keywords": [
+            "Faction"
+          ]
+        },
+        "text": "If your Army Faction is World Eaters, at the start of the battle round, you can make a Blessings of Khorne roll. To do so, roll eight D6. You can then use those dice to activate up to two Blessings of Khorne from the Blessings of Khorne list (see right). Each Blessing of Khorne specifies the dice results it requires (where a number is specified, a double or triple of that value or higher is required). You can only activate each Blessing of Khorne once per battle round. Any unused dice from the Blessings of Khorne roll are then discarded.\n\nOnce activated, each Blessing of Khorne applies to all units from your army with this ability until the end of the battle round.\n\n*Example: Ash makes their Blessings of Khorne roll and gets the following dice: 1, 2, 2, 2, 3, 4, 6, 6. First they use the two 6s to activate Warp Blades (which requires a double 5+), leaving the following dice: 1, 2, 2, 2, 3, 4. They then use the two 2s to activate Wrathful Devotion (which requires any double), leaving the following dice: 1, 2, 3, 4. However, now that they have activated two Blessings of Khorne, they cannot activate any more and the remaining dice are discarded.*\n\n## RAGE-FUELLED INVIGORATION\n### ANY DOUBLE\nAdd 2\" to the Move characteristic of models in this unit.\n## WRATHFUL DEVOTION\n### ANY DOUBLE\nModels in this unit have the Feel No Pain 6+ ability. If models in this unit already have the Feel No Pain ability, add 1 to their Feel No Pain rolls. \n## MARTIAL EXCELLENCE\n### DOUBLE 3+\nMelee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability.\n## TOTAL CARNAGE\n### DOUBLE 4+ OR ANY TRIPLE\nEach time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6: on a 4+, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.\n## WARP BLADES\n### DOUBLE 5+ OR ANY TRIPLE\nMelee weapons equipped by models in this unit have the [LETHAL HITS] ability.\n## UNBRIDLED BLOODLUST\n### DOUBLE 6 OR TRIPLE 4+\nThis unit is eligible to declare a charge in a turn in which it Advanced."
+      },
       "Ability§Blood Fury": {
         "keywords": {
           "Keywords": [
@@ -725,6 +733,22 @@
         },
         "text": "In the Fight phase, if this unit’s weapons gained the [LETHAL HITS] ability this phase as the result of a Dark Pact, each time a model in this unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
+      "Ability§Blood Surge": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time an enemy unit is selected to shoot, after that unit has finished making its attacks, if any models from this unit were destroyed as a result of those attacks, this unit can make a Blood Surge move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but this unit must finish that move as close as possible to the closest enemy unit (excluding Aircraft). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Blood Surge move while it is Battle-shocked."
+      },
+      "Ability§Bringers of Change": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If the target of that attack is within range of an objective marker you do not control, you can re-roll the Wound roll instead."
+      },
       "Ability§Brutal Example": {
         "keywords": {
           "Keywords": [
@@ -732,6 +756,46 @@
           ]
         },
         "text": "While this unit is leading a unit and contains a Traitor Enforcer model, that unit can be targeted with the Insane Bravery Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase. Each time you use this ability, one Bodyguard model in that unit is destroyed."
+      },
+      "Ability§Cabal of Sorcerers 1*": {
+        "keywords": {
+          "Tags": [],
+          "Keywords": [
+            "Faction"
+          ]
+        },
+        "rules": {
+          "MakeCPVisible": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Cabal Points",
+                    "visibility"
+                  ]
+                ],
+                "value": "always"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
+        "stats": {
+          "Cabal Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "normal"
+          }
+        },
+        "text": "At the end of your Command phase, if this unit's Aspiring Sorcerer or Scarab Occult Sorcerer model is on the battlefield and not Battle-shocked, it generates 1 Cabal point."
       },
       "Ability§Chance For Glory": {
         "keywords": {
@@ -1132,6 +1196,13 @@
         },
         "text": "While this unit contains a Traitor Ogryn model, Character models in this unit have the Feel No Pain 4+ ability."
       },
+      "Ability§Nurgle’s Gift (aura)": {
+        "keywords": {
+          "Keywords": [
+            "Faction"
+          ]
+        }
+      },
       "Ability§Outmanoeuvre": {
         "keywords": {
           "Keywords": [
@@ -1180,6 +1251,14 @@
           ]
         },
         "text": "At the start of each player’s Command phase, one model in this unit regains up to D3 lost wounds."
+      },
+      "Ability§Remorseless": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "While this unit is within range of an objective marker you control, each time you take a Battle-shock test for this unit, add 1 to that test."
       },
       "Ability§Riotous Cacophony": {
         "keywords": {
@@ -5498,6 +5577,58 @@
           }
         }
       },
+      "Melee Weapon§Khorne Berzerkers—Berzerker chainblade": {
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Berzerker chainblade"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Khorne Berzerkers—Khornate eviscerator": {
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "Khornate eviscerator"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Khorne Lord of Skulls—Great cleaver of Khorne – strike": {
         "stats": {
           "A": {
@@ -6052,6 +6183,99 @@
           }
         }
       },
+      "Melee Weapon§Plague Marines—Bubotic weapons": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Bubotic weapons"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Plague Marines—Heavy plague weapon": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "Heavy plague weapon"
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Plague Marines—Plague knives": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Plague knives"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Possessed—Hideous mutations": {
         "stats": {
           "A": {
@@ -6176,6 +6400,64 @@
           },
           "weaponName": {
             "value": "Power fist"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Rubric Marines—Close combat weapon": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Close combat weapon"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Rubric Marines—Force weapon": {
+        "assets": {
+          "traits": [
+            "Ability§Psychic"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "statType": "term",
+            "value": "D3"
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "weaponName": {
+            "value": "Force weapon"
           },
           "WS": {
             "value": 3
@@ -6739,6 +7021,70 @@
           },
           "OC": {
             "value": 2
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Aspiring Sorcerer": {
+        "assets": {
+          "included": [],
+          "traits": [
+            "Ranged Weapon§Rubric Marines—Warpsmite",
+            "Melee Weapon§Rubric Marines—Force weapon",
+            "Ability§Cabal of Sorcerers 1*"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 2
+          },
+          "Pistol": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Inferno bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Rubric Marines—Inferno bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Weapon§Rubric Marines—Plasma pistol"
+                  }
+                ]
+              },
+              "Warpflame pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Rubric Marines—Warpflame pistol"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Inferno bolt pistol",
+            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -8170,6 +8516,191 @@
           }
         }
       },
+      "Model§Khorne Berzerker Champion": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Khorne Berzerkers—Berzerker chainblade"
+          ]
+        },
+        "stats": {
+          "Icon of Khorne": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Icon of Khorne": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Khorne"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Pistol": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Khorne Berzerkers—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Weapon§Khorne Berzerkers—Plasma pistol"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Khorne Berzerkers": {
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "Icon of Khorne": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Icon of Khorne": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Khorne"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "Melee Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Berzerker chainblade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Khorne Berzerkers—Berzerker chainblade"
+                  }
+                ]
+              },
+              "Khornate eviscerator": {
+                "order": 1,
+                "tracking": {
+                  "Eviscerator": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Khorne Berzerkers—Khornate eviscerator"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Berzerker chainblade",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Pistol": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Khorne Berzerkers—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "tracking": {
+                  "Plasma": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Khorne Berzerkers—Plasma pistol"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
       "Model§Legionnarie": {
         "assets": {
           "traits": [
@@ -8774,6 +9305,226 @@
           }
         }
       },
+      "Model§Plague Champion": {
+        "stats": {
+          "Gun": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Plague boltgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Plague boltgun"
+                  }
+                ]
+              },
+              "Plague bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Plague bolt pistol"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Weapon§Plague Marines—Plasma gun"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Weapon§Plague Marines—Plasma pistol"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague boltgun",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 5
+          },
+          "Melee weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Plague knives": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Plague Marines—Plague knives"
+                  }
+                ]
+              },
+              "Bubotic Weapons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Plague Marines—Bubotic weapons"
+                  }
+                ]
+              },
+              "Heavy plague weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Plague Marines—Heavy plague weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague knives",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Plague Marine": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Plague Marines—Plague knives"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          },
+          "Weapon options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Plague boltgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Plague boltgun"
+                  }
+                ]
+              },
+              "Blight launcher": {
+                "order": 1,
+                "tracking": {
+                  "Blight Launchers": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Blight launcher"
+                  }
+                ]
+              },
+              "Plague spewer": {
+                "order": 2,
+                "tracking": {
+                  "Spewer": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Plague spewer"
+                  }
+                ]
+              },
+              "Meltagun": {
+                "order": 3,
+                "tracking": {
+                  "Meltagun": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Meltagun"
+                  }
+                ]
+              },
+              "Plague belcher": {
+                "order": 4,
+                "tracking": {
+                  "Meltagun": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Plague belcher"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 5,
+                "tracking": {
+                  "Meltagun": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Plague Marines—Plasma gun"
+                  }
+                ]
+              },
+              "Bubotic weapons": {
+                "order": 6,
+                "tracking": {
+                  "Bubotic weapons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Plague Marines—Bubotic weapons"
+                  }
+                ]
+              },
+              "Heavy plague weapon": {
+                "order": 7,
+                "tracking": {
+                  "Heavy plague weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Plague Marines—Heavy plague weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plague boltgun",
+            "visibility": "active"
+          }
+        }
+      },
       "Model§Possessed": {
         "assets": {
           "traits": [
@@ -9045,6 +9796,94 @@
             "statType": "rank",
             "value": "Bolt pistol",
             "visibility": "normal"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Rubric Marine": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Rubric Marines—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Gun": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Inferno boltgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Rubric Marines—Inferno boltgun"
+                  }
+                ]
+              },
+              "Soulreaper cannon": {
+                "order": 1,
+                "tracking": {
+                  "SoulreaperCannons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Rubric Marines—Soulreaper cannon"
+                  }
+                ]
+              },
+              "Warpflamer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Rubric Marines—Warpflamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Inferno boltgun",
+            "visibility": "active"
+          },
+          "Icon of flame": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "IconsOfFlame": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Flame"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 2
           },
           "Sv": {
             "value": 3
@@ -13347,6 +14186,97 @@
           }
         }
       },
+      "Ranged Weapon§Khorne Berzerkers—Bolt pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Bolt pistol"
+          }
+        }
+      },
+      "Ranged Weapon§Khorne Berzerkers—Plasma pistol – standard": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 7
+          },
+          "weaponName": {
+            "value": "standard"
+          }
+        }
+      },
+      "Ranged Weapon§Khorne Berzerkers—Plasma pistol – supercharge": {
+        "assets": {
+          "traits": [
+            "Ability§Hazardous",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "supercharge"
+          }
+        }
+      },
       "Ranged Weapon§Khorne Lord of Skulls—Daemongore cannon": {
         "assets": {
           "traits": [
@@ -14493,6 +15423,360 @@
           }
         }
       },
+      "Ranged Weapon§Plague Marines—Blight launcher": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 6
+          },
+          "weaponName": {
+            "value": "Blight launcher"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Meltagun": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 9
+          },
+          "weaponName": {
+            "value": "Meltagun"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plague belcher": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Plague belcher"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plague bolt pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Plague bolt pistol"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plague boltgun": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Plague boltgun"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plague spewer": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "2+"
+                }
+              }
+            },
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Plague spewer"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plasma gun – standard": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 7
+          },
+          "weaponName": {
+            "value": "standard"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plasma gun – supercharge": {
+        "assets": {
+          "traits": [
+            "Ability§Hazardous",
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "supercharge"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plasma pistol – standard": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 7
+          },
+          "weaponName": {
+            "value": "standard"
+          }
+        }
+      },
+      "Ranged Weapon§Plague Marines—Plasma pistol – supercharge": {
+        "assets": {
+          "traits": [
+            "Ability§Hazardous",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "supercharge"
+          }
+        }
+      },
       "Ranged Weapon§Raptors—Bolt pistol": {
         "assets": {
           "traits": [
@@ -14728,6 +16012,264 @@
           },
           "weaponName": {
             "value": "supercharge"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Inferno bolt pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Inferno bolt pistol"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Inferno boltgun": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Inferno boltgun"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Plasma pistol – standard": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 7
+          },
+          "weaponName": {
+            "value": "standard"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Plasma pistol – supercharge": {
+        "assets": {
+          "traits": [
+            "Ability§Hazardous",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "supercharge"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Soulreaper cannon": {
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 6
+          },
+          "weaponName": {
+            "value": "Soulreaper cannon"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Warpflame pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol",
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 3
+          },
+          "weaponName": {
+            "value": "Warpflame pistol"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Warpflamer": {
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Warpflamer"
+          }
+        }
+      },
+      "Ranged Weapon§Rubric Marines—Warpsmite": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Devastating Wounds",
+            "Ability§Pistol",
+            "Ability§Psychic"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Warpsmite"
           }
         }
       },
@@ -15542,7 +17084,79 @@
         }
       },
       "Roster§Army": {
+        "rules": {
+          "setMaxLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxLostAndDamned"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
         "stats": {
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "-": {
+                "format": "-",
+                "order": 0
+              },
+              "Combat Patrol": {
+                "format": "Combat Patrol",
+                "order": 1,
+                "tracking": {
+                  "maxDaemons": 0,
+                  "maxLostAndDamned": 0,
+                  "maxPoints": 500
+                }
+              },
+              "Incursion": {
+                "format": "Incursion",
+                "order": 2,
+                "tracking": {
+                  "maxDaemons": 250,
+                  "maxLostAndDamned": 250,
+                  "maxPoints": 1000
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 3,
+                "tracking": {
+                  "maxDaemons": 500,
+                  "maxLostAndDamned": 500,
+                  "maxPoints": 2000
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 4,
+                "tracking": {
+                  "maxDaemons": 750,
+                  "maxLostAndDamned": 750,
+                  "maxPoints": 3000
+                }
+              }
+            }
+          },
           "Detachment": {
             "dynamic": false,
             "ranks": {
@@ -15569,6 +17183,13 @@
           "Faction Group": {
             "dynamic": false,
             "value": "Chaos"
+          },
+          "Lost & Damned Points": {
+            "statOrder": 7,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
@@ -18142,6 +19763,227 @@
         },
         "text": ""
       },
+      "Unit§Khorne Berzerkers": {
+        "allowed": {
+          "items": [
+            "Model§Khorne Berzerkers"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Khorne Berzerkers",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Blessings of Khorne",
+            "Ability§Blood Surge",
+            "Model§Khorne Berzerker Champion"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Heretic Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Battleline",
+            "Grenades",
+            "Chaos",
+            "Khorne",
+            "Berzerkers"
+          ]
+        },
+        "rules": {
+          "1 can have Icon of Khorne": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icon of Khorne"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a Khornate eviscerator": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Khornate eviscerator",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Eviscerator"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Eviscerator"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "1 in 5 can have a plasma pistol": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a plasma pistol",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Plasma"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Plasma"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "copyPointsForLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
+        "stats": {
+          "Khorne Berzerkers": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Lost & Damned Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 115
+          },
+          "Points": {
+            "value": 115
+          }
+        },
+        "text": ""
+      },
       "Unit§Khorne Lord of Skulls": {
         "assets": {
           "traits": [
@@ -18907,6 +20749,361 @@
           }
         }
       },
+      "Unit§Plague Marines": {
+        "allowed": {
+          "items": [
+            "Model§Plague Marine"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Plague Marine",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Nurgle’s Gift (aura)",
+            "Ability§Remorseless",
+            "Model§Plague Champion"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Heretic Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Nurgle",
+            "Grenades",
+            "Battleline",
+            "Plague Marines"
+          ]
+        },
+        "rules": {
+          "1 in 5 can have a Blight Launcher": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Track 1/5 models for Blight Launchers",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Blight Launcher",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Blight Launchers"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a Plague Spewer": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Track 1 in 5 for Plague Spewers",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Plague Spewer",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Spewer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have either a Meltagun, Plague Belcher or Plasma Gun": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Track 1 in 5 for Meltagun/Plague Belcher/Plasma gun",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have either a Meltagun, Plague Belcher or Plasma Gun",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Meltagun"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have a Heavy Plague weapon": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Checking 2 in 5 for Heavy Plague weapons",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "2 in 5 can have a Heavy Plague weapon",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "2 in 5 can have a Heavy Plague weapon",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Heavy plague weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have Bubotic Weapons": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Checking 2 in 5 for Bubotic Weapons",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "2 in 5 can have Bubotic Weapons",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "2 in 5 can have Bubotic Weapons",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Bubotic weapons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "CopyPointsForLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
+        "stats": {
+          "Lost & Damned Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 40
+          },
+          "model2ndTally": {
+            "value": 7
+          },
+          "model3rdCost": {
+            "value": 60
+          },
+          "Plague Marine": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 100
+          }
+        }
+      },
       "Unit§Possessed": {
         "allowed": {
           "items": [
@@ -19102,6 +21299,167 @@
             "value": 95
           },
           "Raptor": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": ""
+      },
+      "Unit§Rubric Marines": {
+        "allowed": {
+          "items": [
+            "Model§Rubric Marine"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Rubric Marine",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Bringers of Change",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Model§Aspiring Sorcerer"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Heretic Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Battleline",
+            "Chaos",
+            "Tzeentch",
+            "Rubric Marines",
+            "Psyker"
+          ]
+        },
+        "rules": {
+          "copyPointsForLostAndDamned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
+          "Maximum 1 icon of flame.": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "IconsOfFlame"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "IconsOfFlame"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Maximum 1 soulreaper cannon.": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "SoulreaperCannons"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "SoulreaperCannons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Lost & Damned Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 95
+          },
+          "Points": {
+            "value": 95
+          },
+          "Rubric Marine": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -19349,6 +21707,9 @@
       },
       "Wargear§Chaos Icon": {
         "text": "Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test."
+      },
+      "Wargear§Icon of Khorne": {
+        "text": "Each time you make a Blessings of Khorne roll, if the bearer’s unit is within range of an objective marker you control, you can re-roll one of the dice."
       },
       "Weapon§Abaddon The Despoiler—Talon of Horus": {
         "assets": {
@@ -19783,6 +22144,42 @@
           }
         }
       },
+      "Weapon§Plague Marines—Plasma gun": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Plague Marines—Plasma gun – standard",
+            "Ranged Weapon§Plague Marines—Plasma gun – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma gun"
+          }
+        }
+      },
+      "Weapon§Plague Marines—Plasma pistol": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Plague Marines—Plasma pistol – standard",
+            "Ranged Weapon§Plague Marines—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma pistol"
+          }
+        }
+      },
       "Weapon§Raptors—Plasma gun": {
         "assets": {
           "traits": [
@@ -19806,6 +22203,24 @@
           "traits": [
             "Ranged Weapon§Raptors—Plasma pistol – standard",
             "Ranged Weapon§Raptors—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma pistol"
+          }
+        }
+      },
+      "Weapon§Rubric Marines—Plasma pistol": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rubric Marines—Plasma pistol – standard",
+            "Ranged Weapon§Rubric Marines—Plasma pistol – supercharge"
           ]
         },
         "keywords": {
