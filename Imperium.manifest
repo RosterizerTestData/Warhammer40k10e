@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.2.13",
+  "revision": "10.2.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -65,6 +65,56 @@
         }
       },
       "Titan": {
+        "rules": {
+          "noSoupTitanWarlords": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "Adeptus Titanicus"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "templateClass": "Character"
       },
       "Unit": {
