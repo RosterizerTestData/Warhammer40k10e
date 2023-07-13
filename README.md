@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptu
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Mechanicus.manifest
 
 ### Adeptus_Titanicus
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Titanicus.manifes
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Titanicus.manifest
 
 ### Astra_Militarum
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.manifest
@@ -67,6 +67,9 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_
 
 ### Thousand_Sons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.manifest
+
+### Titanicus_Traitoris
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titanicus_Traitoris.manifest
 
 ### World_Eaters
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.manifest
