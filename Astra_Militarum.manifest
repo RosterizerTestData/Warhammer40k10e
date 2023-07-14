@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.2.1",
+  "revision": "10.2.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "SS92N8",
+      "slug": "2CPFHT",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -3140,8 +3140,6 @@
               }
             },
             "Ability§Wall of Muscle",
-            "Wargear§Brute Shield",
-            "Wargear§Slabshield",
             "Model§Bullgryn Bone ‘ead"
           ]
         },
@@ -5879,9 +5877,7 @@
               }
             },
             "Ability§Ogryn Bodyguard",
-            "Ability§Redoubled Loyalty",
-            "Wargear§Brute Shield",
-            "Wargear§Slabshield"
+            "Ability§Redoubled Loyalty"
           ]
         },
         "keywords": {
@@ -5927,19 +5923,19 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Ripper gun": {
+              "Grenadier gauntlet": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Ogryn Bodyguard—Ripper gun"
+                    "trait": "Ranged Weapon§Ogryn Bodyguard—Grenadier gauntlet"
                   }
                 ]
               },
-              "Grenadier gauntlet": {
+              "Ripper gun": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Ogryn Bodyguard—Grenadier gauntlet"
+                    "trait": "Melee Weapon§Ogryn Bodyguard—Ripper gun"
                   }
                 ]
               },
@@ -5981,7 +5977,14 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Wargear§Slabshield"
+                    "trait": {
+                      "item": "Wargear§Slabshield",
+                      "stats": {
+                        "x": {
+                          "value": 7
+                        }
+                      }
+                    }
                   }
                 ]
               }
@@ -10310,7 +10313,14 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Wargear§Slabshield"
+                    "trait": {
+                      "item": "Wargear§Slabshield",
+                      "stats": {
+                        "x": {
+                          "value": 4
+                        }
+                      }
+                    }
                   }
                 ]
               },
@@ -10389,7 +10399,14 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Wargear§Slabshield"
+                    "trait": {
+                      "item": "Wargear§Slabshield",
+                      "stats": {
+                        "x": {
+                          "value": 4
+                        }
+                      }
+                    }
                   }
                 ]
               },
@@ -37853,6 +37870,34 @@
         }
       },
       "Wargear§Brute Shield": {
+        "rules": {
+          "addInvuln": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "4+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          }
+        },
         "text": "The bearer has a 4+ invulnerable save."
       },
       "Wargear§Command Rod": {
@@ -37880,7 +37925,58 @@
         "text": "Add 1 to the Objective Control characteristic of models in the bearer’s unit. ORDERS This unit’s Officer can issue 1 Order to a Regiment unit."
       },
       "Wargear§Slabshield": {
-        "text": "The bearer has a Wounds characteristic of 7."
+        "rules": {
+          "replaceWoundsWithX": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "x",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "x",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          }
+        },
+        "stats": {
+          "x": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          }
+        },
+        "text": "The bearer has a Wounds characteristic of"
       },
       "Wargear§Vox-caster": {
         "text": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP."
