@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.27",
+  "revision": "10.1.28",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -128,9 +128,7 @@
       },
       "Battle Scar": {
         "aspects": {
-          "Lock Qty": true,
-          "Rename": true,
-          "Unique": true
+          "Rename": true
         }
       },
       "Battle Trait": {
@@ -140,8 +138,15 @@
           "Unique": true
         },
         "keywords": {
-          "Tags": []
-        }
+          "Tags": [
+            "Character (excluding walkers)",
+            "Infantry",
+            "Mounted",
+            "Vehicles (excluding walkers)"
+          ],
+          "Keywords": []
+        },
+        "text": ""
       },
       "Character": {
         "allowed": {
@@ -154,7 +159,152 @@
             "Core"
           ]
         },
+        "removed": {
+          "rules": {
+            "allowVehicleScarsTraits": {}
+          }
+        },
         "rules": {
+          "allowBattleTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Vehicles (excluding walkers)"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Character (excluding walkers)"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Mounted"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowScarsTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Battle Scar"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Battle Trait"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ]
+              }
+            ]
+          },
           "detachmentEnhancements": {
             "actions": [
               {
@@ -443,7 +593,7 @@
         },
         "templateClass": "Unit"
       },
-      "Crusade Relic": {
+      "Crusade Relics": {
         "aspects": {
           "Unique": true
         },
@@ -527,6 +677,126 @@
         }
       },
       "Infantry/Mounted": {
+        "rules": {
+          "allowbattletraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Mounted"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowScarsTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Battle Scar"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Battle Trait"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honours",
+                    "max"
+                  ]
+                ]
+              }
+            ]
+          }
+        },
         "templateClass": "Unit"
       },
       "Melee Weapon": {
@@ -1250,7 +1520,7 @@
               },
               {
                 "actionable": true,
-                "min": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -2308,6 +2578,68 @@
         }
       },
       "Vehicle": {
+        "rules": {
+          "allowbattletraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Vehicles (excluding walkers)"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "templateClass": "Unit"
       },
       "Wargear": {
@@ -2791,7 +3123,8 @@
         },
         "keywords": {
           "Tags": []
-        }
+        },
+        "text": ""
       }
     },
     "assetCatalog": {
@@ -3191,367 +3524,876 @@
         },
         "text": "Each time an attack is made with this weapon, you can re-roll that attack’s Wound roll."
       },
-      "Battle Scar§Angered Machine Spirit": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
+      "Battle Scar§Battle-Weary": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
         },
-        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it."
+        "text": "Each time this unit takes a Battle-shock, Leadership, Desperate Escape or Out of Action test, subtract 1 from that test."
       },
-      "Battle Scar§Battle-weary": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
+      "Battle Scar§Crippling Damage": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
         },
-        "text": "This unit cannot perform any actions or psychic actions, and it cannot gain more than 1 experience point at the end of a battle for any reason (any additional experience points gained are lost)."
-      },
-      "Battle Scar§Blind in One Eye": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
+        "rules": {
+          "decrease": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
-        "text": "You must re-roll hit rolls of 6 when resolving attacks made by **CHARACTER** models in this unit."
-      },
-      "Battle Scar§Chest Wound": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "text": "Reduce the Wounds characteristic of one **CHARACTER** model in this unit by 1 (to a minimum of 1)."
-      },
-      "Battle Scar§Crippled Limb": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
-        },
-        "text": "You must re-roll hit rolls of 6 when resolving attacks made by **MONSTER** models in this unit."
-      },
-      "Battle Scar§Crippling Injury": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
-        },
-        "text": "Subtract 2″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and charge rolls made for this unit."
-      },
-      "Battle Scar§Critical Wound": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
-        },
-        "text": "You must re-roll hit rolls of 6 when resolving attacks made by MONSTER models in this unit."
-      },
-      "Battle Scar§Deep Concussion": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it."
+        "text": "This unit cannot Advance and you subtract 1” from the Move characteristic of models in this unit."
       },
       "Battle Scar§Deep Scars": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
         },
-        "text": "This unit cannot perform any actions or psychic actions, and it cannot make Heroic Interventions."
+        "text": "Each time a Critical Hit is scared against this unit, that attack automatically wounds this unit."
       },
       "Battle Scar§Disgraced": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
         },
-        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it."
-      },
-      "Battle Scar§Engine Fault": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
-        },
-        "text": "Subtract 2″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and charge rolls made for this unit."
-      },
-      "Battle Scar§Enraged and Unreasoning": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
-        },
-        "text": "If this unit has any aura abilities on its datasheet, the range of those aura abilities is reduced by 3″. If this reduces the range of an aura ability to 0\" or less, then the unit loses that aura ability while it has this Battle Scar. If this unit has no aura abilities on its datasheet, then it is unaffected by the aura abilities of any friendly units."
+        "text": "You cannot use any Stratagems to affect this unit and this unit cannot be Marked for Greatness."
       },
       "Battle Scar§Fatigued": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
+        "aspects": {
+          "Lock Qty": true
         },
-        "text": "This unit cannot control objective markers. When determining which player controls an objective marker, ignore all models in this unit."
-      },
-      "Battle Scar§Fractured Skull": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
+        "rules": {
+          "decrease": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
-        "text": "You cannot use any Stratagems to affect this unit, nor can you use the Command Re-roll Stratagem to affect any dice rolls made for it."
-      },
-      "Battle Scar§Loss of Reputation": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "text": "If this unit has any aura abilities on its datasheet, the range of those aura abilities is reduced by 3″. If this reduces the range of an aura ability to 0″ or less, then the unit loses that aura ability while it has this Battle Scar. If this unit has no aura abilities on its datasheet, then it is unaffected by the aura abilities of any friendly units."
-      },
-      "Battle Scar§Lost Leg": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "text": "Subtract 1″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and Charge rolls made for this unit."
+        "text": "Subtract 1 from the Objective Control characteristic of models in this unit and this unit never receives a charge bonus."
       },
       "Battle Scar§Mark of Shame": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
-        },
-        "text": "This unit is unaffected by the aura abilities of any friendly units."
-      },
-      "Battle Scar§Shell Shock": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
-        },
-        "text": "Subtract 1 from this unit’s Leadership characteristic. In addition, subtract 1 from Combat Attrition tests taken for this unit."
-      },
-      "Battle Scar§Targeter’s Cracked": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
-        },
-        "text": "You must re-roll hit rolls of 6 when resolving attacks made by a **VEHICLE** model in this unit."
-      },
-      "Battle Scar§Tissue Damage": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
-        },
-        "text": "Subtract 1 from the Attacks characteristic of one **MONSTER** model in this unit (to a minimum of 1)."
-      },
-      "Battle Scar§Vox Comms Destroyed": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
-        },
-        "text": "This unit is unaffected by the aura abilities of any friendly units."
-      },
-      "Battle Scar§Walking Wounded": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
-        },
-        "text": "Subtract 1″ from this unit’s Move characteristic. In addition, subtract 1 from Advance and charge rolls made for this unit."
-      },
-      "Battle Scar§Weakened Armor": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
-        },
-        "text": "Each time this unit is hit by a weapon with a Strength characteristic of 8 or more, this unit suffers 1 mortal wound in addition to any normal damage."
-      },
-      "Battle Scar§Weapon Damaged": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
-        },
-        "text": "Select one weapon equipped by a **VEHICLE** model in this unit (if this unit has any ranged weapons, you must select one of them, and if any of those are Heavy, then you must select one of them). Subtract 1 from hit and wound rolls when resolving attacks with that weapon."
-      },
-      "Battle Trait§Apex Predator": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
         }
       },
-      "Battle Trait§Armourbane": {
+      "Battle Trait§Archaeotech Powercell": {
         "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted"
+            ]
+          }
         }
       },
-      "Battle Trait§Battle-tested": {
+      "Battle Trait§Auto-Repair Nodes": {
         "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted"
+            ]
+          }
         }
+      },
+      "Battle Trait§Battle-scarred Resistance": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "6"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Models in this unit have the Feel No Pain 6+ ability."
+      },
+      "Battle Trait§Bio-Acid Burns": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "5"
+                }
+              }
+            }
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Character models in this unit have the Feel No Pain 5+ ability."
       },
       "Battle Trait§Blessed Hull": {
-        "keywords": {
-          "Tags": [
-            "Vehicle"
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5"
+                }
+              }
+            }
           ]
-        }
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted"
+            ],
+            "Keywords": [
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Each time a model in this unit damages an enemy unit, add twice as many marks to the Tyrannic war Veteran Tally as normal"
       },
-      "Battle Trait§Cool-headed": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
+      "Battle Trait§Born Hunters": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9"
+                }
+              }
+            }
           ]
-        }
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "This unit has the Scouts 9” ability."
       },
-      "Battle Trait§Deadly Charge": {
+      "Battle Trait§Deadly Combatant": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Melee weapons equipped by Character models in this unit have the [Sustained Hits 1] ability."
+      },
+      "Battle Trait§Death Incarnate (Aura)": {
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "While an enemy unit is within 6” of this unit, reduce the Leadership of models in that unit by 1."
+      },
+      "Battle Trait§Destructive Impulse": {
         "keywords": {
           "Tags": [
-            "Character"
+            "Monster"
           ]
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
         }
       },
       "Battle Trait§Elite Crew": {
         "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted"
+            ]
+          }
+        },
+        "text": "Each time a model in this unit makes an attack, re-roll a hit roll of 1."
+      },
+      "Battle Trait§Encircling Raptors": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Vehicles (excluding walkers)"
+            ]
+          }
         }
       },
-      "Battle Trait§Enhanced Engines": {
+      "Battle Trait§Focused Gunners": {
         "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
-        }
-      },
-      "Battle Trait§Fleet of Foot": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
-        }
-      },
-      "Battle Trait§Frenzied": {
-        "keywords": {
-          "Tags": [
-            "Monster"
-          ]
-        }
-      },
-      "Battle Trait§Grizzled": {
-        "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted"
+            ]
+          }
         }
       },
       "Battle Trait§Headhunters": {
         "keywords": {
-          "Tags": [
-            "Other Unit"
-          ]
-        }
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "At the start of the battle pick one enemy unit (Regardless of how many units in your army have this battle trait). Until the end of the battle whenever a unit with this battle trait makes an attack against that unit re-roll a hit roll of 1 and re-roll a wound roll of 1."
       },
-      "Battle Trait§Heroic Constitution": {
+      "Battle Trait§High-Speed Gunnery": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Each time this unit advances, until the end of this turn all ranged weapons equipped by models in this unit gain the [Assault] ability."
+      },
+      "Battle Trait§Hunter's Celerity": {
         "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        }
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 2” to the Move characteristic of models in this unit."
       },
-      "Battle Trait§Improved Shielding": {
+      "Battle Trait§Mounted Guerillas": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "This unit is eligible to declare a Charge on a turn it Fell Back."
+      },
+      "Battle Trait§Natural Leader": {
         "keywords": {
-          "Tags": [
-            "Vehicle"
-          ]
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Each time you take a battle-shock or leadership test for this unit you can re-roll that test."
+      },
+      "Battle Trait§Obdurate Obedience": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         }
       },
-      "Battle Trait§Inspiring Hero": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
+      "Battle Trait§Only the Swift Survive": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
         }
       },
-      "Battle Trait§Regenerates": {
+      "Battle Trait§Predatory Urge": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "You can re-roll Charge rolls made for this unit."
+      },
+      "Battle Trait§Rapid Adaptation": {
         "keywords": {
           "Tags": [
             "Monster"
           ]
-        }
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Select any one of the Battle Honors from the Monster Hunters upgrade path for this unit to gain, regardless of the once it has already unlocked.  The Battle Honour you select does not increase this unit's Crusade points total and does not count as an additional Battle Honour when determining the maximum number of Battle Honors this unit can have."
       },
-      "Battle Trait§Repair Systems": {
+      "Battle Trait§Reinforced Superstructure": {
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Mounted"
+            ]
+          }
+        },
+        "text": "Each time an attack with Strength 7 or less is allocated to a model in this unit, worsen the Armour Penetration of that attack by 1."
+      },
+      "Battle Trait§Resolute Veterans": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Each time you take a Battle-shock, Leadership or Desperate Escape test for this unit, add 1 to that test."
+      },
+      "Battle Trait§Shadow Stalker": {
+        "assets": {
+          "traits": [
+            "Ability§Stealth"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Infantry",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "This unit has the Stealth ability."
+      },
+      "Battle Trait§Tireless Raiders": {
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Infantry",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "Models in this unit can make attacks with ranged weapons even when their unit is in engagement range of enemy units, but they can only make such attacks against units they are in Engagement range of. In such circumstances models in this unit can target enemy units even if other friendly units are within engagement range of that same enemy unit."
+      },
+      "Battle Trait§Vanguard Espionage": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "removed": {
+          "keywords": {
+            "Tags": [
+              "Character (excluding walkers)",
+              "Mounted",
+              "Vehicles (excluding walkers)"
+            ]
+          }
+        },
+        "text": "This unit has the Scouts 9” ability."
+      },
+      "Crusade Relics§Archeotech Nano-Med": {
         "keywords": {
           "Tags": [
-            "Vehicle"
+            "Antiquity Relic"
           ]
-        }
+        },
+        "text": "Infantry Model Only. The first time the bearer is destroyed, you can choose to roll one D6 at the end of the phase instead of using any rules that are triggered when a model is destroyed. If you roll a 4+, the bearer is set back up on the battlefield as close as possible to where it was before it was destroyed, with D3 wounds remaining. If it was If the bear was part of an attached unit when it was destroyed and its bodyguard unit is still on the battlefield when the Bearer is set back up, it must be placed in Unit Coherency with that unit again to form an Attached Unit. You do not need to take an Out of Action pass for the Bearer at the end of the battle, unless it is destroyed again."
       },
-      "Battle Trait§Resilient": {
+      "Crusade Relics§Artificer Weapon": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Devastating Wounds",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
         "keywords": {
           "Tags": [
-            "Character"
+            "Artificer Relic"
           ]
-        }
+        },
+        "text": "Select a weapon the bearer is equipped with (Excluding any Enhancements or weapons affected by weapon modifications) Make a note on the bearer’s Crusade card of this weapon and give it a suitable name.  That weapon is now a Crusade Relic and each time the bearer makes an attack with it, on a Critical Hit, the target suffers 1 Mortal Wound in addition to any normal damage."
       },
-      "Battle Trait§Swift and Agile": {
+      "Crusade Relics§Biosplint Gland": {
         "keywords": {
           "Tags": [
-            "Character"
+            "Artificer Relic"
           ]
-        }
+        },
+        "text": "Each time the bearer’s unit ends a Charge move, select one enemy unit within engagement range of the bearer.  Until the end of the turn, each time a model in that enemy unit makes an attack, subtract 1 from that attack's Hit Roll."
       },
-      "Battle Trait§Tactical Experience": {
+      "Crusade Relics§Cranium of Obscura": {
         "keywords": {
           "Tags": [
-            "Character"
+            "Antiquity Relic"
           ]
-        }
+        },
+        "text": "Cannot be taken by Psyker models.  Each time a Psychic Attack targets the bearer’s unit, subtract 1 from the attack's Hit Roll."
       },
-      "Battle Trait§Terrifying": {
+      "Crusade Relics§Crimson Medallion of Bastior": {
         "keywords": {
           "Tags": [
-            "Monster"
+            "Artificer Relic"
           ]
-        }
+        },
+        "text": "At the start of your Command phase, if the bearer is within range of an objective marker that you control, roll one D6, on a 4+ you gain 1CP."
       },
-      "Battle Trait§Thickened Hide": {
+      "Crusade Relics§Gheist Prism Field": {
         "keywords": {
           "Tags": [
-            "Monster"
+            "Legendary Relic"
           ]
-        }
+        },
+        "text": "Each time the bearer makes a Normal, Advance or Fall Back move, until the move is finished, it can move horizontally through models and terrain features (it cannot finish a move on top of another model or its base). If doing so when making a Fall Back move, models in this unit do not need to take a Desperate Escape test.  After it has finished moving, select one enemy unit it moved across (if any) and roll one D6, on a 2+ that unit suffers D3 mortal wounds."
       },
-      "Battle Trait§Unstoppable": {
+      "Crusade Relics§Lantern of Detestation": {
         "keywords": {
           "Tags": [
-            "Monster"
+            "Antiquity Relic"
           ]
-        }
+        },
+        "text": "At the start of your opponent’s Movement phase, for each enemy unit within Engagement range of the bearer (excluding Imperium and chaos units), roll one D6, on a 4+ until the end of the phase that unit cannot be selected to fall back."
       },
-      "Battle Trait§Veteran Warriors": {
+      "Crusade Relics§Master Crafted Armour": {
         "keywords": {
           "Tags": [
-            "Other Unit"
+            "Artificer Relic"
           ]
+        },
+        "rules": {
+          "Add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         }
+      },
+      "Crusade Relics§Null-Field Disruptor": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "text": "Each time the bearer makes a melee attack, invulnerable saving throws cannot be made against that attack."
+      },
+      "Crusade Relics§Shadesplinter Cloak": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "text": "Unless the bearer is part of an Attached unit at the start of the battle, it has the Lone Operative ability."
+      },
+      "Crusade Relics§Shard of Dying Light": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "text": "Psyker Model only. Each time the bearer makes a Psychic Attack, add 1 to that attack’s wound roll."
+      },
+      "Crusade Relics§Sigil of Sol": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "text": "Once per battle round, if the bearer is on the battlefield when you use a Strategic Ploy Stratagems, you can use that Stratagem without spending any CP."
+      },
+      "Crusade Relics§Vertebrax of Vodun": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "text": "At the start of your Command phase, select one friendly model on the battlefield (excluding the bearer) and then select one Aura ability that selected model has.  Until the start of your next Command phase, the bearer has that Aura ability."
+      },
+      "Crusade Relics§Vortex Grenade": {
+        "assets": {
+          "traits": [
+            "Weapon§Vortex Grenade"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "text": "The bearer is equipped with a vortex grenade that has the following profile:\nRange\t\tA\tBS\tS\tAP\tD\n    6”\t\t1\t2+\t-\t-\t-\t\nAbilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
       },
       "Order of Battle§Order of Battle": {},
+      "Requisition§Fresh Recruits": {
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "1-4 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": null,
+            "visibility": "normal"
+          }
+        },
+        "text": "Costs 1 RP for every 2 Battle Honors the unit has. Increases the maximum size of the unit."
+      },
+      "Requisition§Increase Supply Limit": {
+        "rules": {
+          "Supply limit rules": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Supply Limit",
+                    "value"
+                  ]
+                ],
+                "value": 200
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "1 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "1 RP",
+            "visibility": "normal"
+          }
+        },
+        "text": "Increase supply by 200"
+      },
+      "Requisition§Legendary Veterans": {
+        "rules": {
+          "Lift 30xp Cap": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Experience",
+                    "max"
+                  ]
+                ],
+                "value": 50
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "3 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "3 RP",
+            "visibility": "normal"
+          }
+        },
+        "text": "A non-Character unit can keep advancing past the cap of 30 XP."
+      },
+      "Requisition§Rearm and Resupply": {
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "1 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "1 RP",
+            "visibility": "normal"
+          }
+        },
+        "text": "Is used before a battle to change the wargear on models in a unit in your Order of Battle"
+      },
+      "Requisition§Renowned Heroes": {
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "1-3 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "1-3 RP",
+            "visibility": "normal"
+          }
+        },
+        "text": "Adds an Enhancement to a Character. Costs 1 for the first, 2 for the second and 3 for every enhancement added after that. Usable when a character joins the roster or when they gain a rank. Characters cannot have more than 1 enhancement."
+      },
+      "Requisition§Repair and Recuperate": {
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "1-5 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "1-5 RP",
+            "visibility": "normal"
+          }
+        },
+        "text": "Costs an additional RP for each battle honor the unit has, and removes a battle scar."
+      },
+      "Requisition§Tyranic War Veteran": {
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "Cost": {
+            "ranks": {
+              "1 RP": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "1 RP",
+            "visibility": "normal"
+          }
+        },
+        "text": "Select one unit from your Order of Battle of Blooded rank or higher and one of the Tyrannic War upgrade paths that it is eligible for.  That unit gains the Tyrannic War Veterans keyword and,\n\nIf you selected the Monster Hunters upgrade path, it gains the Monster Hunters Keyword\n\nIf you select the Striding Behemoths upgrade path, it gains the Striding Behemoths key word.\n\nThat unit then gains the starting Tyrannic War Battle Honour for that upgrade path and you must start a Tyrannic War Veterans tally for that unit on its Crusade card.  Tyrannic War Veterans points recorded on that unit’s Tyrannic War Veteran tally can be used to gain further Tyrannic War Battle Honors."
+      },
       "Roster§Army": {
         "allowed": {
           "classifications": [
@@ -3580,6 +4422,7 @@
         },
         "keywords": {
           "Tags": [
+            "Any",
             "noTally"
           ]
         },
@@ -3772,55 +4615,6 @@
                     "{self}",
                     "stats",
                     "Faction",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "hide2ndAllied": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Allied faction 2",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Allied faction 2",
                     "value"
                   ]
                 ],
@@ -4038,7 +4832,6 @@
         },
         "stats": {
           "Allied faction 1": {
-            "label": "Allied Faction",
             "ranks": {
               "-": {
                 "order": 0
@@ -4050,7 +4843,6 @@
             "visibility": "hidden"
           },
           "Allied faction 2": {
-            "label": "Allied Faction",
             "ranks": {
               "-": {
                 "order": 0
@@ -4480,14 +5272,12 @@
         "text": "**WHEN**: Your Charge phase.\n\n**TARGET:** One Vehicle unit from your army.\n\n**EFFECT:** Until the end of the phase, after your unit ends a Charge move, select one enemy unit within Engagement Range of it, then select one melee weapon your unit is equipped with. Roll a number of D6 equal to that weapon’s Strength characteristic. If that Strength characteristic is greater than that enemy unit’s Toughness characteristic, roll two additional D6. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
       },
       "Stratagems§Stratagems": {},
-      "Weapon Enhancement§Accelerator": {
+      "Weapon Enhancement§Armour Piercing": {
         "keywords": {
-          "Tags": [
-            "Ranged"
-          ]
+          "Tags": []
         },
         "rules": {
-          "add6toRange": {
+          "improve by 1": {
             "actions": [
               {
                 "actionType": "modify",
@@ -4496,124 +5286,402 @@
                   [
                     "{parent}",
                     "stats",
-                    "Range",
+                    "AP",
                     "value"
                   ]
                 ],
-                "value": "+6”"
+                "value": -1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "value": -1
               }
             ],
+            "evals": [],
             "evaluate": "AND",
             "failState": "pass"
           }
         },
-        "text": ""
-      },
-      "Weapon Enhancement§Armour Piercing": {
-        "keywords": {
-          "Tags": [
-            "Ranged"
-          ]
-        },
-        "stats": {
-          "AP": {
-            "dynamic": false,
-            "statType": "numeric",
-            "tracked": true,
-            "value": -1,
-            "visibility": "active"
-          }
-        }
-      },
-      "Weapon Enhancement§Auto-loader": {
-        "keywords": {
-          "Tags": [
-            "Ranged"
-          ]
-        },
-        "text": "When resolving an attack with this weapon, each unmodified hit roll of 6 scores one additional hit on the target."
+        "text": "Improve the weapon’s Armor Penetration characteristic by 1"
       },
       "Weapon Enhancement§Brutal": {
         "keywords": {
-          "Tags": [
-            "Melee"
-          ]
-        }
+          "Tags": []
+        },
+        "rules": {
+          "Add 1 to strength": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the weapon’s Strength characteristic."
       },
       "Weapon Enhancement§Finely Balanced": {
         "keywords": {
-          "Tags": [
-            "Melee"
-          ]
-        }
-      },
-      "Weapon Enhancement§Fleshbane": {
-        "keywords": {
-          "Tags": [
-            "Melee"
-          ]
-        }
+          "Tags": []
+        },
+        "rules": {
+          "Improve by 1": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "BS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "stats",
+                    "WS",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
+        "text": "Improves the WS/BS Characteristic by 1"
       },
       "Weapon Enhancement§Heirloom": {
         "keywords": {
-          "Tags": [
-            "Melee"
-          ]
-        }
-      },
-      "Weapon Enhancement§High Calibre": {
-        "keywords": {
-          "Tags": [
-            "Ranged"
-          ]
+          "Tags": []
         },
-        "stats": {
-          "S": {
-            "dynamic": false,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 1,
-            "visibility": "active"
+        "rules": {
+          "improve attack by 1": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
-        }
-      },
-      "Weapon Enhancement§Improved Sights": {
-        "keywords": {
-          "Tags": [
-            "Ranged"
-          ]
         },
-        "text": "When resolving an attack with this weapon, add 1 to the hit roll."
+        "text": "When resolving an attack with this weapon, add 1 to the Attacks characteristic."
       },
       "Weapon Enhancement§Master-worked": {
         "keywords": {
-          "Tags": [
-            "Ranged"
+          "Tags": []
+        },
+        "rules": {
+          "improve damage": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Improves the weapons damage characteristic by 1."
+      },
+      "Weapon Enhancement§Precise": {
+        "assets": {
+          "traits": [
+            "Ability§Precision"
           ]
         },
+        "text": "Gives the weapon the Precision keyword."
+      },
+      "Weapon§Vortex Grenade": {
         "stats": {
-          "D": {
-            "dynamic": false,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 1,
-            "visibility": "active"
+          "A": {
+            "value": 1
+          },
+          "BS": {
+            "value": 2
           }
-        }
-      },
-      "Weapon Enhancement§Razor-edged": {
-        "keywords": {
-          "Tags": [
-            "Melee"
-          ]
-        }
-      },
-      "Weapon Enhancement§Shredder": {
-        "keywords": {
-          "Tags": [
-            "Melee"
-          ]
-        }
+        },
+        "text": "Abilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
       }
     },
     "gameModes": {},
