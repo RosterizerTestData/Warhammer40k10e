@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.3.13",
+  "revision": "10.3.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,77 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "3WRGTK",
+      "slug": "2J83FF",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
     }
   ],
   "manifest": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Melee Weapon": {
+        "rules": {
+          "headwoppasKillchoppaUpgrade": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Devastating Wounds"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Headwoppa's Killchoppa"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Extra Attacks"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Devastating Wounds"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§’ere We Go (aura)": {
         "keywords": {
@@ -2576,63 +2639,6 @@
           "Keywords": [
             "Waaagh! Tribe"
           ]
-        },
-        "rules": {
-          "Add Abilities": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "traits"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Wargear",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Extra Attacks"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "traits"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Wargear",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Devastating Wounds"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
         },
         "stats": {
           "Points": {
