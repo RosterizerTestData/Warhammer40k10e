@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.2.14",
+  "revision": "10.2.15",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "SS92N8",
+      "slug": "EXS5GE",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -1030,7 +1030,7 @@
             "Other"
           ]
         },
-        "text": "If your army includes one or more units with this ability, after players have deployed, select D3 Imperium Battleline units from your army and redeploy them. You can use this ability to place those selected units into Strategic Reserves, regardless of how many units are already in Strategic Reserves. If both players have abilities that redeploy"
+        "text": "If your army includes one or more units with this ability, after players have deployed, select D3 Imperium Battleline units from your army and redeploy them. You can use this ability to place those selected units into Strategic Reserves, regardless of how many units are already in Strategic Reserves. If both players have abilities that redeploy units, roll off: the winner chooses who redeploys units first."
       },
       "Ability§Wrath Of The Omnissiah": {
         "keywords": {
@@ -1493,7 +1493,17 @@
             "Ability§Stealth",
             "Ability§Assigned Agents",
             "Ranged Weapon§Culexus Assassin-Animus Speculum",
-            "Melee Weapon§Culexus Assassin-Life-draining touch"
+            "Melee Weapon§Culexus Assassin-Life-draining touch",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Soulless Horror (Aura)",
+            "Ability§Abomination"
           ]
         },
         "keywords": {
@@ -3670,17 +3680,10 @@
       },
       "Character§Rogue Trader Entourage": {
         "allowed": {
-          "items": [
-            "Model§Rogue Trader Specialist"
-          ]
+          "items": []
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Rogue Trader Specialist",
-              "quantity": 3
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Infiltrators",
             {
@@ -3689,10 +3692,7 @@
             },
             "Ability§Assigned Agents",
             "Ability§Backroom Deals",
-            {
-              "item": "Ability§Warrant of Trade",
-              "text": "If your army includes one or more units with this ability, after players have deployed, select D3 Imperium Battleline units from your army and redeploy them. You can use this ability to place those selected units into Strategic Reserves, regardless of how many units are already in Strategic Reserves. If both players have abilities that redeploy units, roll off, the winner chooses who redeploys units first."
-            },
+            "Ability§Warrant of Trade",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -3701,7 +3701,10 @@
                 }
               }
             },
-            "Model§Rogue Trader"
+            "Model§Rogue Trader",
+            "Model§Rogue Trader Specialist 1",
+            "Model§Rogue Trader Specialist 2",
+            "Model§Rogue Trader Specialist 3"
           ]
         },
         "keywords": {
@@ -3720,67 +3723,9 @@
             "Rogue Trader Entourage"
           ]
         },
-        "rules": {
-          "Each rogue trader loadout must be unique": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "rogue1"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "rogue2"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "rogue3"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Points": {
             "value": 105
-          },
-          "Rogue Trader Specialist": {
-            "max": 3,
-            "min": 3,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
           }
         },
         "text": ""
@@ -3799,7 +3744,15 @@
             "Ability§Shieldbreaker",
             "Ranged Weapon§Vindicare Assassin-Exitus Pistol",
             "Ranged Weapon§Vindicare Assassin-Exitus Rifle",
-            "Melee Weapon§Vindicare Assassin-Vindicare Combat Knife"
+            "Melee Weapon§Vindicare Assassin-Vindicare Combat Knife",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -6384,7 +6337,67 @@
         },
         "text": ""
       },
-      "Model§Cyber-mastiff": {
+      "Model§Cyber-mastiff exaction": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Exaction Squad—Mechanical bite"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "modelName": {
+            "value": "Cyber-mastiff"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Cyber-mastiff subductor": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Subductor Squad—Mechanical bite"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "modelName": {
+            "value": "Cyber-mastiff"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Cyber-mastiff vigilant": {
         "assets": {
           "traits": [
             "Melee Weapon§Vigilant Squad—Mechanical bite"
@@ -6396,6 +6409,9 @@
           },
           "M": {
             "value": 6
+          },
+          "modelName": {
+            "value": "Cyber-mastiff"
           },
           "OC": {
             "value": 2
@@ -6451,13 +6467,7 @@
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -6473,6 +6483,7 @@
               "Arbites grenade launcher": {
                 "order": 1,
                 "tracking": {
+                  "1": 1,
                   "special": 1
                 },
                 "traits": [
@@ -6484,6 +6495,7 @@
               "Executioner shotgun": {
                 "order": 2,
                 "tracking": {
+                  "2": 1,
                   "special": 1
                 },
                 "traits": [
@@ -6495,6 +6507,7 @@
               "Heavy stubber": {
                 "order": 3,
                 "tracking": {
+                  "3": 1,
                   "special": 1
                 },
                 "traits": [
@@ -6506,6 +6519,7 @@
               "Webber": {
                 "order": 4,
                 "tracking": {
+                  "4": 1,
                   "special": 1
                 },
                 "traits": [
@@ -6560,6 +6574,12 @@
             "statType": "rank",
             "value": "Arbites combat shotgun",
             "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 4
@@ -6780,6 +6800,33 @@
           ]
         },
         "stats": {
+          "Demolition charge and Grenade Belt": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "tracking": {
+                  "demo": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Imperial Navy Breachers—Demolition charge"
+                  },
+                  {
+                    "trait": "Wargear§Grenade Belts"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 8
           },
@@ -6816,8 +6863,53 @@
                   }
                 ]
               },
-              "Demolition charge & Grenade Belt": {
+              "Navis shotgun": {
                 "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Imperial Navy Breachers—Navis shotgun"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Navis shotgun",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Navis Armsmen Las": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Imperial Navy Breachers—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Demolition charge and Grenade belt": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
                 "tracking": {
                   "demo": 1
                 },
@@ -6829,56 +6921,41 @@
                     "trait": "Wargear§Grenade Belts"
                   }
                 ]
-              },
-              "Meltagun": {
-                "order": 3,
-                "tracking": {
-                  "heavy": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Imperial Navy Breachers—Meltagun"
-                  }
-                ]
-              },
-              "Navis heavy shotgun & Endurant Shield": {
-                "order": 4,
-                "tracking": {
-                  "shot": 0
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Imperial Navy Breachers—Navis heavy shotgun"
-                  },
-                  {
-                    "trait": "Wargear§Endurant Shield"
-                  }
-                ]
-              },
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 8
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Navis las-volley": {
-                "order": 5,
-                "tracking": {
-                  "heavy": 1
-                },
+                "order": 0,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Imperial Navy Breachers—Navis las-volley"
                   }
                 ]
               },
-              "Navis shotgun": {
-                "order": 6,
+              "Meltagun": {
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Imperial Navy Breachers—Navis shotgun"
+                    "trait": "Ranged Weapon§Imperial Navy Breachers—Meltagun"
                   }
                 ]
               },
               "Plasma gun": {
-                "order": 7,
-                "tracking": {
-                  "heavy": 1
-                },
+                "order": 2,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Weapon§Imperial Navy Breachers—Plasma gun"
@@ -6887,11 +6964,81 @@
               }
             },
             "statType": "rank",
-            "value": "Autopistol & Power Weapon",
+            "value": "Navis las-volley",
             "visibility": "active"
           },
           "M": {
             "value": 6
+          },
+          "modelName": {
+            "value": "Navis Armsmen with special weapon"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Navis Armsmen Shield": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Imperial Navy Breachers—Close combat weapon",
+            "Wargear§Endurant Shield",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ranged Weapon§Imperial Navy Breachers—Navis heavy shotgun"
+          ]
+        },
+        "stats": {
+          "Demolition charge and Grenade belt": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "tracking": {
+                  "demo": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Imperial Navy Breachers—Demolition charge"
+                  },
+                  {
+                    "trait": "Wargear§Grenade Belts"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "value": 6
+          },
+          "modelName": {
+            "value": "Navis Armsmen with special weapon"
           },
           "OC": {
             "value": 2
@@ -6954,7 +7101,7 @@
               }
             },
             "statType": "rank",
-            "value": "Autopistol & Chainsword",
+            "value": "Navis shotgun",
             "visibility": "active"
           },
           "M": {
@@ -7028,7 +7175,15 @@
         "assets": {
           "traits": [
             "Ranged Weapon§Subductor Squad—Arbites shotpistol",
-            "Melee Weapon§Subductor Squad—Shock maul"
+            "Melee Weapon§Subductor Squad—Shock maul",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -7156,68 +7311,22 @@
           }
         }
       },
-      "Model§Rogue Trader Specialist": {
+      "Model§Rogue Trader Specialist 1": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rogue Trader Entourage—Dartmask",
+            "Melee Weapon§Rogue Trader Entourage—Death Cult power blade"
+          ]
+        },
         "stats": {
           "Ld": {
-            "value": 6
-          },
-          "Loadout Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Dartmask & Death Cult power Blade": {
-                "order": 0,
-                "tracking": {
-                  "rogue1": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogue Trader Entourage—Dartmask"
-                  },
-                  {
-                    "trait": "Melee Weapon§Rogue Trader Entourage—Death Cult power blade"
-                  }
-                ]
-              },
-              "Laspistol, Close Combat Weapon & Healing Serum": {
-                "order": 1,
-                "tracking": {
-                  "rogue2": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogue Trader Entourage—Laspistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Rogue Trader Entourage—Close combat weapon"
-                  },
-                  {
-                    "trait": "Wargear§Healing Serum"
-                  }
-                ]
-              },
-              "Voltaic pistol & Close Combat Weapon": {
-                "order": 2,
-                "tracking": {
-                  "rogue3": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogue Trader Entourage—Voltaic pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Rogue Trader Entourage—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Dartmask & Death Cult power Blade",
-            "visibility": "active"
+            "value": 7
           },
           "M": {
             "value": 6
+          },
+          "modelName": {
+            "value": "Rogue Trader Specialist"
           },
           "OC": {
             "value": 1
@@ -7229,7 +7338,70 @@
             "value": 3
           },
           "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Rogue Trader Specialist 2": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rogue Trader Entourage—Voltaic pistol",
+            "Melee Weapon§Rogue Trader Entourage—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "modelName": {
+            "value": "Rogue Trader Specialist"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
             "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Rogue Trader Specialist 3": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rogue Trader Entourage—Laspistol",
+            "Melee Weapon§Rogue Trader Entourage—Close combat weapon",
+            "Wargear§Healing Serum"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "modelName": {
+            "value": "Rogue Trader Specialist"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
           }
         }
       },
@@ -7273,7 +7445,15 @@
         "assets": {
           "traits": [
             "Ranged Weapon§Subductor Squad—Arbites shotpistol",
-            "Melee Weapon§Subductor Squad—Shock maul"
+            "Melee Weapon§Subductor Squad—Shock maul",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -7424,7 +7604,8 @@
         "assets": {
           "traits": [
             "Melee Weapon§Voidsmen-at-arms—Close combat weapon",
-            "Ranged Weapon§Voidsmen-at-arms—Laspistol"
+            "Ranged Weapon§Voidsmen-at-arms—Laspistol",
+            "Ranged Weapon§Voidsmen-at-arms—Lasgun"
           ]
         },
         "stats": {
@@ -7445,35 +7626,38 @@
           },
           "W": {
             "value": 1
+          }
+        }
+      },
+      "Model§Voidsman Rotor": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Voidsmen-at-arms—Close combat weapon",
+            "Ranged Weapon§Voidsmen-at-arms—Laspistol",
+            "Ranged Weapon§Voidsmen-at-arms—Voidsman rotor cannon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
           },
-          "Weapon Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Artificer shotgun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Voidsmen-at-arms—Artificer shotgun"
-                  }
-                ]
-              },
-              "Voidsman rotor cannon": {
-                "order": 1,
-                "tracking": {
-                  "special": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Voidsmen-at-arms—Voidsman rotor cannon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Artificer shotgun",
-            "visibility": "active"
+          "M": {
+            "value": 6
+          },
+          "modelName": {
+            "value": "Voidsman with Rotor cannon"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
           }
         }
       },
@@ -9333,7 +9517,10 @@
       "Ranged Weapon§Inquisitor Greyfax—Castigation": {
         "assets": {
           "traits": [
-            "Ability§Psychic"
+            "Ability§Psychic",
+            "Ability§Devastating Wounds",
+            "Ability§Precision",
+            "Ability§Anti-"
           ]
         },
         "stats": {
@@ -9363,11 +9550,24 @@
       "Ranged Weapon§Inquisitor Greyfax—Condemnor stake": {
         "assets": {
           "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Precision",
             {
-              "item": "Ability§Fire",
+              "item": "Ability§Rapid Fire",
               "stats": {
                 "x": {
                   "value": "1"
+                }
+              }
+            },
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Psyker"
+                },
+                "x": {
+                  "value": "2+"
                 }
               }
             }
@@ -15172,7 +15372,7 @@
         "allowed": {
           "items": [
             "Model§Exaction Vigilant",
-            "Model§Cyber-mastiff"
+            "Model§Cyber-mastiff exaction"
           ]
         },
         "assets": {
@@ -15225,7 +15425,7 @@
               {
                 "actionable": false,
                 "equation": {
-                  "operator": "T*O",
+                  "operator": "T/O",
                   "value": 2
                 },
                 "not": false,
@@ -15271,8 +15471,8 @@
             "evals": [
               {
                 "actionable": true,
-                "min": 1,
-                "not": true,
+                "max": 1,
+                "not": false,
                 "operator": "AND",
                 "paths": [
                   [
@@ -15291,46 +15491,7 @@
                   [
                     "{self}",
                     "tracked",
-                    "wargear1"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
                     "wargear2"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "wargear2"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "wargear3"
                   ]
                 ]
               },
@@ -15348,12 +15509,70 @@
                 ]
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No duplicate special weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "3"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "4"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
             "failState": "error"
           }
         },
         "stats": {
-          "Cyber-mastiff": {
+          "Cyber-mastiff exaction": {
             "max": 1,
             "min": 0,
             "statType": "numeric",
@@ -15383,21 +15602,20 @@
       },
       "Unit§Imperial Navy Breachers": {
         "allowed": {
-          "items": [
-            "Model§Navis Armsmen"
-          ]
+          "items": []
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Navis Armsmen",
-              "quantity": 9
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Assigned Agents",
             "Ability§Breaching Team",
-            "Model§Navis Sergeant-at-Arms"
+            "Model§Navis Sergeant-at-Arms",
+            {
+              "item": "Model§Navis Armsmen",
+              "quantity": 7
+            },
+            "Model§Navis Armsmen Las",
+            "Model§Navis Armsmen Shield"
           ]
         },
         "keywords": {
@@ -15512,37 +15730,9 @@
             ],
             "evaluate": "OR",
             "failState": "error"
-          },
-          "Must have 1 Heavy Weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "heavy"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
           }
         },
         "stats": {
-          "Navis Armsmen": {
-            "max": 9,
-            "min": 9,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
           "Points": {
             "value": 105
           }
@@ -15805,7 +15995,7 @@
         "allowed": {
           "items": [
             "Model§Subductor",
-            "Model§Cyber-mastiff"
+            "Model§Cyber-mastiff subductor"
           ]
         },
         "assets": {
@@ -15818,17 +16008,6 @@
           "traits": [
             "Ability§Assigned Agents",
             "Ability§Dedication To Duty",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                },
-                "keyword": {
-                  "value": "*excluding The Cyber-mastiff."
-                }
-              }
-            },
             "Model§Proctor-Subductor"
           ]
         },
@@ -15848,7 +16027,7 @@
           ]
         },
         "stats": {
-          "Cyber-mastiff": {
+          "Cyber-mastiff subductor": {
             "max": 1,
             "min": 0,
             "statType": "numeric",
@@ -15874,7 +16053,7 @@
         "allowed": {
           "items": [
             "Model§Vigilant",
-            "Model§Cyber-mastiff"
+            "Model§Cyber-mastiff vigilant"
           ]
         },
         "assets": {
@@ -15980,7 +16159,7 @@
           }
         },
         "stats": {
-          "Cyber-mastiff": {
+          "Cyber-mastiff vigilant": {
             "max": 1,
             "min": 0,
             "statType": "numeric",
@@ -16006,15 +16185,17 @@
         "allowed": {
           "items": [
             "Model§Voidsman",
-            "Model§Canid"
+            "Model§Canid",
+            "Model§Voidsman Rotor"
           ]
         },
         "assets": {
           "included": [
             {
               "item": "Model§Voidsman",
-              "quantity": 4
-            }
+              "quantity": 3
+            },
+            "Model§Voidsman Rotor"
           ],
           "traits": [
             "Ability§Assigned Agents",
@@ -16112,8 +16293,16 @@
             "value": 40
           },
           "Voidsman": {
-            "max": 8,
-            "min": 4,
+            "max": 7,
+            "min": 3,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Voidsman Rotor": {
+            "max": 2,
+            "min": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
