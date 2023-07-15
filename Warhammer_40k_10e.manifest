@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.28",
+  "revision": "10.1.29",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -4624,6 +4624,55 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "hide2ndAllied": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "preventDuplicateAllies": {
             "actions": [
               {
@@ -4832,6 +4881,7 @@
         },
         "stats": {
           "Allied faction 1": {
+            "label": "Allied Faction",
             "ranks": {
               "-": {
                 "order": 0
@@ -4843,6 +4893,7 @@
             "visibility": "hidden"
           },
           "Allied faction 2": {
+            "label": "Allied Faction",
             "ranks": {
               "-": {
                 "order": 0
