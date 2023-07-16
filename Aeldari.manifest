@@ -1,6 +1,6 @@
 {
   "name": "Aeldari",
-  "revision": "10.2.35",
+  "revision": "10.2.36",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "NKRUHA",
+      "slug": "123456",
       "name": "Aeldari/Drukari common",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.manifest"
@@ -367,6 +367,40 @@
             "evaluate": "OR",
             "failState": "error",
             "order": 60
+          },
+          "noDrukhariIfNotSelected": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           },
           "removeTravellingPlayers": {
             "actions": [
