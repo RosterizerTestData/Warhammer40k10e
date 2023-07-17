@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.3.6",
+  "revision": "10.3.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -16,8 +16,7 @@
     }
   ],
   "manifest": {
-    "assetTaxonomy": {
-    },
+    "assetTaxonomy": {},
     "assetCatalog": {
       "Ability§Aerial Assault": {
         "keywords": {
@@ -44723,6 +44722,38 @@
             "Dreadnought"
           ]
         },
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          }
+        },
+        "rules": {
+          "Too many of this unit type in the army": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Vehicle Dreadnought"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 6
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -44831,6 +44862,12 @@
           },
           "T": {
             "value": 9
+          },
+          "Vehicle Dreadnought": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "W": {
             "value": 8
