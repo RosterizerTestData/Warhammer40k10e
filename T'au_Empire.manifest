@@ -1,6 +1,6 @@
 {
   "name": "T’au Empire",
-  "revision": "10.1.13",
+  "revision": "10.1.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -980,6 +980,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -1087,6 +1088,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "High-output burst cannon",
             "visibility": "active"
@@ -1124,6 +1126,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -1218,6 +1221,7 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
             "value": "N/A",
             "visibility": "normal"
@@ -1311,6 +1315,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "N/A",
             "visibility": "normal"
@@ -1404,6 +1409,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "N/A",
             "visibility": "normal"
@@ -1495,6 +1501,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -1623,6 +1630,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -1993,6 +2001,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -2121,6 +2130,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -2653,6 +2663,23 @@
             "value": "N/A",
             "visibility": "normal"
           },
+          "1st Wargear": {
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Honour stave": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Ethereal—Honour stave"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Honour stave",
+            "visibility": "active"
+          },
           "2nd Drone": {
             "dynamic": true,
             "group": "Loadout",
@@ -2723,24 +2750,6 @@
           },
           "Points": {
             "value": 50
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 7,
-            "ranks": {
-              "Honour stave": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Ethereal—Honour stave"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Honour stave",
-            "visibility": "active"
           },
           "Sv": {
             "value": 5
@@ -3040,6 +3049,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "value": "Armoured hull",
             "visibility": "normal"
@@ -3638,6 +3648,42 @@
           ]
         },
         "rules": {
+          "Maximum 1": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pathfinder Team—Semi-automatic grenade launcher"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Special weapon max 3": {
             "evals": [
               {
@@ -3743,6 +3789,51 @@
             "Stealth"
           ]
         },
+        "rules": {
+          "1 in 3 fusion blasters": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 3 fusion blasters",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Stealth Battlesuits—Fusion blaster"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "model1stTally": {
             "value": 5
@@ -3752,6 +3843,14 @@
           },
           "Points": {
             "value": 75
+          },
+          "Stealth Battlesuits—Fusion blaster": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Stealth Shas’ui": {
             "max": 5,
@@ -5229,6 +5328,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -5301,6 +5401,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -5538,6 +5639,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -5610,6 +5712,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -5892,6 +5995,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -6051,6 +6155,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -6597,6 +6702,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -6756,6 +6862,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "N/A",
@@ -7818,6 +7925,32 @@
           "OC": {
             "value": 1
           },
+          "Pathfinder Team—Semi-automatic grenade launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Semi-automatic grenade launcher": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Weapon§Pathfinder Team—Semi-automatic grenade launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Pulse carbine"
+                  }
+                ]
+              },
+              "N/A": {
+                "order": 1,
+                "tracking": {}
+              }
+            },
+            "statType": "rank",
+            "value": "N/A",
+            "visibility": "normal"
+          },
           "Sv": {
             "value": 4
           },
@@ -7870,9 +8003,7 @@
               },
               "Semi-automatic grenade Launcher": {
                 "order": 3,
-                "tracking": {
-                  "Pathfinder Team—Semi-automatic grenade launcher": 1
-                },
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Weapon§Pathfinder Team—Semi-automatic grenade launcher"
@@ -7955,6 +8086,8 @@
           },
           "Seeker missile": {
             "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
             "ranks": {
               "1": {
                 "order": 1,
@@ -8046,6 +8179,7 @@
             "value": 1
           },
           "Ranged Weapon": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
@@ -8055,6 +8189,17 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Stealth Battlesuits—Burst cannon"
+                  }
+                ]
+              },
+              "Fusion blaster": {
+                "order": 1,
+                "tracking": {
+                  "1 in 3": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stealth Battlesuits—Fusion blaster"
                   }
                 ]
               }
@@ -13502,6 +13647,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "tracked": true,
             "value": "Armoured hull",
@@ -13829,6 +13975,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "value": "Armoured hull",
             "visibility": "normal"
@@ -14027,6 +14174,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "value": "Ghostkeel Fists",
             "visibility": "normal"
@@ -14175,6 +14323,7 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "value": "Armoured hull",
             "visibility": "normal"
