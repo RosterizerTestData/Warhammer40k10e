@@ -1,6 +1,6 @@
 {
   "name": "T’au Empire",
-  "revision": "10.1.14",
+  "revision": "10.1.15",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3790,6 +3790,42 @@
           ]
         },
         "rules": {
+          "1 in 3 bss": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 2,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Battlesuit Support System"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "1 in 3 fusion blasters": {
             "evals": [
               {
@@ -3835,6 +3871,14 @@
           }
         },
         "stats": {
+          "Battlesuit Support System": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -8169,6 +8213,28 @@
           "stats": {}
         },
         "stats": {
+          "Battlesuit Support System": {
+            "dynamic": true,
+            "ranks": {
+              "N/A": {
+                "order": 0
+              },
+              "Battlesuit Support System": {
+                "order": 1,
+                "tracking": {
+                  "1 in 3 battlesuit": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "N/A",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
@@ -8312,6 +8378,9 @@
               },
               "Battlesuit Support System": {
                 "order": 1,
+                "tracking": {
+                  "1 in 3 battlesuit": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -8320,6 +8389,7 @@
               }
             },
             "statType": "rank",
+            "tracked": true,
             "value": "N/A",
             "visibility": "normal"
           },
