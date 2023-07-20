@@ -2503,6 +2503,28 @@
             "Commander Shadowsun"
           ]
         },
+        "rules": {
+          "Shadowson must be Warlord": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -2524,6 +2546,9 @@
           },
           "W": {
             "value": 6
+          },
+          "Warlord": {
+            "value": "✓"
           }
         }
       },
@@ -3705,11 +3730,25 @@
           }
         },
         "stats": {
+          "Gun Drone": {
+            "max": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Ld": {
             "value": 7
           },
           "M": {
             "value": "7"
+          },
+          "Marker Drone": {
+            "max": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "OC": {
             "value": "1"
@@ -3732,6 +3771,13 @@
           },
           "Points": {
             "value": 120
+          },
+          "Shield Drone": {
+            "max": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Special Weapons": {
             "max": 3,
@@ -4201,6 +4247,29 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Battlesuit fists": {
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 5
           }
         }
       },
@@ -7854,43 +7923,6 @@
               "N/A": {
                 "order": 0
               },
-              "Grav-inhibitor Drone": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Grav-inhibitor Drone"
-                  }
-                ]
-              },
-              "Pulse Accelerator Drone": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Pulse Accelerator Drone"
-                  }
-                ]
-              },
-              "Recon Drone": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Wargear§Recon Drone"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "N/A",
-            "visibility": "normal"
-          },
-          "2nd Drone": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 7,
-            "ranks": {
-              "N/A": {
-                "order": 0
-              },
               "Gun Drone": {
                 "order": 1,
                 "traits": [
@@ -7921,7 +7953,7 @@
             "value": "N/A",
             "visibility": "normal"
           },
-          "3rd Drone": {
+          "2nd Drone": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 7,
@@ -7968,6 +8000,43 @@
           "OC": {
             "value": 1
           },
+          "Pathfinder Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "N/A": {
+                "order": 0
+              },
+              "Grav-inhibitor Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Grav-inhibitor Drone"
+                  }
+                ]
+              },
+              "Pulse Accelerator Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Pulse Accelerator Drone"
+                  }
+                ]
+              },
+              "Recon Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Recon Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "N/A",
+            "visibility": "normal"
+          },
           "Pathfinder Team—Semi-automatic grenade launcher": {
             "dynamic": true,
             "group": "Loadout",
@@ -8012,10 +8081,48 @@
       },
       "Model§Pathfinders": {
         "stats": {
+          "1st Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "N/A": {
+                "order": 0
+              },
+              "Gun Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Gun Drone"
+                  }
+                ]
+              },
+              "Shield Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Drone"
+                  }
+                ]
+              },
+              "Marker Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Marker Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "N/A",
+            "visibility": "normal"
+          },
           "1st Wargear": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 7,
             "ranks": {
               "Pulse carbine": {
                 "order": 0,
@@ -8062,9 +8169,48 @@
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
             "value": "Pulse carbine",
             "visibility": "active"
+          },
+          "2nd Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "N/A": {
+                "order": 0
+              },
+              "Gun Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Gun Drone"
+                  }
+                ]
+              },
+              "Shield Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Drone"
+                  }
+                ]
+              },
+              "Marker Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Marker Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "N/A",
+            "visibility": "normal"
           },
           "Ld": {
             "value": 7
@@ -13948,6 +14094,7 @@
       },
       "Vehicle§Devilfish": {
         "assets": {
+          "included": [],
           "traits": [
             {
               "item": "Ability§Deadly Demise",
@@ -13962,7 +14109,8 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 T’au Empire Infantry models. It cannot transport Battlesuit, Kroot or Vespid Stingwings models."
-            }
+            },
+            "Ranged Weapon§Devilfish—Accelerator burst cannon"
           ]
         },
         "keywords": {
@@ -13981,24 +14129,37 @@
           ]
         },
         "stats": {
-          "1st Wargear": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 12
+          },
+          "Melee Weapon": {
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Accelerator burst cannon": {
+              "Armoured hull": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Devilfish—Accelerator burst cannon"
+                    "trait": "Melee Weapon§Devilfish—Armoured hull"
                   }
                 ]
               }
             },
+            "statOrder": -1,
             "statType": "rank",
-            "value": "Accelerator burst cannon",
+            "value": "Armoured hull",
             "visibility": "normal"
           },
-          "2nd Wargear": {
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 95
+          },
+          "Ranged Weapon": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -14029,36 +14190,6 @@
             "statType": "rank",
             "value": "Twin pulse carbine",
             "visibility": "active"
-          },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 12
-          },
-          "Melee Weapon": {
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Armoured hull": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devilfish—Armoured hull"
-                  }
-                ]
-              }
-            },
-            "statOrder": -1,
-            "statType": "rank",
-            "value": "Armoured hull",
-            "visibility": "normal"
-          },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 95
           },
           "Seeker missile": {
             "dynamic": true,
@@ -14664,7 +14795,7 @@
               "item": "Ranged Weapon§Pulse Submunition Cannon",
               "quantity": 2
             },
-            "Melee Weapon§Riptide Battlesuit—Riptide fists"
+            "Melee Weapon§Battlesuit fists"
           ]
         },
         "keywords": {
@@ -14832,7 +14963,7 @@
             "value": 12
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: accelerator burst cannon; quad ion turret; 2 seeker missiles; armoured hull.\n\nThis model’s accelerator burst cannon can be replaced with 1 missile pod."
+        "text": "This model is equipped with: accelerator burst cannon; quad ion turret; 2 seeker missiles; armoured hull.\n\nThis model’s accelerator burst cannon can be replaced with 1 missile pod."
       },
       "Vehicle§Remora Stealth Drones": {
         "allowed": {
@@ -16104,7 +16235,7 @@
             "Ranged Weapon§Y’Vahra-Flachette Pod",
             "Weapon§Y’Vahra-Ionic Discharge Cannon",
             "Ranged Weapon§Y’Vahra-Phased Plasma-Flamer",
-            "Melee Weapon§Riptide Battlesuit—Riptide fists"
+            "Melee Weapon§Battlesuit fists"
           ]
         },
         "keywords": {
