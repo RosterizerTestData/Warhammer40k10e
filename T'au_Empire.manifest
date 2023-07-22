@@ -1771,7 +1771,7 @@
         },
         "text": "Each time this model ends a Charge move, until the end of the turn, add 3 to the Attacks characteristic of its Shaper’s ritual blade."
       },
-      "Ability§Sentinal Protocols": {
+      "Ability§Sentinel Protocols": {
         "text": "Each time you select this Fortification\nfor the Fire Overwatch Stratagem, hits are scored on\nunmodified Hit rolls of 5+ when resolving that Stratagem"
       },
       "Ability§Stealth Drones": {
@@ -1927,6 +1927,9 @@
           ]
         },
         "text": "Each time this model makes a ranged attack that targets a Titanic or Towering unit, you can re-roll the Hit roll."
+      },
+      "Ability§Transport": {
+        "text": "This model has a transport capacity of 48 T’au Empire\nInfantry models. This model can also transport up to 6\nBattlesuit models (these models take up the space of a\nnumber of models equal to their Wounds characteristic, e.g. a\nBattlesuit with a Wounds characteristic of 8 would take up\nthe space of 8 models). This model cannot transport Kroot or\nVespid Stingwings models."
       },
       "Ability§Transport Bay": {
         "allowed": {
@@ -5096,11 +5099,23 @@
         },
         "rules": {
           "Drone rule": {
-            "evals": [
+            "actions": [
               {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "1st Drone",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
                 "paths": [
                   [
                     "{self}",
@@ -5112,8 +5127,38 @@
                 "value": "hidden"
               }
             ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "1st Drone"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "1st Drone",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
             "evaluate": "AND",
-            "failState": "error"
+            "failState": "pass",
+            "order": 25
           },
           "Maximum 1": {
             "evals": [
@@ -5172,6 +5217,18 @@
           }
         },
         "stats": {
+          "1st Drone": {
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "2nd Drone": {
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Gun Drone": {
             "max": 2,
             "statType": "numeric",
@@ -5606,7 +5663,7 @@
       "Legends§Drone Sentry Turret": {
         "assets": {
           "traits": [
-            "Ability§Sentinal Protocols",
+            "Ability§Sentinel Protocols",
             "Ability§Reinforced Cover",
             "Ability§Fortification"
           ]
@@ -5994,7 +6051,7 @@
           }
         }
       },
-      "Legends§Remote Sensor Drone": {
+      "Legends§Remote Sensor Tower": {
         "assets": {
           "traits": [
             "Ability§Orbital Comms Array (Aura)",
@@ -6049,7 +6106,8 @@
                   "value": "4"
                 }
               }
-            }
+            },
+            "Ability§Assassin"
           ]
         },
         "keywords": {
@@ -11204,45 +11262,6 @@
             },
             "statType": "rank",
             "value": "Fusion Cascade",
-            "visibility": "normal"
-          },
-          "Base": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 7,
-            "ranks": {
-              "N/A": {
-                "order": 0
-              },
-              "Gun Drone": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Gun Drone"
-                  }
-                ]
-              },
-              "Shield Drone": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Shield Drone"
-                  }
-                ]
-              },
-              "Marker Drone": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Wargear§Marker Drone"
-                  }
-                ]
-              }
-            },
-            "statOrder": -1,
-            "statType": "rank",
-            "tracked": true,
-            "value": "N/A",
             "visibility": "normal"
           },
           "Points": {
