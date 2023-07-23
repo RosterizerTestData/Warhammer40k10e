@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.2.3",
+  "revision": "10.2.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3161,13 +3161,13 @@
       "Infantry/Mounted§Attilan Rough Riders": {
         "allowed": {
           "items": [
-            "Model§Rough Riders"
+            "Model§Rough Rider"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Rough Riders",
+              "item": "Model§Rough Rider",
               "quantity": 4
             }
           ],
@@ -3232,7 +3232,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": true,
                 "operator": "AND",
@@ -3259,7 +3259,7 @@
           "Points": {
             "value": 80
           },
-          "Rough Riders": {
+          "Rough Rider": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -3272,13 +3272,13 @@
       "Infantry/Mounted§Bullgryn Squad": {
         "allowed": {
           "items": [
-            "Model§Bullgryns"
+            "Model§Bullgryn"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Bullgryns",
+              "item": "Model§Bullgryn",
               "quantity": 2
             }
           ],
@@ -3311,7 +3311,7 @@
           ]
         },
         "stats": {
-          "Bullgryns": {
+          "Bullgryn": {
             "max": 5,
             "min": 2,
             "statType": "numeric",
@@ -3910,12 +3910,12 @@
                   [
                     "{self}",
                     "tracked",
-                    "Vox-caster"
+                    "vox"
                   ]
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": true,
                 "operator": "AND",
@@ -4332,7 +4332,7 @@
                   [
                     "{self}",
                     "tracked",
-                    "Plasma-Vox"
+                    "Plasma+Vox"
                   ]
                 ]
               },
@@ -4345,7 +4345,7 @@
                   [
                     "{self}",
                     "tracked",
-                    "Plasma-Vox"
+                    "Plasma+Vox"
                   ]
                 ]
               }
@@ -4372,7 +4372,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "equation": {
                   "operator": "T*O",
                   "value": 2
@@ -5429,13 +5429,13 @@
       "Infantry/Mounted§Kasrkin": {
         "allowed": {
           "items": [
-            "Model§Kasrkin Troopers"
+            "Model§Kasrkin Trooper"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Kasrkin Troopers",
+              "item": "Model§Kasrkin Trooper",
               "quantity": 9
             }
           ],
@@ -5449,8 +5449,6 @@
               }
             },
             "Ability§Warrior Elite",
-            "Wargear§Vox-caster",
-            "Wargear§Melta Mine",
             "Model§Kasrkin Sergeant"
           ]
         },
@@ -5469,360 +5467,40 @@
             "Kasrkin"
           ]
         },
-        "rules": {
-          "1 can have sniper": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Sniper"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 can have vox": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Vox-caster"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "2 in 10 can have a flamer": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "2 in 10 can have a flamer",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Flamer"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Flamer"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "2 in 10 can have grenade launcher": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "2 in 10 can have grenade launcher",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Grenade Launcher"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Grenade Launcher"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "2 in 10 can have melta": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "2 in 10 can have melta",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Melta"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Melta"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "2 in 10 can have plasma": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "2 in 10 can have plasma",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Plasma"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Plasma"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "2 in 10 can have volly": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "2 in 10 can have volly",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Volly"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Volly"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "4 in 10 can have a special weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 4,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "special weapon"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 10,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          }
-        },
         "stats": {
-          "Kasrkin Troopers": {
+          "Flamer": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Grenade launcher": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Hot-shot marksman rifle": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Hot-shot volley gun": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Kasrkin Trooper": {
             "max": 9,
             "min": 9,
             "statType": "numeric",
@@ -5830,8 +5508,48 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Melta Mine": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Meltagun": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Plasma gun": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Points": {
             "value": 120
+          },
+          "special weapon": {
+            "max": 4,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Vox-caster": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
@@ -5886,13 +5604,13 @@
       "Infantry/Mounted§Munitorum Servitors": {
         "allowed": {
           "items": [
-            "Model§Munitorum Servitors"
+            "Model§Munitorum Servitor"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Munitorum Servitors",
+              "item": "Model§Munitorum Servitor",
               "quantity": 4
             }
           ],
@@ -5922,29 +5640,16 @@
             "Munitorum Servitors"
           ]
         },
-        "rules": {
-          "2 can have heavy weapons": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 6,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Heavy Weapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
-          "Munitorum Servitors": {
+          "Heavy Weapon": {
+            "max": 2,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Munitorum Servitor": {
             "max": 4,
             "min": 4,
             "statType": "numeric",
@@ -6153,13 +5858,13 @@
       "Infantry/Mounted§Ogryn Squad": {
         "allowed": {
           "items": [
-            "Model§Ogryns"
+            "Model§Ogryn"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Ogryns",
+              "item": "Model§Ogryn",
               "quantity": 2
             }
           ],
@@ -6198,7 +5903,7 @@
           "model2ndCost": {
             "value": 75
           },
-          "Ogryns": {
+          "Ogryn": {
             "max": 5,
             "min": 2,
             "statType": "numeric",
@@ -6364,20 +6069,19 @@
       "Infantry/Mounted§Ratling Snipers": {
         "allowed": {
           "items": [
-            "Model§Ratling Snipers"
+            "Model§Ratling Sniper"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Ratling Snipers",
-              "quantity": 5
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Stealth",
-            "Ability§Shoot Sharp and Scarper"
+            "Ability§Shoot Sharp and Scarper",
+            {
+              "item": "Model§Ratling Sniper",
+              "quantity": 5
+            }
           ]
         },
         "keywords": {
@@ -6397,7 +6101,7 @@
           "Points": {
             "value": 70
           },
-          "Ratling Snipers": {
+          "Ratling Sniper": {
             "max": 5,
             "min": 5,
             "statType": "numeric",
@@ -10450,7 +10154,7 @@
           }
         }
       },
-      "Model§Bullgryn Bone ‘ead": {
+      "Model§Bullgryn": {
         "assets": {
           "traits": [
             "Melee Weapon§Bullgryn Squad—Close combat weapon"
@@ -10486,7 +10190,7 @@
                   }
                 ]
               },
-              "Brute Sheild": {
+              "Brute Shield": {
                 "order": 1,
                 "traits": [
                   {
@@ -10536,7 +10240,7 @@
           }
         }
       },
-      "Model§Bullgryns": {
+      "Model§Bullgryn Bone ‘ead": {
         "assets": {
           "traits": [
             "Melee Weapon§Bullgryn Squad—Close combat weapon"
@@ -11462,6 +11166,12 @@
         }
       },
       "Model§Heavy Weapons Team": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Infantry Squad—Laspistol",
+            "Melee Weapon§Infantry Squad—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -11579,8 +11289,7 @@
       "Model§Jungle Fighter": {
         "assets": {
           "traits": [
-            "Melee Weapon§Catachan Jungle Fighters—Close combat weapon",
-            "Ranged Weapon§Catachan Jungle Fighters—Laspistol"
+            "Melee Weapon§Catachan Jungle Fighters—Close combat weapon"
           ]
         },
         "stats": {
@@ -11760,16 +11469,8 @@
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Kasrkin—Close combat weapon"
-                  }
-                ]
-              },
               "Power weapon": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Kasrkin—Power weapon"
@@ -11809,7 +11510,7 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Weapon§‘Iron Hand’ Straken—Plasma pistol"
+                    "trait": "Weapon§Astra Militarum Infantry Armoury—Plasma pistol"
                   }
                 ]
               }
@@ -11829,7 +11530,7 @@
           }
         }
       },
-      "Model§Kasrkin Troopers": {
+      "Model§Kasrkin Trooper": {
         "assets": {
           "traits": [
             "Melee Weapon§Kasrkin—Close combat weapon"
@@ -11872,10 +11573,21 @@
                   }
                 ]
               },
-              "Flamer": {
+              "Hot-shot laspistol + Melta mine": {
                 "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kasrkin—Hot-shot laspistol"
+                  },
+                  {
+                    "trait": "Wargear§Melta Mine"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 3,
                 "tracking": {
-                  "Flamer": 1,
                   "special weapon": 1
                 },
                 "traits": [
@@ -11885,9 +11597,8 @@
                 ]
               },
               "Grenade launcher": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
-                  "Grenade Launcher": 1,
                   "special weapon": 1
                 },
                 "traits": [
@@ -11897,10 +11608,8 @@
                 ]
               },
               "Hot-shot marksman rifle": {
-                "order": 4,
-                "tracking": {
-                  "Marksman": 1
-                },
+                "order": 5,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kasrkin—Hot-shot marksman rifle"
@@ -11908,10 +11617,9 @@
                 ]
               },
               "Hot-shot volley gun": {
-                "order": 5,
+                "order": 6,
                 "tracking": {
-                  "special weapon": 1,
-                  "Volley": 1
+                  "special weapon": 1
                 },
                 "traits": [
                   {
@@ -11920,9 +11628,8 @@
                 ]
               },
               "Meltagun": {
-                "order": 6,
+                "order": 7,
                 "tracking": {
-                  "Melta": 1,
                   "special weapon": 1
                 },
                 "traits": [
@@ -11932,9 +11639,8 @@
                 ]
               },
               "Plasma gun": {
-                "order": 7,
+                "order": 8,
                 "tracking": {
-                  "Plasma": 1,
                   "special weapon": 1
                 },
                 "traits": [
@@ -11987,11 +11693,9 @@
           }
         }
       },
-      "Model§Munitorum Servitors": {
+      "Model§Munitorum Servitor": {
         "assets": {
-          "traits": [
-            "Melee Weapon§Munitorum Servitors—Close combat weapon"
-          ]
+          "traits": []
         },
         "stats": {
           "Heavy Weapon": {
@@ -12032,7 +11736,7 @@
               "Plasma cannon": {
                 "order": 3,
                 "tracking": {
-                  "Heavy Weapons Squad": 1
+                  "Heavy Weapon": 1
                 },
                 "traits": [
                   {
@@ -12221,11 +11925,10 @@
           }
         }
       },
-      "Model§Ogryn Bone ‘ead": {
+      "Model§Ogryn": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Ogryn Squad—Ripper gun",
-            "Melee Weapon§Ogryn Squad—Ripper gun"
+            "Weapon§Ogryn Squad—Ripper gun"
           ]
         },
         "stats": {
@@ -12249,7 +11952,7 @@
           }
         }
       },
-      "Model§Ogryns": {
+      "Model§Ogryn Bone ‘ead": {
         "assets": {
           "traits": [
             "Ranged Weapon§Ogryn Squad—Ripper gun",
@@ -12754,7 +12457,7 @@
           }
         }
       },
-      "Model§Ratling Snipers": {
+      "Model§Ratling Sniper": {
         "assets": {
           "traits": [
             "Ranged Weapon§Ratling Snipers—Sniper rifle",
@@ -12844,77 +12547,7 @@
           }
         }
       },
-      "Model§Rough Rider Sergeant": {
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 12
-          },
-          "Melee Weapon": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Hunting lance": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Attilan Rough Riders—Hunting lance"
-                  }
-                ]
-              },
-              "Goad lance": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Attilan Rough Riders—Goad lance"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Hunting lance",
-            "visibility": "active"
-          },
-          "OC": {
-            "value": 1
-          },
-          "Power Sword": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "tracking": {},
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Attilan Rough Riders—Power sabre"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 4
-          },
-          "W": {
-            "value": 2
-          }
-        }
-      },
-      "Model§Rough Riders": {
+      "Model§Rough Rider": {
         "assets": {
           "traits": [
             "Ranged Weapon§Attilan Rough Riders—Lasgun",
@@ -12960,6 +12593,86 @@
           },
           "OC": {
             "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Rough Rider Sergeant": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Attilan Rough Riders—Lasgun",
+            "Ranged Weapon§Attilan Rough Riders—Laspistol",
+            "Melee Weapon§Attilan Rough Riders—Steed’s hooves"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 12
+          },
+          "Melee Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Hunting lance": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Attilan Rough Riders—Hunting lance"
+                  }
+                ]
+              },
+              "Goad lance": {
+                "order": 1,
+                "tracking": {
+                  "Goad Lance": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Attilan Rough Riders—Goad lance"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Hunting lance",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Power Sabre": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Attilan Rough Riders—Power sabre"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 4
@@ -13835,7 +13548,7 @@
                     "trait": "Ranged Weapon§Cadian Shock Troops—Bolt pistol"
                   },
                   {
-                    "trait": "Model§Cadian Veteran Guardsmen - Chainsword"
+                    "trait": "Melee Weapon§Cadian Shock Troops—Chainsword"
                   }
                 ]
               },
@@ -18319,7 +18032,7 @@
             "value": 0
           },
           "BS": {
-            "value": 3
+            "value": 4
           },
           "D": {
             "value": 1
@@ -18356,7 +18069,7 @@
             "value": 0
           },
           "BS": {
-            "value": 3
+            "value": 4
           },
           "D": {
             "value": 1
@@ -18657,7 +18370,7 @@
             "value": -2
           },
           "BS": {
-            "value": 3
+            "value": 4
           },
           "D": {
             "value": 1
@@ -18688,7 +18401,7 @@
             "value": -3
           },
           "BS": {
-            "value": 3
+            "value": 4
           },
           "D": {
             "value": 2
@@ -38759,6 +38472,24 @@
           "traits": [
             "Ranged Weapon§Ogryn Bodyguard—Ripper gun",
             "Melee Weapon§Ogryn Bodyguard—Ripper gun"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Ripper gun"
+          }
+        }
+      },
+      "Weapon§Ogryn Squad—Ripper gun": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Ogryn Squad—Ripper gun",
+            "Melee Weapon§Ogryn Squad—Ripper gun"
           ]
         },
         "keywords": {
