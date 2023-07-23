@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.2.4",
+  "revision": "10.2.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -219,6 +219,61 @@
             "value": "1-4 Wounds Remaining"
           }
         }
+      },
+      "Ability§Damaged: Baneblade Variant": {
+        "keywords": {
+          "Keywords": [
+            "Model Ability"
+          ]
+        },
+        "rules": {
+          "putXInName": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "x",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "order": 201
+          }
+        },
+        "stats": {
+          "abilityName": {
+            "value": "Damaged:"
+          },
+          "x": {
+            "value": "1-8 Wounds Remaining"
+          }
+        },
+        "text": "While this model has 1-8 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
       },
       "Ability§Daring Recon": {
         "keywords": {
@@ -2007,13 +2062,13 @@
       "Character§Militarum Tempestus Command Squad": {
         "allowed": {
           "items": [
-            "Model§Tempestus Scions - Command Sqaud"
+            "Model§Tempestus Scions - Command Squad"
           ]
         },
         "assets": {
           "included": [
             {
-              "item": "Model§Tempestus Scions - Command Sqaud",
+              "item": "Model§Tempestus Scions - Command Squad",
               "quantity": 4
             }
           ],
@@ -2024,6 +2079,8 @@
               "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis unit can be attached to the following unit:\n\n\n\n* Tempestus Scions"
             },
             "Model§Tempestor Prime",
+            "Ability§Tempestor Prime",
+            "Ability§Orders",
             "Ability§Tempestor Prime Command"
           ]
         },
@@ -2044,6 +2101,30 @@
           ]
         },
         "stats": {
+          "Flamer": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Grenade launcher": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Hot-shot volley gun": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Master Vox": {
             "max": 1,
             "statType": "numeric",
@@ -2053,6 +2134,22 @@
           },
           "Medi-pack": {
             "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Meltagun": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Plasma gun": {
+            "max": 1,
+            "min": 0,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -6176,10 +6273,6 @@
           "traits": [
             "Ability§Deep Strike",
             "Ability§Storm Troopers",
-            {
-              "item": "Ability§Leader",
-              "text": "This unit can have up to two Leader units attached to it, provided no more than one of those units is a Command Squad unit. If it does, and this Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
-            },
             "Model§Tempestor",
             "Ability§Unit Composition"
           ]
@@ -6201,25 +6294,6 @@
           ]
         },
         "rules": {
-          "1 can have vox": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Vox-caster"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
           "1 in 5 can have a flamer": {
             "evals": [
               {
@@ -6616,6 +6690,14 @@
           "Tempestus Scion": {
             "max": 9,
             "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Vox-caster": {
+            "max": 1,
+            "min": 0,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -9993,7 +10075,7 @@
           }
         }
       },
-      "Model§Armoured Sentinels": {
+      "Model§Armoured Sentinel": {
         "assets": {
           "traits": [
             "Melee Weapon§Armoured Sentinels—Close combat weapon"
@@ -10018,6 +10100,7 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -10040,6 +10123,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -10058,8 +10142,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Autocannon": {
+              "Militarum multi-laser": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Armoured Sentinels—Militarum multi-laser"
+                  }
+                ]
+              },
+              "Autocannon": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Armoured Sentinels—Autocannon"
@@ -10067,7 +10159,7 @@
                 ]
               },
               "Heavy flamer": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Armoured Sentinels—Heavy flamer"
@@ -10075,18 +10167,10 @@
                 ]
               },
               "Lascannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Armoured Sentinels—Lascannon"
-                  }
-                ]
-              },
-              "Militarum multi-laser": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Armoured Sentinels—Militarum multi-laser"
+                    "trait": "Ranged Weapon§Armoured Sentinels—Lascannon"
                   }
                 ]
               },
@@ -10107,8 +10191,9 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
-            "value": "Autocannon",
+            "value": "Militarum multi-laser",
             "visibility": "active"
           },
           "Sv": {
@@ -11168,8 +11253,8 @@
       "Model§Heavy Weapons Team": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Infantry Squad—Laspistol",
-            "Melee Weapon§Infantry Squad—Close combat weapon"
+            "Ranged Weapon§Heavy Weapons Squad—Las small arms",
+            "Melee Weapon§Heavy Weapons Squad—Weapons team close combat weapons"
           ]
         },
         "stats": {
@@ -11230,7 +11315,7 @@
             "value": 6
           },
           "OC": {
-            "value": 4
+            "value": 2
           },
           "Sv": {
             "value": 5
@@ -12003,8 +12088,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Bombast field gun": {
+              "Malleus rocket launcher": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Field Ordnance Battery—Malleus rocket launcher"
+                  }
+                ]
+              },
+              "Bombast field gun": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Field Ordnance Battery—Bombast field gun"
@@ -12012,48 +12105,16 @@
                 ]
               },
               "Heavy lascannon": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Field Ordnance Battery—Heavy lascannon"
                   }
                 ]
-              },
-              "Lasgun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Field Ordnance Battery—Lasgun"
-                  }
-                ]
-              },
-              "Laspistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Field Ordnance Battery—Laspistol"
-                  }
-                ]
-              },
-              "Malleus rocket launcher": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Field Ordnance Battery—Malleus rocket launcher"
-                  }
-                ]
-              },
-              "Battery close combat weapons": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Field Ordnance Battery—Battery close combat weapons"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Bombast field gun",
+            "value": "Malleus rocket launcher",
             "visibility": "active"
           },
           "Sv": {
@@ -12685,7 +12746,7 @@
           }
         }
       },
-      "Model§Scout Sentinels": {
+      "Model§Scout Sentinel": {
         "assets": {
           "traits": [
             "Melee Weapon§Scout Sentinels—Close combat weapon"
@@ -12710,6 +12771,7 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -12732,6 +12794,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -12750,8 +12813,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Autocannon": {
+              "Militarum multi-laser": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Scout Sentinels—Militarum multi-laser"
+                  }
+                ]
+              },
+              "Autocannon": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Scout Sentinels—Autocannon"
@@ -12759,7 +12830,7 @@
                 ]
               },
               "Heavy flamer": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Scout Sentinels—Heavy flamer"
@@ -12767,18 +12838,10 @@
                 ]
               },
               "Lascannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Sentinels—Lascannon"
-                  }
-                ]
-              },
-              "Militarum multi-laser": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Scout Sentinels—Militarum multi-laser"
+                    "trait": "Ranged Weapon§Scout Sentinels—Lascannon"
                   }
                 ]
               },
@@ -12799,8 +12862,9 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
-            "value": "Autocannon",
+            "value": "Militarum multi-laser",
             "visibility": "active"
           },
           "Sv": {
@@ -14054,7 +14118,7 @@
           }
         }
       },
-      "Model§Tempestus Scions - Command Sqaud": {
+      "Model§Tempestus Scions - Command Squad": {
         "assets": {
           "traits": [
             "Melee Weapon§Militarum Tempestus Command Squad—Close combat weapon"
@@ -14097,9 +14161,7 @@
               },
               "Flamer": {
                 "order": 1,
-                "tracking": {
-                  "Flamer": 1
-                },
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Flamer"
@@ -14108,9 +14170,7 @@
               },
               "Grenade launcher": {
                 "order": 2,
-                "tracking": {
-                  "Grenade Launcher": 1
-                },
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Weapon§Militarum Tempestus Command Squad—Grenade launcher"
@@ -14119,9 +14179,7 @@
               },
               "Hot-shot volley gun": {
                 "order": 3,
-                "tracking": {
-                  "Volly": 1
-                },
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Hot-shot volley gun"
@@ -14172,9 +14230,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Hot-shot laspistol"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Militarum Tempestus Command Squad—Hot-shot lasgun"
                   },
                   {
                     "trait": "Wargear§Master Vox"
@@ -22344,7 +22399,8 @@
                   "value": "4"
                 }
               }
-            }
+            },
+            "Ability§Twin-linked"
           ]
         },
         "stats": {
@@ -30572,21 +30628,23 @@
         "stats": {
           "A": {
             "statType": "term",
-            "value": "4+"
-          },
-          "AP": {
-            "value": 1
-          },
-          "BS": {
-            "value": 5
-          },
-          "D": {},
-          "Range": {
-            "statType": "term",
             "value": "2D6"
           },
-          "S": {
+          "AP": {
             "value": 0
+          },
+          "BS": {
+            "statType": "term",
+            "value": "4"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 5
           },
           "weaponName": {
             "value": "Wyvern quad stormshard mortar"
@@ -30767,14 +30825,22 @@
         "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One Astra Militarum Infantry unit from your army that has not been selected to shoot this phase, and one enemy unit (excluding Monsters and Vehicles).\n\n**EFFECT:** If your Astra Militarum unit scores one or more hits against that enemy unit this phase, until the end of your opponent’s next turn, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll."
       },
       "Vehicle§Aegis Defence Line": {
+        "assets": {
+          "traits": [
+            "Ability§Emplacement Platform",
+            "Ability§Reinforced Cover",
+            "Ability§Defence Line",
+            "Ability§Fortification"
+          ]
+        },
         "keywords": {
           "Faction": [
             "Astra Militarum"
           ],
           "Keywords": [
-            "Aegis Defence Line",
             "Fortification",
-            "Imperium"
+            "Imperium",
+            "Aegis Defence Line"
           ],
           "Source": [
             "10th Edition Index"
@@ -30804,12 +30870,12 @@
       "Vehicle§Armoured Sentinels": {
         "allowed": {
           "items": [
-            "Model§Armoured Sentinels"
+            "Model§Armoured Sentinel"
           ]
         },
         "assets": {
           "included": [
-            "Model§Armoured Sentinels"
+            "Model§Armoured Sentinel"
           ],
           "traits": [
             {
@@ -30841,7 +30907,7 @@
           ]
         },
         "stats": {
-          "Armoured Sentinels": {
+          "Armoured Sentinel": {
             "max": 3,
             "min": 1,
             "statType": "numeric",
@@ -30940,19 +31006,11 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
             "Ability§Rolling Fortress",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             "Melee Weapon§Baneblade—Armoured tracks",
             "Ranged Weapon§Baneblade—Baneblade cannon",
             "Ranged Weapon§Baneblade—Co-axial autocannon",
@@ -30960,7 +31018,8 @@
             "Ranged Weapon§Baneblade—Heavy stubber",
             "Ranged Weapon§Baneblade—Twin heavy bolter",
             "Ranged Weapon§Baneblade—Lascannon",
-            "Ranged Weapon§Baneblade—Lascannon"
+            "Ranged Weapon§Baneblade—Lascannon",
+            "Ability§Damaged: Baneblade Variant"
           ]
         },
         "keywords": {
@@ -31042,6 +31101,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Baneblade—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Baneblade—Lascannon"
                   }
                 ]
               },
@@ -31061,7 +31123,7 @@
               }
             },
             "statType": "rank",
-            "value": "2 Twin heavy flamers + 2 Lascannons",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -31082,7 +31144,7 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
@@ -31090,23 +31152,21 @@
               "item": "Ability§Firing Deck",
               "stats": {
                 "x": {
-                  "value": "1"
+                  "value": "12"
                 }
               }
             },
             "Ability§Tremor Quake",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             "Melee Weapon§Banehammer—Armoured tracks",
             "Ranged Weapon§Banehammer—Lascannon",
             "Ranged Weapon§Banehammer—Lascannon",
-            "Ranged Weapon§Banehammer—Tremor cannon"
+            "Ranged Weapon§Banehammer—Tremor cannon",
+            "Ability§Damaged: Baneblade Variant",
+            "Ranged Weapon§Banehammer—Twin heavy bolter",
+            {
+              "item": "Ability§Transport",
+              "text": "This model has a transport capacity of 26 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
+            }
           ]
         },
         "keywords": {
@@ -31189,6 +31249,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Banehammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Banehammer—Lascannon"
                   }
                 ]
               },
@@ -31229,24 +31292,17 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
             "Ability§Armour Obliteration",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             "Melee Weapon§Banesword—Armoured tracks",
             "Ranged Weapon§Banesword—Lascannon",
             "Ranged Weapon§Banesword—Lascannon",
             "Ranged Weapon§Banesword—Quake cannon",
-            "Ranged Weapon§Banesword—Twin heavy bolter"
+            "Ranged Weapon§Banesword—Twin heavy bolter",
+            "Ability§Damaged: Baneblade Variant"
           ]
         },
         "keywords": {
@@ -31314,31 +31370,46 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "2 Twin heavy flamers": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Banesword—Twin heavy flamer"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Banesword—Twin heavy flamer"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "2 Twin heavy bolters": {
+              "2 Twin heavy flamers + 2 Lascannons": {
                 "order": 1,
                 "traits": [
                   {
+                    "trait": "Ranged Weapon§Banesword—Twin heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Banesword—Twin heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Banesword—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Banesword—Lascannon"
+                  }
+                ]
+              },
+              "2 Twin heavy bolters + 2 Lascannons": {
+                "order": 2,
+                "traits": [
+                  {
                     "trait": "Ranged Weapon§Banesword—Twin heavy bolter"
                   },
                   {
                     "trait": "Ranged Weapon§Banesword—Twin heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Banesword—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Banesword—Lascannon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "2 Twin heavy flamers",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -32215,7 +32286,7 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
@@ -32223,19 +32294,11 @@
               "item": "Ability§Firing Deck",
               "stats": {
                 "x": {
-                  "value": "1"
+                  "value": "12"
                 }
               }
             },
             "Ability§Close-range Titan Killer",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 26 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
@@ -32243,7 +32306,8 @@
             "Ranged Weapon§Doomhammer—Magma cannon",
             "Ranged Weapon§Doomhammer—Lascannon",
             "Ranged Weapon§Doomhammer—Lascannon",
-            "Ranged Weapon§Doomhammer—Twin heavy bolter"
+            "Ranged Weapon§Doomhammer—Twin heavy bolter",
+            "Ability§Damaged: Baneblade Variant"
           ]
         },
         "keywords": {
@@ -32312,8 +32376,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Twin heavy flamers + 2 Lascannons": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Doomhammer—Twin heavy flamer"
@@ -32323,17 +32390,23 @@
                   },
                   {
                     "trait": "Ranged Weapon§Doomhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Doomhammer—Lascannon"
                   }
                 ]
               },
               "2 Twin heavy bolters + 2 Lascannons": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Doomhammer—Twin heavy bolter"
                   },
                   {
                     "trait": "Ranged Weapon§Doomhammer—Twin heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Doomhammer—Lascannon"
                   },
                   {
                     "trait": "Ranged Weapon§Doomhammer—Lascannon"
@@ -32342,7 +32415,7 @@
               }
             },
             "statType": "rank",
-            "value": "2 Twin heavy flamers + 2 Lascannons",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -32363,19 +32436,11 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
             "Ability§Close-quarters Warfare",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             "Melee Weapon§Hellhammer—Armoured tracks",
             "Ranged Weapon§Hellhammer—Hellhammer cannon",
             "Ranged Weapon§Hellhammer—Co-axial autocannon",
@@ -32383,7 +32448,8 @@
             "Ranged Weapon§Hellhammer—Heavy stubber",
             "Ranged Weapon§Hellhammer—Twin heavy bolter",
             "Ranged Weapon§Hellhammer—Lascannon",
-            "Ranged Weapon§Hellhammer—Lascannon"
+            "Ranged Weapon§Hellhammer—Lascannon",
+            "Ability§Damaged: Baneblade Variant"
           ]
         },
         "keywords": {
@@ -32451,31 +32517,46 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "2 Twin heavy flamers": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Hellhammer—Twin heavy flamer"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Hellhammer—Twin heavy flamer"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "2 Twin heavy bolters": {
+              "2 Twin heavy flamers + 2 Lascannons": {
                 "order": 1,
                 "traits": [
                   {
+                    "trait": "Ranged Weapon§Hellhammer—Twin heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Hellhammer—Twin heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Hellhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Hellhammer—Lascannon"
+                  }
+                ]
+              },
+              "2 Twin heavy bolters + 2 Lascannons": {
+                "order": 2,
+                "traits": [
+                  {
                     "trait": "Ranged Weapon§Hellhammer—Twin heavy bolter"
                   },
                   {
                     "trait": "Ranged Weapon§Hellhammer—Twin heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Hellhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Hellhammer—Lascannon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "2 Twin heavy flamers",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -32633,7 +32714,7 @@
               }
             },
             "statType": "rank",
-            "value": "Chem cannon",
+            "value": "Inferno cannon",
             "visibility": "active"
           },
           "W": {
@@ -32822,6 +32903,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "Lascannon",
             "visibility": "active"
@@ -32844,6 +32926,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -32862,8 +32945,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "Heavy stubber": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Battle Tank—Heavy stubber"
@@ -32871,7 +32957,7 @@
                 ]
               },
               "Storm bolter": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Battle Tank—Storm bolter"
@@ -32879,8 +32965,9 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
-            "value": "Heavy stubber",
+            "value": "-",
             "visibility": "active"
           },
           "Points": {
@@ -32891,8 +32978,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Battle Tank—Heavy bolter"
@@ -32903,17 +32993,6 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Battle Tank—Heavy flamer"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Battle Tank—Heavy flamer"
-                  }
-                ]
-              },
-              "2 Multi-meltas": {
                 "order": 2,
                 "traits": [
                   {
@@ -32924,8 +33003,19 @@
                   }
                 ]
               },
-              "2 Plasma Cannons": {
+              "2 Multi-meltas": {
                 "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Battle Tank—Multi-melta"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Battle Tank—Multi-melta"
+                  }
+                ]
+              },
+              "2 Plasma Cannons": {
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Battle Tank—Plasma cannon"
@@ -32936,8 +33026,9 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -33021,6 +33112,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "Lascannon",
             "visibility": "active"
@@ -33043,6 +33135,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -33062,12 +33155,7 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Demolisher—Storm bolter"
-                  }
-                ]
+                "order": 0
               },
               "Heavy stubber": {
                 "order": 1,
@@ -33086,8 +33174,9 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
-            "value": "Heavy stubber",
+            "value": "-",
             "visibility": "active"
           },
           "Points": {
@@ -33098,8 +33187,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Demolisher—Heavy bolter"
@@ -33110,7 +33202,7 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Demolisher—Heavy flamer"
@@ -33121,7 +33213,7 @@
                 ]
               },
               "2 Multi-meltas": {
-                "order": 2,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Demolisher—Multi-melta"
@@ -33132,7 +33224,7 @@
                 ]
               },
               "2 Plasma Cannons": {
-                "order": 3,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Demolisher—Plasma cannon"
@@ -33143,8 +33235,9 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -33228,6 +33321,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "Lascannon",
             "visibility": "active"
@@ -33250,6 +33344,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -33288,6 +33383,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "-",
             "visibility": "active"
@@ -33300,8 +33396,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Eradicator—Heavy bolter"
@@ -33312,17 +33411,6 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Eradicator—Heavy flamer"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Eradicator—Heavy flamer"
-                  }
-                ]
-              },
-              "2 Multi-meltas": {
                 "order": 2,
                 "traits": [
                   {
@@ -33333,8 +33421,19 @@
                   }
                 ]
               },
-              "2 Plasma Cannons": {
+              "2 Multi-meltas": {
                 "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Eradicator—Multi-melta"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Eradicator—Multi-melta"
+                  }
+                ]
+              },
+              "2 Plasma Cannons": {
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Eradicator—Plasma cannon"
@@ -33345,8 +33444,9 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -33430,6 +33530,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "Lascannon",
             "visibility": "active"
@@ -33452,6 +33553,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -33490,6 +33592,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "-",
             "visibility": "active"
@@ -33502,8 +33605,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Executioner—Heavy bolter"
@@ -33514,7 +33620,7 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Executioner—Heavy flamer"
@@ -33525,7 +33631,7 @@
                 ]
               },
               "2 Multi-meltas": {
-                "order": 2,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Executioner—Multi-melta"
@@ -33536,7 +33642,7 @@
                 ]
               },
               "2 Plasma Cannons": {
-                "order": 3,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Executioner—Plasma cannon"
@@ -33547,8 +33653,9 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -33673,8 +33780,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "Heavy stubber": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy stubber"
@@ -33682,7 +33792,7 @@
                 ]
               },
               "Storm bolter": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Storm bolter"
@@ -33692,7 +33802,7 @@
             },
             "statOrder": 3,
             "statType": "rank",
-            "value": "Heavy stubber",
+            "value": "-",
             "visibility": "normal"
           },
           "Points": {
@@ -33703,8 +33813,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy bolter"
@@ -33715,7 +33828,7 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Heavy flamer"
@@ -33726,7 +33839,7 @@
                 ]
               },
               "2 Multi-meltas": {
-                "order": 2,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Exterminator—Multi-melta"
@@ -33737,7 +33850,7 @@
                 ]
               },
               "2 Plasma cannons": {
-                "order": 3,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Exterminator—Plasma cannon"
@@ -33750,7 +33863,7 @@
             },
             "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "normal"
           },
           "Sv": {
@@ -33834,6 +33947,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "Lascannon",
             "visibility": "active"
@@ -33856,6 +33970,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -33894,6 +34009,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "-",
             "visibility": "active"
@@ -33906,8 +34022,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Punisher—Heavy bolter"
@@ -33918,17 +34037,6 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Punisher—Heavy flamer"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Punisher—Heavy flamer"
-                  }
-                ]
-              },
-              "2 Multi-meltas": {
                 "order": 2,
                 "traits": [
                   {
@@ -33939,8 +34047,19 @@
                   }
                 ]
               },
-              "2 Plasma Cannons": {
+              "2 Multi-meltas": {
                 "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Punisher—Multi-melta"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Punisher—Multi-melta"
+                  }
+                ]
+              },
+              "2 Plasma Cannons": {
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Punisher—Plasma cannon"
@@ -33951,8 +34070,9 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -34036,6 +34156,7 @@
                 ]
               }
             },
+            "statOrder": 1,
             "statType": "rank",
             "value": "Lascannon",
             "visibility": "active"
@@ -34058,6 +34179,7 @@
                 ]
               }
             },
+            "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
@@ -34096,6 +34218,7 @@
                 ]
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "-",
             "visibility": "active"
@@ -34108,8 +34231,11 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "-": {
+                "order": 0
+              },
               "2 Heavy bolters": {
-                "order": 0,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Leman Russ Vanquisher—Heavy bolter"
@@ -34120,17 +34246,6 @@
                 ]
               },
               "2 Heavy flamers": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Vanquisher—Heavy flamer"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Leman Russ Vanquisher—Heavy flamer"
-                  }
-                ]
-              },
-              "2 Multi-meltas": {
                 "order": 2,
                 "traits": [
                   {
@@ -34141,8 +34256,19 @@
                   }
                 ]
               },
-              "2 Plasma Cannons": {
+              "2 Multi-meltas": {
                 "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Vanquisher—Multi-melta"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Leman Russ Vanquisher—Multi-melta"
+                  }
+                ]
+              },
+              "2 Plasma Cannons": {
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Weapon§Leman Russ Vanquisher—Plasma cannon"
@@ -34153,8 +34279,9 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "2 Heavy bolters",
+            "value": "-",
             "visibility": "active"
           },
           "Sv": {
@@ -35366,7 +35493,8 @@
                 }
               }
             },
-            "Ranged Weapon§Manticore—Storm eagle rockets"
+            "Ranged Weapon§Manticore—Storm eagle rockets",
+            "Melee Weapon§Manticore—Armoured tracks"
           ]
         },
         "keywords": {
@@ -35659,7 +35787,9 @@
                   "value": "1-6 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Rogal Dorn Battle Tank—Heavy stubber",
+            "Melee Weapon§Rogal Dorn Battle Tank—Armoured tracks"
           ]
         },
         "keywords": {
@@ -35713,7 +35843,7 @@
             "value": "-",
             "visibility": "active"
           },
-          "Hull Weapon": {
+          "Hull Cannon": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -35726,75 +35856,11 @@
                   }
                 ]
               },
-              "Co-axial autocannon": {
+              "Pulveriser cannon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Co-axial autocannon"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Heavy stubber"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Meltagun"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Multi-melta"
-                  }
-                ]
-              },
-              "Oppressor cannon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Oppressor cannon"
-                  }
-                ]
-              },
-              "Pulveriser cannon": {
-                "order": 7,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Pulveriser cannon"
-                  }
-                ]
-              },
-              "Twin battle cannon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Twin battle cannon"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Rogal Dorn Battle Tank—Armoured tracks"
                   }
                 ]
               }
@@ -35821,15 +35887,7 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Multi-melta"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Multi-melta"
-                  }
-                ]
+                "order": 0
               },
               "2 Heavy bolters": {
                 "order": 1,
@@ -35877,11 +35935,14 @@
                   }
                 ]
               },
-              "Oppressor cannon": {
+              "Oppressor cannon + autocannon": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Oppressor cannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Rogal Dorn Battle Tank—Co-axial autocannon"
                   }
                 ]
               }
@@ -35898,12 +35959,12 @@
       "Vehicle§Scout Sentinels": {
         "allowed": {
           "items": [
-            "Model§Scout Sentinels"
+            "Model§Scout Sentinel"
           ]
         },
         "assets": {
           "included": [
-            "Model§Scout Sentinels"
+            "Model§Scout Sentinel"
           ],
           "traits": [
             {
@@ -35958,7 +36019,7 @@
           "Points": {
             "value": 50
           },
-          "Scout Sentinels": {
+          "Scout Sentinel": {
             "max": 3,
             "min": 1,
             "statType": "numeric",
@@ -35975,22 +36036,17 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
             "Ability§Titan-killer",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             "Melee Weapon§Shadowsword—Armoured tracks",
             "Ranged Weapon§Shadowsword—Lascannon",
-            "Ranged Weapon§Shadowsword—Lascannon"
+            "Ranged Weapon§Shadowsword—Lascannon",
+            "Ability§Damaged: Baneblade Variant",
+            "Ranged Weapon§Shadowsword—Twin heavy bolter",
+            "Ranged Weapon§Shadowsword—Volcano cannon"
           ]
         },
         "keywords": {
@@ -36059,18 +36115,7 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Shadowsword—Twin heavy bolter"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Shadowsword—Twin heavy bolter"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Shadowsword—Lascannon"
-                  }
-                ]
+                "order": 0
               },
               "2 Twin heavy flamers + 2 Lascannons": {
                 "order": 1,
@@ -36080,6 +36125,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Shadowsword—Twin heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Shadowsword—Lascannon"
                   },
                   {
                     "trait": "Ranged Weapon§Shadowsword—Lascannon"
@@ -36094,6 +36142,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Shadowsword—Twin heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Shadowsword—Lascannon"
                   },
                   {
                     "trait": "Ranged Weapon§Shadowsword—Lascannon"
@@ -36322,7 +36373,7 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
@@ -36330,19 +36381,11 @@
               "item": "Ability§Firing Deck",
               "stats": {
                 "x": {
-                  "value": "2"
+                  "value": "24"
                 }
               }
             },
             "Ability§Mount Up!",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 40 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
@@ -36350,7 +36393,11 @@
             "Ranged Weapon§Stormlord—Lascannon",
             "Ranged Weapon§Stormlord—Lascannon",
             "Melee Weapon§Stormlord—Armoured tracks",
-            "Ranged Weapon§Stormlord—Vulcan mega-bolter"
+            "Ranged Weapon§Stormlord—Vulcan mega-bolter",
+            "Ability§Damaged: Baneblade Variant",
+            "Ranged Weapon§Stormlord—Heavy stubber",
+            "Ranged Weapon§Stormlord—Heavy stubber",
+            "Ranged Weapon§Stormlord—Twin heavy bolter"
           ]
         },
         "keywords": {
@@ -36433,6 +36480,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Stormlord—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Stormlord—Lascannon"
                   }
                 ]
               },
@@ -36444,6 +36494,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Stormlord—Twin heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Stormlord—Lascannon"
                   },
                   {
                     "trait": "Ranged Weapon§Stormlord—Lascannon"
@@ -36473,24 +36526,17 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "D6"
+                  "value": "D6+2"
                 }
               }
             },
             "Ability§Concussive Wave",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-8 wounds remaining"
-                }
-              }
-            },
             "Melee Weapon§Stormsword—Armoured tracks",
             "Ranged Weapon§Stormsword—Twin heavy bolter",
             "Ranged Weapon§Stormsword—Lascannon",
             "Ranged Weapon§Stormsword—Lascannon",
-            "Ranged Weapon§Stormsword—Stormsword siege cannon"
+            "Ranged Weapon§Stormsword—Stormsword siege cannon",
+            "Ability§Damaged: Baneblade Variant"
           ]
         },
         "keywords": {
@@ -36559,18 +36605,7 @@
             "groupOrder": 2,
             "ranks": {
               "-": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Stormsword—Twin heavy bolter"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Stormsword—Twin heavy bolter"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Stormsword—Lascannon"
-                  }
-                ]
+                "order": 0
               },
               "2 Twin heavy flamers + 2 Lascannons": {
                 "order": 1,
@@ -36580,6 +36615,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Stormsword—Twin heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Stormsword—Lascannon"
                   },
                   {
                     "trait": "Ranged Weapon§Stormsword—Lascannon"
@@ -36594,6 +36632,9 @@
                   },
                   {
                     "trait": "Ranged Weapon§Stormsword—Twin heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Stormsword—Lascannon"
                   },
                   {
                     "trait": "Ranged Weapon§Stormsword—Lascannon"
@@ -36818,7 +36859,7 @@
               }
             },
             "statType": "rank",
-            "value": "Twin autocannon",
+            "value": "Twin Taurox hot-shot volley gun",
             "visibility": "active"
           },
           "Ld": {
@@ -37315,7 +37356,14 @@
             "value": "-",
             "visibility": "normal"
           },
-          "Front Weapon": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "statType": "term",
+            "value": "20+"
+          },
+          "Nose Weapon": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -37338,15 +37386,8 @@
               }
             },
             "statType": "rank",
-            "value": "Lascannon",
+            "value": "Militarum multi-laser",
             "visibility": "active"
-          },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "statType": "term",
-            "value": "20+"
           },
           "OC": {
             "value": 0
