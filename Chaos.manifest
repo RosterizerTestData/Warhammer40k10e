@@ -1,6 +1,6 @@
 {
   "name": "Chaos",
-  "revision": "10.3.3",
+  "revision": "10.3.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "EXS5GE",
+      "slug": "123456",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -663,7 +663,9 @@
         },
         "text": "While a friendly War Dog model is within 6″ of this model, each time that War Dog model makes an attack that targets a Titanic or Towering unit, you can re-roll the Hit roll."
       },
-      "Ability§Conversion": {},
+      "Ability§Conversion": {
+        "text": "Each time an attack is made with this weapon, if the target is more than 24\" from the bearer, an unmodified successful Hit roll of 4+ scores a Critical Hit."
+      },
       "Ability§Cover": {
         "keywords": {
           "Keywords": [
@@ -919,13 +921,6 @@
         },
         "text": "Each time this model is selected to fight, select one of the following abilities. Until the end of the phase, this model's hellforged weapons have that ability:\n* [LETHAL HITS] \n* [PRECISION] \n* [SUSTAINED HITS 1]"
       },
-      "Ability§Harbingers Of Dread": {
-        "keywords": {
-          "Keywords": [
-            "Faction"
-          ]
-        }
-      },
       "Ability§Harbingers of Dread": {
         "keywords": {
           "Keywords": [
@@ -973,15 +968,6 @@
           ]
         },
         "text": "Once per Fight phase, just after an enemy unit selects a Slaanesh Legiones Daemonica unit from your army as a target, one friendly Psyker that is within 6″ of that Slaanesh unit and has this ability can use it. If it does, until the end of the phase, each time a model in that Slaanesh unit is destroyed, roll one D6: on a 4+, do not remove it from play. That model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
-      },
-      "Ability§Ignores Cover. Torrent": {},
-      "Ability§Infantry Unit": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": ""
       },
       "Ability§Infected Outbreak": {
         "keywords": {
@@ -1226,7 +1212,6 @@
         },
         "text": "While a friendly Khorne Legiones Daemonica unit (excluding Monsters and Vehicles) is within 6″ of this model, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit."
       },
-      "Ability§Rapid Fire D6+3": {},
       "Ability§Relentless Carnage": {
         "keywords": {
           "Keywords": [
@@ -1440,7 +1425,6 @@
         },
         "text": "If this model is in your army, it must be your Warlord."
       },
-      "Ability§Sustained Hits D3": {},
       "Ability§Swallow Energy (psychic)": {
         "keywords": {
           "Keywords": [
@@ -1509,14 +1493,6 @@
           }
         },
         "text": "If your Army Faction is Legiones Daemonica, certain areas of the battlefield are considered to be within your army’s Shadow of Chaos, as follows:\n- Your deployment zone is always within your army’s Shadow of Chaos.\n- At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Shadow of Chaos.\n- At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Shadow of Chaos.\n\n## DAEMONIC MANIFESTATION\nWhile a Legiones Daemonica unit from your army is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a Battleline unit and that test is passed, up to D3 destroyed models can be returned to that unit instead).\n\n## DAEMONIC TERROR\nWhile an enemy unit is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds."
-      },
-      "Ability§This Model’s Hellforged Weapons Have That Ability": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": " \n\n* [LETHAL HITS] \n\n* [PRECISION] \n\n* [SUSTAINED HITS 1]"
       },
       "Ability§Titanic Fire Support": {
         "keywords": {
@@ -11446,12 +11422,16 @@
       "Ranged Weapon§Chaos Acastus Knight Asterius—Twin conversion beam cannon": {
         "assets": {
           "traits": [
-            {
-              "item": "Ability§Conversion",
-              "text": "Each time an attack is made with this weapon, if the target is more than 24\" from the bearer, an unmodified successful Hit roll of 4+ scores a critical Hit.,"
-            },
+            "Ability§Conversion",
             "Ability§Twin-linked",
-            "Ability§Sustained Hits D3"
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -13043,7 +13023,14 @@
         "assets": {
           "traits": [
             "Ability§Blast",
-            "Ability§Rapid Fire D6+3"
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "D6+3"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -13338,7 +13325,8 @@
       "Ranged Weapon§Knight Tyrant—Darkflame cannon": {
         "assets": {
           "traits": [
-            "Ability§Ignores Cover. Torrent"
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
           ]
         },
         "stats": {
@@ -15092,11 +15080,15 @@
       "Ranged Weapon§War Dog Moirax—Conversion beam cannon": {
         "assets": {
           "traits": [
+            "Ability§Conversion",
             {
-              "item": "Ability§Conversion",
-              "text": "Each time an attack is made with this weapon, if the target is more than 12\" from the bearer, an unmodified successful Hit roll of 4+ scores a Critical Hit."
-            },
-            "Ability§Sustained Hits D3"
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            }
           ]
         },
         "stats": {
