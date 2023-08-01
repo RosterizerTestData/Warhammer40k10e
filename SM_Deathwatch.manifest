@@ -1,15 +1,15 @@
 {
   "name": "Deathwatch",
-  "revision": "10.2.8",
+  "revision": "10.3.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "EJ6AEJ",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
@@ -25,6 +25,30 @@
           ]
         },
         "text": "If a Character from your army with the Leader ability can be attached to a Outrider Squad, it can be attached to this unit instead."
+      },
+      "Ability§Attached Unit - Indomitor": {
+        "stats": {
+          "abilityName": {
+            "value": "Attached Unit"
+          }
+        },
+        "text": "If a Character from your army with the Leader ability can be attached to a Heavy Intercessor Squad, it can be attached to this unit instead."
+      },
+      "Ability§Attached Unit - Proteus": {
+        "stats": {
+          "abilityName": {
+            "value": "Attached Unit"
+          }
+        },
+        "text": "If a Character from your army with the Leader ability can be attached to a Vanguard Veteran Squad, it can be attached to this unit instead."
+      },
+      "Ability§Attached Unit - Spectrus": {
+        "stats": {
+          "abilityName": {
+            "value": "Attached Unit"
+          }
+        },
+        "text": "If a Character from your army with the Leader ability can be attached to an Infiltrator Squad, it can be attached to this unit instead."
       },
       "Ability§Blackstar Cluster Launcher": {
         "keywords": {
@@ -1095,7 +1119,8 @@
           "traits": [
             "Ability§Kill Team",
             "Ability§Oath of Moment",
-            "Ability§Indomitor Doctrines"
+            "Ability§Indomitor Doctrines",
+            "Ability§Attached Unit - Indomitor"
           ]
         },
         "keywords": {
@@ -1263,17 +1288,7 @@
             "Ability§Oath of Moment",
             "Ability§Proteus Doctrines",
             "Ability§Attached Unit",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                },
-                "keyword": {
-                  "value": "* Kill Team Terminator Models Only."
-                }
-              }
-            }
+            "Ability§Attached Unit - Proteus"
           ]
         },
         "keywords": {
@@ -1531,7 +1546,8 @@
             },
             "Ability§Kill Team",
             "Ability§Oath of Moment",
-            "Ability§Spectrus Doctrines"
+            "Ability§Spectrus Doctrines",
+            "Ability§Attached Unit - Spectrus"
           ]
         },
         "keywords": {
@@ -1553,6 +1569,44 @@
           ]
         },
         "rules": {
+          "Maximum 1 Sniper can have a Bolt Carbine": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "bolt"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Maximum 1 Wargear": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "wargear"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Maximum 10 models": {
             "evals": [
               {
@@ -2216,10 +2270,10 @@
       "Melee Weapon§Kill Team Cassius—Long Vigil melee weapon": {
         "stats": {
           "A": {
-            "value": 4
+            "value": 3
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "D": {
             "value": 1
@@ -2229,7 +2283,7 @@
             "value": "Melee"
           },
           "S": {
-            "value": 4
+            "value": 5
           },
           "weaponName": {
             "value": "Long Vigil melee weapon"
@@ -2480,7 +2534,7 @@
         },
         "stats": {
           "A": {
-            "value": 4
+            "value": 3
           },
           "AP": {
             "value": -2
@@ -3706,7 +3760,7 @@
         "assets": {
           "traits": [
             "Melee Weapon§Indomitor Kill Team—Close combat weapon",
-            "Wargear§Jump Pack"
+            "Wargear§Jump Pack - Heavy Intercessor"
           ]
         },
         "stats": {
@@ -3936,12 +3990,15 @@
       "Model§Kill Team Infiltrator with bolt sniper rifle": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Spectrus Kill Team—Bolt sniper rifle",
             "Ranged Weapon§Spectrus Kill Team—Bolt pistol",
             "Melee Weapon§Spectrus Kill Team—Close combat weapon"
           ]
         },
         "stats": {
+          "Allied faction 1": {
+            "statType": "numeric",
+            "value": 0
+          },
           "Ld": {
             "value": 6
           },
@@ -3950,6 +4007,42 @@
           },
           "OC": {
             "value": 1
+          },
+          "Ranged Option": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "Bolt Sniper Rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Spectrus Kill Team—Bolt sniper rifle"
+                  }
+                ]
+              },
+              "Bolt Carbine": {
+                "order": 1,
+                "tracking": {
+                  "bolt": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Spectrus Kill Team—Bolt carbine"
+                  }
+                ]
+              },
+              "Las Fusil": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Spectrus Kill Team—Las fusil"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt Sniper Rifle",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 3
@@ -3965,13 +4058,40 @@
       "Model§Kill Team Infiltrator with combat knife": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Spectrus Kill Team—Special-issue bolt pistol",
-            "Melee Weapon§Spectrus Kill Team—Combat knife"
+            "Ranged Weapon§Spectrus Kill Team—Special-issue bolt pistol"
           ]
         },
         "stats": {
           "Ld": {
             "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "Combat Knife": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Spectrus Kill Team—Combat knife"
+                  }
+                ]
+              },
+              "Bolt Carbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Spectrus Kill Team—Bolt carbine"
+                  },
+                  {
+                    "trait": "Melee Weapon§Spectrus Kill Team—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Combat Knife",
+            "visibility": "normal"
           },
           "M": {
             "value": 6
@@ -4152,7 +4272,10 @@
                 },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Long Vigil ranged weapon"
+                    "trait": "Ranged Weapon§Fortis Kill Team—Bolt rifle"
+                  },
+                  {
+                    "trait": "Melee Weapon§Fortis Kill Team—Astartes chainsword"
                   }
                 ]
               },
@@ -4164,6 +4287,9 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Fortis Kill Team—Long Vigil ranged weapon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Fortis Kill Team—Bolt rifle"
                   }
                 ]
               }
@@ -4278,121 +4404,38 @@
             "value": 6
           },
           "M": {
-            "value": 6
+            "value": 12
           },
           "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Bolt pistol"
-                  }
-                ]
-              },
-              "Bolt rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Bolt rifle"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Hand flamer"
-                  }
-                ]
-              },
-              "Heavy bolt pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Heavy bolt pistol"
-                  }
-                ]
-              },
-              "Long Vigil ranged weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Long Vigil ranged weapon"
-                  }
-                ]
-              },
-              "Plasma incinerator": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Weapon§Fortis Kill Team—Plasma incinerator"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Storm bolter"
-                  }
-                ]
-              },
-              "Twin bolt rifle": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fortis Kill Team—Twin bolt rifle"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Fortis Kill Team—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Fortis Kill Team—Close combat weapon"
-                  }
-                ]
-              },
-              "Long Vigil melee weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Fortis Kill Team—Long Vigil melee weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "visibility": "active"
+            "value": 2
           },
           "Sv": {
             "value": 3
           },
           "T": {
-            "value": 4
+            "value": 5
           },
           "W": {
-            "value": 2
+            "value": 4
           }
         }
       },
       "Model§Kill Team Terminator": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "abilityName": {
+                  "value": "Invulnerable 4+"
+                },
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
+          ]
+        },
         "rules": {
           "Unique loadouts can not take other options": {
             "evals": [
@@ -4611,6 +4654,11 @@
         }
       },
       "Model§Kill Team Veteran": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Deathwatch Veterans—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -4636,9 +4684,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Deathwatch Veterans—Long Vigil ranged weapon"
-                  },
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               },
@@ -4650,9 +4695,6 @@
                   },
                   {
                     "trait": "Wargear§Astartes Shield"
-                  },
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               },
@@ -4686,9 +4728,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Deathwatch Veterans—Frag cannon"
-                  },
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               },
@@ -4700,9 +4739,6 @@
                 "traits": [
                   {
                     "trait": "Weapon§Deathwatch Veterans—Infernus heavy bolter"
-                  },
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               }
@@ -4828,6 +4864,7 @@
             "value": 6
           },
           "Long vigil melee weapon": {
+            "dynamic": true,
             "group": "Loadout",
             "ranks": {
               "0": {
@@ -4974,6 +5011,9 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Deathwatch Veterans—Long Vigil ranged weapon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               },
@@ -4985,6 +5025,9 @@
                   },
                   {
                     "trait": "Wargear§Astartes Shield"
+                  },
+                  {
+                    "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               },
@@ -6892,7 +6935,7 @@
             "value": "D6"
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "format": "{t}",
@@ -6906,7 +6949,7 @@
             "value": 12
           },
           "S": {
-            "value": 2
+            "value": 5
           },
           "weaponName": {
             "value": "Heavy flamer"
@@ -7104,7 +7147,7 @@
         },
         "stats": {
           "A": {
-            "value": 1
+            "value": 2
           },
           "AP": {
             "value": 0
@@ -7348,7 +7391,7 @@
         },
         "stats": {
           "A": {
-            "value": 3
+            "value": 1
           },
           "AP": {
             "value": -1
@@ -7921,6 +7964,14 @@
       },
       "Wargear§Jump Pack": {
         "text": "The bearer has a Move characteristic of 12″ and can move over models and terrain features as if they were not there."
+      },
+      "Wargear§Jump Pack - Heavy Intercessor": {
+        "stats": {
+          "wargearName": {
+            "value": "Jump Pack"
+          }
+        },
+        "text": "The bearer has a Move characteristic of 10\" and can move over models and terrain features as if they were not there."
       },
       "Wargear§Psychic Hood": {
         "text": "Models in the bearer’s unit have the Feel No Pain 4+ ability against Psychic Attacks."
