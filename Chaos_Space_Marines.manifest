@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.3.4",
+  "revision": "10.3.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "EAYPVJ",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -1761,8 +1761,17 @@
                   }
                 ]
               },
-              "Paired accursed weapons": {
+              "Power fist": {
                 "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord In Terminator Armour—Power fist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 3,
                 "tracking": {
                   "special": 1
                 },
@@ -6903,7 +6912,7 @@
                   }
                 ]
               },
-              "Plasma pistol": {
+              "Plasma pistol & Astartes Chainsword": {
                 "order": 1,
                 "tracking": {
                   "plasma": 1
@@ -6911,6 +6920,9 @@
                 "traits": [
                   {
                     "trait": "Weapon§Legionaries—Plasma pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Legionaries—Astartes chainsword"
                   }
                 ]
               },
@@ -10153,6 +10165,7 @@
               "Cultist grenade launcher": {
                 "order": 1,
                 "tracking": {
+                  "1": 0,
                   "special": 1
                 },
                 "traits": [
@@ -10164,6 +10177,7 @@
               "Flamer": {
                 "order": 2,
                 "tracking": {
+                  "2": 0,
                   "special": 1
                 },
                 "traits": [
@@ -10175,6 +10189,7 @@
               "Meltagun": {
                 "order": 3,
                 "tracking": {
+                  "3": 0,
                   "special": 1
                 },
                 "traits": [
@@ -10186,6 +10201,7 @@
               "Plasma gun": {
                 "order": 4,
                 "tracking": {
+                  "4": 0,
                   "special": 1
                 },
                 "traits": [
@@ -10197,6 +10213,7 @@
               "Cultist sniper rifle": {
                 "order": 5,
                 "tracking": {
+                  "5": 0,
                   "special": 1
                 },
                 "traits": [
@@ -11495,6 +11512,18 @@
         }
       },
       "Ranged Weapon§Chaos Predator Destructor—Predator autocannon": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
             "value": 4
@@ -14554,7 +14583,7 @@
             "value": -1
           },
           "BS": {
-            "value": 3
+            "value": 4
           },
           "D": {
             "value": 3
@@ -17921,7 +17950,15 @@
               "text": "This model has a transport capacity of 12 Heretic Astartes Infantry models. It cannot transport Terminator, Jump Pack, Obliterator or Possessed models."
             },
             "Ranged Weapon§Chaos Rhino—Combi-bolter",
-            "Melee Weapon§Chaos Rhino—Armoured tracks"
+            "Melee Weapon§Chaos Rhino—Armoured tracks",
+            {
+              "item": "Ability§Firing Deck",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -21525,6 +21562,77 @@
           ]
         },
         "rules": {
+          "Maximum 2 of each special weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "3"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "4"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "5"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Maximum 3 special weapons": {
             "evals": [
               {
