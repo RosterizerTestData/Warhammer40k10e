@@ -5058,7 +5058,10 @@
       "Infantry/Mounted§Pathfinder Team": {
         "allowed": {
           "items": [
-            "Model§Pathfinders"
+            "Model§Pathfinders",
+            "Model§Pathfinders With Drones",
+            "Model§Pathfinder Shas’ui",
+            "Model§Pathfinder Shas’ui With Drones"
           ]
         },
         "assets": {
@@ -5066,7 +5069,8 @@
             {
               "item": "Model§Pathfinders",
               "quantity": 9
-            }
+            },
+            "Model§Pathfinder Shas’ui With Drones"
           ],
           "traits": [
             {
@@ -5079,7 +5083,6 @@
             },
             "Ability§For The Greater Good",
             "Ability§Target Uploaded",
-            "Model§Pathfinder Shas’ui",
             "Ability§Markerlight"
           ]
         },
@@ -5098,67 +5101,85 @@
           ]
         },
         "rules": {
-          "Drone rule": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "1st Drone",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "1st Drone",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
+          "Cant have both types of Shas'ui": {
             "evals": [
               {
-                "actionable": true,
-                "min": 1,
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 1
+                },
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
-                    "{parent}",
-                    "tracked",
-                    "1st Drone"
+                    "{self}",
+                    "tally",
+                    "Model"
                   ]
                 ]
               },
               {
                 "actionable": true,
-                "not": true,
+                "max": 1,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pathfinder Shas’ui With Drones"
+                  ],
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pathfinder Shas’ui"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Cant have two seperate drone users": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 1
+                },
+                "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "stats",
-                    "1st Drone",
-                    "value"
+                    "tally",
+                    "Model"
                   ]
-                ],
-                "value": "✓"
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pathfinder Shas’ui With Drones"
+                  ],
+                  [
+                    "{self}",
+                    "tracked",
+                    "Pathfinders With Drones"
+                  ]
+                ]
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 25
+            "failState": "error"
           },
           "Maximum 1": {
             "evals": [
@@ -5252,6 +5273,20 @@
           "OC": {
             "value": "1"
           },
+          "Pathfinder Shas’ui": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Pathfinder Shas’ui With Drones": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Pathfinder Team—Semi-automatic grenade launcher": {
             "max": 1,
             "min": 0,
@@ -5262,7 +5297,14 @@
           },
           "Pathfinders": {
             "max": 9,
-            "min": 9,
+            "min": 8,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Pathfinders With Drones": {
+            "max": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -10188,6 +10230,102 @@
           ]
         },
         "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Pathfinder Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "N/A": {
+                "order": 0
+              },
+              "Grav-inhibitor Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Grav-inhibitor Drone"
+                  }
+                ]
+              },
+              "Pulse Accelerator Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Pulse Accelerator Drone"
+                  }
+                ]
+              },
+              "Recon Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Recon Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "N/A",
+            "visibility": "normal"
+          },
+          "Pathfinder Team—Semi-automatic grenade launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Semi-automatic grenade launcher": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Weapon§Pathfinder Team—Semi-automatic grenade launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Pulse carbine"
+                  }
+                ]
+              },
+              "N/A": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Pulse carbine"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "N/A",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Pathfinder Shas’ui With Drones": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Pathfinder Team—Pulse pistol",
+            "Melee Weapon§Pathfinder Team—Close combat weapon"
+          ]
+        },
+        "stats": {
           "1st Drone": {
             "dynamic": true,
             "group": "Loadout",
@@ -10353,6 +10491,86 @@
         }
       },
       "Model§Pathfinders": {
+        "keywords": {
+          "Tags": []
+        },
+        "stats": {
+          "1st Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Pulse carbine": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Pulse carbine"
+                  }
+                ]
+              },
+              "Ion Rifle": {
+                "order": 1,
+                "tracking": {
+                  "Pathfinder Team—Ion rifle": 1,
+                  "specialweapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Weapon§Pathfinder Team—Ion rifle"
+                  }
+                ]
+              },
+              "Rail rifle": {
+                "order": 2,
+                "tracking": {
+                  "Pathfinder Team—Rail rifle": 1,
+                  "specialweapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Rail rifle"
+                  }
+                ]
+              },
+              "Semi-automatic grenade Launcher": {
+                "order": 3,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Weapon§Pathfinder Team—Semi-automatic grenade launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Pathfinder Team—Pulse carbine"
+                  }
+                ]
+              }
+            },
+            "statOrder": -1,
+            "statType": "rank",
+            "value": "Pulse carbine",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Pathfinders With Drones": {
         "keywords": {
           "Tags": []
         },
