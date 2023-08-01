@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.3.5",
+  "revision": "10.3.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "FPVAXY",
+      "slug": "EJ6AEJ",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
@@ -238,7 +238,8 @@
             "Imperium",
             "Tacticus",
             "Castellan"
-          ]
+          ],
+          "Lieutenant": []
         },
         "stats": {
           "Ld": {
@@ -423,13 +424,14 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
+            "Chapter Master",
             "Character",
             "Epic Hero",
             "Grenades",
+            "High Marshal Helbrecht",
             "Imperium",
-            "Tacticus",
-            "High Marshal Helbrecht"
+            "Infantry",
+            "Tacticus"
           ]
         },
         "stats": {
@@ -486,12 +488,13 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
+            "Captain",
             "Character",
             "Grenades",
             "Imperium",
-            "Tacticus",
-            "Marshal"
+            "Infantry",
+            "Marshal",
+            "Tacticus"
           ]
         },
         "stats": {
@@ -1674,6 +1677,49 @@
             "evaluate": "AND",
             "failState": "error"
           },
+          "1 in 5 models can have Twin lightning claws": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 models can have Twin lightning claws",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "claw"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "2 in 5 models can have a Pyre pistol": {
             "evals": [
               {
@@ -1749,7 +1795,7 @@
             "value": 165
           },
           "Primaris Sword Brother": {
-            "max": 10,
+            "max": 9,
             "min": 4,
             "statType": "numeric",
             "tracked": true,
@@ -2386,6 +2432,33 @@
           },
           "weaponName": {
             "value": "Power weapon"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Primaris Sword Brethren - Twin lightning claws": {
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Twin lightning claws"
           },
           "WS": {
             "value": 3
@@ -3076,6 +3149,55 @@
         }
       },
       "Model§Primaris Sword Brother - Sword Brethren": {
+        "rules": {
+          "Hide Claws": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Pistol Options",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Pistol Options",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "claw"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -3112,6 +3234,17 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Primaris Sword Brethren—Thunder hammer"
+                  }
+                ]
+              },
+              "Twin lightning claws": {
+                "order": 3,
+                "tracking": {
+                  "claw": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Primaris Sword Brethren - Twin lightning claws"
                   }
                 ]
               }
@@ -6442,7 +6575,7 @@
             "value": 1
           },
           "Range": {
-            "value": 18
+            "value": 12
           },
           "S": {
             "value": 4
