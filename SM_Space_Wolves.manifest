@@ -1,15 +1,15 @@
 {
   "name": "Space Wolves",
-  "revision": "10.2.3",
+  "revision": "10.2.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "dependencies": [
     {
-      "slug": "123456",
+      "slug": "FPVAXY",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
@@ -671,7 +671,15 @@
             "Ability§Born of Wolves",
             "Ability§Alpha Predator",
             "Melee Weapon§Canis Wolfborn—Wolf claws",
-            "Melee Weapon§Canis Wolfborn—Crushing teeth and claws"
+            "Melee Weapon§Canis Wolfborn—Crushing teeth and claws",
+            {
+              "item": "Ranged Weapon§Canis Wolfborn—Bolt pistol",
+              "stats": {
+                "BS": {
+                  "value": 2
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -750,6 +758,47 @@
             "Imperium",
             "Cyberwolf"
           ]
+        },
+        "rules": {
+          "DisableEnhancement": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "DisableWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -976,7 +1025,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Relic Terminator Squad\n\n\n\n* Terminator Assault Squad\n\n\n\n* Terminator Squad\n\n\n\n* Wolf Guard Terminators LOGAN GRIMNAR Your army cannot contain both Logan Grimnar and Logan Grimnar on Stormrider."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Relic Terminator Squad\n\n\n\n* Terminator Assault Squad\n\n\n\n* Terminator Squad\n\n\n\n* Wolf Guard Terminators "
             },
             "Ability§Oath of Moment",
             "Ability§High King of Fenris",
@@ -1011,6 +1060,11 @@
             "Chapter Master",
             "Logan Grimnar"
           ]
+        },
+        "rules": {
+          "No more than one Logan Grimnar": {
+            "evals": []
+          }
         },
         "stats": {
           "Ld": {
@@ -1147,6 +1201,28 @@
             "Lukas the Trickster"
           ]
         },
+        "rules": {
+          "DisableWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1218,6 +1294,28 @@
             "Dreadnought",
             "Murderfang"
           ]
+        },
+        "rules": {
+          "DisableWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -1460,7 +1558,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Relic Terminator Squad\n\n\n\n* Terminator Assault Squad\n\n\n\n* Terminator Squad\n\n\n\n* Wolf Guard Terminators You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Relic Terminator Squad\n\n\n\n* Terminator Assault Squad\n\n\n\n* Terminator Squad\n\n\n\n* Wolf Guard Terminators \n\nYou can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Oath of Moment",
             "Ability§Tactical Precision",
@@ -1729,7 +1827,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following unit:\n\n\n\n* Thunderwolf Cavalry You can attach this model to the above unit even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following unit:\n\n\n\n* Thunderwolf Cavalry \n\nYou can attach this model to the above unit even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Oath of Moment",
             "Ability§Tactical Precision",
@@ -2039,6 +2137,45 @@
           ]
         },
         "rules": {
+          "DisableEnhancement": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "DisableWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Maximum 1 gun": {
             "evals": [
               {
@@ -2577,7 +2714,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Blood Claws\n\n\n\n* Grey Hunters\n\n\n\n* Long Fangs You must attach this model to one of the above units, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Blood Claws\n\n\n\n* Grey Hunters\n\n\n\n* Long Fangs \n\nYou must attach this model to one of the above units, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed."
             },
             "Ability§Oath of Moment",
             "Ability§Inspiring Leader",
@@ -2611,6 +2748,45 @@
           ]
         },
         "rules": {
+          "DisableEnhancement": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "DisableWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Maximum 1 gun": {
             "evals": [
               {
@@ -3181,7 +3357,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following unit:\n\n\n\n* Skyclaws You must attach this model to the above unit, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following unit:\n\n\n\n* Skyclaws \n\nYou must attach this model to the above unit, and can do so even if one or more Character units have already been attached to that unit, but a unit can never include more than one Pack Leader model. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths. If it is not possible to attach this model to a unit, it does not take part in the battle and counts as having been destroyed."
             },
             "Ability§Oath of Moment",
             "Ability§Inspiring Leader",
@@ -3208,6 +3384,45 @@
           ]
         },
         "rules": {
+          "DisableEnhancement": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "DisableWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Maximum 1 gun": {
             "evals": [
               {
@@ -3701,7 +3916,7 @@
           }
         }
       },
-      "Character§Wolf Lord On Thunderwolf": {
+      "Character§Wolf Lord on Thunderwolf": {
         "assets": {
           "traits": [
             {
@@ -4164,6 +4379,11 @@
         "text": "Adeptus Astartes model only. The bearer’s\nmelee weapons have the [ANTI-MONSTER 4+] and\n[ANTI-VEHICLE 4+] abilities."
       },
       "Enhancement§Frost Weapon": {
+        "keywords": {
+          "Keywords": [
+            "Champions of Russ"
+          ]
+        },
         "rules": {
           "Ability": {
             "actions": [
@@ -5066,7 +5286,6 @@
             },
             "Ability§Oath of Moment",
             "Ability§Death Frenzy",
-            "Wargear§Storm Shield",
             "Model§Wulfen Pack Leader"
           ]
         },
@@ -10215,21 +10434,8 @@
               "-": {
                 "order": 0
               },
-              "Bolt pistol": {
-                "order": 1,
-                "tracking": {
-                  "1": 1,
-                  "pistol": 1,
-                  "special1": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Wolf Scouts—Bolt pistol"
-                  }
-                ]
-              },
               "Boltgun": {
-                "order": 2,
+                "order": 1,
                 "tracking": {
                   "2": 1,
                   "gun": 1,
@@ -10238,6 +10444,19 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Wolf Scouts—Boltgun"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 2,
+                "tracking": {
+                  "1": 1,
+                  "pistol": 1,
+                  "special1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts—Bolt pistol"
                   }
                 ]
               },
@@ -10366,7 +10585,7 @@
               }
             },
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Boltgun",
             "visibility": "active"
           },
           "Loadout 2": {
@@ -16069,6 +16288,40 @@
         }
       },
       "Roster§Army": {
+        "rules": {
+          "No more than one Logan Grimnar": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Logan Grimnar"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Logan Grimnar On Stormrider"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Chapter": {
             "dynamic": false,
@@ -16078,6 +16331,19 @@
               }
             },
             "value": "Space Wolves"
+          },
+          "Detachment": {
+            "dynamic": true,
+            "ranks": {
+              "Champions of Russ": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Detachment§Champions of Russ"
+                  }
+                ]
+              }
+            }
           },
           "Faction": {
             "dynamic": false,
@@ -16901,6 +17167,32 @@
         }
       },
       "Wargear§Blizzard Shield": {
+        "rules": {
+          "addInvulntoParent": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Invulnerable",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "value": "4+"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
         "text": "The bearer has a 4+ invulnerable save."
       },
       "Wargear§Relic Shield": {
