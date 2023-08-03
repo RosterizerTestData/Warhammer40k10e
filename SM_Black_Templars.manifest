@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.3.6",
+  "revision": "10.3.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "EJ6AEJ",
+      "slug": "FPVAXY",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
@@ -3150,7 +3150,43 @@
       },
       "Model§Primaris Sword Brother - Sword Brethren": {
         "rules": {
-          "Hide Claws": {
+          "noTwinClaws": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Pistol Options",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Options",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "TwinClaws": {
             "actions": [
               {
                 "actionType": "set",
@@ -3182,20 +3218,22 @@
             "evals": [
               {
                 "actionable": true,
-                "max": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "claw"
+                    "stats",
+                    "Melee Options",
+                    "value"
                   ]
-                ]
+                ],
+                "value": "Twin lightning claws"
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 220
           }
         },
         "stats": {
@@ -3293,6 +3331,10 @@
                     "trait": "Ranged Weapon§Primaris Sword Brethren—Pyre pistol"
                   }
                 ]
+              },
+              "-": {
+                "order": 3,
+                "tracking": {}
               }
             },
             "statType": "rank",
