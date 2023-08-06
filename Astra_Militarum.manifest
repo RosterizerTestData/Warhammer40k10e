@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.3.1",
+  "revision": "10.3.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "2CPFHT",
+      "slug": "CYWZR2",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -312,6 +312,9 @@
       },
       "Ability§Demolition Charges": {
         "text": "Each time this model or an enemy unit ends a move, if this model is within 3\" of one or more enemy units, select one of those enemy units. This model is destroyed, but instead of rolling for its Deadly Demise ability, roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers D6 mortal wounds."
+      },
+      "Ability§Deployment Section": {
+        "text": "When this model is set up, it will consist of 1 platform section, up to 5 shield sections, up to 2 broken shield sections and up to 2 end sections. All sections must be connected to each other to form a  continuous defence line; the 2 broken shield sections can be placed either at the end of the defence line, or in the middle of it such that both are within ½\" of each other (in this case, these 2 sections count as being connected to each other). All of the sections that have been set up are then treated as a single model for all rules purposes."
       },
       "Ability§Divination (psychic)": {
         "keywords": {
@@ -1060,7 +1063,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, one unit from your army within 12″ of this model can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase."
+        "text": "Once per battle round, one regiment unit from your army within 12″ of this model can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase."
       },
       "Ability§Tanith Camo-cloaks": {
         "keywords": {
@@ -4526,6 +4529,25 @@
             "evaluate": "OR",
             "failState": "error"
           },
+          "Maximum 1 Medi-pack": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Medi"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Must take 9 or 18 Death Korp Troopers": {
             "evals": [
               {
@@ -4881,44 +4903,41 @@
           "1 special weapon per 10 models": {
             "evals": [
               {
-                "actionable": true,
+                "actionable": false,
                 "equation": {
                   "operator": "T/O",
-                  "value": [
-                    "{self}",
-                    "stats",
-                    "Special Weapons",
-                    "value"
-                  ]
+                  "value": 9
                 },
-                "min": 10,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
+                    "tally",
+                    "Model"
                   ]
                 ]
               },
               {
                 "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 special weapon per 10 models",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "stats",
-                    "Special Weapons",
-                    "value"
+                    "tracked",
+                    "Special Weapons"
                   ]
-                ],
-                "value": 0
+                ]
               }
             ],
             "evaluate": "OR",
@@ -4927,43 +4946,41 @@
           "1 vox-caster per 10 models": {
             "evals": [
               {
-                "actionable": true,
+                "actionable": false,
                 "equation": {
                   "operator": "T/O",
-                  "value": [
-                    "{self}",
-                    "tally",
-                    "Vox-caster"
-                  ]
+                  "value": 9
                 },
-                "min": 10,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
+                    "tally",
+                    "Model"
                   ]
                 ]
               },
               {
                 "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 vox-caster per 10 models",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "stats",
-                    "Vox-caster",
-                    "value"
+                    "tracked",
+                    "Vox"
                   ]
-                ],
-                "value": 0
+                ]
               }
             ],
             "evaluate": "OR",
@@ -5466,8 +5483,14 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 14
+                      "quantity": 12
                     }
+                  },
+                  {
+                    "trait": "Model§Guardsman"
+                  },
+                  {
+                    "trait": "Model§Guardsman"
                   },
                   {
                     "trait": "Model§Guardsman"
@@ -5493,8 +5516,14 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 12
+                      "quantity": 10
                     }
+                  },
+                  {
+                    "trait": "Model§Guardsman"
+                  },
+                  {
+                    "trait": "Model§Guardsman"
                   },
                   {
                     "trait": "Model§Guardsman"
@@ -5834,7 +5863,8 @@
             },
             "Ability§Ogryn Bodyguard",
             "Ability§Redoubled Loyalty",
-            "Ability§Loyal Protector"
+            "Ability§Loyal Protector",
+            "Melee Weapon§Ogryn Bodyguard - Close combat weapon"
           ]
         },
         "keywords": {
@@ -8911,6 +8941,28 @@
           }
         }
       },
+      "Melee Weapon§Ogryn Bodyguard - Close combat weapon": {
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 6
+          },
+          "weaponName": {
+            "value": "Close combat weapon"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Ogryn Bodyguard—Bullgryn maul": {
         "stats": {
           "A": {
@@ -10831,8 +10883,20 @@
                   }
                 ]
               },
-              "Flamer": {
+              "Lasgun + Medi-pack": {
                 "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps of Krieg—Lasgun"
+                  },
+                  {
+                    "trait": "Wargear§Medi-pack"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 3,
                 "tracking": {
                   "Flamer": 1,
                   "special weapon": 1
@@ -10844,7 +10908,7 @@
                 ]
               },
               "Grenade launcher": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
                   "Grenade Launcher": 1,
                   "special weapon": 1
@@ -10856,7 +10920,7 @@
                 ]
               },
               "Meltagun": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "Melta": 1,
                   "special weapon": 1
@@ -10868,7 +10932,7 @@
                 ]
               },
               "Plasma gun": {
-                "order": 5,
+                "order": 6,
                 "tracking": {
                   "Plasma+Vox": 1
                 },
@@ -10879,7 +10943,7 @@
                 ]
               },
               "Sniper rifle": {
-                "order": 6,
+                "order": 7,
                 "tracking": {
                   "Sniper": 1,
                   "special weapon": 1
@@ -11163,6 +11227,9 @@
               },
               "Lasgun + Vox-caster": {
                 "order": 1,
+                "tracking": {
+                  "Vox": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Infantry Squad—Lasgun"
@@ -28533,15 +28600,15 @@
       "Ranged Weapon§Tank Commander—Exterminator autocannon": {
         "assets": {
           "traits": [
+            "Ability§Twin-linked",
             {
-              "item": "Ability§Sustained Hits",
+              "item": "Ability§Rapid Fire",
               "stats": {
                 "x": {
-                  "value": "1"
+                  "value": "4"
                 }
               }
-            },
-            "Ability§Twin-linked"
+            }
           ]
         },
         "stats": {
@@ -29175,7 +29242,7 @@
             "value": 48
           },
           "S": {
-            "value": 8
+            "value": 4
           },
           "weaponName": {
             "value": "frag"
@@ -30828,7 +30895,8 @@
             "Ability§Emplacement Platform",
             "Ability§Reinforced Cover",
             "Ability§Defence Line",
-            "Ability§Fortification"
+            "Ability§Fortification",
+            "Ability§Deployment Section"
           ]
         },
         "keywords": {
