@@ -1,6 +1,6 @@
 {
   "name": "Aeldari/Drukhari common",
-  "revision": "10.3.0",
+  "revision": "10.3.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -97,7 +97,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle, in your Movement phase, this model can use this ability before it makes a Normal move. If it does, until the end of the turn, add 2D6″ to this model’s Move characteristic and add 3 to this model’s Attacks characteristic."
+        "text": "Once per battle, in your Movement phase, this model can use this ability before it makes a Normal move. If it does, until the end of the turn, add 2D6″ to this model’s Move characteristic and add 3 to the Attacks characteristic of this model's Solitaire weapons."
       },
       "Ability§Blur of Movement": {
         "keywords": {
@@ -955,7 +955,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, in the Command phase, you can return 1 destroyed Bodyguard model to that unit."
+        "text": "While this model is leading a unit, in your Command phase, you can return 1 destroyed Bodyguard model to that unit."
       },
       "Ability§The Bloody-handed (Aura)": {
         "keywords": {
@@ -1059,7 +1059,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, when an enemy unit targets this unit, after that unit has finished making its attacks, this unit can shoot as if it were your Shooting phase. When doing so, this unit’s ranged weapons have the [PISTOL] ability."
+        "text": "Once per battle round, when an enemy unit targets this unit, after that unit has finished making its attacks, this unit can shoot as if it were your Shooting phase."
       },
       "Ability§Warlock Conclave": {
         "keywords": {
@@ -1080,7 +1080,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle, you can select one enemy unit that is within 12″ of and visible to this model and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds and must take a Battle-shock test."
+        "text": "Once per battle, in your shooting phase, you can select one enemy unit that is within 12″ of and visible to this model and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds and must take a Battle-shock test."
       },
       "Ability§Way of The Blade": {
         "keywords": {
@@ -1324,218 +1324,7 @@
             "Autarch"
           ]
         },
-        "rules": {
-          "Hide-RankfromMeleeRangedwhenFusionPistoletc.notSelected": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Melee",
-                    "ranks"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Ranged",
-                    "ranks"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "HideDeselectFusionPistoletcWhenMaskSelected": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Howling Banshee mask",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "HideDeselectMeleeRangedMaskWhenFusionPistoletcSelected": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Melee",
-                    "value"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Ranged",
-                    "value"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Howling Banshee mask",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Melee",
-                    "visibility"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Ranged",
-                    "visibility"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Howling Banshee mask",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "stats": {
-          "Fusion pistol, Banshee blade and mandiblasters": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Autarch—Fusion pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Autarch—Banshee blade"
-                  },
-                  {
-                    "trait": "Wargear§Mandiblasters"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
-          "Howling Banshee mask": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Howling Banshee Mask"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
           "Ld": {
             "value": 6
           },
@@ -1611,19 +1400,19 @@
                   }
                 ]
               },
-              "Reaper launcher": {
+              "Fusion pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Weapon§Autarch—Reaper launcher"
+                    "trait": "Ranged Weapon§Autarch—Fusion pistol"
                   }
                 ]
               },
-              "Fusion pistol": {
+              "Reaper launcher": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Autarch—Fusion pistol"
+                    "trait": "Weapon§Autarch—Reaper launcher"
                   }
                 ]
               }
@@ -1640,6 +1429,35 @@
           },
           "W": {
             "value": 4
+          },
+          "Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Howling Banshee Mask": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Howling Banshee Mask"
+                  }
+                ]
+              },
+              "Mandiblasters": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Mandiblasters"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
           }
         }
       },
@@ -1771,218 +1589,7 @@
             "Autarch Wayleaper"
           ]
         },
-        "rules": {
-          "Hide-RankfromMeleeRangedwhenFusionPistoletc.notSelected": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Melee",
-                    "ranks"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Ranged",
-                    "ranks"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "HideDeselectFusionPistoletcWhenMaskSelected": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Howling Banshee mask",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "HideDeselectMeleeRangedMaskWhenFusionPistoletcSelected": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Melee",
-                    "value"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Ranged",
-                    "value"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Howling Banshee mask",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Melee",
-                    "visibility"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Ranged",
-                    "visibility"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Howling Banshee mask",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Fusion pistol, Banshee blade and mandiblasters",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "stats": {
-          "Fusion pistol, Banshee blade and mandiblasters": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Autarch—Fusion pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Autarch—Banshee blade"
-                  },
-                  {
-                    "trait": "Wargear§Mandiblasters"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
-          "Howling Banshee mask": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Howling Banshee Mask"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
           "Ld": {
             "value": 6
           },
@@ -1998,20 +1605,25 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Autarch—Star glaive"
+                    "trait": "Melee Weapon§Autarch Wayleaper—Star glaive"
+                  }
+                ]
+              },
+              "Banshee blade": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Autarch Wayleaper—Banshee blade"
                   }
                 ]
               },
               "Scorpion chainsword": {
-                "order": 1,
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Autarch—Scorpion chainsword"
+                    "trait": "Melee Weapon§Autarch Wayleaper—Scorpion chainsword"
                   }
                 ]
-              },
-              "-": {
-                "order": 2
               }
             },
             "statType": "rank",
@@ -2077,6 +1689,35 @@
           },
           "W": {
             "value": 4
+          },
+          "Wargear Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Howling Banshee Mask": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Howling Banshee Mask"
+                  }
+                ]
+              },
+              "Mandiblasters": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Mandiblasters"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
           }
         }
       },
@@ -4691,6 +4332,28 @@
           },
           "WS": {
             "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Corsair Voidreavers - Close combat weapon": {
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 3
+          },
+          "weaponName": {
+            "value": "Close combat weapon"
+          },
+          "WS": {
+            "value": 3
           }
         }
       },
@@ -8996,6 +8659,11 @@
         }
       },
       "Model§Corsair Voidreaver": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -9119,6 +8787,11 @@
         }
       },
       "Model§Corsair Voidscarred": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -9299,7 +8972,8 @@
       "Model§Dark Reaper": {
         "assets": {
           "traits": [
-            "Weapon§Dark Reapers—Reaper launcher"
+            "Weapon§Dark Reapers—Reaper launcher",
+            "Melee Weapon§Dark Reapers—Close combat weapon"
           ]
         },
         "stats": {
@@ -9325,7 +8999,8 @@
       },
       "Model§Dark Reaper Exarch": {
         "assets": {
-          "included": [
+          "included": [],
+          "traits": [
             "Melee Weapon§Dark Reapers—Close combat weapon"
           ]
         },
@@ -9393,62 +9068,18 @@
         }
       },
       "Model§Dire Avenger": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Dire Avengers—Avenger shuriken catapult",
+            "Melee Weapon§Dire Avengers—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
           "M": {
             "value": 7
-          },
-          "Main": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Avenger shuriken catapult": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dire Avengers—Avenger shuriken catapult"
-                  }
-                ]
-              },
-              "Shuriken pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dire Avengers—Shuriken pistol"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Dire Avengers—Close combat weapon"
-                  }
-                ]
-              },
-              "Diresword": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Dire Avengers—Diresword"
-                  }
-                ]
-              },
-              "Power glaive": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Dire Avengers—Power glaive"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Avenger shuriken catapult",
-            "visibility": "active"
           },
           "OC": {
             "value": 1
@@ -9465,6 +9096,11 @@
         }
       },
       "Model§Dire Avenger Exarch": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Dire Avengers—Close combat weapon"
+          ]
+        },
         "rules": {
           "HideandRemoveSecondCatapult": {
             "actions": [
@@ -11009,7 +10645,8 @@
         "assets": {
           "traits": [
             "Ranged Weapon§Corsair Voidscarred—Shuriken pistol",
-            "Melee Weapon§Corsair Voidscarred—Paired Hekatarii blades"
+            "Melee Weapon§Corsair Voidscarred—Paired Hekatarii blades",
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
           ]
         },
         "stats": {
@@ -11422,7 +11059,8 @@
           "traits": [
             "Melee Weapon§Corsair Voidscarred—Aeldari power sword",
             "Ranged Weapon§Corsair Voidscarred—Shuriken pistol",
-            "Wargear§Channeller Stones"
+            "Wargear§Channeller Stones",
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
           ]
         },
         "stats": {
@@ -11485,7 +11123,7 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Shuriken pistol and Guardian combat weapon": {
+              "Shuriken pistol": {
                 "order": 0,
                 "traits": [
                   {
@@ -11501,6 +11139,9 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Storm Guardians—Aeldari flamer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Storm Guardians—Guardian combat weapon"
                   }
                 ]
               },
@@ -11509,6 +11150,9 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Storm Guardians—Guardian fusion gun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Storm Guardians—Guardian combat weapon"
                   }
                 ]
               },
@@ -11525,7 +11169,7 @@
               }
             },
             "statType": "rank",
-            "value": "Shuriken pistol and Guardian combat weapon",
+            "value": "Shuriken pistol",
             "visibility": "active"
           },
           "M": {
@@ -11600,14 +11244,14 @@
                   }
                 ]
               },
-              "Shuriken pistol and Scorpion’s claw": {
+              "Scorpion chainsword and Scorpion’s claw": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Weapon§Striking Scorpions—Scorpion’s claw"
                   },
                   {
-                    "trait": "Ranged Weapon§Striking Scorpions—Shuriken pistol"
+                    "trait": "Melee Weapon§Striking Scorpions—Scorpion chainsword"
                   }
                 ]
               },
@@ -12009,7 +11653,8 @@
       "Model§Voidreaver Felarch": {
         "assets": {
           "traits": [
-            "Melee Weapon§Corsair Voidreavers—Aeldari power sword"
+            "Melee Weapon§Corsair Voidreavers—Aeldari power sword",
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
           ]
         },
         "stats": {
@@ -12091,7 +11736,8 @@
       "Model§Voidscarred Felarch": {
         "assets": {
           "traits": [
-            "Melee Weapon§Corsair Voidscarred—Aeldari power sword"
+            "Melee Weapon§Corsair Voidscarred—Aeldari power sword",
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
           ]
         },
         "stats": {
@@ -12401,7 +12047,8 @@
           "traits": [
             "Ranged Weapon§Corsair Voidscarred—Shuriken pistol",
             "Ranged Weapon§Corsair Voidscarred—Executioner",
-            "Melee Weapon§Corsair Voidscarred—Witch staff"
+            "Melee Weapon§Corsair Voidscarred—Witch staff",
+            "Melee Weapon§Corsair Voidreavers - Close combat weapon"
           ]
         },
         "stats": {
@@ -13089,7 +12736,7 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 1
           },
           "Range": {
             "value": 48
@@ -14027,7 +13674,7 @@
           },
           "D": {
             "statType": "term",
-            "value": "D6"
+            "value": "D3"
           },
           "Range": {
             "value": 6
@@ -21735,7 +21382,7 @@
         },
         "stats": {
           "A": {
-            "value": 4
+            "value": 2
           },
           "AP": {
             "value": -3
