@@ -5,6 +5,93 @@ window.data.TS = {
   "name": "Thousand Sons",
   "is_subfaction": false,
   "parent_id": "",
+  "allied_factions": ["CD", "QT"],
+  "stratagems": [
+    {
+      "name": "PSYCHIC DOMINION",
+      "cost": 1,
+      "type": "Epic Deed",
+      "detachment": "Cult of Magic",
+      "turn": "either",
+      "phase": ["any"],
+      "fluff": "To pit one’s own psychic prowess against\nthe sorcerous might of the Thousand Sons\nis to be trapped, helpless and screaming,\nwithin one’s own mind.",
+      "when": "Any phase, just after an enemy\nunit has selected its targets.",
+      "target": "One Thousand Sons unit from\nyour army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.",
+      "effect": "Until the end of the phase, all\nattacks made against your unit with\nPsychic weapons have the [HAZARDOUS]\nability and all models in your unit have\nthe Feel No Pain 4+ ability against\nPsychic Attacks",
+      "restrictions": "",
+      "id": "0a071c1d-c99b-573e-b3ad-9310032fb22b"
+    },
+    {
+      "name": "DESTINED BY FATE",
+      "cost": 1,
+      "type": "Epic Deed",
+      "detachment": "Cult of Magic",
+      "turn": "either",
+      "phase": ["any"],
+      "fluff": "The Architect of Fate has great designs\nfor his pawns, which do not include their\nuntimely demise just yet…",
+      "when": "Any phase, when a saving throw is\nfailed for a Thousand Sons Psyker model\nfrom your army.",
+      "target": "That Psyker model.",
+      "effect": "Change the Damage\ncharacteristic of that attack to 0.",
+      "restrictions": "",
+      "id": "26f5b6ea-9563-5641-a0c6-d7892c45dcfe"
+    },
+    {
+      "name": "DEVASTATING SORCERY",
+      "cost": 1,
+      "type": "Battle Tactic",
+      "detachment": "Cult of Magic",
+      "turn": "your",
+      "phase": ["shooting"],
+      "fluff": "This warrior’s veins burn with raw\nsorcery. The sheer unstoppable might\nof their conjurations is such that, when\nunleashed with destructive intent, there\nis little that can prevent them from\ndevastating manifestation.",
+      "when": "Your Shooting phase.",
+      "target": "One Thousand Sons Psyker\nunit from your army that has not been\nselected to shoot this phase.",
+      "effect": "Until the end of the phase, each\ntime a model in your unit makes a Psychic\nAttack, you can re-roll the Hit roll and you\ncan re-roll the Wound roll.",
+      "restrictions": "",
+      "id": "b27432ff-3c90-5bc2-8b4e-12f25d600216"
+    },
+    {
+      "name": "ENSORCELLED INFUSION",
+      "cost": 1,
+      "type": "Strategic Ploy",
+      "detachment": "Cult of Magic",
+      "turn": "your",
+      "phase": ["shooting"],
+      "fluff": "Utilising the fell powers of the warp,\nThousand Sons Sorcerers infuse their\nminions’ bolter rounds with empyric\nenergies to render them even deadlier.",
+      "when": "Your Shooting phase.",
+      "target": "One Thousand Sons Psyker\nunit from your army that has not been\nselected to shoot this phase.",
+      "effect": "Until the end of the phase, all\ninferno bolt pistols, inferno boltguns,\ninferno combi-bolters and inferno\ncombi-weapons equipped by models in\nyour unit have the [PSYCHIC] ability and a\nStrength characteristic of 5. ",
+      "restrictions": "",
+      "id": "9336b821-7890-5546-95ce-aad05c639d62"
+    },
+    {
+      "name": "SORCEROUS MIGHT",
+      "cost": 1,
+      "type": "Epic Deed",
+      "detachment": "Cult of Magic",
+      "turn": "your",
+      "phase": ["shooting"],
+      "fluff": "The most powerful sorcerers of the\nThousand Sons are battle-psykers who\ncan, if the need is dire enough, siphon a\nsliver of their corrupted souls into their\neldritch assaults to temporarily boost\ntheir potency.",
+      "when": "Your Shooting phase.",
+      "target": "One Thousand Sons Psyker\nunit from your army that has not been\nselected to shoot this phase.",
+      "effect": "Until the end of the phase, add 9\"\nto the range of Psychic weapons equipped\nby your unit.",
+      "restrictions": "",
+      "id": "f2329c67-7006-5348-89d5-c5f8bbdc8bdc"
+    },
+    {
+      "name": "WARP SIGHT",
+      "cost": 2,
+      "type": "Strategic Ploy",
+      "detachment": "Cult of Magic",
+      "turn": "your",
+      "phase": ["shooting"],
+      "fluff": "With their tainted souls melded as one in\nthe warp, what one champion of the cabal\nsees, all their fellows see also.",
+      "when": "Your Shooting phase.",
+      "target": "One Thousand Sons Psyker unit\nfrom your army and one enemy unit that\nis visible to that unit.",
+      "effect": "Until the end of the phase, each\ntime a friendly Thousand Sons Psyker\nmodel makes an attack with a Psychic\nweapon that targets that enemy unit,\nthat attack has the [INDIRECT FIRE] and\n[IGNORES COVER] abilities. ",
+      "restrictions": "",
+      "id": "ffb361bd-e8c4-5a51-9464-771e79588903"
+    }
+  ],
   "enhancements": [
     {
       "name": "Arcane Vortex",
@@ -39,8 +126,10 @@ window.data.TS = {
     {
       "id": "76048a0a-8f11-512e-a836-34c97882259b",
       "name": "Ahriman",
+      "source": "40k-10e",
       "faction_id": "TS",
-      "leader": "",
+      "cardType": "DataCard",
+      "leader": "This model can be attached to the following unit: ■ Rubric Marines",
       "composition": ["1 Ahriman – Epic Hero"],
       "loadout": "This model is equipped with: inferno bolt pistol; Psychic Stalk; Black Staff of Ahriman.",
       "wargear": ["None"],
@@ -48,7 +137,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "110"
+          "cost": "110",
+          "active": true
         }
       ],
       "abilities": {
@@ -58,25 +148,35 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Rubric Lord",
-            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Wound roll."
+            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Wound roll.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Arch-Sorcerer of Tzeentch (Psychic)",
-            "description": "Once per battle, you can select this model to use a Ritual for 0 Cabal points (see Cabal of Sorcerers). If you do, all the other rules for using Rituals still apply."
+            "description": "Once per battle, you can select this model to use a Ritual for 0 Cabal points (see Cabal of Sorcerers). If you do, all the other rules for using Rituals still apply.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [
           {
             "name": "AHRIMAN",
-            "description": "Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch."
+            "description": "Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -89,13 +189,18 @@ window.data.TS = {
           "w": "5",
           "ld": "6+",
           "oc": "1",
-          "name": "Ahriman"
+          "name": "Ahriman",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -108,8 +213,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Psychic Stalk",
               "keywords": ["precision", "psychic"],
               "range": "18\"",
@@ -124,8 +231,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Black Staff of Ahriman",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -147,13 +256,19 @@ window.data.TS = {
         "Tzeentch",
         "Ahriman"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Rubric Marines"],
+        "extra": ""
+      }
     },
     {
       "id": "d5bd0573-49dc-5686-b2b9-a69411549958",
       "name": "Ahriman On Disc Of Tzeentch",
+      "source": "40k-10e",
       "faction_id": "TS",
-      "leader": "",
+      "cardType": "DataCard",
+      "leader": "This model can be attached to the following unit: ■ Rubric Marines",
       "composition": ["1 Ahriman – Epic Hero"],
       "loadout": "This model is equipped with: Psychic Stalk; inferno bolt pistol; Black Staff of Ahriman.",
       "wargear": ["None"],
@@ -161,7 +276,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "115"
+          "cost": "115",
+          "active": true
         }
       ],
       "abilities": {
@@ -171,25 +287,35 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Rubric Lord",
-            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Wound roll."
+            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Wound roll.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Arch-Sorcerer of Tzeentch (Psychic)",
-            "description": "Once per battle, you can select this model to use a Ritual for 0 Cabal points (see Cabal of Sorcerers). If you do, all the other rules for using Rituals still apply."
+            "description": "Once per battle, you can select this model to use a Ritual for 0 Cabal points (see Cabal of Sorcerers). If you do, all the other rules for using Rituals still apply.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [
           {
             "name": "AHRIMAN",
-            "description": "Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch."
+            "description": "Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -202,13 +328,18 @@ window.data.TS = {
           "w": "6",
           "ld": "6+",
           "oc": "1",
-          "name": "Ahriman On Disc Of Tzeentch"
+          "name": "Ahriman On Disc Of Tzeentch",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -221,8 +352,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Psychic Stalk",
               "keywords": ["precision", "psychic"],
               "range": "18\"",
@@ -237,8 +370,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Black Staff of Ahriman",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -261,12 +396,18 @@ window.data.TS = {
         "Tzeentch",
         "Ahriman on Disc of Tzeentch"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Rubric Marines"],
+        "extra": ""
+      }
     },
     {
       "id": "b44de2c6-587b-51e3-86b0-7b1ca9d113e7",
       "name": "Exalted Sorcerer",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
       "composition": ["1 Exalted Sorcerer"],
       "loadout": "This model is equipped with: Astral Blast; inferno bolt pistol; force weapon.",
@@ -278,7 +419,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "90"
+          "cost": "90",
+          "active": true
         }
       ],
       "abilities": {
@@ -288,20 +430,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Arcane Shield (Psychic)",
-            "description": "While this model is leading a unit, models in that unit have a 4+ invulnerable save."
+            "description": "While this model is leading a unit, models in that unit have a 4+ invulnerable save.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Rebind Rubricae (Psychic)",
-            "description": "In your Command phase, if this model is leading a unit, you can roll one D6: on a 1, that unit suffers D3 mortal wounds; on a 2-5, you can return 1 destroyed Bodyguard model to that unit; on a 6, you can return up to 2 destroyed Bodyguard models to that unit."
+            "description": "In your Command phase, if this model is leading a unit, you can roll one D6: on a 1, that unit suffers D3 mortal wounds; on a 2-5, you can return 1 destroyed Bodyguard model to that unit; on a 6, you can return up to 2 destroyed Bodyguard models to that unit.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -314,13 +464,18 @@ window.data.TS = {
           "w": "5",
           "ld": "6+",
           "oc": "1",
-          "name": "Exalted Sorcerer"
+          "name": "Exalted Sorcerer",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Astral Blast",
               "keywords": ["blast", "devastating wounds", "psychic"],
               "range": "18\"",
@@ -333,8 +488,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -347,8 +504,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Plasma pistol – standard",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -359,6 +518,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Plasma pistol – supercharge",
               "keywords": ["hazardous", "pistol"],
               "range": "12\"",
@@ -371,8 +531,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpflame pistol",
               "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
@@ -387,8 +549,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -401,8 +565,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Prosperine khopesh",
               "keywords": [],
               "range": "Melee",
@@ -424,12 +590,18 @@ window.data.TS = {
         "Tzeentch",
         "Exalted Sorcerer"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Rubric Marines"],
+        "extra": ""
+      }
     },
     {
       "id": "30b886e4-88fd-5a6a-a85f-ccdc99ac2f28",
       "name": "Exalted Sorcerer On Disc Of Tzeentch",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
       "composition": ["1 Exalted Sorcerer"],
       "loadout": "This model is equipped with: Arcane Fire; inferno bolt pistol; force weapon.",
@@ -441,7 +613,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "105"
+          "cost": "105",
+          "active": true
         }
       ],
       "abilities": {
@@ -451,20 +624,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Arcane Shield (Psychic)",
-            "description": "While this model is leading a unit, models in that unit a 4+ invulnerable save."
+            "description": "While this model is leading a unit, models in that unit a 4+ invulnerable save.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Binding Tendrils (Psychic)",
-            "description": "At the end of your Movement phase, you can select one enemy unit within 18\" of and visible to this Psyker and roll one D6: on a 1, this Psyker’s unit suffers D3 mortal wounds; on a 2+, until the start of your next Movement phase, halve the Move characteristic of models in that unit and halve Advance and Charge rolls made for that unit."
+            "description": "At the end of your Movement phase, you can select one enemy unit within 18\" of and visible to this Psyker and roll one D6: on a 1, this Psyker’s unit suffers D3 mortal wounds; on a 2+, until the start of your next Movement phase, halve the Move characteristic of models in that unit and halve Advance and Charge rolls made for that unit.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -477,13 +658,18 @@ window.data.TS = {
           "w": "6",
           "ld": "6+",
           "oc": "1",
-          "name": "Exalted Sorcerer On Disc Of Tzeentch"
+          "name": "Exalted Sorcerer On Disc Of Tzeentch",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Arcane Fire",
               "keywords": ["ignores cover", "psychic", "torrent"],
               "range": "18\"",
@@ -496,8 +682,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -510,8 +698,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Plasma pistol – standard",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -522,6 +712,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Plasma pistol – supercharge",
               "keywords": ["hazardous", "pistol"],
               "range": "12\"",
@@ -534,8 +725,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpflame pistol",
               "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
@@ -550,8 +743,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -564,8 +759,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Prosperine khopesh",
               "keywords": [],
               "range": "Melee",
@@ -587,12 +784,18 @@ window.data.TS = {
         "Tzeentch",
         "Exalted Sorcerer"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Rubric Marines"],
+        "extra": ""
+      }
     },
     {
       "id": "fa38ccf7-a6fc-5328-9f65-d7631b1c7a12",
       "name": "Infernal Master",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
       "composition": ["1 Infernal Master"],
       "loadout": "This model is equipped with: inferno bolt pistol; Screamer Invocation; force weapon.",
@@ -601,7 +804,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "75"
+          "cost": "75",
+          "active": true
         }
       ],
       "abilities": {
@@ -611,20 +815,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Malefic Maelstrom (Psychic)",
-            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability."
+            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Glimpse of Eternity (Psychic)",
-            "description": "Once per turn, you can change the result of one Hit roll, one Wound roll, one Damage roll or one saving throw made for this model to an unmodified 6."
+            "description": "Once per turn, you can change the result of one Hit roll, one Wound roll, one Damage roll or one saving throw made for this model to an unmodified 6.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -637,13 +849,18 @@ window.data.TS = {
           "w": "4",
           "ld": "6+",
           "oc": "1",
-          "name": "Infernal Master"
+          "name": "Infernal Master",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -656,8 +873,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Screamer Invocation – witchfire",
               "keywords": ["psychic", "torrent"],
               "range": "18\"",
@@ -668,6 +887,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Screamer Invocation – focused witchfire",
               "keywords": ["hazardous", "psychic", "torrent"],
               "range": "18\"",
@@ -682,8 +902,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -705,12 +927,18 @@ window.data.TS = {
         "Tzeentch",
         "Infernal Master"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Rubric Marines"],
+        "extra": ""
+      }
     },
     {
       "id": "4c38a598-03aa-5f90-9407-33bd484da21c",
       "name": "Magnus The Red",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Magnus the Red – Epic Hero"],
       "loadout": "This model is equipped with: Gaze of Magnus; Tzeentch’s Firestorm; Blade of Magnus.",
@@ -719,7 +947,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "410"
+          "cost": "410",
+          "active": true
         }
       ],
       "abilities": {
@@ -729,43 +958,60 @@ window.data.TS = {
         "primarch": [
           {
             "name": "CRIMSON KING",
+            "showAbility": true,
             "abilities": [
               {
                 "name": "Impossible Form (Psychic)",
-                "description": "Each time an attack is made against this Psyker (excluding Psychic Attacks), subtract 1 from that attack’s Damage characteristic."
+                "description": "Each time an attack is made against this Psyker (excluding Psychic Attacks), subtract 1 from that attack’s Damage characteristic.",
+                "showAbility": true,
+                "showDescription": true
               },
               {
                 "name": "Treason of Tzeentch (Psychic)",
-                "description": "At the start of your opponent’s Shooting phase, you can select one enemy unit within 24\" of and visible to this Psyker. Until the end of the phase, ranged weapons equipped by models in that unit have the [HAZARDOUS] ability."
+                "description": "At the start of your opponent’s Shooting phase, you can select one enemy unit within 24\" of and visible to this Psyker. Until the end of the phase, ranged weapons equipped by models in that unit have the [HAZARDOUS] ability.",
+                "showAbility": true,
+                "showDescription": true
               },
               {
                 "name": "Time Flux (Aura, Psychic)",
-                "description": "While a friendly Thousand Sons unit is within 6\" of this Psyker, add 2\" to the Move characteristic of models in that unit."
+                "description": "While a friendly Thousand Sons unit is within 6\" of this Psyker, add 2\" to the Move characteristic of models in that unit.",
+                "showAbility": true,
+                "showDescription": true
               }
             ]
           }
         ],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Unearthly Power",
-            "description": "At the start of the battle round, select one of the abilities in the Crimson King section (see left). Until the start of the next battle round, this model has that ability."
+            "description": "At the start of the battle round, select one of the abilities in the Crimson King section (see left). Until the start of the next battle round, this model has that ability.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Lord of the Planet of the Sorcerers (Aura)",
-            "description": "While a friendly Thousand Sons Psyker unit is within 6\" of this model, each time a model in that unit makes a Psychic Attack, add 1 to the Hit roll and add 1 to the Wound roll."
+            "description": "While a friendly Thousand Sons Psyker unit is within 6\" of this model, each time a model in that unit makes a Psychic Attack, add 1 to the Hit roll and add 1 to the Wound roll.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [
           {
             "name": "SUPREME COMMANDER",
-            "description": "If this model is in your army, it must be your Warlord."
+            "description": "If this model is in your army, it must be your Warlord.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-6 WOUNDS REMAINING",
           "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -778,13 +1024,18 @@ window.data.TS = {
           "w": "16",
           "ld": "5+",
           "oc": "6",
-          "name": "Magnus The Red"
+          "name": "Magnus The Red",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Gaze of Magnus",
               "keywords": ["devastating wounds", "psychic"],
               "range": "24\"",
@@ -797,8 +1048,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Tzeentch’s Firestorm",
               "keywords": ["blast", "psychic"],
               "range": "24\"",
@@ -813,8 +1066,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Blade of Magnus – strike",
               "keywords": ["devastating wounds", "psychic"],
               "range": "Melee",
@@ -825,6 +1080,7 @@ window.data.TS = {
               "damage": "3"
             },
             {
+              "active": true,
               "name": "Blade of Magnus – sweep",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -854,7 +1110,9 @@ window.data.TS = {
     {
       "id": "450a9b48-7ec3-55b6-818a-42145ac02450",
       "name": "Mutalith Vortex Beast",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Mutalith Vortex Beast"],
       "loadout": "This model is equipped with: warp vortex; betentacled maw; Mutalith claws.",
@@ -863,7 +1121,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "145"
+          "cost": "145",
+          "active": true
         }
       ],
       "abilities": {
@@ -873,20 +1132,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Mutating Vortex (Aura)",
-            "description": "At the end of your Movement phase, roll one D6 for each enemy unit within 6\" of this model: on a 2-3, that unit suffers 1 mortal wound; on a 4-5, that unit suffers D3 mortal wounds; on a 6, that unit suffers D6 mortal wounds. Each enemy unit within range of this ability must then take a Battle-shock test."
+            "description": "At the end of your Movement phase, roll one D6 for each enemy unit within 6\" of this model: on a 2-3, that unit suffers 1 mortal wound; on a 4-5, that unit suffers D3 mortal wounds; on a 6, that unit suffers D6 mortal wounds. Each enemy unit within range of this ability must then take a Battle-shock test.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Immaterial Flare (Aura)",
-            "description": "While a friendly Thousand Sons Psyker unit is within 6\" of this model, each time that unit uses a Ritual that specifies a range, you can double that range while resolving that Ritual."
+            "description": "While a friendly Thousand Sons Psyker unit is within 6\" of this model, each time that unit uses a Ritual that specifies a range, you can double that range while resolving that Ritual.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -899,13 +1166,18 @@ window.data.TS = {
           "w": "13",
           "ld": "6+",
           "oc": "4",
-          "name": "Mutalith Vortex Beast"
+          "name": "Mutalith Vortex Beast",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warp vortex – blast",
               "keywords": ["blast"],
               "range": "24\"",
@@ -916,6 +1188,7 @@ window.data.TS = {
               "damage": "2"
             },
             {
+              "active": true,
               "name": "Warp vortex – beam",
               "keywords": ["devastating wounds"],
               "range": "24\"",
@@ -926,6 +1199,7 @@ window.data.TS = {
               "damage": "D6+6"
             },
             {
+              "active": true,
               "name": "Warp vortex – torrent",
               "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
@@ -940,8 +1214,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Betentacled maw",
               "keywords": [],
               "range": "Melee",
@@ -954,8 +1230,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Mutalith claws",
               "keywords": [],
               "range": "Melee",
@@ -980,7 +1258,9 @@ window.data.TS = {
     {
       "id": "0887ff5d-6af0-5557-bc10-c984572b3c04",
       "name": "Rubric Marines",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Aspiring Sorcerer", "4-9 Rubric Marines"],
       "loadout": "The Aspiring Sorcerer is equipped with: inferno bolt pistol; Warpsmite; force weapon. Every Rubric Marine is equipped with: inferno boltgun; close combat weapon.",
@@ -994,18 +1274,22 @@ window.data.TS = {
       "points": [
         {
           "models": "5",
-          "cost": "95"
+          "cost": "95",
+          "active": true
         },
         {
           "models": "10",
-          "cost": "190"
+          "cost": "190",
+          "active": true
         }
       ],
       "abilities": {
         "wargear": [
           {
             "name": "Icon of Flame",
-            "description": "Each time a model in the bearer’s unit makes a ranged attack, if a Critical Wound is scored, improve the Armour Penetration characteristic of that attack by 1."
+            "description": "Each time a model in the bearer’s unit makes a ranged attack, if a Critical Wound is scored, improve the Armour Penetration characteristic of that attack by 1.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "core": [],
@@ -1013,16 +1297,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Bringers of Change",
-            "description": "Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If the target of that attack is within range of an objective marker you do not control, you can re-roll the Wound roll instead."
+            "description": "Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If the target of that attack is within range of an objective marker you do not control, you can re-roll the Wound roll instead.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -1035,13 +1325,18 @@ window.data.TS = {
           "w": "2",
           "ld": "6+",
           "oc": "2",
-          "name": "Rubric Marines"
+          "name": "Rubric Marines",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -1054,8 +1349,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno boltgun",
               "keywords": [],
               "range": "24\"",
@@ -1068,8 +1365,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Plasma pistol – standard",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -1080,6 +1379,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Plasma pistol – supercharge",
               "keywords": ["hazardous", "pistol"],
               "range": "12\"",
@@ -1092,8 +1392,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Soulreaper cannon",
               "keywords": ["devastating wounds"],
               "range": "24\"",
@@ -1106,8 +1408,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpsmite",
               "keywords": [
                 "anti-infantry 4+",
@@ -1125,8 +1429,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpflame pistol",
               "keywords": ["pistol", "ignores cover", "torrent"],
               "range": "12\"",
@@ -1139,8 +1445,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpflamer",
               "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
@@ -1155,8 +1463,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
@@ -1169,8 +1479,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -1194,7 +1506,9 @@ window.data.TS = {
         "Psyker"
       ],
       "factions": ["Thousand Sons"],
-      "ledBy": [
+      "leadBy": [
+        "Ahriman",
+        "Ahriman On Disc Of Tzeentch",
         "Exalted Sorcerer",
         "Exalted Sorcerer On Disc Of Tzeentch",
         "Infernal Master",
@@ -1204,7 +1518,9 @@ window.data.TS = {
     {
       "id": "b031d339-827f-524b-a5ee-7b0ffe55d27a",
       "name": "Scarab Occult Terminators",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": [
         "1 Scarab Occult Sorcerer",
@@ -1220,11 +1536,13 @@ window.data.TS = {
       "points": [
         {
           "models": "5",
-          "cost": "205"
+          "cost": "205",
+          "active": true
         },
         {
           "models": "10",
-          "cost": "410"
+          "cost": "410",
+          "active": true
         }
       ],
       "abilities": {
@@ -1234,16 +1552,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Implacable Guardians",
-            "description": "While this unit contains one or more Psyker models, each time an attack is made against this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll."
+            "description": "While this unit contains one or more Psyker models, each time an attack is made against this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -1256,13 +1580,18 @@ window.data.TS = {
           "w": "3",
           "ld": "6+",
           "oc": "1",
-          "name": "Scarab Occult Terminators"
+          "name": "Scarab Occult Terminators",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Heavy warpflamer",
               "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
@@ -1275,8 +1604,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Hellfyre missile rack",
               "keywords": [],
               "range": "36\"",
@@ -1289,8 +1620,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -1303,8 +1636,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Soulreaper cannon",
               "keywords": ["devastating wounds"],
               "range": "24\"",
@@ -1317,8 +1652,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpsmite",
               "keywords": [
                 "anti-infantry 4+",
@@ -1338,8 +1675,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -1352,8 +1691,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Prosperine khopesh",
               "keywords": [],
               "range": "Melee",
@@ -1377,12 +1718,14 @@ window.data.TS = {
         "Psyker"
       ],
       "factions": ["Thousand Sons"],
-      "ledBy": ["Thousand Sons Sorcerer In Terminator Armour"]
+      "leadBy": ["Thousand Sons Sorcerer In Terminator Armour"]
     },
     {
       "id": "d45b410a-deec-598f-bf5e-0638da19c52a",
       "name": "Thousand Sons Chaos Spawn",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["2 Chaos Spawn"],
       "loadout": "Every model is equipped with: hideous mutations.",
@@ -1391,7 +1734,8 @@ window.data.TS = {
       "points": [
         {
           "models": "2",
-          "cost": "65"
+          "cost": "65",
+          "active": true
         }
       ],
       "abilities": {
@@ -1401,16 +1745,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Regenerating Monstrosities",
-            "description": "At the start of each player’s Command phase, one model in this unit regains up to D3 lost wounds."
+            "description": "At the start of each player’s Command phase, one model in this unit regains up to D3 lost wounds.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -1423,14 +1773,19 @@ window.data.TS = {
           "w": "4",
           "ld": "7+",
           "oc": "1",
-          "name": "Thousand Sons Chaos Spawn"
+          "name": "Thousand Sons Chaos Spawn",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Hideous mutations",
               "keywords": [],
               "range": "Melee",
@@ -1449,7 +1804,9 @@ window.data.TS = {
     {
       "id": "d847b289-1fff-5b5b-aa51-551200307307",
       "name": "Thousand Sons Cultists",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": [
         "1 Thousand Sons Cultist Champion",
@@ -1465,11 +1822,13 @@ window.data.TS = {
       "points": [
         {
           "models": "10",
-          "cost": "65"
+          "cost": "65",
+          "active": true
         },
         {
           "models": "20",
-          "cost": "130"
+          "cost": "130",
+          "active": true
         }
       ],
       "abilities": {
@@ -1479,16 +1838,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "6+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Pawns of Fate",
-            "description": "Each time this unit destroys an enemy unit, roll one D6: on a 2+, you gain 1CP. When this unit is destroyed, roll one D6: on a 2+, you gain 1CP."
+            "description": "Each time this unit destroys an enemy unit, roll one D6: on a 2+, you gain 1CP. When this unit is destroyed, roll one D6: on a 2+, you gain 1CP.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -1501,13 +1866,18 @@ window.data.TS = {
           "w": "1",
           "ld": "7+",
           "oc": "1",
-          "name": "Thousand Sons Cultists"
+          "name": "Thousand Sons Cultists",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Cultist firearm",
               "keywords": [],
               "range": "24\"",
@@ -1520,8 +1890,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Flamer",
               "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
@@ -1534,8 +1906,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Grenade launcher – frag",
               "keywords": ["blast"],
               "range": "24\"",
@@ -1546,6 +1920,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Grenade launcher – krak",
               "keywords": [],
               "range": "24\"",
@@ -1558,8 +1933,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Heavy stubber",
               "keywords": ["rapid fire 3"],
               "range": "36\"",
@@ -1574,8 +1951,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Brutal assault weapon",
               "keywords": [],
               "range": "Melee",
@@ -1594,7 +1973,9 @@ window.data.TS = {
     {
       "id": "b381d363-e8ae-565a-8ce7-03ed5cfa8839",
       "name": "Thousand Sons Daemon Prince",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Daemon Prince"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
@@ -1603,7 +1984,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "210"
+          "cost": "210",
+          "active": true
         }
       ],
       "abilities": {
@@ -1613,20 +1995,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "The Weave of Fate (Psychic)",
-            "description": "Once per battle, at the start of any phase, you can select one friendly Rubric Marines or Scarab Occult Terminators unit within 6\" of this model. Until the end of the phase, weapons equipped by models in that unit have the [PRECISION] ability."
+            "description": "Once per battle, at the start of any phase, you can select one friendly Rubric Marines or Scarab Occult Terminators unit within 6\" of this model. Until the end of the phase, weapons equipped by models in that unit have the [PRECISION] ability.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Glamour of Tzeentch (Aura, Psychic)",
-            "description": "While a friendly Thousand Sons unit is within 6\" of this model, models in that unit have the Stealth ability."
+            "description": "While a friendly Thousand Sons unit is within 6\" of this model, models in that unit have the Stealth ability.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -1639,13 +2029,18 @@ window.data.TS = {
           "w": "10",
           "ld": "6+",
           "oc": "3",
-          "name": "Thousand Sons Daemon Prince"
+          "name": "Thousand Sons Daemon Prince",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Infernal cannon",
               "keywords": [],
               "range": "24\"",
@@ -1660,8 +2055,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Hellforged weapons – strike",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -1672,6 +2069,7 @@ window.data.TS = {
               "damage": "3"
             },
             {
+              "active": true,
               "name": "Hellforged weapons – sweep",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -1698,7 +2096,9 @@ window.data.TS = {
     {
       "id": "d15760a8-e0cc-5a34-9661-97ef9524a78f",
       "name": "Thousand Sons Daemon Prince With Wings",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Daemon Prince with Wings"],
       "loadout": "This model is equipped with: infernal cannon; hellforged weapons.",
@@ -1707,7 +2107,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "190"
+          "cost": "190",
+          "active": true
         }
       ],
       "abilities": {
@@ -1717,20 +2118,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Sorcerous Fire (Psychic)",
-            "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over this phase and roll nine D6: for each 6, that unit suffers 1 mortal wound."
+            "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over this phase and roll nine D6: for each 6, that unit suffers 1 mortal wound.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Aetherstride (Psychic)",
-            "description": "At the end of your opponent’s turn, if this model is not within Engagement Range of any enemy units, you can remove it from the battlefield and then, in the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the battle ends and this model is not on the battlefield, it is destroyed."
+            "description": "At the end of your opponent’s turn, if this model is not within Engagement Range of any enemy units, you can remove it from the battlefield and then, in the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the battle ends and this model is not on the battlefield, it is destroyed.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -1743,13 +2152,18 @@ window.data.TS = {
           "w": "10",
           "ld": "6+",
           "oc": "3",
-          "name": "Thousand Sons Daemon Prince With Wings"
+          "name": "Thousand Sons Daemon Prince With Wings",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Infernal cannon",
               "keywords": [],
               "range": "24\"",
@@ -1764,8 +2178,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Hellforged weapons – strike",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -1776,6 +2192,7 @@ window.data.TS = {
               "damage": "3"
             },
             {
+              "active": true,
               "name": "Hellforged weapons – sweep",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -1803,7 +2220,9 @@ window.data.TS = {
     {
       "id": "8d3c3611-78e1-553c-8e58-b310a756f88e",
       "name": "Thousand Sons Defiler",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Defiler"],
       "loadout": "This model is equipped with: Defiler cannon; reaper autocannon; twin heavy flamer; Defiler claws.",
@@ -1816,7 +2235,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "200"
+          "cost": "200",
+          "active": true
         }
       ],
       "abilities": {
@@ -1826,16 +2246,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Scuttling Walker",
-            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over friendly Monster and Vehicle models and terrain features that are 4\" or less in height as if they were not there."
+            "description": "Each time this model makes a Normal, Advance or Fall Back move, it can move over friendly Monster and Vehicle models and terrain features that are 4\" or less in height as if they were not there.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-5 WOUNDS REMAINING",
           "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -1848,13 +2274,18 @@ window.data.TS = {
           "w": "14",
           "ld": "6+",
           "oc": "5",
-          "name": "Thousand Sons Defiler"
+          "name": "Thousand Sons Defiler",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Defiler cannon",
               "keywords": ["blast"],
               "range": "48\"",
@@ -1867,8 +2298,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Havoc launcher",
               "keywords": ["blast"],
               "range": "48\"",
@@ -1881,8 +2314,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -1895,8 +2330,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -1913,8 +2350,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Reaper autocannon",
               "keywords": ["devastating wounds", "sustained hits 1"],
               "range": "36\"",
@@ -1927,16 +2366,20 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Twin heavy flamer",
               "keywords": []
             }
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Twin inferno heavy bolter",
               "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
@@ -1951,8 +2394,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Defiler claws",
               "keywords": [],
               "range": "Melee",
@@ -1965,8 +2410,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Defiler scourge",
               "keywords": ["extra attacks"],
               "range": "Melee",
@@ -1993,7 +2440,9 @@ window.data.TS = {
     {
       "id": "db29ab57-ac26-5b23-bb8c-3eddc889371c",
       "name": "Thousand Sons Forgefiend",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Forgefiend"],
       "loadout": "This model is equipped with: 2 Hades autocannons; 1 Forgefiend jaws.",
@@ -2005,7 +2454,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "135"
+          "cost": "135",
+          "active": true
         }
       ],
       "abilities": {
@@ -2015,16 +2465,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Blazing Salvoes",
-            "description": "In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -2037,13 +2493,18 @@ window.data.TS = {
           "w": "12",
           "ld": "6+",
           "oc": "3",
-          "name": "Thousand Sons Forgefiend"
+          "name": "Thousand Sons Forgefiend",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Ectoplasma cannon",
               "keywords": ["blast"],
               "range": "36\"",
@@ -2056,8 +2517,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Hades autocannon",
               "keywords": [],
               "range": "36\"",
@@ -2072,8 +2535,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Forgefiend claws",
               "keywords": [],
               "range": "Melee",
@@ -2086,8 +2551,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Forgefiend jaws",
               "keywords": [],
               "range": "Melee",
@@ -2113,7 +2580,9 @@ window.data.TS = {
     {
       "id": "517b09b0-362d-5389-941a-f779c1458605",
       "name": "Thousand Sons Helbrute",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Helbrute"],
       "loadout": "This model is equipped with: missile launcher; multi-melta; close combat weapon.",
@@ -2126,7 +2595,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "145"
+          "cost": "145",
+          "active": true
         }
       ],
       "abilities": {
@@ -2136,20 +2606,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Arcane Knowledge Amidst Babbling Insanity (Aura)",
-            "description": "Each time a friendly Thousand Sons Psyker model within 9\" of this model is selected to use a Ritual, you gain 1 Cabal point."
+            "description": "Each time a friendly Thousand Sons Psyker model within 9\" of this model is selected to use a Ritual, you gain 1 Cabal point.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Helbrute Fists",
-            "description": "If this model is equipped with two Helbrute fists, those weapons have the [TWIN-LINKED] ability."
+            "description": "If this model is equipped with two Helbrute fists, those weapons have the [TWIN-LINKED] ability.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -2162,13 +2640,18 @@ window.data.TS = {
           "w": "8",
           "ld": "6+",
           "oc": "3",
-          "name": "Thousand Sons Helbrute"
+          "name": "Thousand Sons Helbrute",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Heavy flamer",
               "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
@@ -2181,8 +2664,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Helbrute plasma cannon",
               "keywords": ["blast", "hazardous"],
               "range": "36\"",
@@ -2195,8 +2680,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -2209,8 +2696,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Missile launcher – frag",
               "keywords": ["blast"],
               "range": "48\"",
@@ -2221,6 +2710,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Missile launcher – krak",
               "keywords": [],
               "range": "48\"",
@@ -2233,8 +2723,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Multi-melta",
               "keywords": ["melta 2"],
               "range": "18\"",
@@ -2247,8 +2739,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Twin autocannon",
               "keywords": ["twin-linked"],
               "range": "48\"",
@@ -2261,8 +2755,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Twin inferno heavy bolter",
               "keywords": ["sustained hits 1", "twin-linked"],
               "range": "36\"",
@@ -2275,8 +2771,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Twin lascannon",
               "keywords": ["twin-linked"],
               "range": "48\"",
@@ -2291,8 +2789,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
@@ -2305,8 +2805,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Helbrute fist",
               "keywords": [],
               "range": "Melee",
@@ -2319,8 +2821,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Helbrute hammer",
               "keywords": [],
               "range": "Melee",
@@ -2333,8 +2837,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Power scourge",
               "keywords": [],
               "range": "Melee",
@@ -2353,7 +2859,9 @@ window.data.TS = {
     {
       "id": "6183c016-0094-5967-bc81-f847e457d4cc",
       "name": "Thousand Sons Heldrake",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Heldrake"],
       "loadout": "This model is equipped with: Hades autocannon; Heldrake claws.",
@@ -2364,7 +2872,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "195"
+          "cost": "195",
+          "active": true
         }
       ],
       "abilities": {
@@ -2374,16 +2883,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Flame-wreathed",
-            "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover."
+            "description": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -2396,13 +2911,18 @@ window.data.TS = {
           "w": "12",
           "ld": "6+",
           "oc": "0",
-          "name": "Thousand Sons Heldrake"
+          "name": "Thousand Sons Heldrake",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Baleflamer",
               "keywords": ["ignores cover", "torrent"],
               "range": "12\"",
@@ -2415,8 +2935,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Hades autocannon",
               "keywords": [],
               "range": "36\"",
@@ -2431,8 +2953,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Heldrake claws",
               "keywords": ["anti-fly 2+", "devastating wounds"],
               "range": "Melee",
@@ -2459,7 +2983,9 @@ window.data.TS = {
     {
       "id": "81c68c2b-1d97-55b3-8b07-f715b083121b",
       "name": "Thousand Sons Land Raider",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Land Raider"],
       "loadout": "This model is equipped with: 2 soulshatter lascannons; twin inferno heavy bolter; armoured tracks.",
@@ -2471,7 +2997,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "250"
+          "cost": "250",
+          "active": true
         }
       ],
       "abilities": {
@@ -2481,16 +3008,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": false,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Assault Ramp",
-            "description": "Each time a unit disembarks from this Transport after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+            "description": "Each time a unit disembarks from this Transport after it has made a Normal move, that unit is still eligible to declare a charge this turn.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-5 WOUNDS REMAINING",
           "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -2503,13 +3036,18 @@ window.data.TS = {
           "w": "16",
           "ld": "6+",
           "oc": "5",
-          "name": "Thousand Sons Land Raider"
+          "name": "Thousand Sons Land Raider",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Havoc launcher",
               "keywords": ["blast"],
               "range": "48\"",
@@ -2522,8 +3060,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -2536,8 +3076,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -2554,8 +3096,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Soulshatter lascannon",
               "keywords": [],
               "range": "48\"",
@@ -2568,24 +3112,28 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Twin inferno heavy bolter",
               "keywords": ["sustained hits 1", "twin-linked"],
-              "range": "24\"",
+              "range": "36\"",
               "attacks": "3",
               "skill": "3+",
               "strength": "5",
               "ap": "-2",
-              "damage": "1"
+              "damage": "2"
             }
           ]
         }
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Armoured tracks",
               "keywords": [],
               "range": "Melee",
@@ -2611,7 +3159,9 @@ window.data.TS = {
     {
       "id": "4c972846-787c-574f-a79b-fc3f05280468",
       "name": "Thousand Sons Maulerfiend",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Maulerfiend"],
       "loadout": "This model is equipped with: lasher tendrils; Maulerfiend fists.",
@@ -2622,7 +3172,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "140"
+          "cost": "140",
+          "active": true
         }
       ],
       "abilities": {
@@ -2632,16 +3183,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Prophetic Hunters",
-            "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+            "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -2654,13 +3211,18 @@ window.data.TS = {
           "w": "12",
           "ld": "6+",
           "oc": "3",
-          "name": "Thousand Sons Maulerfiend"
+          "name": "Thousand Sons Maulerfiend",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Magma cutter",
               "keywords": ["melta 2"],
               "range": "6\"",
@@ -2675,8 +3237,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Lasher tendrils",
               "keywords": ["extra attacks"],
               "range": "Melee",
@@ -2689,8 +3253,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Maulerfiend fists",
               "keywords": [],
               "range": "Melee",
@@ -2716,7 +3282,9 @@ window.data.TS = {
     {
       "id": "ac4e5ad8-3467-557e-b0d5-9031b0a3cf1f",
       "name": "Thousand Sons Predator Annihilator",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Predator Annihilator"],
       "loadout": "This model is equipped with: Predator twin lascannon; armoured tracks.",
@@ -2729,7 +3297,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "120"
+          "cost": "120",
+          "active": true
         }
       ],
       "abilities": {
@@ -2739,16 +3308,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": false,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Annihilator",
-            "description": "Each time this model makes a ranged attack that targets a Monster or Vehicle unit, re-roll a Damage roll of 1."
+            "description": "Each time this model makes a ranged attack that targets a Monster or Vehicle unit, re-roll a Damage roll of 1.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -2761,13 +3336,18 @@ window.data.TS = {
           "w": "11",
           "ld": "6+",
           "oc": "4",
-          "name": "Thousand Sons Predator Annihilator"
+          "name": "Thousand Sons Predator Annihilator",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Havoc launcher",
               "keywords": ["blast"],
               "range": "48\"",
@@ -2780,8 +3360,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -2794,8 +3376,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -2812,8 +3396,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno heavy bolter",
               "keywords": ["sustained hits 1"],
               "range": "36\"",
@@ -2826,8 +3412,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Lascannon",
               "keywords": [],
               "range": "48\"",
@@ -2840,8 +3428,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Predator twin lascannon",
               "keywords": ["twin-linked"],
               "range": "48\"",
@@ -2856,8 +3446,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Armoured tracks",
               "keywords": [],
               "range": "Melee",
@@ -2882,7 +3474,9 @@ window.data.TS = {
     {
       "id": "60c487e7-5ca9-5398-9951-6e0836d4c03e",
       "name": "Thousand Sons Predator Destructor",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Predator Destructor"],
       "loadout": "This model is equipped with: Predator autocannon; armoured tracks.",
@@ -2895,7 +3489,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "125"
+          "cost": "125",
+          "active": true
         }
       ],
       "abilities": {
@@ -2905,16 +3500,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": false,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Destructor",
-            "description": "Each time this model makes a ranged attack that targets an Infantry unit, improve the Armour Penetration characteristic of that attack by 1."
+            "description": "Each time this model makes a ranged attack that targets an Infantry unit, improve the Armour Penetration characteristic of that attack by 1.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -2927,13 +3528,18 @@ window.data.TS = {
           "w": "11",
           "ld": "6+",
           "oc": "4",
-          "name": "Thousand Sons Predator Destructor"
+          "name": "Thousand Sons Predator Destructor",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Havoc launcher",
               "keywords": ["blast"],
               "range": "48\"",
@@ -2946,8 +3552,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -2960,8 +3568,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -2978,8 +3588,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno heavy bolter",
               "keywords": ["sustained hits 1"],
               "range": "36\"",
@@ -2992,8 +3604,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Lascannon",
               "keywords": [],
               "range": "48\"",
@@ -3006,8 +3620,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Predator autocannon",
               "keywords": ["rapid fire 2"],
               "range": "48\"",
@@ -3022,8 +3638,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Armoured tracks",
               "keywords": [],
               "range": "Melee",
@@ -3048,7 +3666,9 @@ window.data.TS = {
     {
       "id": "8cdb60fc-c16c-55c2-b441-e445c0e7f26b",
       "name": "Thousand Sons Rhino",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Rhino"],
       "loadout": "This model is equipped with: inferno combi-bolter; armoured tracks.",
@@ -3060,26 +3680,33 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "75"
+          "cost": "75",
+          "active": true
         }
       ],
       "abilities": {
         "wargear": [],
-        "core": ["Deadly Demise D3"],
+        "core": ["Deadly Demise D3", "Firing Deck 2"],
         "faction": [],
         "primarch": [],
         "invul": {
           "value": "",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": false,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Self Repair",
-            "description": "At the start of your Command phase, this model regains 1 lost wound."
+            "description": "At the start of your Command phase, this model regains 1 lost wound.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -3092,13 +3719,18 @@ window.data.TS = {
           "w": "10",
           "ld": "6+",
           "oc": "2",
-          "name": "Thousand Sons Rhino"
+          "name": "Thousand Sons Rhino",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Havoc launcher",
               "keywords": ["blast"],
               "range": "48\"",
@@ -3111,8 +3743,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -3125,8 +3759,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -3145,8 +3781,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Armoured tracks",
               "keywords": [],
               "range": "Melee",
@@ -3162,6 +3800,7 @@ window.data.TS = {
       "keywords": [
         "Vehicle",
         "Transport",
+        "Dedicated Transport",
         "Smoke",
         "Chaos",
         "Tzeentch",
@@ -3172,7 +3811,9 @@ window.data.TS = {
     {
       "id": "d8b758bf-642e-5d09-a15b-d4c565538d29",
       "name": "Thousand Sons Sorcerer",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "This model can be attached to the following unit: ■ Rubric Marines",
       "composition": ["1 Thousand Sons Sorcerer"],
       "loadout": "This model is equipped with: Fires of the Abyss; inferno bolt pistol; force weapon.",
@@ -3183,7 +3824,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "85"
+          "cost": "85",
+          "active": true
         }
       ],
       "abilities": {
@@ -3193,20 +3835,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "5+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Empyric Guidance (Psychic)",
-            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability."
+            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Illusions of Tzeentch (Psychic)",
-            "description": "While this model is leading a unit, that unit can only be selected as the target of a ranged attack if the attacking model is within 18\"."
+            "description": "While this model is leading a unit, that unit can only be selected as the target of a ranged attack if the attacking model is within 18\".",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -3219,13 +3869,18 @@ window.data.TS = {
           "w": "4",
           "ld": "6+",
           "oc": "1",
-          "name": "Thousand Sons Sorcerer"
+          "name": "Thousand Sons Sorcerer",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Fires of the Abyss",
               "keywords": ["pistol", "psychic", "sustained hits 3"],
               "range": "12\"",
@@ -3238,8 +3893,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno bolt pistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -3252,8 +3909,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Plasma pistol – standard",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -3264,6 +3923,7 @@ window.data.TS = {
               "damage": "1"
             },
             {
+              "active": true,
               "name": "Plasma pistol – supercharge",
               "keywords": ["hazardous", "pistol"],
               "range": "12\"",
@@ -3276,8 +3936,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Warpflame pistol",
               "keywords": ["ignores cover", "pistol", "torrent"],
               "range": "12\"",
@@ -3292,8 +3954,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -3315,12 +3979,18 @@ window.data.TS = {
         "Tzeentch",
         "Sorcerer"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Rubric Marines"],
+        "extra": ""
+      }
     },
     {
       "id": "143c0245-2ac6-54a7-8bc9-334c793a115a",
       "name": "Thousand Sons Sorcerer In Terminator Armour",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "This model can be attached to the following unit: ■ Scarab Occult Terminators",
       "composition": ["1 Thousand Sons Sorcerer in Terminator Armour"],
       "loadout": "This model is equipped with: Coruscating Flames; inferno combi-bolter; force weapon.",
@@ -3328,7 +3998,13 @@ window.data.TS = {
         "This model’s inferno combi-bolter can be replaced with one of the following: ◦ 1 inferno combi-weapon ◦ 1 Prosperine khopesh"
       ],
       "transport": "",
-      "points": [],
+      "points": [
+        {
+          "models": "1",
+          "cost": "105",
+          "active": true
+        }
+      ],
       "abilities": {
         "wargear": [],
         "core": ["Deep Strike", "Leader"],
@@ -3336,20 +4012,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "4+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Empyric Guidance (Psychic)",
-            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability."
+            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Marked by Fate (Psychic)",
-            "description": "In your Shooting phase, you can select one enemy unit within 18\" of and visible to this model. Until the end of the turn, each time a friendly Thousand Sons model makes an attack that targets that unit, re-roll a Hit roll of 1."
+            "description": "In your Shooting phase, you can select one enemy unit within 18\" of and visible to this model. Until the end of the turn, each time a friendly Thousand Sons model makes an attack that targets that unit, re-roll a Hit roll of 1.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -3362,13 +4046,18 @@ window.data.TS = {
           "w": "5",
           "ld": "6+",
           "oc": "1",
-          "name": "Thousand Sons Sorcerer In Terminator Armour"
+          "name": "Thousand Sons Sorcerer In Terminator Armour",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Coruscating Flames",
               "keywords": [
                 "anti-monster 4+",
@@ -3386,8 +4075,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -3400,8 +4091,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -3420,8 +4113,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Force weapon",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -3434,8 +4129,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Prosperine khopesh",
               "keywords": [],
               "range": "Melee",
@@ -3457,12 +4154,18 @@ window.data.TS = {
         "Tzeentch",
         "Sorcerer"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Scarab Occult Terminators"],
+        "extra": ""
+      }
     },
     {
       "id": "4f69fa1f-800d-5963-bfa9-68ea87a4c8da",
       "name": "Thousand Sons Vindicator",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Thousand Sons Vindicator"],
       "loadout": "This model is equipped with: demolisher cannon; armoured tracks.",
@@ -3474,7 +4177,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "200"
+          "cost": "200",
+          "active": true
         }
       ],
       "abilities": {
@@ -3484,16 +4188,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": false,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Siege Shield",
-            "description": "When making ranged attacks with its demolisher cannon, this model can target enemy units within Engagement Range of it (provided no other friendly units are also within Engagement Range of that enemy unit). In addition, when making ranged attacks, this model does not suffer the penalty to its Hit rolls for being within Engagement Range of one or more enemy units."
+            "description": "When making ranged attacks with its demolisher cannon, this model can target enemy units within Engagement Range of it (provided no other friendly units are also within Engagement Range of that enemy unit). In addition, when making ranged attacks, this model does not suffer the penalty to its Hit rolls for being within Engagement Range of one or more enemy units.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": true,
+          "showDescription": true,
           "range": "1-4 WOUNDS REMAINING",
           "description": "While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         }
@@ -3506,13 +4216,18 @@ window.data.TS = {
           "w": "11",
           "ld": "6+",
           "oc": "3",
-          "name": "Thousand Sons Vindicator"
+          "name": "Thousand Sons Vindicator",
+          "showDamagedMarker": true,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Demolisher cannon",
               "keywords": ["blast"],
               "range": "24\"",
@@ -3525,8 +4240,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Havoc launcher",
               "keywords": ["blast"],
               "range": "48\"",
@@ -3539,8 +4256,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-bolter",
               "keywords": ["rapid fire 2"],
               "range": "24\"",
@@ -3553,8 +4272,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Inferno combi-weapon",
               "keywords": [
                 "anti-infantry 4+",
@@ -3573,8 +4294,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Armoured tracks",
               "keywords": [],
               "range": "Melee",
@@ -3593,7 +4316,9 @@ window.data.TS = {
     {
       "id": "9262f9fe-d276-5924-8816-9e200656a466",
       "name": "Tzaangor Enlightened",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Aviarch", "2-5 Enlightened"],
       "loadout": "Every model is equipped with: divining spear.",
@@ -3604,11 +4329,13 @@ window.data.TS = {
       "points": [
         {
           "models": "3",
-          "cost": "45"
+          "cost": "45",
+          "active": true
         },
         {
           "models": "6",
-          "cost": "90"
+          "cost": "90",
+          "active": true
         }
       ],
       "abilities": {
@@ -3618,16 +4345,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "6+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Malign Trickery",
-            "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of any enemy units, it can make a Normal move of up to D6\" as if it were your Movement phase."
+            "description": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of any enemy units, it can make a Normal move of up to D6\" as if it were your Movement phase.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -3640,13 +4373,18 @@ window.data.TS = {
           "w": "2",
           "ld": "7+",
           "oc": "2",
-          "name": "Tzaangor Enlightened"
+          "name": "Tzaangor Enlightened",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Autopistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -3659,8 +4397,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Fatecaster greatbow",
               "keywords": ["lethal hits", "precision"],
               "range": "30\"",
@@ -3675,8 +4415,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Chainsword",
               "keywords": [],
               "range": "Melee",
@@ -3689,8 +4431,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Close combat weapon",
               "keywords": [],
               "range": "Melee",
@@ -3703,8 +4447,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Divining spear",
               "keywords": ["lance", "precision"],
               "range": "Melee",
@@ -3725,12 +4471,14 @@ window.data.TS = {
         "Tzaangor Enlightened"
       ],
       "factions": ["Thousand Sons"],
-      "ledBy": ["Tzaangor Shaman"]
+      "leadBy": ["Tzaangor Shaman"]
     },
     {
       "id": "867d4f01-a499-5f02-ae56-be3461285c68",
       "name": "Tzaangor Shaman",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "This model can be attached to the following units: ■ Tzaangor Enlightened ■ Tzaangors",
       "composition": ["1 Tzaangor Shaman"],
       "loadout": "This model is equipped with: mutating orbs; Shaman’s stave.",
@@ -3739,7 +4487,8 @@ window.data.TS = {
       "points": [
         {
           "models": "1",
-          "cost": "60"
+          "cost": "60",
+          "active": true
         }
       ],
       "abilities": {
@@ -3749,20 +4498,28 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "6+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Dark Blessing (Psychic)",
-            "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
+            "description": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Bestial Prophet",
-            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+            "description": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -3775,13 +4532,18 @@ window.data.TS = {
           "w": "4",
           "ld": "7+",
           "oc": "1",
-          "name": "Tzaangor Shaman"
+          "name": "Tzaangor Shaman",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Mutating orbs",
               "keywords": ["blast", "devastating wounds", "psychic"],
               "range": "18\"",
@@ -3796,8 +4558,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Shaman’s stave",
               "keywords": ["psychic"],
               "range": "Melee",
@@ -3819,12 +4583,18 @@ window.data.TS = {
         "Tzeentch",
         "Tzaangor Shaman"
       ],
-      "factions": ["Thousand Sons"]
+      "factions": ["Thousand Sons"],
+      "leads": {
+        "units": ["Tzaangor Enlightened", "Tzaangors"],
+        "extra": ""
+      }
     },
     {
       "id": "e6a01d5b-aafa-5195-9052-45eae4dadbbe",
       "name": "Tzaangors",
+      "source": "40k-10e",
       "faction_id": "TS",
+      "cardType": "DataCard",
       "leader": "",
       "composition": ["1 Twistbray", "9-19 Tzaangors"],
       "loadout": "Every model is equipped with: Tzaangor blades.",
@@ -3837,22 +4607,28 @@ window.data.TS = {
       "points": [
         {
           "models": "10",
-          "cost": "65"
+          "cost": "65",
+          "active": true
         },
         {
           "models": "20",
-          "cost": "130"
+          "cost": "130",
+          "active": true
         }
       ],
       "abilities": {
         "wargear": [
           {
             "name": "Herd Banner",
-            "description": "You can re-roll Battle-shock tests taken for the bearer’s unit."
+            "description": "You can re-roll Battle-shock tests taken for the bearer’s unit.",
+            "showAbility": true,
+            "showDescription": true
           },
           {
             "name": "Brayhorn",
-            "description": "You can re-roll Advance and Charge rolls made for the bearer’s unit."
+            "description": "You can re-roll Advance and Charge rolls made for the bearer’s unit.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "core": [],
@@ -3860,16 +4636,22 @@ window.data.TS = {
         "primarch": [],
         "invul": {
           "value": "6+",
-          "info": ""
+          "info": "",
+          "showInvulnerableSave": true,
+          "showInfo": false
         },
         "other": [
           {
             "name": "Relic Hunters",
-            "description": "At the end of your Command phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it: for each 4+, you gain 1 Cabal point."
+            "description": "At the end of your Command phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it: for each 4+, you gain 1 Cabal point.",
+            "showAbility": true,
+            "showDescription": true
           }
         ],
         "special": [],
         "damaged": {
+          "showDamagedAbility": false,
+          "showDescription": true,
           "range": "",
           "description": ""
         }
@@ -3882,13 +4664,18 @@ window.data.TS = {
           "w": "1",
           "ld": "7+",
           "oc": "2",
-          "name": "Tzaangors"
+          "name": "Tzaangors",
+          "showDamagedMarker": false,
+          "showName": false,
+          "active": true
         }
       ],
       "rangedWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Autopistol",
               "keywords": ["pistol"],
               "range": "12\"",
@@ -3903,8 +4690,10 @@ window.data.TS = {
       ],
       "meleeWeapons": [
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Chainsword",
               "keywords": [],
               "range": "Melee",
@@ -3917,8 +4706,10 @@ window.data.TS = {
           ]
         },
         {
+          "active": true,
           "profiles": [
             {
+              "active": true,
               "name": "Tzaangor blades",
               "keywords": [],
               "range": "Melee",
@@ -3933,7 +4724,7 @@ window.data.TS = {
       ],
       "keywords": ["Infantry", "Battleline", "Chaos", "Tzeentch", "Tzaangors"],
       "factions": ["Thousand Sons"],
-      "ledBy": ["Tzaangor Shaman"]
+      "leadBy": ["Tzaangor Shaman"]
     }
   ],
   "colours": {

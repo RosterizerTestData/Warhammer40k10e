@@ -9,7 +9,7 @@ let numberr = function(input){
   return null
 }
 let titleCase = function(sentence){
-  return sentence.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/\s+/g,' ').toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
+  return sentence.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/\s+/g,' ').toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ').replace(/ Of /g,' of ').replace(/ The /g,' the ').replace(/ With /g,' with ').replace(/ In /g,' in ').replace(/ On /g,' on ')
 }
 const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain',
                         'Fights First','Firing Deck','Hover','Infiltrators',
@@ -42,7 +42,6 @@ Object.keys(window.data).forEach(key => {
     manifest: {
       assetTaxonomy: {},
       assetCatalog: {
-        'Roster§Army': {},
       },
       gameModes: {},
       theme: {}
@@ -62,7 +61,7 @@ Object.keys(window.data).forEach(key => {
     [['ranged','Ranged','BS'],['melee','Melee','WS']].forEach(range => {
       datasheet[range[0] + 'Weapons'].forEach(weapon => {
         weapon.profiles.forEach(profile => {
-          let weaponKey = range[1] + ' Weapon§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
+          let weaponKey = range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
           manifest.manifest.assetCatalog[weaponKey] = {
             stats: {
               Range: {
@@ -130,13 +129,13 @@ Object.keys(window.data).forEach(key => {
           });
         });
         if(weapon.profiles.length === 1){
-          weaponList.push(range[1] + ' Weapon§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
+          weaponList.push(range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
         }else{
-          let wargearKey = 'Wargear§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+((weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')).replace(/^(.*) – .*/,'$1'));
+          let wargearKey = range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+((weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')).replace(/^(.*) – .*/,'$1'));
           weaponList.push(wargearKey);
           manifest.manifest.assetCatalog[wargearKey] = {
             assets: {
-              traits: weapon.profiles.map(profile => range[1] + ' Weapon§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
+              traits: weapon.profiles.map(profile => range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
             },
             stats: {wargearName: {value: (weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')).replace(/^(.*) – .*/,'$1')}},
             keywords: {Tags: ['Multi-weapon']}
@@ -156,7 +155,7 @@ Object.keys(window.data).forEach(key => {
         else if(datasheet.keywords.includes('Infantry') || datasheet.keywords.includes('Mounted')) unitClass = 'Infantry/Mounted';
         else unitClass = 'Vehicle';
       }
-      let unitKey = unitClass+'§'+(datasheet.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
+      let unitKey = unitClass+'§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'));
       let unit = manifest.manifest.assetCatalog[unitKey] = {};
 
       // create all abilities
@@ -303,7 +302,7 @@ Object.keys(window.data).forEach(key => {
       // set keywords
       unit.keywords = {
         Faction: datasheet.factions,
-        Source: ['10th Edition Index'],
+        Source: datasheet.legends ? ['Legends'] : ['10th Edition Index'],
         Keywords: datasheet.keywords,
       }
       if(unit.keywords.Keywords.includes('Epic Hero')) unit.aspects = {Unique: true};
@@ -408,6 +407,37 @@ Object.keys(window.data).forEach(key => {
         });
       }
       delete a[i].stats;
+
+      // set points
+      if(datasheet.points){
+        datasheet.points.forEach((point,i) => {
+          unit.stats = unit.stats || {};
+          if(!i){
+            unit.stats.Points = {
+              "value": Number(point.cost)
+            }
+            unit.stats.model1stTally = {
+              "value": Number(point.models)
+            }
+          }
+          if(i === 1){
+            unit.stats.model2ndCost = {
+              "value": Number(point.cost - datasheet.points[0].cost)
+            }
+            unit.stats.model2ndTally = {
+              "value": Number(point.models)
+            }
+          }
+          if(i === 2){
+            unit.stats.model3rdCost = {
+              "value": Number(point.cost - datasheet.points[1].cost)
+            }
+            unit.stats.model3rdTally = {
+              "value": Number(point.models)
+            }
+          }
+        });
+      }
 
       let simpleSheet = singleModelUnit;
       if(

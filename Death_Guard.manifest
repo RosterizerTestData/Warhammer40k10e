@@ -1,6 +1,6 @@
 {
   "name": "Death Guard",
-  "revision": "10.3.2",
+  "revision": "10.4.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "EAYPVJ",
+      "slug": "CAQGNA",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -187,6 +187,14 @@
         },
         "text": "This model is eligible to shoot and declare a charge in a turn in which it Fell Back."
       },
+      "Ability§Infectious Bloodshed": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this unit makes a Charge move, until the end of the turn, weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
+      },
       "Ability§Infused with the Blessings of Nurgle": {
         "keywords": {
           "Keywords": [
@@ -228,6 +236,13 @@
         },
         "text": "While a friendly Death Guard unit is within 6″ of this model, each time a ranged attack targets that unit, models in that unit have the Benefit of Cover against that attack."
       },
+      "Ability§Nurgle's Gift (aura)": {
+        "keywords": {
+          "Keywords": [
+            "Faction"
+          ]
+        }
+      },
       "Ability§Nurgle’s Gift (aura)": {
         "keywords": {
           "Keywords": [
@@ -250,6 +265,14 @@
           ]
         },
         "text": "Once per battle, after selecting targets for a Psychic weapon equipped by this model, until the end of the phase, improve the Strength and Damage characteristics of that weapon by 2. Designer’s Note: Place a Pestilent Familiar token next to this model, removing it once this ability has been used."
+      },
+      "Ability§Possessed": {
+        "keywords": {
+          "Keywords": [
+            "Special"
+          ]
+        },
+        "text": "For the purposes of embarking within Transports, each Death Guard Possessed model counts as one Terminator model."
       },
       "Ability§Putrefying Stink": {
         "keywords": {
@@ -2701,6 +2724,32 @@
           }
         }
       },
+      "Melee Weapon§Death Guard Possessed—Hideous mutations": {
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Hideous mutations"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Death Guard Predator Annihilator—Armoured tracks": {
         "stats": {
           "A": {
@@ -4287,6 +4336,86 @@
             "statType": "rank",
             "value": "Plague boltgun",
             "visibility": "active"
+          }
+        }
+      },
+      "Model§Possessed": {
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 1
+          },
+          "sampleLoadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Hideous mutations": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Possessed—Hideous mutations"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Hideous mutations",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
+      "Model§Possessed Champion": {
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 1
+          },
+          "sampleLoadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Hideous mutations": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Possessed—Hideous mutations"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Hideous mutations",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 3
           }
         }
       },
@@ -9064,6 +9193,61 @@
           }
         }
       },
+      "Unit§Death Guard Possessed": {
+        "allowed": {
+          "items": [
+            "Model§Possessed"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Possessed",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Nurgle's Gift (aura)",
+            "Ability§Infectious Bloodshed",
+            "Ability§Possessed",
+            "Wargear§Diseased Icon",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Model§Possessed Champion"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Daemon",
+            "Possessed"
+          ]
+        },
+        "stats": {
+          "Possessed": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEach model is equipped with: hideous mutations.\n\n1 model can be equipped with 1 diseased icon."
+      },
       "Unit§Death Guard Predator Annihilator": {
         "assets": {
           "traits": [
@@ -10292,6 +10476,9 @@
             "visibility": "hidden"
           }
         }
+      },
+      "Wargear§Diseased Icon": {
+        "text": "Melee weapons in the bearer’s unit have the [LETHAL HITS] ability."
       },
       "Weapon§Death Guard Chaos Lord—Plasma pistol": {
         "assets": {
