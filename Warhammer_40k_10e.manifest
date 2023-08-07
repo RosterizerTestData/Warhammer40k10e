@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.1.30",
+  "revision": "10.4.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -4418,7 +4418,9 @@
         },
         "constraints": {
           "any": [],
-          "none": []
+          "none": [
+            "Legends"
+          ]
         },
         "keywords": {
           "Tags": [
@@ -4482,6 +4484,40 @@
               }
             ],
             "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Legends"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Legends",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
             "evaluate": "AND",
             "failState": "pass"
           },
@@ -5031,6 +5067,21 @@
               }
             },
             "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Legends": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statOrder": 12,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
