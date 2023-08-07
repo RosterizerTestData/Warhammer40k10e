@@ -1,6 +1,6 @@
 {
   "name": "Grey Knights",
-  "revision": "10.4.0",
+  "revision": "10.4.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "GKQ5H9",
+      "slug": "CYWZR2",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -8847,6 +8847,40 @@
             "Dreadnought"
           ]
         },
+        "rules": {
+          "Unique Loadouts must be unique": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -8854,109 +8888,118 @@
           "M": {
             "value": 6
           },
+          "Melee Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Dreadnought combat weapon & Storm bolter": {
+                "order": 0,
+                "tracking": {
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Grey Knights Dreadnought—Dreadnought combat weapon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Storm bolter"
+                  }
+                ]
+              },
+              "Dreadnought combat weapon & Heavy flamer": {
+                "order": 1,
+                "tracking": {
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Heavy flamer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Grey Knights Dreadnought—Dreadnought combat weapon"
+                  }
+                ]
+              },
+              "Missile launcher & Armoured feet": {
+                "order": 2,
+                "tracking": {
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Missile launcher"
+                  },
+                  {
+                    "trait": "Melee Weapon§Grey Knights Dreadnought—Armoured feet"
+                  }
+                ]
+              },
+              "-": {
+                "order": 3
+              }
+            },
+            "statType": "rank",
+            "value": "Dreadnought combat weapon & Storm bolter",
+            "visibility": "normal"
+          },
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 160
+          },
+          "Ranged Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
               "Assault cannon": {
                 "order": 0,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Dreadnought—Assault cannon"
                   }
                 ]
               },
-              "Heavy flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Heavy flamer"
-                  }
-                ]
-              },
               "Heavy plasma cannon": {
-                "order": 2,
+                "order": 1,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Dreadnought—Heavy plasma cannon"
                   }
                 ]
               },
-              "Heavy psycannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Heavy psycannon"
-                  }
-                ]
-              },
-              "Incinerator": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Incinerator"
-                  }
-                ]
-              },
-              "Missile launcher": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Missile launcher"
-                  }
-                ]
-              },
               "Multi-melta": {
-                "order": 6,
+                "order": 2,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Dreadnought—Multi-melta"
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Storm bolter"
-                  }
-                ]
-              },
               "Twin lascannon": {
-                "order": 8,
+                "order": 3,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Dreadnought—Twin lascannon"
                   }
                 ]
               },
-              "Armoured feet": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Grey Knights Dreadnought—Armoured feet"
-                  }
-                ]
-              },
-              "Dreadnought combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Grey Knights Dreadnought—Dreadnought combat weapon"
-                  }
-                ]
-              },
-              "Nemesis doomglaive": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Grey Knights Dreadnought—Nemesis doomglaive"
-                  }
-                ]
+              "-": {
+                "order": 4
               }
             },
             "statType": "rank",
@@ -8969,11 +9012,60 @@
           "T": {
             "value": 9
           },
+          "Unique Loadouts": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Heavy psycannon, Storm bolter, & Nemesis doomglaive": {
+                "order": 1,
+                "tracking": {
+                  "1": 1,
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Heavy psycannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Storm bolter"
+                  },
+                  {
+                    "trait": "Melee Weapon§Grey Knights Dreadnought—Nemesis doomglaive"
+                  }
+                ]
+              },
+              "Heavy psycannon, Incinerator, & Nemesis doomglaive": {
+                "order": 2,
+                "tracking": {
+                  "1": 1,
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Heavy psycannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Dreadnought—Incinerator"
+                  },
+                  {
+                    "trait": "Melee Weapon§Grey Knights Dreadnought—Nemesis doomglaive"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "W": {
             "value": 8
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: assault cannon; storm bolter; Dreadnought combat weapon.\n\nThis model’s assault cannon, storm bolter and Dreadnought combat weapon can be replaced with one of the following: ◦ 1 heavy psycannon, 1 storm bolter and 1 Nemesis doomglaive ◦ 1 heavy psycannon, 1 incinerator and 1 Nemesis doomglaive\n\n*This model’s assault cannon can be replaced with one of the following: ◦ 1 heavy plasma cannon ◦ 1 multi-melta ◦ 1 twin lascannon\n\n*This model’s storm bolter and Dreadnought combat weapon can be replaced with one of the following: ◦ 1 missile launcher and 1 armoured feet ◦ 1 heavy flamer and 1 Dreadnought combat weapon"
+        "text": ""
       },
       "Unit§Grey Knights Land Raider": {
         "assets": {
@@ -9525,7 +9617,8 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Grey Knights Infantry models. It cannot transport Terminator models."
-            }
+            },
+            "Melee Weapon§Grey Knights Relic Razorback—Armoured tracks"
           ]
         },
         "keywords": {
@@ -9545,6 +9638,27 @@
           ]
         },
         "stats": {
+          "Hunter-killer missile": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Knights Relic Razorback—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
           },
@@ -9554,16 +9668,19 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Points": {
+            "value": 95
+          },
+          "Ranged Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Hunter-killer missile": {
+              "Twin heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Grey Knights Relic Razorback—Hunter-killer missile"
+                    "trait": "Ranged Weapon§Grey Knights Relic Razorback—Twin heavy bolter"
                   }
                 ]
               },
@@ -9575,32 +9692,16 @@
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Relic Razorback—Storm bolter"
-                  }
-                ]
-              },
               "Twin assault cannon": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Relic Razorback—Twin assault cannon"
                   }
                 ]
               },
-              "Twin heavy bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Grey Knights Relic Razorback—Twin heavy bolter"
-                  }
-                ]
-              },
               "Twin lascannon": {
-                "order": 5,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Relic Razorback—Twin lascannon"
@@ -9608,25 +9709,38 @@
                 ]
               },
               "Twin psycannon": {
-                "order": 6,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Grey Knights Relic Razorback—Twin psycannon"
                   }
                 ]
+              }
+            },
+            "statType": "rank",
+            "value": "Twin heavy bolter",
+            "visibility": "active"
+          },
+          "Storm bolter": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
               },
-              "Armoured tracks": {
-                "order": 7,
+              "1": {
+                "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Grey Knights Relic Razorback—Armoured tracks"
+                    "trait": "Ranged Weapon§Grey Knights Relic Razorback—Storm bolter"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Hunter-killer missile",
-            "visibility": "active"
+            "value": 0,
+            "visibility": "normal"
           },
           "Sv": {
             "value": 3
@@ -9638,7 +9752,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: twin heavy bolter; armoured tracks.\n\nThis model’s twin heavy bolter can be replaced with one of the following: ◦ 1 multi-melta ◦ 1 twin assault cannon ◦ 1 twin lascannon ◦ 1 twin psycannon\n\n*This model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with 1 storm bolter."
+        "text": ""
       },
       "Unit§Grey Knights Rhino": {
         "assets": {
