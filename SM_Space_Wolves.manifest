@@ -1,6 +1,6 @@
 {
   "name": "Space Wolves",
-  "revision": "10.4.0",
+  "revision": "10.4.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,15 +9,14 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "PZYKXW",
+      "slug": "EJ6AEJ",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
     }
   ],
   "manifest": {
-    "assetTaxonomy": {
-    },
+    "assetTaxonomy": {},
     "assetCatalog": {
       "Ability§A Charge Move This Turn": {
         "keywords": {
@@ -9722,6 +9721,56 @@
       },
       "Model§Wolf Guard Terminator": {
         "rules": {
+          "Cyclone Melee": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cyclone Melee Option",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cyclone Melee Option",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "cyclone"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Cyclone Show": {
+            "evals": []
+          },
           "Maximum 1 gun per model": {
             "evals": [
               {
@@ -9775,6 +9824,59 @@
           }
         },
         "stats": {
+          "Cyclone Melee Option": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Chainfist": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Wolf Guard Terminators—Chainfist"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Wolf Guard Terminators—Power fist"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Wolf Guard Terminators—Power weapon"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Wolf Guard Terminators—Thunder hammer"
+                  }
+                ]
+              },
+              "Storm shield": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Wargear§Storm Shield - Terminator"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
           },
@@ -10043,6 +10145,7 @@
               "Cyclone missile launcher & Storm bolter": {
                 "order": 4,
                 "tracking": {
+                  "cyclone": 1,
                   "heavy": 1,
                   "special1": 1,
                   "special2": 1
@@ -10053,9 +10156,6 @@
                   },
                   {
                     "trait": "Ranged Weapon§Wolf Guard Terminators—Storm bolter"
-                  },
-                  {
-                    "trait": "Melee Weapon§Wolf Guard Terminators—Power fist"
                   }
                 ]
               }
