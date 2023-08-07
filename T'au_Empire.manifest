@@ -1,6 +1,6 @@
 {
   "name": "T’au Empire",
-  "revision": "10.4.0",
+  "revision": "10.4.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "2FCU3P",
+      "slug": "EXS5GE",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -23,1377 +23,6 @@
             "value": 20
           }
         }
-      },
-      "Legends": {
-        "aspects": {
-          "Group Includes": true,
-          "Group Traits": true,
-          "Lock Qty": true,
-          "Rename": true
-        },
-        "keywords": {
-          "Tags": [],
-          "Faction": [
-            "T’au Empire"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ]
-        },
-        "rules": {
-          "addbattlehonours": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "rules",
-                  "addBattleHonours",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "SUM",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Battle Trait",
-                      "Psychic Fortitude",
-                      "Weapon Enhancement"
-                    ]
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 20
-          },
-          "allCharacterscarstrait": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Character"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Character"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowbattletraits": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Vehicles (excluding walkers)"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Monster"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Vehicle"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowmosterscartrait": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Monster"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Monster"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowothebattlescars": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Other Unit"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Vehicle"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Character"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Monster"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowscarstraits": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "allowed",
-                    "classifications"
-                  ]
-                ],
-                "value": "Battle Scar"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "allowed",
-                    "classifications"
-                  ]
-                ],
-                "value": "Battle Trait"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "min": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "max"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowvehiclescarstrait": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Vehicle"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Vehicle"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "apply2ndmodelcosts": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "model2ndCost",
-                  "value"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "model1stTally",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": [
-                  "{self}",
-                  "rules",
-                  "apply2ndModelCost",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "note": "relies on trueModelTally, which must precede it in order",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 40
-          },
-          "apply3rdModelcost": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "model3rdCost",
-                  "value"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "model2ndTally",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdModelCost",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "note": "relies on trueModelTally, which must precede it in order",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 40
-          },
-          "cheatunitnametally": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "{0string}"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "designation"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 4
-          },
-          "copypointifally1": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Points",
-                  "value"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Faction"
-                  ]
-                ],
-                "value": [
-                  "{roster}",
-                  "stats",
-                  "Allied faction 1",
-                  "value"
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          },
-          "copypointifally2": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Ally 2 Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Points",
-                  "value"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Faction"
-                  ]
-                ],
-                "value": [
-                  "{roster}",
-                  "stats",
-                  "Allied faction 2",
-                  "value"
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          },
-          "crusadestats": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    [
-                      "Crusade Pts",
-                      "Experience",
-                      "Battle Honours",
-                      "Rank"
-                    ],
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "maxqty": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "maxQty",
-                    "value"
-                  ]
-                ],
-                "value": 3
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Battleline"
-              },
-              {
-                "actionable": false,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Dedicated Transport"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "OR",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "maxQty",
-                    "evals",
-                    "0",
-                    "result",
-                    "truthy"
-                  ],
-                  [
-                    "{self}",
-                    "rules",
-                    "maxQty",
-                    "evals",
-                    "1",
-                    "result",
-                    "truthy"
-                  ]
-                ],
-                "value": true
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 5
-          },
-          "rank1": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Rank",
-                    "value"
-                  ]
-                ],
-                "value": "Blooded"
-              },
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "max"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "max": 15,
-                "min": 6,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Experience",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 21
-          },
-          "rank2": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Rank",
-                    "value"
-                  ]
-                ],
-                "value": "Battle-hardened"
-              },
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "max"
-                  ]
-                ],
-                "value": 2
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "max": 30,
-                "min": 16,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Experience",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 21
-          },
-          "rank3": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Rank",
-                    "value"
-                  ]
-                ],
-                "value": "Heroic"
-              },
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "max"
-                  ]
-                ],
-                "value": 3
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "max": 50,
-                "min": 31,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Experience",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 21
-          },
-          "rank4": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Rank",
-                    "value"
-                  ]
-                ],
-                "value": "Legendary"
-              },
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "max"
-                  ]
-                ],
-                "value": 4
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "min": 51,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Experience",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 21
-          },
-          "This unit has fewer models than allowed by its point cost": {
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "trueModelTally",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "warning"
-          },
-          "This unit has unspent traits": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "min": [
-                  "{self}",
-                  "stats",
-                  "Battle Honours",
-                  "max"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "warning",
-            "order": 22
-          },
-          "Too many of this unit type in this army": {
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "designation"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "stats",
-                  "maxQty",
-                  "value"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "tally",
-                    "{0string}"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "trueModeltally": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T-O",
-                  "value": [
-                    "{self}",
-                    "tally",
-                    "noTally"
-                  ]
-                },
-                "not": false,
-                "note": "Count the total number of tallyable models for points threshold purposes",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 35
-          }
-        },
-        "stats": {
-          "Ally 1 Points": {
-            "group": "Cost",
-            "groupOrder": 0,
-            "statOrder": 2,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Ally 2 Points": {
-            "group": "Cost",
-            "groupOrder": 0,
-            "statOrder": 0,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Base": {
-            "statType": "term",
-            "value": null,
-            "visibility": "hidden"
-          },
-          "Battle Honours": {
-            "statType": "numeric",
-            "value": 0
-          },
-          "Crusade Pts": {
-            "dynamic": true,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "normal"
-          },
-          "Enhancement": {
-            "max": 1,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Experience": {
-            "dynamic": true,
-            "increment": {
-              "value": 1
-            },
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "normal"
-          },
-          "Ld": {
-            "format": "{v}+",
-            "group": "Stats",
-            "statOrder": 5,
-            "statType": "numeric",
-            "value": null,
-            "visibility": "normal"
-          },
-          "M": {
-            "format": "{v}″",
-            "group": "Stats",
-            "statOrder": 1,
-            "statType": "numeric",
-            "value": null,
-            "visibility": "normal"
-          },
-          "maxQty": {
-            "statType": "numeric",
-            "value": 3,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model2ndCost": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model2ndTally": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model3rdCost": {
-            "statType": "numeric",
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "OC": {
-            "group": "Stats",
-            "statOrder": 6,
-            "statType": "numeric",
-            "value": null,
-            "visibility": "normal"
-          },
-          "Points": {
-            "group": "Cost",
-            "groupOrder": 0,
-            "statOrder": 1,
-            "statType": "numeric",
-            "tracked": true,
-            "value": null,
-            "visibility": "normal"
-          },
-          "Rank": {
-            "ranks": {
-              "Battle-ready": {
-                "order": 0
-              },
-              "Blooded": {
-                "order": 1,
-                "tracking": {}
-              },
-              "Battle-hardened": {
-                "order": 2,
-                "tracking": {}
-              },
-              "Heroic": {
-                "order": 3,
-                "tracking": {}
-              },
-              "Legendary": {
-                "order": 4,
-                "tracking": {}
-              }
-            },
-            "statType": "rank",
-            "value": "Battle-ready",
-            "visibility": "normal"
-          },
-          "Sv": {
-            "format": "{v}+",
-            "group": "Stats",
-            "statOrder": 3,
-            "statType": "numeric",
-            "value": null,
-            "visibility": "normal"
-          },
-          "T": {
-            "group": "Stats",
-            "statOrder": 2,
-            "statType": "numeric",
-            "value": null,
-            "visibility": "normal"
-          },
-          "W": {
-            "group": "Stats",
-            "statOrder": 4,
-            "statType": "numeric",
-            "value": null,
-            "visibility": "normal"
-          }
-        },
-        "templateClass": "Unit"
       }
     },
     "assetCatalog": {
@@ -4630,6 +3259,9 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 80
+          },
           "Sv": {
             "value": 3
           },
@@ -4808,6 +3440,154 @@
         },
         "text": "Every model is equipped with: pulse blaster; pulse pistol; close combat weapon.\n\nThe Breacher Fire Warrior Shas’ui can be equipped with up to two of the following, and can take duplicates: ◦ 1 guardian drone* (it cannot take duplicates of this piece of wargear) ◦ 1 gun drone* ◦ 1 marker drone* ◦ 1 shield drone* *  This drone’s rules can be found on the T’au Empire Drones card."
       },
+      "Infantry/Mounted§Great Knarloc": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Loping Stride"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Monster",
+            "Kroot",
+            "Great Knarloc"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Kroot bolt thrower & Kroot rifle": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Great Knarloc—Kroot bolt thrower"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Great Knarloc—Kroot rifle"
+                  },
+                  {
+                    "trait": "Melee Weapon§Great Knarloc—Kroot rifle"
+                  }
+                ]
+              },
+              "Twin Kroot gun": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Great Knarloc—Twin Kroot gun"
+                  }
+                ]
+              },
+              "Baggage Harness": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Baggage Harness (Aura)"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 100
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 8
+          },
+          "W": {
+            "value": 10
+          }
+        },
+        "text": ""
+      },
+      "Infantry/Mounted§Knarloc Riders": {
+        "allowed": {
+          "items": [
+            "Model§Knarloc Rider"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Knarloc Rider",
+              "quantity": 3
+            }
+          ],
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Stealth",
+            "Ability§Thunderous Pounce"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Mounted",
+            "Kroot",
+            "Knarloc Riders"
+          ]
+        },
+        "stats": {
+          "Knarloc Rider": {
+            "max": 3,
+            "min": 3,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 110
+          }
+        }
+      },
       "Infantry/Mounted§Kroot Carnivores": {
         "allowed": {
           "items": [
@@ -4951,10 +3731,10 @@
         "stats": {
           "Kroot Farstalkers": {
             "max": 9,
-            "min": 8,
+            "min": 9,
             "statType": "numeric",
             "tracked": true,
-            "value": 0,
+            "value": null,
             "visibility": "hidden"
           },
           "Ld": {
@@ -4979,7 +3759,7 @@
             "value": 1
           }
         },
-        "text": "The Kroot Kill-broker is equipped with: Farstalker firearm; Kroot pistol; ritual blade. Every Kroot Farstalker is equipped with: Farstalker firearm; Kroot pistol; close combat weapon. Every Kroot Hound is equipped with: ripping fangs.\n\nThe Kroot Kill-broker’s Farstalker firearm can be replaced with one of the following: ◦ 1 pulse carbine ◦ 1 pulse rifle\n\n*1 Kroot Farstalker’s Farstalker firearm can be replaced with one of the following: ◦ 1 Dvorgite skinner ◦ 1 Londaxi tribalest\n\n*1 Kroot Farstalker equipped with a Farstalker firearm can be equipped with 1 Pech’ra."
+        "text": ""
       },
       "Infantry/Mounted§Kroot Hounds": {
         "allowed": {
@@ -5020,6 +3800,37 @@
             "Hounds"
           ]
         },
+        "removed": {
+          "rules": {
+            "Too many of this unit type in the army.": {}
+          }
+        },
+        "rules": {
+          "Too many of this unit type": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "maxQty",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Unit Kroot Hound"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Kroot Hounds": {
             "max": 12,
@@ -5058,6 +3869,12 @@
           },
           "T": {
             "value": 3
+          },
+          "Unit Kroot Hound": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "W": {
             "value": 1
@@ -6021,7 +4838,7 @@
         "assets": {
           "traits": [
             {
-              "item": "Model§Knarloc Riders",
+              "item": "Model§Knarloc Rider",
               "quantity": 3
             },
             "Ability§Thunderous Pounce",
@@ -6356,12 +5173,12 @@
       "Legends§XV9 Hazard Battlesuits": {
         "allowed": {
           "items": [
-            "Model§XV9 Hazard Battlesuits"
+            "Model§XV9 Hazard Battlesuit"
           ]
         },
         "assets": {
           "traits": [
-            "Model§XV9 Hazard Battlesuits",
+            "Model§XV9 Hazard Battlesuit",
             "Ability§Deep Strike",
             "Ability§For The Greater Good",
             "Ability§Photon Casters"
@@ -10201,27 +9018,29 @@
           }
         }
       },
-      "Model§Heavy Gun Drones": {
+      "Model§Heavy Gun Drone": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Heavy Gun Drones—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 8
           },
-          "M": {
-            "value": 8
-          },
-          "OC": {
-            "value": 0
-          },
-          "sampleLoadout": {
+          "Loadout Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Burst cannon": {
+              "Burst cannon & Markerlight": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Heavy Gun Drones—Burst cannon"
+                  },
+                  {
+                    "trait": "Wargear§Markerlight"
                   }
                 ]
               },
@@ -10232,19 +9051,17 @@
                     "trait": "Ranged Weapon§Heavy Gun Drones—Twin burst cannon"
                   }
                 ]
-              },
-              "Close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Heavy Gun Drones—Close combat weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Burst cannon",
+            "value": "Burst cannon & Markerlight",
             "visibility": "active"
+          },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 0
           },
           "Sv": {
             "value": 4
@@ -10257,27 +9074,13 @@
           }
         }
       },
-      "Model§Knarloc Riders": {
-        "stats": {
-          "Ranged Weapon": {
-            "group": "Loadout",
-            "ranks": {
-              "Kroot rifle": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Kroot Carnivores—Kroot rifle"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Kroot Carnivores—Kroot rifle"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Kroot rifle",
-            "visibility": "normal"
-          }
+      "Model§Knarloc Rider": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Knarloc Riders—Kroot rifle",
+            "Ranged Weapon§Knarloc Riders—Kroot rifle",
+            "Melee Weapon§Knarloc Riders—Knarloc beak and talons"
+          ]
         }
       },
       "Model§Kroot Carnivores": {
@@ -11685,7 +10488,7 @@
           }
         }
       },
-      "Model§XV9 Hazard Battlesuits": {
+      "Model§XV9 Hazard Battlesuit": {
         "assets": {
           "traits": [
             {
@@ -11704,7 +10507,7 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "N/A": {
+              "-": {
                 "order": 0
               },
               "Gun Drone": {
@@ -11735,7 +10538,7 @@
             "statOrder": 1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Ranged Weapon": {
@@ -11777,7 +10580,7 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "N/A": {
+              "-": {
                 "order": 0
               },
               "Gun Drone": {
@@ -11808,7 +10611,7 @@
             "statOrder": 2,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Ranged Weapon": {
@@ -11845,15 +10648,22 @@
             "value": "Fusion Cascade",
             "visibility": "normal"
           },
-          "Points": {
-            "value": 55
+          "Ld": {
+            "value": 7
           },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {},
           "Support System": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "N/A": {
+              "-": {
                 "order": 0
               },
               "Battlesuit Support System": {
@@ -11883,8 +10693,17 @@
             },
             "statOrder": 4,
             "statType": "rank",
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 4
           }
         }
       },
@@ -17598,9 +16417,7 @@
       },
       "Roster§Army": {
         "allowed": {
-          "classifications": [
-            "Legends"
-          ]
+          "classifications": []
         },
         "stats": {
           "Detachment": {
@@ -17639,543 +16456,6 @@
             "value": 1
           }
         }
-      },
-      "Unit§Drone Sentry Turret": {
-        "assets": {
-          "traits": [
-            "Ability§Sentinel Protocols",
-            "Ability§Reinforced Cover",
-            "Ability§Fortification"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Fortification",
-            "Vehicle",
-            "Drone Sentry Turret"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 8
-          },
-          "M": {
-            "statType": "term",
-            "value": "-"
-          },
-          "OC": {
-            "value": 0
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Twin burst cannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin burst cannon"
-                  }
-                ]
-              },
-              "Twin fusion blaster": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin fusion blaster"
-                  }
-                ]
-              },
-              "Twin missile pod": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin missile pod"
-                  }
-                ]
-              },
-              "Twin plasma rifle": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin plasma rifle"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Twin burst cannon",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 8
-          },
-          "W": {
-            "value": 4
-          }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: twin plasma rifle.\n\nThis model’s twin plasma rifle can be replaced with one of the following: ◦ 1 twin burst cannon ◦ 1 twin fusion blaster ◦ 1 twin missile pod"
-      },
-      "Unit§Great Knarloc": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "7″"
-                }
-              }
-            },
-            "Ability§Loping Stride",
-            "Wargear§Baggage Harness (aura)"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Monster",
-            "Kroot",
-            "Great Knarloc"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 9
-          },
-          "OC": {
-            "value": 3
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Kroot bolt thrower": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Great Knarloc—Kroot bolt thrower"
-                  }
-                ]
-              },
-              "Twin Kroot gun": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Great Knarloc—Twin Kroot gun"
-                  }
-                ]
-              },
-              "Great Knarloc beak and talons": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Great Knarloc—Great Knarloc beak and talons"
-                  }
-                ]
-              },
-              "Kroot rifle": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Great Knarloc—Kroot rifle"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Kroot bolt thrower",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 8
-          },
-          "W": {
-            "value": 10
-          }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Great Knarloc beak and talons.\n\nThis model can be equipped with one of the following: ◦ 1 Kroot bolt thrower and 1 Kroot rifle ◦ 1 twin Kroot gun ◦ 1 baggage harness"
-      },
-      "Unit§Heavy Gun Drones": {
-        "allowed": {
-          "items": [
-            "Model§Heavy Gun Drones"
-          ]
-        },
-        "assets": {
-          "included": [
-            {
-              "item": "Model§Heavy Gun Drones",
-              "quantity": 2
-            }
-          ],
-          "traits": [
-            "Ability§Drone Escort",
-            "Wargear§Markerlight"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Vehicle",
-            "Fly",
-            "Heavy Gun Drones"
-          ]
-        },
-        "stats": {
-          "Heavy Gun Drones": {
-            "max": 2,
-            "min": 2,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: burst cannon; markerlight; close combat weapon.\n\nAny number of models can each have their burst cannon and markerlight replaced with 1 twin burst cannon."
-      },
-      "Unit§Knarloc Riders": {
-        "allowed": {
-          "items": [
-            "Model§Knarloc Riders"
-          ]
-        },
-        "assets": {
-          "included": [
-            {
-              "item": "Model§Knarloc Riders",
-              "quantity": 3
-            }
-          ],
-          "traits": [
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "7″"
-                }
-              }
-            },
-            "Ability§Stealth",
-            "Ability§Thunderous Pounce"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Mounted",
-            "Kroot",
-            "Knarloc Riders"
-          ]
-        },
-        "stats": {
-          "Knarloc Riders": {
-            "max": 3,
-            "min": 3,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        }
-      },
-      "Unit§Orca Dropship": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Deadly Demise",
-              "stats": {
-                "x": {
-                  "value": "D6"
-                }
-              }
-            },
-            "Ability§Hover",
-            "Ability§For the Greater Good",
-            "Ability§Jet Pack Insertion",
-            {
-              "item": "Ability§Damaged:",
-              "stats": {
-                "x": {
-                  "value": "1-9 wounds remaining"
-                }
-              }
-            },
-            {
-              "item": "Ability§Transport",
-              "text": "This model has a transport capacity of 48 T’au Empire Infantry models. This model can also transport up to 6 Battlesuit models (these models take up the space of a number of models equal to their Wounds characteristic, e.g. a Battlesuit with a Wounds characteristic of 8 would take up the space of 8 models). This model cannot transport Kroot or Vespid Stingwings models."
-            },
-            "Ranged Weapon§Orca Dropship—Long-barrelled burst cannon",
-            "Ranged Weapon§Orca Dropship—Long-barrelled burst cannon",
-            "Ranged Weapon§Orca Dropship—Missile pod",
-            "Melee Weapon§Orca Dropship—Armoured hull"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T’au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Vehicle",
-            "Aircraft",
-            "Fly",
-            "Titanic",
-            "Transport",
-            "Orca Dropship"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "statType": "term",
-            "value": "20+"
-          },
-          "OC": {
-            "value": 0
-          },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 12
-          },
-          "W": {
-            "value": 28
-          }
-        }
-      },
-      "Unit§Remote Sensor Tower": {
-        "assets": {
-          "traits": [
-            "Ability§Orbital Comms Array (aura)",
-            "Ability§Reinforced Cover",
-            "Ability§Fortification"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Fortification",
-            "Remote Sensor Tower"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 8
-          },
-          "M": {
-            "statType": "term",
-            "value": "-"
-          },
-          "OC": {
-            "value": 0
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 8
-          },
-          "W": {
-            "value": 4
-          }
-        }
-      },
-      "Unit§Tx42 Piranha": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Deadly Demise",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            },
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "9″"
-                }
-              }
-            },
-            "Ability§For the Greater Good",
-            "Ability§Outflank"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Vehicle",
-            "Fly",
-            "TX42 Piranha"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 14
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Fusion blaster": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tx42 Piranha—Fusion blaster"
-                  }
-                ]
-              },
-              "Missile pod": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tx42 Piranha—Missile pod"
-                  }
-                ]
-              },
-              "Plasma rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tx42 Piranha—Plasma rifle"
-                  }
-                ]
-              },
-              "Rail rifle": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tx42 Piranha—Rail rifle"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tx42 Piranha—Armoured hull"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Fusion blaster",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 7
-          },
-          "W": {
-            "value": 7
-          }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 plasma rifles; armoured hull.\n\nThis model’s 2 plasma rifles can be replaced with one of the following: ◦ 2 fusion blasters ◦ 2 missile pods ◦ 2 rail rifles"
-      },
-      "Unit§Xv9 Hazard Battlesuits": {
-        "allowed": {
-          "items": [
-            "Model§XV9 Hazard Battlesuits"
-          ]
-        },
-        "assets": {
-          "included": [
-            "Model§XV9 Hazard Battlesuits"
-          ],
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§For the Greater Good",
-            "Ability§Photon Casters",
-            "Wargear§Battlesuit Support System",
-            "Wargear§Shield Generator",
-            "Wargear§Weapon Support System"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T'au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Vehicle",
-            "Walker",
-            "Fly",
-            "Battlesuit",
-            "XV9 Hazard"
-          ]
-        },
-        "stats": {
-          "XV9 Hazard Battlesuits": {
-            "max": 2,
-            "min": 1,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: fusion cascade; twin hazard burst cannon; battlesuit fists.\n\nAny number of models can each have their fusion cascade replaced with one of the following: ◦ 1 phased ion gun ◦ 1 twin hazard burst cannon\n\n*Any number of models can each have their twin hazard burst cannon replaced with one of the following: ◦ 1 fusion cascade ◦ 1 phased ion gun\n\n*Any number of models can each be equipped with one of the following: ◦ 1 battlesuit support system ◦ 1 shield generator ◦ 1 weapon support system\n\n*Any number of models can each be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone* ◦ 1 marker drone* ◦ 1 shield drone* * The rules for this drone can be found on the T'au Empire Drones card."
       },
       "Vehicle§AX-1-0 Tiger Shark": {
         "assets": {
@@ -18860,6 +17140,95 @@
         },
         "text": "This model is equipped with: accelerator burst cannon; 2 twin pulse carbines; armoured hull.\n\nThis model’s 2 twin pulse carbines can be replaced with 2 twin smart missile systems.\n\n*This model can be equipped with up to 2 seeker missiles."
       },
+      "Vehicle§Drone Sentry Turret": {
+        "assets": {
+          "traits": [
+            "Ability§Sentinel Protocols",
+            "Ability§Reinforced Cover",
+            "Ability§Fortification"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Fortification",
+            "Vehicle",
+            "Drone Sentry Turret"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "statType": "term",
+            "value": "-"
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 50
+          },
+          "Ranged Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Twin plasma rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin plasma rifle"
+                  }
+                ]
+              },
+              "Twin burst cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin burst cannon"
+                  }
+                ]
+              },
+              "Twin fusion blaster": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin fusion blaster"
+                  }
+                ]
+              },
+              "Twin missile pod": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Drone Sentry Turret—Twin missile pod"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Twin plasma rifle",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 8
+          },
+          "W": {
+            "value": 4
+          }
+        },
+        "text": ""
+      },
       "Vehicle§Ghostkeel Battlesuit": {
         "assets": {
           "traits": [
@@ -19207,6 +17576,51 @@
         },
         "text": "This model is equipped with: 1 railgun; 2 twin pulse carbines; armoured hull.\n\nThis model’s railgun can be replaced with 1 ion cannon.\n\n*This model’s 2 twin pulse carbines can be replaced with one of the following: ◦ 2 accelerator burst cannons ◦ 2 twin smart missile systems\n\n*This model can be equipped with up to 2 seeker missiles."
       },
+      "Vehicle§Heavy Gun Drones": {
+        "allowed": {
+          "items": [
+            "Model§Heavy Gun Drone"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Heavy Gun Drone",
+              "quantity": 2
+            }
+          ],
+          "traits": [
+            "Ability§Drone Escort"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "Heavy Gun Drones"
+          ]
+        },
+        "stats": {
+          "Heavy Gun Drone": {
+            "max": 2,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 45
+          }
+        },
+        "text": ""
+      },
       "Vehicle§Manta": {
         "assets": {
           "traits": [
@@ -19296,6 +17710,79 @@
           },
           "W": {
             "value": 60
+          }
+        }
+      },
+      "Vehicle§Orca Dropship": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D6+2"
+                }
+              }
+            },
+            "Ability§Hover",
+            "Ability§For the Greater Good",
+            "Ability§Jet Pack Insertion",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-9 wounds remaining"
+                }
+              }
+            },
+            {
+              "item": "Ability§Transport",
+              "text": "This model has a transport capacity of 48 T’au Empire Infantry models. This model can also transport up to 6 Battlesuit models (these models take up the space of a number of models equal to their Wounds characteristic, e.g. a Battlesuit with a Wounds characteristic of 8 would take up the space of 8 models). This model cannot transport Kroot or Vespid Stingwings models."
+            },
+            "Ranged Weapon§Orca Dropship—Long-barrelled burst cannon",
+            "Ranged Weapon§Orca Dropship—Long-barrelled burst cannon",
+            "Ranged Weapon§Orca Dropship—Missile pod",
+            "Melee Weapon§Orca Dropship—Armoured hull"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Aircraft",
+            "Fly",
+            "Titanic",
+            "Transport",
+            "Orca Dropship"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "statType": "term",
+            "value": "20+"
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 275
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 12
+          },
+          "W": {
+            "value": 28
           }
         }
       },
@@ -19651,6 +18138,51 @@
           },
           "W": {
             "value": 5
+          }
+        }
+      },
+      "Vehicle§Remote Sensor Tower": {
+        "assets": {
+          "traits": [
+            "Ability§Orbital Comms Array (aura)",
+            "Ability§Reinforced Cover",
+            "Ability§Fortification"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Fortification",
+            "Remote Sensor Tower"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "statType": "term",
+            "value": "-"
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 50
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 8
+          },
+          "W": {
+            "value": 4
           }
         }
       },
@@ -20851,6 +19383,171 @@
             "value": 18
           }
         }
+      },
+      "Vehicle§Tx42 Piranha": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9″"
+                }
+              }
+            },
+            "Ability§For the Greater Good",
+            "Ability§Outflank",
+            "Melee Weapon§Tx42 Piranha—Armoured hull"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "TX42 Piranha"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 60
+          },
+          "Ranged Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Plasma rifles": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Plasma rifle"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Plasma rifle"
+                  }
+                ]
+              },
+              "2 Fusion blasters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Fusion blaster"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Fusion blaster"
+                  }
+                ]
+              },
+              "2 Missile pods": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Missile pod"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Missile pod"
+                  }
+                ]
+              },
+              "2 Rail rifles": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Rail rifle"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Tx42 Piranha—Rail rifle"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Plasma rifles",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 7
+          },
+          "W": {
+            "value": 7
+          }
+        },
+        "text": ""
+      },
+      "Vehicle§Xv9 Hazard Battlesuits": {
+        "allowed": {
+          "items": [
+            "Model§XV9 Hazard Battlesuit"
+          ]
+        },
+        "assets": {
+          "included": [
+            "Model§XV9 Hazard Battlesuit"
+          ],
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§For the Greater Good",
+            "Ability§Photon Casters"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T'au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Walker",
+            "Fly",
+            "Battlesuit",
+            "XV9 Hazard"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 1
+          },
+          "model2ndCost": {
+            "value": 55
+          },
+          "XV9 Hazard Battlesuit": {
+            "max": 2,
+            "min": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": ""
       },
       "Vehicle§Y’vahra Battlesuits": {
         "assets": {
