@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.4.0",
+  "revision": "10.4.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "GKQ5H9",
+      "slug": "R982XG",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -1986,7 +1986,9 @@
                 }
               }
             },
-            "Melee Weapon§Death Rider Commissar—Savage claws"
+            "Melee Weapon§Death Rider Commissar—Savage claws",
+            "Ranged Weapon§Death Rider Commissar—Commissar’s pistol",
+            "Melee Weapon§Death Rider Commissar—Commissar’s close combat weapon"
           ]
         },
         "keywords": {
@@ -2014,6 +2016,9 @@
           },
           "OC": {
             "value": 1
+          },
+          "Points": {
+            "value": 35
           },
           "Sv": {
             "value": 4
@@ -2870,7 +2875,12 @@
             "Rein and Raus"
           ]
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nRein is equipped with: sniper rifle; stub pistol; close R combat weapon. Raus is equipped with: demolition charge; stub pistol; close combat weapon.\n\nNone"
+        "stats": {
+          "Points": {
+            "value": 50
+          }
+        },
+        "text": ""
       },
       "Character§Sergeant Harker": {
         "aspects": {
@@ -4456,6 +4466,281 @@
           },
           "Points": {
             "value": 65
+          }
+        }
+      },
+      "Infantry/Mounted§Death Korps Grenadier Squad": {
+        "allowed": {
+          "items": [
+            "Model§Grenadier Sergeant",
+            "Model§Grenadier",
+            "Model§Grenadier Heavy Weapons Team"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Astra Militarum"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Death Korps Grenadier Squad",
+            "Grenades",
+            "Imperium",
+            "Infantry",
+            "Platoon",
+            "Regiment"
+          ]
+        },
+        "rules": {
+          "limit1S7G1HWT": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "max"
+                  ]
+                ],
+                "value": 7
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Heavy Weapons Team",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Heavy Weapons Team",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Unit Composition",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "1S7G1HWT"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "limit1S9G": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "max"
+                  ]
+                ],
+                "value": null
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Unit Composition",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "1S9G"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "No more than 2 special weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Grenadier": {
+            "max": 9,
+            "min": 7,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Grenadier Heavy Weapons Team": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Grenadier Sergeant": {
+            "max": 1,
+            "min": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 10
+          },
+          "Points": {
+            "value": 110
+          },
+          "Unit Composition": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "1 Sergeant and 9 Grenadier": {
+                "order": 0,
+                "term": "1S9G",
+                "traits": [
+                  {
+                    "trait": "Model§Grenadier Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Grenadier",
+                      "quantity": 7
+                    }
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  }
+                ]
+              },
+              "1 Sergeant, 7 Grenadier and 1 Heavy Weapons Team": {
+                "order": 1,
+                "term": "1S7G1HWT",
+                "traits": [
+                  {
+                    "trait": "Model§Grenadier Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Grenadier",
+                      "quantity": 5
+                    }
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  },
+                  {
+                    "trait": "Model§Grenadier Heavy Weapons Team"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "1 Sergeant and 9 Grenadier",
+            "visibility": "normal"
           }
         }
       },
@@ -12503,7 +12788,8 @@
         "assets": {
           "traits": [
             "Ranged Weapon§Elysian Sniper Squad—Lasgun",
-            "Ranged Weapon§Elysian Sniper Squad—Sniper rifle"
+            "Ranged Weapon§Elysian Sniper Squad—Sniper rifle",
+            "Melee Weapon§Elysian Sniper Squad—Close combat weapon"
           ]
         },
         "stats": {
@@ -12524,6 +12810,169 @@
           },
           "W": {
             "value": 2
+          }
+        }
+      },
+      "Model§Grenadier": {
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Hot-shot lasgun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Hot-shot lasgun"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 1,
+                "tracking": {
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Flamer"
+                  }
+                ]
+              },
+              "Grenade launcher": {
+                "order": 2,
+                "tracking": {
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Grenade launcher"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 3,
+                "tracking": {
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Plasma gun"
+                  }
+                ]
+              },
+              "Heavy stubber": {
+                "order": 4,
+                "tracking": {
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Heavy stubber"
+                  }
+                ]
+              },
+              "Meltagun": {
+                "order": 5,
+                "tracking": {
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Meltagun"
+                  }
+                ]
+              },
+              "Sniper rifle": {
+                "order": 6,
+                "tracking": {
+                  "special": 1,
+                  "special weapon": 0
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps Grenadier Squad—Sniper rifle"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Hot-shot lasgun",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Grenadier Heavy Weapons Team": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Death Korps Grenadier Squad—Heavy flamer",
+            "Melee Weapon§Death Korps Grenadier Squad—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Grenadier Sergeant": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Death Korps Grenadier Squad—Sergeant’s close combat weapon",
+            "Ranged Weapon§Death Korps Grenadier Squad—Sergeant’s pistol"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
           }
         }
       },
@@ -13410,6 +13859,11 @@
         }
       },
       "Model§Medicae Servitors": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Quartermaster Cadre Squad—Medical scalpels"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -13419,40 +13873,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Quartermaster’s pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Quartermaster Cadre Squad—Quartermaster’s pistol"
-                  }
-                ]
-              },
-              "Medical scalpels": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Quartermaster Cadre Squad—Medical scalpels"
-                  }
-                ]
-              },
-              "Quartermaster’s close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Quartermaster Cadre Squad—Quartermaster’s close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Quartermaster’s pistol",
-            "visibility": "active"
           },
           "Sv": {
             "value": 4
@@ -13466,6 +13886,11 @@
         }
       },
       "Model§Mukaali Rider Sergeant": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Mukaali Riders—Stomping feet"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -13473,97 +13898,67 @@
           "M": {
             "value": 8
           },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Melee Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Flamer": {
+              "Hunting Lance": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Flamer"
-                  }
-                ]
-              },
-              "Grenade launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Grenade launcher"
-                  }
-                ]
-              },
-              "Laspistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Laspistol"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Meltagun"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Plasma gun"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Plasma pistol"
-                  }
-                ]
-              },
-              "Chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Mukaali Riders—Chainsword"
-                  }
-                ]
-              },
-              "Hunting lance": {
-                "order": 7,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Mukaali Riders—Hunting lance"
                   }
                 ]
               },
-              "Power weapon": {
-                "order": 8,
+              "Chainsword": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Mukaali Riders—Chainsword"
+                  }
+                ]
+              },
+              "Power Weapon": {
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Mukaali Riders—Power weapon"
                   }
                 ]
-              },
-              "Stomping feet": {
-                "order": 9,
+              }
+            },
+            "statType": "rank",
+            "value": "Hunting Lance",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Pistol Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Laspistol": {
+                "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Mukaali Riders—Stomping feet"
+                    "trait": "Ranged Weapon§Mukaali Riders—Laspistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Mukaali Riders—Plasma pistol"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Flamer",
+            "value": "Laspistol",
             "visibility": "active"
           },
           "Sv": {
@@ -13578,23 +13973,34 @@
         }
       },
       "Model§Mukaali Riders": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Mukaali Riders—Laspistol",
+            "Melee Weapon§Mukaali Riders—Stomping feet"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 8
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Flamer": {
+              "Hunting lance": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Mukaali Riders—Hunting lance"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 1,
+                "tracking": {
+                  "special weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Mukaali Riders—Flamer"
@@ -13602,23 +14008,21 @@
                 ]
               },
               "Grenade launcher": {
-                "order": 1,
+                "order": 2,
+                "tracking": {
+                  "special weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Mukaali Riders—Grenade launcher"
                   }
                 ]
               },
-              "Laspistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Laspistol"
-                  }
-                ]
-              },
               "Meltagun": {
                 "order": 3,
+                "tracking": {
+                  "special weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Mukaali Riders—Meltagun"
@@ -13627,56 +14031,25 @@
               },
               "Plasma gun": {
                 "order": 4,
+                "tracking": {
+                  "special weapon": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Mukaali Riders—Plasma gun"
                   }
                 ]
-              },
-              "Plasma pistol": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Mukaali Riders—Plasma pistol"
-                  }
-                ]
-              },
-              "Chainsword": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Mukaali Riders—Chainsword"
-                  }
-                ]
-              },
-              "Hunting lance": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Mukaali Riders—Hunting lance"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Mukaali Riders—Power weapon"
-                  }
-                ]
-              },
-              "Stomping feet": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Mukaali Riders—Stomping feet"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Flamer",
+            "value": "Hunting lance",
             "visibility": "active"
+          },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 2
           },
           "Sv": {
             "value": 4
@@ -14402,6 +14775,12 @@
         }
       },
       "Model§Quartermaster Revenant": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Quartermaster Cadre Squad—Quartermaster’s pistol",
+            "Melee Weapon§Quartermaster Cadre Squad—Quartermaster’s close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -14411,40 +14790,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Quartermaster’s pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Quartermaster Cadre Squad—Quartermaster’s pistol"
-                  }
-                ]
-              },
-              "Medical scalpels": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Quartermaster Cadre Squad—Medical scalpels"
-                  }
-                ]
-              },
-              "Quartermaster’s close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Quartermaster Cadre Squad—Quartermaster’s close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Quartermaster’s pistol",
-            "visibility": "active"
           },
           "Sv": {
             "value": 4
@@ -14514,6 +14859,13 @@
         }
       },
       "Model§Raus – Epic Hero": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rein And Raus—Demolition charge",
+            "Ranged Weapon§Rein And Raus—Stub pistol",
+            "Melee Weapon§Rein And Raus—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 8
@@ -14523,48 +14875,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Demolition charge": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rein And Raus—Demolition charge"
-                  }
-                ]
-              },
-              "Sniper rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rein And Raus—Sniper rifle"
-                  }
-                ]
-              },
-              "Stub pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rein And Raus—Stub pistol"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Rein And Raus—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Demolition charge",
-            "visibility": "active"
           },
           "Sv": {
             "value": 6
@@ -14578,6 +14888,13 @@
         }
       },
       "Model§Rein – Epic Hero": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rein And Raus—Sniper rifle",
+            "Ranged Weapon§Rein And Raus—Stub pistol",
+            "Melee Weapon§Rein And Raus—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 8
@@ -14587,48 +14904,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Demolition charge": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rein And Raus—Demolition charge"
-                  }
-                ]
-              },
-              "Sniper rifle": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rein And Raus—Sniper rifle"
-                  }
-                ]
-              },
-              "Stub pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rein And Raus—Stub pistol"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Rein And Raus—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Demolition charge",
-            "visibility": "active"
           },
           "Sv": {
             "value": 6
@@ -14842,39 +15117,46 @@
         }
       },
       "Model§Sabre Gun Platforms": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Sabre Weapons Battery—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": "-"
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Twin autocannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Sabre Weapons Battery—Twin autocannon"
-                  }
-                ]
-              },
               "Twin heavy bolter": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Sabre Weapons Battery—Twin heavy bolter"
                   }
                 ]
               },
-              "Twin heavy stubber": {
+              "Defence Searchlight": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Defence Searchlight"
+                  }
+                ]
+              },
+              "Twin autocannon": {
                 "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sabre Weapons Battery—Twin autocannon"
+                  }
+                ]
+              },
+              "Twin heavy stubber": {
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Sabre Weapons Battery—Twin heavy stubber"
@@ -14882,18 +15164,10 @@
                 ]
               },
               "Twin lascannon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Sabre Weapons Battery—Twin lascannon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Sabre Weapons Battery—Close combat weapon"
+                    "trait": "Ranged Weapon§Sabre Weapons Battery—Twin lascannon"
                   }
                 ]
               }
@@ -14901,6 +15175,12 @@
             "statType": "rank",
             "value": "Twin autocannon",
             "visibility": "active"
+          },
+          "M": {
+            "value": "-"
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 4
@@ -37327,7 +37607,8 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
-            }
+            },
+            "Melee Weapon§Aquila Lander—Armoured hull"
           ]
         },
         "keywords": {
@@ -37350,31 +37631,24 @@
           "Ld": {
             "value": 7
           },
-          "M": {
-            "statType": "term",
-            "value": "20+"
-          },
-          "OC": {
-            "value": 0
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Autocannon": {
+              "Heavy bolter": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Aquila Lander—Autocannon"
+                    "trait": "Ranged Weapon§Aquila Lander—Heavy bolter"
                   }
                 ]
               },
-              "Heavy bolter": {
+              "Autocannon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Aquila Lander—Heavy bolter"
+                    "trait": "Ranged Weapon§Aquila Lander—Autocannon"
                   }
                 ]
               },
@@ -37385,19 +37659,21 @@
                     "trait": "Ranged Weapon§Aquila Lander—Multi-laser"
                   }
                 ]
-              },
-              "Armoured hull": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Aquila Lander—Armoured hull"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Autocannon",
+            "value": "Heavy bolter",
             "visibility": "active"
+          },
+          "M": {
+            "statType": "term",
+            "value": "20+"
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 120
           },
           "Sv": {
             "value": 3
@@ -37409,7 +37685,7 @@
             "value": 12
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolter; armoured hull.\n\nThis model’s heavy bolter can be replaced with one of the following: ◦ 1 autocannon ◦ 1 multi-laser"
+        "text": ""
       },
       "Unit§Arkurian Stormhammer": {
         "assets": {
@@ -37430,7 +37706,10 @@
                   "value": "1-8 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Arkurian Stormhammer—Stormhammer cannon",
+            "Ranged Weapon§Arkurian Stormhammer—Twin battle cannon",
+            "Melee Weapon§Arkurian Stormhammer—Armoured tracks"
           ]
         },
         "keywords": {
@@ -37449,8 +37728,178 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "7 Multi-lasers": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
+                  }
+                ]
+              },
+              "7 Heavy bolters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
+                  }
+                ]
+              },
+              "7 Heavy flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
+                  }
+                ]
+              },
+              "7 Lascannons": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "7 Multi-lasers",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Arkurian Stormhammer—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 9
@@ -37458,95 +37907,8 @@
           "OC": {
             "value": 8
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy flamer"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Lascannon"
-                  }
-                ]
-              },
-              "Multi-laser": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Multi-laser"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Storm bolter"
-                  }
-                ]
-              },
-              "Stormhammer cannon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Stormhammer cannon"
-                  }
-                ]
-              },
-              "Twin battle cannon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Arkurian Stormhammer—Twin battle cannon"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Arkurian Stormhammer—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy bolter",
-            "visibility": "active"
+          "Points": {
+            "value": 480
           },
           "Sv": {
             "value": 2
@@ -37579,7 +37941,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Melee Weapon§Armageddon-pattern Medusa—Armoured tracks",
+            "Ranged Weapon§Armageddon-pattern Medusa—Medusa siege cannon"
           ]
         },
         "keywords": {
@@ -37599,16 +37963,33 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Armageddon-pattern Medusa—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 10
-          },
-          "OC": {
-            "value": 3
-          },
-          "sampleLoadout": {
+          "Loadout 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -37628,51 +38009,53 @@
                     "trait": "Ranged Weapon§Armageddon-pattern Medusa—Heavy flamer"
                   }
                 ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
               },
               "Heavy stubber": {
-                "order": 2,
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Armageddon-pattern Medusa—Heavy stubber"
                   }
                 ]
               },
-              "Hunter-killer missile": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Armageddon-pattern Medusa—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Medusa siege cannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Armageddon-pattern Medusa—Medusa siege cannon"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 5,
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Armageddon-pattern Medusa—Storm bolter"
                   }
                 ]
-              },
-              "Armoured tracks": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Armageddon-pattern Medusa—Armoured tracks"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Heavy bolter",
+            "tracked": true,
+            "value": "-",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 105
           },
           "Sv": {
             "value": 3
@@ -37684,7 +38067,7 @@
             "value": 11
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolter; Medusa siege cannon; armoured tracks.\n\nThis model’s heavy bolter can be replaced with 1 heavy flamer.\n\n*This model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with one of the following: ◦ 1 storm bolter ◦ 1 heavy stubber"
+        "text": ""
       },
       "Unit§Arvus Lighter": {
         "assets": {
@@ -37733,6 +38116,9 @@
           "OC": {
             "value": 0
           },
+          "Points": {
+            "value": 95
+          },
           "Sv": {
             "value": 3
           },
@@ -37755,7 +38141,9 @@
                 }
               }
             },
-            "Ability§Recovery Vehicle"
+            "Ability§Recovery Vehicle",
+            "Ranged Weapon§Atlas Recovery Vehicle—Heavy bolter",
+            "Melee Weapon§Atlas Recovery Vehicle—Armoured tracks"
           ]
         },
         "keywords": {
@@ -37774,8 +38162,62 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 10
@@ -37783,55 +38225,8 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Atlas Recovery Vehicle—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Atlas Recovery Vehicle—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy bolter",
-            "visibility": "active"
+          "Points": {
+            "value": 80
           },
           "Sv": {
             "value": 3
@@ -37843,7 +38238,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolter; armoured tracks.\n\nThis model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+        "text": ""
       },
       "Unit§Centaur Light Carrier": {
         "assets": {
@@ -37860,7 +38255,10 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. It cannot transport Ogryn or Artillery models."
-            }
+            },
+            "Melee Weapon§Centaur Light Carrier—Armoured tracks",
+            "Ranged Weapon§Centaur Light Carrier—Heavy stubber",
+            "Ranged Weapon§Centaur Light Carrier—Heavy stubber"
           ]
         },
         "keywords": {
@@ -37880,6 +38278,29 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Centaur Light Carrier—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
@@ -37889,39 +38310,8 @@
           "OC": {
             "value": 1
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy stubber": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centaur Light Carrier—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Centaur Light Carrier—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Centaur Light Carrier—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy stubber",
-            "visibility": "active"
+          "Points": {
+            "value": 40
           },
           "Sv": {
             "value": 3
@@ -37936,12 +38326,17 @@
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 heavy stubbers; armoured tracks.\n\nThis model can be equipped with 1 hunter-killer missile."
       },
       "Unit§Death Korps Grenadier Squad": {
+        "allowed": {
+          "items": [
+            "Model§Grenadier Sergeant",
+            "Model§Grenadier",
+            "Model§Grenadier Heavy Weapons Team"
+          ]
+        },
         "assets": {
           "traits": [
             "Ability§Primed And Ready",
-            "Wargear§Vox-caster",
-            "Model§Grenadier Sergeant and 9 Grenadiers",
-            "Model§Grenadier Sergeant, 7 Grenadiers and 1 Heavy Weapons Team"
+            "Wargear§Vox-caster"
           ]
         },
         "keywords": {
@@ -37960,7 +38355,230 @@
             "Death Korps Grenadier Squad"
           ]
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nT  he Grenadier Sergeant is equipped with: sergeant's pistol; sergeant's close combat weapon. E  very Grenadier model is equipped with: hot-shot lasgun; close combat weapon. The Heavy Weapons Team is equipped with: heavy flamer; close combat weapon. GRENADIER SQUAD If a model from your army with the Leader ability can be attached to a Death Korps of Krieg unit, it can be attached to this unit instead.\n\nUp to 2 Grenadier models can each have their hot-shot lasgun replaced with one of the following: ◦ 1 flamer ◦ 1 grenade launcher ◦ 1 heavy stubber ◦ 1 meltagun ◦ 1 plasma gun ◦ 1 sniper rifle"
+        "rules": {
+          "limit1S7G1HWT": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "max"
+                  ]
+                ],
+                "value": 7
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Heavy Weapons Team",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Heavy Weapons Team",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Unit Composition",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "1S7G1HWT"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "limit1S9G": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier Sergeant",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenadier",
+                    "max"
+                  ]
+                ],
+                "value": null
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Unit Composition",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "1S9G"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "No more than 2 special weapons.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 110
+          },
+          "Unit Composition": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "1 Sergeant and 9 Grenadier": {
+                "order": 0,
+                "term": "1S9G",
+                "traits": [
+                  {
+                    "trait": "Model§Grenadier Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Grenadier",
+                      "quantity": 7
+                    }
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  }
+                ]
+              },
+              "1 Sergeant, 7 Grenadier and 1 Heavy Weapons Team": {
+                "order": 1,
+                "term": "1S7G1HWT",
+                "traits": [
+                  {
+                    "trait": "Model§Grenadier Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Grenadier",
+                      "quantity": 5
+                    }
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  },
+                  {
+                    "trait": "Model§Grenadier"
+                  },
+                  {
+                    "trait": "Model§Grenadier Heavy Weapons Team"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "1 Sergeant and 9 Grenadier",
+            "visibility": "normal"
+          }
+        },
+        "text": ""
       },
       "Unit§Dominus Armoured Siege Bombard": {
         "assets": {
@@ -37981,7 +38599,9 @@
                   "value": "1-7 wounds remaining"
                 }
               }
-            }
+            },
+            "Melee Weapon§Dominus Armoured Siege Bombard—Armoured tracks",
+            "Ranged Weapon§Dominus Armoured Siege Bombard—Dominus triple bombard"
           ]
         },
         "keywords": {
@@ -38000,8 +38620,118 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Heavy bolters": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy bolter"
+                  }
+                ]
+              },
+              "2 Autocannons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Autocannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Autocannon"
+                  }
+                ]
+              },
+              "2 Heavy flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy flamer"
+                  }
+                ]
+              },
+              "2 Lascannons": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Lascannon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Heavy bolters",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 9
@@ -38009,87 +38739,8 @@
           "OC": {
             "value": 8
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Autocannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Autocannon"
-                  }
-                ]
-              },
-              "Dominus triple bombard": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Dominus triple bombard"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy flamer"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Lascannon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Lascannon"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Dominus Armoured Siege Bombard—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Autocannon",
-            "visibility": "active"
+          "Points": {
+            "value": 325
           },
           "Sv": {
             "value": 2
@@ -38117,7 +38768,8 @@
             "Ability§Earthshaker Rounds",
             "Ability§Reinforced Cover",
             "Ranged Weapon§Earthshaker Platform—Earthshaker cannon",
-            "Melee Weapon§Earthshaker Platform—Close combat weapons"
+            "Melee Weapon§Earthshaker Platform—Close combat weapons",
+            "Ability§Fortification"
           ]
         },
         "keywords": {
@@ -38145,6 +38797,9 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 110
+          },
           "Sv": {
             "value": 3
           },
@@ -38155,7 +38810,7 @@
             "value": 8
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “FORTIFICATION” that must be added to the appropriate ability: \n\n* While an enemy unit is only within Engagement Range of one or more Fortifications from your army"
+        "text": ""
       },
       "Unit§Elysian Drop Sentinel": {
         "assets": {
@@ -38169,7 +38824,9 @@
               }
             },
             "Ability§Deep Strike",
-            "Ability§Meteoric Descent"
+            "Ability§Meteoric Descent",
+            "Ranged Weapon§Elysian Drop Sentinel—Heavy bolter",
+            "Melee Weapon§Elysian Drop Sentinel—Close combat weapon"
           ]
         },
         "keywords": {
@@ -38190,8 +38847,57 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy flamer": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Heavy flamer"
+                  }
+                ]
+              },
+              "Multi-melta": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Multi-melta"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": null,
+            "visibility": "active"
           },
           "M": {
             "value": 10
@@ -38199,55 +38905,8 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Heavy flamer"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Elysian Drop Sentinel—Multi-melta"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Elysian Drop Sentinel—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy bolter",
-            "visibility": "active"
+          "Points": {
+            "value": 85
           },
           "Sv": {
             "value": 3
@@ -38259,7 +38918,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolter; close combat weapon.\n\nThis model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with one of the following: ◦ 1 heavy flamer ◦ 1 multi-melta"
+        "text": ""
       },
       "Unit§Elysian Sniper Squad": {
         "allowed": {
@@ -38302,6 +38961,9 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Points": {
+            "value": 65
           }
         }
       },
@@ -38339,7 +39001,10 @@
             {
               "item": "Ability§Transport",
               "text": "NS                                                              UNIT COMPOSITION s 2 Gorgon mortars can be replaced with one of the following:  \n\n\n\n* 1 Gorgon Heavy Transport bolters                                                         This model is equipped with: 2 Gorgon mortars; 2 twin heavy flamers                                                         stubbers; landing ramp. stubbers can be equipped with 1 hunter-killer missile.                   TRANSPORT This model has a transport capacity of 30 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
-            }
+            },
+            "Ranged Weapon§Gorgon Heavy Transport—Twin heavy stubber",
+            "Ranged Weapon§Gorgon Heavy Transport—Twin heavy stubber",
+            "Melee Weapon§Gorgon Heavy Transport—Landing ramp"
           ]
         },
         "keywords": {
@@ -38359,8 +39024,103 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Gorgon mortars": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Gorgon mortar"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Gorgon mortar"
+                  }
+                ]
+              },
+              "4 Heavy Bolters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  }
+                ]
+              },
+              "4 Heavy flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  }
+                ]
+              },
+              "4 Heavy stubbers": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Gorgon mortars",
+            "visibility": "active"
           },
           "M": {
             "value": 9
@@ -38368,71 +39128,8 @@
           "OC": {
             "value": 8
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Gorgon mortar": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Gorgon mortar"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Twin heavy stubber": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Twin heavy stubber"
-                  }
-                ]
-              },
-              "Landing ramp": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Gorgon Heavy Transport—Landing ramp"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Gorgon mortar",
-            "visibility": "active"
+          "Points": {
+            "value": 275
           },
           "Sv": {
             "value": 2
@@ -38444,7 +39141,7 @@
             "value": 20
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 Gorgon mortars; 2 twin heavy stubbers; landing ramp.\n\nThis model’s 2 Gorgon mortars can be replaced with one of the following: ◦ 4 heavy bolters ◦ 4 heavy flamers ◦ 4 heavy stubbers\n\n*This model can be equipped with 1 hunter-killer missile."
+        "text": ""
       },
       "Unit§Griffon Mortar Carrier": {
         "assets": {
@@ -38457,7 +39154,9 @@
                 }
               }
             },
-            "Ability§Suppression Bombardment"
+            "Ability§Suppression Bombardment",
+            "Ranged Weapon§Griffon Mortar Carrier—Griffon heavy mortar",
+            "Melee Weapon§Griffon Mortar Carrier—Armoured tracks"
           ]
         },
         "keywords": {
@@ -38480,27 +39179,13 @@
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 10
-          },
-          "OC": {
-            "value": 3
-          },
-          "sampleLoadout": {
+          "Loadout 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Griffon heavy mortar": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Griffon Mortar Carrier—Griffon heavy mortar"
-                  }
-                ]
-              },
               "Heavy bolter": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Griffon Mortar Carrier—Heavy bolter"
@@ -38508,41 +39193,59 @@
                 ]
               },
               "Heavy flamer": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Griffon Mortar Carrier—Heavy flamer"
                   }
                 ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
               },
               "Heavy stubber": {
-                "order": 3,
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Griffon Mortar Carrier—Heavy stubber"
+                    "trait": "Ranged Weapon§Storm Chimera—Heavy stubber"
                   }
                 ]
               },
-              "Storm bolter": {
-                "order": 4,
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Griffon Mortar Carrier—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Griffon Mortar Carrier—Armoured tracks"
+                    "trait": "Ranged Weapon§Storm Chimera—Storm bolter"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Griffon heavy mortar",
+            "tracked": true,
+            "value": "-",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 115
           },
           "Sv": {
             "value": 3
@@ -38554,7 +39257,7 @@
             "value": 11
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy bolter; Griffon heavy mortar; armoured tracks.\n\nThis model’s heavy bolter can be replaced with 1 heavy flamer.\n\n*This model can each be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter"
+        "text": ""
       },
       "Unit§Heavy Mortar Team": {
         "assets": {
@@ -38590,6 +39293,9 @@
           },
           "OC": {
             "value": 2
+          },
+          "Points": {
+            "value": 50
           },
           "Sv": {
             "value": 3
@@ -38637,6 +39343,9 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 50
+          },
           "Sv": {
             "value": 3
           },
@@ -38662,7 +39371,8 @@
             "Ability§Flak Battery",
             "Ability§Reinforced Cover",
             "Ranged Weapon§Hydra Platform—Hydra quad autocannon",
-            "Melee Weapon§Hydra Platform—Close combat weapons"
+            "Melee Weapon§Hydra Platform—Close combat weapons",
+            "Ability§Fortification"
           ]
         },
         "keywords": {
@@ -38690,6 +39400,9 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 95
+          },
           "Sv": {
             "value": 3
           },
@@ -38700,7 +39413,7 @@
             "value": 8
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “FORTIFICATION” that must be added to the appropriate ability: \n\n* While an enemy unit is only within Engagement Range of one or more Fortifications from your army"
+        "text": ""
       },
       "Unit§Macharius Omega": {
         "assets": {
@@ -38721,7 +39434,9 @@
                   "value": "1-7 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Macharius Omega—Omega-pattern plasma blastgun",
+            "Melee Weapon§Macharius Omega—Armoured tracks"
           ]
         },
         "keywords": {
@@ -38740,8 +39455,106 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Autocannons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Autocannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Autocannon"
+                  }
+                ]
+              },
+              "2 Heavy bolters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Heavy bolter"
+                  }
+                ]
+              },
+              "2 Heavy flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Autocannons",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Macharius Omega—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 9
@@ -38749,79 +39562,8 @@
           "OC": {
             "value": 8
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Autocannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Autocannon"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Heavy flamer"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Omega-pattern plasma blastgun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Omega-pattern plasma blastgun"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Macharius Omega—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Macharius Omega—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Autocannon",
-            "visibility": "active"
+          "Points": {
+            "value": 310
           },
           "Sv": {
             "value": 2
@@ -38849,7 +39591,8 @@
             "Ability§Furious Barrage",
             "Ability§Reinforced Cover",
             "Ranged Weapon§Manticore Platform—Storm eagle rockets",
-            "Melee Weapon§Manticore Platform—Close combat weapons"
+            "Melee Weapon§Manticore Platform—Close combat weapons",
+            "Ability§Fortification"
           ]
         },
         "keywords": {
@@ -38877,6 +39620,9 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 95
+          },
           "Sv": {
             "value": 3
           },
@@ -38887,7 +39633,7 @@
             "value": 8
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “FORTIFICATION” that must be added to the appropriate ability: \n\n* While an enemy unit is only within Engagement Range of one or more Fortifications from your army"
+        "text": ""
       },
       "Unit§Minotaur": {
         "assets": {
@@ -38939,6 +39685,9 @@
           },
           "OC": {
             "value": 5
+          },
+          "Points": {
+            "value": 225
           },
           "Sv": {
             "value": 2
@@ -38992,6 +39741,27 @@
             "Mukaali Riders"
           ]
         },
+        "rules": {
+          "No more than 2 special weapons.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Mukaali Riders": {
             "max": 2,
@@ -39000,9 +39770,12 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Points": {
+            "value": 110
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: laspistol; hunting lance; stomping feet.\n\nThe Mukaali Rider Sergeant’s laspistol can be replaced with 1 plasma pistol.\n\n*The Mukaali Rider Sergeant’s hunting lance can be replaced with one of the following: ◦ 1 chainsword ◦ 1 power weapon\n\n*Up to 2 Mukaali Riders can each have their hunting lance replaced with one of the following: ◦ 1 flamer ◦ 1 grenade launcher ◦ 1 meltagun ◦ 1 plasma gun"
+        "text": ""
       },
       "Unit§Quartermaster Cadre Squad": {
         "allowed": {
@@ -39035,12 +39808,13 @@
             "Legends"
           ],
           "Keywords": [
-            "ALL MODELS: Infantry",
-            "Imperium",
             "Grenades",
+            "Imperium",
+            "Infantry",
             "Regiment",
             "uartermaster Cadre Squad | QUARTERMASTER REVENANT: Character"
-          ]
+          ],
+          "Tags": []
         },
         "stats": {
           "Medicae Servitors": {
@@ -39050,9 +39824,12 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Points": {
+            "value": 45
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nT  he Quartermaster Revenant is equipped with: Quartermaster's pistol; Quartermaster's close combat weapon. Every Medicae Servitor is equipped with: medical scalpels.\n\nNone"
+        "text": ""
       },
       "Unit§Sabre Weapons Battery": {
         "allowed": {
@@ -39066,7 +39843,7 @@
           ],
           "traits": [
             "Ability§Sentinel Directives",
-            "Wargear§Defence Searchlight"
+            "Ability§Fortification"
           ]
         },
         "keywords": {
@@ -39084,6 +39861,15 @@
           ]
         },
         "stats": {
+          "model1stTally": {
+            "value": 1
+          },
+          "model2ndCost": {
+            "value": 45
+          },
+          "Points": {
+            "value": 45
+          },
           "Sabre Gun Platforms": {
             "max": 2,
             "min": 1,
@@ -39093,7 +39879,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: twin heavy bolter; close combat weapon.\n\nAny number of models’ twin heavy bolters can each be replaced with one of the following: ◦ 1 defence searchlight ◦ 1 twin autocannon ◦ 1 twin heavy stubber ◦ 1 twin lascannonERROR: this unit had some special abilities related to “FORTIFICATION” that must be added to the appropriate ability: \n\n* While an enemy unit is only within Engagement Range of one or more Fortifications from your army"
+        "text": ""
       },
       "Unit§Salamander Command Vehicle": {
         "assets": {
@@ -39106,7 +39892,10 @@
                 }
               }
             },
-            "Ability§Auspex Surveyor"
+            "Ability§Auspex Surveyor",
+            "Melee Weapon§Salamander Command Vehicle—Armoured tracks",
+            "Ranged Weapon§Salamander Command Vehicle—Heavy bolter",
+            "Ranged Weapon§Salamander Command Vehicle—Heavy flamer"
           ]
         },
         "keywords": {
@@ -39125,8 +39914,64 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Salamander Command Vehicle—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Salamander Command Vehicle—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Salamander Command Vehicle—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 12
@@ -39134,63 +39979,8 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Command Vehicle—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Command Vehicle—Heavy flamer"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Command Vehicle—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Command Vehicle—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Command Vehicle—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Salamander Command Vehicle—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy bolter",
-            "visibility": "active"
+          "Points": {
+            "value": 80
           },
           "Sv": {
             "value": 3
@@ -39223,7 +40013,10 @@
                 }
               }
             },
-            "Ability§Outflank"
+            "Ability§Outflank",
+            "Melee Weapon§Salamander Scout Vehicle—Armoured tracks",
+            "Ranged Weapon§Salamander Scout Vehicle—Autocannon",
+            "Ranged Weapon§Salamander Scout Vehicle—Heavy bolter"
           ]
         },
         "keywords": {
@@ -39242,8 +40035,64 @@
           ]
         },
         "stats": {
+          "Hunter-killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 12
@@ -39251,63 +40100,8 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Autocannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Autocannon"
-                  }
-                ]
-              },
-              "Heavy bolter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Heavy bolter"
-                  }
-                ]
-              },
-              "Heavy stubber": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Salamander Scout Vehicle—Storm bolter"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Salamander Scout Vehicle—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Autocannon",
-            "visibility": "active"
+          "Points": {
+            "value": 95
           },
           "Sv": {
             "value": 3
@@ -39363,6 +40157,9 @@
           "OC": {
             "value": 2
           },
+          "Points": {
+            "value": 55
+          },
           "Sv": {
             "value": 3
           },
@@ -39397,7 +40194,9 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
-            }
+            },
+            "Melee Weapon§Storm Chimera—Armoured tracks",
+            "Ranged Weapon§Storm Chimera—Autocannon"
           ]
         },
         "keywords": {
@@ -39418,30 +40217,38 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 10
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Hunter-Killer": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Autocannon": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Storm Chimera—Autocannon"
+                    "trait": "Ranged Weapon§Storm Chimera—Hunter-killer missile"
                   }
                 ]
-              },
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Heavy bolter": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Storm Chimera—Heavy bolter"
@@ -39449,49 +40256,59 @@
                 ]
               },
               "Heavy flamer": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Storm Chimera—Heavy flamer"
                   }
                 ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
               },
               "Heavy stubber": {
-                "order": 3,
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Storm Chimera—Heavy stubber"
                   }
                 ]
               },
-              "Hunter-killer missile": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Storm Chimera—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 5,
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Storm Chimera—Storm bolter"
                   }
                 ]
-              },
-              "Armoured tracks": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Storm Chimera—Armoured tracks"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Autocannon",
+            "tracked": true,
+            "value": "-",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 90
           },
           "Sv": {
             "value": 3
@@ -39524,7 +40341,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Stygies Destroyer Tank Hunter—Stygies laser destroyer",
+            "Melee Weapon§Stygies Destroyer Tank Hunter—Armoured tracks"
           ]
         },
         "keywords": {
@@ -39543,8 +40362,63 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
           },
           "M": {
             "value": 10
@@ -39552,55 +40426,8 @@
           "OC": {
             "value": 3
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy stubber": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Heavy stubber"
-                  }
-                ]
-              },
-              "Hunter-killer missile": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Storm bolter"
-                  }
-                ]
-              },
-              "Stygies laser destroyer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Stygies Destroyer Tank Hunter—Stygies laser destroyer"
-                  }
-                ]
-              },
-              "Armoured tracks": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Stygies Destroyer Tank Hunter—Armoured tracks"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy stubber",
-            "visibility": "active"
+          "Points": {
+            "value": 180
           },
           "Sv": {
             "value": 2
@@ -39633,7 +40460,8 @@
                 }
               }
             },
-            "Ability§Turbo-boost"
+            "Ability§Turbo-boost",
+            "Melee Weapon§Tauros Assault Vehicle—Armoured frame"
           ]
         },
         "keywords": {
@@ -39652,16 +40480,33 @@
           ]
         },
         "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tauros Assault Vehicle—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 12
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -39674,27 +40519,11 @@
                   }
                 ]
               },
-              "Hunter-killer missile": {
+              "Tauros grenade launcher": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Tauros Assault Vehicle—Hunter-killer missile"
-                  }
-                ]
-              },
-              "Tauros grenade launcher": {
-                "order": 2,
-                "traits": [
-                  {
                     "trait": "Ranged Weapon§Tauros Assault Vehicle—Tauros grenade launcher"
-                  }
-                ]
-              },
-              "Armoured frame": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tauros Assault Vehicle—Armoured frame"
                   }
                 ]
               }
@@ -39702,6 +40531,15 @@
             "statType": "rank",
             "value": "Heavy flamer",
             "visibility": "active"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 50
           },
           "Sv": {
             "value": 4
@@ -39713,7 +40551,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: heavy flamer; armoured frame.\n\nThis model’s heavy flamer can be replaced with 1 Tauros grenade launcher.\n\n*This model can be equipped with 1 hunter-killer missile."
+        "text": ""
       },
       "Unit§Tauros Venator": {
         "assets": {
@@ -39726,7 +40564,8 @@
                 }
               }
             },
-            "Ability§Mobile Hunter-killer"
+            "Ability§Mobile Hunter-killer",
+            "Melee Weapon§Tauros Venator—Armoured frame"
           ]
         },
         "keywords": {
@@ -39745,25 +40584,42 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 12
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Hunter-Killer": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Hunter-killer missile": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Tauros Venator—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Twin multi-laser": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tauros Venator—Twin multi-laser"
                   }
                 ]
               },
@@ -39774,27 +40630,20 @@
                     "trait": "Ranged Weapon§Tauros Venator—Twin lascannon"
                   }
                 ]
-              },
-              "Twin multi-laser": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tauros Venator—Twin multi-laser"
-                  }
-                ]
-              },
-              "Armoured frame": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Tauros Venator—Armoured frame"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Hunter-killer missile",
+            "value": "Twin multi-laser",
             "visibility": "active"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 55
           },
           "Sv": {
             "value": 4
@@ -39832,7 +40681,9 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 1 Tauros model or 2 Astra Militarum Walker models."
-            }
+            },
+            "Ranged Weapon§Valkyrie Sky Talon—Heavy bolter",
+            "Melee Weapon§Valkyrie Sky Talon—Armoured hull"
           ]
         },
         "keywords": {
@@ -39855,6 +40706,38 @@
           "Ld": {
             "value": 7
           },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Hellstrike Missiles": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Hellstrike missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Hellstrike missile"
+                  }
+                ]
+              },
+              "2 Multiple Rocket Pods": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Multiple rocket pod"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Multiple rocket pod"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Hellstrike Missiles",
+            "visibility": "active"
+          },
           "M": {
             "statType": "term",
             "value": "20+"
@@ -39862,47 +40745,8 @@
           "OC": {
             "value": 0
           },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Heavy bolter": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Heavy bolter"
-                  }
-                ]
-              },
-              "Hellstrike missile": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Hellstrike missile"
-                  }
-                ]
-              },
-              "Multiple rocket pod": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Multiple rocket pod"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Valkyrie Sky Talon—Armoured hull"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Heavy bolter",
-            "visibility": "active"
+          "Points": {
+            "value": 185
           },
           "Sv": {
             "value": 2
@@ -39936,7 +40780,9 @@
                   "value": "1-5 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Vendetta Gunship—Vendetta twin lascannon",
+            "Melee Weapon§Vendetta Gunship—Armoured hull"
           ]
         },
         "keywords": {
@@ -39956,26 +40802,47 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "statType": "term",
-            "value": "20+"
-          },
-          "OC": {
-            "value": 0
-          },
-          "sampleLoadout": {
+          "2 Heavy Bolters": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Heavy bolter": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Vendetta Gunship—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Vendetta Gunship—Heavy bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Vendetta twin lascannons": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Vendetta Gunship—Vendetta twin lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Vendetta Gunship—Vendetta twin lascannon"
                   }
                 ]
               },
@@ -39986,27 +40853,21 @@
                     "trait": "Ranged Weapon§Vendetta Gunship—Vendetta hellstrike rack"
                   }
                 ]
-              },
-              "Vendetta twin lascannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Vendetta Gunship—Vendetta twin lascannon"
-                  }
-                ]
-              },
-              "Armoured hull": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Vendetta Gunship—Armoured hull"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Heavy bolter",
+            "value": "2 Vendetta twin lascannons",
             "visibility": "active"
+          },
+          "M": {
+            "statType": "term",
+            "value": "20+"
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 255
           },
           "Sv": {
             "value": 2
@@ -40018,7 +40879,7 @@
             "value": 14
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 3 Vendetta twin lascannons; armoured hull.\n\n2 of this model’s Vendetta twin lascannons can be replaced with 1 Vendetta hellstrike rack.\n\n*This model can be equipped with 2 heavy bolters."
+        "text": ""
       },
       "Vehicle§Aegis Defence Line": {
         "assets": {
@@ -40061,6 +40922,102 @@
           },
           "W": {
             "value": 10
+          }
+        }
+      },
+      "Vehicle§Aquila Lander": {
+        "assets": {
+          "traits": [
+            "Ability§Aerial Deployment",
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Hover",
+            "Ability§Damaged:",
+            {
+              "item": "Ability§Transport",
+              "text": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
+            },
+            "Melee Weapon§Aquila Lander—Armoured hull"
+          ]
+        },
+        "keywords": {
+          "Source": [
+            "Legends"
+          ],
+          "Faction": [
+            "Astra Militarum"
+          ],
+          "Keywords": [
+            "Aircraft",
+            "Aquila Lander",
+            "Fly",
+            "Imperium",
+            "Transport",
+            "Vehicle"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "format": "{v}+″",
+            "value": 20
+          },
+          "OC": {
+            "value": 0
+          },
+          "Points": {
+            "value": 120
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 9
+          },
+          "W": {
+            "value": 12
+          },
+          "Weapon Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Aquila Lander—Heavy bolter"
+                  }
+                ]
+              },
+              "Autocannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Aquila Lander—Autocannon"
+                  }
+                ]
+              },
+              "Multilaster": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Aquila Lander—Multi-laser"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
           }
         }
       },
@@ -40936,6 +41893,31 @@
           }
         }
       },
+      "Vehicle§Centaur Light Carrier": {
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 40
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 7
+          },
+          "W": {
+            "value": 7
+          }
+        }
+      },
       "Vehicle§Chimera": {
         "assets": {
           "traits": [
@@ -41476,6 +42458,179 @@
           }
         }
       },
+      "Vehicle§Dominus Armoured Siege Bombard": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D6+2"
+                }
+              }
+            },
+            "Ability§Pinning Bombardment",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-7 Wounds Remaining"
+                }
+              }
+            },
+            "Ranged Weapon§Dominus Armoured Siege Bombard—Dominus triple bombard",
+            "Melee Weapon§Dominus Armoured Siege Bombard—Armoured tracks"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Astra Militarum"
+          ],
+          "Keywords": [
+            "Dominus Armoured Siege Bombard",
+            "Imperium",
+            "Smoke",
+            "Titanic",
+            "Vehicle"
+          ],
+          "Source": [
+            "Legends"
+          ]
+        },
+        "stats": {
+          "Hunter-killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Heavy bolters": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy bolter"
+                  }
+                ]
+              },
+              "2 Autocannons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Autocannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Autocannon"
+                  }
+                ]
+              },
+              "2 Heavy flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy flamer"
+                  }
+                ]
+              },
+              "2 Lascannons": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Lascannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Lascannon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Heavy bolters",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dominus Armoured Siege Bombard—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 8
+          },
+          "Points": {
+            "value": 325
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 13
+          },
+          "W": {
+            "value": 20
+          }
+        }
+      },
       "Vehicle§Doomhammer": {
         "assets": {
           "traits": [
@@ -41623,6 +42778,179 @@
           },
           "W": {
             "value": 24
+          }
+        }
+      },
+      "Vehicle§Gorgon Heavy Transport": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D6+2"
+                }
+              }
+            },
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+*"
+                }
+              },
+              "text": "* Against ranged attacks only."
+            },
+            "Ability§Mount Up!",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-7 Wounds Remaining"
+                }
+              }
+            },
+            "Melee Weapon§Gorgon Heavy Transport—Landing ramp",
+            "Ranged Weapon§Gorgon Heavy Transport—Twin heavy stubber",
+            "Ranged Weapon§Gorgon Heavy Transport—Twin heavy stubber",
+            {
+              "item": "Ability§Transport",
+              "text": "This model has a transport capacity of 30 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Astra Militarum"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Gorgon Heavy Transport",
+            "Imperium",
+            "Smoke",
+            "Titanic",
+            "Transport",
+            "Vehicle"
+          ]
+        },
+        "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 5,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "2 Gorgon mortars": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Gorgon mortar"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Gorgon mortar"
+                  }
+                ]
+              },
+              "4 Heavy Bolters": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy bolter"
+                  }
+                ]
+              },
+              "4 Heavy flamers": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy flamer"
+                  }
+                ]
+              },
+              "4 Heavy stubbers": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Gorgon Heavy Transport—Heavy stubber"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Gorgon mortars",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 8
+          },
+          "Points": {
+            "value": 275
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 13
+          },
+          "W": {
+            "value": 20
           }
         }
       },
@@ -45364,6 +46692,152 @@
           }
         }
       },
+      "Vehicle§Storm Chimera": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            {
+              "item": "Ability§Firing Deck",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            },
+            "Ability§Mobile Command Vehicle",
+            "Melee Weapon§Storm Chimera—Armoured tracks",
+            {
+              "item": "Ability§Transport",
+              "text": "This model has a transport capacity of 12 Astra Militarum Infantry models. Each Heavy Weapons Team model and Veteran Heavy Weapons Team model takes up the space of 2 models. Each Ogryn model takes up the space of 3 models. It cannot transport Artillery models."
+            },
+            "Ranged Weapon§Storm Chimera—Autocannon"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Astra Militarum",
+            "Dedicated Transport",
+            "Imperium",
+            "Legends",
+            "Smoke",
+            "Squadron",
+            "Storm Chimera",
+            "Transport",
+            "Vehicle"
+          ]
+        },
+        "stats": {
+          "Hunter-Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Storm Chimera—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Storm Chimera—Heavy bolter"
+                  }
+                ]
+              },
+              "Heavy flamer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Storm Chimera—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "Heavy stubber": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Storm Chimera—Heavy stubber"
+                  }
+                ]
+              },
+              "Storm Bolter": {
+                "order": 2,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Storm Chimera—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 90
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 9
+          },
+          "W": {
+            "value": 11
+          }
+        }
+      },
       "Vehicle§Stormblade": {
         "assets": {
           "traits": [
@@ -46626,6 +48100,93 @@
             "statType": "rank",
             "value": "Hellstrike missiles",
             "visibility": "active"
+          }
+        }
+      },
+      "Vehicle§Valkyrie Sky Talon": {
+        "assets": {
+          "traits": [
+            "Ability§Damaged:",
+            {
+              "item": "Ability§Transport",
+              "text": "* A unit can embark within a friendly Transport if all of its models end a Normal, Advance or Fall Back move within 3\" of that Transport.\n* A unit cannot embark and disembark in the same phase.\n* Units that start your Movement phase embarked within a Transport can disembark this phase, provided their Transport has not Advanced or Fallen Back.\n* If a unit disembarks before its Transport moves, it can act normally.\n* If a unit disembarks after its Transport moves, it cannot move or charge this turn, but can otherwise act normally.\n* Disembarking units must be set up wholly within 3\" of their Transport and not within Engagement Range of any enemy models (or the unit cannot disembark).\n* Units that disembark this turn cannot Remain Stationary.\n* If a Transport is destroyed, any embarked units must disembark.\n* Roll one D6 for each model that disembarks: for each 1, that model’s unit suffers 1 mortal wound.\n* Until the start of its controlling player’s next Command phase, the disembarking unit\nis Battle-shocked.\n* Until the end of the turn, the disembarking unit counts as having made a Normal move, and cannot declare a charge.\n* Units disembarking a destroyed Transport that cannot be set up wholly within 3\" of it must perform an Emergency Disembarkation:\n  * Must be set up wholly within 6\" of it instead of wholly within 3\".\n  * Suffer 1 mortal wound for each roll of 1-3, instead of each roll of 1.\n  * Any disembarking model that cannot be set up is destroyed.\n\nThis model has a transport capacity of 1 Tauros model or 2\nAstra Militarum Walker models."
+            },
+            "Ability§Fire Support",
+            "Ranged Weapon§Valkyrie Sky Talon—Heavy bolter",
+            "Melee Weapon§Valkyrie Sky Talon—Armoured hull",
+            "Ability§Deadly Demise",
+            "Ability§Hover"
+          ]
+        },
+        "keywords": {
+          "Source": [
+            "Legends"
+          ],
+          "Faction": [
+            "Astra Militarum"
+          ],
+          "Keywords": [
+            "Aircraft",
+            "Fly",
+            "Imperium",
+            "Transport",
+            "Valkyrie Sky Talon",
+            "Vehicle"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 1,
+            "ranks": {
+              "2 Hellstrike Missiles": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Hellstrike missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Hellstrike missile"
+                  }
+                ]
+              },
+              "2 Multiple Rocket Pods": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Multiple rocket pod"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Valkyrie Sky Talon—Multiple rocket pod"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "2 Hellstrike Missiles",
+            "visibility": "active"
+          },
+          "M": {
+            "statType": "term",
+            "value": "20+"
+          },
+          "Points": {
+            "value": 185
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 10
+          },
+          "W": {
+            "value": 14
           }
         }
       },
