@@ -1,6 +1,6 @@
 {
   "name": "Deathwatch",
-  "revision": "10.4.0",
+  "revision": "10.4.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -4975,54 +4975,161 @@
         }
       },
       "Model§Watch Sergeant": {
+        "allowed": {
+          "classifications": []
+        },
+        "rules": {
+          "Disable melee": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Loadout Options",
+                    "value"
+                  ]
+                ],
+                "value": "Close combat weapon"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Loadout Options",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Disable ranged": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Loadout Options",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Loadout Options",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "hammer"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Maximum 1 Shield": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "shield"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "Loadout Options": {
+          "M": {
+            "value": 6
+          },
+          "Melee Loadout Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Boltgun & Long vigil melee weapon": {
+              "Long Vigil melee weapon": {
+                "number": 0,
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deathwatch Veterans—Boltgun"
-                  },
-                  {
                     "trait": "Melee Weapon§Deathwatch Veterans—Long Vigil melee weapon"
                   }
                 ]
               },
-              "Long Vigil ranged weapon & Long Vigil melee weapon": {
+              "Close combat weapon": {
+                "number": 1,
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Deathwatch Veterans—Long Vigil ranged weapon"
-                  },
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Long Vigil melee weapon"
-                  }
-                ]
-              },
-              "Long Vigil ranged weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwatch Veterans—Long Vigil ranged weapon"
-                  },
-                  {
                     "trait": "Melee Weapon§Deathwatch Veterans—Close combat weapon"
                   }
                 ]
               },
-              "Boltgun & Astartes shield": {
-                "order": 3,
+              "Astartes shield & Close Combat Weapon": {
+                "number": 2,
+                "order": 2,
+                "tracking": {
+                  "shield": 1
+                },
                 "traits": [
-                  {
-                    "trait": "Ranged Weapon§Deathwatch Veterans—Boltgun"
-                  },
                   {
                     "trait": "Wargear§Astartes Shield"
                   },
@@ -5031,60 +5138,121 @@
                   }
                 ]
               },
-              "Long Vigil ranged weapon & Astartes shield": {
+              "Deathwatch thunder hammer": {
+                "number": 3,
+                "order": 3,
+                "tracking": {
+                  "hammer": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Deathwatch Veterans—Deathwatch thunder hammer"
+                  }
+                ]
+              },
+              "Xenophase blade": {
+                "number": 4,
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Wargear§Astartes Shield"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Deathwatch Veterans—Long Vigil ranged weapon"
-                  }
-                ]
-              },
-              "Long Vigil melee weapon & Astartes shield": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Long Vigil melee weapon"
-                  },
-                  {
-                    "trait": "Wargear§Astartes Shield"
-                  }
-                ]
-              },
-              "Boltgun & Xenophase blade": {
-                "order": 6,
-                "traits": [
-                  {
                     "trait": "Melee Weapon§Deathwatch Veterans—Xenophase blade"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Deathwatch Veterans—Boltgun"
-                  }
-                ]
-              },
-              "Astartes shield & Xenophase blade": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Deathwatch Veterans—Xenophase blade"
-                  },
-                  {
-                    "trait": "Wargear§Astartes Shield"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Boltgun & Long vigil melee weapon",
-            "visibility": "active"
-          },
-          "M": {
-            "value": 6
+            "value": "Long Vigil melee weapon",
+            "visibility": "normal"
           },
           "OC": {
             "value": 2
+          },
+          "Ranged Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Boltgun": {
+                "number": 0,
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Boltgun"
+                  }
+                ]
+              },
+              "Long Vigil ranged weapon": {
+                "number": 1,
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Long Vigil ranged weapon"
+                  }
+                ]
+              },
+              "Astartes shield": {
+                "number": 2,
+                "order": 2,
+                "tracking": {
+                  "shield": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Astartes Shield"
+                  }
+                ]
+              },
+              "Frag cannon": {
+                "number": 3,
+                "order": 3,
+                "tracking": {
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Frag cannon"
+                  }
+                ]
+              },
+              "Infernus heavy bolter": {
+                "number": 4,
+                "order": 4,
+                "tracking": {
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Infernus heavy bolter – heavy bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Infernus heavy bolter – heavy flamer"
+                  }
+                ]
+              },
+              "Missile launcher": {
+                "number": 5,
+                "order": 5,
+                "tracking": {
+                  "heavy": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Missile launcher – frag"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Deathwatch Veterans—Missile launcher – krak"
+                  }
+                ]
+              },
+              "-": {
+                "number": 6,
+                "order": 6,
+                "tracking": {}
+              }
+            },
+            "statType": "rank",
+            "value": "Boltgun",
+            "visibility": "active"
           },
           "Sv": {
             "value": 3
