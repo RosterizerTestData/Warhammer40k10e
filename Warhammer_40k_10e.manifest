@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.4.0",
+  "revision": "10.4.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1724,6 +1724,76 @@
             "failState": "pass",
             "order": 40
           },
+          "apply4thModelCost": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model3rdCost",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T+O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model3rdTally",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": [
+                  "{self}",
+                  "rules",
+                  "apply4thModelCost",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "note": "relies on trueModelTally, which must precede it in order",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "trueModelTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 40
+          },
           "cheatUnitNameTally": {
             "actions": [
               {
@@ -2504,6 +2574,16 @@
             "visibility": "hidden"
           },
           "model3rdCost": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model3rdTally": {
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model4thCost": {
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden"
