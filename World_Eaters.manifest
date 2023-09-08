@@ -1,6 +1,6 @@
 {
   "name": "World Eaters",
-  "revision": "10.4.2",
+  "revision": "10.4.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -5648,25 +5648,6 @@
           ]
         },
         "rules": {
-          "1 can have Icon of Khorne": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Icon of Khorne"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
           "1 in 10 can have Mauler": {
             "evals": [
               {
@@ -5721,6 +5702,49 @@
               }
             ],
             "evaluate": "OR",
+            "failState": "error"
+          },
+          "1 in 10 models can have an Icon of Khorne": {
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 10
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 10 models can have an Icon of Khorne",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Icon of Khorne"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
             "failState": "error"
           }
         },
