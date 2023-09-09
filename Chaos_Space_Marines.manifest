@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.4.3",
+  "revision": "10.4.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "EAYPVJ",
+      "slug": "B3TAXP",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -27589,6 +27589,40 @@
             "Decimator"
           ]
         },
+        "rules": {
+          "Unique loadouts can not take other options": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -27596,10 +27630,13 @@
           "Loadout 1": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 3,
             "ranks": {
               "Decimator butcher cannon": {
                 "order": 0,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Decimator butcher cannon"
@@ -27608,6 +27645,9 @@
               },
               "Decimator conversion beamer": {
                 "order": 1,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Decimator conversion beamer"
@@ -27616,6 +27656,9 @@
               },
               "Soulburner petard": {
                 "order": 2,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Soulburner petard"
@@ -27624,6 +27667,9 @@
               },
               "Storm laser": {
                 "order": 3,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Storm laser"
@@ -27632,6 +27678,9 @@
               },
               "Hellflamer & Decimator claw": {
                 "order": 4,
+                "tracking": {
+                  "1": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Hellflamer"
@@ -27640,6 +27689,9 @@
                     "trait": "Melee Weapon§Decimator—Decimator claw"
                   }
                 ]
+              },
+              "-": {
+                "order": 5
               }
             },
             "statType": "rank",
@@ -27649,10 +27701,13 @@
           "Loadout 2": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 3,
             "ranks": {
               "Decimator butcher cannon": {
                 "order": 0,
+                "tracking": {
+                  "2": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Decimator butcher cannon"
@@ -27661,6 +27716,9 @@
               },
               "Decimator conversion beamer": {
                 "order": 1,
+                "tracking": {
+                  "2": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Decimator conversion beamer"
@@ -27669,6 +27727,9 @@
               },
               "Soulburner petard": {
                 "order": 2,
+                "tracking": {
+                  "2": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Soulburner petard"
@@ -27677,6 +27738,9 @@
               },
               "Storm laser": {
                 "order": 3,
+                "tracking": {
+                  "2": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Storm laser"
@@ -27685,6 +27749,9 @@
               },
               "Hellflamer & Decimator claw": {
                 "order": 4,
+                "tracking": {
+                  "2": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Decimator—Hellflamer"
@@ -27693,6 +27760,9 @@
                     "trait": "Melee Weapon§Decimator—Decimator claw"
                   }
                 ]
+              },
+              "-": {
+                "order": 5
               }
             },
             "statType": "rank",
@@ -27713,6 +27783,37 @@
           },
           "T": {
             "value": 10
+          },
+          "Unique Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 3,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Twin decimator claw and 2 hellflamers": {
+                "order": 1,
+                "tracking": {
+                  "1": 1,
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Decimator—Twin Decimator claws"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Decimator—Hellflamer"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Decimator—Hellflamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           },
           "W": {
             "value": 12
