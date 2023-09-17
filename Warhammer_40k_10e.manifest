@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.4.3",
+  "revision": "10.5.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1599,9 +1599,12 @@
                 ],
                 "value": [
                   "{self}",
-                  "stats",
-                  "model2ndCost",
-                  "value"
+                  "rules",
+                  "apply2ndModelCost",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
                 ]
               }
             ],
@@ -1619,6 +1622,42 @@
                     "{self}",
                     "stats",
                     "model1stTally",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model2ndCost",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model2ndTally",
                     "value"
                   ]
                 ]
@@ -1669,9 +1708,12 @@
                 ],
                 "value": [
                   "{self}",
-                  "stats",
-                  "model3rdCost",
-                  "value"
+                  "rules",
+                  "apply3rdModelCost",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
                 ]
               }
             ],
@@ -1689,6 +1731,42 @@
                     "{self}",
                     "stats",
                     "model2ndTally",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "stats",
+                    "model2ndCost",
+                    "value"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model3rdCost",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model3rdTally",
                     "value"
                   ]
                 ]
@@ -1739,9 +1817,12 @@
                 ],
                 "value": [
                   "{self}",
-                  "stats",
-                  "model4thCost",
-                  "value"
+                  "rules",
+                  "apply4thModelCost",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
                 ]
               }
             ],
@@ -1759,6 +1840,42 @@
                     "{self}",
                     "stats",
                     "model3rdTally",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "stats",
+                    "model3rdCost",
+                    "value"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model4thCost",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model4thTally",
                     "value"
                   ]
                 ]
@@ -1957,6 +2074,104 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "defineUnitID": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "unitID",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "classification"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "unitID",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "designation"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4
+          },
+          "discountSelfIfAttached": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "discountSelfIfAttached",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "lineage"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 34
           },
           "Error in this Unit’s text.": {
             "evals": [
@@ -2308,10 +2523,24 @@
             "failState": "pass",
             "order": 21
           },
-          "This unit has fewer models than allowed by its point cost.": {
+          "This unit has fewer (or more) models than allowed by its point cost.": {
             "evals": [
               {
-                "actionable": false,
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "model1stTally",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -2324,10 +2553,16 @@
                     "result",
                     "integer"
                   ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model1stTally",
+                  "value"
                 ]
               },
               {
-                "actionable": false,
+                "actionable": true,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -2340,10 +2575,16 @@
                     "result",
                     "integer"
                   ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model2ndTally",
+                  "value"
                 ]
               },
               {
-                "actionable": false,
+                "actionable": true,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -2356,10 +2597,16 @@
                     "result",
                     "integer"
                   ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model3rdTally",
+                  "value"
                 ]
               },
               {
-                "actionable": false,
+                "actionable": true,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -2372,6 +2619,12 @@
                     "result",
                     "integer"
                   ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "model4thTally",
+                  "value"
                 ]
               }
             ],
@@ -2427,7 +2680,9 @@
                 "paths": [
                   [
                     "{self}",
-                    "designation"
+                    "stats",
+                    "unitID",
+                    "value"
                   ]
                 ]
               },
@@ -2545,6 +2800,13 @@
             "value": null,
             "visibility": "normal"
           },
+          "Leader": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "M": {
             "format": "{v}″",
             "group": "Stats",
@@ -2565,27 +2827,32 @@
           },
           "model2ndCost": {
             "statType": "numeric",
-            "value": 0,
+            "value": null,
             "visibility": "hidden"
           },
           "model2ndTally": {
             "statType": "numeric",
-            "value": 0,
+            "value": null,
             "visibility": "hidden"
           },
           "model3rdCost": {
             "statType": "numeric",
-            "value": 0,
+            "value": null,
             "visibility": "hidden"
           },
           "model3rdTally": {
             "statType": "numeric",
-            "value": 0,
+            "value": null,
             "visibility": "hidden"
           },
           "model4thCost": {
             "statType": "numeric",
-            "value": 0,
+            "value": null,
+            "visibility": "hidden"
+          },
+          "model4thTally": {
+            "statType": "numeric",
+            "value": null,
             "visibility": "hidden"
           },
           "OC": {
@@ -2647,6 +2914,11 @@
             "statType": "numeric",
             "value": null,
             "visibility": "normal"
+          },
+          "unitID": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
           },
           "W": {
             "group": "Stats",

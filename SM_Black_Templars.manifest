@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.4.2",
+  "revision": "10.5.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "F4KBU8",
+      "slug": "4RSCWE",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest"
@@ -53,7 +53,7 @@
         "keywords": {
           "Keywords": [
             "Primarch",
-            "Relics of The Emperor Ascendant"
+            "Relics of the Emperor Ascendant"
           ]
         },
         "text": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
@@ -106,7 +106,7 @@
         },
         "text": "At the start of the Fight phase, select one enemy unit within Engagement Range of this model’s unit and roll one D6: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds."
       },
-      "Ability§Litanies of The Devout": {
+      "Ability§Litanies of the Devout": {
         "keywords": {
           "Keywords": [
             "Other"
@@ -125,7 +125,7 @@
         "keywords": {
           "Keywords": [
             "Primarch",
-            "Relics of The Emperor Ascendant"
+            "Relics of the Emperor Ascendant"
           ]
         },
         "text": "Models in this unit have the Feel No Pain 5+ ability."
@@ -158,7 +158,7 @@
         "keywords": {
           "Keywords": [
             "Primarch",
-            "Relics of The Emperor Ascendant"
+            "Relics of the Emperor Ascendant"
           ]
         },
         "text": "Improve the Armour Penetration characteristic of melee weapons equipped by models in this unit by 1."
@@ -216,7 +216,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n\n\n* Assault Intercessor Squad\n\n\n\n* Infernus Squad\n\n\n\n* Intercessor Squad\n\n\n\n* Primaris Crusader Squad\n\n\n\n* Primaris Sword Brethren\n\n\n\n* Sternguard Veteran Squad \n\nYou can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character\nmodels in Attached units.\n\nThis model can be attached to the following units:\n\n* Assault Intercessor Squad\n\n* Infernus Squad\n\n* Intercessor Squad\n\n* Primaris Crusader Squad\n\n* Primaris Sword Brethren\n\n* Sternguard Veteran Squad \n\nYou can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Oath of Moment",
             "Ability§Tactical Precision",
@@ -239,7 +239,59 @@
             "Tacticus",
             "Castellan"
           ],
-          "Lieutenant": []
+          "Lieutenant": [],
+          "Tags": [
+            "Character Castellan"
+          ]
+        },
+        "rules":{
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Captain"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Chapter Master"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -341,10 +393,10 @@
             },
             {
               "item": "Ability§Leader",
-              "text": "This unit can be attached to the following units:\n\n\n\n* Assault Intercessor Squad\n\n\n\n* Infernus Squad\n\n\n\n* Intercessor Squad\n\n\n\n* Primaris Crusader Squad\n\n\n\n* Primaris Sword Brethren"
+              "text": "This unit can be attached to the following units:\n\n* Assault Intercessor Squad\n\n* Infernus Squad\n\n* Intercessor Squad\n\n* Primaris Crusader Squad\n\n* Primaris Sword Brethren"
             },
             "Ability§Oath of Moment",
-            "Ability§Litanies of The Devout",
+            "Ability§Litanies of the Devout",
             {
               "item": "Ability§Temple Relics",
               "text": "In your Command phase, if this unit contains one or more Cenobyte Servitor models, select one Relics of the Emperor Ascendant ability. Until the start of your next Command phase, this unit’s Chaplain Grimaldus model has that ability.\n\nBanner of Fallen Crusaders: This unit is eligible to declare a charge in a turn in which it Advanced or\nFell Back.\n\nRemnant of the Fallen Temple: Models in this unit have the Feel No Pain 5+ ability.\n\nSceptre of Anointing: Improve the Armour Penetration characteristic of melee weapons equipped by\nmodels in this unit by 1."
@@ -374,6 +426,9 @@
             "Imperium",
             "Infantry",
             "Tacticus"
+          ],
+          "Tags": [
+            "Character Chaplain Grimaldus"
           ]
         },
         "stats": {
@@ -384,6 +439,9 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 4
           },
           "Points": {
             "value": 95
@@ -398,7 +456,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Assault Intercessor Squad\n\n\n\n* Intercessor Squad\n\n\n\n* Primaris Crusader Squad\n\n\n\n* Primaris Sword Brethren"
+              "text": "This model can be attached to the following units:\n\n* Assault Intercessor Squad\n\n* Intercessor Squad\n\n* Primaris Crusader Squad\n\n* Primaris Sword Brethren"
             },
             "Ability§Oath of Moment",
             "Ability§Crusade of Wrath",
@@ -412,7 +470,7 @@
               }
             },
             "Ranged Weapon§High Marshal Helbrecht—Ferocity",
-            "Weapon§High Marshal Helbrecht—Sword of the High Marshals"
+            "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals"
           ]
         },
         "keywords": {
@@ -432,6 +490,9 @@
             "Imperium",
             "Infantry",
             "Tacticus"
+          ],
+          "Tags": [
+            "Character High Marshal Helbrecht"
           ]
         },
         "stats": {
@@ -463,7 +524,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Assault Intercessor Squad\n\n\n\n* Infernus Squad\n\n\n\n* Intercessor Squad\n\n\n\n* Primaris Crusader Squad\n\n\n\n* Primaris Sword Brethren\n\n\n\n* Sternguard Veteran Squad"
+              "text": "This model can be attached to the following units:\n\n* Assault Intercessor Squad\n\n* Infernus Squad\n\n* Intercessor Squad\n\n* Primaris Crusader Squad\n\n* Primaris Sword Brethren\n\n* Sternguard Veteran Squad"
             },
             "Ability§Oath of Moment",
             "Ability§Rites of Battle",
@@ -495,6 +556,9 @@
             "Infantry",
             "Marshal",
             "Tacticus"
+          ],
+          "Tags": [
+            "Character Marshal"
           ]
         },
         "stats": {
@@ -527,7 +591,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Weapon§Marshal—Plasma pistol"
+                    "trait": "Ranged Weapon§Marshal—Plasma pistol"
                   }
                 ]
               }
@@ -555,7 +619,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n\n\n* Assault Intercessor Squad\n\n\n\n* Intercessor Squad\n\n\n\n* Primaris Crusader Squad\n\n\n\n* Primaris Sword Brethren\n\n\n\n* Sternguard Veteran Squad"
+              "text": "This model can be attached to the following units:\n\n* Assault Intercessor Squad\n\n* Intercessor Squad\n\n* Primaris Crusader Squad\n\n* Primaris Sword Brethren\n\n* Sternguard Veteran Squad"
             },
             "Ability§Oath of Moment",
             "Ability§Skilful Parry",
@@ -569,7 +633,7 @@
               }
             },
             "Ranged Weapon§The Emperor’s Champion—Bolt pistol",
-            "Weapon§The Emperor’s Champion—Black Sword"
+            "Melee Weapon§The Emperor’s Champion—Black Sword"
           ]
         },
         "keywords": {
@@ -588,6 +652,9 @@
             "Imperium",
             "Tacticus",
             "The Emperor’s Champion"
+          ],
+          "Tags": [
+            "Character The Emperor’s Champion"
           ]
         },
         "stats": {
@@ -708,7 +775,7 @@
             "failState": "pass"
           }
         },
-        "text": "TEMPLAR VOWS\nAt the start of the first battle round, select one of the four\nTemplar Vows below to be active for Adeptus Astartes\nunits from your army until the end of the battle.\n\n■ Suffer Not the Unclean to Live: Melee weapons\nequipped by models in this unit have the [LETHAL\nHITS] ability.\n\n■ Uphold the Honour of the Emperor: Models in this\nunit have the Feel No Pain 6+ ability and a Leadership\ncharacteristic of 5+.\n\n■ Abhor the Witch, Destroy the Witch: Models in this unit\nhave a 4+ invulnerable save against Psychic Attacks\nand melee weapons equipped by models in this unit\nhave the [ANTI-PSYKER 4+] ability.\n\n■ Accept Any Challenge, No Matter the Odds: Melee\nweapons equipped by models in this unit have the\n[SUSTAINED HITS 1] ability"
+        "text": "TEMPLAR VOWS\nAt the start of the first battle round, select one of the four Templar Vows below to be active for Adeptus Astartes units from your army until the end of the battle.\n\n■ Suffer Not the Unclean to Live: Melee weapons equipped by models in this unit have the [LETHAL\nHITS] ability.\n\n■ Uphold the Honour of the Emperor: Models in this unit have the Feel No Pain 6+ ability and a Leadership characteristic of 5+.\n\n■ Abhor the Witch, Destroy the Witch: Models in this unit have a 4+ invulnerable save against Psychic Attacks and melee weapons equipped by models in this unit have the [ANTI-PSYKER 4+] ability.\n\n■ Accept Any Challenge, No Matter the Odds: Melee weapons equipped by models in this unit have the\n[SUSTAINED HITS 1] ability"
       },
       "Enhancement§Perdition's Edge": {
         "keywords": {
@@ -789,7 +856,7 @@
             "visibility": "normal"
           }
         },
-        "text": "Adeptus Astartes model only.\n■ Improve the Strength and Armour Penetration\ncharacteristics of the bearer’s melee weapons by 1.\n■ If the Suffer Not the Unclean to Live vow is active for\nyour army, add 1 to the Attacks characteristic of the\nbearer’s melee weapons as well."
+        "text": "Adeptus Astartes model only.\n■ Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1.\n■ If the Suffer Not the Unclean to Live vow is active for your army, add 1 to the Attacks characteristic of the bearer’s melee weapons as well."
       },
       "Enhancement§Sigismund's Seal": {
         "keywords": {
@@ -842,7 +909,7 @@
             "visibility": "normal"
           }
         },
-        "text": "Adeptus Astartes model only.\n■ Improve the Attacks characteristic of the bearer’s\nmelee weapons by 1.\n■ While the bearer is leading a unit, if the Accept Any\nChallenge, No Matter the Odds vow is active for your\narmy, each time a model in that unit makes a melee\nattack, a successful unmodified Hit roll of 5+ scores\na Critical Hit."
+        "text": "Adeptus Astartes model only.\n■ Improve the Attacks characteristic of the bearer’s melee weapons by 1.\n■ While the bearer is leading a unit, if the Accept Any Challenge, No Matter the Odds vow is active for your army, each time a model in that unit makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Enhancement§Täanhauser's Bones": {
         "keywords": {
@@ -858,7 +925,7 @@
             "visibility": "normal"
           }
         },
-        "text": "Adeptus Astartes model only.\n■ Each time an attack is allocated to the bearer, halve\nthe Damage characteristic of that attack.\n■ While the bearer is leading a unit, if the Uphold the\nHonour of the Emperor vow is active for your army,\nmodels in that unit have the Feel No Pain 5+ ability."
+        "text": "Adeptus Astartes model only.\n■ Each time an attack is allocated to the bearer, halve the Damage characteristic of that attack.\n■ While the bearer is leading a unit, if the Uphold the Honour of the Emperor vow is active for your army, models in that unit have the Feel No Pain 5+ ability."
       },
       "Enhancement§Witchseeker Bolts": {
         "keywords": {
@@ -955,7 +1022,7 @@
             "visibility": "normal"
           }
         },
-        "text": "Adeptus Astartes model only.\n■ The bearer’s ranged weapons have the [PRECISION],\n[ANTI-PSYKER 4+] and [DEVASTATING WOUNDS] abilities.\n■ If the Abhor the Witch, Destroy the Witch vow is\nactive for your army, each time the bearer makes\na ranged attack that targets a Psyker unit, you can\nre-roll the Hit roll and you can re-roll the Wound roll."
+        "text": "Adeptus Astartes model only.\n■ The bearer’s ranged weapons have the [PRECISION],\n[ANTI-PSYKER 4+] and [DEVASTATING WOUNDS] abilities.\n■ If the Abhor the Witch, Destroy the Witch vow is active for your army, each time the bearer makes a ranged attack that targets a Psyker unit, you can re-roll the Hit roll and you can re-roll the Wound roll."
       },
       "Infantry/Mounted§Crusader Squad": {
         "allowed": {
@@ -999,6 +1066,9 @@
             "Grenades",
             "Imperium",
             "Crusader Squad"
+          ],
+          "Tags": [
+            "Infantry/Mounted Crusader Squad"
           ]
         },
         "rules": {
@@ -1435,7 +1505,12 @@
         "allowed": {
           "items": [
             "Model§Primaris Initiate",
-            "Model§Primaris Neophyte"
+            "Model§Primaris Neophyte",
+            "Character§Castellan",
+            "Character§Chaplain Grimaldus",
+            "Character§High Marshal Helbrecht",
+            "Character§Marshal",
+            "Character§The Emperor’s Champion"
           ]
         },
         "assets": {
@@ -1479,6 +1554,9 @@
             "Imperium",
             "Tacticus",
             "Primaris Crusader Squad"
+          ],
+          "Tags": [
+            "Infantry/Mounted Primaris Crusader Squad"
           ]
         },
         "rules": {
@@ -1557,7 +1635,12 @@
       "Infantry/Mounted§Primaris Sword Brethren": {
         "allowed": {
           "items": [
-            "Model§Primaris Sword Brother - Sword Brethren"
+            "Model§Primaris Sword Brother - Sword Brethren",
+            "Character§Castellan",
+            "Character§Chaplain Grimaldus",
+            "Character§High Marshal Helbrecht",
+            "Character§Marshal",
+            "Character§The Emperor’s Champion"
           ]
         },
         "assets": {
@@ -1588,6 +1671,9 @@
             "Imperium",
             "Tacticus",
             "Primaris Sword Brethren"
+          ],
+          "Tags": [
+            "Infantry/Mounted Primaris Sword Brethren"
           ]
         },
         "rules": {
@@ -1789,7 +1875,10 @@
             "value": 5
           },
           "model2ndCost": {
-            "value": 140
+            "value": 280
+          },
+          "model2ndTally": {
+            "value": 10
           },
           "Points": {
             "value": 140
@@ -2256,6 +2345,24 @@
           }
         }
       },
+      "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals – one-handed",
+            "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals – two-handed"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Sword of the High Marshals"
+          }
+        }
+      },
       "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals – one-handed": {
         "stats": {
           "A": {
@@ -2574,6 +2681,24 @@
           }
         }
       },
+      "Melee Weapon§The Emperor’s Champion—Black Sword": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§The Emperor’s Champion—Black Sword – strike",
+            "Melee Weapon§The Emperor’s Champion—Black Sword – sweep"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Black Sword"
+          }
+        }
+      },
       "Melee Weapon§The Emperor’s Champion—Black Sword – strike": {
         "assets": {
           "traits": [
@@ -2661,7 +2786,7 @@
       "Model§Chaplain Grimaldus – Epic Hero": {
         "assets": {
           "traits": [
-            "Weapon§Chaplain Grimaldus—Plasma pistol",
+            "Ranged Weapon§Chaplain Grimaldus—Plasma pistol",
             "Melee Weapon§Chaplain Grimaldus—Artificer crozius"
           ]
         },
@@ -2766,7 +2891,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Weapon§Crusader Squad—Plasma gun"
+                    "trait": "Ranged Weapon§Crusader Squad—Plasma gun"
                   }
                 ]
               },
@@ -2843,7 +2968,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Weapon§Black Templars Armoury—Missile launcher"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Missile launcher"
                   }
                 ]
               },
@@ -2865,7 +2990,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Weapon§Black Templars Armoury—Plasma cannon"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Plasma cannon"
                   }
                 ]
               }
@@ -3317,7 +3442,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Weapon§Primaris Sword Brethren—Plasma pistol"
+                    "trait": "Ranged Weapon§Primaris Sword Brethren—Plasma pistol"
                   }
                 ]
               },
@@ -3758,7 +3883,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Weapon§Black Templars Armoury—Plasma pistol"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Plasma pistol"
                   }
                 ]
               },
@@ -3923,7 +4048,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Weapon§Black Templars Armoury—Plasma pistol"
+                    "trait": "Ranged Weapon§Black Templars Armoury—Plasma pistol"
                   }
                 ]
               },
@@ -4367,6 +4492,24 @@
           }
         }
       },
+      "Ranged Weapon§Black Templars Armoury—Missile launcher": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Black Templars Armoury—Missile launcher – frag",
+            "Ranged Weapon§Black Templars Armoury—Missile launcher – krak"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Missile launcher"
+          }
+        }
+      },
       "Ranged Weapon§Black Templars Armoury—Missile launcher – frag": {
         "assets": {
           "traits": [
@@ -4469,6 +4612,24 @@
           }
         }
       },
+      "Ranged Weapon§Black Templars Armoury—Plasma cannon": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Black Templars Armoury—Plasma cannon – standard",
+            "Ranged Weapon§Black Templars Armoury—Plasma cannon – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma cannon"
+          }
+        }
+      },
       "Ranged Weapon§Black Templars Armoury—Plasma cannon – standard": {
         "assets": {
           "traits": [
@@ -4531,6 +4692,24 @@
           },
           "weaponName": {
             "value": "supercharge"
+          }
+        }
+      },
+      "Ranged Weapon§Black Templars Armoury—Plasma pistol": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Black Templars Armoury—Plasma pistol – standard",
+            "Ranged Weapon§Black Templars Armoury—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma pistol"
           }
         }
       },
@@ -5178,6 +5357,25 @@
           }
         }
       },
+      "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – frag",
+            "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – Icarus",
+            "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – krak"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Bellicatus missile array"
+          }
+        }
+      },
       "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – frag": {
         "assets": {
           "traits": [
@@ -5603,6 +5801,24 @@
           },
           "weaponName": {
             "value": "Ironhail heavy stubber"
+          }
+        }
+      },
+      "Ranged Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator – standard",
+            "Ranged Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Macro plasma incinerator"
           }
         }
       },
@@ -6118,6 +6334,24 @@
           }
         }
       },
+      "Ranged Weapon§Chaplain Grimaldus—Plasma pistol": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Chaplain Grimaldus—Plasma pistol – standard",
+            "Ranged Weapon§Chaplain Grimaldus—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma pistol"
+          }
+        }
+      },
       "Ranged Weapon§Chaplain Grimaldus—Plasma pistol – standard": {
         "assets": {
           "traits": [
@@ -6371,6 +6605,24 @@
           }
         }
       },
+      "Ranged Weapon§Crusader Squad—Plasma gun": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Crusader Squad—Plasma gun – standard",
+            "Ranged Weapon§Crusader Squad—Plasma gun – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma gun"
+          }
+        }
+      },
       "Ranged Weapon§Crusader Squad—Plasma gun – standard": {
         "assets": {
           "traits": [
@@ -6533,6 +6785,24 @@
           },
           "weaponName": {
             "value": "Combi-weapon"
+          }
+        }
+      },
+      "Ranged Weapon§Marshal—Plasma pistol": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Marshal—Plasma pistol – standard",
+            "Ranged Weapon§Marshal—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma pistol"
           }
         }
       },
@@ -6866,6 +7136,24 @@
           }
         }
       },
+      "Ranged Weapon§Primaris Sword Brethren—Plasma pistol": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Primaris Sword Brethren—Plasma pistol – standard",
+            "Ranged Weapon§Primaris Sword Brethren—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "stats": {
+          "weaponName": {
+            "value": "Plasma pistol"
+          }
+        }
+      },
       "Ranged Weapon§Primaris Sword Brethren—Plasma pistol – standard": {
         "assets": {
           "traits": [
@@ -7058,7 +7346,7 @@
             "value": 1
           }
         },
-        "text": "WHEN: Your opponent’s Shooting phase or\nthe Fight phase, just after an enemy unit\nhas selected its targets.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.\n\nEFFECT: Until the end of the phase, each\ntime an attack targets your unit, worsen\nthe Armour Penetration characteristic of\nthat attack by 1."
+        "text": "WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
       },
       "Stratagem§Crusader's Wrath": {
         "keywords": {
@@ -7081,7 +7369,7 @@
             "value": 1
           }
         },
-        "text": "WHEN: Fight phase.\n\nTARGET: One Adeptus Astartes unit from\nyour army that has not been selected to\nfight this phase.\n\nEFFECT: Until the end of the phase, each\ntime a model in your unit makes a melee\nattack, improve the Armour Penetration\ncharacteristic of that attack by 1. If the\nSuffer Not The Unclean to Live vow is\nactive for your army, add 1 to the Strength\ncharacteristic of that attack as well."
+        "text": "WHEN: Fight phase.\n\nTARGET: One Adeptus Astartes unit from your army that has not been selected to fight this phase.\n\nEFFECT: Until the end of the phase, each time a model in your unit makes a melee attack, improve the Armour Penetration characteristic of that attack by 1. If the Suffer Not the Unclean to Live vow is active for your army, add 1 to the Strength characteristic of that attack as well."
       },
       "Stratagem§Devout Push": {
         "keywords": {
@@ -7103,7 +7391,7 @@
             "value": 1
           }
         },
-        "text": "WHEN: Your opponent’s Shooting phase,\njust after an enemy unit has shot.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that had one or more of\nits models destroyed as a result of the\nattacking unit’s attacks.\n\nEFFECT: Your unit can make a Normal\nmove of up to D6\", but it must end that\nmove closer to the enemy unit that just\nshot. If the Abhor the Witch, Destroy the\nWitch vow is active for your army, your\nunit can make a Normal move of up to 6\"\ninstead, but it must end that move either\ncloser to the enemy unit that just shot, or\ncloser to the closest enemy Psyker unit."
+        "text": "WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot.\n\nTARGET: One Adeptus Astartes unit from your army that had one or more of its models destroyed as a result of the attacking unit’s attacks.\n\nEFFECT: Your unit can make a Normal move of up to D6\", but it must end that move closer to the enemy unit that just shot. If the Abhor the Witch, Destroy the Witch vow is active for your army, your unit can make a Normal move of up to 6\"\ninstead, but it must end that move either closer to the enemy unit that just shot, or closer to the closest enemy Psyker unit."
       },
       "Stratagem§Fervent Acclamation": {
         "keywords": {
@@ -7125,7 +7413,7 @@
             "value": 1
           }
         },
-        "text": "WHEN: Your Command phase.\n\nTARGET: One Adeptus Astartes\nCharacter unit from your army.\n\nEFFECT: Select one Templar Vow that is\nnot active for your army. Until the start\nof your next Command phase, while that\nCharacter is leading a unit, models in\nthat unit gain the benefits of that vow in\naddition to the vow selected to be active\nfor your army at the start of the battle"
+        "text": "WHEN: Your Command phase.\n\nTARGET: One Adeptus Astartes Character unit from your army.\n\nEFFECT: Select one Templar Vow that is not active for your army. Until the start of your next Command phase, while that Character is leading a unit, models in that unit gain the benefits of that vow in addition to the vow selected to be active for your army at the start of the battle"
       },
       "Stratagem§No Escape": {
         "keywords": {
@@ -7147,7 +7435,7 @@
             "value": 1
           }
         },
-        "text": "WHEN: Your opponent’s Movement phase,\nwhen an enemy unit (excluding Vehicles\nand Monsters) is selected to Fall Back.\n\nTARGET: One Adeptus Astartes unit from\nyour army that is within Engagement\nRange of that enemy unit.\n\nEFFECT: Roll one D6, adding 1 to the result\nif the Accept Any Challenge, No Matter\nthe Odds vow is active for your army. On\na 4+, that enemy unit cannot Fall Back\nthis phase and must Remain Stationary.\nOtherwise, that enemy unit can Fall Back\nthis phase, but if it does, all models in that\nunit must take a Desperate Escape test."
+        "text": "WHEN: Your opponent’s Movement phase, when an enemy unit (excluding Vehicles and Monsters) is selected to Fall Back.\n\nTARGET: One Adeptus Astartes unit from your army that is within Engagement Range of that enemy unit.\n\nEFFECT: Roll one D6, adding 1 to the result if the Accept Any Challenge, No Matter the Odds vow is active for your army. On a 4+, that enemy unit cannot Fall Back this phase and must Remain Stationary. Otherwise, that enemy unit can Fall Back this phase, but if it does, all models in that unit must take a Desperate Escape test."
       },
       "Stratagem§Vicious Riposte": {
         "keywords": {
@@ -7170,7 +7458,7 @@
             "value": 1
           }
         },
-        "text": "WHEN: Fight phase, just after an enemy\nunit has selected its targets.\n\nTARGET: One Adeptus Astartes unit\nfrom your army that was selected as the\ntarget of one or more of the attacking\nunit’s attacks.\n\nEFFECT: Until the end of the phase, each\ntime a model in your unit is destroyed,\nif that model has not fought this phase,\nroll one D6, adding 1 to the result if the\nUphold the Honour of the Emperor vow\nis active for your army. On a 4+, do not\nremove the destroyed model from play; it\ncan fight after the attacking model’s unit\nhas finished making its attacks, and is\nthen removed from play."
+        "text": "WHEN: Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 to the result if the Uphold the Honour of the Emperor vow is active for your army. On a 4+, do not remove the destroyed model from play; it can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
       },
       "Vehicle§Black Templars Gladiator Lancer": {
         "assets": {
@@ -7210,6 +7498,9 @@
             "Smoke",
             "Imperium",
             "Gladiator Lancer"
+          ],
+          "Tags": [
+            "Vehicle Black Templars Gladiator Lancer"
           ]
         },
         "stats": {
@@ -7360,6 +7651,9 @@
             "Smoke",
             "Imperium",
             "Gladiator Reaper"
+          ],
+          "Tags": [
+            "Vehicle Black Templars Gladiator Reaper"
           ]
         },
         "stats": {
@@ -7475,6 +7769,9 @@
             "Smoke",
             "Imperium",
             "Gladiator Valiant"
+          ],
+          "Tags": [
+            "Vehicle Black Templars Gladiator Valiant"
           ]
         },
         "stats": {
@@ -7593,6 +7890,9 @@
             "Dedicated Transport",
             "Imperium",
             "Impulsor"
+          ],
+          "Tags": [
+            "Vehicle Black Templars Impulsor"
           ]
         },
         "stats": {
@@ -7690,7 +7990,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Weapon§Black Templars Impulsor—Bellicatus missile array"
+                    "trait": "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array"
                   }
                 ]
               },
@@ -7769,6 +8069,9 @@
             "Transport",
             "Imperium",
             "Repulsor"
+          ],
+          "Tags": [
+            "Vehicle Black Templars Repulsor"
           ]
         },
         "stats": {
@@ -7914,6 +8217,9 @@
             "Transport",
             "Imperium",
             "Repulsor Executioner"
+          ],
+          "Tags": [
+            "Vehicle Black Templars Repulsor Executioner"
           ]
         },
         "stats": {
@@ -7926,7 +8232,7 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator"
+                    "trait": "Ranged Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator"
                   }
                 ]
               },
@@ -8021,205 +8327,6 @@
       },
       "Wargear§Shield Dome": {
         "text": "The bearer has a 5+ invulnerable save."
-      },
-      "Weapon§Black Templars Armoury—Missile launcher": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Black Templars Armoury—Missile launcher – frag",
-            "Ranged Weapon§Black Templars Armoury—Missile launcher – krak"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Missile launcher"
-          }
-        }
-      },
-      "Weapon§Black Templars Armoury—Plasma cannon": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Black Templars Armoury—Plasma cannon – standard",
-            "Ranged Weapon§Black Templars Armoury—Plasma cannon – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Plasma cannon"
-          }
-        }
-      },
-      "Weapon§Black Templars Armoury—Plasma pistol": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Black Templars Armoury—Plasma pistol – standard",
-            "Ranged Weapon§Black Templars Armoury—Plasma pistol – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Plasma pistol"
-          }
-        }
-      },
-      "Weapon§Black Templars Impulsor—Bellicatus missile array": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – frag",
-            "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – Icarus",
-            "Ranged Weapon§Black Templars Impulsor—Bellicatus missile array – krak"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Bellicatus missile array"
-          }
-        }
-      },
-      "Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator – standard",
-            "Ranged Weapon§Black Templars Repulsor Executioner—Macro plasma incinerator – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Macro plasma incinerator"
-          }
-        }
-      },
-      "Weapon§Chaplain Grimaldus—Plasma pistol": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Chaplain Grimaldus—Plasma pistol – standard",
-            "Ranged Weapon§Chaplain Grimaldus—Plasma pistol – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Plasma pistol"
-          }
-        }
-      },
-      "Weapon§Crusader Squad—Plasma gun": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Crusader Squad—Plasma gun – standard",
-            "Ranged Weapon§Crusader Squad—Plasma gun – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Plasma gun"
-          }
-        }
-      },
-      "Weapon§High Marshal Helbrecht—Sword of the High Marshals": {
-        "assets": {
-          "traits": [
-            "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals – one-handed",
-            "Melee Weapon§High Marshal Helbrecht—Sword of the High Marshals – two-handed"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Sword of the High Marshals"
-          }
-        }
-      },
-      "Weapon§Marshal—Plasma pistol": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Marshal—Plasma pistol – standard",
-            "Ranged Weapon§Marshal—Plasma pistol – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Plasma pistol"
-          }
-        }
-      },
-      "Weapon§Primaris Sword Brethren—Plasma pistol": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Primaris Sword Brethren—Plasma pistol – standard",
-            "Ranged Weapon§Primaris Sword Brethren—Plasma pistol – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Plasma pistol"
-          }
-        }
-      },
-      "Weapon§The Emperor’s Champion—Black Sword": {
-        "assets": {
-          "traits": [
-            "Melee Weapon§The Emperor’s Champion—Black Sword – strike",
-            "Melee Weapon§The Emperor’s Champion—Black Sword – sweep"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        },
-        "stats": {
-          "weaponName": {
-            "value": "Black Sword"
-          }
-        }
       }
     },
     "gameModes": {},
