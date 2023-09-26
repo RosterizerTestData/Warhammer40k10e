@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.5.2",
+  "revision": "10.5.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "P6NGGJ",
+      "slug": "495V89",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -6839,6 +6839,9 @@
         }
       },
       "Model§Daemonhost": {
+        "aspects": {
+          "Unique": true
+        },
         "assets": {
           "traits": [
             "Ranged Weapon§Inquisitorial Henchmen—Unholy Gaze",
@@ -6855,7 +6858,9 @@
           "OC": {
             "value": 1
           },
-          "Points": {},
+          "Points": {
+            "value": 10
+          },
           "Sv": {
             "value": 5
           },
@@ -7148,6 +7153,9 @@
         }
       },
       "Model§Jokaero Weaponsmith": {
+        "aspects": {
+          "Unique": true
+        },
         "assets": {
           "traits": [
             "Ranged Weapon§Inquisitorial Henchmen—Jokaero weapons",
@@ -7164,7 +7172,9 @@
           "OC": {
             "value": 1
           },
-          "Points": {},
+          "Points": {
+            "value": 10
+          },
           "Sv": {
             "value": 5
           },
@@ -16379,53 +16389,12 @@
             "Unit Inquisitorial Henchmen"
           ]
         },
+        "removed": {
+          "rules": {
+            "This unit has fewer (or more) models than allowed by its point cost.": {}
+          }
+        },
         "rules": {
-          "CalculatePoints": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "rules",
-                  "CalculatePoints",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T*O",
-                  "value": 10
-                },
-                "not": false,
-                "note": "This unit has weird pricing that works out at 10ppm regardless of model type and I CBA to make it more accurate.",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
           "Max 1 Eviscerator": {
             "evals": [
               {
@@ -16490,31 +16459,6 @@
             "evaluate": "OR",
             "failState": "error"
           },
-          "Maximum 1 Daemonhost.": {
-            "evals": [
-              {
-                "actionable": true,
-                "equation": {
-                  "operator": "T-O",
-                  "value": 1
-                },
-                "max": 1,
-                "not": false,
-                "note": "“Daemonhost” stat is always 1 too high because it counts the ability as well as the models",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Daemonhost",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
           "Minimum 1 Heavy Bolter": {
             "evals": [
               {
@@ -16546,16 +16490,552 @@
             ],
             "evaluate": "OR",
             "failState": "error"
+          },
+          "points100": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 60
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "thresh",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 5,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Inquisitorial Acolyte"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 93
+          },
+          "points140": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 100
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "thresh",
+                    "value"
+                  ]
+                ],
+                "value": 4
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "points140",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "points140",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 94
+          },
+          "points60": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 20
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "thresh",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "points60",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "points60",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Inquisitorial Acolyte"
+                  ]
+                ],
+                "value": 4
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 92
+          },
+          "You’re paying for 10 Inquisitorial Acolytes but aren’t including ten.": {
+            "evals": [
+              {
+                "actionable": false,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Inquisitorial Acolyte"
+                  ]
+                ],
+                "value": 10
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for 10 Inquisitorial Acolytes but aren’t including ten.",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for 10 Inquisitorial Acolytes but aren’t including ten.",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for 10 Inquisitorial Acolytes but aren’t including ten.",
+                    "evals",
+                    "2",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "thresh",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "warning"
+          },
+          "You’re paying for 10 Inquisitorial Acolytes, 2 Mystics, and 2 Gun Servitors.": {
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ],
+                "value": 2
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ],
+                "value": 2
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Inquisitorial Acolyte"
+                  ]
+                ],
+                "value": 10
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for 10 Inquisitorial Acolytes, 2 Mystics, and 2 Gun Servitors.",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for 10 Inquisitorial Acolytes, 2 Mystics, and 2 Gun Servitors.",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for 10 Inquisitorial Acolytes, 2 Mystics, and 2 Gun Servitors.",
+                    "evals",
+                    "2",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "thresh",
+                    "value"
+                  ]
+                ],
+                "value": 4
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "warning"
+          },
+          "You’re paying for a Mystic and a Gun Servitor but only have one.": {
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Inquisitorial Acolyte"
+                  ]
+                ],
+                "value": 4
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for a Mystic and a Gun Servitor but only have one.",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for a Mystic and a Gun Servitor but only have one.",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "You’re paying for a Mystic and a Gun Servitor but only have one.",
+                    "evals",
+                    "2",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": false
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "thresh",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "warning"
           }
         },
         "stats": {
-          "Daemonhost": {
-            "min": 0,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
           "Gun Servitor": {
             "max": 2,
             "min": 0,
@@ -16572,19 +17052,6 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Jokaero Weaponsmith": {
-            "max": 1,
-            "min": 0,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "value": 4
-          },
-          "model2ndCost": {},
-          "model2ndTally": {},
           "Mystic": {
             "max": 2,
             "min": 0,
@@ -16595,6 +17062,11 @@
           },
           "Points": {
             "value": 40
+          },
+          "thresh": {
+            "statType": "numeric",
+            "value": 1,
+            "visibility": "hidden"
           }
         },
         "text": ""
