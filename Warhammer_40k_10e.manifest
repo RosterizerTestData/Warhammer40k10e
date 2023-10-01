@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.5.3",
+  "revision": "10.6.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -126,6 +126,16 @@
           }
         }
       },
+      "Battle Honour": {
+        "stats": {
+          "Crusade Pts": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
+          }
+        }
+      },
       "Battle Scar": {
         "aspects": {
           "Rename": true
@@ -142,10 +152,11 @@
             "Character",
             "Infantry",
             "Mounted",
-            "Vehicles"
+            "Vehicle"
           ],
           "Keywords": []
         },
+        "templateClass": "Battle Honour",
         "text": ""
       },
       "Character": {
@@ -165,7 +176,7 @@
           }
         },
         "rules": {
-          "allowBattleTraits": {
+          "allowAntiquityRelics": {
             "actions": [
               {
                 "actionType": "add",
@@ -177,7 +188,55 @@
                     "any"
                   ]
                 ],
-                "value": "Vehicles"
+                "value": "Antiquity Relic"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 30,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowCrusadeRelics": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Crusade Relic"
               },
               {
                 "actionType": "add",
@@ -189,43 +248,7 @@
                     "any"
                   ]
                 ],
-                "value": "Character"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Mounted"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Infantry"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Monster"
+                "value": "Artificer Relic"
               }
             ],
             "evals": [
@@ -247,7 +270,7 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "allowScarsTraits": {
+          "allowLegendaryRelics": {
             "actions": [
               {
                 "actionType": "add",
@@ -255,23 +278,11 @@
                 "paths": [
                   [
                     "{self}",
-                    "allowed",
-                    "classifications"
+                    "constraints",
+                    "any"
                   ]
                 ],
-                "value": "Battle Scar"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "allowed",
-                    "classifications"
-                  ]
-                ],
-                "value": "Battle Trait"
+                "value": "Legendary Relic"
               }
             ],
             "evals": [
@@ -291,19 +302,21 @@
               },
               {
                 "actionable": true,
-                "min": 0,
+                "min": 50,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
-                    "max"
+                    "Experience",
+                    "value"
                   ]
                 ]
               }
-            ]
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           },
           "detachmentEnhancements": {
             "actions": [
@@ -326,6 +339,76 @@
               }
             ],
             "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "disallowReqsForEpicHeroes": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Battle Trait"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Battle Scar"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Crusade Relic"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Requisition"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              }
+            ],
             "evaluate": "AND",
             "failState": "pass"
           },
@@ -599,7 +682,8 @@
         },
         "keywords": {
           "Tags": []
-        }
+        },
+        "templateClass": "Battle Honour"
       },
       "Detachment": {
         "aspects": {
@@ -610,6 +694,11 @@
         "aspects": {
           "Lock Qty": true,
           "Unique": true
+        },
+        "keywords": {
+          "Tags": [
+            "anyEnhancement"
+          ]
         },
         "rules": {
           "There are more than 1 of this unique enhancement.": {
@@ -677,126 +766,6 @@
         }
       },
       "Infantry/Mounted": {
-        "rules": {
-          "allowbattletraits": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Infantry"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Mounted"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Infantry"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowScarsTraits": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "allowed",
-                    "classifications"
-                  ]
-                ],
-                "value": "Battle Scar"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "allowed",
-                    "classifications"
-                  ]
-                ],
-                "value": "Battle Trait"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "min": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "max"
-                  ]
-                ]
-              }
-            ]
-          }
-        },
         "templateClass": "Unit"
       },
       "Melee Weapon": {
@@ -814,6 +783,7 @@
         },
         "templateClass": "Weapon"
       },
+      "Mission Reward": {},
       "Model": {
         "aspects": {
           "Group Traits": true,
@@ -928,11 +898,22 @@
       "Order of Battle": {
         "allowed": {
           "classifications": [
-            "Unit"
+            "Unit",
+            "Mission Reward"
+          ],
+          "items": [
+            "Requisition§Increase Supply Limit",
+            "Requisition§Rearm and Resupply"
           ]
         },
         "aspects": {
           "Group Includes": true
+        },
+        "constraints": {
+          "any": [
+            "forceReward",
+            "unit"
+          ]
         },
         "rules": {
           "hide enclosed assets": {
@@ -960,38 +941,25 @@
           "noPoints": {
             "actions": [
               {
-                "actionType": "set",
+                "actionType": "modify",
                 "iterations": 1,
                 "paths": [
                   [
                     "{self}",
                     "tracked",
                     "Points"
-                  ]
-                ],
-                "value": 0
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "requisitionCalc": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
+                  ],
                   [
                     "{self}",
                     "stats",
-                    "Requisition Points",
+                    "Supply Used",
                     "value"
                   ]
                 ],
                 "value": [
                   "{self}",
                   "rules",
-                  "requisitionCalc",
+                  "noPoints",
                   "evals",
                   "0",
                   "result",
@@ -1001,29 +969,67 @@
             ],
             "evals": [
               {
-                "actionable": false,
+                "actionable": true,
                 "equation": {
-                  "operator": "T-O",
-                  "value": [
-                    "{self}",
-                    "tally",
-                    "Requisition"
-                  ]
+                  "operator": "T*O",
+                  "value": -1
                 },
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "stats",
-                    "Battle Tally",
-                    "value"
+                    "tracked",
+                    "Points"
                   ]
                 ]
               }
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "setSupplyUsed": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Supply Used",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "Points"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Supply Used",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
           },
           "supplyUsedLimit": {
             "actions": [
@@ -1034,7 +1040,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Power Level",
+                    "Supply Used",
                     "max"
                   ]
                 ],
@@ -1046,6 +1052,7 @@
                 ]
               }
             ],
+            "evals": [],
             "evaluate": "AND",
             "failState": "pass"
           }
@@ -1071,30 +1078,16 @@
             "value": 0,
             "visibility": "normal"
           },
-          "Power Level": {
-            "dynamic": false,
-            "label": "Supply Used",
+          "Supply Limit": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1000,
+            "visibility": "normal"
+          },
+          "Supply Used": {
             "statType": "numeric",
             "tracked": true,
             "value": 0,
-            "visibility": "normal"
-          },
-          "Requisition Points": {
-            "dynamic": false,
-            "max": 5,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Supply Limit": {
-            "dynamic": true,
-            "increment": {
-              "value": 1
-            },
-            "statType": "numeric",
-            "tracked": false,
-            "value": 50,
             "visibility": "normal"
           }
         }
@@ -1109,15 +1102,17 @@
       },
       "Requisition": {
         "aspects": {
-          "Describe": true
+          "Describe": true,
+          "Lock Qty": true
         },
         "stats": {
           "RP": {
             "group": "Cost",
             "groupOrder": -1,
             "statType": "numeric",
+            "tracked": true,
             "value": null,
-            "visibility": "normal"
+            "visibility": "always"
           }
         }
       },
@@ -1165,9 +1160,16 @@
           ]
         }
       },
+      "Tyrannic War Battle Honour": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
+        }
+      },
       "Unit": {
         "allowed": {
-          "classifications": []
+          "classifications": [],
+          "items": []
         },
         "aspects": {
           "Group Includes": true,
@@ -1183,59 +1185,15 @@
           "Source": [],
           "Faction": [],
           "Keywords": [],
-          "Tags": []
+          "Tags": [
+            "unit"
+          ]
         },
         "removed": {
           "stats": {}
         },
         "rules": {
-          "addBattleHonours": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Battle Honours",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "rules",
-                  "addBattleHonours",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "not": false,
-                "operator": "SUM",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Battle Trait",
-                      "Psychic Fortitude",
-                      "Weapon Enhancement"
-                    ]
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 20
-          },
-          "allowCharacterScarsTraits": {
+          "allowCharacterTraits": {
             "actions": [
               {
                 "actionType": "add",
@@ -1278,45 +1236,11 @@
                   ]
                 ],
                 "value": "Character"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowMonsterScarsTraits": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Monster"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
               },
               {
                 "actionable": true,
                 "contains": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -1326,40 +1250,6 @@
                   ]
                 ],
                 "value": "Monster"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "allowOtherBattleScars": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Other Unit"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
               },
               {
                 "actionable": true,
@@ -1374,11 +1264,45 @@
                   ]
                 ],
                 "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowInfantryTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               },
               {
                 "actionable": true,
                 "contains": true,
-                "not": true,
+                "not": false,
                 "operator": "AND",
                 "paths": [
                   [
@@ -1387,12 +1311,152 @@
                     "Keywords"
                   ]
                 ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowLegendaryVeterans": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Legendary Veterans"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "classification"
+                  ]
+                ],
                 "value": "Character"
               },
               {
                 "actionable": true,
+                "min": 30,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowMissionRewards": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "unitReward"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Mission Reward"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowMonsterTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Striding Behemoth"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
                 "contains": true,
-                "not": true,
+                "not": false,
                 "operator": "AND",
                 "paths": [
                   [
@@ -1407,7 +1471,7 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "allowPsychicFortitudes": {
+          "allowMountedTraits": {
             "actions": [
               {
                 "actionType": "add",
@@ -1415,27 +1479,27 @@
                 "paths": [
                   [
                     "{self}",
-                    "allowed",
-                    "classifications"
+                    "constraints",
+                    "any"
                   ]
                 ],
-                "value": "Psychic Fortitude"
+                "value": "Mounted"
               }
             ],
             "evals": [
               {
                 "actionable": true,
-                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
-                    "{self}",
+                    "{roster}",
                     "stats",
-                    "Battle Honours",
-                    "max"
+                    "Play",
+                    "value"
                   ]
-                ]
+                ],
+                "value": "Narrative"
               },
               {
                 "actionable": true,
@@ -1449,7 +1513,140 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Psyker"
+                "value": "Mounted"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowRenownedHeroes": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Renowned Heroes"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "classification"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionable": false,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "value"
+                  ]
+                ],
+                "value": "Battle-ready"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "allowRenownedHeroes",
+                    "evals",
+                    [
+                      "0",
+                      "1"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Enhancement"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Disgraced"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mark of Shame"
+                  ]
+                ]
               }
             ],
             "evaluate": "AND",
@@ -1506,7 +1703,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "max"
                   ]
                 ]
@@ -1515,7 +1712,113 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "allowVehicleScarsTraits": {
+          "allowTyrannicWarVet": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Tyrannic War Veteran"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowVanillaReqs": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Rearm and Resupply"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Repair and Recuperate"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Fresh Recruits"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowVehicleTraits": {
             "actions": [
               {
                 "actionType": "add",
@@ -1558,6 +1861,68 @@
                   ]
                 ],
                 "value": "Vehicle"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowWalkerTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Striding Behemoth"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
               }
             ],
             "evaluate": "AND",
@@ -2028,8 +2393,9 @@
                     [
                       "Crusade Pts",
                       "Experience",
-                      "Battle Honours",
-                      "Rank"
+                      "Battle Honour",
+                      "Rank",
+                      "Combat Tally"
                     ],
                     "visibility"
                   ]
@@ -2051,6 +2417,20 @@
                   ]
                 ],
                 "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
               }
             ],
             "evaluate": "AND",
@@ -2249,6 +2629,78 @@
             "failState": "pass",
             "order": 5
           },
+          "onlyCharactersCanTopRank": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "ranks"
+                  ]
+                ],
+                "value": "Heroic"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Rank",
+                    "ranks"
+                  ]
+                ],
+                "value": "Legendary"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "max"
+                  ]
+                ],
+                "value": 30
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "classification"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Legendary Veterans"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "rank1": {
             "actions": [
               {
@@ -2271,7 +2723,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "max"
                   ]
                 ],
@@ -2335,7 +2787,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "max"
                   ]
                 ],
@@ -2399,7 +2851,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "max"
                   ]
                 ],
@@ -2463,7 +2915,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "max"
                   ]
                 ],
@@ -2612,7 +3064,7 @@
             "evaluate": "OR",
             "failState": "warning"
           },
-          "This unit has unspent traits.": {
+          "This unit has unspent Battle Honours.": {
             "evals": [
               {
                 "actionable": true,
@@ -2633,7 +3085,7 @@
                 "min": [
                   "{self}",
                   "stats",
-                  "Battle Honours",
+                  "Battle Honour",
                   "max"
                 ],
                 "not": false,
@@ -2642,7 +3094,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "value"
                   ]
                 ]
@@ -2651,6 +3103,46 @@
             "evaluate": "OR",
             "failState": "warning",
             "order": 22
+          },
+          "titanicCrusadePts": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Crusade Pts",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Crusade Pts",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Titanic"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           },
           "Too many of this unit type in the army.": {
             "evals": [
@@ -2742,19 +3234,37 @@
             "value": null,
             "visibility": "active"
           },
-          "Battle Honours": {
+          "Battle Honour": {
+            "group": "Crusade",
+            "groupOrder": 3,
+            "label": "Battle Honours",
+            "max": 0,
             "statOrder": 4,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
           },
-          "Crusade Pts": {
+          "Combat Tally": {
             "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 3,
+            "increment": {
+              "value": 1
+            },
+            "statOrder": 4,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Crusade Pts": {
+            "group": "Cost",
+            "groupOrder": -1,
+            "statOrder": 3,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
-            "visibility": "hidden"
+            "visibility": "always"
           },
           "Enhancement": {
             "max": 1,
@@ -2765,9 +3275,12 @@
           },
           "Experience": {
             "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 3,
             "increment": {
               "value": 1
             },
+            "statOrder": 1,
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden"
@@ -2853,6 +3366,8 @@
             "visibility": "always"
           },
           "Rank": {
+            "group": "Crusade",
+            "groupOrder": 3,
             "ranks": {
               "Battle-ready": {
                 "order": 0
@@ -2874,6 +3389,7 @@
                 "tracking": {}
               }
             },
+            "statOrder": 3,
             "statType": "rank",
             "value": "Battle-ready",
             "visibility": "hidden"
@@ -2898,6 +3414,18 @@
             "value": null,
             "visibility": "hidden"
           },
+          "Vet Tally": {
+            "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 3,
+            "increment": {
+              "value": 1
+            },
+            "statOrder": 10,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
           "W": {
             "group": "Stats",
             "statOrder": 6,
@@ -2908,68 +3436,6 @@
         }
       },
       "Vehicle": {
-        "rules": {
-          "allowbattletraits": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Vehicles"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Monster"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Vehicle"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "templateClass": "Unit"
       },
       "Wargear": {
@@ -3179,6 +3645,110 @@
           "Visibility": "always"
         },
         "rules": {
+          "allowEnhancement": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Weapon Modification"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              },
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Weapon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "allowEnhancements": {
             "actions": [
               {
@@ -3204,7 +3774,7 @@
                   [
                     "{parent}",
                     "stats",
-                    "Battle Honours",
+                    "Battle Honour",
                     "max"
                   ]
                 ]
@@ -3454,6 +4024,7 @@
         "keywords": {
           "Tags": []
         },
+        "templateClass": "Battle Honour",
         "text": ""
       }
     },
@@ -3878,6 +4449,15 @@
                     "stats",
                     "M",
                     "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "M",
+                    "value"
                   ]
                 ],
                 "value": -1
@@ -3897,6 +4477,42 @@
         },
         "text": "Each time a Critical Hit is scared against this unit, that attack automatically wounds this unit."
       },
+      "Battle Scar§Devastating Blow": {
+        "rules": {
+          "tallyBattleHonour": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Battle Trait"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Battle Honour": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "label": "Lost Honours",
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          }
+        },
+        "text": "Remove a Battle Honour"
+      },
       "Battle Scar§Disgraced": {
         "aspects": {
           "Lock Qty": true,
@@ -3909,7 +4525,7 @@
           "Lock Qty": true
         },
         "rules": {
-          "decrease": {
+          "decreaseOC": {
             "actions": [
               {
                 "actionType": "modify",
@@ -3917,6 +4533,15 @@
                 "paths": [
                   [
                     "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
                     "stats",
                     "OC",
                     "value"
@@ -3936,7 +4561,66 @@
         "aspects": {
           "Lock Qty": true,
           "Unique": true
-        }
+        },
+        "rules": {
+          "cannotAttach": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{parent}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAttachments": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit cannot form an Attached unit, it is unaffected by the Aura abilities of friendly units, and it can't be Marked for Greatness."
       },
       "Battle Trait§Archaeotech Powercell": {
         "keywords": {
@@ -3949,6 +4633,37 @@
               "Infantry",
               "Mounted"
             ]
+          }
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "Add 2″ to the move characteristic of models in this unit."
@@ -3989,8 +4704,35 @@
             "Tags": [
               "Character",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "6"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "Models in this unit have the Feel No Pain 6+ ability."
@@ -4013,8 +4755,35 @@
             "Tags": [
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "Character models in this unit have the Feel No Pain 5+ ability."
@@ -4043,8 +4812,35 @@
               "Mounted"
             ],
             "Keywords": [
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "5"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "Models in this unit have a 5+ invulnerable save."
@@ -4070,8 +4866,35 @@
             "Tags": [
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "x": {
+                      "value": "9"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "This unit has the Scouts 9” ability."
@@ -4097,8 +4920,48 @@
             "Tags": [
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Sustained Hits",
+                  "stats": {
+                    "x": {
+                      "value": "1"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "Melee weapons equipped by Character models in this unit have the [Sustained Hits 1] ability."
@@ -4112,7 +4975,7 @@
             "Tags": [
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4130,7 +4993,7 @@
               "Character",
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4157,7 +5020,7 @@
             "Tags": [
               "Character",
               "Infantry",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4187,7 +5050,7 @@
             "Tags": [
               "Character",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4199,7 +5062,7 @@
             "Tags": [
               "Character",
               "Infantry",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4214,7 +5077,7 @@
             "Tags": [
               "Character",
               "Infantry",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4227,6 +5090,15 @@
                 "paths": [
                   [
                     "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
                     "stats",
                     "M",
                     "value"
@@ -4248,7 +5120,7 @@
             "Tags": [
               "Character",
               "Infantry",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4263,7 +5135,7 @@
             "Tags": [
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4275,7 +5147,7 @@
             "Tags": [
               "Character",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4288,6 +5160,15 @@
                 "paths": [
                   [
                     "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
                     "stats",
                     "OC",
                     "value"
@@ -4309,7 +5190,7 @@
             "Tags": [
               "Character",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4321,7 +5202,7 @@
             "Tags": [
               "Character",
               "Infantry",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4339,11 +5220,22 @@
               "Character",
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
-        "text": "Select any one of the Battle Honors from the Monster Hunters upgrade path for this unit to gain, regardless of the ones it has already unlocked.  The Battle Honour you select does not increase this unit's Crusade points total and does not count as an additional Battle Honour when determining the maximum number of Battle Honors this unit can have."
+        "stats": {
+          "Battle Honour": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": -1,
+            "visibility": "hidden"
+          },
+          "Crusade Pts": {
+            "value": 0
+          }
+        },
+        "text": "Select any one of the Battle Honours from the Monster Hunters upgrade path for this unit to gain, regardless of the ones it has already unlocked.  The Battle Honour you select does not increase this unit's Crusade points total and does not count as an additional Battle Honour when determining the maximum number of Battle Honors this unit can have."
       },
       "Battle Trait§Reinforced Superstructure": {
         "keywords": {
@@ -4366,7 +5258,7 @@
             "Tags": [
               "Character",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4383,8 +5275,28 @@
             "Tags": [
               "Infantry",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "This unit has the Stealth ability."
@@ -4395,7 +5307,7 @@
             "Tags": [
               "Character",
               "Infantry",
-              "Vehicles"
+              "Vehicle"
             ]
           }
         },
@@ -4422,8 +5334,35 @@
             "Tags": [
               "Character",
               "Mounted",
-              "Vehicles"
+              "Vehicle"
             ]
+          }
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "x": {
+                      "value": "9"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "This unit has the Scouts 9” ability."
@@ -4433,6 +5372,47 @@
           "Tags": [
             "Antiquity Relic"
           ]
+        },
+        "rules": {
+          "Infantry Model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
         },
         "text": "Infantry Model Only. The first time the bearer is destroyed, you can choose to roll one D6 at the end of the phase instead of using any rules that are triggered when a model is destroyed. If you roll a 4+, the bearer is set back up on the battlefield as close as possible to where it was before it was destroyed, with D3 wounds remaining. If it was If the bear was part of an attached unit when it was destroyed and its bodyguard unit is still on the battlefield when the Bearer is set back up, it must be placed in Unit Coherency with that unit again to form an Attached Unit. You do not need to take an Out of Action pass for the Bearer at the end of the battle, unless it is destroyed again."
       },
@@ -4454,6 +5434,14 @@
             "Artificer Relic"
           ]
         },
+        "stats": {
+          "Weapon": {
+            "dynamic": true,
+            "statType": "term",
+            "value": "weapon",
+            "visibility": "normal"
+          }
+        },
         "text": "Select a weapon the bearer is equipped with (Excluding any Enhancements or weapons affected by weapon modifications) Make a note on the bearer’s Crusade card of this weapon and give it a suitable name.  That weapon is now a Crusade Relic and each time the bearer makes an attack with it, on a Critical Hit, the target suffers 1 Mortal Wound in addition to any normal damage."
       },
       "Crusade Relic§Biosplint Gland": {
@@ -4464,11 +5452,52 @@
         },
         "text": "Each time the bearer’s unit ends a Charge move, select one enemy unit within engagement range of the bearer.  Until the end of the turn, each time a model in that enemy unit makes an attack, subtract 1 from that attack's Hit Roll."
       },
-      "Crusade Relic§Cranium of Obscura": {
+      "Crusade Relic§Cranium Obscura": {
         "keywords": {
           "Tags": [
             "Antiquity Relic"
           ]
+        },
+        "rules": {
+          "Cannot be taken by Psykers.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
         },
         "text": "Cannot be taken by Psyker models.  Each time a Psychic Attack targets the bearer’s unit, subtract 1 from the attack's Hit Roll."
       },
@@ -4486,6 +5515,11 @@
             "Legendary Relic"
           ]
         },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
         "text": "Each time the bearer makes a Normal, Advance or Fall Back move, until the move is finished, it can move horizontally through models and terrain features (it cannot finish a move on top of another model or its base). If doing so when making a Fall Back move, models in this unit do not need to take a Desperate Escape test.  After it has finished moving, select one enemy unit it moved across (if any) and roll one D6, on a 2+ that unit suffers D3 mortal wounds."
       },
       "Crusade Relic§Lantern of Detestation": {
@@ -4493,6 +5527,11 @@
           "Tags": [
             "Antiquity Relic"
           ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
         },
         "text": "At the start of your opponent’s Movement phase, for each enemy unit within Engagement range of the bearer (excluding Imperium and chaos units), roll one D6, on a 4+ until the end of the phase that unit cannot be selected to fall back."
       },
@@ -4523,13 +5562,19 @@
             "evaluate": "AND",
             "failState": "pass"
           }
-        }
+        },
+        "text": "Add 1 to armour saving throws made for the bearer."
       },
       "Crusade Relic§Null-Field Disruptor": {
         "keywords": {
           "Tags": [
             "Legendary Relic"
           ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
         },
         "text": "Each time the bearer makes a melee attack, invulnerable saving throws cannot be made against that attack."
       },
@@ -4539,6 +5584,11 @@
             "Antiquity Relic"
           ]
         },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
         "text": "Unless the bearer is part of an Attached unit at the start of the battle, it has the Lone Operative ability."
       },
       "Crusade Relic§Shard of Dying Light": {
@@ -4546,6 +5596,47 @@
           "Tags": [
             "Antiquity Relic"
           ]
+        },
+        "rules": {
+          "Psyker Model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
         },
         "text": "Psyker Model only. Each time the bearer makes a Psychic Attack, add 1 to that attack’s wound roll."
       },
@@ -4555,6 +5646,11 @@
             "Antiquity Relic"
           ]
         },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
         "text": "Once per battle round, if the bearer is on the battlefield when you use a Strategic Ploy Stratagems, you can use that Stratagem without spending any CP."
       },
       "Crusade Relic§Vertebrax of Vodun": {
@@ -4562,6 +5658,11 @@
           "Tags": [
             "Legendary Relic"
           ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
         },
         "text": "At the start of your Command phase, select one friendly model on the battlefield (excluding the bearer) and then select one Aura ability that selected model has.  Until the start of your next Command phase, the bearer has that Aura ability."
       },
@@ -4576,7 +5677,63 @@
             "Legendary Relic"
           ]
         },
-        "text": "The bearer is equipped with a vortex grenade that has the following profile:\nRange\t\tA\tBS\tS\tAP\tD\n    6”\t\t1\t2+\t-\t-\t-\t\nAbilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "The bearer is equipped with a vortex grenade that has the following profile:\n|Range|A|BS|S|AP|D|\n|---|---|---|---|---|---|\n|6”|1|2+|-|-|-|\n\nAbilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
+      },
+      "Mission Reward§Battle Trait": {
+        "keywords": {
+          "Tags": [
+            "unitReward"
+          ]
+        }
+      },
+      "Mission Reward§Blooded (one use)": {
+        "keywords": {
+          "Tags": [
+            "forceReward"
+          ]
+        }
+      },
+      "Mission Reward§Crusade Relic": {
+        "keywords": {
+          "Tags": [
+            "unitReward"
+          ]
+        }
+      },
+      "Mission Reward§Requisition Point": {
+        "keywords": {
+          "Tags": [
+            "forceReward"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": -1,
+            "visibility": "hidden"
+          }
+        }
+      },
+      "Mission Reward§Supply Limit": {
+        "keywords": {
+          "Tags": [
+            "forceReward"
+          ]
+        },
+        "stats": {
+          "Supply Limit": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 200,
+            "visibility": "hidden"
+          }
+        }
       },
       "Order of Battle§Order of Battle": {},
       "Requisition§Fresh Recruits": {
@@ -4585,7 +5742,7 @@
             "dynamic": true,
             "max": 4,
             "min": 1,
-            "value": 1
+            "value": 0
           }
         },
         "text": "Costs 1 RP for every 2 Battle Honors the unit has. Increases the maximum size of the unit."
@@ -4616,32 +5773,19 @@
         "stats": {
           "RP": {
             "value": 1
+          },
+          "Supply Limit": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 200,
+            "visibility": "hidden"
           }
         },
         "text": "Increase supply by 200"
       },
       "Requisition§Legendary Veterans": {
-        "rules": {
-          "Lift 30xp Cap": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Experience",
-                    "max"
-                  ]
-                ],
-                "value": 50
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
+        "aspects": {
+          "Unique": true
         },
         "stats": {
           "RP": {
@@ -4652,6 +5796,15 @@
       },
       "Requisition§Rearm and Resupply": {
         "stats": {
+          "Battle Honour": {
+            "dynamic": true,
+            "label": "Lost Honours",
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "normal"
+          },
           "RP": {
             "value": 1
           }
@@ -4659,28 +5812,186 @@
         "text": "Is used before a battle to change the wargear on models in a unit in your Order of Battle"
       },
       "Requisition§Renowned Heroes": {
+        "aspects": {
+          "Unique": true
+        },
+        "rules": {
+          "allowEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "anyEnhancement"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "RP": {
             "dynamic": true,
+            "increment": {
+              "value": 1
+            },
             "max": 3,
             "min": 1,
-            "value": 1,
-            "visibility": "always"
+            "value": 0
           }
         },
         "text": "Adds an Enhancement to a Character. Costs 1 for the first, 2 for the second and 3 for every enhancement added after that. Usable when a character joins the roster or when they gain a rank. Characters cannot have more than 1 enhancement."
       },
       "Requisition§Repair and Recuperate": {
         "stats": {
+          "Crusade Pts": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "normal"
+          },
           "RP": {
             "dynamic": true,
             "max": 5,
             "min": 1,
-            "value": 1,
+            "value": 0,
             "visibility": "always"
           }
         },
         "text": "Costs an additional RP for each battle honor the unit has, and removes a battle scar."
+      },
+      "Requisition§Tyrannic War Veteran": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Upgrade Path",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          },
+          "Select a Tyrannic Battle Honour and reset the Vet Tally.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 9,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Vet Tally",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "warning"
+          },
+          "Select an upgrade path.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Upgrade Path",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "unhideTally": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Vet Tally",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          },
+          "Upgrade Path": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Monster Hunters": {
+                "order": 1,
+                "term": "Tyrannic War Battle Honour§Giantslayers"
+              },
+              "Striding Behemoths": {
+                "order": 2,
+                "term": "Tyrannic War Battle Honour§Thunderous Blows"
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          }
+        }
       },
       "Roster§Army": {
         "allowed": {
@@ -4751,6 +6062,34 @@
             "evaluate": "OR",
             "failState": "pass",
             "order": 1
+          },
+          "addRP": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Requisition Pts",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "assets",
+                  "designation",
+                  "Order of Battle",
+                  "stats",
+                  "Battle Tally",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           },
           "allowFaction": {
             "actions": [
@@ -5175,6 +6514,51 @@
             "failState": "pass",
             "order": 1
           },
+          "subtractRP": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Requisition Pts",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "subtractRP",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "RP"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "useCrusade": {
             "actions": [
               {
@@ -5184,20 +6568,11 @@
                   [
                     "{self}",
                     "stats",
-                    "Crusade Pts",
-                    "visibility"
-                  ]
-                ],
-                "value": "always"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Faction Group",
+                    [
+                      "Faction Group",
+                      "Crusade Pts",
+                      "Requisition Pts"
+                    ],
                     "visibility"
                   ]
                 ],
@@ -5275,30 +6650,23 @@
                 "format": "-",
                 "order": 0
               },
-              "Combat Patrol": {
-                "format": "Combat Patrol",
-                "order": 1,
-                "tracking": {
-                  "maxPoints": 500
-                }
-              },
               "Incursion": {
                 "format": "Incursion",
-                "order": 2,
+                "order": 1,
                 "tracking": {
                   "maxPoints": 1000
                 }
               },
               "Strike Force": {
                 "format": "Strike Force",
-                "order": 3,
+                "order": 2,
                 "tracking": {
                   "maxPoints": 2000
                 }
               },
               "Onslaught": {
                 "format": "Onslaught",
-                "order": 4,
+                "order": 3,
                 "tracking": {
                   "maxPoints": 3000
                 }
@@ -5307,6 +6675,18 @@
             "statOrder": 1,
             "statType": "rank",
             "value": "Strike Force",
+            "visibility": "normal"
+          },
+          "Battle Tally": {
+            "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 3,
+            "increment": {
+              "value": 1
+            },
+            "statOrder": 5,
+            "statType": "numeric",
+            "value": 0,
             "visibility": "normal"
           },
           "Character": {
@@ -5319,7 +6699,7 @@
           "Crusade Pts": {
             "group": "Cost",
             "groupOrder": 0,
-            "statOrder": 4,
+            "statOrder": 10,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -5382,6 +6762,8 @@
           },
           "Legends": {
             "dynamic": true,
+            "group": "Misc.",
+            "groupOrder": 2,
             "ranks": {
               "-": {
                 "order": 0
@@ -5390,13 +6772,15 @@
                 "order": 1
               }
             },
-            "statOrder": 12,
+            "statOrder": 1,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
           },
           "Mission": {
             "dynamic": true,
+            "group": "Misc.",
+            "groupOrder": 2,
             "ranks": {
               "-": {
                 "order": 0
@@ -5405,14 +6789,14 @@
                 "order": 1
               }
             },
-            "statOrder": 8,
             "statType": "rank",
-            "tracked": false,
             "value": "Leviathan",
             "visibility": "normal"
           },
           "Play": {
             "dynamic": true,
+            "group": "Misc.",
+            "groupOrder": 2,
             "ranks": {
               "Matched": {
                 "order": 0
@@ -5421,10 +6805,10 @@
                 "order": 1
               }
             },
-            "statOrder": 7,
+            "statOrder": 2,
             "statType": "rank",
             "value": "Matched",
-            "visibility": "hidden"
+            "visibility": "normal"
           },
           "Points": {
             "group": "Cost",
@@ -5434,6 +6818,16 @@
             "tracked": true,
             "value": 0,
             "visibility": "normal"
+          },
+          "Requisition Pts": {
+            "group": "Crusade",
+            "groupOrder": 3,
+            "max": 10,
+            "min": 0,
+            "statOrder": 4,
+            "statType": "numeric",
+            "value": 5,
+            "visibility": "hidden"
           }
         }
       },
@@ -5684,12 +7078,569 @@
         "text": "**WHEN**: Your Charge phase.\n\n**TARGET:** One Vehicle unit from your army.\n\n**EFFECT:** Until the end of the phase, after your unit ends a Charge move, select one enemy unit within Engagement Range of it, then select one melee weapon your unit is equipped with. Roll a number of D6 equal to that weapon’s Strength characteristic. If that Strength characteristic is greater than that enemy unit’s Toughness characteristic, roll two additional D6. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
       },
       "Stratagems§Stratagems": {},
+      "Tyrannic War Battle Honour§Gargantuan Rage": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Sustained Hits",
+                  "stats": {
+                    "x": {
+                      "value": "1"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
+        "text": "Melee weapons models in this unit are equipped with have the [Sustained Hits 1] ability."
+      },
+      "Tyrannic War Battle Honour§Giantslayers": {
+        "keywords": {
+          "Keywords": [
+            "Monster Hunters"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Painful Lessons"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Indomitable Defiance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster Hunters"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Each time a model in this unit makes an attack against a **Monster** or **Vehicle** unit, re-roll a Hit role of 1."
+      },
+      "Tyrannic War Battle Honour§Hamstringing Attacks": {
+        "keywords": {
+          "Keywords": [
+            "Monster Hunters"
+          ]
+        },
+        "text": "In your Shooting phase, each time this unit is selected to shoot, after resolving its attacks, select one **Monster** or **Vehicle** unit that lost one or more wounds as a result of those attacks. Until the start of your next Shooting phase, subtract 2″ from the Move characteristic of models in that **Monster** or **Vehicle** unit and subtract 2 from Charge rolls made for that unit."
+      },
+      "Tyrannic War Battle Honour§Indomitable Defiance": {
+        "keywords": {
+          "Keywords": [
+            "Monster Hunters"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Titans’ Bane"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Nimble Defence"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "While this unit is within Engagement range of any enemy **Monster** or **Vehicle** models, it automatically passes Battle-shock and Leadership tests."
+      },
+      "Tyrannic War Battle Honour§Indomitable Stature": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Predatory Senses"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Sweeping Blow"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Each time a ranged attack is made against this unit, if the Strength characteristic of that attack is greater than this unit’s toughness characteristic, subtract 1 from that attack’s Wound roll."
+      },
+      "Tyrannic War Battle Honour§Massive Stomp": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "text": "Each time this unit is selected to fight in the Fight phase, before making any attacks, it can stomp. If it does so, select one enemy unit (excluding **Monster** and **Vehicle** units) within Engagement range of it and roll one D6: on a 2–5, that enemy suffers D3 mortal wounds; on a six, that enemy unit suffers 3 mortal wounds."
+      },
+      "Tyrannic War Battle Honour§Monstrous Presence (aura)": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Unstoppable Advance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Massive Stomp"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "While an enemy unit is within the engagement range of this unit:\n\n* Subtract 1 from the Leadership characteristic of models in that enemy unit.\n* Each time that unit takes a Battle–shock test, the Insane Bravery Stratagem cannot be used."
+      },
+      "Tyrannic War Battle Honour§Nimble Defence": {
+        "keywords": {
+          "Keywords": [
+            "Monster Hunters"
+          ]
+        },
+        "text": "Each time a **Monster** or **Vehicle** unit makes an attack against this unit, models in this unit have the Feel No Pain 5+ ability (Core Rules) against that attack."
+      },
+      "Tyrannic War Battle Honour§Painful Lessons": {
+        "keywords": {
+          "Keywords": [
+            "Monster Hunters"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Hamstringing Attacks"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Titans’ Bane"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Each time a **Monster** or **Vehicle** model makes an attack against this unit, worsen the Armor Penetration characteristic of that attacked by 1."
+      },
+      "Tyrannic War Battle Honour§Predatory Senses": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "text": "Each time a model in this unit makes a ranged attack, re-roll a Hit role of 1."
+      },
+      "Tyrannic War Battle Honour§Prey Taker": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Shocking Celerity"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Gargantuan Rage"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to Advance and Charge rolls made for this unit."
+      },
+      "Tyrannic War Battle Honour§Shocking Celerity": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "rules": {
+          "applyTrait": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Fights First"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit as the Fights First ability (Core Rules)."
+      },
+      "Tyrannic War Battle Honour§Sweeping Blow": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "text": "Each time a model in this unit makes a melee attack, if a Critical Wound is rolled, the target suffers 1 mortal wound in addition to any normal damage."
+      },
+      "Tyrannic War Battle Honour§Thunderous Blows": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "rules": {
+          "allow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Monstrous Presence (aura)"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Indomitable Stature"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Prey Taker"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster Hunters"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Each time a model in this unit destroys an enemy unit, subtract 2 from that enemy unit’s Out of Action test (pg. 78) for this battle"
+      },
+      "Tyrannic War Battle Honour§Titans’ Bane": {
+        "keywords": {
+          "Keywords": [
+            "Monster Hunters"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "keyword": {
+                      "value": "monster"
+                    },
+                    "x": {
+                      "value": "4"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "keyword": {
+                      "value": "vehicle"
+                    },
+                    "x": {
+                      "value": "4"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
+        "text": "Weapons equipped by models in this unit have the Anti-monster 4+] and [Anti-vehicle 4+] abilities."
+      },
+      "Tyrannic War Battle Honour§Unstoppable Advance": {
+        "keywords": {
+          "Keywords": [
+            "Striding Behemoths"
+          ]
+        },
+        "text": "Each time this unit makes a Normal, Advance or Fall Back move, until that move is finished, models in this unit can move horizontally through models and terrain features (they cannot finish a move on top of another model or its base). If doing so when making a Fall Back move, models in this unit do not need to take a Desperate Escape test."
+      },
       "Weapon Modification§Armour Piercing": {
         "keywords": {
           "Tags": []
         },
         "rules": {
-          "improve by 1": {
+          "applyAP": {
             "actions": [
               {
                 "actionType": "modify",
@@ -5711,41 +7662,8 @@
                   [
                     "{parent}",
                     "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "AP",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    "AP",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
+                    "classIdentity",
                     "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "AP",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
                     "stats",
                     "AP",
                     "value"
@@ -5788,41 +7706,8 @@
                   [
                     "{parent}",
                     "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    "S",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "S",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
+                    "classIdentity",
                     "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "S",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
                     "stats",
                     "S",
                     "value"
@@ -5851,48 +7736,15 @@
                 "paths": [
                   [
                     "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
                     "stats",
-                    "BS",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    "BS",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "BS",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    "WS",
+                    [
+                      "WS",
+                      "BS"
+                    ],
                     "value"
                   ]
                 ],
-                "value": -1
+                "value": 1
               },
               {
                 "actionType": "modify",
@@ -5900,24 +7752,23 @@
                 "paths": [
                   [
                     "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
                     "stats",
-                    "BS",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "stats",
-                    "WS",
+                    [
+                      "BS",
+                      "WS"
+                    ],
                     "value"
                   ]
                 ],
-                "value": -1
+                "value": 1
               }
             ],
             "evals": [],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           }
         },
         "text": "Improves the WS/BS Characteristic by 1"
@@ -5927,7 +7778,7 @@
           "Tags": []
         },
         "rules": {
-          "improve attack by 1": {
+          "applyAttack": {
             "actions": [
               {
                 "actionType": "modify",
@@ -5949,41 +7800,8 @@
                   [
                     "{parent}",
                     "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    "A",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "A",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
+                    "classIdentity",
                     "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "A",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
                     "stats",
                     "A",
                     "value"
@@ -6004,7 +7822,7 @@
           "Tags": []
         },
         "rules": {
-          "improve damage": {
+          "applyDamage": {
             "actions": [
               {
                 "actionType": "modify",
@@ -6026,41 +7844,8 @@
                   [
                     "{parent}",
                     "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    "D",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "D",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
+                    "classIdentity",
                     "Weapon",
-                    "assets",
-                    "classification",
-                    "Ranged Weapon",
-                    "stats",
-                    "D",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
                     "stats",
                     "D",
                     "value"
@@ -6081,6 +7866,26 @@
           "traits": [
             "Ability§Precision"
           ]
+        },
+        "rules": {
+          "applyPrecise": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Weapon Modification§Precise"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "text": "Gives the weapon the Precision keyword."
       },
