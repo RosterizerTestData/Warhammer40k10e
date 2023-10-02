@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.6.3",
+  "revision": "10.6.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3646,6 +3646,38 @@
           "Visibility": "always"
         },
         "rules": {
+          "A weapon cannot have a single modification.": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Weapon Modification"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Weapon Modification"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
           "allowEnhancement": {
             "actions": [
               {
@@ -4025,7 +4057,21 @@
         "keywords": {
           "Tags": []
         },
-        "templateClass": "Battle Honour",
+        "stats": {
+          "Battle Honour": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0.5,
+            "visibility": "hidden"
+          },
+          "Crusade Pts": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0.5,
+            "visibility": "hidden"
+          }
+        },
+        "templateClass": "",
         "text": ""
       }
     },
@@ -6572,7 +6618,8 @@
                     [
                       "Faction Group",
                       "Crusade Pts",
-                      "Requisition Pts"
+                      "Requisition Pts",
+                      "Battle Tally"
                     ],
                     "visibility"
                   ]
@@ -6688,7 +6735,7 @@
             "statOrder": 5,
             "statType": "numeric",
             "value": 0,
-            "visibility": "normal"
+            "visibility": "hidden"
           },
           "Character": {
             "min": 1,
