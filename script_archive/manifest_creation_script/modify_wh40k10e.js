@@ -9,7 +9,7 @@ Object.values(window.data).forEach(data => {
     else datasheets[sheet.faction_id + ' ' + titleCase(sheet.name)] = sheet
   });
 });
-console.log(datasheets)
+// console.log(datasheets)
 const fileList = [
   'Adepta_Sororitas.manifest',
   'Adeptus_Custodes.manifest',
@@ -49,52 +49,21 @@ fileList.forEach(file => {
   fetch('../../' + file)
   .then(response => response.json())
   .then(data => {
-    data.revision = '10.5.0';
-    let classetList = Object.keys(data.manifest.assetCatalog);
-    classetList.forEach(classet => {
-      const [className,itemKey] = classet.split('§');
-      // allow characters in units
-      if(['Unit','Infantry/Mounted'].includes(className) && datasheets[itemKey]?.leadBy){
-        datasheets[itemKey]?.leadBy.map(leadBy => titleCase(leadBy)).forEach(leadBy => {
-          let leadByKey = Object.keys(data.manifest.assetCatalog).filter(classet => classet.split('§')[1] === leadBy)[0];
-          if(!leadByKey) leadByKey = 'Character§' + leadBy;
-          data.manifest.assetCatalog[classet].allowed = data.manifest.assetCatalog[classet].allowed || {};
-          data.manifest.assetCatalog[classet].allowed.items = data.manifest.assetCatalog[classet].allowed.items || [];
-          data.manifest.assetCatalog[classet].allowed.items.push(leadByKey);
-        });
+    console.log(data.name)
+    // check each: weapon, ranged weapon, and melee weapon in assetCatalog.
+    // verify that each weapon with sub-trait weapons has a tag that denotes it as a multi-weapon
+    // display the weapon's weaponName stat, then each sub-weapon's weaponName stat.
+    Object.keys(data.manifest.assetCatalog).forEach(assetKey => {
+      // if the assetKey is a weapon with sub-trait weapoons, then: log the weapon's weaponName stat
+      if(['Weapon', 'Ranged Weapon', 'Melee Weapon'].includes(assetKey.split('§')[0])){
+        if(data.manifest.assetCatalog[assetKey].assets?.traits?.filter(trait => typeof trait === 'string' && ['Weapon', 'Ranged Weapon', 'Melee Weapon'].includes(trait?.split('§')[0]))?.length){
+          console.log('  ',data.manifest.assetCatalog[assetKey].stats?.weaponName.value,' : ',assetKey);
+          data.manifest.assetCatalog[assetKey].assets?.traits?.forEach(traitKey => {
+            console.log('    ',data.manifest.assetCatalog[traitKey]?.stats?.weaponName.value)
+          })
+        }
       }
-      // create tracking tags for each unit
-      if(['Unit','Infantry/Mounted','Character','Vehicle'].includes(className)){
-        delete data.manifest.assetCatalog[classet].removed?.rules?.cheatUnitNameTally;
-        delete data.manifest.assetCatalog[classet].removed?.rules?.['Too many of this unit type in the army.'];
-        delete data.manifest.assetCatalog[classet].rules?.['Too many of this unit type in the army'];
-        delete data.manifest.assetCatalog[classet].stats?.[className + ' ' + itemKey];
-        data.manifest.assetCatalog[classet].keywords = data.manifest.assetCatalog[classet].keywords || {};
-        data.manifest.assetCatalog[classet].keywords.Tags = data.manifest.assetCatalog[classet].keywords.Tags || [];
-        data.manifest.assetCatalog[classet].keywords.Tags.push(className + ' ' + itemKey);
-      }
-      // fix extraeneous linebreaks in text
-      data.manifest.assetCatalog[classet].text = data.manifest.assetCatalog[classet].text?.replace(/\n\n/g,'@@@@@@@').replace(/([0-9a-z,.])\n([a-zA-Z])/g, '$1 $2').replace(/@@@@@@@/g,'\n\n');
-      // replace double quote with double prime
-      data.manifest.assetCatalog[classet].text = data.manifest.assetCatalog[classet].text?.replace(/([0-9])\\"/g,'$1″');
-      // fix multi-weapon profiles
-      if(className === 'Weapon'){
-        const weaponAsset = data.manifest.assetCatalog[classet];
-        ['Ranged','Melee'].forEach(range => {
-          let weaponRanges = weaponAsset.assets?.traits?.map(trait => {
-            return trait.split(' Weapon§')[0];
-          });
-          if(weaponRanges?.every(wrange => wrange === range)){
-            const newClasset = range + ' Weapon§' + itemKey;
-            data.manifest.assetCatalog[newClasset] = weaponAsset;
-            delete data.manifest.assetCatalog[classet];
-            // recursively go through assetCatalog and replace all strings that match classet with newClasset
-            data.manifest.assetCatalog = replaceStringsInObject(data.manifest.assetCatalog, classet, newClasset);
-          }
-        });
-      }
-    });
-    console.log(data.name,data);
+    })
   })
   .catch(error => {
     // Handle any error that occurs during loading
