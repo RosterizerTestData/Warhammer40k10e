@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.6.0",
+  "revision": "10.6.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "CVHJN8",
+      "slug": "QX49R9",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -2635,42 +2635,56 @@
           "rules": {}
         },
         "rules": {
-          "disallowTwoRelicWeapon": {
+          "allowRelicShield": {
             "actions": [
               {
-                "actionType": "remove",
+                "actionType": "set",
                 "iterations": 1,
                 "paths": [
                   [
                     "{self}",
                     "stats",
-                    "Primary",
-                    "ranks"
+                    "Relic Shield",
+                    "value"
                   ]
                 ],
-                "value": "Relic shield"
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Relic Shield",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
               }
             ],
             "evals": [
               {
                 "actionable": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "stats",
-                    "Secondary",
+                    "Primary",
                     "value"
                   ]
                 ],
-                "value": "Close combat + shield"
+                "value": "Heavy pistol & Master power weapon"
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 220
           },
-          "noTwinClaws": {
+          "allowSecondary": {
             "actions": [
               {
                 "actionType": "remove",
@@ -2689,7 +2703,7 @@
             "evals": [
               {
                 "actionable": true,
-                "not": true,
+                "not": false,
                 "operator": "AND",
                 "paths": [
                   [
@@ -2699,14 +2713,14 @@
                     "value"
                   ]
                 ],
-                "value": "Twin lightning claws"
+                "value": "Master-crafted bolter & Pistol"
               }
             ],
             "evaluate": "AND",
             "failState": "pass",
             "order": 220
           },
-          "twinClaws": {
+          "disallowSecondary": {
             "actions": [
               {
                 "actionType": "set",
@@ -2738,7 +2752,7 @@
             "evals": [
               {
                 "actionable": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -2748,12 +2762,74 @@
                     "value"
                   ]
                 ],
-                "value": "Twin lightning claws"
+                "value": "Master-crafted bolter & Pistol"
               }
             ],
             "evaluate": "AND",
             "failState": "pass",
             "order": 220
+          },
+          "This model cannot be attached to a Bladeguard Veteran Squad unless it’s equipped with a Relic Shield": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "designation"
+                  ]
+                ],
+                "value": "Bladeguard Veteran Squad"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Relic Shield"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "This model cannot be attached to a Hellblaster Squad unless it’s equipped with a Plasma pistol": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "designation"
+                  ]
+                ],
+                "value": "Hellblaster Squad"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Plasma Pistol"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
           }
         },
         "stats": {
@@ -2774,161 +2850,140 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Master-crafted boltgun": {
+              "Master-crafted bolter & Pistol": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Captain—Master-crafted boltgun"
+                    "trait": "Ranged Weapon§Captain—Master-crafted bolter"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Captain—Bolt pistol"
                   }
                 ]
               },
-              "Combi-weapon": {
+              "Heavy bolt pistol & Power fist": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
-                  }
-                ]
-              },
-              "Grav-pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Captain—Grav-pistol"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Captain—Hand flamer"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Captain—Inferno pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Captain—Plasma pistol"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 7,
-                "traits": [
+                    "trait": "Ranged Weapon§Captain—Heavy Bolt Pistol"
+                  },
                   {
                     "trait": "Melee Weapon§Captain—Power fist"
                   }
                 ]
               },
-              "Relic shield": {
-                "order": 8,
+              "Heavy pistol & Master power weapon": {
+                "order": 2,
                 "traits": [
                   {
-                    "trait": "Wargear§Relic Shield"
+                    "trait": "Ranged Weapon§Captain—Heavy Bolt Pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Captain in Gravis Armour—Master-crafted power weapon"
                   }
                 ]
               },
-              "Relic weapon": {
-                "order": 9,
+              "Neo-volkite & Power fist": {
+                "order": 3,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Captain—Relic weapon"
+                    "trait": "Ranged Weapon§Captain—Neo-volkite Pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Captain—Power fist"
                   }
                 ]
               },
-              "Thunder hammer": {
-                "order": 10,
+              "Neo-volkite & Master power weapon": {
+                "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Captain—Thunder hammer"
+                    "trait": "Ranged Weapon§Captain—Neo-volkite Pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Captain in Gravis Armour—Master-crafted power weapon"
                   }
                 ]
               },
-              "Twin lightning claws": {
-                "order": 11,
+              "Plasma & Power fist": {
+                "order": 5,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Captain—Twin lightning claws"
+                    "trait": "Ranged Weapon§Captain—Plasma pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Captain—Power fist"
+                  }
+                ]
+              },
+              "Plasma & Master power weapon": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Captain—Plasma pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Captain—Master-Crafted Power Weapon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Master-crafted boltgun",
+            "value": "Master-crafted bolter & Pistol",
             "visibility": "active"
+          },
+          "Relic Shield": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Relic Shield"
+                  }
+                ]
+              }
+            },
+            "statOrder": 3,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           },
           "Secondary": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Astartes chainsword": {
+              "Close combat": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Captain—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat + shield": {
-                "order": 1,
-                "traits": [
-                  {
                     "trait": "Melee Weapon§Captain—Close combat weapon"
-                  },
-                  {
-                    "trait": "Wargear§Relic Shield"
                   }
                 ]
               },
               "Power fist": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Captain—Power fist"
                   }
                 ]
               },
-              "Relic weapon": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Captain—Relic weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Captain—Thunder hammer"
-                  }
-                ]
+              "Master-crafted power weapon": {
+                "order": 2
               },
               "-": {
-                "order": 5
+                "order": 3
               }
             },
             "statType": "rank",
-            "value": "Astartes chainsword",
+            "value": "Close combat",
             "visibility": "active"
           },
           "Sv": {
@@ -3554,7 +3609,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Assault Squad with Jump Packs\n\n* Vanguard Veteran Squad with Jump Packs"
+              "text": "This model can be attached to the following units:\n\n* Assault Intercessors with Jump Packs\n\n* Vanguard Veteran Squad with Jump Packs"
             },
             "Ability§Oath of Moment",
             "Ability§Angel’s Wrath",
@@ -4293,7 +4348,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Assault Squad with Jump Packs\n\n* Vanguard Veteran Squad with Jump Packs"
+              "text": "This model can be attached to the following units:\n\n* Assault Intercessors with Jump Packs\n\n* Vanguard Veteran Squad with Jump Packs"
             },
             "Ability§Oath of Moment",
             "Ability§Litany of Hate",
@@ -5440,8 +5495,7 @@
             },
             "Ability§Oath of Moment",
             "Ability§Tactical Precision",
-            "Ability§Target Priority",
-            "Ranged Weapon§Lieutenant—Bolt pistol"
+            "Ability§Target Priority"
           ]
         },
         "keywords": {
@@ -5545,7 +5599,7 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "noTwinClaws": {
+          "noVolkite": {
             "actions": [
               {
                 "actionType": "remove",
@@ -5554,7 +5608,13 @@
                   [
                     "{self}",
                     "stats",
-                    "Secondary",
+                    "Pistol",
+                    "ranks"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
                     "ranks"
                   ]
                 ],
@@ -5574,14 +5634,14 @@
                     "value"
                   ]
                 ],
-                "value": "Twin lightning claws"
+                "value": "Neo-volkite, Master power weapon & shield"
               }
             ],
             "evaluate": "AND",
             "failState": "pass",
             "order": 220
           },
-          "twinClaws": {
+          "volkite": {
             "actions": [
               {
                 "actionType": "set",
@@ -5590,7 +5650,10 @@
                   [
                     "{self}",
                     "stats",
-                    "Secondary",
+                    [
+                      "Melee",
+                      "Pistol"
+                    ],
                     "value"
                   ]
                 ],
@@ -5603,7 +5666,10 @@
                   [
                     "{self}",
                     "stats",
-                    "Secondary",
+                    [
+                      "Pistol",
+                      "Melee"
+                    ],
                     "visibility"
                   ]
                 ],
@@ -5623,7 +5689,7 @@
                     "value"
                   ]
                 ],
-                "value": "Twin lightning claws"
+                "value": "Neo-volkite, Master power weapon & shield"
               }
             ],
             "evaluate": "AND",
@@ -5638,133 +5704,21 @@
           "M": {
             "value": 6
           },
-          "OC": {
-            "value": 1
-          },
-          "Points": {
-            "value": 80
-          },
-          "Primary": {
+          "Melee": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Master-crafted boltgun": {
+              "Close combat weapon": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Lieutenant—Master-crafted boltgun"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Lieutenant—Hand flamer"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Lieutenant—Inferno pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Lieutenant—Plasma pistol"
-                  }
-                ]
-              },
-              "Grav-pistol": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Lieutenant—Grav-pistol"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Lieutenant—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Lieutenant—Power weapon"
-                  }
-                ]
-              },
-              "Storm shield": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Wargear§Storm Shield"
-                  }
-                ]
-              },
-              "Twin lightning claws": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Lieutenant—Twin lightning claws"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Master-crafted boltgun",
-            "visibility": "active"
-          },
-          "Secondary": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Astartes chainsword": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Lieutenant—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat + shield": {
-                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Lieutenant—Close combat weapon"
-                  },
-                  {
-                    "trait": "Wargear§Storm Shield"
                   }
                 ]
+              },
+              "Master-crafted power weapon": {
+                "order": 1
               },
               "Power fist": {
                 "order": 2,
@@ -5778,8 +5732,101 @@
                 "order": 3
               }
             },
+            "statOrder": 4,
             "statType": "rank",
-            "value": "Astartes chainsword",
+            "value": "Close combat weapon",
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Pistol": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Lieutenant—Bolt pistol"
+                  }
+                ]
+              },
+              "Heavy bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Lieutenant—Heavy Bolt Pistol"
+                  }
+                ]
+              },
+              "-": {
+                "order": 2
+              }
+            },
+            "statOrder": 3,
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "Points": {
+            "value": 80
+          },
+          "Primary": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Master-crafted bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Lieutenant—Master-crafted bolter"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Lieutenant—Plasma pistol"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Lieutenant—Power fist"
+                  }
+                ]
+              },
+              "Master-crafted power weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Lieutenant—Master-Crafted Power Weapon"
+                  }
+                ]
+              },
+              "Neo-volkite, Master power weapon & shield": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Lieutenant—Neo-volkite pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Lieutenant—Master-Crafted Power Weapon"
+                  },
+                  {
+                    "trait": "Wargear§Storm Shield"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Master-crafted bolter",
             "visibility": "active"
           },
           "Sv": {
@@ -7223,7 +7270,7 @@
           }
         }
       },
-      "Infantry/Mounted§Assault Squad with Jump Packs": {
+      "Infantry/Mounted§Assault Intercessors with Jump Packs": {
         "allowed": {
           "items": [
             "Model§Assault Marine with Jump Pack",
@@ -7259,10 +7306,10 @@
             "Jump Pack",
             "Fly",
             "Imperium",
-            "Assault Squad with Jump Packs"
+            "Assault Intercessors with Jump Packs"
           ],
           "Tags": [
-            "Infantry/Mounted Assault Squad with Jump Packs"
+            "Infantry/Mounted Assault Intercessors with Jump Packs"
           ]
         },
         "rules": {
@@ -7407,7 +7454,8 @@
             "Model§Bladeguard Veteran",
             "Character§Bladeguard Ancient",
             "Character§Judiciar",
-            "Character§Marneus Calgar"
+            "Character§Marneus Calgar",
+            "Character§Captain"
           ]
         },
         "assets": {
@@ -8182,7 +8230,8 @@
           "items": [
             "Model§Hellblaster",
             "Character§Ancient",
-            "Character§Apothecary"
+            "Character§Apothecary",
+            "Character§Captain"
           ]
         },
         "assets": {
@@ -10339,29 +10388,7 @@
           }
         }
       },
-      "Melee Weapon§Assault Squad - Close Combat Weapon": {
-        "stats": {
-          "A": {
-            "value": 2
-          },
-          "AP": {
-            "value": 0
-          },
-          "D": {
-            "value": 1
-          },
-          "S": {
-            "value": 4
-          },
-          "weaponName": {
-            "value": "Close combat weapon"
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
-      "Melee Weapon§Assault Squad with Jump Packs—Astartes chainsword": {
+      "Melee Weapon§Assault Intercessors with Jump Packs—Astartes chainsword": {
         "stats": {
           "A": {
             "value": 4
@@ -10387,7 +10414,7 @@
           }
         }
       },
-      "Melee Weapon§Assault Squad with Jump Packs—Eviscerator": {
+      "Melee Weapon§Assault Intercessors with Jump Packs—Eviscerator": {
         "assets": {
           "traits": [
             {
@@ -10425,7 +10452,7 @@
           }
         }
       },
-      "Melee Weapon§Assault Squad with Jump Packs—Power fist": {
+      "Melee Weapon§Assault Intercessors with Jump Packs—Power fist": {
         "stats": {
           "A": {
             "value": 3
@@ -10451,7 +10478,7 @@
           }
         }
       },
-      "Melee Weapon§Assault Squad with Jump Packs—Power weapon": {
+      "Melee Weapon§Assault Intercessors with Jump Packs—Power weapon": {
         "stats": {
           "A": {
             "value": 4
@@ -10477,7 +10504,7 @@
           }
         }
       },
-      "Melee Weapon§Assault Squad with Jump Packs—Thunder hammer": {
+      "Melee Weapon§Assault Intercessors with Jump Packs—Thunder hammer": {
         "assets": {
           "traits": [
             "Ability§Devastating Wounds"
@@ -10508,7 +10535,7 @@
           }
         }
       },
-      "Melee Weapon§Assault Squad with Jump Packs—Twin lightning claws": {
+      "Melee Weapon§Assault Intercessors with Jump Packs—Twin lightning claws": {
         "assets": {
           "traits": [
             "Ability§Twin-linked"
@@ -10533,6 +10560,28 @@
           },
           "weaponName": {
             "value": "Twin lightning claws"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Assault Squad - Close Combat Weapon": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Close combat weapon"
           },
           "WS": {
             "value": 3
@@ -11911,6 +11960,28 @@
           },
           "weaponName": {
             "value": "Close combat weapon"
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Captain—Master-Crafted Power Weapon": {
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Master-Crafted Power Weapon"
           },
           "WS": {
             "value": 2
@@ -14817,6 +14888,50 @@
           },
           "weaponName": {
             "value": "Close combat weapon"
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Lieutenant—Master-Crafted Power Weapon": {
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Master-Crafted Power Weapon"
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Lieutenant—Master-crafted power weapon": {
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Master-crafted power weapon"
           },
           "WS": {
             "value": 2
@@ -19024,7 +19139,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Eviscerator"
                   }
                 ]
               },
@@ -19049,7 +19164,7 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Bolt pistol"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Bolt pistol"
                   }
                 ]
               },
@@ -19060,7 +19175,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol"
                   }
                 ]
               },
@@ -19072,7 +19187,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Flamer"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Flamer"
                   },
                   {
                     "trait": "Melee Weapon§Assault Squad - Close Combat Weapon"
@@ -19087,7 +19202,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Meltagun"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Meltagun"
                   },
                   {
                     "trait": "Melee Weapon§Assault Squad - Close Combat Weapon"
@@ -19102,7 +19217,7 @@
                 },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Plasma gun"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma gun"
                   },
                   {
                     "trait": "Melee Weapon§Assault Squad - Close Combat Weapon"
@@ -19578,7 +19693,7 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Astartes chainsword"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Astartes chainsword"
                   }
                 ]
               },
@@ -19586,7 +19701,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Power fist"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Power fist"
                   }
                 ]
               },
@@ -19594,7 +19709,7 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Power weapon"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Power weapon"
                   }
                 ]
               },
@@ -19602,7 +19717,7 @@
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Thunder hammer"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Thunder hammer"
                   }
                 ]
               },
@@ -19610,7 +19725,7 @@
                 "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Eviscerator"
                   }
                 ]
               },
@@ -19618,7 +19733,7 @@
                 "order": 5,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Twin lightning claws"
+                    "trait": "Melee Weapon§Assault Intercessors with Jump Packs—Twin lightning claws"
                   }
                 ]
               }
@@ -19662,7 +19777,7 @@
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Bolt pistol"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Bolt pistol"
                   }
                 ]
               },
@@ -19670,7 +19785,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol"
+                    "trait": "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol"
                   }
                 ]
               },
@@ -26480,7 +26595,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -26912,7 +27027,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -27213,7 +27328,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -27278,7 +27393,7 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Bolt pistol": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Bolt pistol": {
         "assets": {
           "traits": [
             "Ability§Pistol"
@@ -27308,7 +27423,7 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Flamer": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Flamer": {
         "assets": {
           "traits": [
             "Ability§Ignores Cover",
@@ -27342,7 +27457,7 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Meltagun": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Meltagun": {
         "assets": {
           "traits": [
             {
@@ -27380,11 +27495,11 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Plasma gun": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma gun": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Assault Squad with Jump Packs—Plasma gun – standard",
-            "Ranged Weapon§Assault Squad with Jump Packs—Plasma gun – supercharge"
+            "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma gun – standard",
+            "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma gun – supercharge"
           ]
         },
         "keywords": {
@@ -27398,7 +27513,7 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Plasma gun – standard": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma gun – standard": {
         "assets": {
           "traits": [
             {
@@ -27435,7 +27550,7 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Plasma gun – supercharge": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma gun – supercharge": {
         "assets": {
           "traits": [
             "Ability§Hazardous",
@@ -27473,11 +27588,11 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol – standard",
-            "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol – supercharge"
+            "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol – standard",
+            "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol – supercharge"
           ]
         },
         "keywords": {
@@ -27487,11 +27602,11 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol – standard": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol – standard": {
         "assets": {
           "traits": [
             "Ability§Pistol"
@@ -27521,7 +27636,7 @@
           }
         }
       },
-      "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol – supercharge": {
+      "Ranged Weapon§Assault Intercessors with Jump Packs—Plasma pistol – supercharge": {
         "assets": {
           "traits": [
             "Ability§Hazardous",
@@ -27761,7 +27876,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -28786,7 +28901,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -28986,7 +29101,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -29663,7 +29778,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -29972,7 +30087,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -30143,6 +30258,36 @@
           }
         }
       },
+      "Ranged Weapon§Captain—Heavy Bolt Pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Heavy Bolt Pistol"
+          }
+        }
+      },
       "Ranged Weapon§Captain—Inferno pistol": {
         "assets": {
           "traits": [
@@ -30182,7 +30327,7 @@
           }
         }
       },
-      "Ranged Weapon§Captain—Master-crafted boltgun": {
+      "Ranged Weapon§Captain—Master-crafted bolter": {
         "stats": {
           "A": {
             "value": 2
@@ -30203,7 +30348,38 @@
             "value": 4
           },
           "weaponName": {
-            "value": "Master-crafted boltgun"
+            "value": "Master-crafted bolter"
+          }
+        }
+      },
+      "Ranged Weapon§Captain—Neo-volkite Pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Neo-volkite Pistol"
           }
         }
       },
@@ -30221,7 +30397,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -31619,7 +31795,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -31954,7 +32130,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -36375,7 +36551,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -37405,7 +37581,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -41321,7 +41497,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -41770,7 +41946,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -42189,7 +42365,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -42616,6 +42792,36 @@
           }
         }
       },
+      "Ranged Weapon§Lieutenant—Heavy Bolt Pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Heavy Bolt Pistol"
+          }
+        }
+      },
       "Ranged Weapon§Lieutenant—Inferno pistol": {
         "assets": {
           "traits": [
@@ -42655,7 +42861,7 @@
           }
         }
       },
-      "Ranged Weapon§Lieutenant—Master-crafted boltgun": {
+      "Ranged Weapon§Lieutenant—Master-crafted bolter": {
         "stats": {
           "A": {
             "value": 2
@@ -42676,7 +42882,38 @@
             "value": 4
           },
           "weaponName": {
-            "value": "Master-crafted boltgun"
+            "value": "Master-crafted bolter"
+          }
+        }
+      },
+      "Ranged Weapon§Lieutenant—Neo-volkite pistol": {
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Neo-volkite pistol"
           }
         }
       },
@@ -42694,7 +42931,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -43984,7 +44221,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -44353,7 +44590,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -46859,7 +47096,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -51080,7 +51317,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -52610,7 +52847,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
@@ -52834,7 +53071,7 @@
         },
         "stats": {
           "weaponName": {
-            "value": "Plasma pistol"
+            "value": "Plasma Pistol"
           }
         }
       },
