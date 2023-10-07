@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.6.4",
+  "revision": "10.6.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -158,6 +158,84 @@
         },
         "templateClass": "Battle Honour",
         "text": ""
+      },
+      "Campaign": {
+        "allowed": {
+          "classifications": []
+        },
+        "aspects": {
+          "Describe": true
+        },
+        "assets": {
+          "traits": [
+            "Campaign Phase§Phase 1",
+            "Campaign Phase§Phase 2",
+            "Campaign Phase§Phase 3"
+          ]
+        },
+        "rules": {
+          "Select your Alliance": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "warning"
+          }
+        },
+        "stats": {
+          "Alliance": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Defenders": {
+                "order": 1
+              },
+              "Invaders": {
+                "order": 2
+              },
+              "Raiders": {
+                "order": 3
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          }
+        }
+      },
+      "Campaign Phase": {
+        "allowed": {
+          "classifications": [
+            "Mission Record"
+          ]
+        },
+        "aspects": {
+          "Describe": true,
+          "Visibility": "active"
+        },
+        "stats": {
+          "Campaign Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "normal"
+          }
+        }
       },
       "Character": {
         "allowed": {
@@ -783,6 +861,232 @@
           }
         },
         "templateClass": "Weapon"
+      },
+      "Mission Record": {
+        "aspects": {
+          "Describe": true,
+          "Lock Qty": true,
+          "Visibility": "active"
+        },
+        "rules": {
+          "nonLoss": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Campaign Points"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Battle Size",
+                  "processed",
+                  "numeric",
+                  "current"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Result",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Result",
+                    "value"
+                  ]
+                ],
+                "value": "Loss"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Agenda 1": {
+            "dynamic": true,
+            "label": "Agenda",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Battlefield Survivors": {
+                "order": 1
+              },
+              "Swarm the Planet": {
+                "order": 2
+              },
+              "Headhunters": {
+                "order": 3
+              },
+              "Monstrous Targets": {
+                "order": 4
+              },
+              "Eradicate the Swarm": {
+                "order": 5
+              },
+              "Critical Objectives": {
+                "order": 6
+              },
+              "Drive Home the Blade": {
+                "order": 7
+              },
+              "Cleanse Infestation": {
+                "order": 8
+              },
+              "Forward Observers": {
+                "order": 9
+              },
+              "Recover Mission Archives": {
+                "order": 10
+              },
+              "Malefic Hunter": {
+                "order": 11
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Agenda 2": {
+            "dynamic": true,
+            "label": "Agenda",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Battlefield Survivors": {
+                "order": 1
+              },
+              "Swarm the Planet": {
+                "order": 2
+              },
+              "Headhunters": {
+                "order": 3
+              },
+              "Monstrous Targets": {
+                "order": 4
+              },
+              "Eradicate the Swarm": {
+                "order": 5
+              },
+              "Critical Objectives": {
+                "order": 6
+              },
+              "Drive Home the Blade": {
+                "order": 7
+              },
+              "Cleanse Infestation": {
+                "order": 8
+              },
+              "Forward Observers": {
+                "order": 9
+              },
+              "Recover Mission Archives": {
+                "order": 10
+              },
+              "Malefic Hunter": {
+                "order": 11
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Battle Size": {
+            "dynamic": true,
+            "increment": {},
+            "ranks": {
+              "-": {
+                "format": "-",
+                "order": 0
+              },
+              "Incursion": {
+                "format": "Incursion",
+                "order": 1,
+                "tracking": {}
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "number": 1,
+                "order": 2,
+                "tracking": {}
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "number": 2,
+                "order": 3,
+                "tracking": {}
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Opponent": {
+            "dynamic": true,
+            "statOrder": -1,
+            "statType": "term",
+            "value": "",
+            "visibility": "normal"
+          },
+          "Result": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Loss": {
+                "order": 1,
+                "tracking": {
+                  "Campaign Points": 1
+                }
+              },
+              "Draw": {
+                "order": 2,
+                "tracking": {
+                  "Campaign Points": 2
+                }
+              },
+              "Win": {
+                "order": 3,
+                "tracking": {
+                  "Campaign Points": 3
+                }
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          }
+        }
       },
       "Mission Reward": {},
       "Model": {
@@ -2330,6 +2634,18 @@
                   "Allied faction 1",
                   "value"
                 ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
               }
             ],
             "evaluate": "AND",
@@ -2376,6 +2692,18 @@
                   "Allied faction 2",
                   "value"
                 ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
               }
             ],
             "evaluate": "AND",
@@ -2396,7 +2724,8 @@
                       "Experience",
                       "Battle Honour",
                       "Rank",
-                      "Combat Tally"
+                      "Combat Tally",
+                      "Kills"
                     ],
                     "visibility"
                   ]
@@ -2432,6 +2761,34 @@
                   ]
                 ],
                 "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Swarm"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Fortification"
               }
             ],
             "evaluate": "AND",
@@ -3282,6 +3639,18 @@
               "value": 1
             },
             "statOrder": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Kills": {
+            "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 3,
+            "increment": {
+              "value": 1
+            },
+            "statOrder": 6,
             "statType": "numeric",
             "value": 0,
             "visibility": "hidden"
@@ -5414,6 +5783,10 @@
         },
         "text": "This unit has the Scouts 9” ability."
       },
+      "Campaign Phase§Phase 1": {},
+      "Campaign Phase§Phase 2": {},
+      "Campaign Phase§Phase 3": {},
+      "Campaign§Campaign": {},
       "Crusade Relic§Archeotech Nano-Med": {
         "keywords": {
           "Tags": [
@@ -5731,6 +6104,7 @@
         },
         "text": "The bearer is equipped with a vortex grenade that has the following profile:\n|Range|A|BS|S|AP|D|\n|---|---|---|---|---|---|\n|6”|1|2+|-|-|-|\n\nAbilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
       },
+      "Mission Record§Mission Record": {},
       "Mission Reward§Battle Trait": {
         "keywords": {
           "Tags": [
@@ -6076,7 +6450,7 @@
           ]
         },
         "rules": {
-          "addOrderOfBattle": {
+          "addOrderOfBattle&Campaign": {
             "actions": [
               {
                 "actionType": "add",
@@ -6088,6 +6462,17 @@
                   ]
                 ],
                 "value": "Order of Battle§Order of Battle"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Campaign§Campaign"
               }
             ],
             "evals": [
