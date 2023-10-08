@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.5.4",
+  "revision": "10.5.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,71 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "NHQ4BE",
+      "slug": "QX49R9",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
     }
   ],
   "manifest": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Unit": {
+        "rules": {
+          "allowCryptothralls": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Unit§Cryptothralls"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Unit§Cryptothralls",
+                    "aspects",
+                    "Unique"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Adaptive Strategy": {
         "keywords": {
@@ -1256,7 +1313,24 @@
             "Weapon§Chronomancer—Aeonstave"
           ]
         },
-        "rules":{
+        "keywords": {
+          "Faction": [
+            "Necrons"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Character",
+            "Cryptek",
+            "Chronomancer"
+          ],
+          "Tags": [
+            "Character Chronomancer"
+          ]
+        },
+        "rules": {
           "allowTwoLeaders": {
             "actions": [
               {
@@ -1304,23 +1378,6 @@
             "evaluate": "OR",
             "failState": "pass"
           }
-        },
-        "keywords": {
-          "Faction": [
-            "Necrons"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Character",
-            "Cryptek",
-            "Chronomancer"
-          ],
-          "Tags": [
-            "Character Chronomancer"
-          ]
         },
         "stats": {
           "Ld": {
@@ -1872,7 +1929,7 @@
             "Character Orikan the Diviner"
           ]
         },
-        "rules":{
+        "rules": {
           "allowTwoLeaders": {
             "actions": [
               {
@@ -2154,7 +2211,7 @@
             "Character Plasmancer"
           ]
         },
-        "rules":{
+        "rules": {
           "allowTwoLeaders": {
             "actions": [
               {
@@ -2258,7 +2315,7 @@
             "Character Psychomancer"
           ]
         },
-        "rules":{
+        "rules": {
           "allowTwoLeaders": {
             "actions": [
               {
@@ -2481,7 +2538,7 @@
             "Character Technomancer"
           ]
         },
-        "rules":{
+        "rules": {
           "allowTwoLeaders": {
             "actions": [
               {
