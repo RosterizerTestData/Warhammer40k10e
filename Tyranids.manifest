@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.5.7",
+  "revision": "10.6.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "K747Q3",
+      "slug": "QX49R9",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -17,6 +17,45 @@
   ],
   "manifest": {
     "assetTaxonomy": {
+      "Biogenesis": {
+        "stats": {
+          "Biomass Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "normal"
+          }
+        }
+      },
+      "Campaign": {
+        "allowed": {
+          "classifications": [
+            "World"
+          ]
+        }
+      },
+      "Devour Stage": {
+        "stats": {
+          "Battles": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Biomass": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          }
+        }
+      },
       "Enhancement": {
         "rules": {
           "Tyranids model only.": {
@@ -41,10 +80,358 @@
           }
         }
       },
+      "Mission Record": {
+        "allowed": {
+          "items": [
+            "Requisition§An Intellect Vast and Cold"
+          ]
+        },
+        "stats": {
+          "Agenda 1": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Battlefield Survivors": {
+                "order": 1
+              },
+              "Swarm the Planet": {
+                "order": 2
+              },
+              "Headhunters": {
+                "order": 3
+              },
+              "Monstrous Targets": {
+                "order": 4
+              },
+              "Eradicate the Swarm": {
+                "order": 5
+              },
+              "Critical Objectives": {
+                "order": 6
+              },
+              "Drive Home the Blade": {
+                "order": 7
+              },
+              "Cleanse Infestation": {
+                "order": 8
+              },
+              "Forward Observers": {
+                "order": 9
+              },
+              "Recover Mission Archives": {
+                "order": 10
+              },
+              "Malefic Hunter": {
+                "order": 11
+              },
+              "Infest the Prey World": {
+                "order": 12,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Hunt and Slay": {
+                "order": 13,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Tyrannoform the Prey World": {
+                "order": 14,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Tyranid Attack": {
+                "order": 15,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              }
+            }
+          },
+          "Agenda 2": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Battlefield Survivors": {
+                "order": 1
+              },
+              "Swarm the Planet": {
+                "order": 2
+              },
+              "Headhunters": {
+                "order": 3
+              },
+              "Monstrous Targets": {
+                "order": 4
+              },
+              "Eradicate the Swarm": {
+                "order": 5
+              },
+              "Critical Objectives": {
+                "order": 6
+              },
+              "Drive Home the Blade": {
+                "order": 7
+              },
+              "Cleanse Infestation": {
+                "order": 8
+              },
+              "Forward Observers": {
+                "order": 9
+              },
+              "Recover Mission Archives": {
+                "order": 10
+              },
+              "Malefic Hunter": {
+                "order": 11
+              },
+              "Infest the Prey World": {
+                "order": 12,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Hunt and Slay": {
+                "order": 13,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Tyrannoform the Prey World": {
+                "order": 14,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Tyranid Attack": {
+                "order": 15,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "Order of Battle": {
+        "allowed": {
+          "items": [
+            "Requisition§Respawn Warrior Organisms",
+            "Requisition§Synaptic Bioregenesis",
+            "Requisition§Adapted Physiology"
+          ]
+        },
+        "constraints": {
+          "any": [
+            "Tyranids"
+          ]
+        }
+      },
+      "Requisition": {},
       "Stratagem": {
         "stats": {
           "Command Cost": {
             "value": 1
+          }
+        }
+      },
+      "Unit": {
+        "rules": {
+          "allowSynapseTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Tyranids Synapse"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Synapse"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowTyranidTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Tyranids non-Synapse"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Synapse"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "World": {
+        "allowed": {
+          "classifications": [
+            "Biogenesis"
+          ],
+          "items": [
+            "Requisition§Infestation",
+            "Requisition§Vanguard Adaptation",
+            "Requisition§Guard and Consume"
+          ]
+        },
+        "aspects": {
+          "Group Includes": true,
+          "Lock Qty": true,
+          "Rename": true
+        },
+        "assets": {
+          "traits": [
+            "Devour Stage§Invasion",
+            "Devour Stage§Predation",
+            "Devour Stage§Consumption"
+          ]
+        },
+        "rules": {
+          "maxBiomass": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Biomass Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Biomass",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Biomass": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Biomass Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "normal"
           }
         }
       }
@@ -630,6 +1017,373 @@
           ]
         },
         "text": "In your Shooting phase, after this unit has shot, if it is not within Engagement Range of any enemy units, it can make a Normal move of up to 6″. If it does, until the end of the turn, this unit is not eligible to declare a charge."
+      },
+      "Battle Scar§Bestial Rage": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "Each time this unit declares a Charge, one of the target of that Charge must be the closest eligible enemy unit."
+      },
+      "Battle Scar§By Instinct Alone": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "This unit cannot be targeted with Stratagems."
+      },
+      "Battle Scar§Casts no Shadow": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "While this unit has this Battle Scar, it is affected by your army’s Shadow in the Warp ability (and thus must take a Battle-shock test when it is used)."
+      },
+      "Battle Scar§Lobe Impairment": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets"
+                  ]
+                ],
+                "value": "Ability§Synapse"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "While this unit has this Battle Scar, it loses the Synapse ability."
+      },
+      "Battle Scar§Mindless Focus": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "Each time this unit is selected to shoot, models in this unit can only target the closest eligible enemy unit when resolving this unit’s attacks."
+      },
+      "Battle Scar§Neural Dissonance": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "This unit cannot benefit from any Stratagems or Detachment Rules that require the **Synapse** keyword."
+      },
+      "Battle Scar§Synaptic Decay": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "Reduce the range of this model’s Synapse ability to 3″."
+      },
+      "Battle Scar§Uncontrollable": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "This unit is never considered to be within Synapse range of your army."
+      },
+      "Battle Trait§Alien Resilience": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "At the start of your Command phase, one model in this unit regains 1 lost wound."
+      },
+      "Battle Trait§Armoured Biomorph": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "T",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "stats",
+                    "T",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add one to the Toughness characteristic of models in this unit."
+      },
+      "Battle Trait§Enhanced Senses": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "* Each time a model in this unit makes a melee attack, you can ignore any or all Hit role and Weapon Skill modifiers for that attack.\n* Each time a model in this unit makes a ranged attack, that attack has the [**Ignores Cover**] ability."
+      },
+      "Battle Trait§Fleet of Claw": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "Each time you make an Advance or Charge role for this unit, you can re-roll the result."
+      },
+      "Battle Trait§Instinctive Autonomy": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "While this unit is within 18″ of a friendly synapse model, this unit counts as being within 6″ of that model for its synapse ability."
+      },
+      "Battle Trait§Onslaught Killers": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "Each time a model in this unit makes a melee attack, if this unit made a Charge move this turn, add 1 to the Hit role."
+      },
+      "Battle Trait§Psionic Resonance": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "Once per battle, this unit can be targeted with a Stratagem for 0CP even if another unit from your Crusade army has already been targeted with that stratagem this phase."
+      },
+      "Battle Trait§Psychic Aberration": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "Once per battle, at the start of any phase, you can select one **Tyranids** unit that is Battle-shocked and within 12″ of this model. That unit is no longer Battle-shocked."
+      },
+      "Battle Trait§Psychic Shadow": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "Each time a ranged Psychic Attack targets this unit, this unit has the Benefit of Cover and the Feel No Pain 5+ ability against that attack."
+      },
+      "Battle Trait§Ranged Resistance": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "text": "Each time a ranged attack is allocated to a model in this unit, add 1 to armour saving throw made against that attack."
+      },
+      "Battle Trait§Strength Born of Hunger": {
+        "keywords": {
+          "Tags": [
+            "Tyranids non-Synapse"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the Strength characteristic of melee weapons equipped by models in this unit."
+      },
+      "Battle Trait§Unfathomable Terror": {
+        "keywords": {
+          "Tags": [
+            "Tyranids Synapse"
+          ]
+        },
+        "text": "At the end of your Movement phase, select one enemy unit within 6″ of and visible to this unit. That enemy unit must take a Leadership test, subtracting 1 from the roll. If failed, until the start of your next Movement phase, that enemy unit cannot be selected to Advance, and its Move characteristic is reduced by 2″."
+      },
+      "Biogenesis§Biological Resources": {
+        "stats": {
+          "Biomass Points": {
+            "value": 6
+          },
+          "Requisition Pts": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
+          }
+        },
+        "text": "Your Crusade force gains 1RP."
+      },
+      "Biogenesis§Enhanced Organisms": {
+        "stats": {
+          "Biomass Points": {
+            "value": 5
+          }
+        },
+        "text": "Select one **Tyranids** unit from your Order of Battle. That unit gains 5XP. Each unit can only be selected for this upgrade once per devoured world."
+      },
+      "Biogenesis§Rapid Adaptation": {
+        "stats": {
+          "Biomass Points": {
+            "value": 5
+          },
+          "RP": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": -2,
+            "visibility": "hidden"
+          }
+        },
+        "text": "You can use the Adapted Physiology Requisition once for 0RP."
+      },
+      "Biogenesis§Rare Biomorphs": {
+        "stats": {
+          "Biomass Points": {
+            "value": 4
+          },
+          "RP": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": -1,
+            "visibility": "hidden"
+          }
+        },
+        "text": "Select one **Tyranids Character** unit from your Order of Battle. You can reduce the cost of the Renowned Heroes Requisition by 1RP (to a minimum of 0RP) and use it immediately to give a model in that unit an Enhancement as if it had just gained a rank."
+      },
+      "Biogenesis§The Swarm Grows": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "stats",
+                    "Supply Limit",
+                    "value"
+                  ]
+                ],
+                "value": 100
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Biomass Points": {
+            "value": 2
+          }
+        },
+        "text": "Increase your Crusade force’s Supply Limit by 100 points."
       },
       "Character§Broodlord": {
         "assets": {
@@ -1626,6 +2380,164 @@
           }
         }
       },
+      "Crusade Relic§Balemind Membrane": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "rules": {
+          "Model with one or more Psychic weapons only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Psychic"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "Model with one or more Psychic weapons only. Each time the bearer makes an attack with a Psychic weapon, you can re-roll the Hit roll, and you can re-roll the Wound role."
+      },
+      "Crusade Relic§Mortrexite Implant Attack": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Devastating Wounds"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "* Melee weapons equipped by the bearer gain the [**Devastating Wounds**] ability.\n* Each time the bearer fights, if one or more enemy models (excluding **Vehicle** models) are destroyed when resolving those attacks, after that fight is resolved you can select one friendly **Ripper Swarms** unit within 12″ of the bearer. If you do, add one Ripper Swarm model to that unit. If any of those destroyed enemy models had the **Monster** keyword, add D3 Ripper Swarm models to that **Ripper Swarm** unit instead."
+      },
+      "Crusade Relic§Slayer Sabres": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "Monster model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Monster"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          },
+          "Weapon Choice": {
+            "statType": "term",
+            "value": "",
+            "visibility": "normal"
+          }
+        },
+        "text": "**Monster** model only. Select one of the bearer’s melee weapons. That weapon games the following ability:\n\n**Slayer Sabres:** Each time the bearer fights, after that fight is resolved, select one enemy unit hit by one or more attacks made with this weapon this phase, then roll one D6: on a 2+, that unit suffers D3 mortal; wounds or D6+1 mortal wound instead if that unit has the **Psyker** keyword."
+      },
+      "Crusade Relic§Spirit-leech Cortex": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "rules": {
+          "Psyker model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "**Psyker** model only. Each time an enemy unit loses a wound as the result of a psychic attack made by the bearer:\n* The bearer regains 1 lost wound.\n* Until the start of your next Command phase, add 1 to the strength of the bearer’s melee weapons."
+      },
+      "Crusade Relic§The Norn Crown": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "* While the bearer is on the battlefield, once per battle, you can use the Shadow in the Warp ability one additional time.\n* While the bearer is on the battlefield, increase the range of friendly **Synapse** units’ Synapse ability to 9″."
+      },
       "Detachment§Assimilation Swarm": {
         "rules": {
           "assignStratagems": {
@@ -2202,6 +3114,9 @@
         },
         "text": "## Questing Tendrils & Vanguard Prime\n**Tyranids** units with this ability are eligible to charge in a turn which they Fell Back. **Vanguard Invader** units with this ability are eligible to charge in a turn which they Advanced.\n\n**Deathleaper** loses the Hunter Organism rule and can be your **Warlord**."
       },
+      "Devour Stage§Consumption": {},
+      "Devour Stage§Invasion": {},
+      "Devour Stage§Predation": {},
       "Enhancement§Adaptive Biology": {
         "keywords": {
           "Keywords": [
@@ -8309,6 +9224,207 @@
           }
         }
       },
+      "Requisition§Adapted Physiology": {
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        },
+        "text": "Purchase this Requisition at any time. Select one **Tyranids Character** from your Order of Battle with a Crusade Relic. You can exchange this for any other Crusade Relic they are currently eligible for, adjusting their Crusade points as required."
+      },
+      "Requisition§An Intellect Vast and Cold": {
+        "aspects": {
+          "Visibility": "active"
+        },
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "rules": {
+          "At least one Tyranids agenda is required.": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Tyranids Agenda"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Agenda 3": {
+            "dynamic": true,
+            "label": "Agenda",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Battlefield Survivors": {
+                "order": 1
+              },
+              "Swarm the Planet": {
+                "order": 2
+              },
+              "Headhunters": {
+                "order": 3
+              },
+              "Monstrous Targets": {
+                "order": 4
+              },
+              "Eradicate the Swarm": {
+                "order": 5
+              },
+              "Critical Objectives": {
+                "order": 6
+              },
+              "Drive Home the Blade": {
+                "order": 7
+              },
+              "Cleanse Infestation": {
+                "order": 8
+              },
+              "Forward Observers": {
+                "order": 9
+              },
+              "Recover Mission Archives": {
+                "order": 10
+              },
+              "Malefic Hunter": {
+                "order": 11
+              },
+              "Infest the Prey World": {
+                "order": 12,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Hunt and Slay": {
+                "order": 13,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Tyrannoform the Prey World": {
+                "order": 14,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              },
+              "Tyranid Attack": {
+                "order": 15,
+                "tracking": {
+                  "Tyranids Agenda": 1
+                }
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition during the Select Agendas step of the battle. You can select one additional agenda to use during this battle. At least one of the Agendas you select must be a Tyranids agenda."
+      },
+      "Requisition§Guard and Consume": {
+        "aspects": {
+          "Unique": true
+        },
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition after a battle once per devoured world. Choose a **Character** or **Monster** unit that was not destroyed in that battle; that unit immediately gains five XP.\n\n## Battle Experience\nUnits from your Crusade army with any of the following keywords gain an additional 1 XP from the Battle Experience rule if they were not destroyed at the end of the battle:\n\n* Biovores\n* Exocrine\n* Haruspex\n* Hive Guard\n* Hive Tyrant\n* Pyrovores\n* Tyrannofex\n* Tyrant Guard\n* Warlord"
+      },
+      "Requisition§Increase Supply Limit": {
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        }
+      },
+      "Requisition§Infestation": {
+        "aspects": {
+          "Unique": true
+        },
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition before a battle once per devoured world. Select one **Endless Multitude** unit from your order of battle. For the next battle only, that unit has the Infiltrators ability, (Core Rules).\n\n## Battle Experience\n\nUnit from your Crusade army with any of the following keywords gain an additional 1 XP from the Battle Experience rule if they control an objective marker in No Man’s Land, at the end of the battle:\n\n* Biovores\n* Exocrine\n* Haruspex\n* Hive Guard\n* Hive Tyrant\n* Pyrovores\n* Tyrannofex\n* Tyrant Guard\n* Warlord"
+      },
+      "Requisition§Respawn Warrior Organisms": {
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition at any time. Select one **Tyranids** unit from your Order of Battle that has no Battle Scars. That unit loses any or all Battle Traits it currently has. For each battle trait it lost, you can now select a new battle trait for it."
+      },
+      "Requisition§Synaptic Bioregenesis": {
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        },
+        "text": "Purchase this Requisition at any time. Select one **Synapse** unit from your Order of Battle and replace it with a new **Synapse** unit. You cannot purchase this Requisition if doing so would cause your total points to exceed your Crusade force’s supply limit. The newly added **Synapse** unit starts at the same number of XP as the unit it replaced and immediately gains the appropriate number of Battle Honours for its rank."
+      },
+      "Requisition§Vanguard Adaptation": {
+        "aspects": {
+          "Unique": true
+        },
+        "keywords": {
+          "Keywords": [
+            "Tyranids"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition before a battle once per world. Select two Vanguard Invader units (excluding **Characters** and **Monsters**) from your Order of Battle. For the next battle, you can swap these units’ Battle Traits (and change their Crusade Point totals accordingly). After the battle, they must be swapped back.\n\n## Battle Experience\nUnits from your Crusade army with any of the following keywords gain an additional 1 XP from the Battle Experience rule if they are wholly within your opponents deployment zone at the end of the battle:\n\n* Endless Multitude\n* Vanguard Invader\n* Warlord"
+      },
       "Roster§Army": {
         "allowed": {
           "classifications": []
@@ -12286,7 +13402,10 @@
             "value": "Massive toxic lashes"
           }
         }
-      }
+      },
+      "World§Hive": {},
+      "World§Industrial": {},
+      "World§Rural": {}
     },
     "gameModes": {},
     "theme": {}
