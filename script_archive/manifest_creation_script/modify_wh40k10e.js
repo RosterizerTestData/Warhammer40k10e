@@ -50,18 +50,17 @@ fileList.forEach(file => {
   .then(response => response.json())
   .then(data => {
     console.log(data.name)
-    // check each: weapon, ranged weapon, and melee weapon in assetCatalog.
-    // verify that each weapon with sub-trait weapons has a tag that denotes it as a multi-weapon
-    // display the weapon's weaponName stat, then each sub-weapon's weaponName stat.
+    // check each: Unit, Infantry/Mounted for allowed includes that have the Ability prefix
     Object.keys(data.manifest.assetCatalog).forEach(assetKey => {
       // if the assetKey is a weapon with sub-trait weapoons, then: log the weapon's weaponName stat
-      if(['Weapon', 'Ranged Weapon', 'Melee Weapon'].includes(assetKey.split('§')[0])){
-        if(data.manifest.assetCatalog[assetKey].assets?.traits?.filter(trait => typeof trait === 'string' && ['Weapon', 'Ranged Weapon', 'Melee Weapon'].includes(trait?.split('§')[0]))?.length){
-          console.log('  ',data.manifest.assetCatalog[assetKey].stats?.weaponName.value,' : ',assetKey);
-          data.manifest.assetCatalog[assetKey].assets?.traits?.forEach(traitKey => {
-            console.log('    ',data.manifest.assetCatalog[traitKey]?.stats?.weaponName.value)
-          })
-        }
+      if(['Unit', 'Infantry/Mounted'].includes(assetKey.split('§')[0])){
+        // console.log(assetKey,data.manifest.assetCatalog[assetKey])
+        data.manifest.assetCatalog[assetKey].allowed?.items?.forEach(allowed => {
+          // console.log(allowed,assetKey)
+          if(['Ability'].includes(allowed.split('§')[0])){
+            console.log(allowed,assetKey)
+          }
+        });
       }
     })
   })
