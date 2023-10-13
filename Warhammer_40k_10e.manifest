@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.6.7",
+  "revision": "10.6.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -749,6 +749,13 @@
           }
         },
         "stats": {
+          "Enhancement": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Warlord": {
             "dynamic": true,
             "ranks": {
@@ -1864,6 +1871,32 @@
                 "value": "Battle-ready"
               },
               {
+                "actionable": false,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Enhancement"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Renowned Heroes"
+                  ]
+                ],
+                "value": 1
+              },
+              {
                 "actionable": true,
                 "not": false,
                 "operator": "OR",
@@ -1876,6 +1909,26 @@
                     [
                       "0",
                       "1"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "allowRenownedHeroes",
+                    "evals",
+                    [
+                      "2",
+                      "3"
                     ],
                     "result",
                     "truthy"
@@ -1910,19 +1963,6 @@
                   ]
                 ],
                 "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "max": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Enhancement"
-                  ]
-                ]
               },
               {
                 "actionable": true,
@@ -3616,13 +3656,6 @@
             "group": "Crusade",
             "groupOrder": 3,
             "statOrder": 3,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Enhancement": {
-            "max": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -6757,6 +6790,60 @@
             "evaluate": "OR",
             "failState": "error"
           },
+          "setCustomMax": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Max Points",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Max Points",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "custom"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 1
+          },
           "setMaxes": {
             "actions": [
               {
@@ -6777,7 +6864,22 @@
                 ]
               }
             ],
-            "evals": [],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Size",
+                    "value"
+                  ]
+                ],
+                "value": "custom"
+              }
+            ],
             "evaluate": "OR",
             "failState": "pass",
             "order": 1
@@ -6915,26 +7017,22 @@
             "dynamic": true,
             "increment": {},
             "ranks": {
-              "-": {
-                "format": "-",
+              "custom": {
                 "order": 0
               },
               "Incursion": {
-                "format": "Incursion",
                 "order": 1,
                 "tracking": {
                   "maxPoints": 1000
                 }
               },
               "Strike Force": {
-                "format": "Strike Force",
                 "order": 2,
                 "tracking": {
                   "maxPoints": 2000
                 }
               },
               "Onslaught": {
-                "format": "Onslaught",
                 "order": 3,
                 "tracking": {
                   "maxPoints": 3000
@@ -7033,6 +7131,17 @@
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
+          },
+          "Max Points": {
+            "dynamic": true,
+            "increment": {
+              "value": 500
+            },
+            "min": 0,
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": 500,
+            "visibility": "hidden"
           },
           "Mission": {
             "dynamic": true,
