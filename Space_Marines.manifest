@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.6.12",
+  "revision": "10.6.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1994,7 +1994,7 @@
             "Other"
           ]
         },
-        "text": "At the start of the first battle round, if your army contains one or more models with this ability, you can select one objective marker on the battlefield. Until the end of the battle, while one or more models with this ability are on the battlefield, each time a friendly Adeptus Astartes model makes an attack that targets an enemy unit that is within range of that objective marker, re-roll a Wound roll of 1."
+        "text": "At the start of the first battle round, if your army includes one or more models with this ability, you can select one objective marker on the battlefield.\nUntil the end of the battle, while one or more models with this ability are on the battlefield, each time a friendly **Adeptus Astartes** model makes an attack that targets an enemy unit that is within range of that objective marker, re-roll a Wound roll of 1."
       },
       "Ability§Psychic Hood": {
         "keywords": {
@@ -13501,6 +13501,94 @@
             "Infantry/Mounted Scout Squad"
           ]
         },
+        "rules": {
+          "1 in 5 can have a sniper rifle": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a sniper rifle",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Scout Sniper Rifle"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a special weapon": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a special weapon",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Special Weapon Selection"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "model1stTally": {
             "value": 5
@@ -13517,13 +13605,6 @@
           "Scout": {
             "max": 9,
             "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Special Weapon Selection": {
-            "max": 1,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
@@ -23349,6 +23430,7 @@
             "value": 1
           },
           "Shooting": {
+            "dynamic": true,
             "group": "Loadout",
             "ranks": {
               "Heavy bolt pistol": {
@@ -27773,8 +27855,19 @@
                   }
                 ]
               },
-              "Heavy bolter": {
+              "Sniper Rifle": {
                 "order": 3,
+                "tracking": {
+                  "Special Weapon Selection": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Scout Sniper Squad—Scout sniper rifle"
+                  }
+                ]
+              },
+              "Heavy bolter": {
+                "order": 4,
                 "tracking": {
                   "Special Weapon Selection": 1
                 },
@@ -27785,7 +27878,7 @@
                 ]
               },
               "Missile launcher": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "Special Weapon Selection": 1
                 },
