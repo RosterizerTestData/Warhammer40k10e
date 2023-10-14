@@ -1,6 +1,6 @@
 {
   "name": "Space Marines Draft",
-  "revision": "10.6.11",
+  "revision": "10.6.12",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,957 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "Z5ES2E",
+      "slug": "SYEBJN",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
     }
   ],
   "manifest": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Campaign": {
+        "allowed": {
+          "classifications": [
+            "Oathsworn Campaign"
+          ]
+        }
+      },
+      "Character": {
+        "rules": {
+          "allowChapterAncient": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Chapter Ancient"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ancient"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowChapterMaster": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Chapter Master"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Captain"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Chapter Master"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowChiefApothecary": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Chief Apothecary"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Apothecary"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowChiefLibrarian": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Chief Librarian"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Librarian"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowMasterofSanctity": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Master of Sanctity"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaplain"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowMasteroftheForge": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Master of the Forge"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Techmarine"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Infantry/Mounted": {
+        "rules": {
+          "allow1stCompanyTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Eliminator Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Incursor Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infiltrator Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Reiver Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Scout Squad"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "allowScoutCompanyTraits",
+                    "evals",
+                    [
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowScoutCompanyTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Bladeguard Veteran Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Company Heroes"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Sternguard Veteran Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator Assault Squad"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator Squad"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vanguard Veteran Squad"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "allowScoutCompanyTraits",
+                    "evals",
+                    [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Mission Record": {
+        "stats": {
+          "Agenda 1": {
+            "ranks": {
+              "Angels of Death": {
+                "order": 12
+              },
+              "Know no Fear": {
+                "order": 13
+              },
+              "Armoured Assault": {
+                "order": 14
+              },
+              "Quest of Atonement": {
+                "order": 15
+              }
+            }
+          }
+        }
+      },
+      "Oathsworn Campaign": {
+        "rules": {
+          "abandon": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "✕"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Abandoned",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowEnduringDuty": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Enduring Duty"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battles",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "complete": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battles",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Abandoned": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Battle 1": {
+            "dynamic": true,
+            "group": "Agendas",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Battle 2": {
+            "dynamic": true,
+            "group": "Agendas",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Battle 3": {
+            "dynamic": true,
+            "group": "Agendas",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Battles": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "max": 3,
+            "min": 0,
+            "statOrder": -1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          }
+        }
+      },
+      "Order of Battle": {
+        "allowed": {
+          "items": [
+            "Requisition§Vaunted Triumph",
+            "Requisition§Even in Death I Still Serve",
+            "Requisition§A Legacy Preserved"
+          ]
+        }
+      },
+      "Promotion": {
+        "rules": {
+          "Make a Selection": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Selection",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Selection",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 2
+          }
+        },
+        "stats": {
+          "Honour Points": {
+            "group": "Cost",
+            "groupOrder": -1,
+            "icons": [
+              "laurels"
+            ],
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Selection": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          }
+        }
+      },
+      "Promotion Ability": {},
+      "Unit": {
+        "rules": {
+          "allowInfantry/MountedTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry/Mounted"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "allowInfantry/MountedTraits",
+                    "evals",
+                    [
+                      "1",
+                      "2"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Aerial Assault": {
         "keywords": {
@@ -436,14 +1379,6 @@
         },
         "text": "The first time this model is destroyed, remove it from play without resolving its Deadly Demise ability. Then, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with D6 wounds remaining."
       },
-      "Ability§Even in Death, I Serve": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "The first time this model is destroyed, remove it from play without resolving its Deadly Demise ability. Then, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with D6 wounds remaining."
-      },
       "Ability§Executioner": {
         "keywords": {
           "Keywords": [
@@ -619,6 +1554,82 @@
           ]
         },
         "text": "While this unit contains a Chapter Champion, add 1 to Advance and Charge rolls made for this unit and you can target this unit with the Heroic Intervention Stratagem for 0CP."
+      },
+      "Ability§Honourary Terminator": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
+        },
+        "rules": {
+          "increaseAttacks": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "increaseWounds": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classification"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
       },
       "Ability§Hood of Hellfire": {
         "keywords": {
@@ -1121,14 +2132,6 @@
         },
         "text": "Each time a model in this unit targets an enemy unit with a melee attack, re-roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re-roll the Wound roll instead."
       },
-      "Ability§Strategic Dispersal": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "In your Shooting phase, after this model’s unit has shot, if it is not within Engagement Range of any enemy models, it can make a Normal move of up to D6″."
-      },
       "Ability§Shrouding (psychic)": {
         "keywords": {
           "Keywords": [
@@ -1233,6 +2236,14 @@
           ]
         },
         "text": "Each time this model makes a ranged attack that targets a unit that cannot Fly, add 1 to the Hit roll."
+      },
+      "Ability§Strategic Dispersal": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "In your Shooting phase, after this model’s unit has shot, if it is not within Engagement Range of any enemy models, it can make a Normal move of up to D6″."
       },
       "Ability§Sunderer of Fortresses": {
         "keywords": {
@@ -1578,6 +2589,346 @@
           ]
         },
         "text": "While a friendly Adeptus Astartes Infantry unit is within 6″ of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1."
+      },
+      "Battle Trait§Abiding Duty": {
+        "keywords": {
+          "Tags": [
+            "1st Company"
+          ]
+        },
+        "text": "While this unit is Below Half-strength, you can re-roll Battle-shock tests taken for it."
+      },
+      "Battle Trait§Aquila Imperialis": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "text": "This unit can still be selected as the target of a Stratagem while it is Battle-shocked. In addition, each time an Out of Action test is failed for this unit, you can re-roll that test."
+      },
+      "Battle Trait§Bellicose Machine Spirit": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        },
+        "text": "Each time this model makes a Charge move, select one melee weapon it is equipped with; until the end of the turn, add 2 to the Strength characteristic of that weapon."
+      },
+      "Battle Trait§Bladesman’s Honour": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Improve the Weapon Skill characteristic of melee weapons equipped by models in this unit by 1."
+      },
+      "Battle Trait§Death’s Own Shadow": {
+        "keywords": {
+          "Tags": [
+            "Scout Company"
+          ]
+        },
+        "text": "Each time a ranged attack targets this unit, it has the Benefit of Cover against that attack."
+      },
+      "Battle Trait§Defenders of Humanity": {
+        "keywords": {
+          "Tags": [
+            "1st Company"
+          ]
+        },
+        "text": "Once per battle, at the start of your Command phase, this unit can use this ability. If it does, until the start of your next Command phase, add 1 to the Objective Control characteristic of models in this unit."
+      },
+      "Battle Trait§Echoes of the Primarch": {
+        "keywords": {
+          "Tags": [
+            "1st Company"
+          ]
+        },
+        "text": "Once per battle, at the start of the Fight phase, this unit can use this ability. If it does, until the end of the turn, weapons equipped by models in this unit have the [Sustained Hits 1] ability."
+      },
+      "Battle Trait§Execution Order": {
+        "keywords": {
+          "Tags": [
+            "Scout Company"
+          ]
+        },
+        "text": "Each time this unit makes an attack that targets a **Character** unit, add 1 to the Hit roll."
+      },
+      "Battle Trait§Focused Machine Spirit": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        },
+        "text": "This model does not suffer the penalty to its Hit rolls for firing at enemy units that are within Engagement Range of it."
+      },
+      "Battle Trait§Marksman’s Honours": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1."
+      },
+      "Battle Trait§Purity Seals": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "text": "Models in this unit have the Feel No Pain 5+ ability against Psychic Attacks."
+      },
+      "Battle Trait§Resilient Machine Spirit": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 2 to this model’s Wounds characteristic."
+      },
+      "Battle Trait§Service Studs": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "text": "At the end of the battle, if this unit is not destroyed, it gains an additional 1XP."
+      },
+      "Battle Trait§Tactical Repositioning": {
+        "keywords": {
+          "Tags": [
+            "Scout Company"
+          ]
+        },
+        "text": "Once per turn, in your opponent’s Charge phase, after an enemy unit has selected this unit as a target for its charge but before it makes a Charge move, this unit can choose to retreat. If it does, it can make a Normal move of up to 3″. The charging unit can then select new targets for that charge."
+      },
+      "Battle Trait§Terminator Honours": {
+        "assets": {
+          "included": [
+            "Ability§Honourary Terminator"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "rules": {
+          "allowHonouraryTerminatorForCharacters": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Ability§Honourary Terminator"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classification"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowHonouraryTerminatorForModels": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Ability§Honourary Terminator"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Move Honourary Terminator to desired model": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Honourary Terminator"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Too many Honourary Terminators": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Honourary Terminator"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "Select one model in this unit if this unit contains a unit champion, such as a Space Marine Sergeant, you must select that model). Add 1 to the Attacks characteristic of the selected model’s melee weapons and, unless the selected model is a **Character**, add 1 to its Wounds characteristic."
       },
       "Character§Adrax Agatone": {
         "aspects": {
@@ -3534,6 +4885,346 @@
           }
         }
       },
+      "Character§Captain on Bike": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following units:\n\n* Bike Squad\n\n* Outrider Squad"
+            },
+            "Ability§Oath of Moment",
+            "Ability§Swift Assault",
+            "Ability§Rites of Battle",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ranged Weapon§Captain on Bike—Twin boltgun"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Mounted",
+            "Character",
+            "Grenades",
+            "Imperium",
+            "Captain"
+          ],
+          "Tags": [
+            "Character Captain on Bike"
+          ]
+        },
+        "rules": {
+          "disallowTwoRelicWeapon": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Primary",
+                    "ranks"
+                  ]
+                ],
+                "value": "Relic shield"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Secondary",
+                    "value"
+                  ]
+                ],
+                "value": "Close combat + shield"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noTwinClaws": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Secondary",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Primary",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "twinClaws": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Secondary",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Secondary",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Primary",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 95
+          },
+          "Primary": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Captain on Bike—Bolt pistol"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
+                  }
+                ]
+              },
+              "Hand flamer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Captain on Bike—Hand flamer"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Captain on Bike—Inferno pistol"
+                  }
+                ]
+              },
+              "Master-crafted boltgun": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Captain on Bike—Master-crafted boltgun"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Captain on Bike—Plasma pistol"
+                  }
+                ]
+              },
+              "Storm bolter": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
+                  }
+                ]
+              },
+              "Relic shield": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Wargear§Relic Shield"
+                  }
+                ]
+              },
+              "Relic weapon": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Relic weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Power fist"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Thunder hammer"
+                  }
+                ]
+              },
+              "Twin lightning claws": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Twin lightning claws"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "Secondary": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Astartes chainsword"
+                  }
+                ]
+              },
+              "Close combat + shield": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Close combat weapon"
+                  },
+                  {
+                    "trait": "Wargear§Relic Shield"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Power fist"
+                  }
+                ]
+              },
+              "Relic weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Captain on Bike—Relic weapon"
+                  }
+                ]
+              },
+              "-": {
+                "order": 4
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "tracked": true,
+            "value": 6
+          }
+        }
+      },
       "Character§Captain Sicarius": {
         "aspects": {
           "Unique": true
@@ -5409,6 +7100,140 @@
         },
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: bolt pistol; twin boltgun; force weapon.\n\nThis model’s bolt pistol can be replaced with one of the following: ◦ 1 boltgun ◦ 1 combi-weapon ◦ 1 grav-pistol ◦ 1 plasma pistol ◦ 1 storm bolter"
       },
+      "Character§Librarian with Jump Pack": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following units:\n\n* Assault Squad with Jump Packs\n\n* Vanguard Veteran Squad with Jump Packs"
+            },
+            "Ability§Oath of Moment",
+            "Ability§Psychic Hood",
+            "Ability§Might of Heroes (psychic)",
+            "Melee Weapon§Librarian with Jump Pack—Force weapon",
+            "Ranged Weapon§Librarian with Jump Pack—Smite",
+            "Ability§Deep Strike"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Character",
+            "Jump Pack",
+            "Fly",
+            "Psyker",
+            "Grenades",
+            "Imperium",
+            "Librarian"
+          ],
+          "Tags": [
+            "Character Librarian with Jump Pack"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Bolt pistol"
+                  }
+                ]
+              },
+              "Boltgun": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Boltgun"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Combi-weapon"
+                  }
+                ]
+              },
+              "Grav-pistol": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Grav-pistol"
+                  }
+                ]
+              },
+              "Hand flamer": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Hand flamer"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Inferno pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Plasma pistol"
+                  }
+                ]
+              },
+              "Storm bolter": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Librarian with Jump Pack—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 75
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
       "Character§Lieutenant": {
         "assets": {
           "traits": [
@@ -6741,6 +8566,261 @@
             "value": 5
           }
         }
+      },
+      "Crusade Relic§Adamantine Curiass": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    [
+                      "T",
+                      "W"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the bearer’s Toughness and Wounds characteristics."
+      },
+      "Crusade Relic§Astartes Teleportation Transponder": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "text": "During the Declare Battle Formations step, if this model is attached to a unit, until the end of the battle, that unit has the Deep Strike ability."
+      },
+      "Crusade Relic§Halo Indomitus": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "text": "* The bearer has a 4+ invulnerable save.\n*The bearer has the Feel No Pain 4+ ability against mortal wounds."
+      },
+      "Crusade Relic§Paragon Blade": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Paragon Blade"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
+        "text": "The bearer is equipped with the Paragon Blade melee weapon in addition to its other weapons."
+      },
+      "Crusade Relic§Relic of the Primarch": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "text": "Once per battle, in your Command phase, the bearer can unveil the Relic of the Primarch. If it does, until the start of your next Command phase, the bearer has the following ability:\n\n### Relic of the Primarch (Aura)\n\n*While a friendly ADEPTUS ASTARTES unit is within 6″ of this model, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit.\n*If the bearer is destroyed, after removing it from play, set up one new objective marker as close as possible to the bearer’s last location; this represents the Relic of the Primarch. You immediately gain the Recover the Relic Agenda (see below) in addition to any other Agendas being used for the battle.\n\n## Recover the Relic\n\n---\nAt the end of the battle, if you control the Relic of the Primarch Objective marker, you can select one unit from your Crusade army that is within 3″ of that obiective marker; that unit gains 3XP. If you do not control that obiective marker at the end of the battle, you lose 10VP (to a minimum of 0)."
+      },
+      "Crusade Relic§Standard of Righteous Hatred": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "Ancient model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ancient"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**Ancient** model only. While the bearer is leading a unit, add 1 to the Strength characteristic of melee weapons equipped by models in that unit."
+      },
+      "Crusade Relic§Vortex Bolt": {
+        "assets": {
+          "included": [
+            "Ranged Weapon§Vortex Bolt"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "rules": {
+          "allowVortexBolt": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    [
+                      "Weapon",
+                      "Ranged Weapon"
+                    ],
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Ranged Weapon§Vortex Bolt"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Move the included Vortex Bolt to a Ranged Weapon equipped by the bearer": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Vortex Bolt"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only 1 Vortex Bolt profile allowed": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Vortex Bolt"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "Select one ranged weapon equipped by the bearer: that weapon is now a Crusade Relic. Note this on the bearer’s Crusade Card and give that weapon a suitable name. Once per battle, when the bearer shoots with that weapon, you can choose for it to fire a vortex bolt instead of shooting that weapon normally. If it does, resolve that shooting using the following profile."
       },
       "Detachment§1st Company Task Force": {
         "rules": {
@@ -9424,6 +11504,40 @@
           ]
         },
         "rules": {
+          "allowHonourGuard": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Honour Guard"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "This unit must be led by a Captain or Chapter Master": {
             "evals": [
               {
@@ -11026,6 +13140,320 @@
           }
         }
       },
+      "Infantry/Mounted§Relic Terminator Squad": {
+        "allowed": {
+          "items": [
+            "Model§Relic Terminator",
+            "Character§Ancient in Terminator Armour",
+            "Character§Captain in Terminator Armour",
+            "Character§Chaplain in Terminator Armour",
+            "Character§Darnath Lysander",
+            "Character§Librarian in Terminator Armour"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Relic Terminator",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Oath of Moment",
+            "Ability§Fury of the First",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Model§Relic Terminator Sergeant"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Imperium",
+            "Terminator",
+            "Relic Terminator Squad"
+          ],
+          "Tags": [
+            "Infantry/Mounted Relic Terminator Squad"
+          ]
+        },
+        "rules": {
+          "1 in 5 can have a Grenade harness.": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Grenade harness.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Grenade Harness"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a Special weapon selection.": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 can have a Special weapon selection.",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 400
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "Points": {
+            "value": 200
+          },
+          "Relic Terminator": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
+      "Infantry/Mounted§Scout Bike Squad": {
+        "allowed": {
+          "items": [
+            "Model§Scout Biker"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Scout Biker",
+              "quantity": 2
+            }
+          ],
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9″"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Outflank",
+            "Model§Scout Biker Sergeant"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Mounted",
+            "Grenades",
+            "Smoke",
+            "Imperium",
+            "Scout Bike Squad"
+          ],
+          "Tags": [
+            "Infantry/Mounted Scout Bike Squad"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 150
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "Points": {
+            "value": 75
+          },
+          "Scout Biker": {
+            "max": 5,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
+      "Infantry/Mounted§Scout Sniper Squad": {
+        "allowed": {
+          "items": [
+            "Model§Scout Sniper",
+            "Character§Captain in Phobos Armour",
+            "Character§Sergeant Telion"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Scout Sniper",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Infiltrators",
+            "Ability§Stealth",
+            "Ability§Oath of Moment",
+            "Ability§Concealed Positions",
+            "Model§Scout Sniper Sergeant"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Grenades",
+            "Smoke",
+            "Imperium",
+            "Scout Sniper Squad"
+          ],
+          "Tags": [
+            "Infantry/Mounted Scout Sniper Squad"
+          ]
+        },
+        "rules": {
+          "Maximum 1 missile launcher.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Missile launcher"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 150
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "Points": {
+            "value": 75
+          },
+          "Scout Sniper": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
       "Infantry/Mounted§Scout Squad": {
         "allowed": {
           "items": [
@@ -11553,6 +13981,61 @@
           }
         }
       },
+      "Infantry/Mounted§Tyrannic War Veterans": {
+        "allowed": {
+          "items": [
+            "Model§Tyrannic War Veteran",
+            "Character§Chaplain Cassius"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Tyrannic War Veteran",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            "Ability§Oath of Moment",
+            "Ability§Tyrannic War Veterans",
+            "Model§Veteran Sergeant"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes",
+            "Ultramarines"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Grenades",
+            "Imperium",
+            "Tyrannic War Veterans"
+          ],
+          "Tags": [
+            "Infantry/Mounted Tyrannic War Veterans"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "Points": {
+            "value": 85
+          },
+          "Tyrannic War Veteran": {
+            "max": 4,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
       "Infantry/Mounted§Ultramarines Honour Guard": {
         "allowed": {
           "items": [
@@ -11608,6 +14091,80 @@
           },
           "Points": {
             "value": 155
+          }
+        }
+      },
+      "Infantry/Mounted§Vanguard Veteran Squad": {
+        "allowed": {
+          "items": [
+            "Model§Vanguard Veteran",
+            "Character§Captain",
+            "Character§Captain Sicarius",
+            "Character§Chaplain",
+            "Character§Chaplain Cassius",
+            "Character§Imperial Space Marine",
+            "Character§Librarian",
+            "Character§Lieutenant"
+          ]
+        },
+        "assets": {
+          "included": [
+            {
+              "item": "Model§Vanguard Veteran",
+              "quantity": 4
+            }
+          ],
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "6″"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Vanguard Assault",
+            "Model§Vanguard Veteran Sergeant"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Grenades",
+            "Imperium",
+            "Vanguard Veteran Squad"
+          ],
+          "Tags": [
+            "Infantry/Mounted Vanguard Veteran Squad"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 240
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "Points": {
+            "value": 120
+          },
+          "Vanguard Veteran": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
@@ -15743,7 +18300,7 @@
               "item": "Ability§Anti-",
               "stats": {
                 "keyword": {
-                  "value": "vechile"
+                  "value": "vehicle"
                 },
                 "x": {
                   "value": "3+"
@@ -17055,6 +19612,22 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Paragon Blade": {
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -3
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
           }
         }
       },
@@ -21274,6 +23847,297 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Assault Squad—Plasma pistol"
+                  }
+                ]
+              },
+              "Grav-pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
+                  }
+                ]
+              },
+              "Hand flamer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
+                  }
+                ]
+              },
+              "Inferno pistol": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
+                  }
+                ]
+              },
+              "-": {
+                "order": 5
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "Bolt pistol",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Assault Sergeant with Jump Pack": {
+        "rules": {
+          "hasShield": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "ranks"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noTwinClaws": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "twinClaws": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "value"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Shooting",
+                    "visibility"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Shield",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee",
+                    "value"
+                  ]
+                ],
+                "value": "Twin lightning claws"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 12
+          },
+          "Melee": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Astartes chainsword"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Power fist"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Power weapon"
+                  }
+                ]
+              },
+              "Thunder hammer": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Thunder hammer"
+                  }
+                ]
+              },
+              "Eviscerator": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Eviscerator"
+                  }
+                ]
+              },
+              "Twin lightning claws": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Assault Squad with Jump Packs—Twin lightning claws"
+                  }
+                ]
+              }
+            },
+            "statOrder": 3,
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Shield": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Astartes Shield"
+                  }
+                ]
+              }
+            },
+            "statOrder": 4,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Shooting": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Assault Squad with Jump Packs—Plasma pistol"
                   }
                 ]
               },
@@ -27395,6 +30259,424 @@
           }
         }
       },
+      "Oathsworn Campaign§Precision Strike": {
+        "allowed": {
+          "items": [
+            "Requisition§Storm-swift Destruction"
+          ]
+        },
+        "stats": {
+          "Battle 1": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Punish Their Daring": {
+                "order": 1
+              },
+              "The Tip of the Spear": {
+                "order": 2
+              },
+              "Alpha-threat Protocols": {
+                "order": 3
+              }
+            }
+          },
+          "Battle 2": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Punish Their Daring": {
+                "order": 1
+              },
+              "The Tip of the Spear": {
+                "order": 2
+              },
+              "Alpha-threat Protocols": {
+                "order": 3
+              }
+            }
+          },
+          "Battle 3": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Punish Their Daring": {
+                "order": 1
+              },
+              "The Tip of the Spear": {
+                "order": 2
+              },
+              "Alpha-threat Protocols": {
+                "order": 3
+              }
+            }
+          }
+        }
+      },
+      "Oathsworn Campaign§The Forging of Legends": {
+        "allowed": {
+          "items": [
+            "Requisition§The Esteem of the Chapter"
+          ]
+        },
+        "stats": {
+          "Battle 1": {
+            "ranks": {
+              "Duel of Honour": {
+                "order": 1
+              },
+              "Hunting the Behemoth": {
+                "order": 2
+              },
+              "A Show of Dominion": {
+                "order": 3
+              }
+            }
+          },
+          "Battle 2": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Duel of Honour": {
+                "order": 1
+              },
+              "Hunting the Behemoth": {
+                "order": 2
+              },
+              "A Show of Dominion": {
+                "order": 3
+              }
+            }
+          },
+          "Battle 3": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Duel of Honour": {
+                "order": 1
+              },
+              "Hunting the Behemoth": {
+                "order": 2
+              },
+              "A Show of Dominion": {
+                "order": 3
+              }
+            }
+          }
+        }
+      },
+      "Oathsworn Campaign§Unflinching Bulwark": {
+        "allowed": {
+          "items": [
+            "Requisition§Fortification Network"
+          ]
+        },
+        "stats": {
+          "Battle 1": {
+            "ranks": {
+              "Priority Kill Zone": {
+                "order": 1
+              },
+              "Defiance Unfurled": {
+                "order": 2
+              },
+              "Drive Them Back!": {
+                "order": 3
+              }
+            }
+          },
+          "Battle 2": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Priority Kill Zone": {
+                "order": 1
+              },
+              "Defiance Unfurled": {
+                "order": 2
+              },
+              "Drive Them Back!": {
+                "order": 3
+              }
+            }
+          },
+          "Battle 3": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Priority Kill Zone": {
+                "order": 1
+              },
+              "Defiance Unfurled": {
+                "order": 2
+              },
+              "Drive Them Back!": {
+                "order": 3
+              }
+            }
+          }
+        }
+      },
+      "Promotion Ability§Ardent Protectors": {
+        "text": "While a **Character** model is leading this unit, each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll."
+      },
+      "Promotion Ability§Battlefield Chirurgy": {
+        "text": "At the end of the battle, if your Crusade army included this model and it was not destroyed during the battle, you can ignore up to two failed Out of Action tests taken for **Infantry** units from your Crusade army – those tests are treated as having been passed instead."
+      },
+      "Promotion Ability§Empyric Castellan": {
+        "text": "Once per battle, at the start of any phase, this unit can use this ability. If it does, until the start of your next turn, this model has the following ability:\n\n**Empyric Castellan (Aura, Psychic):** While an **Adeptus Astartes** unit from your army is within 6″ of this model, models in that unit have a 4+ invulnerable save."
+      },
+      "Promotion Ability§Liturgy of Resanctification": {
+        "text": "Each time this model uses its Blessing of the Omnissiah ability, the selected **Vehicle** regains up to D3+3 lost wounds instead of up to D3."
+      },
+      "Promotion Ability§Mantra of Strength": {
+        "text": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 2 to the Attacks, Strength and Damage characteristics of melee weapons equipped by this model."
+      },
+      "Promotion Ability§Master of Combat": {
+        "text": "Once per battle, in your Command phase, this model can use this ability. If it does, until the end of the turn, add 2 to the Damage characteristic of weapons equipped by this model."
+      },
+      "Promotion Ability§Master of the Codex": {
+        "text": "Once per battle, after you have selected your Oath of Moment target, select a second enemy unit.\n\nUntil the start of your next Command phase, that second enemy unit also counts as your Oath of Moment target."
+      },
+      "Promotion Ability§Pennant of the Fallen": {
+        "text": "While this model is leading a unit, each time a Bodyguard model in that unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6: on a 2+, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
+      },
+      "Promotion Ability§Psychic Scourge": {
+        "text": "At the start of your Shooting phase, you can select one enemy unit within 12″ of and visible to this model and roll one D6: on a 3-5, that unit suffers D6 mortal wounds; on a 6, that unit suffers D6 mortal wounds and, until the start of your next turn, halve that unit’s Move characteristic and halve the result of Charge rolls and Advance rolls made for that unit."
+      },
+      "Promotion Ability§Roused to Fury": {
+        "text": "Once per battle, at the start of either player’s Command phase, this unit can use this ability. If it does, until the end of the turn, add 1 to the Attacks characteristic of weapons equipped by models in this unit."
+      },
+      "Promotion Ability§Selfless Healer": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**Tacticus Apothecary** model only. While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
+      },
+      "Promotion Ability§Shielded by the Machine God": {
+        "text": "Each time this model uses its Blessing of the Omnissiah ability, until the start of your next Command phase, the selected **Vehicle** has a 4+ invulnerable save (in addition to that ability’s other effects)."
+      },
+      "Promotion Ability§Steadfast Example": {
+        "text": "Once per battle, at the start of your Command phase, this model can use this ability. If it does, until the end of the turn, this model has the following ability:\n\n**Steadfast Example (Aura):** While an **Adeptus Astartes** unit from your army is within 6″ of this model, add 1 to the Obiective Control characteristic of models in that unit."
+      },
+      "Promotion Ability§Wise Orator": {
+        "text": "Once per battle, at the start of the battle round, this model can use this ability. If it does, until the end of the turn, this model has the following ability:\n\n**Wise Orator (Aura):** Each time a friendly **Adeptus Astartes** unit within 6″ of this model makes a melee attack, add 1 to the Wound roll."
+      },
+      "Promotion§Chapter Ancient": {
+        "stats": {
+          "Honour Points": {
+            "value": 15
+          },
+          "Selection": {
+            "ranks": {
+              "Steadfast Example": {
+                "order": 1,
+                "term": "Promotion Ability§Steadfast Example"
+              },
+              "Pennant of the Fallen": {
+                "order": 2,
+                "term": "Promotion Ability§Pennant of the Fallen"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Chapter Master": {
+        "stats": {
+          "Honour Points": {
+            "value": 25
+          },
+          "Selection": {
+            "ranks": {
+              "Master of the Codex": {
+                "order": 1,
+                "term": "Promotion Ability§Master of the Codex"
+              },
+              "Master of Combat": {
+                "order": 2,
+                "term": "Promotion Ability§Master of Combat"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Chief Apothecary": {
+        "rules": {
+          "setSelection": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Selection",
+                    "value"
+                  ]
+                ],
+                "value": "Battlefield Chirurgy"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tacticus"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
+        "stats": {
+          "Honour Points": {
+            "value": 15
+          },
+          "Selection": {
+            "ranks": {
+              "Selfless Healer": {
+                "order": 1,
+                "term": "Promotion Ability§Selfless Healer"
+              },
+              "Battlefield Chirurgy": {
+                "order": 2,
+                "term": "Promotion Ability§Battlefield Chirurgy"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Chief Librarian": {
+        "stats": {
+          "Honour Points": {
+            "value": 15
+          },
+          "Selection": {
+            "ranks": {
+              "Psychic Scourge": {
+                "order": 1,
+                "term": "Promotion Ability§Psychic Scourge"
+              },
+              "Empyric Castellan": {
+                "order": 2,
+                "term": "Promotion Ability§Empyric Castellan"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Honour Guard": {
+        "stats": {
+          "Honour Points": {
+            "value": 10
+          },
+          "Selection": {
+            "ranks": {
+              "Ardent Protectors": {
+                "order": 1,
+                "term": "Promotion Ability§Ardent Protectors"
+              },
+              "Roused to Fury": {
+                "order": 2,
+                "term": "Promotion Ability§Roused to Fury"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Master of Sanctity": {
+        "stats": {
+          "Honour Points": {
+            "value": 20
+          },
+          "Selection": {
+            "ranks": {
+              "Wise Orator": {
+                "order": 1,
+                "term": "Promotion Ability§Wise Orator"
+              },
+              "Mantra of Strength": {
+                "order": 2,
+                "term": "Promotion Ability§Mantra of Strength"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Master of the Forge": {
+        "stats": {
+          "Honour Points": {
+            "value": 15
+          },
+          "Selection": {
+            "ranks": {
+              "Liturgy of Resanctification": {
+                "order": 1,
+                "term": "Promotion Ability§Liturgy of Resanctification"
+              },
+              "Shielded by the Machine God": {
+                "order": 2,
+                "term": "Promotion Ability§Shielded by the Machine God"
+              }
+            }
+          }
+        }
+      },
       "Ranged Weapon§Adeptus Astartes Armoury—Bolt pistol": {
         "assets": {
           "traits": [
@@ -27585,7 +30867,7 @@
                   "value": "Vehicle"
                 },
                 "x": {
-                  "value": "2"
+                  "value": "2+"
                 }
               }
             }
@@ -55410,6 +58692,130 @@
           }
         }
       },
+      "Ranged Weapon§Vortex Bolt": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            },
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "Psyker"
+                },
+                "x": {
+                  "value": "2+"
+                }
+              }
+            },
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "rules": {
+          "allowRenamingParent": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "aspects",
+                    "Rename"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Rename the weapon this profile is attached to": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "name"
+                  ]
+                ],
+                "value": ""
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Weapon"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "This profile must be attached to a ranged weapon.": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Ranged Weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "statType": "term",
+            "value": "D3+3"
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Vulkan He’stan—Bolt pistol": {
         "assets": {
           "traits": [
@@ -55744,6 +59150,62 @@
             "value": "Xiphon missile battery"
           }
         }
+      },
+      "Requisition§A Legacy Preserved": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition after an **Adeptus Astartes Infantry** or **Adeptus Astartes Mounted** unit from your Crusade army gains a Battle Scar, if your Order of Battle includes one or more **Apothecary** models.\nRemove the unit that just gained that Battle Scar from your Order of Battle, and your Crusade force gains 5 Honour points."
+      },
+      "Requisition§Enduring Duty": {
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        },
+        "text": "Purchase this Requisition after the third battle in an Oathsworn Campaign. You may participate in one additional battle before that Oathsworn Campaign ends."
+      },
+      "Requisition§Even in Death I Still Serve": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition when an **Adeptus Astartes Infantry Character** or **Adeptus Astartes Mounted Character** unit from your Crusade army would gain a second or subsequent Battle Scar. Remove that unit from your Order of Battle and replace it with an **Adeptus Astartes Walker** unit (excluding **Invictor Tactical Warsuits**). You cannot purchase this Requisition if doing so would cause your total Crusade points to exceed your Crusade forces Supply Limit. The new unit starts with the same number of XP as the unit it replaced and gains the appropriate number of Battle Honours for its rank."
+      },
+      "Requisition§Fortification Network": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition before a battle. Do not roll off to determine the Attacker and Defend for that battle. Instead, you are automatically the Defender. If your opponent uses the same or a similar rule to becomes the Defender, ignore both rules and instead determine the Attacker and Defender normally."
+      },
+      "Requisition§Storm-swift Destruction": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition before a battle. Do not roll off to determine the Attacker and Defend for that battle. Instead, you are automatically the Defender. If your opponent uses the same or a similar rule to becomes the Defender, ignore both rules and instead determine the Attacker and Defender normally."
+      },
+      "Requisition§The Esteem of the Chapter": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition after a battle in which your **Warlord** was not destroyed. Select one **Character** unit that participated in that battle (excluding your **Warlord**); that **Character** unit gains 5XP."
+      },
+      "Requisition§Vaunted Triumph": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition after a battle that you won. You can select a second unit to be Marked for Greatness. You can only purchase this Requisition once per Oathsworn Campaign."
       },
       "Roster§Army": {
         "rules": {
@@ -58617,6 +62079,41 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 12
+          },
+          "useCrusadeSM": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Honour Points",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
@@ -58722,6 +62219,20 @@
           "Faction Group": {
             "dynamic": false,
             "value": "Imperium"
+          },
+          "Honour Points": {
+            "dynamic": true,
+            "group": "Crusade",
+            "icons": [
+              "laurels"
+            ],
+            "increment": {
+              "value": 1
+            },
+            "min": 0,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
@@ -60282,6 +63793,99 @@
           }
         },
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: assault cannon; storm bolter; Dreadnought combat weapon.\n\nThis model’s storm bolter and Dreadnought combat weapon can be replaced with one of the following: ◦ 1 heavy flamer and 1 Dreadnought combat weapon ◦ 1 assault cannon ◦ 1 Dreadnought inferno cannon ◦ 1 heavy plasma cannon ◦ 1 multi-melta ◦ 1 twin lascannon\n\n*This model’s assault cannon can be replaced with one of the following: ◦ 1 Dreadnought inferno cannon ◦ 1 heavy plasma cannon ◦ 1 multi-melta ◦ 1 storm bolter and 1 Dreadnought combat weapon ◦ 1 heavy flamer and 1 Dreadnought combat weapon ◦ 1 twin lascannon"
+      },
+      "Vehicle§Contemptor Dreadnought": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Even in Death I Serve",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Ranged Weapon§Contemptor Dreadnought—Combi-bolter",
+            "Melee Weapon§Contemptor Dreadnought—Dreadnought combat weapon"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Contemptor Dreadnought",
+            "Dreadnought",
+            "Imperium",
+            "Vehicle",
+            "Walker"
+          ],
+          "Tags": [
+            "Vehicle Contemptor Dreadnought"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Multi-melta": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Contemptor Dreadnought—Multi-melta"
+                  }
+                ]
+              },
+              "Kheres-pattern assault cannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Contemptor Dreadnought—Kheres-pattern assault cannon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Multi-melta",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 170
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 9
+          },
+          "W": {
+            "value": 10
+          }
+        }
       },
       "Vehicle§Deathstorm Drop Pod": {
         "assets": {
@@ -61918,6 +65522,114 @@
           }
         }
       },
+      "Vehicle§Hunter": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Hunter Missile Targeting",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-4 wounds remaining"
+                }
+              }
+            },
+            "Ranged Weapon§Hunter—Skyspear missile launcher",
+            "Melee Weapon§Hunter—Armoured tracks"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Smoke",
+            "Imperium",
+            "Hunter"
+          ],
+          "Tags": [
+            "Vehicle Hunter"
+          ]
+        },
+        "stats": {
+          "Hunter-killer missile": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Hunter—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 100
+          },
+          "Storm bolter": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Hunter—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 11
+          },
+          "W": {
+            "value": 11
+          }
+        }
+      },
       "Vehicle§Impulsor": {
         "assets": {
           "traits": [
@@ -62198,6 +65910,214 @@
           },
           "W": {
             "value": 12
+          }
+        }
+      },
+      "Vehicle§Ironclad Dreadnought": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Siege-breaker Protocols"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Walker",
+            "Smoke",
+            "Imperium",
+            "Dreadnought",
+            "Ironclad Dreadnought"
+          ],
+          "Tags": [
+            "Vehicle Ironclad Dreadnought"
+          ]
+        },
+        "stats": {
+          "Hunter-killer missiles": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "0": {
+                "order": 0
+              },
+              "1": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Hunter-killer missile"
+                  }
+                ]
+              },
+              "2": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Hunter-killer missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "0",
+            "visibility": "normal"
+          },
+          "Ironclad assault": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Ironclad Assault Launchers"
+                  }
+                ]
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Seismic hammer": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Ironclad Dreadnought—Seismic hammer"
+                  }
+                ]
+              },
+              "Dreadnought chainfist": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Ironclad Dreadnought—Dreadnought chainfist"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Seismic hammer",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Dreadnought combat + bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Storm bolter"
+                  },
+                  {
+                    "trait": "Melee Weapon§Ironclad Dreadnought—Dreadnought combat weapon"
+                  }
+                ]
+              },
+              "Hurricane bolter": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Hurricane bolter"
+                  }
+                ]
+              },
+              "Dreadnought combat + flamer": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Heavy flamer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Ironclad Dreadnought—Dreadnought combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Dreadnought combat + bolter",
+            "visibility": "active"
+          },
+          "Loadout 3": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Meltagun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Meltagun"
+                  }
+                ]
+              },
+              "Heavy flamer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Ironclad Dreadnought—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Meltagun",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 150
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 10
+          },
+          "W": {
+            "value": 8
           }
         }
       },
@@ -63548,6 +67468,163 @@
           }
         }
       },
+      "Vehicle§Land Speeder": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Deep Strike",
+            "Ability§Oath of Moment",
+            "Ability§Target Sighted",
+            "Melee Weapon§Land Speeder—Close combat weapon"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "Imperium",
+            "Land Speeder"
+          ],
+          "Tags": [
+            "Vehicle Land Speeder"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder—Heavy bolter"
+                  }
+                ]
+              },
+              "Multi-melta": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder—Multi-melta"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 80
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 7
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
+      "Vehicle§Land Speeder Storm": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            {
+              "item": "Ability§Firing Deck",
+              "stats": {
+                "x": {
+                  "value": "6"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Storm Assault",
+            {
+              "item": "Ability§Transport",
+              "text": "This model has a transport capacity of 6 models. It can only transport Scout Squad, Scout Sniper Squad and Sergeant Telion models."
+            },
+            "Ranged Weapon§Land Speeder Storm—Cerberus launcher",
+            "Ranged Weapon§Land Speeder Storm—Heavy bolter",
+            "Melee Weapon§Land Speeder Storm—Close combat weapon"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "Transport",
+            "Dedicated Transport",
+            "Imperium",
+            "Land Speeder Storm"
+          ],
+          "Tags": [
+            "Vehicle Land Speeder Storm"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 70
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 7
+          },
+          "W": {
+            "value": 7
+          }
+        }
+      },
       "Vehicle§Land Speeder Tempest": {
         "assets": {
           "traits": [
@@ -63605,6 +67682,203 @@
           },
           "W": {
             "value": 7
+          }
+        }
+      },
+      "Vehicle§Land Speeder Tornado": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Deep Strike",
+            "Ability§Oath of Moment",
+            "Ability§Strafing Enfilade",
+            "Melee Weapon§Land Speeder Tornado—Close combat weapon"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "Imperium",
+            "Land Speeder Tornado"
+          ],
+          "Tags": [
+            "Vehicle Land Speeder Tornado"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder Tornado—Heavy bolter"
+                  }
+                ]
+              },
+              "Multi-melta": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder Tornado—Multi-melta"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "label": "Loadout",
+            "ranks": {
+              "Assault cannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder Tornado—Assault cannon"
+                  }
+                ]
+              },
+              "Heavy flamer": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder Tornado—Heavy flamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Assault cannon",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 95
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 7
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
+      "Vehicle§Land Speeder Typhoon": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Deep Strike",
+            "Ability§Oath of Moment",
+            "Ability§Fire and Redeploy",
+            "Ranged Weapon§Land Speeder Typhoon—Typhoon missile launcher",
+            "Melee Weapon§Land Speeder Typhoon—Close combat weapon"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "Imperium",
+            "Land Speeder Typhoon"
+          ],
+          "Tags": [
+            "Vehicle Land Speeder Typhoon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder Typhoon—Heavy bolter"
+                  }
+                ]
+              },
+              "Multi-melta": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Land Speeder Typhoon—Multi-melta"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy bolter",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 100
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 7
+          },
+          "W": {
+            "value": 6
           }
         }
       },
@@ -66375,6 +70649,115 @@
         },
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: 2 quad lascannons; twin heavy bolter; armoured tracks.\n\nThis model’s 2 quad lascannons can be replaced with 2 laser destroyers.\n\n*This model’s twin heavy bolter can be replaced with 1 twin heavy flamer\n\n*This model can be equipped with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer ◦ 1 multi-melta ◦ 1 storm bolter"
       },
+      "Vehicle§Stalker": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Skyfire Protocols",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-4 wounds remaining"
+                }
+              }
+            },
+            "Ranged Weapon§Stalker—Icarus stormcannon",
+            "Ranged Weapon§Stalker—Icarus stormcannon",
+            "Melee Weapon§Stalker—Armoured tracks"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Smoke",
+            "Imperium",
+            "Stalker"
+          ],
+          "Tags": [
+            "Vehicle Stalker"
+          ]
+        },
+        "stats": {
+          "Hunter-killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stalker—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 9
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 140
+          },
+          "Storm bolter": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stalker—Storm bolter"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 11
+          },
+          "W": {
+            "value": 11
+          }
+        }
+      },
       "Vehicle§Storm Eagle Gunship": {
         "assets": {
           "traits": [
@@ -67495,6 +71878,42 @@
           }
         },
         "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: Terrax melta cutter; 2 combi-bolters; Termite drill.\n\nThis model’s 2 combi-bolters can be replaced with one of the following ◦ 2 heavy flamers ◦ 2 twin volkite chargers"
+      },
+      "Vehicle§Thunderfire Cannon": {
+        "assets": {
+          "traits": [
+            "Ability§Oath of Moment",
+            "Ability§Tremor Shells",
+            "Ability§Crewed Artillery",
+            "Model§Techmarine Gunner",
+            "Model§Thunderfire Cannon"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Artillery",
+            "Vehicle",
+            "Imperium",
+            "Thunderfire Cannon"
+          ],
+          "Tags": [
+            "Vehicle Thunderfire Cannon"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 2
+          },
+          "Points": {
+            "value": 90
+          }
+        }
       },
       "Vehicle§Thunderhawk Gunship": {
         "assets": {
