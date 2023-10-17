@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.6.9",
+  "revision": "10.6.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -747,6 +747,58 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "Your army contains more than one of this unique epic hero": {
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "max": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "{0string}"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "aspects",
+                    "Unique"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "Your army contains more than one of this unique epic hero",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
