@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.6.20",
+  "revision": "10.6.21",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -12771,178 +12771,7 @@
             "Infantry/Mounted Reiver Squad"
           ]
         },
-        "rules": {
-          "applyGrapnel": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Model",
-                    "traits"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Grapnel",
-                  "processed",
-                  "term",
-                  "current"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grapnel",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "applyGravChute": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Model",
-                    "traits"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Grav-chute",
-                  "processed",
-                  "term",
-                  "current"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grav-chute",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "applyLoadout": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Model",
-                    "traits"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Loadout",
-                  "processed",
-                  "term",
-                  "current"
-                ]
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          }
-        },
         "stats": {
-          "Grapnel": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "term": "Wargear§Grapnel Launcher"
-              }
-            },
-            "statOrder": 3,
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
-          "Grav-chute": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "term": "Wargear§Reiver Grav-chute"
-              }
-            },
-            "statOrder": 3,
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
-          "Loadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Combat knife": {
-                "order": 0,
-                "term": "Melee Weapon§Reiver Squad—Combat knife"
-              },
-              "Bolt carbine": {
-                "order": 1,
-                "term": "Ranged Weapon§Reiver Squad—Bolt carbine"
-              }
-            },
-            "statType": "rank",
-            "value": "Combat knife",
-            "visibility": "active"
-          },
           "model1stTally": {
             "value": 5
           },
@@ -27090,11 +26919,84 @@
       "Model§Reiver": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Reiver Squad—Special issue bolt pistol",
-            "Melee Weapon§Reiver Squad—Close combat weapon"
+            "Ranged Weapon§Reiver Squad—Special issue bolt pistol"
           ]
         },
         "stats": {
+          "Grapnel": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Grapnel Launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Grav-chute": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Reiver Grav-chute"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Combat knife": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Reiver Squad—Combat knife"
+                  }
+                ]
+              },
+              "Bolt Carbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Reiver Squad—Bolt carbine"
+                  },
+                  {
+                    "trait": "Melee Weapon§Reiver Squad—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Combat knife",
+            "visibility": "active"
+          },
           "Ld": {
             "value": 6
           },
@@ -27118,8 +27020,7 @@
       "Model§Reiver Sergeant": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Reiver Squad—Special issue bolt pistol",
-            "Melee Weapon§Reiver Squad—Close combat weapon"
+            "Ranged Weapon§Reiver Squad—Special issue bolt pistol"
           ]
         },
         "rules": {
@@ -27172,6 +27073,48 @@
           }
         },
         "stats": {
+          "Grapnel": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Grapnel Launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Grav-chute": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Reiver Grav-chute"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
           "Knife": {
             "dynamic": true,
             "group": "Loadout",
@@ -27191,6 +27134,38 @@
             },
             "statType": "rank",
             "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Combat knife": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Reiver Squad—Combat knife"
+                  }
+                ]
+              },
+              "Bolt Carbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Reiver Squad—Bolt carbine"
+                  },
+                  {
+                    "trait": "Melee Weapon§Reiver Squad—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Combat knife",
             "visibility": "active"
           },
           "Ld": {
