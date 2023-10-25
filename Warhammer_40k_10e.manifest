@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.6.11",
+  "revision": "10.6.12",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1527,7 +1527,8 @@
         "aspects": {
           "Lock Qty": true,
           "Unique": true
-        }
+        },
+        "templateClass": "Battle Honour"
       },
       "Unit": {
         "allowed": {
@@ -5591,13 +5592,52 @@
             "Striding Behemoth"
           ]
         },
+        "rules": {
+          "allowMonsterHunter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster Hunters"
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Battle Honour"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
-          "Battle Honour": {
-            "statType": "numeric",
-            "tracked": true,
-            "value": -1,
-            "visibility": "hidden"
-          },
           "Crusade Pts": {
             "value": 0
           }
