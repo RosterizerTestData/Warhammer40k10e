@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.6.24",
+  "revision": "10.6.25",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "4XKT6D",
+      "slug": "CRXRX7",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -2212,6 +2212,9 @@
           ]
         },
         "text": "Once per battle, at the start of any phase, you can select one friendly Adeptus Astartes unit that is Battle-shocked and within 12″ of this model. That unit is no longer Battle-shocked."
+      },
+      "Ability§Sternguard Focus": {
+        "text": "Each time a model in this unit makes an attack that targets your Oath of Moment target, re-roll a Wound roll of 1."
       },
       "Ability§Storm Assault": {
         "keywords": {
@@ -13296,8 +13299,8 @@
           ],
           "traits": [
             "Ability§Oath of Moment",
-            "Ability§Bolter Drill",
-            "Model§Sternguard Veteran Sergeant"
+            "Model§Sternguard Veteran Sergeant",
+            "Ability§Sternguard Focus"
           ]
         },
         "keywords": {
@@ -13319,7 +13322,7 @@
           ]
         },
         "rules": {
-          "1 in 5 can have a Heavy bolter.": {
+          "1 in 5 can have a special weapon.": {
             "evals": [
               {
                 "actionable": false,
@@ -13342,7 +13345,7 @@
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Heavy bolter.",
+                  "1 in 5 can have a special weapon.",
                   "evals",
                   "0",
                   "result",
@@ -13353,8 +13356,8 @@
                 "paths": [
                   [
                     "{self}",
-                    "tally",
-                    "Sternguard heavy bolter"
+                    "tracked",
+                    "special"
                   ]
                 ]
               }
@@ -20952,6 +20955,32 @@
           }
         }
       },
+      "Melee Weapon§Sternguard Veteran Squad—Astartes chainsword": {
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Astartes chainsword"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Sternguard Veteran Squad—Close combat weapon": {
         "stats": {
           "A": {
@@ -20972,6 +21001,58 @@
           },
           "weaponName": {
             "value": "Close combat weapon"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Sternguard Veteran Squad—Power fist": {
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "weaponName": {
+            "value": "Power fist"
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Sternguard Veteran Squad—Power weapon": {
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "weaponName": {
+            "value": "Power weapon"
           },
           "WS": {
             "value": 3
@@ -28518,8 +28599,22 @@
                   }
                 ]
               },
-              "Sternguard heavy bolter": {
+              "Pyrecannon": {
                 "order": 2,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sternguard Veteran Squad—Pyrecannon"
+                  }
+                ]
+              },
+              "Sternguard heavy bolter": {
+                "order": 3,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Sternguard Veteran Squad—Sternguard heavy bolter"
@@ -28572,11 +28667,68 @@
                   }
                 ]
               },
-              "Combi-weapon": {
+              "Astartes chainsword": {
                 "order": 1,
                 "traits": [
                   {
+                    "trait": "Melee Weapon§Sternguard Veteran Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Combi-weapon": {
+                "order": 2,
+                "traits": [
+                  {
                     "trait": "Ranged Weapon§Sternguard Veteran Squad—Combi-weapon"
+                  }
+                ]
+              },
+              "Power weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Sternguard Veteran Squad—Power weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Sternguard Veteran Squad—Power fist"
+                  }
+                ]
+              },
+              "Rifle + Chainsword": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sternguard Veteran Squad—Sternguard bolt rifle"
+                  },
+                  {
+                    "trait": "Melee Weapon§Sternguard Veteran Squad—Astartes chainsword"
+                  }
+                ]
+              },
+              "Rifle + Power weapon": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sternguard Veteran Squad—Sternguard bolt rifle"
+                  },
+                  {
+                    "trait": "Melee Weapon§Sternguard Veteran Squad—Power weapon"
+                  }
+                ]
+              },
+              "Rifle + power fist": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sternguard Veteran Squad—Sternguard bolt rifle"
+                  },
+                  {
+                    "trait": "Melee Weapon§Sternguard Veteran Squad—Power fist"
                   }
                 ]
               }
@@ -53853,6 +54005,36 @@
           },
           "weaponName": {
             "value": "Combi-weapon"
+          }
+        }
+      },
+      "Ranged Weapon§Sternguard Veteran Squad—Pyrecannon": {
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6+1"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "statType": "term",
+            "value": "n/a"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 6
           }
         }
       },
