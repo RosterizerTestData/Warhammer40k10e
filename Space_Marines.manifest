@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.6.28",
+  "revision": "10.6.29",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "9NGV8C",
+      "slug": "V7MGDK",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -3923,6 +3923,68 @@
           "Tags": [
             "Character Bladeguard Ancient"
           ]
+        },
+        "rules": {
+          "Allowtwoleaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Captain"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Chapter Master"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Lieutenant"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
