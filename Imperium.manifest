@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.5.6",
+  "revision": "10.5.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "495V89",
+      "slug": "F7DGPN",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -16594,8 +16594,37 @@
             "evals": [
               {
                 "actionable": false,
+                "min": 1,
+                "not": false,
+                "note": "at least 1 Gun Servitor",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "note": "at least 1 Mystic",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
                 "min": 2,
                 "not": false,
+                "note": "at least 2 Gun Servitors",
                 "operator": "AND",
                 "paths": [
                   [
@@ -16609,6 +16638,7 @@
                 "actionable": false,
                 "min": 2,
                 "not": false,
+                "note": "at least 2 Mystics",
                 "operator": "AND",
                 "paths": [
                   [
@@ -16619,8 +16649,23 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
+                "min": 5,
                 "not": false,
+                "note": "at least 5 Inquisitorial Acolytes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Inquisitorial Acolyte"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "note": "at least 1 Gun Servitor OR 1 Mystic",
                 "operator": "OR",
                 "paths": [
                   [
@@ -16628,16 +16673,52 @@
                     "rules",
                     "points140",
                     "evals",
-                    "0",
+                    [
+                      "0",
+                      "1"
+                    ],
                     "result",
                     "truthy"
-                  ],
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "at least 2 Gun Servitors OR 2 Mystics",
+                "operator": "OR",
+                "paths": [
                   [
                     "{self}",
                     "rules",
                     "points140",
                     "evals",
-                    "1",
+                    [
+                      "2",
+                      "3"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "at least 5 Inquisitorial Acolytes (4) AND at least 1 Gun Servitor OR 1 Mystic (5)",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "points140",
+                    "evals",
+                    [
+                      "4",
+                      "5"
+                    ],
                     "result",
                     "truthy"
                   ]
@@ -16645,7 +16726,7 @@
                 "value": true
               }
             ],
-            "evaluate": "AND",
+            "evaluate": "OR",
             "failState": "pass",
             "order": 94
           },
@@ -16681,6 +16762,7 @@
             "evals": [
               {
                 "actionable": false,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -16689,11 +16771,11 @@
                     "tally",
                     "Gun Servitor"
                   ]
-                ],
-                "value": 1
+                ]
               },
               {
                 "actionable": false,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -16702,8 +16784,33 @@
                     "tally",
                     "Mystic"
                   ]
-                ],
-                "value": 1
+                ]
+              },
+              {
+                "actionable": false,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Gun Servitor"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Mystic"
+                  ]
+                ]
               },
               {
                 "actionable": true,
@@ -16725,6 +16832,32 @@
                     "points60",
                     "evals",
                     "1",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "points60",
+                    "evals",
+                    "2",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{self}",
+                    "rules",
+                    "points60",
+                    "evals",
+                    "3",
                     "result",
                     "truthy"
                   ]
@@ -17011,7 +17144,7 @@
                     "truthy"
                   ]
                 ],
-                "value": false
+                "value": true
               },
               {
                 "actionable": true,
