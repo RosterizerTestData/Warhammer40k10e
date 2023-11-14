@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.5.8",
+  "revision": "10.5.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "YXXFQX",
+      "slug": "5M5KAF",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -11453,11 +11453,98 @@
         }
       },
       "Model§Chaos Biker": {
+        "rules": {
+          "CombiWeapon": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Special Weapons",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Special Weapons",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Option",
+                    "value"
+                  ]
+                ],
+                "value": "Combi-Weapon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "NoCombiWeapon": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Special Weapons",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Option",
+                    "value"
+                  ]
+                ],
+                "value": "Combi-Weapon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
         "stats": {
           "Chaos Icon": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 3,
             "ranks": {
               "0": {
                 "order": 0
@@ -11487,7 +11574,7 @@
           "Melee Option": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 3,
             "ranks": {
               "Bolt pistol": {
                 "order": 0,
@@ -11519,7 +11606,7 @@
           "Ranged Option": {
             "dynamic": true,
             "group": "Loadout",
-            "groupOrder": 2,
+            "groupOrder": 3,
             "ranks": {
               "Combi-bolter": {
                 "order": 0,
@@ -11528,6 +11615,30 @@
                     "trait": "Ranged Weapon§Chaos Bikers—Combi-bolter"
                   }
                 ]
+              },
+              "Combi-Weapon": {
+                "order": 1,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Bikers—Combi-weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Combi-bolter",
+            "visibility": "normal"
+          },
+          "Special Weapons": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 3,
+            "ranks": {
+              "-": {
+                "order": 0
               },
               "Flamer": {
                 "order": 1,
@@ -11561,21 +11672,10 @@
                     "trait": "Ranged Weapon§Chaos Bikers—Plasma gun"
                   }
                 ]
-              },
-              "Combi-Weapon": {
-                "order": 4,
-                "tracking": {
-                  "special": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Chaos Bikers—Combi-weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Combi-bolter",
+            "value": "-",
             "visibility": "normal"
           },
           "Sv": {
@@ -32425,13 +32525,13 @@
             "value": 5
           },
           "model2ndCost": {
-            "value": 170
+            "value": 210
           },
           "model2ndTally": {
             "value": 10
           },
           "Points": {
-            "value": 90
+            "value": 105
           },
           "Rubric Marine": {
             "max": 9,
@@ -32775,6 +32875,9 @@
       },
       "Wargear§Chaos Icon": {
         "text": "Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test."
+      },
+      "Wargear§Icon of Flame": {
+        "text": "Each time a model in the bearer’s unit makes a ranged attack, if a Critical Wound is scored, improve the Armour Penetration characteristic of that attack by 1."
       },
       "Wargear§Icon of Khorne": {
         "text": "Each time you make a Blessings of Khorne roll, if the bearer’s unit is within range of an objective marker you control, you can re-roll one of the dice."
