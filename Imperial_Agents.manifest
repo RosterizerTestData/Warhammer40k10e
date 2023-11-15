@@ -1,6 +1,6 @@
 {
   "name": "Agents of the Imperium",
-  "revision": "10.5.2",
+  "revision": "10.5.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "DCBDXE",
+      "slug": "9NGV8C",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifest"
@@ -45,8 +45,7 @@
           "Keywords": [
             "Other"
           ]
-        },
-        "text": "While this model is leading a unit, models in that unit have the Infiltrators ability."
+        }
       },
       "Ability§Evade and Survive": {
         "keywords": {
@@ -88,14 +87,6 @@
         },
         "text": "At the start of your Command phase, this model regains 1 lost wound."
       },
-      "Ability§That Redeploy Units, Roll Off": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "the winner chooses who redeploys units first."
-      },
       "Ability§The Third Eye (psychic)": {
         "keywords": {
           "Keywords": [
@@ -109,8 +100,7 @@
           "Keywords": [
             "Other"
           ]
-        },
-        "text": "If your army includes one or more units with this ability, after players have deployed, select up to D3 Imperium Battleline units from your army and redeploy them. You can use this ability to place those selected units into Strategic Reserves, regardless of how many units are already in Strategic Reserves. If both players have abilities"
+        }
       },
       "Character§Espern Locarno": {
         "aspects": {
@@ -192,8 +182,6 @@
             "Ability§Assigned Agents",
             "Ability§Authority of the Inquisition",
             "Ability§Power of the Rosette",
-            "Wargear§Blessed Wardings",
-            "Wargear§Psychic Gifts",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -223,6 +211,69 @@
             "Character Inquisitor in Terminator Armour"
           ]
         },
+        "rules": {
+          "Blessed Wardings": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Psychic Shock Wave",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Melee Weapon",
+                    "ranks"
+                  ]
+                ],
+                "value": "Force Weapon"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ranged Weapon",
+                    "ranks"
+                  ]
+                ],
+                "value": "Psycannon"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wargear",
+                    "value"
+                  ]
+                ],
+                "value": "Blessed Wardings"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -230,19 +281,83 @@
           "M": {
             "value": 5
           },
+          "Melee Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Inquisitorial melee weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Inquisitor in Terminator Armour—Inquisitorial melee weapon"
+                  }
+                ]
+              },
+              "Force Weapon": {
+                "order": 1,
+                "tracking": {
+                  "psychic": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Inquisitor in Terminator Armour—Force weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Inquisitorial melee weapon",
+            "visibility": "active"
+          },
           "OC": {
             "value": 1
           },
           "Points": {
             "value": 70
           },
-          "sampleLoadout": {
+          "Psychic Shock Wave": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Combi-weapon": {
+              "-": {
+                "number": 2,
                 "order": 0,
+                "tracking": {}
+              },
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {
+                  "psychic": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Inquisitor in Terminator Armour—Psychic shock wave"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ranged Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Storm bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Inquisitor in Terminator Armour—Storm bolter"
+                  }
+                ]
+              },
+              "Combi-Weapon": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Inquisitor in Terminator Armour—Combi-weapon"
@@ -250,57 +365,20 @@
                 ]
               },
               "Psycannon": {
-                "order": 1,
+                "order": 2,
+                "tracking": {
+                  "psychic": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Inquisitor in Terminator Armour—Psycannon"
                   }
                 ]
-              },
-              "Psychic shock wave": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Inquisitor in Terminator Armour—Psychic shock wave"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Inquisitor in Terminator Armour—Storm bolter"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Inquisitor in Terminator Armour—Close combat weapon"
-                  }
-                ]
-              },
-              "Force weapon": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Inquisitor in Terminator Armour—Force weapon"
-                  }
-                ]
-              },
-              "Inquisitorial melee weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Inquisitor in Terminator Armour—Inquisitorial melee weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Combi-weapon",
-            "visibility": "active"
+            "value": "Storm bolter",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 2
@@ -310,9 +388,35 @@
           },
           "W": {
             "value": 5
+          },
+          "Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Blessed Wardings": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Wargear§Blessed Wardings"
+                  }
+                ]
+              },
+              "Psychic Gifts": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Psychic Gifts"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Blessed Wardings",
+            "visibility": "normal"
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nThis model is equipped with: storm bolter; Inquisitorial melee weapon; blessed wardings.\n\nThis model’s storm bolter can be replaced with 1 combi-weapon.\n\n*This model’s blessed wardings can be replaced with 1 psychic gifts and 1 psychic shock wave.\n\n*If this model is equipped with 1 psychic gifts, its Inquisitorial melee weapon can be replaced with 1 force weapon.\n\n*If this model is equipped with 1 psychic gifts, its storm bolter can be replaced with 1 psycannon."
+        "text": ""
       },
       "Character§Janus Draik": {
         "aspects": {
@@ -328,7 +432,6 @@
             "Ability§Assigned Agent",
             "Ability§Backroom Deals",
             "Ability§Warrant of Trade",
-            "Ability§That Redeploy Units, Roll Off",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -399,7 +502,6 @@
             "Ability§Assigned Agent",
             "Ability§Backroom Deals",
             "Ability§Warrant of Trade",
-            "Ability§That Redeploy Units, Roll Off",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -893,113 +995,82 @@
         }
       },
       "Model§Legionnaire Sergeant": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Damned Legionnares—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 5
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Bolt pistol"
-                  }
-                ]
-              },
               "Boltgun": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Damned Legionnares—Boltgun"
                   }
                 ]
               },
-              "Flamer": {
+              "Bolt pistol and Power weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Damned Legionnares—Bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Damned Legionnares—Power weapon"
+                  }
+                ]
+              },
+              "Plasma pistol and Power weapon": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Damned Legionnares—Flamer"
+                    "trait": "Ranged Weapon§Damned Legionnares—Plasma pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Damned Legionnares—Power weapon"
                   }
                 ]
               },
-              "Heavy flamer": {
+              "Bolt pistol and Astartes chainsword": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Damned Legionnares—Heavy flamer"
-                  }
-                ]
-              },
-              "Meltagun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Meltagun"
-                  }
-                ]
-              },
-              "Multi-melta": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Multi-melta"
-                  }
-                ]
-              },
-              "Plasma gun": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Plasma gun"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Plasma pistol"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 8,
-                "traits": [
+                    "trait": "Ranged Weapon§Damned Legionnares—Bolt pistol"
+                  },
                   {
                     "trait": "Melee Weapon§Damned Legionnares—Astartes chainsword"
                   }
                 ]
               },
-              "Close combat weapon": {
-                "order": 9,
+              "Plasma pistol and Astartes chainsword": {
+                "order": 4,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Damned Legionnares—Close combat weapon"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
+                    "trait": "Ranged Weapon§Damned Legionnares—Plasma pistol"
+                  },
                   {
-                    "trait": "Melee Weapon§Damned Legionnares—Power weapon"
+                    "trait": "Melee Weapon§Damned Legionnares—Astartes chainsword"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Boltgun",
             "visibility": "active"
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 3
@@ -1013,113 +1084,93 @@
         }
       },
       "Model§Legionnaires": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Damned Legionnares—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 5
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Bolt pistol"
-                  }
-                ]
-              },
               "Boltgun": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Damned Legionnares—Boltgun"
                   }
                 ]
               },
-              "Flamer": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Flamer"
-                  }
-                ]
-              },
               "Heavy flamer": {
-                "order": 3,
+                "order": 1,
+                "tracking": {
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Damned Legionnares—Heavy flamer"
                   }
                 ]
               },
-              "Meltagun": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Meltagun"
-                  }
-                ]
-              },
               "Multi-melta": {
-                "order": 5,
+                "order": 2,
+                "tracking": {
+                  "heavy": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Damned Legionnares—Multi-melta"
                   }
                 ]
               },
+              "Flamer": {
+                "order": 3,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Damned Legionnares—Flamer"
+                  }
+                ]
+              },
+              "Meltagun": {
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Damned Legionnares—Meltagun"
+                  }
+                ]
+              },
               "Plasma gun": {
-                "order": 6,
+                "order": 5,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Damned Legionnares—Plasma gun"
                   }
                 ]
-              },
-              "Plasma pistol": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Damned Legionnares—Plasma pistol"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Damned Legionnares—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Damned Legionnares—Close combat weapon"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Damned Legionnares—Power weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Bolt pistol",
+            "value": "Boltgun",
             "visibility": "active"
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 3
@@ -1833,14 +1884,55 @@
             "Legends"
           ],
           "Keywords": [
-            "Infantry",
-            "Imperium",
+            "Damned Legionnaires",
             "Grenades",
-            "Damned Legionnaires"
+            "Imperium",
+            "Infantry",
+            "Retinue"
           ],
           "Tags": [
             "Unit Damned Legionnares"
           ]
+        },
+        "rules": {
+          "Only one Flamer, Melta gun or Plasma gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only one Heavy Flamer or Multi-Melta": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Legionnaires": {
@@ -1864,7 +1956,7 @@
             "value": 90
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: boltgun; close combat weapon.\n\nThe Legionnaire Sergeant’s boltgun can be replaced with one of the following: ◦ 1 bolt pistol and 1 power weapon ◦ 1 plasma pistol and 1 power weapon ◦ 1 bolt pistol and 1 Astartes chainsword ◦ 1 plasma pistol and 1 Astartes chainsword\n\n*One Legionnaire’s boltgun can be replaced with one of the following: ◦ 1 Heavy flamer ◦ 1 Multi-melta\n\n*One Legionnaire’s boltgun can be replaced with one of the following: ◦ 1 Flamer ◦ 1 Meltagun ◦ 1 Plasma gun"
+        "text": ""
       },
       "Wargear§Blessed Wardings": {
         "text": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability against mortal wounds."
