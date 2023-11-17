@@ -1,6 +1,6 @@
 {
   "name": "Chaos Daemons",
-  "revision": "10.5.3",
+  "revision": "10.5.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "NPRN93",
+      "slug": "P9TCDT",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -68,7 +68,7 @@
             "Special"
           ]
         },
-        "text": "When you select this model to include in your army, you must select one of the following keywords for it to gain: \n\n* Khorne \n\n* Tzeentch \n\n* Nurgle \n\n* Slaanesh the keyword you select will also affect some of this model’s characteristics (see the Daemonic Allegiance section)."
+        "text": "When you select this model to include in your army, you must select one of the following keywords for it to gain: \n\n* Khorne \n\n* Tzeentch \n\n* Nurgle \n\n* Slaanesh \n\nThe keyword you select will also affect some of this model’s characteristics (see the Daemonic Allegiance section)."
       },
       "Ability§Emissary of the Blood God (aura)": {
         "keywords": {
@@ -1571,7 +1571,49 @@
         }
       },
       "Model§Pox Riders": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Pox Riders—Grasping tongue",
+            "Melee Weapon§Pox Riders—Pox Rider plaguesword",
+            "Melee Weapon§Pox Riders—Yawning maw"
+          ]
+        },
         "stats": {
+          "Additional": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Instrument of Chaos": {
+                "order": 1,
+                "tracking": {
+                  "NumInstruments": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Instrument of Chaos"
+                  }
+                ]
+              },
+              "Daemonic icon": {
+                "order": 2,
+                "tracking": {
+                  "NumIcons": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Daemonic Icon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
           "Ld": {
             "value": 7
           },
@@ -1580,40 +1622,6 @@
           },
           "OC": {
             "value": 2
-          },
-          "sampleLoadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Grasping tongue": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Pox Riders—Grasping tongue"
-                  }
-                ]
-              },
-              "Pox Rider plaguesword": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Pox Riders—Pox Rider plaguesword"
-                  }
-                ]
-              },
-              "Yawning maw": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Pox Riders—Yawning maw"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Grasping tongue",
-            "visibility": "active"
           },
           "Sv": {
             "value": 6
@@ -2094,7 +2102,6 @@
             "Ability§Deep Strike",
             "Ability§The Shadow of Chaos",
             "Ability§Prey on the Weak",
-            "Ability§Daemonic Allegiance",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -2102,7 +2109,8 @@
                   "value": "5+"
                 }
               }
-            }
+            },
+            "Ability§Daemonic Allegiance"
           ]
         },
         "keywords": {
@@ -2124,6 +2132,46 @@
           ]
         },
         "stats": {
+          "Daemonic Allegiance": {
+            "dynamic": true,
+            "ranks": {
+              "Khorne": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Khorne"
+                  }
+                ]
+              },
+              "Tzeentch": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Tzeentch"
+                  }
+                ]
+              },
+              "Nurgle": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Nurgle"
+                  }
+                ]
+              },
+              "Slaanesh": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Slaanesh"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Khorne",
+            "visibility": "normal"
+          },
           "Furies": {
             "max": 10,
             "min": 5,
@@ -2160,7 +2208,6 @@
             },
             "Ability§The Shadow of Chaos",
             "Ability§Regenerating Monstrosity",
-            "Ability§Daemonic Allegiance",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -2169,7 +2216,8 @@
                 }
               }
             },
-            "Melee Weapon§Giant Chaos Spawn—Churning fangs and claws"
+            "Melee Weapon§Giant Chaos Spawn—Churning fangs and claws",
+            "Ability§Daemonic Allegiance"
           ]
         },
         "keywords": {
@@ -2188,7 +2236,185 @@
             "Unit Giant Chaos Spawn"
           ]
         },
+        "rules": {
+          "AllegianceisKhorne": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Khorne"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Khorne"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "AllegianceisNurgle": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Nurgle"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Nurgle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "AllegianceisSlaanesh": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Slaanesh"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Slaanesh"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "AllegianceisTzeentch": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tzeentch"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Tzeentch"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
+          "Daemonic Allegiance": {
+            "dynamic": true,
+            "ranks": {
+              "Khorne": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Khorne"
+                  }
+                ]
+              },
+              "Tzeentch": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Tzeentch"
+                  }
+                ]
+              },
+              "Nurgle": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Nurgle"
+                  }
+                ]
+              },
+              "Slaanesh": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Slaanesh"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Khorne",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
@@ -2211,7 +2437,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “DAEMONIC ALLEGIANCE” that must be added to the appropriate ability: \n\n* Creature of Khorne\n* Creature of Tzeentch\n* Creature of Nurgle\n* Creature of Slaanesh"
+        "text": ""
       },
       "Unit§Plague Toads": {
         "allowed": {
@@ -2294,8 +2520,6 @@
             "Ability§The Shadow of Chaos",
             "Ability§Bounding Assault",
             "Ability§Grandfather's Blessing",
-            "Wargear§Daemonic Icon",
-            "Wargear§Instrument of Chaos",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -2324,6 +2548,46 @@
             "Unit Pox Riders"
           ]
         },
+        "rules": {
+          "Only 1 Daemonic Icon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "NumIcons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only 1 Daemonic Instrument": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "NumInstruments"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "model1stTally": {
             "value": 3
@@ -2340,7 +2604,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\nEvery model is equipped with: grasping tongue; Pox Rider plaguesword; yawning maw.\n\n1 Pox Rider that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.\n\n*1 Pox Rider that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon."
+        "text": ""
       },
       "Unit§Spined Chaos Beast": {
         "assets": {
@@ -2348,7 +2612,6 @@
             "Ability§Deep Strike",
             "Ability§The Shadow of Chaos",
             "Ability§Warp Spines",
-            "Ability§Daemonic Allegiance",
             {
               "item": "Ability§Damaged:",
               "stats": {
@@ -2365,7 +2628,8 @@
                 }
               }
             },
-            "Melee Weapon§Spined Chaos Beast—Jagged claws and tusked maw"
+            "Melee Weapon§Spined Chaos Beast—Jagged claws and tusked maw",
+            "Ability§Daemonic Allegiance"
           ]
         },
         "keywords": {
@@ -2384,7 +2648,185 @@
             "Unit Spined Chaos Beast"
           ]
         },
+        "rules": {
+          "AllegianceisKhorne": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Khorne"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Khorne"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "AllegianceisNurgle": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Nurgle"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Nurgle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "AllegianceisSlaanesh": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Slaanesh"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Slaanesh"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "AllegianceisTzeentch": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tzeentch"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "Tzeentch"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
+          "Daemonic Allegiance": {
+            "dynamic": true,
+            "ranks": {
+              "Khorne": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Khorne"
+                  }
+                ]
+              },
+              "Tzeentch": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Tzeentch"
+                  }
+                ]
+              },
+              "Nurgle": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Nurgle"
+                  }
+                ]
+              },
+              "Slaanesh": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ability§Creature of Slaanesh"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Khorne",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 7
           },
@@ -2407,7 +2849,7 @@
             "value": 12
           }
         },
-        "text": "ERROR: this unit had some special abilities related to “DAEMONIC ALLEGIANCE” that must be added to the appropriate ability: \n\n* Creature of Khorne\n* Creature of Tzeentch\n* Creature of Nurgle\n* Creature of Slaanesh"
+        "text": ""
       },
       "Wargear§Daemonic Icon": {
         "text": "Models in the bearer’s unit have a Leadership characteristic of 6+."
