@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.5.11",
+  "revision": "10.5.12",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "5M5KAF",
+      "slug": "P5BQ7N",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifest"
@@ -2186,7 +2186,9 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Chaos Lord on Bike—Combi-bolter",
+            "Melee Weapon§Chaos Lord on Bike—Close combat weapon"
           ]
         },
         "keywords": {
@@ -2207,20 +2209,156 @@
             "Character Chaos Lord on Bike"
           ]
         },
+        "rules": {
+          "noPairedweapons": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "Pairedweapons": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 12
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Bike—Astartes chainsword"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Bike—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Bike—Plasma pistol"
+                  }
+                ]
+              },
+              "Accursed weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Bike—Accursed weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Bike—Power fist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Bike—Paired accursed weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "normal"
           },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 95
-          },
-          "sampleLoadout": {
+          "Loadout 2": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -2233,11 +2371,11 @@
                   }
                 ]
               },
-              "Combi-bolter": {
+              "Plasma pistol": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Chaos Lord on Bike—Combi-bolter"
+                    "trait": "Ranged Weapon§Chaos Lord on Bike—Plasma pistol"
                   }
                 ]
               },
@@ -2249,58 +2387,38 @@
                   }
                 ]
               },
-              "Plasma pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Chaos Lord on Bike—Plasma pistol"
-                  }
-                ]
-              },
               "Accursed weapon": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Chaos Lord on Bike—Accursed weapon"
                   }
                 ]
               },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Bike—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Bike—Close combat weapon"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Bike—Paired accursed weapons"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 8,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Chaos Lord on Bike—Power fist"
                   }
                 ]
+              },
+              "-": {
+                "order": 5
               }
             },
             "statType": "rank",
             "value": "Bolt pistol",
             "visibility": "active"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 95
           },
           "Sv": {
             "value": 3
@@ -2312,7 +2430,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: bolt pistol; combi-bolter; Astartes chainsword; close combat weapon.\n\nThis model’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 combi-weapon ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s Astartes chainsword can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 plasma pistol ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s bolt pistol and Astartes chainsword can be replaced with 1 paired accursed weapons."
+        "text": ""
       },
       "Character§Chaos Lord on Disc of Tzeentch": {
         "assets": {
@@ -2331,7 +2449,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Chaos Lord on Disc of Tzeentch—Close combat weapon"
           ]
         },
         "keywords": {
@@ -2355,20 +2474,156 @@
             "Character Chaos Lord on Disc of Tzeentch"
           ]
         },
+        "rules": {
+          "noPairedweapons": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "Pairedweapons": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 12
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Astartes chainsword"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Plasma pistol"
+                  }
+                ]
+              },
+              "Accursed weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Accursed weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Power fist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Paired accursed weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "normal"
           },
-          "OC": {
-            "value": 1
-          },
-          "Points": {
-            "value": 100
-          },
-          "sampleLoadout": {
+          "Loadout 2": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -2381,8 +2636,16 @@
                   }
                 ]
               },
-              "Combi-bolter": {
+              "Plasma pistol": {
                 "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Plasma pistol"
+                  }
+                ]
+              },
+              "Combi-bolter": {
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Combi-bolter"
@@ -2390,18 +2653,10 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Combi-weapon"
-                  }
-                ]
-              },
-              "Plasma pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Plasma pistol"
+                    "trait": "Ranged Weapon§Chaos Lord on Disc of Tzeentch—Combi-weapon"
                   }
                 ]
               },
@@ -2413,42 +2668,30 @@
                   }
                 ]
               },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Close combat weapon"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Paired accursed weapons"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 8,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Chaos Lord on Disc of Tzeentch—Power fist"
                   }
                 ]
+              },
+              "-": {
+                "order": 6
               }
             },
             "statType": "rank",
             "value": "Bolt pistol",
             "visibility": "active"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 100
           },
           "Sv": {
             "value": 3
@@ -2460,7 +2703,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: bolt pistol; Astartes chainsword; close combat weapon.\n\nThis model’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 combi-bolter ◦ 1 combi-weapon ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s Astartes chainsword can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 plasma pistol ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s bolt pistol and Astartes chainsword can be replaced with 1 paired accursed weapons."
+        "text": ""
       },
       "Character§Chaos Lord on Juggernaut": {
         "assets": {
@@ -2479,7 +2722,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Chaos Lord on Juggernaut—Close combat weapon"
           ]
         },
         "keywords": {
@@ -2502,20 +2746,156 @@
             "Character Chaos Lord on Juggernaut"
           ]
         },
+        "rules": {
+          "noPairedweapons": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "Pairedweapons": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 10
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Astartes chainsword"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Plasma pistol – supercharge"
+                  }
+                ]
+              },
+              "Accursed weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Accursed weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Power fist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Paired accursed weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "normal"
           },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 115
-          },
-          "sampleLoadout": {
+          "Loadout 2": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -2528,8 +2908,16 @@
                   }
                 ]
               },
-              "Combi-bolter": {
+              "Plasma pistol": {
                 "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Plasma pistol"
+                  }
+                ]
+              },
+              "Combi-bolter": {
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Combi-bolter"
@@ -2537,18 +2925,10 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Combi-weapon"
-                  }
-                ]
-              },
-              "Plasma pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Plasma pistol"
+                    "trait": "Ranged Weapon§Chaos Lord on Juggernaut—Combi-weapon"
                   }
                 ]
               },
@@ -2560,50 +2940,30 @@
                   }
                 ]
               },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Astartes chainsword"
-                  }
-                ]
-              },
-              "Bladed horn": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Bladed horn"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Close combat weapon"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Juggernaut—Paired accursed weapons"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 9,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Chaos Lord on Juggernaut—Power fist"
                   }
                 ]
+              },
+              "-": {
+                "order": 6
               }
             },
             "statType": "rank",
             "value": "Bolt pistol",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 115
           },
           "Sv": {
             "value": 2
@@ -2615,7 +2975,7 @@
             "value": 7
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: bolt pistol; Astartes chainsword; bladed horn; close combat weapon.\n\nThis model’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 combi-bolter ◦ 1 combi-weapon ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s Astartes chainsword can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 plasma pistol ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s bolt pistol and Astartes chainsword can be replaced with 1 paired accursed weapons."
+        "text": ""
       },
       "Character§Chaos Lord on Palanquin of Nurgle": {
         "assets": {
@@ -2634,7 +2994,9 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Nurgling’s claws and teeth",
+            "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Close combat weapon"
           ]
         },
         "keywords": {
@@ -2657,20 +3019,156 @@
             "Character Chaos Lord on Palanquin of Nurgle"
           ]
         },
+        "rules": {
+          "noPairedweapon": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "Pairedweapon": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 5
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Astartes chainsword"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Plasma pistol"
+                  }
+                ]
+              },
+              "Accursed weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Accursed weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Power fist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Paired accursed weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "normal"
           },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 90
-          },
-          "sampleLoadout": {
+          "Loadout 2": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -2683,8 +3181,16 @@
                   }
                 ]
               },
-              "Combi-bolter": {
+              "Plasma pistol": {
                 "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Plasma pistol"
+                  }
+                ]
+              },
+              "Combi-bolter": {
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Combi-bolter"
@@ -2692,18 +3198,10 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Combi-weapon"
-                  }
-                ]
-              },
-              "Plasma pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Plasma pistol"
+                    "trait": "Ranged Weapon§Chaos Lord on Palanquin of Nurgle—Combi-weapon"
                   }
                 ]
               },
@@ -2715,50 +3213,30 @@
                   }
                 ]
               },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Close combat weapon"
-                  }
-                ]
-              },
-              "Nurgling’s claws and teeth": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Nurgling’s claws and teeth"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Paired accursed weapons"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 9,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Chaos Lord on Palanquin of Nurgle—Power fist"
                   }
                 ]
+              },
+              "-": {
+                "order": 6
               }
             },
             "statType": "rank",
             "value": "Bolt pistol",
             "visibility": "active"
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 90
           },
           "Sv": {
             "value": 3
@@ -2770,7 +3248,7 @@
             "value": 8
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: bolt pistol; Astartes chainsword; close combat weapon; Nurgling's claws and teeth.\n\nThis model’s bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 combi-bolter ◦ 1 combi-weapon ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s Astartes chainsword can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 plasma pistol ◦ 1 accursed weapon ◦ 1 power fist\n\n*This model’s bolt pistol and Astartes chainsword can be replaced with 1 paired accursed weapons."
+        "text": ""
       },
       "Character§Chaos Lord on Steed of Slaanesh": {
         "assets": {
@@ -2789,7 +3267,9 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Chaos Lord on Steed of Slaanesh—Close combat weapon",
+            "Melee Weapon§Chaos Lord on Steed of Slaanesh—Lashing tongue"
           ]
         },
         "keywords": {
@@ -2812,20 +3292,156 @@
             "Character Chaos Lord on Steed of Slaanesh"
           ]
         },
+        "rules": {
+          "noPairedweapon": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "ranks"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "Pairedweapon": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Paired accursed weapons"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 14
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Astartes chainsword": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Astartes chainsword"
+                  }
+                ]
+              },
+              "Bolt pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Bolt pistol"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Plasma pistol"
+                  }
+                ]
+              },
+              "Accursed weapon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Accursed weapon"
+                  }
+                ]
+              },
+              "Power fist": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Power fist"
+                  }
+                ]
+              },
+              "Paired accursed weapons": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Paired accursed weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Astartes chainsword",
+            "visibility": "normal"
           },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 100
-          },
-          "sampleLoadout": {
+          "Loadout 2": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -2838,8 +3454,16 @@
                   }
                 ]
               },
-              "Combi-bolter": {
+              "Plasma pistol": {
                 "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Plasma pistol"
+                  }
+                ]
+              },
+              "Combi-bolter": {
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Combi-bolter"
@@ -2847,18 +3471,10 @@
                 ]
               },
               "Combi-weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Combi-weapon"
-                  }
-                ]
-              },
-              "Plasma pistol": {
                 "order": 3,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Plasma pistol"
+                    "trait": "Ranged Weapon§Chaos Lord on Steed of Slaanesh—Combi-weapon"
                   }
                 ]
               },
@@ -2870,50 +3486,30 @@
                   }
                 ]
               },
-              "Astartes chainsword": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Astartes chainsword"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Close combat weapon"
-                  }
-                ]
-              },
-              "Lashing tongue": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Lashing tongue"
-                  }
-                ]
-              },
-              "Paired accursed weapons": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Paired accursed weapons"
-                  }
-                ]
-              },
               "Power fist": {
-                "order": 9,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Chaos Lord on Steed of Slaanesh—Power fist"
                   }
                 ]
+              },
+              "-": {
+                "order": 6
               }
             },
             "statType": "rank",
             "value": "Bolt pistol",
             "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 100
           },
           "Sv": {
             "value": 3
@@ -5128,6 +5724,9 @@
                     "trait": "Melee Weapon§Sorcerer on Steed of Slaanesh—Power fist"
                   }
                 ]
+              },
+              "-": {
+                "order": 7
               }
             },
             "statType": "rank",
@@ -30046,7 +30645,7 @@
             "value": 10
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: 2 twin autocannons; armoured hull.\n\nThis model’s 2 twin autocannons can be replaced with 2 twin lascannons."
+        "text": ""
       },
       "Unit§Hell Talon": {
         "assets": {
@@ -30149,7 +30748,7 @@
             "value": 14
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: autocannon; twin lascannon; armoured hull.\n\nThis model’s autocannon can be replaced with 1 havoc launcher."
+        "text": ""
       },
       "Unit§Kharybdis Assault Claw": {
         "assets": {
