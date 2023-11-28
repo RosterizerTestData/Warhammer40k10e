@@ -1,6 +1,6 @@
 {
   "name": "Aeldari/Drukhari common",
-  "revision": "10.5.5",
+  "revision": "10.5.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "NHQ4BE",
+      "slug": "VHBWWD",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifest"
@@ -3782,6 +3782,28 @@
           "Tags": [
             "Character Warlock Skyrunner"
           ]
+        },
+        "rules": {
+          "allowTwoleaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -30124,6 +30146,54 @@
         },
         "text": ""
       },
+      "Wargear§Autarch - Howling Banshee Mask": {
+        "rules": {
+          "addFightsfirst": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Fights First"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
+        "text": "The bearer’s unit has the Fights First ability."
+      },
+      "Wargear§Autarch Wayleaper - Howling Banshee Mask": {
+        "rules": {
+          "AddFightsFirst": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Fights First"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
+        "text": "The bearer has the Fights First ability."
+      },
       "Wargear§Channeller Stones": {
         "text": "Once per turn, the first time a saving throw is failed for the bearer’s unit, change the Damage characteristic of that attack to 0."
       },
@@ -30166,30 +30236,6 @@
       },
       "Wargear§Grav-talon": {
         "text": "The bearer’s melee weapons have the [LANCE] ability."
-      },
-      "Wargear§Howling Banshee Mask": {
-        "rules": {
-          "AddFightsFirst": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Fights First"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          }
-        },
-        "text": "The bearer has the Fights First ability."
       },
       "Wargear§Mandiblasters": {
         "text": "Melee weapons equipped by the bearer have the [DEVASTATING WOUNDS] ability when targeting units without the Monster or Vehicle keywords."
