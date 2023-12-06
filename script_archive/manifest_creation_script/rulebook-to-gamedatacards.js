@@ -6,39 +6,39 @@ const divisions = ['traits','included'];
 
 // console.log(datasheets)
 const fileList = [
-  // 'Adepta_Sororitas.manifest',
-  // 'Adeptus_Custodes.manifest',
-  // 'Adeptus_Mechanicus.manifest',
-  // 'Adeptus_Titanicus.manifest',
-  // 'Aeldari-Drukhari-Common.manifest',
-  // 'Aeldari.manifest',
-  // 'Astra_Militarum.manifest',
-  // 'Chaos_Daemons.manifest',
-  // 'Chaos_Knights.manifest',
-  // 'Chaos_Space_Marines.manifest',
-  // 'Chaos.manifest',
-  // 'Death_Guard.manifest',
-  // 'Drukhari.manifest',
-  // 'Genestealer_Cults.manifest',
-  // 'Grey_Knights.manifest',
-  // 'Imperial_Agents.manifest',
-  // 'Imperial_Knights.manifest',
-  // 'Imperium.manifest',
-  // 'Leagues_of_Votann.manifest',
-  // 'Necrons.manifest',
-  // 'Orks.manifest',
-  // 'SM_Black_Templars.manifest',
-  // 'SM_Blood_Angels.manifest',
-  // 'SM_Dark_Angels.manifest',
-  // 'SM_Deathwatch.manifest',
-  // 'SM_Space_Wolves.manifest',
-  'Space_Marines.manifest',
-  // 'T\'au_Empire.manifest',
-  // 'Thousand_Sons.manifest',
-  // 'Titanicus_Traitoris.manifest',
-  // 'Tyranids.manifest',
-  // 'Warhammer_40k_10e.manifest',
-  // 'World_Eaters.manifest'
+  // 'Adepta_Sororitas.rulebook',
+  // 'Adeptus_Custodes.rulebook',
+  // 'Adeptus_Mechanicus.rulebook',
+  // 'Adeptus_Titanicus.rulebook',
+  // 'Aeldari-Drukhari-Common.rulebook',
+  // 'Aeldari.rulebook',
+  // 'Astra_Militarum.rulebook',
+  // 'Chaos_Daemons.rulebook',
+  // 'Chaos_Knights.rulebook',
+  // 'Chaos_Space_Marines.rulebook',
+  // 'Chaos.rulebook',
+  // 'Death_Guard.rulebook',
+  // 'Drukhari.rulebook',
+  // 'Genestealer_Cults.rulebook',
+  // 'Grey_Knights.rulebook',
+  // 'Imperial_Agents.rulebook',
+  // 'Imperial_Knights.rulebook',
+  // 'Imperium.rulebook',
+  // 'Leagues_of_Votann.rulebook',
+  // 'Necrons.rulebook',
+  // 'Orks.rulebook',
+  // 'SM_Black_Templars.rulebook',
+  // 'SM_Blood_Angels.rulebook',
+  // 'SM_Dark_Angels.rulebook',
+  // 'SM_Deathwatch.rulebook',
+  // 'SM_Space_Wolves.rulebook',
+  'Space_Marines.rulebook',
+  // 'T\'au_Empire.rulebook',
+  // 'Thousand_Sons.rulebook',
+  // 'Titanicus_Traitoris.rulebook',
+  // 'Tyranids.rulebook',
+  // 'Warhammer_40k_10e.rulebook',
+  // 'World_Eaters.rulebook'
 ];
 fileList.forEach(file => {
   fetch('../../' + file)
@@ -57,8 +57,8 @@ fileList.forEach(file => {
       "enhancements": [],
       "datasheets": [],
     }
-    Object.keys(data.manifest.assetCatalog).filter(key => key.split('§')[0] === 'Stratagem').forEach(key => {
-      let strat = data.manifest.assetCatalog[key];
+    Object.keys(data.rulebook.assetCatalog).filter(key => key.split('§')[0] === 'Stratagem').forEach(key => {
+      let strat = data.rulebook.assetCatalog[key];
       strat.text = strat.text.replace(/\*\*/g,'').split('\n\n').map(line => line.toLowerCase().split(': '));
       let newStrat = {
         "name": key.split('§')[1].toLocaleUpperCase(),
@@ -75,8 +75,8 @@ fileList.forEach(file => {
       })
       newExport.stratagems.push(newStrat);
     });
-    Object.keys(data.manifest.assetCatalog).filter(key => key.split('§')[0] === 'Enhancement').forEach(key => {
-      let enhance = data.manifest.assetCatalog[key];
+    Object.keys(data.rulebook.assetCatalog).filter(key => key.split('§')[0] === 'Enhancement').forEach(key => {
+      let enhance = data.rulebook.assetCatalog[key];
       let newEnhance = 
       {
         "name": key.split('§')[1].toLocaleUpperCase(),
@@ -88,8 +88,8 @@ fileList.forEach(file => {
       }
       newExport.enhancements.push(newEnhance);
     });
-    Object.keys(data.manifest.assetCatalog).filter(key => ['Character', 'Unit', 'Infantry/Mounted', 'Vehicle'].includes(key.split('§')[0])).forEach(key => {
-      let unit = data.manifest.assetCatalog[key];
+    Object.keys(data.rulebook.assetCatalog).filter(key => ['Character', 'Unit', 'Infantry/Mounted', 'Vehicle'].includes(key.split('§')[0])).forEach(key => {
+      let unit = data.rulebook.assetCatalog[key];
       console.log(key.split('§')[1].toLocaleUpperCase(),unit)
       let newUnit = {
         "id": "",
@@ -159,7 +159,7 @@ fileList.forEach(file => {
             if(typeof asset === 'string'){
               assKey = asset.split('§');
               if(assKey[0] === 'Model'){
-                statlines.push([assKey[1], data.manifest.assetCatalog[asset].stats]);
+                statlines.push([assKey[1], data.rulebook.assetCatalog[asset].stats]);
                 newUnit.composition.push('1 ' + assKey[1]);
                 totalModels -= 1;
               }
@@ -167,7 +167,7 @@ fileList.forEach(file => {
               assKey = asset.item.split('§');
               let qty = asset.quantity + (totalModels > asset.quantity ? '-'+totalModels : '');
               if(assKey[0] === 'Model'){
-                statlines.push([assKey[1], data.manifest.assetCatalog[asset.item].stats]);
+                statlines.push([assKey[1], data.rulebook.assetCatalog[asset.item].stats]);
                 newUnit.composition.push(qty + ' ' + assKey[1]+(asset.quantity > 1 || totalModels > 1 ? 's' : ''));
               }
             }
@@ -200,7 +200,7 @@ fileList.forEach(file => {
         }
       }
 
-      let weapons = Object.entries(data.manifest.assetCatalog)
+      let weapons = Object.entries(data.rulebook.assetCatalog)
         .filter(([assetName,asset]) => {
           return (
             ['Ranged Weapon','Melee Weapon'].includes(assetName.split('§')[0]) &&
@@ -224,7 +224,7 @@ fileList.forEach(file => {
               profiles.push(weapon);
             }else{
               weapon[1].assets?.traits.forEach(trait => {
-                profiles.push([trait, data.manifest.assetCatalog[trait]]);
+                profiles.push([trait, data.rulebook.assetCatalog[trait]]);
               })
             }
             newUnit[weaponType].push({
@@ -244,7 +244,7 @@ fileList.forEach(file => {
           return true;
         }
       }).map(trait => {
-        let object = data.manifest.assetCatalog[trait] || {keywords:{Keywords:['Core']}}
+        let object = data.rulebook.assetCatalog[trait] || {keywords:{Keywords:['Core']}}
         if(typeof trait === 'string'){
           return {...object,item: trait};
         }else{
@@ -279,7 +279,7 @@ fileList.forEach(file => {
           "abilities": unitAbilities[primIdx].assets.traits.map(trait => {
             return {
               "name": trait.split('§')[1],
-              "description": data.manifest.assetCatalog[trait].text,
+              "description": data.rulebook.assetCatalog[trait].text,
               "showAbility": true,
               "showDescription": true
             }

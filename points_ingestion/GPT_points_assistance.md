@@ -27,4 +27,4 @@ Hive Tyrant,220,1,,,
 
 Glance over your CSV for oddities before you import; some units have VERY odd pointing that's better done by hand; just remove those rows and make a note on the unit's text field if you can.
 
-After importing, DO A THOROUGH QA CHECK... You can undo an import with the history menu (as long as your manifest isn't enormous), but you want to catch problems right away. Sometimes the names don't match perfectly; this will create a duplicate unit. Undo, correct the name in either place (ideally in Rosterizer but that can cause cascading problems if not careful) and try again.
+After importing, DO A THOROUGH QA CHECK... You can undo an import with the history menu (as long as your rulebook isn't enormous), but you want to catch problems right away. Sometimes the names don't match perfectly; this will create a duplicate unit. Undo, correct the name in either place (ideally in Rosterizer but that can cause cascading problems if not careful) and try again.

@@ -23,14 +23,14 @@ const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain'
 Object.keys(window.data).forEach(key => {
   let datasheets = window.data[key].datasheets;
 
-  let manifest = {
+  let rulebook = {
     revision: '10.0.10',
     name: window.data[key].name,
     game: 'Warhammer 40k',
     genre: 'sci-fi',
     publisher: 'Games Workshop',
     url: 'https://warhammer40000.com',
-    notes: 'This manifest is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](' + window.data[key].link + ')',
+    notes: 'This rulebook is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](' + window.data[key].link + ')',
     wip: true,
     dependencies: [
       {
@@ -39,7 +39,7 @@ Object.keys(window.data).forEach(key => {
         game: 'Warhammer 40k'
       }
     ],
-    manifest: {
+    rulebook: {
       assetTaxonomy: {},
       assetCatalog: {
       },
@@ -62,7 +62,7 @@ Object.keys(window.data).forEach(key => {
       datasheet[range[0] + 'Weapons'].forEach(weapon => {
         weapon.profiles.forEach(profile => {
           let weaponKey = range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1'));
-          manifest.manifest.assetCatalog[weaponKey] = {
+          rulebook.rulebook.assetCatalog[weaponKey] = {
             stats: {
               Range: {
                 value: numberr(profile.range?.replace(/\"/g,'')) !== null ? numberr(profile.range?.replace(/\"/g,'')) : profile.range?.replace(/\"/g,'')
@@ -84,13 +84,13 @@ Object.keys(window.data).forEach(key => {
               }
             },
           };
-          Object.keys(manifest.manifest.assetCatalog[weaponKey].stats).forEach(statKey => {
-            if(typeof manifest.manifest.assetCatalog[weaponKey].stats[statKey].value === 'string') manifest.manifest.assetCatalog[weaponKey].stats[statKey].statType = 'term';
+          Object.keys(rulebook.rulebook.assetCatalog[weaponKey].stats).forEach(statKey => {
+            if(typeof rulebook.rulebook.assetCatalog[weaponKey].stats[statKey].value === 'string') rulebook.rulebook.assetCatalog[weaponKey].stats[statKey].statType = 'term';
           });
           if(weapon.profiles.length === 1){
-            manifest.manifest.assetCatalog[weaponKey].stats.weaponName = {value: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')};
+            rulebook.rulebook.assetCatalog[weaponKey].stats.weaponName = {value: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')};
           }else{
-            manifest.manifest.assetCatalog[weaponKey].stats.weaponName = {value: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/^.* – (.*)/,'$1')};
+            rulebook.rulebook.assetCatalog[weaponKey].stats.weaponName = {value: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/^.* – (.*)/,'$1')};
           }
           profile.keywords.forEach(keyword => {
             let abilityName = keyword;
@@ -122,10 +122,10 @@ Object.keys(window.data).forEach(key => {
             }else{
               abilityItemKey = abilityAsset = 'Ability§' + titleCase(abilityName);
             }
-            manifest.manifest.assetCatalog[weaponKey].assets = manifest.manifest.assetCatalog[weaponKey].assets || {};
-            manifest.manifest.assetCatalog[weaponKey].assets.traits = manifest.manifest.assetCatalog[weaponKey].assets.traits || [];
-            manifest.manifest.assetCatalog[weaponKey].assets.traits.push(abilityAsset);
-            if(!coreAbilityList.includes(titleCase(abilityName))) manifest.manifest.assetCatalog[abilityItemKey] = manifest.manifest.assetCatalog[abilityItemKey] || abilityItem;
+            rulebook.rulebook.assetCatalog[weaponKey].assets = rulebook.rulebook.assetCatalog[weaponKey].assets || {};
+            rulebook.rulebook.assetCatalog[weaponKey].assets.traits = rulebook.rulebook.assetCatalog[weaponKey].assets.traits || [];
+            rulebook.rulebook.assetCatalog[weaponKey].assets.traits.push(abilityAsset);
+            if(!coreAbilityList.includes(titleCase(abilityName))) rulebook.rulebook.assetCatalog[abilityItemKey] = rulebook.rulebook.assetCatalog[abilityItemKey] || abilityItem;
           });
         });
         if(weapon.profiles.length === 1){
@@ -133,7 +133,7 @@ Object.keys(window.data).forEach(key => {
         }else{
           let wargearKey = range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+((weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')).replace(/^(.*) – .*/,'$1'));
           weaponList.push(wargearKey);
-          manifest.manifest.assetCatalog[wargearKey] = {
+          rulebook.rulebook.assetCatalog[wargearKey] = {
             assets: {
               traits: weapon.profiles.map(profile => range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
             },
@@ -156,7 +156,7 @@ Object.keys(window.data).forEach(key => {
         else unitClass = 'Vehicle';
       }
       let unitKey = unitClass+'§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'));
-      let unit = manifest.manifest.assetCatalog[unitKey] = {};
+      let unit = rulebook.rulebook.assetCatalog[unitKey] = {};
 
       // create all abilities
       datasheet.abilities.core.forEach(ability => {
@@ -165,39 +165,39 @@ Object.keys(window.data).forEach(key => {
         if(abilityDesignation.indexOf('Feel No Pain') === 0) abilityDesignation = 'Feel No Pain';
         if(abilityDesignation.indexOf('Firing Deck') === 0) abilityDesignation = 'Firing Deck';
         if(abilityDesignation.indexOf('Scouts') === 0) abilityDesignation = 'Scouts';
-        if(!coreAbilityList.includes(abilityDesignation)) manifest.manifest.assetCatalog['Ability§'+abilityDesignation] = {
+        if(!coreAbilityList.includes(abilityDesignation)) rulebook.rulebook.assetCatalog['Ability§'+abilityDesignation] = {
           keywords: {Keywords: ['Core']}
         }
       });
       datasheet.abilities.faction.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+titleCase(ability)] = {
+        rulebook.rulebook.assetCatalog['Ability§'+titleCase(ability)] = {
           keywords: {Keywords: ['Faction']}
         }
       });
       datasheet.abilities.primarch.forEach(ability => {
         unit.text = 'ERROR: this unit had some special abilities related to “' + ability.name + '” that must be added to the appropriate ability: \n\n' + ability.abilities.map(prAb => '* ' + prAb.name).join('\n');
         ability.abilities.forEach(primarchAbility => {
-          manifest.manifest.assetCatalog['Ability§'+primarchAbility.name] = {
+          rulebook.rulebook.assetCatalog['Ability§'+primarchAbility.name] = {
             text: formatText(primarchAbility.description),
             keywords: {Keywords: ['Primarch',titleCase(ability.name)]}
           }
         });
       });
       datasheet.abilities.other.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
+        rulebook.rulebook.assetCatalog['Ability§'+titleCase(ability.name)] = {
           text: formatText(ability.description),
           keywords: {Keywords: ['Other']}
         }
       });
       datasheet.abilities.special.forEach(ability => {
-        manifest.manifest.assetCatalog['Ability§'+titleCase(ability.name)] = {
+        rulebook.rulebook.assetCatalog['Ability§'+titleCase(ability.name)] = {
           text: formatText(ability.description),
           keywords: {Keywords: ['Special']}
         }
       });
       if(Array.isArray(datasheet.abilities.wargear)){
         datasheet.abilities.wargear.forEach(ability => {
-          manifest.manifest.assetCatalog['Wargear§'+titleCase(ability.name)] = {
+          rulebook.rulebook.assetCatalog['Wargear§'+titleCase(ability.name)] = {
             text: formatText(ability.description)
           }
         });
@@ -350,7 +350,7 @@ Object.keys(window.data).forEach(key => {
               }
             }
           }
-          manifest.manifest.assetCatalog[modelItemKey] = modelObject;
+          rulebook.rulebook.assetCatalog[modelItemKey] = modelObject;
           if(minQty){
             if(minQty == 1){
               if(!maxQty) unit.assets.traits.push(modelItemKey);
@@ -484,7 +484,7 @@ Object.keys(window.data).forEach(key => {
               let modelName = modelType[1]?.replace(/^\s*(.*[^\s])*\s*$/,'$1');
               let modelItemKey = 'Model§'+modelName;
               if(modelName === undefined) console.log('@#%#$T^#$^%#$%^#$%^',datasheet.name)
-              manifest.manifest.assetCatalog[modelItemKey].stats.sampleLoadout = sampleLoadout;
+              rulebook.rulebook.assetCatalog[modelItemKey].stats.sampleLoadout = sampleLoadout;
             });
           }
         }
@@ -510,9 +510,9 @@ Object.keys(window.data).forEach(key => {
                   let modelName = modelType[1]?.replace(/^\s*(.*[^\s])*\s*$/,'$1');
                   let modelItemKey = 'Model§'+modelName;
                   if(modelName === undefined) console.log('@#%#$T^#$^%#$%^#$%^',datasheet.name)
-                  manifest.manifest.assetCatalog[modelItemKey].assets = manifest.manifest.assetCatalog[modelItemKey].assets || {};
-                  manifest.manifest.assetCatalog[modelItemKey].assets.traits = manifest.manifest.assetCatalog[modelItemKey].assets.traits || [];
-                  manifest.manifest.assetCatalog[modelItemKey].assets.traits.push(weaponList[wargearIndex]);
+                  rulebook.rulebook.assetCatalog[modelItemKey].assets = rulebook.rulebook.assetCatalog[modelItemKey].assets || {};
+                  rulebook.rulebook.assetCatalog[modelItemKey].assets.traits = rulebook.rulebook.assetCatalog[modelItemKey].assets.traits || [];
+                  rulebook.rulebook.assetCatalog[modelItemKey].assets.traits.push(weaponList[wargearIndex]);
                 });
               }
             }
@@ -530,5 +530,5 @@ Object.keys(window.data).forEach(key => {
     // console.log(datasheet)
   });
   let set = new Set()
-  console.log(key,JSON.stringify(manifest).length,manifest);
+  console.log(key,JSON.stringify(rulebook).length,rulebook);
 });

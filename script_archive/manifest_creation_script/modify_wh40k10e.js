@@ -11,39 +11,39 @@ Object.values(window.data).forEach(data => {
 });
 // console.log(datasheets)
 const fileList = [
-  'Adepta_Sororitas.manifest',
-  'Adeptus_Custodes.manifest',
-  'Adeptus_Mechanicus.manifest',
-  'Adeptus_Titanicus.manifest',
-  'Aeldari-Drukhari-Common.manifest',
-  'Aeldari.manifest',
-  'Astra_Militarum.manifest',
-  'Chaos_Daemons.manifest',
-  'Chaos_Knights.manifest',
-  'Chaos_Space_Marines.manifest',
-  'Chaos.manifest',
-  'Death_Guard.manifest',
-  'Drukhari.manifest',
-  'Genestealer_Cults.manifest',
-  'Grey_Knights.manifest',
-  'Imperial_Agents.manifest',
-  'Imperial_Knights.manifest',
-  'Imperium.manifest',
-  'Leagues_of_Votann.manifest',
-  'Necrons.manifest',
-  'Orks.manifest',
-  'SM_Black_Templars.manifest',
-  'SM_Blood_Angels.manifest',
-  'SM_Dark_Angels.manifest',
-  'SM_Deathwatch.manifest',
-  'SM_Space_Wolves.manifest',
-  'Space_Marines.manifest',
-  'T\'au_Empire.manifest',
-  'Thousand_Sons.manifest',
-  'Titanicus_Traitoris.manifest',
-  'Tyranids.manifest',
-  'Warhammer_40k_10e.manifest',
-  'World_Eaters.manifest'
+  'Adepta_Sororitas.rulebook',
+  'Adeptus_Custodes.rulebook',
+  'Adeptus_Mechanicus.rulebook',
+  'Adeptus_Titanicus.rulebook',
+  'Aeldari-Drukhari-Common.rulebook',
+  'Aeldari.rulebook',
+  'Astra_Militarum.rulebook',
+  'Chaos_Daemons.rulebook',
+  'Chaos_Knights.rulebook',
+  'Chaos_Space_Marines.rulebook',
+  'Chaos.rulebook',
+  'Death_Guard.rulebook',
+  'Drukhari.rulebook',
+  'Genestealer_Cults.rulebook',
+  'Grey_Knights.rulebook',
+  'Imperial_Agents.rulebook',
+  'Imperial_Knights.rulebook',
+  'Imperium.rulebook',
+  'Leagues_of_Votann.rulebook',
+  'Necrons.rulebook',
+  'Orks.rulebook',
+  'SM_Black_Templars.rulebook',
+  'SM_Blood_Angels.rulebook',
+  'SM_Dark_Angels.rulebook',
+  'SM_Deathwatch.rulebook',
+  'SM_Space_Wolves.rulebook',
+  'Space_Marines.rulebook',
+  'T\'au_Empire.rulebook',
+  'Thousand_Sons.rulebook',
+  'Titanicus_Traitoris.rulebook',
+  'Tyranids.rulebook',
+  'Warhammer_40k_10e.rulebook',
+  'World_Eaters.rulebook'
 ];
 fileList.forEach(file => {
   fetch('../../' + file)
@@ -51,11 +51,11 @@ fileList.forEach(file => {
   .then(data => {
     console.log(data.name)
     // check each: Unit, Infantry/Mounted for allowed includes that have the Ability prefix
-    Object.keys(data.manifest.assetCatalog).forEach(assetKey => {
+    Object.keys(data.rulebook.assetCatalog).forEach(assetKey => {
       // if the assetKey is a weapon with sub-trait weapoons, then: log the weapon's weaponName stat
       if(['Unit', 'Infantry/Mounted'].includes(assetKey.split('§')[0])){
-        // console.log(assetKey,data.manifest.assetCatalog[assetKey])
-        data.manifest.assetCatalog[assetKey].allowed?.items?.forEach(allowed => {
+        // console.log(assetKey,data.rulebook.assetCatalog[assetKey])
+        data.rulebook.assetCatalog[assetKey].allowed?.items?.forEach(allowed => {
           // console.log(allowed,assetKey)
           if(['Ability'].includes(allowed.split('§')[0])){
             console.log(allowed,assetKey)

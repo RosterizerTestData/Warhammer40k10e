@@ -3,16 +3,16 @@ import json
 from collections import defaultdict
 
 def find_duplicate_values():
-    manifest_directory = os.getcwd()
-    manifest_files = [f for f in os.listdir(manifest_directory) if f.endswith(".manifest")]
+    rulebook_directory = os.getcwd()
+    rulebook_files = [f for f in os.listdir(rulebook_directory) if f.endswith(".rulebook")]
 
-    for file_name in manifest_files:
-        file_path = os.path.join(manifest_directory, file_name)
+    for file_name in rulebook_files:
+        file_path = os.path.join(rulebook_directory, file_name)
         with open(file_path, encoding='utf-8') as f:
             data = json.load(f)
 
-        if "manifest" in data and "assetCatalog" in data["manifest"]:
-            asset_catalog = data["manifest"]["assetCatalog"]
+        if "rulebook" in data and "assetCatalog" in data["rulebook"]:
+            asset_catalog = data["rulebook"]["assetCatalog"]
             changes_made = rename_wargear_to_weapon(asset_catalog)
             duplicates = find_duplicate_keys(asset_catalog)
             modified_data = data
@@ -72,7 +72,7 @@ def modify_json_data(data, duplicates):
         # Replace duplicate traits with newAsset value
         replace_duplicates(modified_data, values, new_asset)
 
-    modified_data["manifest"]["assetCatalog"].update(new_assets)
+    modified_data["rulebook"]["assetCatalog"].update(new_assets)
     return modified_data
 
 def replace_duplicates(data, duplicates, new_asset):
