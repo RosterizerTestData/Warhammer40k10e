@@ -1,45 +1,35 @@
-# WH40k10e Manifest
+# WH40k10e Rulebooks
 
 If you're going to author stuff for 40k, it's wise to make it similar in structure to other elements of the 40k rulebook.
 
 ## 40k10Core
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.manifes
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.ruleboo
 
 ## Imperium
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.manifes
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.ruleboo
 
 ## Chaos
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.manifes
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.ruleboo
 
 ### Space_Marines
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook
 
 ### SM_Black_Templars
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.rulebook
 
 ### SM_Blood_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.rulebook
 
 ### SM_Dark_Angels
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.rulebook
 
 ### SM_Deathwatch
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.rulebook
 
 ### SM_Space_Wolves
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.rulebook
 
 ### Adepta_Sororitas
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.manifest
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.rulebook
 
 ### Adeptus_Custodes
