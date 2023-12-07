@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.6.37",
+  "revision": "10.6.38",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -28047,218 +28047,18 @@
       "Model§Scout Sergeant": {
         "assets": {
           "traits": [
-            "Melee Weapon§Scout Squad—Close combat weapon"
+            "Melee Weapon§Scout Squad—Close combat weapon",
+            "Ranged Weapon§Scout Squad—Bolt pistol"
           ]
-        },
-        "rules": {
-          "noDups": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Loadout 1",
-                    "ranks"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Loadout 2",
-                  "value"
-                ]
-              },
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Loadout 2",
-                    "ranks"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Loadout 1",
-                  "value"
-                ]
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 225
-          },
-          "With 2 ranged weapons, one must be a pistol.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Ranged Weapon"
-                  ]
-                ],
-                "value": 2
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "pistol"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          }
         },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "Loadout 1": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
-            "label": "Loadout",
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Squad—Bolt pistol"
-                  }
-                ]
-              },
-              "Boltgun": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Scout Squad—Boltgun"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Squad—Astartes chainsword"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Devastator Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
-                  }
-                ]
-              },
-              "Grav-pistol": {
-                "order": 7,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
-                  }
-                ]
-              },
-              "Hand flamer": {
-                "order": 8,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 9,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 10,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Plasma pistol"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "visibility": "active"
-          },
-          "Loadout 2": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "label": "Loadout",
             "ranks": {
               "Boltgun": {
                 "order": 0,
@@ -28284,111 +28084,35 @@
                   }
                 ]
               },
-              "Bolt pistol": {
+              "Sniper Rifle": {
                 "order": 3,
-                "tracking": {
-                  "pistol": 1
-                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Scout Squad—Bolt pistol"
+                    "trait": "Ranged Weapon§Scout Sniper Squad—Scout sniper rifle"
                   }
                 ]
               },
-              "Astartes chainsword": {
+              "Heavy bolter": {
                 "order": 4,
+                "tracking": {
+                  "Special Weapon Selection": 1
+                },
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Scout Squad—Astartes chainsword"
+                    "trait": "Ranged Weapon§Scout Squad—Heavy bolter"
                   }
                 ]
               },
-              "Power fist": {
+              "Missile launcher": {
                 "order": 5,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Squad—Power fist"
-                  }
-                ]
-              },
-              "Power weapon": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Squad—Power weapon"
-                  }
-                ]
-              },
-              "Thunder hammer": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Scout Squad—Thunder hammer"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Combi-weapon"
-                  }
-                ]
-              },
-              "Grav-pistol": {
-                "order": 9,
                 "tracking": {
-                  "pistol": 1
+                  "Special Weapon Selection": 1
                 },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Grav-pistol"
+                    "trait": "Ranged Weapon§Scout Squad—Missile launcher"
                   }
                 ]
-              },
-              "Hand flamer": {
-                "order": 10,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Hand flamer"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 11,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Inferno pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 12,
-                "tracking": {
-                  "pistol": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Plasma pistol"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 13,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Adeptus Astartes Armoury—Storm bolter"
-                  }
-                ]
-              },
-              "-": {
-                "order": 14
               }
             },
             "statType": "rank",
