@@ -1,6 +1,6 @@
 {
   "name": "Adepta Sororitas",
-  "revision": "10.5.3",
+  "revision": "10.5.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "NPRN93",
+      "slug": "Z3PFMD",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -10394,12 +10394,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Dominion",
-              "quantity": 9
-            }
-          ],
+          "included": [],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -10441,6 +10436,133 @@
           ]
         },
         "rules": {
+          "applyModels": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Dominion",
+                  "stats": {
+                    "Weapon Options": {
+                      "dynamic": false,
+                      "value": "Boltgun"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Dominion",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "applyModels",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
+          },
+          "applySimulacrum": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Dominion",
+                    "quantity"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Dominion",
+                  "stats": {
+                    "Weapon Options": {
+                      "dynamic": false,
+                      "value": "Boltgun & Simulacrum"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Simulacrum",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
           "Maximum 1 Simulacrum": {
             "evals": [
               {
@@ -10507,19 +10629,41 @@
           }
         },
         "stats": {
-          "Dominion": {
-            "max": 9,
-            "min": 9,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
           "model1stTally": {
             "value": 10
           },
+          "Models": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
+            "max": 10,
+            "min": 0,
+            "statOrder": -1,
+            "statType": "numeric",
+            "value": 10,
+            "visibility": "hidden"
+          },
           "Points": {
             "value": 120
+          },
+          "Simulacrum": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           }
         },
         "text": ""
