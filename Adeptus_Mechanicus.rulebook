@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Mechanicus",
-  "revision": "10.5.7",
+  "revision": "10.5.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10185,6 +10185,76 @@
             "Unit Onager Dunecrawler"
           ]
         },
+        "rules": {
+          "gainSmoke": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Smoke"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Optional Wargear",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "loseSmoke": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Smoke"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Optional Wargear",
+                    "value"
+                  ]
+                ],
+                "value": "Broad spectrum data-tether"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -10221,25 +10291,20 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Smoke Launchers": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Wargear§Smoke Launchers"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
               "Broad spectrum data-tether": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Wargear§Broad Spectrum Data-tether"
+                    "trait": "Wargear§Onager Dunecrawler - Broad Spectrum Data-tether"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Smoke Launchers",
+            "value": "-",
             "visibility": "normal"
           },
           "Points": {
@@ -11939,6 +12004,9 @@
       },
       "Wargear§Omnispex": {
         "text": "Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability."
+      },
+      "Wargear§Onager Dunecrawler - Broad Spectrum Data-tether": {
+        "text": "The bearer loses the Smoke keyword, but each time you target the bearer with a Stratagem, roll one D6: on a 5+, you gain 1CP"
       },
       "Wargear§Smoke Launchers": {
         "text": "The bearer has the Smoke keyword."
