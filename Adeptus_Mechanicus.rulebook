@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Mechanicus",
-  "revision": "10.5.9",
+  "revision": "10.5.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,101 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "9NGV8C",
+      "slug": "X53QAM",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Unit": {
+        "rules": {
+          "allowInfantry/MountedTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry/Mounted"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "allowInfantry/MountedTraits",
+                    "evals",
+                    [
+                      "1",
+                      "2"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Achillan Eye": {
         "keywords": {
@@ -477,6 +564,286 @@
           ]
         },
         "text": "At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test."
+      },
+      "Battle Trait§Battlefield Processing Cortex": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Skitarii"
+          ]
+        },
+        "text": "Each time you target this model’s unit with a Stratagem, roll one D6, adding 1 to the result if that unit is equipped with an enhanced data-tether: on a 5+, you gain 1CP."
+      },
+      "Battle Trait§Blessed Spirit": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "6"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": []
+          }
+        },
+        "text": "This unit has the Feel No Pain 6+ ability."
+      },
+      "Battle Trait§Control Cortex": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Tech-Priest"
+          ]
+        },
+        "text": "While this model is leading a unit, you can re-roll Battle-shock tests taken for that unit."
+      },
+      "Battle Trait§Enhanced Bionics": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "text": "This unit has a 4+ invulnerable save. If this unit is a Battleline or Kataphron unit, it has a 5+ invulnerable save instead."
+      },
+      "Battle Trait§Fervent Locomotion": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the Movement characteristic of models in this unit and add 1 to Advance rolls made for it."
+      },
+      "Battle Trait§Hardened Machine Spirit": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        },
+        "text": "You can ignore any or all modifiers to this unit'scharacteristics and/or to any roll or test made for it (excluding modifiers to saving throws)."
+      },
+      "Battle Trait§Hexamathic Chorale": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Tech-Priest"
+          ]
+        },
+        "text": "Once per battle round, one Adeptus Mechanicus Smoke unit from your army that is within 12\" of this unit can be targeted with the Smokescreen Stratagem for OCP, even if a different unit from your Crusade army has already been targeted with that Stratagem this phase."
+      },
+      "Battle Trait§Holy Acquisitor": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Tech-Priest"
+          ]
+        },
+        "text": "At the end of a battle you won, ifthis unit was in your Crusade army, roll one 06: on a 6, your Crusade force gains 1 Archeotech Part."
+      },
+      "Battle Trait§Integrated Refraction Emitters": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Skitarii"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "4"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": []
+          }
+        },
+        "text": "This model has a 4+ invulnerable save."
+      },
+      "Battle Trait§Killcore Gear Switches": {
+        "keywords": {
+          "Tags": [
+            "Infantry/Mounted"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    [
+                      "Model",
+                      "Unit"
+                    ],
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the Strength characteristic of melee weapons equipped by models in this unit."
+      },
+      "Battle Trait§Machine Savant": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Tech-Priest"
+          ]
+        },
+        "text": "At the end of the battle, if this unit was part of your Crusade army and was not destroyed during the battle, you can ignore one failed Out of Action testtaken foran Adeptus Mechanicus Vehicle unit from your Crusade army - that test is treated as having been passed."
+      },
+      "Battle Trait§Sanctified Engine": {
+        "keywords": {
+          "Tags": [
+            "Vehicle"
+          ]
+        },
+        "text": "Each time this unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in this unit."
+      },
+      "Battle Trait§Secutor-Class Blade Implants": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Skitarii"
+          ]
+        },
+        "text": "Once per battle round, when an enemy unit ends a Charge move within Engagement Range of this\nunit, roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds."
+      },
+      "Battle Trait§Teleportation Node": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Tech-Priest"
+          ]
+        },
+        "text": "At the end of your Movement phase, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves. If you do, until the end of your next turn, this unit has the Deep Strike ability."
+      },
+      "Battle Trait§Voltagheist Shock": {
+        "keywords": {
+          "Tags": [
+            "Character",
+            "Tech-Priest"
+          ]
+        },
+        "text": "Once per battle round, in your opponent's Charge phase, just after an enemy unit selects this unitasthe target of a charge, roll one 06: on a 3+, that enemy unit suffers 03 mortal wounds and musttake a Battleshocktest."
       },
       "Character§Belisarius Cawl": {
         "aspects": {
@@ -1173,6 +1540,70 @@
             "value": 3
           }
         }
+      },
+      "Crusade Relic§Autocaduceus of Arkhan Land": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "Once per battle, when a different friendly Adeptus Mechanicus model within 6\" of the bearer is destroyed, you can roll one D6 at the end of the phase instead of triggering any rules that are triggered when a model is destroyed (e.g. Deadly Demise). On a 3+, set that model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with up to 6 wounds remaining (this cannot allow a model to return with more wounds than its Wounds characteristic)."
+      },
+      "Crusade Relic§Examplar's Eternity": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "Skitarii only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Skitarii"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "Skitarii model only. At the start of the battle, select one enemy unit. Each time a model in the bearer’s unit makes an attack that targets that enemy unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+      },
+      "Crusade Relic§Kardiocore Galvanus": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "text": "While the bearer is leading a unit, add 1 to Advance and Charge rolls made for that unit."
+      },
+      "Crusade Relic§Multiplexed Neural Inducer": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "text": "Once per battle round, while the bearer is leading a unit, you can target that unit with the Fire Overwatch Stratagem for OCR and can do so even if you have already targeted a different unit with that Stratagem this phase."
       },
       "Detachment§Cohort Cybernetica": {
         "rules": {
@@ -3845,6 +4276,66 @@
           },
           "WS": {
             "value": 4
+          }
+        }
+      },
+      "Mission Record§Mission Record": {
+        "stats": {
+          "Agenda 1": {
+            "ranks": {
+              "Cold Logic": {
+                "order": 12,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              },
+              "Tech Scavengers": {
+                "order": 13,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              },
+              "Omnissiah's Will": {
+                "order": 14,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              },
+              "Break the Seals": {
+                "order": 15,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              }
+            }
+          },
+          "Agenda 2": {
+            "ranks": {
+              "Cold Logic": {
+                "order": 12,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              },
+              "Tech Scavengers": {
+                "order": 13,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              },
+              "Omnissiah's Will": {
+                "order": 14,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              },
+              "Break the Seals": {
+                "order": 15,
+                "tracking": {
+                  "Admech Agenda": 1
+                }
+              }
+            }
           }
         }
       },
@@ -6847,6 +7338,36 @@
           }
         }
       },
+      "Ranged Weapon§Serberys Raiders—Galvanic carbine": {
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Galvanic carbine"
+          }
+        }
+      },
       "Ranged Weapon§Serberys Raiders—Mechanicus pistol": {
         "assets": {
           "traits": [
@@ -6875,36 +7396,6 @@
           },
           "weaponName": {
             "value": "Mechanicus pistol"
-          }
-        }
-      },
-      "Ranged Weapon§Serberys Raiders—Galvanic carbine": {
-        "assets": {
-          "traits": [
-            "Ability§Devastating Wounds"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 18
-          },
-          "S": {
-            "value": 4
-          },
-          "weaponName": {
-            "value": "Galvanic carbine"
           }
         }
       },
@@ -7405,6 +7896,31 @@
           }
         }
       },
+      "Ranged Weapon§Skitarii Rangers—Galvanic rifle": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 4
+          },
+          "weaponName": {
+            "value": "Galvanic rifle"
+          }
+        }
+      },
       "Ranged Weapon§Skitarii Rangers—Mechanicus pistol": {
         "assets": {
           "traits": [
@@ -7433,31 +7949,6 @@
           },
           "weaponName": {
             "value": "Mechanicus pistol"
-          }
-        }
-      },
-      "Ranged Weapon§Skitarii Rangers—Galvanic rifle": {
-        "stats": {
-          "A": {
-            "value": 2
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 30
-          },
-          "S": {
-            "value": 4
-          },
-          "weaponName": {
-            "value": "Galvanic rifle"
           }
         }
       },
@@ -8640,6 +9131,58 @@
             "value": "Grav-gun"
           }
         }
+      },
+      "Requisition§Assemble Archeotech": {
+        "keywords": {
+          "Keywords": [
+            "Adeptus Mechanicus"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition at any time, if your Crusade force has at least one Power Source and at least one other type of Archeotech Part. You can use one Power Source and one other type of Archeotech Part your Crusade force has to assemble an Archeotech Treasure."
+      },
+      "Requisition§Auto-Sermon of Deployment": {
+        "keywords": {
+          "Keywords": [
+            "Adeptus Mechanicus"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        },
+        "text": "Purchase this Requisition before a battle. Select one TECH-PRIEST model (excluding EPIC HEROES) from your Crusade army, then select one piece of Legendary Archeotech your Crusade force has claimed. Until the end of the battle, that TECH-PRIEST model is equipped with that piece of Legendary Archeotech. You cannot select the same piece of Legendary Archeotech two battles in a row."
+      },
+      "Requisition§Battleware Reprogramming": {
+        "keywords": {
+          "Keywords": [
+            "Adeptus Mechanicus"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 3
+          }
+        },
+        "text": "Purchase this Requisition at any time. Select one INFANTRY unit from your Crusade force that has\none or more Battle Honours. Remove those Battle Honours and select new ones as if that unit had just gained them based on its current rank."
+      },
+      "Requisition§Consecrated Remodulation": {
+        "keywords": {
+          "Keywords": [
+            "Adeptus Mechanicus"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition at any time, if your Crusade force has two or more Archeotech Treasures. You can select two Archeotech Treasures and remove them from your Crusade force, then select a type of Archeotech Treasure and roll to assemble that Archeotech Treasure immediately."
       },
       "Roster§Army": {
         "stats": {
