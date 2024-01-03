@@ -2,13 +2,13 @@
 let titleCase = function(sentence){
   return sentence.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/\s+/g,' ').toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ').replace(/ Of /g,' of ').replace(/ The /g,' the ').replace(/ With /g,' with ').replace(/ In /g,' in ').replace(/ On /g,' on ').replace(/ Of /g,' of ').replace(/ And /g,' and ')
 }
-const datasheets = {};
-Object.values(window.data).forEach(data => {
-  data.datasheets.forEach(sheet => {
-    if(!datasheets[titleCase(sheet.name)]) datasheets[titleCase(sheet.name)] = sheet;
-    else datasheets[sheet.faction_id + ' ' + titleCase(sheet.name)] = sheet
-  });
-});
+// const datasheets = {};
+// Object.values(window.data).forEach(data => {
+//   data.datasheets.forEach(sheet => {
+//     if(!datasheets[titleCase(sheet.name)]) datasheets[titleCase(sheet.name)] = sheet;
+//     else datasheets[sheet.faction_id + ' ' + titleCase(sheet.name)] = sheet
+//   });
+// });
 // console.log(datasheets)
 const fileList = [
   'Adepta_Sororitas.rulebook',
@@ -45,30 +45,49 @@ const fileList = [
   'Warhammer_40k_10e.rulebook',
   'World_Eaters.rulebook'
 ];
-fileList.forEach(file => {
-  fetch('../../' + file)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.name)
-    // check each: Unit, Infantry/Mounted for allowed includes that have the Ability prefix
-    Object.keys(data.rulebook.assetCatalog).forEach(assetKey => {
-      // if the assetKey is a weapon with sub-trait weapoons, then: log the weapon's weaponName stat
-      if(['Unit', 'Infantry/Mounted'].includes(assetKey.split('§')[0])){
-        // console.log(assetKey,data.rulebook.assetCatalog[assetKey])
-        data.rulebook.assetCatalog[assetKey].allowed?.items?.forEach(allowed => {
-          // console.log(allowed,assetKey)
-          if(['Ability'].includes(allowed.split('§')[0])){
-            console.log(allowed,assetKey)
-          }
-        });
-      }
-    })
-  })
-  .catch(error => {
-    // Handle any error that occurs during loading
-    console.error(error);
-  });
-})
+async function processFiles() {
+  for (const file of fileList) {
+    try {
+      const response = await fetch('../../' + file);
+      const data = await response.json();
+
+      console.log(data.name, data);
+      data.revision = '10.7.0';
+
+      Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
+        if (item.stats?.hasOwnProperty('weaponName')) {
+          data.rulebook.assetCatalog[itemKey] = {
+            ...item,
+            aspects: {
+              ...(item.aspects || {}),
+              Label: item.stats.weaponName.value,
+            },
+          };
+          delete data.rulebook.assetCatalog[itemKey].stats.weaponName;
+        }
+        if (item.stats?.hasOwnProperty('wargearName')) {
+          data.rulebook.assetCatalog[itemKey] = {
+            ...item,
+            aspects: {
+              ...(item.aspects || {}),
+              Label: item.stats.wargearName.value,
+            },
+          };
+          delete data.rulebook.assetCatalog[itemKey].stats.wargearName;
+        }
+        if (itemKey === 'Roster§Army') {
+          data.rulebook.assetCatalog['Roster§Roster'] = item;
+          delete data.rulebook.assetCatalog[itemKey];
+        }
+      });
+    } catch (error) {
+      // Handle any error that occurs during loading
+      console.error(error);
+    }
+  }
+}
+
+processFiles();
 
 function replaceStringsInObject(obj, searchString, replaceString) {
   // Base case: if the object is a string, replace the search string with the replace string
