@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.7.0",
+  "revision": "10.8.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2644,6 +2644,88 @@
             "failState": "pass",
             "order": 40
           },
+          "applyModels": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "modelKey",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "{1string}",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "applyModels",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "modelKey",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
+          },
           "cheatUnitNameTally": {
             "actions": [
               {
@@ -2992,6 +3074,25 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "Warning in this Unit’s text.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "WARNING"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "warning"
           },
           "maxQty": {
             "actions": [
@@ -3789,6 +3890,24 @@
             "visibility": "hidden"
           },
           "model4thTally": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "modelKey": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "Models": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
+            "min": 1,
+            "statOrder": -1,
             "statType": "numeric",
             "value": null,
             "visibility": "hidden"
