@@ -51,35 +51,31 @@ async function processFiles() {
       const response = await fetch('../../' + file);
       const data = await response.json();
 
-      console.log(data.name, data);
-      data.revision = '10.7.0';
+      data.revision = '10.8.0';
 
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
-        if (item.stats?.hasOwnProperty('weaponName')) {
-          data.rulebook.assetCatalog[itemKey] = {
-            ...item,
-            aspects: {
-              ...(item.aspects || {}),
-              Label: item.stats.weaponName.value,
-            },
-          };
-          delete data.rulebook.assetCatalog[itemKey].stats.weaponName;
-        }
-        if (item.stats?.hasOwnProperty('wargearName')) {
-          data.rulebook.assetCatalog[itemKey] = {
-            ...item,
-            aspects: {
-              ...(item.aspects || {}),
-              Label: item.stats.wargearName.value,
-            },
-          };
-          delete data.rulebook.assetCatalog[itemKey].stats.wargearName;
-        }
-        if (itemKey === 'Roster§Army') {
-          data.rulebook.assetCatalog['Roster§Roster'] = item;
-          delete data.rulebook.assetCatalog[itemKey];
+        if(item.stats?.model1stTally){
+          let allowedModels = item.allowed?.items?.filter(asset => asset.split('§')[0] === 'Model');
+          if(allowedModels?.length > 0){
+            if(allowedModels.length === 1){
+              data.rulebook.assetCatalog[itemKey].stats.modelKey = {value: allowedModels[0]};
+              data.rulebook.assetCatalog[itemKey].text = 'WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n' + (data.rulebook.assetCatalog[itemKey].text || '');
+            }else{
+              data.rulebook.assetCatalog[itemKey].text = 'ERROR: multiple models allowed; please update manually\n\n' + (data.rulebook.assetCatalog[itemKey].text || '');
+            }
+          }
+          data.rulebook.assetCatalog[itemKey].stats.Models = {
+            max: item.stats?.model4thTally?.value || item.stats?.model3rdTally?.value || item.stats?.model2ndTally?.value || item.stats?.model1stTally.value, 
+            min: item.stats?.model1stTally.value, 
+            value: item.stats?.model1stTally.value,
+          }
+          if(item.stats?.model2ndTally){
+            data.rulebook.assetCatalog[itemKey].stats.Models.visibility = 'normal';
+            data.rulebook.assetCatalog[itemKey].stats.Models.increment = {value: item.stats?.model2ndTally.value - item.stats?.model1stTally.value};
+          }
         }
       });
+      console.log(data.name, data);
     } catch (error) {
       // Handle any error that occurs during loading
       console.error(error);
