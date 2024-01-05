@@ -1,6 +1,6 @@
 {
   "name": "Aeldari/Drukhari common",
-  "revision": "10.7.0",
+  "revision": "10.7.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "JVK35N",
+      "slug": "VHBWWD",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -3323,6 +3323,43 @@
           "Tags": [
             "Character The Visarch"
           ]
+        },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Yvraine"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
