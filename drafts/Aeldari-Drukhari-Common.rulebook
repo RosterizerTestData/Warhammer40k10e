@@ -6,7 +6,7 @@
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This rulebook is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "isModule": true,
   "dependencies": [
     {
@@ -3328,6 +3328,43 @@
           "Tags": [
             "Character The Visarch"
           ]
+        },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Yvraine"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
