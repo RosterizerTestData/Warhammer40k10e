@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.8.0",
+  "revision": "10.8.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7786,12 +7786,6 @@
           "Unique": true
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Victrix Honour Guard",
-              "quantity": 2
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Leader",
@@ -7852,8 +7846,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Character§Pedro Kantor": {
         "aspects": {
@@ -10756,12 +10749,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Aggressor",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Close-quarters Firepower",
@@ -10922,8 +10909,7 @@
           "Points": {
             "value": 110
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Assault Intercessor Squad": {
         "allowed": {
@@ -10941,6 +10927,7 @@
             "Character§Captain Sicarius",
             "Character§Marneus Calgar",
             "Character§Ancient",
+            "Character§Sanguinary Priest",
             "Character§Adrax Agatone",
             "Character§Vulkan He’stan",
             "Character§Apothecary",
@@ -10952,12 +10939,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Intercessor",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Shock Assault",
@@ -11016,8 +10997,7 @@
           "Points": {
             "value": 80
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Assault Intercessors with Jump Packs": {
         "allowed": {
@@ -11030,12 +11010,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Intercessor with Jump Pack",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -11105,6 +11079,100 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyPlasma": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Assault Intercessor with Jump Pack",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "applyPlasma",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Plasma",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Assault Intercessor with Jump Pack",
+                  "stats": {
+                    "Shooting": {
+                      "dynamic": false,
+                      "value": "Plasma pistol"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plasma",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "1 in 5 Intercessors can have a Plasma pistol",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plasma",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
@@ -11137,6 +11205,18 @@
             "value": 5,
             "visibility": "normal"
           },
+          "Plasma": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 85
           },
@@ -11147,8 +11227,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Attack Bike Squad": {
         "allowed": {
@@ -11747,6 +11826,7 @@
             "Character§Techmarine",
             "Character§Apothecary",
             "Character§Ancient",
+            "Character§Sanguinary Priest",
             "Character§Chief Librarian Tigurius",
             "Character§Brother Corbulo",
             "Character§Imperial Space Marine"
@@ -13633,6 +13713,7 @@
             "Character§Captain Sicarius",
             "Character§Chief Librarian Tigurius",
             "Character§Judiciar",
+            "Character§Sanguinary Priest",
             "Character§Kor’sarro Khan",
             "Character§Marneus Calgar",
             "Character§Pedro Kantor",
@@ -13836,6 +13917,7 @@
             "Character§Lieutenant",
             "Character§Ancient",
             "Character§Judiciar",
+            "Character§Sanguinary Priest",
             "Character§Marneus Calgar",
             "Character§Pedro Kantor",
             "Character§Adrax Agatone",
@@ -14279,6 +14361,7 @@
             "Character§Chaplain Cassius",
             "Character§Imperial Space Marine",
             "Character§Librarian",
+            "Character§Sanguinary Priest",
             "Character§Brother Corbulo",
             "Character§Captain Tycho",
             "Character§Gabriel Seth",
@@ -67159,8 +67242,7 @@
           "W": {
             "value": 16
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Land Raider Prometheus": {
         "assets": {
@@ -68241,8 +68323,7 @@
           "W": {
             "value": 12
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Mastodon": {
         "assets": {
@@ -68471,8 +68552,7 @@
           "W": {
             "value": 8
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Predator Annihilator": {
         "assets": {
@@ -73414,8 +73494,7 @@
             "evaluate": "AND",
             "failState": "pass"
           }
-        },
-        "text": ""
+        }
       },
       "Wargear§Thunderhawk Cluster Bombs": {
         "text": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."

@@ -52,6 +52,7 @@ async function processFiles() {
       const data = await response.json();
 
       data.revision = '10.8.0';
+      data.wip = true;
 
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         if(item.stats?.model1stTally){
