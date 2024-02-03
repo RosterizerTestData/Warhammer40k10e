@@ -51,7 +51,7 @@ async function processFiles() {
       const response = await fetch('../../' + file);
       const data = await response.json();
 
-      data.revision = '10.8.0';
+      data.revision = '10.9.0';
       data.wip = true;
 
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
