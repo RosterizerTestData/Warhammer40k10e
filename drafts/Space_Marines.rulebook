@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.9.3",
+  "revision": "10.9.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -579,9 +579,7 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "allowScoutCompanyTraits",
+                    "{this}",
                     "evals",
                     [
                       "1",
@@ -939,9 +937,7 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "allowInfantry/MountedTraits",
+                    "{this}",
                     "evals",
                     [
                       "1",
@@ -11046,27 +11042,11 @@
           "1 in 5 Intercessors can have a Plasma pistol": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 Intercessors can have a Plasma pistol",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -11102,9 +11082,7 @@
                 ],
                 "prepend": "",
                 "value": [
-                  "{self}",
-                  "rules",
-                  "applyPlasma",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -11149,7 +11127,7 @@
                 "value": [
                   "{self}",
                   "rules",
-                  "1 in 5 Intercessors can have a Plasma pistol",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -11178,7 +11156,8 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -11224,6 +11203,7 @@
             "visibility": "normal"
           },
           "Points": {
+            "dynamic": true,
             "value": 85
           },
           "Special Weapon Selection": {
@@ -11266,7 +11246,7 @@
           ]
         },
         "rules": {
-          "applyMultiMelta": {
+          "applyMulti-melta": {
             "actions": [
               {
                 "actionType": "modify",
@@ -11282,9 +11262,7 @@
                 ],
                 "prepend": "",
                 "value": [
-                  "{self}",
-                  "rules",
-                  "applyMultiMelta",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -11355,7 +11333,8 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -11432,12 +11411,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Bladeguard Veteran",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Bladeguard",
@@ -11503,8 +11477,7 @@
           "Points": {
             "value": 90
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Centurion Assault Squad": {
         "allowed": {
@@ -11513,12 +11486,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Centurion",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Annihilator Protocols",
@@ -11575,8 +11543,7 @@
           "Points": {
             "value": 150
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Centurion Devastator Squad": {
         "allowed": {
@@ -11585,12 +11552,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Devastator Centurion",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Decimator Protocols",
@@ -11647,8 +11608,7 @@
           "Points": {
             "value": 185
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Company Heroes": {
         "allowed": {
@@ -11843,7 +11803,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\nERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nEvery model is equipped with: bolt pistol; twin boltgun; Astartes chainsword.\n\nThe Veteran Biker Sergeant’s bolt pistol can be      ◦ 1 power weapon replaced with one of the following:                  ◦ 1 thunder hammer ◦ 1 boltgun                                         ◦ 1 storm shield ◦ 1 combi-weapon\n\n*Any number of Veteran Bikers’ Astartes ◦ 1 grav-pistol                                     chainswords can each be replaced with one of ◦ 1 plasma pistol*                                  the following: ◦ 1 storm bolter                                     ◦ 1 flamer\n\n*The Veteran Biker Sergeant’s Astartes                 ◦ 1 grav-gun chainsword can be replaced with one of                ◦ 1 grav-pistol the following:                                        ◦ 1 meltagun ◦ 1 power fist                                       ◦ 1 plasma gun* ◦ 1 power weapon                                     ◦ 1 plasma pistol* ◦ 1 thunder hammer                                   ◦ 1 power fist ◦ 1 power weapon\n\n*Any number of Veteran Bikers’ bolt pistols can ◦ 1 thunder hammer each be replaced with one of the following: ◦ 1 storm shield ◦ 1 grav-pistol * The profile for this weapon can be found on the Adeptus ◦ 1 plasma pistol*                               Astartes Legends Armoury card. ◦ 1 power fist"
+        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nEvery model is equipped with: bolt pistol; twin boltgun; Astartes chainsword.\n\nThe Veteran Biker Sergeant’s bolt pistol can be      ◦ 1 power weapon replaced with one of the following:                  ◦ 1 thunder hammer ◦ 1 boltgun                                         ◦ 1 storm shield ◦ 1 combi-weapon\n\n*Any number of Veteran Bikers’ Astartes ◦ 1 grav-pistol                                     chainswords can each be replaced with one of ◦ 1 plasma pistol*                                  the following: ◦ 1 storm bolter                                     ◦ 1 flamer\n\n*The Veteran Biker Sergeant’s Astartes                 ◦ 1 grav-gun chainsword can be replaced with one of                ◦ 1 grav-pistol the following:                                        ◦ 1 meltagun ◦ 1 power fist                                       ◦ 1 plasma gun* ◦ 1 power weapon                                     ◦ 1 plasma pistol* ◦ 1 thunder hammer                                   ◦ 1 power fist ◦ 1 power weapon\n\n*Any number of Veteran Bikers’ bolt pistols can ◦ 1 thunder hammer each be replaced with one of the following: ◦ 1 storm shield ◦ 1 grav-pistol * The profile for this weapon can be found on the Adeptus ◦ 1 plasma pistol*                               Astartes Legends Armoury card. ◦ 1 power fist"
       },
       "Infantry/Mounted§Desolation Squad": {
         "allowed": {
@@ -11857,12 +11817,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Desolation Marine",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Targeter Optics",
@@ -11925,8 +11879,7 @@
             "value": "Superfrag",
             "visibility": "normal"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Devastator Squad": {
         "allowed": {
@@ -11943,12 +11896,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Devastator Marine",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Signum",
@@ -12003,6 +11951,28 @@
             "value": 5,
             "visibility": "normal"
           },
+          "Multi-melta": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 4,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Plasma cannon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 4,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Points": {
             "value": 120
           },
@@ -12013,8 +11983,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Eliminator Squad": {
         "allowed": {
@@ -12025,12 +11994,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Eliminator",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Stealth",
@@ -12067,9 +12030,9 @@
                 "paths": [
                   [
                     "{self}",
-                    "included",
-                    "classification",
-                    "Model",
+                    "assets",
+                    "item",
+                    "Model§Eliminator",
                     "traits"
                   ]
                 ],
@@ -12085,8 +12048,7 @@
             ],
             "evals": [],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
+            "failState": "pass"
           }
         },
         "stats": {
@@ -12130,8 +12092,7 @@
           "Points": {
             "value": 75
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Eradicator Squad": {
         "allowed": {
@@ -12145,12 +12106,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Eradicator",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Total Obliteration",
@@ -12179,27 +12135,11 @@
           "1 in 3 can have a Multi-melta.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 3
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 3 can have a Multi-melta.",
+                  "count1in3",
                   "evals",
                   "0",
                   "result",
@@ -12218,6 +12158,100 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyMulti-melta": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Eradicator",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Multi-melta",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Eradicator",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Multi-melta"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Multi-melta",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in3",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Multi-melta",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -12250,11 +12284,21 @@
             "value": 3,
             "visibility": "normal"
           },
+          "Multi-melta": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 95
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Heavy Intercessor Squad": {
         "allowed": {
@@ -12268,12 +12312,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Heavy Intercessor",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Unyielding in the Face of the Foe",
@@ -12303,27 +12342,11 @@
           "1 in 5 can have a Heavy bolter.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Heavy bolter.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -12342,9 +12365,114 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyHeavyBolter": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Heavy Intercessor",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Heavy bolter",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Heavy Intercessor",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Heavy bolter"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Heavy bolter",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Heavy bolter",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
+          "Heavy bolter": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Heavy Intercessor": {
             "max": 9,
             "min": 4,
@@ -12377,8 +12505,7 @@
           "Points": {
             "value": 100
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Hellblaster Squad": {
         "allowed": {
@@ -12393,12 +12520,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Hellblaster",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§For the Chapter!",
@@ -12456,8 +12578,7 @@
           "Points": {
             "value": 125
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Inceptor Squad": {
         "allowed": {
@@ -12466,12 +12587,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Inceptor",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -12546,8 +12661,7 @@
           "Points": {
             "value": 130
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Incursor Squad": {
         "allowed": {
@@ -12559,12 +12673,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Incursor",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -12599,6 +12708,85 @@
           ]
         },
         "rules": {
+          "applyHaywireMine": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    [
+                      "Model§Incursor"
+                    ],
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Haywire mine",
+                  "processed",
+                  "numeric",
+                  "current"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Incursor",
+                  "stats": {
+                    "Haywire mine": {
+                      "dynamic": false,
+                      "value": "✓"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Haywire",
+                    "processed",
+                    "numeric",
+                    "current"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 haywire mine.": {
             "evals": [
               {
@@ -12620,6 +12808,23 @@
           }
         },
         "stats": {
+          "Haywire": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Incursor": {
             "max": 9,
             "min": 4,
@@ -12652,8 +12857,7 @@
           "Points": {
             "value": 85
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Infernus Squad": {
         "allowed": {
@@ -12672,12 +12876,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Infernus Marine",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Purge the Foe",
@@ -12735,8 +12934,7 @@
           "Points": {
             "value": 80
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Infiltrator Squad": {
         "allowed": {
@@ -12748,12 +12946,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Infiltrator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Oath of Moment",
@@ -12853,8 +13045,7 @@
           "Points": {
             "value": 100
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Intercessor Squad": {
         "allowed": {
@@ -12877,12 +13068,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Intercessor",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Objective Secured",
@@ -12912,27 +13097,11 @@
           "1 in 5 models can have an Astartes grenade launcher.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have an Astartes grenade launcher.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -12951,9 +13120,114 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyGrenade": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Intercessor",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Grenade launcher",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Intercessor",
+                  "stats": {
+                    "Grenade launcher": {
+                      "dynamic": false,
+                      "value": "✓"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenade launcher",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenade launcher",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
+          "Grenade launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Intercessor": {
             "max": 9,
             "min": 4,
@@ -12986,8 +13260,7 @@
           "Points": {
             "value": 80
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Invader ATV": {
         "assets": {
@@ -13116,12 +13389,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Outrider",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Turbo-boost",
@@ -13177,6 +13445,9 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Outrider"
+          },
           "Models": {
             "increment": {
               "value": 3
@@ -13197,8 +13468,7 @@
           "Points": {
             "value": 80
           }
-        },
-        "text": "ERROR: multiple models allowed; please update manually\n\n"
+        }
       },
       "Infantry/Mounted§Reiver Squad": {
         "allowed": {
@@ -13211,12 +13481,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Reiver",
-              "quantity": 4
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -13284,8 +13548,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Relic Terminator Squad": {
         "allowed": {
@@ -13299,12 +13562,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Relic Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -13341,27 +13598,11 @@
           "1 in 5 can have a Grenade harness.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Grenade harness.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13384,27 +13625,11 @@
           "1 in 5 can have a Special weapon selection.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Special weapon selection.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13458,8 +13683,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Scout Bike Squad": {
         "allowed": {
@@ -13468,12 +13692,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Scout Biker",
-              "quantity": 2
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -13539,8 +13757,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Scout Sniper Squad": {
         "allowed": {
@@ -13551,12 +13768,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Scout Sniper",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Stealth",
@@ -13584,6 +13795,83 @@
           ]
         },
         "rules": {
+          "applyMissileLauncher": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Scout Sniper",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Missile launcher",
+                  "processed",
+                  "numeric",
+                  "current"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Scout Sniper",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Missile launcher"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Missile launcher",
+                    "processed",
+                    "numeric",
+                    "current"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 missile launcher.": {
             "evals": [
               {
@@ -13605,6 +13893,23 @@
           }
         },
         "stats": {
+          "Missile launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -13637,8 +13942,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Scout Squad": {
         "allowed": {
@@ -13648,12 +13952,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Scout",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             {
@@ -13691,27 +13989,11 @@
           "1 in 5 can have a sniper rifle": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a sniper rifle",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13734,27 +14016,11 @@
           "1 in 5 can have a special weapon": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a special weapon",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13808,8 +14074,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Sternguard Veteran Squad": {
         "allowed": {
@@ -13839,12 +14104,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Sternguard Veteran",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Model§Sternguard Veteran Sergeant",
@@ -13873,27 +14132,11 @@
           "1 in 5 can have a special weapon.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a special weapon.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13947,8 +14190,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Suppressor Squad": {
         "allowed": {
@@ -13957,12 +14199,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Suppressor",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -14013,8 +14249,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Tactical Squad": {
         "allowed": {
@@ -14043,12 +14278,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Tactical Marine",
-              "quantity": 9
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Combat Squads",
@@ -14110,8 +14339,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Terminator Assault Squad": {
         "allowed": {
@@ -14125,12 +14353,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -14197,8 +14419,7 @@
           "Points": {
             "value": 195
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Terminator Squad": {
         "allowed": {
@@ -14212,12 +14433,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -14255,27 +14470,11 @@
           "1 in 5 can have a Special weapon selection.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Special weapon selection.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -14329,8 +14528,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Tyrannic War Veterans": {
         "allowed": {
@@ -14340,12 +14538,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Tyrannic War Veteran",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Tyrannic War Veterans",
@@ -14393,8 +14585,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Ultramarines Honour Guard": {
         "allowed": {
@@ -14403,12 +14594,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Honour Guard",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Honour Guard",
@@ -14460,8 +14645,7 @@
           "Points": {
             "value": 155
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Vanguard Veteran Squad": {
         "allowed": {
@@ -14481,12 +14665,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Vanguard Veteran",
-              "quantity": 4
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -14551,8 +14729,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Infantry/Mounted§Vanguard Veteran Squad with Jump Packs": {
         "allowed": {
@@ -14565,12 +14742,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Vanguard Veteran with Jump Pack",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -14630,8 +14801,7 @@
             "value": 0,
             "visibility": "hidden"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Melee Weapon§Adrax Agatone—Malleus Noctum": {
         "aspects": {
@@ -25513,7 +25683,7 @@
           ]
         },
         "rules": {
-          "AddSuperfrag": {
+          "addSuperfrag": {
             "actions": [
               {
                 "actionType": "add",
@@ -25544,10 +25714,9 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           },
-          "AddSuperkrak": {
+          "addSuperkrak": {
             "actions": [
               {
                 "actionType": "add",
@@ -25578,8 +25747,7 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           }
         },
         "stats": {
@@ -26865,7 +27033,7 @@
           ]
         },
         "rules": {
-          "AddBolters": {
+          "addBolters": {
             "actions": [
               {
                 "actionType": "add",
@@ -26896,10 +27064,9 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           },
-          "AddPlasma": {
+          "addPlasma": {
             "actions": [
               {
                 "actionType": "add",
@@ -26930,8 +27097,7 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           }
         },
         "stats": {
@@ -65299,9 +65465,6 @@
           ]
         },
         "assets": {
-          "included": [
-            "Model§Firestrike Servo-turret"
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Sentinel Protocols"
@@ -65323,6 +65486,98 @@
           "Tags": [
             "Vehicle Firestrike Servo-turrets"
           ]
+        },
+        "rules": {
+          "applyTwinAuto": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Firestrike Servo-turret",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Twin auto",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Firestrike Servo-turret",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Twin Firestrike autocannon"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Twin auto",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Model"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Twin auto",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          }
         },
         "stats": {
           "Firestrike Servo-turret": {
@@ -65356,9 +65611,19 @@
           },
           "Points": {
             "value": 75
+          },
+          "Twin auto": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
       "Vehicle§Gladiator Lancer": {
         "assets": {
@@ -73072,7 +73337,9 @@
                   "value": "1-4 wounds remaining"
                 }
               }
-            }
+            },
+            "Ranged Weapon§Whirlwind Scorpius—Scorpius multi-launcher",
+            "Melee Weapon§Whirlwind Scorpius—Armoured tracks"
           ]
         },
         "keywords": {
@@ -73093,6 +73360,27 @@
           ]
         },
         "stats": {
+          "Hunter Killer": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Whirlwind Scorpius—Hunter-killer missile"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "✓",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
           },
@@ -73105,47 +73393,26 @@
           "Points": {
             "value": 115
           },
-          "sampleLoadout": {
+          "Storm bolter": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Hunter-killer missile": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Whirlwind Scorpius—Hunter-killer missile"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
-              "Scorpius multi-launcher": {
+              "✓": {
                 "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Whirlwind Scorpius—Scorpius multi-launcher"
-                  }
-                ]
-              },
-              "Storm bolter": {
-                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Whirlwind Scorpius—Storm bolter"
                   }
                 ]
-              },
-              "Armoured tracks": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Whirlwind Scorpius—Armoured tracks"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Hunter-killer missile",
-            "visibility": "active"
+            "value": "-",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 3
@@ -73156,8 +73423,7 @@
           "W": {
             "value": 11
           }
-        },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: Scorpius multi-launcher; armoured tracks.\n\nThis model can be equipped with 1 hunter-killer missile.\n\n*This model can be equipped with 1 storm bolter."
+        }
       },
       "Vehicle§Xiphon Interceptor": {
         "assets": {
