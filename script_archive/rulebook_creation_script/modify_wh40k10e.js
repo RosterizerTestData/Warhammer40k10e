@@ -46,6 +46,14 @@ const fileList = [
   'World_Eaters.rulebook'
 ];
 async function processFiles() {
+  const trimRulesPath = (path,ruleName) => {
+    let newPath = path;
+    if(Array.isArray(newPath)){
+      newPath = [...path];
+      if(newPath[1] === 'rules' && newPath[2] === ruleName) newPath.splice(0,3,'{this}');
+    }
+    return newPath
+  }
   for (const file of fileList) {
     try {
       const response = await fetch('../../' + file);
@@ -57,24 +65,69 @@ async function processFiles() {
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         if(item.stats?.model1stTally){
           let allowedModels = item.allowed?.items?.filter(asset => asset.split('§')[0] === 'Model');
+          let itemObj = data.rulebook.assetCatalog[itemKey]
           if(allowedModels?.length > 0){
             if(allowedModels.length === 1){
-              data.rulebook.assetCatalog[itemKey].stats.modelKey = {value: allowedModels[0]};
-              data.rulebook.assetCatalog[itemKey].text = 'WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n' + (data.rulebook.assetCatalog[itemKey].text || '');
+              itemObj.stats.modelKey = {value: allowedModels[0]};
+              if(
+                itemObj.assets?.included?.length === 1
+                && (
+                  itemObj.assets.included[0].item === allowedModels[0]
+                  || itemObj.assets.included[0] === allowedModels[0]
+                )
+              ) delete itemObj.assets.included;
+              let traitIdx = itemObj.assets?.traits?.findIndex(trait => trait === allowedModels[0] || trait.item === allowedModels[0]);
+              if(traitIdx > -1) itemObj.assets?.traits.splice(traitIdx,1);
+              itemObj.text = 'WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n' + (itemObj.text || '');
             }else{
-              data.rulebook.assetCatalog[itemKey].text = 'ERROR: multiple models allowed; please update manually\n\n' + (data.rulebook.assetCatalog[itemKey].text || '');
+              itemObj.text = 'WARNING: multiple models allowed; please update modelKey manually\n\n' + (itemObj.text || '');
             }
           }
-          data.rulebook.assetCatalog[itemKey].stats.Models = {
+          itemObj.stats.Models = {
             max: item.stats?.model4thTally?.value || item.stats?.model3rdTally?.value || item.stats?.model2ndTally?.value || item.stats?.model1stTally.value, 
             min: item.stats?.model1stTally.value, 
             value: item.stats?.model1stTally.value,
           }
           if(item.stats?.model2ndTally){
-            data.rulebook.assetCatalog[itemKey].stats.Models.visibility = 'normal';
-            data.rulebook.assetCatalog[itemKey].stats.Models.increment = {value: item.stats?.model2ndTally.value - item.stats?.model1stTally.value};
+            itemObj.stats.Models.visibility = 'normal';
+            itemObj.stats.Models.increment = {value: item.stats?.model2ndTally.value - item.stats?.model1stTally.value};
           }
         }
+        Object.keys(item?.rules || {}).forEach((ruleName) => {
+          let rule = item.rules[ruleName];
+          if(ruleName.match(/[0-9] in [0-9]*.*/)){
+            if(ruleName.match(/1 in [0-9]*.*/)) rule.evals.splice(0,1);
+            if(ruleName.match(/2 in [0-9]*.*/)) rule.evals.splice(0,1);
+            if(ruleName.match(/2 in [0-9]*.*/) && [2,5,10].includes(rule.evals[0].equation?.value)) rule.evals.splice(0,1);
+            let test = rule.evals[0]?.max?.[2];
+            switch (true) {
+              case test?.includes('1 in 3'): rule.evals[0].max[2] = 'count1in3'; break;
+              case test?.includes('1 in 4'): rule.evals[0].max[2] = 'count1in4'; break;
+              case test?.includes('1 in 5'): rule.evals[0].max[2] = 'count1in5'; break;
+              case test?.includes('1 in 10'): rule.evals[0].max[2] = 'count1in10'; break;
+              case test?.includes('2 in 5'): 
+                rule.evals[0].max[2] = 'count2in5';
+                rule.evals[0].max[4] = '1';
+                break;
+              case test?.includes('2 in 10'): 
+                rule.evals[0].max[2] = 'count2in10';
+                rule.evals[0].max[4] = '1';
+                break;
+              default:
+                break;
+            }
+          }
+          ['evals', 'actions'].forEach((rulePhase) => {
+            rule[rulePhase]?.forEach((phaseValue,i,a) => {
+              ['max','min','value'].forEach(prop => {
+                if(rule[rulePhase]?.[i]?.[prop]) rule[rulePhase][i][prop] = trimRulesPath(rule[rulePhase][i][prop],ruleName);
+              });
+              if(rule[rulePhase]?.[i]?.paths) rule[rulePhase][i].paths.forEach((path,j,b) => {
+                rule[rulePhase][i].paths[j] = trimRulesPath(path,ruleName);
+              });
+            });
+          })
+        })
       });
       console.log(data.name, data);
     } catch (error) {
