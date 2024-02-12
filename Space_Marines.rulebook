@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.8.6",
+  "revision": "10.9.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -579,9 +579,7 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "allowScoutCompanyTraits",
+                    "{this}",
                     "evals",
                     [
                       "1",
@@ -939,9 +937,7 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "allowInfantry/MountedTraits",
+                    "{this}",
                     "evals",
                     [
                       "1",
@@ -7786,12 +7782,6 @@
           "Unique": true
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Victrix Honour Guard",
-              "quantity": 2
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Leader",
@@ -7831,6 +7821,14 @@
         },
         "stats": {
           "model1stTally": {
+            "value": 3
+          },
+          "modelKey": {
+            "value": "Model§Victrix Honour Guard"
+          },
+          "Models": {
+            "max": 3,
+            "min": 3,
             "value": 3
           },
           "Points": {
@@ -10748,12 +10746,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Aggressor",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Close-quarters Firepower",
@@ -10878,6 +10870,8 @@
           },
           "Loadout": {
             "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
             "ranks": {
               "Flamestorm": {
                 "order": 0
@@ -10886,6 +10880,7 @@
                 "order": 1
               }
             },
+            "statOrder": 9,
             "statType": "rank",
             "value": "Flamestorm",
             "visibility": "active"
@@ -10898,6 +10893,18 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "modelKey": {
+            "value": "Model§Aggressor"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
           },
           "Points": {
             "value": 120
@@ -10928,20 +10935,12 @@
             "Character§Captain Tycho",
             "Character§Asmodai",
             "Character§Ezekiel",
-            "Character§Lazarus",
-            "Character§Azrael",
             "Character§Chief Librarian Mephiston",
             "Character§Gabriel Seth",
             "Character§Uriel Ventris"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Intercessor",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Shock Assault",
@@ -10985,6 +10984,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Assault Intercessor"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 75
           }
@@ -11001,12 +11012,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Intercessor with Jump Pack",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -11037,27 +11042,11 @@
           "1 in 5 Intercessors can have a Plasma pistol": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 Intercessors can have a Plasma pistol",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -11076,6 +11065,99 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyPlasma": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Assault Intercessor with Jump Pack",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Plasma",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Assault Intercessor with Jump Pack",
+                  "stats": {
+                    "Shooting": {
+                      "dynamic": false,
+                      "value": "Plasma pistol"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plasma",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plasma",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -11096,7 +11178,32 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Assault Intercessor with Jump Pack"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Plasma": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Points": {
+            "dynamic": true,
             "value": 85
           },
           "Special Weapon Selection": {
@@ -11115,9 +11222,7 @@
           ]
         },
         "assets": {
-          "included": [
-            "Model§Attack Bike"
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Outrider Escort"
@@ -11139,6 +11244,98 @@
           "Tags": [
             "Infantry/Mounted Attack Bike Squad"
           ]
+        },
+        "rules": {
+          "applyMulti-melta": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Attack Bike",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Multi-melta",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Attack Bike",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Multi-melta"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Multi-melta",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Model"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Multi-melta",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          }
         },
         "stats": {
           "Attack Bike": {
@@ -11164,6 +11361,31 @@
           "model3rdTally": {
             "value": 3
           },
+          "modelKey": {
+            "value": "Model§Attack Bike"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 3,
+            "min": 1,
+            "value": 1,
+            "visibility": "normal"
+          },
+          "Multi-melta": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 55
           }
@@ -11184,21 +11406,12 @@
             "Character§Ragnar Blackmane",
             "Character§Chief Librarian Tigurius",
             "Character§Uriel Ventris",
-            "Character§Ezekiel",
-            "Character§Lazarus",
-            "Character§Asmodai",
-            "Character§Azrael",
             "Character§Captain",
             "Character§Lieutenant"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Bladeguard Veteran",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Bladeguard",
@@ -11249,6 +11462,18 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Bladeguard Veteran"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 90
           }
@@ -11261,12 +11486,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Centurion",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Annihilator Protocols",
@@ -11308,6 +11528,18 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Assault Centurion"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 150
           }
@@ -11320,12 +11552,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Devastator Centurion",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Decimator Protocols",
@@ -11366,6 +11592,18 @@
           },
           "model2ndTally": {
             "value": 6
+          },
+          "modelKey": {
+            "value": "Model§Devastator Centurion"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
           },
           "Points": {
             "value": 185
@@ -11485,6 +11723,11 @@
           "model1stTally": {
             "value": 4
           },
+          "Models": {
+            "max": 4,
+            "min": 4,
+            "value": 4
+          },
           "Points": {
             "value": 95
           }
@@ -11536,6 +11779,18 @@
           "model2ndTally": {
             "value": 5
           },
+          "modelKey": {
+            "value": "Model§Veteran Bikers"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 5,
+            "min": 2,
+            "value": 2,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 110
           },
@@ -11562,12 +11817,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Desolation Marine",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Targeter Optics",
@@ -11602,6 +11851,14 @@
             "visibility": "hidden"
           },
           "model1stTally": {
+            "value": 5
+          },
+          "modelKey": {
+            "value": "Model§Desolation Marine"
+          },
+          "Models": {
+            "max": 5,
+            "min": 5,
             "value": 5
           },
           "Points": {
@@ -11639,12 +11896,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Devastator Marine",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Signum",
@@ -11687,6 +11939,40 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Devastator Marine"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Multi-melta": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 4,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Plasma cannon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 4,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Points": {
             "value": 120
           },
@@ -11708,12 +11994,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Eliminator",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Stealth",
@@ -11750,9 +12030,9 @@
                 "paths": [
                   [
                     "{self}",
-                    "included",
-                    "classification",
-                    "Model",
+                    "assets",
+                    "item",
+                    "Model§Eliminator",
                     "traits"
                   ]
                 ],
@@ -11768,8 +12048,7 @@
             ],
             "evals": [],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
+            "failState": "pass"
           }
         },
         "stats": {
@@ -11802,6 +12081,14 @@
           "model1stTally": {
             "value": 3
           },
+          "modelKey": {
+            "value": "Model§Eliminator"
+          },
+          "Models": {
+            "max": 3,
+            "min": 3,
+            "value": 3
+          },
           "Points": {
             "value": 75
           }
@@ -11819,12 +12106,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Eradicator",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Total Obliteration",
@@ -11853,27 +12135,11 @@
           "1 in 3 can have a Multi-melta.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 3
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 3 can have a Multi-melta.",
+                  "count1in3",
                   "evals",
                   "0",
                   "result",
@@ -11892,6 +12158,100 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyMulti-melta": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Eradicator",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Multi-melta",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Eradicator",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Multi-melta"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Multi-melta",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in3",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Multi-melta",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -11912,6 +12272,29 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Eradicator"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "Multi-melta": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 95
           }
@@ -11929,12 +12312,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Heavy Intercessor",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Unyielding in the Face of the Foe",
@@ -11964,27 +12342,11 @@
           "1 in 5 can have a Heavy bolter.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Heavy bolter.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -12003,9 +12365,114 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyHeavyBolter": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Heavy Intercessor",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Heavy bolter",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Heavy Intercessor",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Heavy bolter"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Heavy bolter",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Heavy bolter",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
+          "Heavy bolter": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Heavy Intercessor": {
             "max": 9,
             "min": 4,
@@ -12023,6 +12490,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Heavy Intercessor"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 100
           }
@@ -12037,19 +12516,11 @@
             "Character§Captain",
             "Character§Chaplain",
             "Character§Librarian",
-            "Character§Ezekiel",
-            "Character§Asmodai",
-            "Character§Azrael",
             "Character§Lieutenant"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Hellblaster",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§For the Chapter!",
@@ -12092,6 +12563,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Hellblaster"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 125
           }
@@ -12104,12 +12587,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Inceptor",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -12169,6 +12646,18 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Inceptor"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 130
           }
@@ -12184,12 +12673,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Incursor",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -12224,6 +12708,85 @@
           ]
         },
         "rules": {
+          "applyHaywireMine": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    [
+                      "Model§Incursor"
+                    ],
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Haywire mine",
+                  "processed",
+                  "numeric",
+                  "current"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Incursor",
+                  "stats": {
+                    "Haywire mine": {
+                      "dynamic": false,
+                      "value": "✓"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Haywire",
+                    "processed",
+                    "numeric",
+                    "current"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 haywire mine.": {
             "evals": [
               {
@@ -12245,6 +12808,23 @@
           }
         },
         "stats": {
+          "Haywire": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "Incursor": {
             "max": 9,
             "min": 4,
@@ -12262,6 +12842,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Incursor"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 85
           }
@@ -12278,22 +12870,13 @@
             "Character§Librarian",
             "Character§Judiciar",
             "Character§Marneus Calgar",
-            "Character§Ezekiel",
-            "Character§Lazarus",
-            "Character§Asmodai",
-            "Character§Azrael",
             "Character§Ancient",
             "Character§Apothecary",
             "Character§Vulkan He’stan"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Infernus Marine",
-              "quantity": 4
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Purge the Foe",
@@ -12336,6 +12919,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Infernus Marine"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 80
           }
@@ -12351,12 +12946,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Infiltrator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Oath of Moment",
@@ -12441,6 +13030,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Infiltrator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 100
           }
@@ -12460,10 +13061,6 @@
             "Character§Judiciar",
             "Character§Kor’sarro Khan",
             "Character§Marneus Calgar",
-            "Character§Ezekiel",
-            "Character§Lazarus",
-            "Character§Asmodai",
-            "Character§Azrael",
             "Character§Ancient",
             "Character§Apothecary",
             "Character§Chief Librarian Mephiston",
@@ -12471,12 +13068,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Intercessor",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Objective Secured",
@@ -12506,27 +13097,11 @@
           "1 in 5 models can have an Astartes grenade launcher.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have an Astartes grenade launcher.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -12545,9 +13120,114 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyGrenade": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Intercessor",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Grenade launcher",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Intercessor",
+                  "stats": {
+                    "Grenade launcher": {
+                      "dynamic": false,
+                      "value": "✓"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenade launcher",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Grenade launcher",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
+          "Grenade launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Intercessor": {
             "max": 9,
             "min": 4,
@@ -12564,6 +13244,18 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Intercessor"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 80
@@ -12693,18 +13385,11 @@
             "Character§Chaplain on Bike",
             "Character§Company Champion on Bike",
             "Character§Librarian on Bike",
-            "Character§Techmarine on Bike",
-            "Character§Ravenwing Command Squad",
-            "Character§Sammael"
+            "Character§Techmarine on Bike"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Outrider",
-              "quantity": 2
-            }
-          ],
+          "included": [],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Turbo-boost",
@@ -12760,6 +13445,18 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Outrider"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
           "Outrider": {
             "max": 5,
             "min": 2,
@@ -12784,12 +13481,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Reiver",
-              "quantity": 4
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -12834,6 +13525,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Reiver"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 85
           },
@@ -12859,12 +13562,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Relic Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -12901,27 +13598,11 @@
           "1 in 5 can have a Grenade harness.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Grenade harness.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -12944,27 +13625,11 @@
           "1 in 5 can have a Special weapon selection.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Special weapon selection.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -12995,6 +13660,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Relic Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 200
           },
@@ -13015,12 +13692,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Scout Biker",
-              "quantity": 2
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -13063,6 +13734,18 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Scout Biker"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 75
           },
@@ -13085,12 +13768,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Scout Sniper",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             "Ability§Stealth",
@@ -13118,6 +13795,83 @@
           ]
         },
         "rules": {
+          "applyMissileLauncher": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Scout Sniper",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Missile launcher",
+                  "processed",
+                  "numeric",
+                  "current"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Scout Sniper",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Missile launcher"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Missile launcher",
+                    "processed",
+                    "numeric",
+                    "current"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 missile launcher.": {
             "evals": [
               {
@@ -13139,6 +13893,23 @@
           }
         },
         "stats": {
+          "Missile launcher": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -13147,6 +13918,18 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Scout Sniper"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 75
@@ -13169,12 +13952,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Scout",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Infiltrators",
             {
@@ -13212,27 +13989,11 @@
           "1 in 5 can have a sniper rifle": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a sniper rifle",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13255,27 +14016,11 @@
           "1 in 5 can have a special weapon": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a special weapon",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13305,6 +14050,18 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Scout"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 65
@@ -13341,20 +14098,12 @@
             "Character§Captain Tycho",
             "Character§Asmodai",
             "Character§Ezekiel",
-            "Character§Azrael",
-            "Character§Lazarus",
             "Character§Chief Librarian Mephiston",
             "Character§Gabriel Seth",
             "Character§Uriel Ventris"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Sternguard Veteran",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Model§Sternguard Veteran Sergeant",
@@ -13383,27 +14132,11 @@
           "1 in 5 can have a special weapon.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a special weapon.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13434,6 +14167,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Sternguard Veteran"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 90
           },
@@ -13454,12 +14199,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Suppressor",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -13489,6 +14228,14 @@
         },
         "stats": {
           "model1stTally": {
+            "value": 3
+          },
+          "modelKey": {
+            "value": "Model§Suppressor"
+          },
+          "Models": {
+            "max": 3,
+            "min": 3,
             "value": 3
           },
           "Points": {
@@ -13524,10 +14271,6 @@
             "Character§Kor’sarro Khan",
             "Character§Uriel Ventris",
             "Character§Techmarine",
-            "Character§Ezekiel",
-            "Character§Lazarus",
-            "Character§Azrael",
-            "Character§Asmodai",
             "Character§Brother Corbulo",
             "Character§Captain Tycho",
             "Character§Gabriel Seth",
@@ -13535,12 +14278,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Tactical Marine",
-              "quantity": 9
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Combat Squads",
@@ -13576,6 +14313,14 @@
           "model1stTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Tactical Marine"
+          },
+          "Models": {
+            "max": 10,
+            "min": 10,
+            "value": 10
+          },
           "Points": {
             "value": 160
           },
@@ -13604,17 +14349,10 @@
             "Character§Captain in Terminator Armour",
             "Character§Chaplain in Terminator Armour",
             "Character§Darnath Lysander",
-            "Character§Belial",
             "Character§Librarian in Terminator Armour"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Assault Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -13666,6 +14404,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Assault Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 195
           }
@@ -13679,17 +14429,10 @@
             "Character§Captain in Terminator Armour",
             "Character§Chaplain in Terminator Armour",
             "Character§Darnath Lysander",
-            "Character§Belial",
             "Character§Librarian in Terminator Armour"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -13727,27 +14470,11 @@
           "1 in 5 can have a Special weapon selection.": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 can have a Special weapon selection.",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -13778,6 +14505,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 185
           },
@@ -13799,12 +14538,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Tyrannic War Veteran",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Tyrannic War Veterans",
@@ -13833,6 +14566,14 @@
           "model1stTally": {
             "value": 5
           },
+          "modelKey": {
+            "value": "Model§Tyrannic War Veteran"
+          },
+          "Models": {
+            "max": 5,
+            "min": 5,
+            "value": 5
+          },
           "Points": {
             "value": 85
           },
@@ -13853,12 +14594,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Honour Guard",
-              "quantity": 2
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Honour Guard",
@@ -13899,6 +14634,14 @@
           "model1stTally": {
             "value": 4
           },
+          "modelKey": {
+            "value": "Model§Honour Guard"
+          },
+          "Models": {
+            "max": 4,
+            "min": 4,
+            "value": 4
+          },
           "Points": {
             "value": 155
           }
@@ -13922,12 +14665,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Vanguard Veteran",
-              "quantity": 4
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -13969,6 +14706,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Vanguard Veteran"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 120
           },
@@ -13993,12 +14742,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Vanguard Veteran with Jump Pack",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Oath of Moment",
@@ -14034,6 +14777,18 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Vanguard Veteran with Jump Pack"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 105
@@ -24928,7 +25683,7 @@
           ]
         },
         "rules": {
-          "AddSuperfrag": {
+          "addSuperfrag": {
             "actions": [
               {
                 "actionType": "add",
@@ -24959,10 +25714,9 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           },
-          "AddSuperkrak": {
+          "addSuperkrak": {
             "actions": [
               {
                 "actionType": "add",
@@ -24993,8 +25747,7 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           }
         },
         "stats": {
@@ -26280,7 +27033,7 @@
           ]
         },
         "rules": {
-          "AddBolters": {
+          "addBolters": {
             "actions": [
               {
                 "actionType": "add",
@@ -26311,10 +27064,9 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           },
-          "AddPlasma": {
+          "addPlasma": {
             "actions": [
               {
                 "actionType": "add",
@@ -26345,8 +27097,7 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 1
+            "failState": "pass"
           }
         },
         "stats": {
@@ -63423,7 +64174,7 @@
                   }
                 ]
               },
-              " Dreadnought inferno cannon": {
+              "Dreadnought inferno cannon": {
                 "order": 3,
                 "traits": [
                   {
@@ -63451,7 +64202,7 @@
                 "order": 6,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Centurion Devastator Squad—Twin lascannon"
+                    "trait": "Ranged Weapon§Chaplain Venerable Dreadnought—Twin lascannon"
                   }
                 ]
               }
@@ -63550,8 +64301,7 @@
           "W": {
             "value": 8
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Contemptor Dreadnought": {
         "assets": {
@@ -64776,9 +65526,6 @@
           ]
         },
         "assets": {
-          "included": [
-            "Model§Firestrike Servo-turret"
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Sentinel Protocols"
@@ -64801,6 +65548,98 @@
             "Vehicle Firestrike Servo-turrets"
           ]
         },
+        "rules": {
+          "applyTwinAuto": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Firestrike Servo-turret",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Twin auto",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": {
+                  "item": "Model§Firestrike Servo-turret",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Twin Firestrike autocannon"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Twin auto",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tally",
+                  "Model"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Twin auto",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          }
+        },
         "stats": {
           "Firestrike Servo-turret": {
             "max": 2,
@@ -64819,8 +65658,31 @@
           "model2ndTally": {
             "value": 2
           },
+          "modelKey": {
+            "value": "Model§Firestrike Servo-turret"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 2,
+            "min": 1,
+            "value": 1,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 75
+          },
+          "Twin auto": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
           }
         }
       },
@@ -66562,12 +67424,6 @@
       },
       "Vehicle§Land Raider Excelsior": {
         "assets": {
-          "included": [
-            "Ranged Weapon§Land Raider Excelsior—Grav-cannon",
-            "Melee Weapon§Land Raider Excelsior—Armoured tracks",
-            "Ranged Weapon§Land Raider Excelsior—Godhammer lascannons",
-            "Ranged Weapon§Land Raider Excelsior—Godhammer lascannons"
-          ],
           "traits": [
             {
               "item": "Ability§Deadly Demise",
@@ -66599,7 +67455,11 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 12 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models."
-            }
+            },
+            "Ranged Weapon§Land Raider Excelsior—Grav-cannon",
+            "Melee Weapon§Land Raider Excelsior—Armoured tracks",
+            "Ranged Weapon§Land Raider Excelsior—Godhammer lascannons",
+            "Ranged Weapon§Land Raider Excelsior—Godhammer lascannons"
           ]
         },
         "keywords": {
@@ -66726,8 +67586,7 @@
           "W": {
             "value": 16
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Land Raider Helios": {
         "assets": {
@@ -66842,8 +67701,7 @@
           "W": {
             "value": 16
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Land Raider Prometheus": {
         "assets": {
@@ -66978,8 +67836,7 @@
           "W": {
             "value": 16
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Land Raider Proteus": {
         "assets": {
@@ -67940,8 +68797,7 @@
           "W": {
             "value": 12
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Mastodon": {
         "assets": {
@@ -68170,8 +69026,7 @@
           "W": {
             "value": 8
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Predator Annihilator": {
         "assets": {
@@ -69514,10 +70369,6 @@
       },
       "Vehicle§Rhino Primaris": {
         "assets": {
-          "included": [
-            "Melee Weapon§Rhino Primaris—Armoured tracks",
-            "Ranged Weapon§Rhino Primaris—Twin plasma gun"
-          ],
           "traits": [
             {
               "item": "Ability§Deadly Demise",
@@ -69533,7 +70384,9 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Adeptus Astartes Infantry models. It cannot transport Jump Pack, Wulfen, Phobos, Gravis, Centurion, Terminator or Tacticus models (except for Tacticus Character models that begin the battle attached to a non-Tacticus unit)."
-            }
+            },
+            "Melee Weapon§Rhino Primaris—Armoured tracks",
+            "Ranged Weapon§Rhino Primaris—Twin plasma gun"
           ]
         },
         "keywords": {
@@ -69597,8 +70450,7 @@
           "W": {
             "value": 10
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Sicaran Arcus": {
         "assets": {
@@ -71377,6 +72229,15 @@
           "model3rdTally": {
             "value": 3
           },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 3,
+            "min": 1,
+            "value": 1,
+            "visibility": "normal"
+          },
           "OC": {
             "value": 1
           },
@@ -71431,14 +72292,6 @@
       },
       "Vehicle§Terminus Ultra": {
         "assets": {
-          "included": [
-            "Melee Weapon§Terminus Ultra—Armoured tracks",
-            "Ranged Weapon§Terminus Ultra—Lascannon",
-            "Ranged Weapon§Terminus Ultra—Lascannon",
-            "Ranged Weapon§Terminus Ultra—Terminus lascannon",
-            "Ranged Weapon§Terminus Ultra—Terminus lascannon",
-            "Ranged Weapon§Terminus Ultra—Terminus lascannon"
-          ],
           "traits": [
             {
               "item": "Ability§Deadly Demise",
@@ -71457,7 +72310,13 @@
                   "value": "1-5 wounds remaining"
                 }
               }
-            }
+            },
+            "Melee Weapon§Terminus Ultra—Armoured tracks",
+            "Ranged Weapon§Terminus Ultra—Lascannon",
+            "Ranged Weapon§Terminus Ultra—Lascannon",
+            "Ranged Weapon§Terminus Ultra—Terminus lascannon",
+            "Ranged Weapon§Terminus Ultra—Terminus lascannon",
+            "Ranged Weapon§Terminus Ultra—Terminus lascannon"
           ]
         },
         "keywords": {
@@ -71518,7 +72377,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Land Raider—Multi-melta"
+                    "trait": "Ranged Weapon§Terminus Ultra—Multi-melta"
                   }
                 ]
               }
@@ -71563,8 +72422,7 @@
           "W": {
             "value": 16
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Terrax-pattern Termite": {
         "assets": {
@@ -71716,6 +72574,11 @@
         },
         "stats": {
           "model1stTally": {
+            "value": 2
+          },
+          "Models": {
+            "max": 2,
+            "min": 2,
             "value": 2
           },
           "Points": {
@@ -72123,7 +72986,7 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Chaplain Venerable Dreadnought—Heavy plasma cannon"
+                    "trait": "Ranged Weapon§Venerable Dreadnought—Heavy plasma cannon"
                   }
                 ]
               },
@@ -72246,8 +73109,7 @@
           "W": {
             "value": 8
           }
-        },
-        "text": ""
+        }
       },
       "Vehicle§Vindicator": {
         "assets": {
@@ -72635,7 +73497,7 @@
               }
             },
             "statType": "rank",
-            "value": "-",
+            "value": "✓",
             "visibility": "normal"
           },
           "Ld": {
@@ -73129,8 +73991,7 @@
             "evaluate": "AND",
             "failState": "pass"
           }
-        },
-        "text": ""
+        }
       },
       "Wargear§Thunderhawk Cluster Bombs": {
         "text": "Each time the bearer ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."
