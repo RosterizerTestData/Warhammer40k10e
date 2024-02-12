@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.8.2",
+  "revision": "10.9.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -686,9 +686,7 @@
                 ],
                 "prepend": "WL ",
                 "value": [
-                  "{self}",
-                  "rules",
-                  "renameToWarlord",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -776,9 +774,7 @@
                     "Unique"
                   ],
                   [
-                    "{self}",
-                    "rules",
-                    "Your army contains more than one of this unique epic hero",
+                    "{this}",
                     "evals",
                     "1",
                     "result",
@@ -883,9 +879,7 @@
                     "Unique"
                   ],
                   [
-                    "{self}",
-                    "rules",
-                    "There are more than 1 of this unique enhancement.",
+                    "{this}",
                     "evals",
                     "1",
                     "result",
@@ -1329,9 +1323,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "noPoints",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -1947,9 +1939,7 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "allowRenownedHeroes",
+                    "{this}",
                     "evals",
                     [
                       "0",
@@ -1967,9 +1957,7 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "allowRenownedHeroes",
+                    "{this}",
                     "evals",
                     [
                       "2",
@@ -2315,6 +2303,34 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "appliedModelTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "noTally"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 37
+          },
           "apply2ndModelCost": {
             "actions": [
               {
@@ -2329,9 +2345,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "apply2ndModelCost",
+                  "{this}",
                   "evals",
                   "1",
                   "result",
@@ -2398,22 +2412,20 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply2ndModelCost",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
                   "integer"
                 ],
                 "not": false,
-                "note": "relies on trueModelTally, which must precede it in order",
+                "note": "relies on appliedModelTally, which must precede it in order",
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -2440,9 +2452,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "apply3rdModelCost",
+                  "{this}",
                   "evals",
                   "1",
                   "result",
@@ -2507,22 +2517,20 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdModelCost",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
                   "integer"
                 ],
                 "not": false,
-                "note": "relies on trueModelTally, which must precede it in order",
+                "note": "relies on appliedModelTally, which must precede it in order",
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -2549,9 +2557,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "apply4thModelCost",
+                  "{this}",
                   "evals",
                   "1",
                   "result",
@@ -2616,22 +2622,20 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply4thModelCost",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
                   "integer"
                 ],
                 "not": false,
-                "note": "relies on trueModelTally, which must precede it in order",
+                "note": "relies on appliedModelTally, which must precede it in order",
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -2676,9 +2680,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "applyModels",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -2693,8 +2695,12 @@
                   "operator": "T-O",
                   "value": [
                     "{self}",
-                    "tally",
-                    "Model"
+                    "rules",
+                    "trueModelTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
                   ]
                 },
                 "not": false,
@@ -2724,7 +2730,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 30
+            "order": 36
           },
           "cheatUnitNameTally": {
             "actions": [
@@ -2874,6 +2880,184 @@
             "failState": "pass",
             "order": 50
           },
+          "count1in10": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 10
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 100
+          },
+          "count1in3": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 3
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 100
+          },
+          "count1in4": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 4
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 100
+          },
+          "count1in5": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 100
+          },
+          "count2in10": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 10
+                },
+                "not": false,
+                "note": "track 1/5 of the models",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "note": "track 2/5 of the models",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 100
+          },
+          "count2in5": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "track 1/5 of the models",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 2
+                },
+                "not": false,
+                "note": "track 2/5 of the models",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error",
+            "order": 100
+          },
           "crusadeStats": {
             "actions": [
               {
@@ -3011,9 +3195,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "discountSelfIfAttached",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -3075,25 +3257,6 @@
             "evaluate": "AND",
             "failState": "error"
           },
-          "Warning in this Unit’s text.": {
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "text"
-                  ]
-                ],
-                "value": "WARNING"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "warning"
-          },
           "maxQty": {
             "actions": [
               {
@@ -3145,18 +3308,14 @@
                 "operator": "OR",
                 "paths": [
                   [
-                    "{self}",
-                    "rules",
-                    "maxQty",
+                    "{this}",
                     "evals",
                     "0",
                     "result",
                     "truthy"
                   ],
                   [
-                    "{self}",
-                    "rules",
-                    "maxQty",
+                    "{this}",
                     "evals",
                     "1",
                     "result",
@@ -3521,7 +3680,7 @@
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -3543,7 +3702,7 @@
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -3565,7 +3724,7 @@
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -3587,7 +3746,7 @@
                   [
                     "{self}",
                     "rules",
-                    "trueModelTally",
+                    "appliedModelTally",
                     "evals",
                     "0",
                     "result",
@@ -3749,6 +3908,25 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 35
+          },
+          "Warning in this Unit’s text.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": "WARNING"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "warning"
           }
         },
         "stats": {
@@ -7150,9 +7328,7 @@
                   ]
                 ],
                 "value": [
-                  "{self}",
-                  "rules",
-                  "subtractRP",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
