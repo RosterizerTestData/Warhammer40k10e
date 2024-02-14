@@ -1,6 +1,6 @@
 {
   "name": "Death Guard",
-  "revision": "10.9.0",
+  "revision": "10.9.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "YXUCQU",
+      "slug": "",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -469,6 +469,9 @@
           ],
           "Tags": [
             "Character Biologus Putrifier"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -582,6 +585,9 @@
           ],
           "Tags": [
             "Character Death Guard Chaos Lord"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -783,6 +789,9 @@
           ],
           "Tags": [
             "Character Death Guard Chaos Lord in Terminator Armour"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -964,6 +973,9 @@
           ],
           "Tags": [
             "Character Death Guard Daemon Prince"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1036,6 +1048,9 @@
           ],
           "Tags": [
             "Character Death Guard Daemon Prince with Wings"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1093,6 +1108,9 @@
           ],
           "Tags": [
             "Character Death Guard Icon Bearer"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -1194,6 +1212,9 @@
           ],
           "Tags": [
             "Character Death Guard Sorcerer in Terminator Armour"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -1373,6 +1394,9 @@
           ],
           "Tags": [
             "Character Foul Blightspawn"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -1489,6 +1513,9 @@
           ],
           "Tags": [
             "Character Lord of Contagion"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1555,6 +1582,9 @@
           ],
           "Tags": [
             "Character Lord of Virulence"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1613,6 +1643,9 @@
           ],
           "Tags": [
             "Character Malignant Plaguecaster"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1708,6 +1741,9 @@
           ],
           "Tags": [
             "Character Mortarion"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -1775,6 +1811,9 @@
           ],
           "Tags": [
             "Character Noxious Blightbringer"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -1881,6 +1920,9 @@
           ],
           "Tags": [
             "Character Plague Surgeon"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -1972,6 +2014,9 @@
           ],
           "Tags": [
             "Character Tallyman"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -2092,6 +2137,9 @@
           ],
           "Tags": [
             "Character Typhus"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -2323,6 +2371,858 @@
           }
         },
         "text": "Death Guard model only. While an enemy unit is within Contagion Range of the bearer, each time that unit fails a Battle-shock test, roll one D6: on a 2-5, that unit suffers 1 mortal wound; on a 6, that unit suffers D3 mortal wounds."
+      },
+      "Infantry/Mounted§Blightlord Terminators": {
+        "allowed": {
+          "items": [
+            "Model§Blightlord Terminator",
+            "Character§Death Guard Chaos Lord in Terminator Armour",
+            "Character§Death Guard Sorcerer in Terminator Armour",
+            "Character§Lord of Contagion",
+            "Character§Lord of Virulence",
+            "Character§Typhus"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Nurgle’s Gift (aura)",
+            "Ability§Blistering Fusillade",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Model§Blightlord Champion",
+            {
+              "item": "Model§Blightlord Terminator",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Nurgle",
+            "Terminator",
+            "Blightlord Terminators"
+          ],
+          "Tags": [
+            "Unit Blightlord Terminators"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "1 in 5 models can have a blight launcher or reaper autocannon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 models can have a flail": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "flail"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 models can have a plague spewer": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "3 in 5 models can have a combi-weapon": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 1.6
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "combi"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Blightlord Terminator": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 330
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Blightlord Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 165
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Death Guard Cultists": {
+        "allowed": {
+          "items": [
+            "Model§Death Guard Cultist"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "6″"
+                }
+              }
+            },
+            "Ability§Nurgle’s Gift (aura)",
+            "Model§Death Guard Cultist Champion",
+            {
+              "item": "Model§Death Guard Cultist",
+              "quantity": 9
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Nurgle",
+            "Cultists"
+          ],
+          "Tags": [
+            "Unit Death Guard Cultists"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "1 in 10 can take a Flamer": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in10",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Flamer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 10 can take a Grenade Launcher": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in10",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Grenade Launcher"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 10 can take a Heavy Stubber": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in10",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Heavy Stubber"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Death Guard Cultist": {
+            "max": 19,
+            "min": 9,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 10
+          },
+          "model2ndCost": {
+            "value": 100
+          },
+          "model2ndTally": {
+            "value": 20
+          },
+          "modelKey": {
+            "value": "Model§Death Guard Cultist"
+          },
+          "Models": {
+            "increment": {
+              "value": 10
+            },
+            "max": 20,
+            "min": 10,
+            "value": 10,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 50
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Death Guard Possessed": {
+        "allowed": {
+          "items": [
+            "Model§Possessed"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Nurgle’s Gift (aura)",
+            "Ability§Infectious Bloodshed",
+            "Ability§Possessed",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Model§Possessed Champion",
+            {
+              "item": "Model§Possessed",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Daemon",
+            "Possessed"
+          ],
+          "Tags": [
+            "Unit Death Guard Possessed"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 310
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Possessed"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 155
+          },
+          "Possessed": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Deathshroud Terminators": {
+        "allowed": {
+          "items": [
+            "Model§Deathshroud Terminator",
+            "Character§Death Guard Chaos Lord in Terminator Armour",
+            "Character§Death Guard Sorcerer in Terminator Armour",
+            "Character§Lord of Contagion",
+            "Character§Lord of Virulence",
+            "Character§Typhus"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Nurgle’s Gift (aura)",
+            "Ability§Silent Bodyguard",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Model§Deathshroud Champion",
+            {
+              "item": "Model§Deathshroud Terminator",
+              "quantity": 2
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Nurgle",
+            "Terminator",
+            "Deathshroud Terminators"
+          ],
+          "Tags": [
+            "Unit Deathshroud Terminators"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "stats": {
+          "Deathshroud Terminator": {
+            "max": 5,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 240
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "modelKey": {
+            "value": "Model§Deathshroud Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 120
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Plague Marines": {
+        "allowed": {
+          "items": [
+            "Model§Plague Marine",
+            "Character§Biologus Putrifier",
+            "Character§Death Guard Chaos Lord",
+            "Character§Death Guard Icon Bearer",
+            "Character§Foul Blightspawn",
+            "Character§Malignant Plaguecaster",
+            "Character§Noxious Blightbringer",
+            "Character§Plague Surgeon",
+            "Character§Tallyman"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Nurgle’s Gift (aura)",
+            "Ability§Remorseless",
+            "Model§Plague Champion",
+            {
+              "item": "Model§Plague Marine",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Nurgle",
+            "Grenades",
+            "Battleline",
+            "Plague Marines"
+          ],
+          "Tags": [
+            "Unit Plague Marines"
+          ],
+          "Role": [
+            "Battleline"
+          ]
+        },
+        "rules": {
+          "1 in 5 can have a Blight Launcher": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Blight Launchers"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a Plague Spewer": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Spewer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have either a Meltagun, Plague Belcher or Plasma Gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Meltagun"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have a Heavy Plague weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count2in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Heavy plague weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have Bubotic Weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count2in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Bubotic weapons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 125
+          },
+          "model2ndTally": {
+            "value": 7
+          },
+          "model3rdCost": {
+            "value": 180
+          },
+          "model3rdTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Plague Marine"
+          },
+          "Models": {
+            "increment": {
+              "value": 2
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Plague Marine": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 90
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Poxwalkers": {
+        "allowed": {
+          "items": [
+            "Model§Poxwalker",
+            "Character§Typhus"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Ability§Nurgle’s Gift (aura)",
+            "Ability§Curse of the Walking Pox",
+            {
+              "item": "Model§Poxwalker",
+              "quantity": 10
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Chaos",
+            "Nurgle",
+            "Poxwalkers"
+          ],
+          "Tags": [
+            "Unit Poxwalkers"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 10
+          },
+          "model2ndCost": {
+            "value": 100
+          },
+          "model2ndTally": {
+            "value": 20
+          },
+          "modelKey": {
+            "value": "Model§Poxwalker"
+          },
+          "Models": {
+            "increment": {
+              "value": 10
+            },
+            "max": 20,
+            "min": 10,
+            "value": 10,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 50
+          },
+          "Poxwalker": {
+            "max": 20,
+            "min": 10,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
       "Melee Weapon§Biologus Putrifier—Plague knives": {
         "aspects": {
@@ -8676,211 +9576,6 @@
         },
         "text": "WHEN: Fight phase. TARGET: One Death Guard unit from your army that has not been selected to fight this phase. EFFECT: Until the end of the phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. While your unit is within range of an Infected objective marker you control, those weapons have the [SUSTAINED HITS 2]\nability instead."
       },
-      "Unit§Blightlord Terminators": {
-        "allowed": {
-          "items": [
-            "Model§Blightlord Terminator",
-            "Character§Death Guard Chaos Lord in Terminator Armour",
-            "Character§Death Guard Sorcerer in Terminator Armour",
-            "Character§Lord of Contagion",
-            "Character§Lord of Virulence",
-            "Character§Typhus"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Nurgle’s Gift (aura)",
-            "Ability§Blistering Fusillade",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Model§Blightlord Champion"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Death Guard"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Chaos",
-            "Nurgle",
-            "Terminator",
-            "Blightlord Terminators"
-          ],
-          "Tags": [
-            "Unit Blightlord Terminators"
-          ]
-        },
-        "rules": {
-          "1 in 5 models can have a blight launcher or reaper autocannon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "heavy"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 5 models can have a flail": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "flail"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 5 models can have a plague spewer": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "special"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "3 in 5 models can have a combi-weapon": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 1.6
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "max": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "combi"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Blightlord Terminator": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 330
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Blightlord Terminator"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 165
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
       "Unit§Death Guard Chaos Spawn": {
         "allowed": {
           "items": [
@@ -8898,7 +9593,11 @@
               }
             },
             "Ability§Nurgle’s Gift (aura)",
-            "Ability§Regenerating Monstrosities"
+            "Ability§Regenerating Monstrosities",
+            {
+              "item": "Model§Chaos Spawn",
+              "quantity": 2
+            }
           ]
         },
         "keywords": {
@@ -8944,24 +9643,23 @@
         },
         "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
-      "Unit§Death Guard Cultists": {
-        "allowed": {
-          "items": [
-            "Model§Death Guard Cultist"
-          ]
-        },
+      "Unit§Miasmic Malignifier": {
         "assets": {
           "traits": [
             {
-              "item": "Ability§Scouts",
+              "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "6″"
+                  "value": "D3"
                 }
               }
             },
+            "Ability§Infiltrators",
             "Ability§Nurgle’s Gift (aura)",
-            "Model§Death Guard Cultist Champion"
+            "Ability§Putrescent Fog (aura)",
+            "Ability§Diseased Cover",
+            "Ability§Fortification",
+            "Ranged Weapon§Miasmic Malignifier—Noxious stink"
           ]
         },
         "keywords": {
@@ -8972,135 +9670,44 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
+            "Fortification",
             "Chaos",
             "Nurgle",
-            "Cultists"
+            "Miasmic Malignifier"
           ],
           "Tags": [
-            "Unit Death Guard Cultists"
+            "Unit Miasmic Malignifier"
+          ],
+          "Role": [
+            "Fortification"
           ]
         },
-        "rules": {
-          "1 in 10 can take a Flamer": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in10",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Flamer"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 10 can take a Grenade Launcher": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in10",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Grenade Launcher"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 10 can take a Heavy Stubber": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in10",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Heavy Stubber"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
-          "Death Guard Cultist": {
-            "max": 19,
-            "min": 9,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
+          "Ld": {
+            "value": 6
           },
-          "model1stTally": {
-            "value": 10
+          "M": {
+            "statType": "term",
+            "value": "-"
           },
-          "model2ndCost": {
-            "value": 100
-          },
-          "model2ndTally": {
-            "value": 20
-          },
-          "modelKey": {
-            "value": "Model§Death Guard Cultist"
-          },
-          "Models": {
-            "increment": {
-              "value": 10
-            },
-            "max": 20,
-            "min": 10,
-            "value": 10,
-            "visibility": "normal"
+          "OC": {
+            "value": 0
           },
           "Points": {
-            "value": 50
+            "value": 115
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 10
+          },
+          "W": {
+            "value": 12
           }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        }
       },
-      "Unit§Death Guard Defiler": {
+      "Vehicle§Death Guard Defiler": {
         "assets": {
           "traits": [
             {
@@ -9151,6 +9758,9 @@
           ],
           "Tags": [
             "Unit Death Guard Defiler"
+          ],
+          "Role": [
+            "Walker"
           ]
         },
         "stats": {
@@ -9274,7 +9884,7 @@
           }
         }
       },
-      "Unit§Death Guard Helbrute": {
+      "Vehicle§Death Guard Helbrute": {
         "assets": {
           "traits": [
             {
@@ -9308,6 +9918,9 @@
           ],
           "Tags": [
             "Unit Death Guard Helbrute"
+          ],
+          "Role": [
+            "Walker"
           ]
         },
         "rules": {
@@ -9560,7 +10173,7 @@
           }
         }
       },
-      "Unit§Death Guard Land Raider": {
+      "Vehicle§Death Guard Land Raider": {
         "assets": {
           "traits": [
             {
@@ -9611,6 +10224,9 @@
           ],
           "Tags": [
             "Unit Death Guard Land Raider"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9687,82 +10303,7 @@
           }
         }
       },
-      "Unit§Death Guard Possessed": {
-        "allowed": {
-          "items": [
-            "Model§Possessed"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Nurgle’s Gift (aura)",
-            "Ability§Infectious Bloodshed",
-            "Ability§Possessed",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "5+"
-                }
-              }
-            },
-            "Model§Possessed Champion"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Death Guard"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Chaos",
-            "Daemon",
-            "Possessed"
-          ],
-          "Tags": [
-            "Unit Death Guard Possessed"
-          ]
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 310
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Possessed"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 155
-          },
-          "Possessed": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Death Guard Predator Annihilator": {
+      "Vehicle§Death Guard Predator Annihilator": {
         "assets": {
           "traits": [
             {
@@ -9803,6 +10344,9 @@
           ],
           "Tags": [
             "Unit Death Guard Predator Annihilator"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9914,7 +10458,7 @@
           }
         }
       },
-      "Unit§Death Guard Predator Destructor": {
+      "Vehicle§Death Guard Predator Destructor": {
         "assets": {
           "traits": [
             {
@@ -9958,6 +10502,9 @@
           ],
           "Tags": [
             "Unit Death Guard Predator Destructor"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10069,7 +10616,7 @@
           }
         }
       },
-      "Unit§Death Guard Rhino": {
+      "Vehicle§Death Guard Rhino": {
         "assets": {
           "traits": [
             {
@@ -10116,6 +10663,9 @@
           ],
           "Tags": [
             "Unit Death Guard Rhino"
+          ],
+          "Role": [
+            "Dedicated Transport"
           ]
         },
         "stats": {
@@ -10192,88 +10742,7 @@
           }
         }
       },
-      "Unit§Deathshroud Terminators": {
-        "allowed": {
-          "items": [
-            "Model§Deathshroud Terminator",
-            "Character§Death Guard Chaos Lord in Terminator Armour",
-            "Character§Death Guard Sorcerer in Terminator Armour",
-            "Character§Lord of Contagion",
-            "Character§Lord of Virulence",
-            "Character§Typhus"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Nurgle’s Gift (aura)",
-            "Ability§Silent Bodyguard",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Model§Deathshroud Champion"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Death Guard"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Chaos",
-            "Nurgle",
-            "Terminator",
-            "Deathshroud Terminators"
-          ],
-          "Tags": [
-            "Unit Deathshroud Terminators"
-          ]
-        },
-        "stats": {
-          "Deathshroud Terminator": {
-            "max": 5,
-            "min": 2,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "value": 3
-          },
-          "model2ndCost": {
-            "value": 240
-          },
-          "model2ndTally": {
-            "value": 6
-          },
-          "modelKey": {
-            "value": "Model§Deathshroud Terminator"
-          },
-          "Models": {
-            "increment": {
-              "value": 3
-            },
-            "max": 6,
-            "min": 3,
-            "value": 3,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 120
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Foetid Bloat-drone": {
+      "Vehicle§Foetid Bloat-drone": {
         "assets": {
           "traits": [
             {
@@ -10314,6 +10783,9 @@
           ],
           "Tags": [
             "Unit Foetid Bloat-drone"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10377,68 +10849,7 @@
           }
         }
       },
-      "Unit§Miasmic Malignifier": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Deadly Demise",
-              "stats": {
-                "x": {
-                  "value": "D3"
-                }
-              }
-            },
-            "Ability§Infiltrators",
-            "Ability§Nurgle’s Gift (aura)",
-            "Ability§Putrescent Fog (aura)",
-            "Ability§Diseased Cover",
-            "Ability§Fortification",
-            "Ranged Weapon§Miasmic Malignifier—Noxious stink"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Death Guard"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Fortification",
-            "Chaos",
-            "Nurgle",
-            "Miasmic Malignifier"
-          ],
-          "Tags": [
-            "Unit Miasmic Malignifier"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "statType": "term",
-            "value": "-"
-          },
-          "OC": {
-            "value": 0
-          },
-          "Points": {
-            "value": 115
-          },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 10
-          },
-          "W": {
-            "value": 12
-          }
-        }
-      },
-      "Unit§Myphitic Blight-haulers": {
+      "Vehicle§Myphitic Blight-haulers": {
         "allowed": {
           "items": [
             "Model§Myphitic Blight-hulers"
@@ -10463,6 +10874,10 @@
                   "value": "5+"
                 }
               }
+            },
+            {
+              "item": "Model§Myphitic Blight-hulers",
+              "quantity": 1
             }
           ]
         },
@@ -10483,6 +10898,9 @@
           ],
           "Tags": [
             "Unit Myphitic Blight-haulers"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10527,226 +10945,7 @@
         },
         "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
-      "Unit§Plague Marines": {
-        "allowed": {
-          "items": [
-            "Model§Plague Marine",
-            "Character§Biologus Putrifier",
-            "Character§Death Guard Chaos Lord",
-            "Character§Death Guard Icon Bearer",
-            "Character§Foul Blightspawn",
-            "Character§Malignant Plaguecaster",
-            "Character§Noxious Blightbringer",
-            "Character§Plague Surgeon",
-            "Character§Tallyman"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Nurgle’s Gift (aura)",
-            "Ability§Remorseless",
-            "Model§Plague Champion"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Death Guard"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Chaos",
-            "Nurgle",
-            "Grenades",
-            "Battleline",
-            "Plague Marines"
-          ],
-          "Tags": [
-            "Unit Plague Marines"
-          ]
-        },
-        "rules": {
-          "1 in 5 can have a Blight Launcher": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Blight Launchers"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 5 can have a Plague Spewer": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Spewer"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 5 can have either a Meltagun, Plague Belcher or Plasma Gun": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Meltagun"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "2 in 5 can have a Heavy Plague weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count2in5",
-                  "evals",
-                  "1",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Heavy plague weapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "2 in 5 can have Bubotic Weapons": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count2in5",
-                  "evals",
-                  "1",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Bubotic weapons"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 125
-          },
-          "model2ndTally": {
-            "value": 7
-          },
-          "model3rdCost": {
-            "value": 180
-          },
-          "model3rdTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Plague Marine"
-          },
-          "Models": {
-            "increment": {
-              "value": 2
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Plague Marine": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Points": {
-            "value": 90
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Plagueburst Crawler": {
+      "Vehicle§Plagueburst Crawler": {
         "assets": {
           "traits": [
             {
@@ -10795,6 +10994,9 @@
           ],
           "Tags": [
             "Unit Plagueburst Crawler"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10878,80 +11080,6 @@
             "value": 12
           }
         }
-      },
-      "Unit§Poxwalkers": {
-        "allowed": {
-          "items": [
-            "Model§Poxwalker",
-            "Character§Typhus"
-          ]
-        },
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Feel No Pain",
-              "stats": {
-                "x": {
-                  "value": "5+"
-                }
-              }
-            },
-            "Ability§Nurgle’s Gift (aura)",
-            "Ability§Curse of the Walking Pox"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Death Guard"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Chaos",
-            "Nurgle",
-            "Poxwalkers"
-          ],
-          "Tags": [
-            "Unit Poxwalkers"
-          ]
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 10
-          },
-          "model2ndCost": {
-            "value": 100
-          },
-          "model2ndTally": {
-            "value": 20
-          },
-          "modelKey": {
-            "value": "Model§Poxwalker"
-          },
-          "Models": {
-            "increment": {
-              "value": 10
-            },
-            "max": 20,
-            "min": 10,
-            "value": 10,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 50
-          },
-          "Poxwalker": {
-            "max": 20,
-            "min": 10,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
       "Wargear§Diseased Icon": {
         "text": "Melee weapons in the bearer’s unit have the [LETHAL HITS] ability."

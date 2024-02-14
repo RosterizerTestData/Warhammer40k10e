@@ -1,6 +1,6 @@
 {
   "name": "Grey Knights",
-  "revision": "10.9.0",
+  "revision": "10.9.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "Z3PFMD",
+      "slug": "K7KHG9",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -402,6 +402,9 @@
           ],
           "Tags": [
             "Character Brother-captain"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -514,6 +517,9 @@
           ],
           "Tags": [
             "Character Brother-captain Stern"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -580,6 +586,9 @@
           ],
           "Tags": [
             "Character Brotherhood Champion"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -646,6 +655,9 @@
           ],
           "Tags": [
             "Character Brotherhood Chaplain"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -711,6 +723,9 @@
           ],
           "Tags": [
             "Character Brotherhood Librarian"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -797,6 +812,9 @@
           ],
           "Tags": [
             "Character Brotherhood Techmarine"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -893,6 +911,9 @@
           ],
           "Tags": [
             "Character Castellan Crowe"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -962,6 +983,9 @@
           ],
           "Tags": [
             "Character Grand Master"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1080,6 +1104,9 @@
           ],
           "Tags": [
             "Character Grand Master in Nemesis Dreadknight"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "stats": {
@@ -1293,6 +1320,9 @@
           ],
           "Tags": [
             "Character Grand Master Voldus"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -1369,6 +1399,9 @@
           ],
           "Tags": [
             "Character Kaldor Draigo"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -1474,6 +1507,860 @@
           }
         },
         "text": "Grey Knights model only. Once per battle, in your opponent’s Shooting phase, when the bearer’s unit is selected as the target of a ranged attack, you can remove the bearer’s unit from the battlefield and then set it back up again anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the bearer is no longer an eligible target, your opponent can then select new targets for any attacks that had targeted the bearer’s unit."
+      },
+      "Infantry/Mounted§Brotherhood Terminator Squad": {
+        "allowed": {
+          "items": [
+            "Model§Brotherhood Terminator",
+            "Character§Brother-captain",
+            "Character§Brother-captain Stern",
+            "Character§Brotherhood Chaplain",
+            "Character§Brotherhood Librarian",
+            "Character§Grand Master",
+            "Character§Grand Master Voldus",
+            "Character§Kaldor Draigo"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Teleport Assault",
+            "Ability§Hammerhand (psychic)",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Model§Terminator Justicar",
+            {
+              "item": "Model§Brotherhood Terminator",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Battleline",
+            "Psyker",
+            "Terminator",
+            "Grenades",
+            "Imperium",
+            "Brotherhood Terminator Squad"
+          ],
+          "Tags": [
+            "Unit Brotherhood Terminator Squad"
+          ],
+          "Role": [
+            "Battleline"
+          ]
+        },
+        "rules": {
+          "1 can have Ancient's Banner": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "AncientBanner"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 models can replace their storm bolter with a special weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 model can replace their storm bolter with a Narthecium": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Narthecium"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Brotherhood Terminator": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "M": {
+            "value": null
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 420
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Brotherhood Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 210
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Interceptor Squad": {
+        "allowed": {
+          "items": [
+            "Model§Interceptor"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Teleport Assault",
+            "Ability§Personal Teleporters",
+            "Model§Interceptor Justicar",
+            {
+              "item": "Model§Interceptor",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Psyker",
+            "Fly",
+            "Grenades",
+            "Imperium",
+            "Interceptor Squad"
+          ],
+          "Tags": [
+            "Unit Interceptor Squad"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "1 in 5 models can have a special weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "min": 0,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Interceptor": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 270
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Interceptor"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 135
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Paladin Squad": {
+        "allowed": {
+          "items": [
+            "Model§Paladin",
+            "Character§Brother-captain",
+            "Character§Brother-captain Stern",
+            "Character§Brotherhood Chaplain",
+            "Character§Brotherhood Librarian",
+            "Character§Grand Master",
+            "Character§Grand Master Voldus",
+            "Character§Kaldor Draigo"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Teleport Assault",
+            "Ability§Inner Fortitude (psychic)",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Model§Paragon",
+            {
+              "item": "Model§Paladin",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Psyker",
+            "Terminator",
+            "Grenades",
+            "Imperium",
+            "Paladin Squad"
+          ],
+          "Tags": [
+            "Unit Paladin Squad"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "1 can have banner": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "AncientBanner"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 of 5 models can equip a special weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapons"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 10,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Max 4 Special Weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 4,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 450
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Paladin"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Paladin": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 225
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Purgation Squad": {
+        "allowed": {
+          "items": [
+            "Model§Purgator",
+            "Character§Brotherhood Champion"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Teleport Assault",
+            "Ability§Astral Aim (psychic)",
+            "Model§Purgator Justicar",
+            {
+              "item": "Model§Purgator",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Psyker",
+            "Grenades",
+            "Imperium",
+            "Purgation Squad"
+          ],
+          "Tags": [
+            "Unit Purgation Squad"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 270
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Purgator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 135
+          },
+          "Purgator": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Special Weapon Selection": {
+            "max": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Purifier Squad": {
+        "allowed": {
+          "items": [
+            "Model§Purifier",
+            "Character§Castellan Crowe"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Teleport Assault",
+            "Ability§Sanctity of Purpose",
+            "Model§Knight of the Flame",
+            {
+              "item": "Model§Purifier",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Psyker",
+            "Grenades",
+            "Imperium",
+            "Purifier Squad"
+          ],
+          "Tags": [
+            "Unit Purifier Squad"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "2 of every 5 models can have a special weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapons"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 10,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Max 4 Special Weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 4,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapons"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 260
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Purifier"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 130
+          },
+          "Purifier": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Servitors": {
+        "allowed": {
+          "items": [
+            "Model§Servitor",
+            "Character§Tech-priest Enginseer"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Mindlock",
+            "Ability§Retinue",
+            "Ability§Servitor Retinue",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "6+"
+                }
+              }
+            },
+            {
+              "item": "Model§Servitor",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Imperium",
+            "Servitors"
+          ],
+          "Tags": [
+            "Unit Servitors"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "2 models can have special weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 4
+          },
+          "modelKey": {
+            "value": "Model§Servitor"
+          },
+          "Models": {
+            "max": 4,
+            "min": 4,
+            "value": 4
+          },
+          "Points": {
+            "value": 50
+          },
+          "Servitor": {
+            "max": 4,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+      },
+      "Infantry/Mounted§Strike Squad": {
+        "allowed": {
+          "items": [
+            "Model§Grey Knight",
+            "Character§Brotherhood Champion",
+            "Character§Brotherhood Techmarine"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "6″"
+                }
+              }
+            },
+            "Ability§Teleport Assault",
+            "Ability§Sanctifying Ritual (psychic)",
+            "Model§Justicar",
+            {
+              "item": "Model§Grey Knight",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Grey Knights"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Battleline",
+            "Psyker",
+            "Grenades",
+            "Imperium",
+            "Strike Squad"
+          ],
+          "Tags": [
+            "Unit Strike Squad"
+          ],
+          "Role": [
+            "Battleline"
+          ]
+        },
+        "rules": {
+          "1 in 5 models can have a special weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "min": 0,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "specialWeapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Grey Knight": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 250
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Grey Knight"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 125
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
       "Melee Weapon§Brother-captain Stern—Nemesis force sword": {
         "aspects": {
@@ -8858,164 +9745,7 @@
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Grey Knights unit from your army that was selected as the target of one or more of that enemy unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1"
       },
-      "Unit§Brotherhood Terminator Squad": {
-        "allowed": {
-          "items": [
-            "Model§Brotherhood Terminator",
-            "Character§Brother-captain",
-            "Character§Brother-captain Stern",
-            "Character§Brotherhood Chaplain",
-            "Character§Brotherhood Librarian",
-            "Character§Grand Master",
-            "Character§Grand Master Voldus",
-            "Character§Kaldor Draigo"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Teleport Assault",
-            "Ability§Hammerhand (psychic)",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Model§Terminator Justicar"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Battleline",
-            "Psyker",
-            "Terminator",
-            "Grenades",
-            "Imperium",
-            "Brotherhood Terminator Squad"
-          ],
-          "Tags": [
-            "Unit Brotherhood Terminator Squad"
-          ]
-        },
-        "rules": {
-          "1 can have Ancient's Banner": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "AncientBanner"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 in 5 models can replace their storm bolter with a special weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "SUM",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "1 model can replace their storm bolter with a Narthecium": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Narthecium"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Brotherhood Terminator": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "M": {
-            "value": null
-          },
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 420
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Brotherhood Terminator"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 210
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Grey Knights Dreadnought": {
+      "Vehicle§Grey Knights Dreadnought": {
         "assets": {
           "traits": [
             {
@@ -9046,6 +9776,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Dreadnought"
+          ],
+          "Role": [
+            "Walker"
           ]
         },
         "rules": {
@@ -9268,7 +10001,7 @@
         },
         "text": ""
       },
-      "Unit§Grey Knights Land Raider": {
+      "Vehicle§Grey Knights Land Raider": {
         "assets": {
           "traits": [
             {
@@ -9314,6 +10047,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Land Raider"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9403,7 +10139,7 @@
           }
         }
       },
-      "Unit§Grey Knights Land Raider Crusader": {
+      "Vehicle§Grey Knights Land Raider Crusader": {
         "assets": {
           "traits": [
             {
@@ -9451,6 +10187,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Land Raider Crusader"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9540,7 +10279,7 @@
           }
         }
       },
-      "Unit§Grey Knights Land Raider Redeemer": {
+      "Vehicle§Grey Knights Land Raider Redeemer": {
         "assets": {
           "traits": [
             {
@@ -9588,6 +10327,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Land Raider Redeemer"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9677,7 +10419,7 @@
           }
         }
       },
-      "Unit§Grey Knights Razorback": {
+      "Vehicle§Grey Knights Razorback": {
         "assets": {
           "traits": [
             {
@@ -9713,6 +10455,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Razorback"
+          ],
+          "Role": [
+            "Dedicated Transport"
           ]
         },
         "stats": {
@@ -9815,7 +10560,7 @@
           }
         }
       },
-      "Unit§Grey Knights Relic Razorback": {
+      "Vehicle§Grey Knights Relic Razorback": {
         "assets": {
           "traits": [
             {
@@ -9851,6 +10596,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Relic Razorback"
+          ],
+          "Role": [
+            "Dedicated Transport"
           ]
         },
         "stats": {
@@ -9970,7 +10718,7 @@
         },
         "text": ""
       },
-      "Unit§Grey Knights Rhino": {
+      "Vehicle§Grey Knights Rhino": {
         "assets": {
           "traits": [
             {
@@ -10015,6 +10763,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Rhino"
+          ],
+          "Role": [
+            "Dedicated Transport"
           ]
         },
         "stats": {
@@ -10083,7 +10834,7 @@
           }
         }
       },
-      "Unit§Grey Knights Stormhawk Interceptor": {
+      "Vehicle§Grey Knights Stormhawk Interceptor": {
         "assets": {
           "traits": [
             {
@@ -10117,6 +10868,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Stormhawk Interceptor"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10204,7 +10958,7 @@
           }
         }
       },
-      "Unit§Grey Knights Stormraven Gunship": {
+      "Vehicle§Grey Knights Stormraven Gunship": {
         "assets": {
           "traits": [
             {
@@ -10251,6 +11005,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Stormraven Gunship"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10372,7 +11129,7 @@
           }
         }
       },
-      "Unit§Grey Knights Stormtalon Gunship": {
+      "Vehicle§Grey Knights Stormtalon Gunship": {
         "assets": {
           "traits": [
             {
@@ -10405,6 +11162,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Stormtalon Gunship"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10474,7 +11234,7 @@
           }
         }
       },
-      "Unit§Grey Knights Thunderhawk Gunship": {
+      "Vehicle§Grey Knights Thunderhawk Gunship": {
         "assets": {
           "traits": [
             {
@@ -10526,6 +11286,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Thunderhawk Gunship"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10607,7 +11370,7 @@
           }
         }
       },
-      "Unit§Grey Knights Venerable Dreadnought": {
+      "Vehicle§Grey Knights Venerable Dreadnought": {
         "assets": {
           "traits": [
             {
@@ -10638,6 +11401,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Venerable Dreadnought"
+          ],
+          "Role": [
+            "Walker"
           ]
         },
         "stats": {
@@ -10749,106 +11515,7 @@
           }
         }
       },
-      "Unit§Interceptor Squad": {
-        "allowed": {
-          "items": [
-            "Model§Interceptor"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Teleport Assault",
-            "Ability§Personal Teleporters",
-            "Model§Interceptor Justicar"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Psyker",
-            "Fly",
-            "Grenades",
-            "Imperium",
-            "Interceptor Squad"
-          ],
-          "Tags": [
-            "Unit Interceptor Squad"
-          ]
-        },
-        "rules": {
-          "1 in 5 models can have a special weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "min": 0,
-                "not": false,
-                "operator": "SUM",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Interceptor": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 270
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Interceptor"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 135
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Land Raider Banisher": {
+      "Vehicle§Land Raider Banisher": {
         "assets": {
           "traits": [
             {
@@ -10895,6 +11562,9 @@
           ],
           "Tags": [
             "Unit Land Raider Banisher"
+          ],
+          "Role": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10984,7 +11654,7 @@
           }
         }
       },
-      "Unit§Nemesis Dreadknight": {
+      "Vehicle§Nemesis Dreadknight": {
         "assets": {
           "traits": [
             {
@@ -11032,6 +11702,9 @@
           ],
           "Tags": [
             "Unit Nemesis Dreadknight"
+          ],
+          "Role": [
+            "Walker"
           ]
         },
         "rules": {
@@ -11221,555 +11894,6 @@
             "value": 13
           }
         }
-      },
-      "Unit§Paladin Squad": {
-        "allowed": {
-          "items": [
-            "Model§Paladin",
-            "Character§Brother-captain",
-            "Character§Brother-captain Stern",
-            "Character§Brotherhood Chaplain",
-            "Character§Brotherhood Librarian",
-            "Character§Grand Master",
-            "Character§Grand Master Voldus",
-            "Character§Kaldor Draigo"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Teleport Assault",
-            "Ability§Inner Fortitude (psychic)",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Model§Paragon"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Psyker",
-            "Terminator",
-            "Grenades",
-            "Imperium",
-            "Paladin Squad"
-          ],
-          "Tags": [
-            "Unit Paladin Squad"
-          ]
-        },
-        "rules": {
-          "1 can have banner": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "min": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "AncientBanner"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "2 of 5 models can equip a special weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 2,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapons"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 10,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "Max 4 Special Weapons": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 4,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapons"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 450
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Paladin"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Paladin": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Points": {
-            "value": 225
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Purgation Squad": {
-        "allowed": {
-          "items": [
-            "Model§Purgator",
-            "Character§Brotherhood Champion"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Teleport Assault",
-            "Ability§Astral Aim (psychic)",
-            "Model§Purgator Justicar"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Psyker",
-            "Grenades",
-            "Imperium",
-            "Purgation Squad"
-          ],
-          "Tags": [
-            "Unit Purgation Squad"
-          ]
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 270
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Purgator"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 135
-          },
-          "Purgator": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "Special Weapon Selection": {
-            "max": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Purifier Squad": {
-        "allowed": {
-          "items": [
-            "Model§Purifier",
-            "Character§Castellan Crowe"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Teleport Assault",
-            "Ability§Sanctity of Purpose",
-            "Model§Knight of the Flame"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Psyker",
-            "Grenades",
-            "Imperium",
-            "Purifier Squad"
-          ],
-          "Tags": [
-            "Unit Purifier Squad"
-          ]
-        },
-        "rules": {
-          "2 of every 5 models can have a special weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 2,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapons"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 10,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "Max 4 Special Weapons": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 4,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapons"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 260
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Purifier"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 130
-          },
-          "Purifier": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Servitors": {
-        "allowed": {
-          "items": [
-            "Model§Servitor",
-            "Character§Tech-priest Enginseer"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Mindlock",
-            "Ability§Retinue",
-            "Ability§Servitor Retinue",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "6+"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Imperium",
-            "Servitors"
-          ],
-          "Tags": [
-            "Unit Servitors"
-          ]
-        },
-        "rules": {
-          "2 models can have special weapons": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 2,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "model1stTally": {
-            "value": 4
-          },
-          "modelKey": {
-            "value": "Model§Servitor"
-          },
-          "Models": {
-            "max": 4,
-            "min": 4,
-            "value": 4
-          },
-          "Points": {
-            "value": 50
-          },
-          "Servitor": {
-            "max": 4,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
-      },
-      "Unit§Strike Squad": {
-        "allowed": {
-          "items": [
-            "Model§Grey Knight",
-            "Character§Brotherhood Champion",
-            "Character§Brotherhood Techmarine"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "6″"
-                }
-              }
-            },
-            "Ability§Teleport Assault",
-            "Ability§Sanctifying Ritual (psychic)",
-            "Model§Justicar"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Grey Knights"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Infantry",
-            "Battleline",
-            "Psyker",
-            "Grenades",
-            "Imperium",
-            "Strike Squad"
-          ],
-          "Tags": [
-            "Unit Strike Squad"
-          ]
-        },
-        "rules": {
-          "1 in 5 models can have a special weapon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in5",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "min": 0,
-                "not": false,
-                "operator": "SUM",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "specialWeapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Grey Knight": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 250
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Grey Knight"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 125
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
       "Wargear§Ancient’s Banner": {
         "text": "Add 1 to the Objective Control characteristic of models in the bearer’s unit."

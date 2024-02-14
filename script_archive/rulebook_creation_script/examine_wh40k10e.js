@@ -48,16 +48,14 @@ const fileList = [
 async function processFiles() {
   for (const file of fileList) {
     try {
-      const response = await fetch('../../' + file);
+      const response = await fetch('../../drafts/' + file);
       const data = await response.json();
 
       data.revision = '10.8.0';
 
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
-        if(['Melee Weapon','Ranged Weapon','Weapon'].includes(itemKey.split('§')[0])){
-          if(!item.aspects?.Label){
-            console.log(file,itemKey)
-          }
+        if(['Character'].includes(itemKey.split('§')[0]) && item.stats?.Models){
+          console.log(itemKey,item.stats?.Models)
         }
       });
     } catch (error) {

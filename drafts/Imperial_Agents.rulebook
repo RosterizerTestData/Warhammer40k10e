@@ -1,6 +1,6 @@
 {
   "name": "Agents of the Imperium",
-  "revision": "10.9.0",
+  "revision": "10.9.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "Z3PFMD",
+      "slug": "K7KHG9",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -145,6 +145,9 @@
           ],
           "Tags": [
             "Character Espern Locarno"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -209,6 +212,9 @@
           ],
           "Tags": [
             "Character Inquisitor in Terminator Armour"
+          ],
+          "Role": [
+            "Character"
           ]
         },
         "rules": {
@@ -462,6 +468,9 @@
           ],
           "Tags": [
             "Character Janus Draik"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -533,6 +542,9 @@
           ],
           "Tags": [
             "Character Neyam Shai Murad"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -589,6 +601,9 @@
           ],
           "Tags": [
             "Character Ur-025"
+          ],
+          "Role": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -614,6 +629,129 @@
             "value": 4
           }
         }
+      },
+      "Infantry/Mounted§Damned Legionnares": {
+        "allowed": {
+          "items": [
+            "Model§Legionnaires"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Assigned Agents",
+            "Ability§Grim Spectres",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Model§Legionnaire Sergeant",
+            {
+              "item": "Model§Legionnaires",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Agents of the Imperium"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Damned Legionnaires",
+            "Grenades",
+            "Imperium",
+            "Infantry",
+            "Retinue"
+          ],
+          "Tags": [
+            "Unit Damned Legionnares"
+          ],
+          "Role": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "Only one Flamer, Melta gun or Plasma gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only one Heavy Flamer or Multi-Melta": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Legionnaires": {
+            "max": 9,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 180
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Legionnaires"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 90
+          }
+        },
+        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
       "Melee Weapon§Damned Legionnares—Astartes chainsword": {
         "aspects": {
@@ -1843,122 +1981,6 @@
             "value": "Agents of the Imperium"
           }
         }
-      },
-      "Unit§Damned Legionnares": {
-        "allowed": {
-          "items": [
-            "Model§Legionnaires"
-          ]
-        },
-        "assets": {
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Assigned Agents",
-            "Ability§Grim Spectres",
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Model§Legionnaire Sergeant"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "Agents of the Imperium"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Damned Legionnaires",
-            "Grenades",
-            "Imperium",
-            "Infantry",
-            "Retinue"
-          ],
-          "Tags": [
-            "Unit Damned Legionnares"
-          ]
-        },
-        "rules": {
-          "Only one Flamer, Melta gun or Plasma gun": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "special"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Only one Heavy Flamer or Multi-Melta": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "heavy"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Legionnaires": {
-            "max": 9,
-            "min": 4,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
-          "model1stTally": {
-            "value": 5
-          },
-          "model2ndCost": {
-            "value": 180
-          },
-          "model2ndTally": {
-            "value": 10
-          },
-          "modelKey": {
-            "value": "Model§Legionnaires"
-          },
-          "Models": {
-            "increment": {
-              "value": 5
-            },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
-          },
-          "Points": {
-            "value": 90
-          }
-        },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
       },
       "Wargear§Blessed Wardings": {
         "text": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability against mortal wounds."
