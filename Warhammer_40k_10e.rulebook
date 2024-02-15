@@ -2333,7 +2333,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 37
+            "order": 38
           },
           "apply2ndModelCost": {
             "actions": [
@@ -2652,7 +2652,7 @@
             "failState": "pass",
             "order": 40
           },
-          "applyModels": {
+          "applyMissingModels": {
             "actions": [
               {
                 "actionType": "add",
@@ -2731,11 +2731,134 @@
                     "value"
                   ]
                 ]
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "{1string}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "{2string}"
+                  ]
+                ],
+                "value": 0
               }
             ],
             "evaluate": "AND",
             "failState": "pass",
             "order": 36
+          },
+          "applyMoreModels": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "{1string}",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueModelTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "modelKey",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "{1string}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "{2string}"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 37
           },
           "cheatUnitNameTally": {
             "actions": [
