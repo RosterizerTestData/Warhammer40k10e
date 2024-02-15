@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Mechanicus",
-  "revision": "10.9.1",
+  "revision": "10.9.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "K7KHG9",
+      "slug": "X53QAM",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -2814,7 +2814,7 @@
             "value": 60
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Fulgurite Electro-priests": {
         "allowed": {
@@ -2906,7 +2906,7 @@
             "value": 60
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Kataphron Breachers": {
         "allowed": {
@@ -2991,7 +2991,7 @@
             "value": 145
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Infantry/Mounted§Kataphron Destroyers": {
         "allowed": {
@@ -3076,7 +3076,7 @@
             "value": 115
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Pteraxii Skystalkers": {
         "allowed": {
@@ -3161,7 +3161,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Pteraxii Sterylizors": {
         "allowed": {
@@ -3245,7 +3245,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n"
       },
       "Infantry/Mounted§Secutarii Hoplites": {
         "allowed": {
@@ -3451,7 +3451,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Serberys Raiders": {
         "allowed": {
@@ -3507,6 +3507,90 @@
           ]
         },
         "rules": {
+          "applyDataTether": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Serberys Raider",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Enhanced Data-Tether",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Serberys Raider",
+                  "stats": {
+                    "1 Enhanced Data-Tether": {
+                      "value": "✓"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Enhanced Data-Tether",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Enhanced Data-Tether",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 Data-tether": {
             "evals": [
               {
@@ -3541,6 +3625,17 @@
           }
         },
         "stats": {
+          "Enhanced Data-Tether": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 3
           },
@@ -3574,7 +3669,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Serberys Sulphurhounds": {
         "allowed": {
@@ -3648,9 +3743,112 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyBlastCarbine": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Serberys Sulphurhound",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Blast Carbine",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Serberys Sulphurhound",
+                  "stats": {
+                    "Ranged Options": {
+                      "value": "Phosphor blast carbine & Phosphor blast pistol"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Blast Carbine",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in3",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Blast Carbine",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
+          "Blast Carbine": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 2,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 3
           },
@@ -3684,7 +3882,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Servitors": {
         "allowed": {
@@ -3776,7 +3974,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Sicarian Infiltrators": {
         "allowed": {
@@ -3860,7 +4058,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Sicarian Ruststalkers": {
         "allowed": {
@@ -3942,7 +4140,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Skitarii Rangers": {
         "allowed": {
@@ -4157,7 +4355,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Skitarii Vanguard": {
         "allowed": {
@@ -4366,7 +4564,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Melee Weapon§Archaeopter Fusilave—Armoured hull": {
         "aspects": {
@@ -6765,7 +6963,7 @@
             },
             "statType": "rank",
             "value": "-",
-            "visibility": "active"
+            "visibility": "hidden"
           },
           "Ld": {
             "value": 7
@@ -6834,7 +7032,6 @@
             "value": 2
           },
           "Ranged Options": {
-            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
