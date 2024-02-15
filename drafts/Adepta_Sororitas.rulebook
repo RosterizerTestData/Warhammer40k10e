@@ -1,6 +1,6 @@
 {
   "name": "Adepta Sororitas",
-  "revision": "10.9.1",
+  "revision": "10.9.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "K7KHG9",
+      "slug": "X53QAM",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -2215,7 +2215,7 @@
             "value": 45
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Battle Sisters Squad": {
         "allowed": {
@@ -2275,6 +2275,97 @@
           ]
         },
         "rules": {
+          "applySimulacrum": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Battle Sister",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Simulacrum",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Battle Sister",
+                  "stats": {
+                    "Heavy Weapon": {
+                      "visibility": "hidden"
+                    },
+                    "Ranged Options": {
+                      "dynamic": false,
+                      "value": "Boltgun & Simulacrum"
+                    },
+                    "Special Weapon": {
+                      "visibility": "hidden"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Simulacrum",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Simulacrum",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 Heavy Weapon": {
             "evals": [
               {
@@ -2355,9 +2446,20 @@
           },
           "Points": {
             "value": 100
+          },
+          "Simulacrum": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Celestian Sacresants": {
         "allowed": {
@@ -2446,7 +2548,7 @@
             "value": 65
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Crusaders": {
         "allowed": {
@@ -2533,7 +2635,7 @@
             "value": 25
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Death Cult Assassins": {
         "allowed": {
@@ -2619,7 +2721,7 @@
             "value": 35
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Dominion Squad": {
         "allowed": {
@@ -2717,6 +2819,20 @@
                     }
                   }
                 }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Simulacrum",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
               }
             ],
             "evals": [
@@ -2823,20 +2939,16 @@
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1
-              }
+            "increment": {
+              "value": 1
             },
-            "statType": "rank",
-            "value": "-",
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
             "visibility": "normal"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Repentia Squad": {
         "allowed": {
@@ -3116,7 +3228,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Sisters Novitiate Squad": {
         "allowed": {
@@ -3277,7 +3389,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Infantry/Mounted§Zephyrim Squad": {
         "allowed": {
@@ -3362,7 +3474,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": "\n\n"
       },
       "Melee Weapon§Aestred Thurga and Agathae Dolan—Blade of Vigil": {
         "aspects": {
