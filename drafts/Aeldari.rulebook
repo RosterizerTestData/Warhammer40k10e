@@ -1,6 +1,6 @@
 {
   "name": "Aeldari",
-  "revision": "10.9.1",
+  "revision": "10.9.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "",
+      "slug": "WDRRDG",
       "name": "Aeldari/Drukhari common",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.rulebook"
@@ -420,12 +420,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Corsair Cloud Dancers",
-              "quantity": 3
-            }
-          ],
+          "included": [],
           "traits": [
             {
               "item": "Ability§Scouts",
@@ -435,7 +430,11 @@
                 }
               }
             },
-            "Ability§Reckless Abandon"
+            "Ability§Reckless Abandon",
+            {
+              "item": "Model§Corsair Cloud Dancers",
+              "quantity": 3
+            }
           ]
         },
         "keywords": {
@@ -496,6 +495,9 @@
           "model4thTally": {
             "value": 7
           },
+          "modelKey": {
+            "value": "Model§Corsair Cloud Dancers"
+          },
           "Models": {
             "increment": {
               "value": 1
@@ -509,7 +511,7 @@
             "value": 105
           }
         },
-        "text": "WARNING: multiple models allowed; please update modelKey manually\n\nERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nEvery model is equipped with: brace of pistols; twin shuriken catapult; close combat weapon.\n\nAny number of models can each have their twin shuriken catapult replaced with one of the following: ◦ 1 dark lance ◦ 1 dissonance cannon ◦ 1 scatter laser ◦ 1 shuriken cannon ◦ 1 splinter cannon\n\n*The Cloud Dancer Felarch can be equipped with one of the following: ◦ 1 dissonance pistol ◦ 1 void sabre"
+        "text": ""
       },
       "Infantry/Mounted§Corsair Reaver Band": {
         "allowed": {
@@ -519,14 +521,13 @@
           ]
         },
         "assets": {
-          "included": [
+          "included": [],
+          "traits": [
+            "Ability§Reaver Band",
             {
               "item": "Model§Corsair Reavers",
               "quantity": 5
             }
-          ],
-          "traits": [
-            "Ability§Reaver Band"
           ]
         },
         "keywords": {
@@ -548,6 +549,51 @@
           "Role": [
             "Infantry"
           ]
+        },
+        "rules": {
+          "Maximum 1 Special Weapon for every 5 models": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "Maximum 1 Special Weapon for every 5 models",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Corsair Reaver Felarch": {
@@ -587,6 +633,9 @@
           "model4thTally": {
             "value": 11
           },
+          "modelKey": {
+            "value": "Model§Corsair Reavers"
+          },
           "Models": {
             "increment": {
               "value": 1
@@ -600,7 +649,7 @@
             "value": 125
           }
         },
-        "text": "WARNING: multiple models allowed; please update modelKey manually\n\nERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nEvery model is equipped with: brace of pistols; Corsair firearm; close combat weapon. CORSAIRS If a model from your army with the Leader ability can be attached to a Corsair Voidreavers unit, it can be attached to this unit instead.\n\nAny number of models can each have their Corsair firearm replaced with 1 spar-glaive.\n\n*For every 5 models in this unit, 1 model’s Corsair firearm can be replaced with one of the following: ◦ 1 Aeldari missile launcher* ◦ 1 blaster ◦ 1 dark lance ◦ 1 flamer ◦ 1 fusion gun ◦ 1 shredder ◦ 1 shuriken cannon ◦ 1 splinter cannon\n\n*The Corsair Reaver Felarch can be equipped with one of the following: ◦ 1 dissonance pistol ◦ 1 void sabre * The profile for this weapon can be found on the Aeldari Legends Armoury card."
+        "text": ""
       },
       "Infantry/Mounted§Corsair Skyreaver Band": {
         "allowed": {
@@ -610,15 +659,14 @@
           ]
         },
         "assets": {
-          "included": [
+          "included": [],
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Skyleap",
             {
               "item": "Model§Corsair Skyreavers",
               "quantity": 5
             }
-          ],
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§Skyleap"
           ]
         },
         "keywords": {
@@ -642,6 +690,51 @@
           "Role": [
             "Infantry"
           ]
+        },
+        "rules": {
+          "Maximum 1 Special Weapon for every 5 models": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "Maximum 1 Special Weapon for every 5 models",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Corsair Skyreaver Felarch": {
@@ -678,6 +771,9 @@
           "model4thCost": {
             "value": 275
           },
+          "modelKey": {
+            "value": "Model§Corsair Skyreavers"
+          },
           "Models": {
             "increment": {
               "value": 1
@@ -691,7 +787,7 @@
             "value": 125
           }
         },
-        "text": "WARNING: multiple models allowed; please update modelKey manually\n\nERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nEvery model is equipped with: brace of pistols; Corsair firearm; close combat weapon.\n\nAny number of models can each have their Corsair firearm replaced with one of the following: ◦ 1 shardcarbine ◦ 1 shuriken catapult ◦ 1 spar-glaive\n\n*For every 5 models in this unit, 1 model’s Corsair firearm can be replaced with one of the following: ◦ 1 Aeldari missile launcher* ◦ 1 blaster* ◦ 1 dark lance ◦ 1 flamer ◦ 1 fusion gun ◦ 1 shredder* ◦ 1 shuriken cannon ◦ 1 splinter cannon\n\n*The Corsair Skyreaver Felarch can be equipped with one of the following: ◦ 1 dissonance pistol ◦ 1 void sabre * The profile for this weapon can be found on the Aeldari Legends Armoury card."
+        "text": ""
       },
       "Melee Weapon§Amallyn Shadowguide—Power blade": {
         "aspects": {
@@ -1090,6 +1186,12 @@
         }
       },
       "Model§Cloud Dancer Felarch": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Corsair Cloud Dancer Band—Brace of pistols",
+            "Melee Weapon§Corsair Cloud Dancer Band—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1097,19 +1199,48 @@
           "M": {
             "value": 14
           },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Melee Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Brace of pistols": {
+              "-": {
+                "order": 0
+              },
+              "Dissonance pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Dissonance pistol"
+                  }
+                ]
+              },
+              "Void sabre": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Corsair Cloud Dancer Band—Void sabre"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "OC": {
+            "value": 2
+          },
+          "Ranged Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Twin shuriken catapult": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Brace of pistols"
+                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Twin shuriken catapult"
                   }
                 ]
               },
@@ -1129,16 +1260,8 @@
                   }
                 ]
               },
-              "Dissonance pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Dissonance pistol"
-                  }
-                ]
-              },
               "Scatter laser": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Scatter laser"
@@ -1146,7 +1269,7 @@
                 ]
               },
               "Shuriken cannon": {
-                "order": 5,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Shuriken cannon"
@@ -1154,40 +1277,16 @@
                 ]
               },
               "Splinter cannon": {
-                "order": 6,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Splinter cannon"
                   }
                 ]
-              },
-              "Twin shuriken catapult": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Twin shuriken catapult"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Cloud Dancer Band—Close combat weapon"
-                  }
-                ]
-              },
-              "Void sabre": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Cloud Dancer Band—Void sabre"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Brace of pistols",
+            "value": "Twin shuriken catapult",
             "visibility": "active"
           },
           "Sv": {
@@ -1212,16 +1311,16 @@
           "OC": {
             "value": 2
           },
-          "sampleLoadout": {
+          "Ranged Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Brace of pistols": {
+              "Twin shuriken catapult": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Brace of pistols"
+                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Twin shuriken catapult"
                   }
                 ]
               },
@@ -1241,16 +1340,8 @@
                   }
                 ]
               },
-              "Dissonance pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Dissonance pistol"
-                  }
-                ]
-              },
               "Scatter laser": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Scatter laser"
@@ -1258,7 +1349,7 @@
                 ]
               },
               "Shuriken cannon": {
-                "order": 5,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Shuriken cannon"
@@ -1266,40 +1357,16 @@
                 ]
               },
               "Splinter cannon": {
-                "order": 6,
+                "order": 5,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Splinter cannon"
                   }
                 ]
-              },
-              "Twin shuriken catapult": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Cloud Dancer Band—Twin shuriken catapult"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Cloud Dancer Band—Close combat weapon"
-                  }
-                ]
-              },
-              "Void sabre": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Cloud Dancer Band—Void sabre"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Brace of pistols",
+            "value": "Twin shuriken catapult",
             "visibility": "active"
           },
           "Sv": {
@@ -1314,79 +1381,142 @@
         }
       },
       "Model§Corsair Reaver Felarch": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Corsair Reaver Band—Brace of pistols",
+            "Melee Weapon§Corsair Reaver Band—Close combat weapon"
+          ]
+        },
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 7
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Felarch Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Blaster": {
+              "-": {
+                "order": 0
+              },
+              "Dissonance pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Dissonance pistol"
+                  }
+                ]
+              },
+              "Void sabre": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreaver Band—Void sabre"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Corsair firearm": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Corsair firearm"
+                  }
+                ]
+              },
+              "Shardcarbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shardcarbine"
+                  }
+                ]
+              },
+              "Shuriken catapult": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken catapult"
+                  }
+                ]
+              },
+              "Spar-glaive": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreaver Band—Spar-glaive"
+                  }
+                ]
+              },
+              "Aeldari missile launcher": {
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Aeldari missile launcher"
+                  }
+                ]
+              },
+              "Blaster": {
+                "order": 5,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Reaver Band—Blaster"
                   }
                 ]
               },
-              "Brace of pistols": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Brace of pistols"
-                  }
-                ]
-              },
-              "Corsair firearm": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Corsair firearm"
-                  }
-                ]
-              },
               "Dark lance": {
-                "order": 3,
+                "order": 6,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Dark lance"
-                  }
-                ]
-              },
-              "Dissonance pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Dissonance pistol"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Dark lance"
                   }
                 ]
               },
               "Flamer": {
-                "order": 5,
+                "order": 7,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Flamer"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Flamer"
                   }
                 ]
               },
               "Fusion gun": {
-                "order": 6,
+                "order": 8,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Fusion gun"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Fusion gun"
                   }
                 ]
               },
               "Shredder": {
-                "order": 7,
+                "order": 9,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Reaver Band—Shredder"
@@ -1394,49 +1524,37 @@
                 ]
               },
               "Shuriken cannon": {
-                "order": 8,
+                "order": 10,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Shuriken cannon"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken cannon"
                   }
                 ]
               },
               "Splinter cannon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Splinter cannon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Reaver Band—Close combat weapon"
-                  }
-                ]
-              },
-              "Spar-glaive": {
                 "order": 11,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Corsair Reaver Band—Spar-glaive"
-                  }
-                ]
-              },
-              "Void sabre": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Reaver Band—Void sabre"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Splinter cannon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Blaster",
+            "value": "Corsair firearm",
             "visibility": "active"
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 2
           },
           "Sv": {
             "value": 5
@@ -1450,79 +1568,113 @@
         }
       },
       "Model§Corsair Reavers": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Corsair Reaver Band—Brace of pistols",
+            "Melee Weapon§Corsair Reaver Band—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 7
-          },
-          "OC": {
-            "value": 2
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Blaster": {
+              "Corsair firearm": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Corsair firearm"
+                  }
+                ]
+              },
+              "Shardcarbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shardcarbine"
+                  }
+                ]
+              },
+              "Shuriken catapult": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken catapult"
+                  }
+                ]
+              },
+              "Spar-glaive": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreaver Band—Spar-glaive"
+                  }
+                ]
+              },
+              "Aeldari missile launcher": {
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Aeldari missile launcher"
+                  }
+                ]
+              },
+              "Blaster": {
+                "order": 5,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Reaver Band—Blaster"
                   }
                 ]
               },
-              "Brace of pistols": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Brace of pistols"
-                  }
-                ]
-              },
-              "Corsair firearm": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Corsair firearm"
-                  }
-                ]
-              },
               "Dark lance": {
-                "order": 3,
+                "order": 6,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Dark lance"
-                  }
-                ]
-              },
-              "Dissonance pistol": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Dissonance pistol"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Dark lance"
                   }
                 ]
               },
               "Flamer": {
-                "order": 5,
+                "order": 7,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Flamer"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Flamer"
                   }
                 ]
               },
               "Fusion gun": {
-                "order": 6,
+                "order": 8,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Fusion gun"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Fusion gun"
                   }
                 ]
               },
               "Shredder": {
-                "order": 7,
+                "order": 9,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Reaver Band—Shredder"
@@ -1530,49 +1682,37 @@
                 ]
               },
               "Shuriken cannon": {
-                "order": 8,
+                "order": 10,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Shuriken cannon"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken cannon"
                   }
                 ]
               },
               "Splinter cannon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Reaver Band—Splinter cannon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Reaver Band—Close combat weapon"
-                  }
-                ]
-              },
-              "Spar-glaive": {
                 "order": 11,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Corsair Reaver Band—Spar-glaive"
-                  }
-                ]
-              },
-              "Void sabre": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Reaver Band—Void sabre"
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Splinter cannon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Blaster",
+            "value": "Corsair firearm",
             "visibility": "active"
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 2
           },
           "Sv": {
             "value": 5
@@ -1587,118 +1727,24 @@
       },
       "Model§Corsair Skyreaver Felarch": {
         "stats": {
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 14
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Felarch Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Brace of pistols": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Brace of pistols"
-                  }
-                ]
-              },
-              "Corsair firearm": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Corsair firearm"
-                  }
-                ]
-              },
-              "Dark lance": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Dark lance"
-                  }
-                ]
+              "-": {
+                "order": 0
               },
               "Dissonance pistol": {
-                "order": 3,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Dissonance pistol"
                   }
                 ]
               },
-              "Flamer": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Flamer"
-                  }
-                ]
-              },
-              "Fusion gun": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Fusion gun"
-                  }
-                ]
-              },
-              "Shardcarbine": {
-                "order": 6,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shardcarbine"
-                  }
-                ]
-              },
-              "Shuriken cannon": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken cannon"
-                  }
-                ]
-              },
-              "Shuriken catapult": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken catapult"
-                  }
-                ]
-              },
-              "Splinter cannon": {
-                "order": 9,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Splinter cannon"
-                  }
-                ]
-              },
-              "Close combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Skyreaver Band—Close combat weapon"
-                  }
-                ]
-              },
-              "Spar-glaive": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Skyreaver Band—Spar-glaive"
-                  }
-                ]
-              },
               "Void sabre": {
-                "order": 12,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Corsair Skyreaver Band—Void sabre"
@@ -1707,8 +1753,147 @@
               }
             },
             "statType": "rank",
-            "value": "Brace of pistols",
+            "value": "-",
             "visibility": "active"
+          },
+          "Ld": {
+            "value": 6
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Corsair firearm": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Corsair firearm"
+                  }
+                ]
+              },
+              "Shardcarbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shardcarbine"
+                  }
+                ]
+              },
+              "Shuriken catapult": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken catapult"
+                  }
+                ]
+              },
+              "Spar-glaive": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreaver Band—Spar-glaive"
+                  }
+                ]
+              },
+              "Aeldari missile launcher": {
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Aeldari missile launcher"
+                  }
+                ]
+              },
+              "Blaster": {
+                "order": 5,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Reaver Band—Blaster"
+                  }
+                ]
+              },
+              "Dark lance": {
+                "order": 6,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Dark lance"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 7,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Flamer"
+                  }
+                ]
+              },
+              "Fusion gun": {
+                "order": 8,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Fusion gun"
+                  }
+                ]
+              },
+              "Shredder": {
+                "order": 9,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Reaver Band—Shredder"
+                  }
+                ]
+              },
+              "Shuriken cannon": {
+                "order": 10,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken cannon"
+                  }
+                ]
+              },
+              "Splinter cannon": {
+                "order": 11,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Splinter cannon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Corsair firearm",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 5
@@ -1722,55 +1907,91 @@
         }
       },
       "Model§Corsair Skyreavers": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Corsair Skyreaver Band—Brace of pistols",
+            "Melee Weapon§Corsair Skyreaver Band—Close combat weapon"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 14
-          },
-          "OC": {
-            "value": 1
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Brace of pistols": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Brace of pistols"
-                  }
-                ]
-              },
               "Corsair firearm": {
-                "order": 1,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Corsair firearm"
                   }
                 ]
               },
-              "Dark lance": {
+              "Shardcarbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shardcarbine"
+                  }
+                ]
+              },
+              "Shuriken catapult": {
                 "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken catapult"
+                  }
+                ]
+              },
+              "Spar-glaive": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreaver Band—Spar-glaive"
+                  }
+                ]
+              },
+              "Aeldari missile launcher": {
+                "order": 4,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Aeldari missile launcher"
+                  }
+                ]
+              },
+              "Blaster": {
+                "order": 5,
+                "tracking": {
+                  "special": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Reaver Band—Blaster"
+                  }
+                ]
+              },
+              "Dark lance": {
+                "order": 6,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Dark lance"
                   }
                 ]
               },
-              "Dissonance pistol": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Dissonance pistol"
-                  }
-                ]
-              },
               "Flamer": {
-                "order": 4,
+                "order": 7,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Flamer"
@@ -1778,73 +1999,59 @@
                 ]
               },
               "Fusion gun": {
-                "order": 5,
+                "order": 8,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Fusion gun"
                   }
                 ]
               },
-              "Shardcarbine": {
-                "order": 6,
+              "Shredder": {
+                "order": 9,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shardcarbine"
+                    "trait": "Ranged Weapon§Corsair Reaver Band—Shredder"
                   }
                 ]
               },
               "Shuriken cannon": {
-                "order": 7,
+                "order": 10,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken cannon"
                   }
                 ]
               },
-              "Shuriken catapult": {
-                "order": 8,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Corsair Skyreaver Band—Shuriken catapult"
-                  }
-                ]
-              },
               "Splinter cannon": {
-                "order": 9,
+                "order": 11,
+                "tracking": {
+                  "special": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Corsair Skyreaver Band—Splinter cannon"
                   }
                 ]
-              },
-              "Close combat weapon": {
-                "order": 10,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Skyreaver Band—Close combat weapon"
-                  }
-                ]
-              },
-              "Spar-glaive": {
-                "order": 11,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Skyreaver Band—Spar-glaive"
-                  }
-                ]
-              },
-              "Void sabre": {
-                "order": 12,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Corsair Skyreaver Band—Void sabre"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Brace of pistols",
+            "value": "Corsair firearm",
             "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 5
@@ -3863,7 +4070,9 @@
             {
               "item": "Ability§Transport",
               "text": "This model has a transport capacity of 6 Aeldari Infantry models. Each Wraith Construct model takes the space of 2 models. It cannot transport Jump Pack models."
-            }
+            },
+            "Ranged Weapon§Firestorm—Firestorm scatter laser",
+            "Melee Weapon§Firestorm—Wraithbone hull"
           ]
         },
         "keywords": {
@@ -3889,25 +4098,16 @@
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 14
-          },
-          "OC": {
-            "value": 3
-          },
-          "Points": {
-            "value": 115
-          },
-          "sampleLoadout": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Firestorm scatter laser": {
+              "Twin shuriken catapult": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Firestorm—Firestorm scatter laser"
+                    "trait": "Ranged Weapon§Firestorm—Twin shuriken catapult"
                   }
                 ]
               },
@@ -3918,27 +4118,20 @@
                     "trait": "Ranged Weapon§Firestorm—Shuriken cannon"
                   }
                 ]
-              },
-              "Twin shuriken catapult": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Firestorm—Twin shuriken catapult"
-                  }
-                ]
-              },
-              "Wraithbone hull": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Firestorm—Wraithbone hull"
-                  }
-                ]
               }
             },
             "statType": "rank",
-            "value": "Firestorm scatter laser",
+            "value": "Twin shuriken catapult",
             "visibility": "active"
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 115
           },
           "Sv": {
             "value": 3
@@ -3950,7 +4143,7 @@
             "value": 12
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: Firestorm scatter laser; twin shuriken catapult; wraithbone hull.\n\nThis model’s twin shuriken catapult can be replaced with 1 shuriken cannon."
+        "text": ""
       },
       "Vehicle§Phoenix": {
         "assets": {
@@ -4213,7 +4406,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Melee Weapon§Wasp Assault Walker—Wasp feet"
           ]
         },
         "keywords": {
@@ -4240,22 +4434,21 @@
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 10
-          },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 95
-          },
-          "sampleLoadout": {
+          "Loadout 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Aeldari missile launcher": {
+              "Scatter laser": {
                 "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Scatter laser"
+                  }
+                ]
+              },
+              "Aeldari missile launcher": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Wasp Assault Walker—Aeldari missile launcher"
@@ -4263,18 +4456,10 @@
                 ]
               },
               "Bright lance": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Wasp Assault Walker—Bright lance"
-                  }
-                ]
-              },
-              "Scatter laser": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Wasp Assault Walker—Scatter laser"
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Bright lance"
                   }
                 ]
               },
@@ -4293,19 +4478,70 @@
                     "trait": "Ranged Weapon§Wasp Assault Walker—Starcannon"
                   }
                 ]
-              },
-              "Wasp feet": {
-                "order": 5,
+              }
+            },
+            "statType": "rank",
+            "value": "Scatter laser",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Shuriken cannon": {
+                "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Wasp Assault Walker—Wasp feet"
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Shuriken cannon"
+                  }
+                ]
+              },
+              "Aeldari missile launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Aeldari missile launcher"
+                  }
+                ]
+              },
+              "Bright lance": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Bright lance"
+                  }
+                ]
+              },
+              "Scatter laser": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Scatter laser"
+                  }
+                ]
+              },
+              "Starcannon": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wasp Assault Walker—Starcannon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Aeldari missile launcher",
+            "value": "Shuriken cannon",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 95
           },
           "Sv": {
             "value": 3
@@ -4317,7 +4553,7 @@
             "value": 6
           }
         },
-        "text": "ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\nThis model is equipped with: scatter laser; shuriken cannon; Wasp feet.\n\nThis model’s scatter laser can be replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 shuriken cannon ◦ 1 starcannon\n\n*This model’s shuriken cannon can be replaced with one of the following: ◦ 1 Aeldari missile launcher ◦ 1 bright lance ◦ 1 scatter laser ◦ 1 starcannon"
+        "text": ""
       }
     },
     "gameModes": {},
