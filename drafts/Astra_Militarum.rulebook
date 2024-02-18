@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.9.1",
+  "revision": "10.9.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,13 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "K7KHG9",
+      "slug": "A2ZZG4",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
     "assetCatalog": {
       "Ability§Ablative Plating": {
         "keywords": {
@@ -2446,6 +2445,11 @@
         }
       },
       "Character§Militarum Tempestus Command Squad": {
+        "allowed": {
+          "items": [
+            "Model§Tempestus Scions - Command Squad"
+          ]
+        },
         "assets": {
           "traits": [
             "Ability§Deep Strike",
@@ -2484,6 +2488,245 @@
           "Role": [
             "Infantry"
           ]
+        },
+        "rules": {
+          "removeParentTallies": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Tempestus Scion"
+                  ],
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Tempestus Scion"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Flamer"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Meltagun"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "2",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Grenade Launcher"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "3",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Volly"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "4",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Plasma"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "5",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Tempestus Scion"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Flamer"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Meltagun"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Volly"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Grenade Launcher"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Plasma"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "lineage"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          }
         },
         "stats": {
           "Flamer": {
@@ -2533,6 +2776,14 @@
             "visibility": "hidden"
           },
           "model1stTally": {
+            "value": 5
+          },
+          "modelKey": {
+            "value": "Model§Tempestus Scions - Command Squad"
+          },
+          "Models": {
+            "max": 5,
+            "min": 5,
             "value": 5
           },
           "Plasma gun": {
