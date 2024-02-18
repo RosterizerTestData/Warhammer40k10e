@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.9.6",
+  "revision": "10.9.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2333,7 +2333,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 37
+            "order": 34
           },
           "apply2ndModelCost": {
             "actions": [
@@ -2440,7 +2440,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 40
+            "order": 38
           },
           "apply3rdModelCost": {
             "actions": [
@@ -2753,7 +2753,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 36
+            "order": 32
           },
           "applyMoreModels": {
             "actions": [
@@ -2849,7 +2849,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 38
+            "order": 35
           },
           "cheatUnitNameTally": {
             "actions": [
@@ -3301,6 +3301,178 @@
             "failState": "pass",
             "order": 4
           },
+          "discountMissingIfAttached": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "applyMissingModels",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "lineage"
+                  ]
+                ],
+                "value": "Unit"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "applyMissingModels",
+                    "return"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": false,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "applyMissingModels",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 33
+          },
+          "discountMoreIfAttached": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "applyMissingModels",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "lineage"
+                  ]
+                ],
+                "value": "Unit"
+              },
+              {
+                "actionable": false,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "applyMissingModels",
+                    "evals",
+                    "2",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 36
+          },
           "discountSelfIfAttached": {
             "actions": [
               {
@@ -3355,7 +3527,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 34
+            "order": 30
           },
           "Error in this Unit’s text.": {
             "evals": [
@@ -3402,7 +3574,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 39
+            "order": 37
           },
           "maxQty": {
             "actions": [
@@ -4054,7 +4226,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 35
+            "order": 31
           },
           "Warning in this Unit’s text.": {
             "evals": [
