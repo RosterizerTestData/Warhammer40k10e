@@ -1,6 +1,6 @@
 {
   "name": "Aeldari/Drukhari common",
-  "revision": "10.9.4",
+  "revision": "10.9.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "7G4QZQ",
+      "slug": "WFRGHS",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -347,8 +347,7 @@
         },
         "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly model that disembarked from this Transport this turn makes an attack that targets that enemy unit, you can re-roll the Wound roll."
       },
-      "Ability§Firing Deck": {
-      },
+      "Ability§Firing Deck": {},
       "Ability§Flawless Poise": {
         "keywords": {
           "Keywords": [
@@ -6471,32 +6470,73 @@
                 "iterations": 1,
                 "paths": [
                   [
-                    "{self}",
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Infantry/Mounted§Troupe",
                     "keywords",
                     "Keywords"
                   ]
                 ],
                 "value": "Battleline"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Infantry/Mounted§Troupe",
+                    "stats",
+                    "maxQty",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 6
               }
             ],
             "evals": [
               {
                 "actionable": true,
-                "max": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "tracked",
-                    "troupebattleline"
+                    "assets",
+                    "item",
+                    "Character§Troupe Master",
+                    "stats",
+                    "Warlord",
+                    "value"
                   ]
-                ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Troupe Master",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
               }
             ],
-            "evaluate": "AND",
+            "evaluate": "OR",
             "failState": "pass",
-            "order": 1
+            "order": 200
           },
           "If this unit contains 10 or fewer models up to two models can replace their shuriken pistol with 1 fusion pistol": {
             "evals": [
