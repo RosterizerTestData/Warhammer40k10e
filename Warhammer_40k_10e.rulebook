@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.9.7",
+  "revision": "10.9.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2440,7 +2440,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 38
+            "order": 39
           },
           "apply3rdModelCost": {
             "actions": [
@@ -3301,178 +3301,6 @@
             "failState": "pass",
             "order": 4
           },
-          "discountMissingIfAttached": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "tally",
-                    "Model"
-                  ]
-                ],
-                "prepend": "",
-                "value": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T*O",
-                  "value": -1
-                },
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "applyMissingModels",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ],
-                "value": 0
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "lineage"
-                  ]
-                ],
-                "value": "Unit"
-              },
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "applyMissingModels",
-                    "return"
-                  ]
-                ],
-                "value": 0
-              },
-              {
-                "actionable": false,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "applyMissingModels",
-                    "evals",
-                    "1",
-                    "result",
-                    "integer"
-                  ]
-                ],
-                "value": 0
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 33
-          },
-          "discountMoreIfAttached": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "tally",
-                    "Model"
-                  ]
-                ],
-                "prepend": "",
-                "value": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T*O",
-                  "value": -1
-                },
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "applyMissingModels",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ],
-                "value": 0
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "lineage"
-                  ]
-                ],
-                "value": "Unit"
-              },
-              {
-                "actionable": false,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "applyMissingModels",
-                    "evals",
-                    "2",
-                    "result",
-                    "integer"
-                  ]
-                ],
-                "value": 0
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 36
-          },
           "discountSelfIfAttached": {
             "actions": [
               {
@@ -3527,7 +3355,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 30
+            "order": 37
           },
           "Error in this Unit’s text.": {
             "evals": [
@@ -3574,7 +3402,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 37
+            "order": 38
           },
           "maxQty": {
             "actions": [
@@ -3647,6 +3475,34 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 5
+          },
+          "moreModelTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tally",
+                    "noTally"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 36
           },
           "onlyCharactersCanTopRank": {
             "actions": [
