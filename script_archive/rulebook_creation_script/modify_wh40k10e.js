@@ -51,53 +51,47 @@ async function processFiles() {
       const response = await fetch('../../drafts/' + file);
       const data = await response.json();
 
-      data.revision = '10.9.1';
-      data.wip = true;
+      dataRevisionArr = data.revision.split('.');
+      data.revision = dataRevisionArr[0] + '.' + dataRevisionArr[1] + '.' + (Number(dataRevisionArr[2]) + 1);
+      // data.wip = true;
 
       let item;
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         item = data.rulebook.assetCatalog[itemKey];
-        if(item.stats?.Models && item.assets?.traits){
-          // console.log(itemKey, item.assets?.traits, item.stats?.Models, item)
-          let modelQty = Number(item.stats.Models.value);
-          let existingModels = item.assets.traits?.filter(t => typeof t === 'object' ? t.item.includes('Model§') : t.includes('Model§')) || [];
-          let existingModelQty = existingModels.reduce((a, b) => (a + (typeof b === 'object' ? (b.quantity || 1) : 1)), 0);
-          let modelDelta = modelQty - existingModelQty;
-          if(modelDelta && item.stats.modelKey){
-            let modelKey = item.stats.modelKey.value;
-            // console.log(existingModels, modelDelta, modelKey)
-            item.assets.traits = item.assets.traits || [];
-            item.assets.traits.push({
-              "item": modelKey,
-              "quantity": modelDelta,
-            });
-          }
-          if(['Character'].includes(itemKey.split('§')[0])){
-            delete item.stats.Models;
-            delete item.stats.modelKey;
-            if(item.allowed && item.allowed.items) item.allowed.items = item.allowed.items.filter(i => !i.includes('Model§'));
-            if(item.allowed?.items?.length === 0) delete item.allowed.items;
-            if(Object.keys(item.allowed || {}).length === 0) delete item.allowed;
-          }
-        }
-        ['Infantry','Mounted','Battleline','Vehicle','Walker','Monster','Dedicated Transport','Fortification','Character','Epic Hero',].forEach(role => {
-          if(item.keywords?.Keywords?.includes(role)){
-            // console.log(itemKey,item)
-            item.keywords.Role = [role];
-          }
-        });
+        // if(item.stats?.Models && item.assets?.traits){
+        //   // console.log(itemKey, item.assets?.traits, item.stats?.Models, item)
+        //   let modelQty = Number(item.stats.Models.value);
+        //   let existingModels = item.assets.traits?.filter(t => typeof t === 'object' ? t.item.includes('Model§') : t.includes('Model§')) || [];
+        //   let existingModelQty = existingModels.reduce((a, b) => (a + (typeof b === 'object' ? (b.quantity || 1) : 1)), 0);
+        //   let modelDelta = modelQty - existingModelQty;
+        //   if(modelDelta && item.stats.modelKey){
+        //     let modelKey = item.stats.modelKey.value;
+        //     // console.log(existingModels, modelDelta, modelKey)
+        //     item.assets.traits = item.assets.traits || [];
+        //     item.assets.traits.push({
+        //       "item": modelKey,
+        //       "quantity": modelDelta,
+        //     });
+        //   }
+        //   if(['Character'].includes(itemKey.split('§')[0])){
+        //     delete item.stats.Models;
+        //     delete item.stats.modelKey;
+        //     if(item.allowed && item.allowed.items) item.allowed.items = item.allowed.items.filter(i => !i.includes('Model§'));
+        //     if(item.allowed?.items?.length === 0) delete item.allowed.items;
+        //     if(Object.keys(item.allowed || {}).length === 0) delete item.allowed;
+        //   }
+        // }
+        // ['Infantry','Mounted','Battleline','Vehicle','Walker','Monster','Dedicated Transport','Fortification','Character','Epic Hero',].forEach(role => {
+        //   if(item.keywords?.Keywords?.includes(role)){
+        //     // console.log(itemKey,item)
+        //     item.keywords.Role = [role];
+        //   }
+        // });
         let [itemClass, itemDesignation] = itemKey.split('§');
-        if(itemClass ==='Unit'){
-          if(item.keywords.Keywords.includes('Infantry') || item.keywords.Keywords.includes('Mounted') || item.keywords.Keywords.includes('Battleline')){
-            data.rulebook.assetCatalog['Infantry/Mounted§' + itemDesignation] = item;
-            delete data.rulebook.assetCatalog[itemKey];
-          }else if(item.keywords.Keywords.includes('Vehicle')){
-            data.rulebook.assetCatalog['Vehicle§' + itemDesignation] = item;
-            delete data.rulebook.assetCatalog[itemKey];
-          }else if(item.keywords.Keywords.includes('Monster')){
-            data.rulebook.assetCatalog['Monster§' + itemDesignation] = item;
-            delete data.rulebook.assetCatalog[itemKey];
-          }
+        if(['Infantry/Mounted','Vehicle','Monster'].includes(itemClass)){
+          item.keywords.Tags = ['Unit ' + itemDesignation];
+          data.rulebook.assetCatalog['Unit§' + itemDesignation] = item;
+          delete data.rulebook.assetCatalog[itemKey];
         }
       });
       console.log(data.name, data);
