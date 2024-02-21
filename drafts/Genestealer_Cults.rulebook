@@ -1,6 +1,6 @@
 {
   "name": "Genestealer Cults",
-  "revision": "10.9.2",
+  "revision": "10.9.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "F2S96V",
+      "slug": "6VN6Y4",
       "name": "Astra Militarum",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.rulebook"
@@ -5680,7 +5680,7 @@
             "value": 185
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Achilles Ridgerunners": {
         "allowed": {
@@ -5766,7 +5766,7 @@
             "value": 85
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Acolyte Hybrids": {
         "allowed": {
@@ -5815,6 +5815,91 @@
           ]
         },
         "rules": {
+          "applyCultIcon": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Acolyte Hybrid",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Cult Icon",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Acolyte Hybrid",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Cult icon, cult claws and knife"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult Icon",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult Icon",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 cult icon.": {
             "evals": [
               {
@@ -5895,6 +5980,17 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Cult Icon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -5920,7 +6016,7 @@
             "value": 85
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Atalan Jackals": {
         "allowed": {
@@ -6350,6 +6446,91 @@
           ]
         },
         "rules": {
+          "applyCultIcon": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Hybrid Metamorph",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Cult Icon",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Hybrid Metamorph",
+                  "stats": {
+                    "Pistol/icon": {
+                      "dynamic": false,
+                      "value": "Cult icon"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult Icon",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult Icon",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 cult icon.": {
             "evals": [
               {
@@ -6371,6 +6552,17 @@
           }
         },
         "stats": {
+          "Cult Icon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Hybrid Metamorph": {
             "max": 9,
             "min": 4,
@@ -6404,7 +6596,7 @@
             "value": 80
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Neophyte Hybrids": {
         "allowed": {
@@ -6453,6 +6645,91 @@
           ]
         },
         "rules": {
+          "applyCultIcon": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neophyte Hybrid",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Cult Icon",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Neophyte Hybrid",
+                  "stats": {
+                    "Gun": {
+                      "dynamic": false,
+                      "value": "Hybrid firearm and Cult Icon"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult Icon",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult Icon",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 cult icon.": {
             "evals": [
               {
@@ -6576,6 +6853,17 @@
           }
         },
         "stats": {
+          "Cult Icon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 10
           },
@@ -6609,7 +6897,7 @@
             "value": 90
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Purestrain Genestealers": {
         "allowed": {
@@ -6691,7 +6979,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Tectonic Fragdrill": {
         "assets": {
