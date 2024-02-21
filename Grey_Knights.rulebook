@@ -1,6 +1,6 @@
 {
   "name": "Grey Knights",
-  "revision": "10.8.0",
+  "revision": "10.9.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "Z3PFMD",
+      "slug": "9YYFPD",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -402,6 +402,9 @@
           ],
           "Tags": [
             "Character Brother-captain"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -514,6 +517,9 @@
           ],
           "Tags": [
             "Character Brother-captain Stern"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -580,6 +586,9 @@
           ],
           "Tags": [
             "Character Brotherhood Champion"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -646,6 +655,9 @@
           ],
           "Tags": [
             "Character Brotherhood Chaplain"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -711,6 +723,9 @@
           ],
           "Tags": [
             "Character Brotherhood Librarian"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -797,6 +812,9 @@
           ],
           "Tags": [
             "Character Brotherhood Techmarine"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -893,6 +911,9 @@
           ],
           "Tags": [
             "Character Castellan Crowe"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -962,6 +983,9 @@
           ],
           "Tags": [
             "Character Grand Master"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -1080,6 +1104,9 @@
           ],
           "Tags": [
             "Character Grand Master in Nemesis Dreadknight"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -1293,6 +1320,9 @@
           ],
           "Tags": [
             "Character Grand Master Voldus"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -1369,6 +1399,9 @@
           ],
           "Tags": [
             "Character Kaldor Draigo"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -8872,12 +8905,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Brotherhood Terminator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Teleport Assault",
@@ -8890,7 +8917,11 @@
                 }
               }
             },
-            "Model§Terminator Justicar"
+            "Model§Terminator Justicar",
+            {
+              "item": "Model§Brotherhood Terminator",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -8911,6 +8942,9 @@
           ],
           "Tags": [
             "Unit Brotherhood Terminator Squad"
+          ],
+          "Category": [
+            "Battleline"
           ]
         },
         "rules": {
@@ -8937,28 +8971,11 @@
           "1 in 5 models can replace their storm bolter with a special weapon": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "note": "Track 1/5 of the models",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can replace their storm bolter with a special weapon",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -8997,6 +9014,91 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyNarthecium": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Brotherhood Terminator",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Narthecium",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Brotherhood Terminator",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Narthecium"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Narthecium",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Narthecium",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -9020,10 +9122,34 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Brotherhood Terminator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Narthecium": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 210
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Grey Knights Dreadnought": {
         "assets": {
@@ -9056,6 +9182,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Dreadnought"
+          ],
+          "Category": [
+            "Vehicle—Walker"
           ]
         },
         "rules": {
@@ -9324,6 +9453,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Land Raider"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9461,6 +9593,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Land Raider Crusader"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9598,6 +9733,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Land Raider Redeemer"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -9723,6 +9861,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Razorback"
+          ],
+          "Category": [
+            "Vehicle—Dedicated Transport"
           ]
         },
         "stats": {
@@ -9861,6 +10002,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Relic Razorback"
+          ],
+          "Category": [
+            "Vehicle—Dedicated Transport"
           ]
         },
         "stats": {
@@ -10025,6 +10169,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Rhino"
+          ],
+          "Category": [
+            "Vehicle—Dedicated Transport"
           ]
         },
         "stats": {
@@ -10127,6 +10274,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Stormhawk Interceptor"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10261,6 +10411,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Stormraven Gunship"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10415,6 +10568,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Stormtalon Gunship"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10536,6 +10692,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Thunderhawk Gunship"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -10648,6 +10807,9 @@
           ],
           "Tags": [
             "Unit Grey Knights Venerable Dreadnought"
+          ],
+          "Category": [
+            "Vehicle—Walker"
           ]
         },
         "stats": {
@@ -10766,17 +10928,15 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Interceptor",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Teleport Assault",
             "Ability§Personal Teleporters",
-            "Model§Interceptor Justicar"
+            "Model§Interceptor Justicar",
+            {
+              "item": "Model§Interceptor",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -10796,34 +10956,20 @@
           ],
           "Tags": [
             "Unit Interceptor Squad"
+          ],
+          "Category": [
+            "Infantry"
           ]
         },
         "rules": {
           "1 in 5 models can have a special weapon": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "note": "Track 1/5 of the models",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have a special weapon",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -10863,10 +11009,23 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Interceptor"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 135
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Land Raider Banisher": {
         "assets": {
@@ -10915,6 +11074,9 @@
           ],
           "Tags": [
             "Unit Land Raider Banisher"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -11052,6 +11214,9 @@
           ],
           "Tags": [
             "Unit Nemesis Dreadknight"
+          ],
+          "Category": [
+            "Vehicle—Walker"
           ]
         },
         "rules": {
@@ -11256,12 +11421,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Paladin",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Teleport Assault",
@@ -11274,7 +11433,11 @@
                 }
               }
             },
-            "Model§Paragon"
+            "Model§Paragon",
+            {
+              "item": "Model§Paladin",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -11294,6 +11457,9 @@
           ],
           "Tags": [
             "Unit Paladin Squad"
+          ],
+          "Category": [
+            "Infantry"
           ]
         },
         "rules": {
@@ -11379,6 +11545,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Paladin"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Paladin": {
             "max": 9,
             "min": 4,
@@ -11390,7 +11568,8 @@
           "Points": {
             "value": 225
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Purgation Squad": {
         "allowed": {
@@ -11400,17 +11579,15 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Purgator",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Teleport Assault",
             "Ability§Astral Aim (psychic)",
-            "Model§Purgator Justicar"
+            "Model§Purgator Justicar",
+            {
+              "item": "Model§Purgator",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -11429,6 +11606,9 @@
           ],
           "Tags": [
             "Unit Purgation Squad"
+          ],
+          "Category": [
+            "Infantry"
           ]
         },
         "stats": {
@@ -11440,6 +11620,18 @@
           },
           "model2ndTally": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Purgator"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 135
@@ -11459,7 +11651,8 @@
             "value": 0,
             "visibility": "hidden"
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Purifier Squad": {
         "allowed": {
@@ -11469,17 +11662,15 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Purifier",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             "Ability§Teleport Assault",
             "Ability§Sanctity of Purpose",
-            "Model§Knight of the Flame"
+            "Model§Knight of the Flame",
+            {
+              "item": "Model§Purifier",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -11498,6 +11689,9 @@
           ],
           "Tags": [
             "Unit Purifier Squad"
+          ],
+          "Category": [
+            "Infantry"
           ]
         },
         "rules": {
@@ -11563,6 +11757,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Purifier"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 130
           },
@@ -11574,22 +11780,18 @@
             "value": 0,
             "visibility": "hidden"
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Servitors": {
         "allowed": {
           "items": [
             "Model§Servitor",
-            "Character§Tech-priest Enginseer"
+            "Character§Tech-priest Enginseer",
+            "Character§Brotherhood Techmarine"
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Servitor",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Mindlock",
             "Ability§Retinue",
@@ -11601,6 +11803,10 @@
                   "value": "6+"
                 }
               }
+            },
+            {
+              "item": "Model§Servitor",
+              "quantity": 4
             }
           ]
         },
@@ -11618,6 +11824,9 @@
           ],
           "Tags": [
             "Unit Servitors"
+          ],
+          "Category": [
+            "Infantry"
           ]
         },
         "rules": {
@@ -11645,6 +11854,14 @@
           "model1stTally": {
             "value": 4
           },
+          "modelKey": {
+            "value": "Model§Servitor"
+          },
+          "Models": {
+            "max": 4,
+            "min": 4,
+            "value": 4
+          },
           "Points": {
             "value": 50
           },
@@ -11656,7 +11873,8 @@
             "value": 0,
             "visibility": "hidden"
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Strike Squad": {
         "allowed": {
@@ -11667,12 +11885,6 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Grey Knight",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Deep Strike",
             {
@@ -11685,7 +11897,11 @@
             },
             "Ability§Teleport Assault",
             "Ability§Sanctifying Ritual (psychic)",
-            "Model§Justicar"
+            "Model§Justicar",
+            {
+              "item": "Model§Grey Knight",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -11705,34 +11921,20 @@
           ],
           "Tags": [
             "Unit Strike Squad"
+          ],
+          "Category": [
+            "Battleline"
           ]
         },
         "rules": {
           "1 in 5 models can have a special weapon": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "note": "Track 1/5 of the models",
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have a special weapon",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -11772,10 +11974,23 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Grey Knight"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 125
           }
-        }
+        },
+        "text": ""
       },
       "Wargear§Ancient’s Banner": {
         "text": "Add 1 to the Objective Control characteristic of models in the bearer’s unit."
