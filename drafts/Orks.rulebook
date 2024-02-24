@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.9.2",
+  "revision": "10.9.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "7G4QZQ",
+      "slug": "SW28NT",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -17867,6 +17867,99 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyThumpGun": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Beast Snagga Boy",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Thump Gun",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Beast Snagga Boy",
+                  "stats": {
+                    "Loadout Options": {
+                      "dynamic": false,
+                      "value": "Thump gun & Close Combat Weapon"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Thump Gun",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in10",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Thump Gun",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -17901,9 +17994,20 @@
           },
           "Points": {
             "value": 105
+          },
+          "Thump Gun": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Big Gunz": {
         "allowed": {
@@ -18482,7 +18586,7 @@
             "value": 85
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Burna Boyz": {
         "allowed": {
@@ -19759,6 +19863,99 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "applyMegablasta": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Deffkopta",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Mega-blasta",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Deffkopta",
+                  "stats": {
+                    "Rocket Options": {
+                      "dynamic": false,
+                      "value": "Kustom mega-blasta"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mega-blasta",
+                    "max"
+                  ]
+                ],
+                "prepend": " ",
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in3",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mega-blasta",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
           }
         },
         "stats": {
@@ -19769,6 +19966,17 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Mega-blasta": {
+            "dynamic": true,
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
           },
           "model1stTally": {
             "value": 3
@@ -19795,7 +20003,7 @@
             "value": 100
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Deffkoptas with Big Shootas": {
         "allowed": {
@@ -19866,7 +20074,7 @@
             "value": 130
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Fighta-bommer": {
         "assets": {
@@ -20085,7 +20293,7 @@
             "value": 95
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Gargantuan Squiggoth": {
         "assets": {
@@ -20366,6 +20574,9 @@
           },
           "model2ndTally": {
             "value": 22
+          },
+          "modelKey": {
+            "value": null
           },
           "Models": {
             "increment": {
@@ -20738,7 +20949,7 @@
             "value": 155
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Hunta Rig": {
         "assets": {
@@ -21477,7 +21688,7 @@
             "value": 125
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Kommandos": {
         "allowed": {
@@ -21660,7 +21871,7 @@
             "value": 135
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Kustom Boosta-blasta": {
         "assets": {
@@ -22399,7 +22610,7 @@
             "value": 60
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Megatrakk Scrapjet": {
         "assets": {
@@ -22554,7 +22765,7 @@
             "value": 55
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\nDesigner’s Note: Place five Grot Crew tokens next to each Mek Gun model when this unit is first set up, removing one each time its Mek Gun model loses a wound (a Mek Gun model itself is considered to represent its final wound)."
+        "text": "Designer’s Note: Place five Grot Crew tokens next to each Mek Gun model when this unit is first set up, removing one each time its Mek Gun model loses a wound (a Mek Gun model itself is considered to represent its final wound)."
       },
       "Unit§Meka-dread": {
         "assets": {
@@ -23109,12 +23320,14 @@
             "value": 110
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Nobz on Warbikes": {
         "allowed": {
           "items": [
-            "Model§Nob on Warbike"
+            "Model§Nob on Warbike",
+            "Character§Deffkilla Wartrike",
+            "Character§Warboss on Warbike"
           ]
         },
         "assets": {
@@ -23180,7 +23393,7 @@
             "value": 125
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Rukkatrukk Squigbuggy": {
         "assets": {
@@ -23397,7 +23610,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Squiggoth": {
         "assets": {
@@ -23655,7 +23868,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Stompa": {
         "assets": {
@@ -23822,7 +24035,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Tankbustas": {
         "allowed": {
@@ -23930,7 +24143,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Trukk": {
         "assets": {
@@ -24040,6 +24253,7 @@
             "Model§Warbiker",
             "Character§Big Mek on Warbike",
             "Character§Deffkilla Wartrike",
+            "Character§Warboss on Warbike",
             "Character§Painboy on Warbike"
           ]
         },
@@ -24115,7 +24329,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Warbuggies": {
         "allowed": {
@@ -24195,7 +24409,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Wartrakks": {
         "allowed": {
@@ -24275,7 +24489,7 @@
             "visibility": "hidden"
           }
         },
-        "text": "WARNING: This unit has been auto-converted and may need manual stats and/or rules to handle wargear options.\n\n"
+        "text": ""
       },
       "Unit§Wazbom Blastajet": {
         "assets": {
