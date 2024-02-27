@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.8.0",
+  "revision": "10.9.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "9NGG86",
+      "slug": "9FMC54",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -242,6 +242,9 @@
           "Lieutenant": [],
           "Tags": [
             "Character Castellan"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "rules": {
@@ -370,18 +373,7 @@
         }
       },
       "Character§Chaplain Grimaldus": {
-        "allowed": {
-          "items": [
-            "Model§Cenobyte Servitor"
-          ]
-        },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Cenobyte Servitor",
-              "quantity": 3
-            }
-          ],
           "traits": [
             {
               "item": "Ability§Feel No Pain",
@@ -409,7 +401,11 @@
                 }
               }
             },
-            "Model§Chaplain Grimaldus – Epic Hero"
+            "Model§Chaplain Grimaldus – Epic Hero",
+            {
+              "item": "Model§Cenobyte Servitor",
+              "quantity": 3
+            }
           ]
         },
         "keywords": {
@@ -429,6 +425,9 @@
           ],
           "Tags": [
             "Character Chaplain Grimaldus"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -446,7 +445,8 @@
           "Points": {
             "value": 120
           }
-        }
+        },
+        "text": ""
       },
       "Character§High Marshal Helbrecht": {
         "aspects": {
@@ -493,6 +493,9 @@
           ],
           "Tags": [
             "Character High Marshal Helbrecht"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -559,6 +562,9 @@
           ],
           "Tags": [
             "Character Marshal"
+          ],
+          "Category": [
+            "Character"
           ]
         },
         "stats": {
@@ -655,6 +661,9 @@
           ],
           "Tags": [
             "Character The Emperor’s Champion"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -1222,6 +1231,9 @@
           ],
           "Tags": [
             "Infantry/Mounted Crusader Squad"
+          ],
+          "Category": [
+            "Battleline"
           ]
         },
         "rules": {
@@ -1267,9 +1279,7 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply2ndCostInitiates",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -1351,9 +1361,7 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply2ndCostNeophytes",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -1452,9 +1460,7 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdCostInitiates",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -1480,9 +1486,7 @@
                   "value"
                 ],
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdCostInitiates",
+                  "{this}",
                   "evals",
                   "1",
                   "result",
@@ -1545,9 +1549,7 @@
               {
                 "actionable": true,
                 "min": [
-                  "{self}",
-                  "rules",
-                  "apply3rdCostNeophytes",
+                  "{this}",
                   "evals",
                   "0",
                   "result",
@@ -1718,35 +1720,22 @@
           ],
           "Tags": [
             "Infantry/Mounted Primaris Crusader Squad"
+          ],
+          "Category": [
+            "Battleline"
           ]
         },
         "rules": {
           "2 in 10 models can have a Power fist or Pyreblaster": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "2 in 10 models can have a Power fist or Pyreblaster",
+                  "count2in10",
                   "evals",
-                  "0",
+                  "1",
                   "result",
                   "integer"
                 ],
@@ -1775,6 +1764,14 @@
           "model2ndTally": {
             "value": 20
           },
+          "Models": {
+            "increment": {
+              "value": 10
+            },
+            "max": 20,
+            "min": 10,
+            "value": 10
+          },
           "Points": {
             "value": 140
           },
@@ -1794,7 +1791,8 @@
             "value": 0,
             "visibility": "hidden"
           }
-        }
+        },
+        "text": ""
       },
       "Infantry/Mounted§Primaris Sword Brethren": {
         "allowed": {
@@ -1816,17 +1814,15 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Primaris Sword Brother - Sword Brethren",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Oath of Moment",
             "Ability§Vow-sworn Bladesmen",
             "Ability§Attached Unit",
-            "Model§Sword Brother Castellan"
+            "Model§Sword Brother Castellan",
+            {
+              "item": "Model§Primaris Sword Brother - Sword Brethren",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -1846,33 +1842,20 @@
           ],
           "Tags": [
             "Infantry/Mounted Primaris Sword Brethren"
+          ],
+          "Category": [
+            "Infantry"
           ]
         },
         "rules": {
           "1 in 5 models can have a Plasma pistol": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have a Plasma pistol",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -1895,27 +1878,11 @@
           "1 in 5 models can have a Thunder hammer": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have a Thunder hammer",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -1938,27 +1905,11 @@
           "1 in 5 models can have Twin lightning claws": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "1 in 5 models can have Twin lightning claws",
+                  "count1in5",
                   "evals",
                   "0",
                   "result",
@@ -1981,47 +1932,11 @@
           "2 in 5 models can have a Pyre pistol": {
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 5
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T*O",
-                  "value": 2
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "rules",
-                    "2 in 5 models can have a Pyre pistol",
-                    "evals",
-                    "0",
-                    "result",
-                    "integer"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
                 "max": [
                   "{self}",
                   "rules",
-                  "2 in 5 models can have a Pyre pistol",
+                  "count2in5",
                   "evals",
                   "1",
                   "result",
@@ -2052,6 +1967,18 @@
           "model2ndTally": {
             "value": 10
           },
+          "modelKey": {
+            "value": "Model§Primaris Sword Brother - Sword Brethren"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 140
           },
@@ -2063,7 +1990,8 @@
             "value": 0,
             "visibility": "hidden"
           }
-        }
+        },
+        "text": ""
       },
       "Melee Weapon§Black Templars Gladiator Lancer—Armoured hull": {
         "aspects": {
@@ -2964,6 +2892,9 @@
             "Character",
             "Epic Hero",
             "Grenades"
+          ],
+          "Category": [
+            "Epic Hero"
           ]
         },
         "stats": {
@@ -7653,6 +7584,9 @@
           ],
           "Tags": [
             "Vehicle Black Templars Gladiator Lancer"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -7806,6 +7740,9 @@
           ],
           "Tags": [
             "Vehicle Black Templars Gladiator Reaper"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -7925,6 +7862,9 @@
           ],
           "Tags": [
             "Vehicle Black Templars Gladiator Valiant"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -8046,6 +7986,9 @@
           ],
           "Tags": [
             "Vehicle Black Templars Impulsor"
+          ],
+          "Category": [
+            "Vehicle—Dedicated Transport"
           ]
         },
         "stats": {
@@ -8225,6 +8168,9 @@
           ],
           "Tags": [
             "Vehicle Black Templars Repulsor"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
@@ -8373,6 +8319,9 @@
           ],
           "Tags": [
             "Vehicle Black Templars Repulsor Executioner"
+          ],
+          "Category": [
+            "Vehicle"
           ]
         },
         "stats": {
