@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.9.2",
+  "revision": "10.9.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -11595,13 +11595,6 @@
           ]
         },
         "assets": {
-          "included": [
-            "Model§Neurogaunt Nodebeast",
-            {
-              "item": "Model§Neurogaunt",
-              "quantity": 10
-            }
-          ],
           "traits": [
             "Ability§Synapse",
             "Ability§Neurocytes"
@@ -11626,6 +11619,17 @@
           "Category": [
             "Infantry"
           ]
+        },
+        "removed": {
+          "rules": {
+            "trueModelTally": {},
+            "appliedModelTally": {},
+            "applyMissingModels": {},
+            "applyMoreModels": {}
+          },
+          "stats": {
+            "Models": {}
+          }
         },
         "rules": {
           "2 Neurogaunt Nodebeasts only with 20 Neurogaunts.": {
@@ -11659,6 +11663,436 @@
             ],
             "evaluate": "OR",
             "failState": "error"
+          },
+          "appliedNeurogauntTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Neurogaunt"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neurogaunt"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 34
+          },
+          "appliedNodebeastTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Neurogaunt Nodebeast"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neurogaunt Nodebeast"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 34
+          },
+          "applyMissingNeurogaunts": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": "Model§Neurogaunt"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neurogaunt",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueNeurogauntTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Neurogaunts remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neurogaunts",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neurogaunt",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 33
+          },
+          "applyMissingNodebeasts": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": "Model§Neurogaunt Nodebeast"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neurogaunt Nodebeast",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueNodebeastTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Nodebeasts remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Nodebeasts",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neurogaunt Nodebeast",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 32
+          },
+          "applyMoreNeurogaunts": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neurogaunt",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedNeurogauntTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neurogaunts",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neurogaunt"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 36
+          },
+          "applyMoreNodebeasts": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Neurogaunt Nodebeast",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedNodebeastTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Nodebeasts",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Nodebeast"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 35
+          },
+          "trueNeurogauntTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Neurogaunt"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Neurogaunt"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
+          "trueNodebeastTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Nodebeast"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Nodebeast"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
           }
         },
         "stats": {
@@ -11671,15 +12105,6 @@
           "model2ndTally": {
             "value": 22
           },
-          "Models": {
-            "increment": {
-              "value": 11
-            },
-            "max": 22,
-            "min": 11,
-            "value": 11,
-            "visibility": "normal"
-          },
           "Neurogaunt": {
             "max": 20,
             "min": 10,
@@ -11687,6 +12112,20 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Neurogaunts": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 10
+            },
+            "max": 20,
+            "min": 10,
+            "statOrder": 2,
+            "statType": "numeric",
+            "value": 10,
+            "visibility": "normal"
           },
           "Neurogaunt Nodebeast": {
             "max": 2,
@@ -11696,11 +12135,24 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Nodebeasts": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
+            "max": 2,
+            "min": 1,
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": 5,
+            "visibility": "normal"
+          },
           "Points": {
             "value": 45
           }
-        },
-        "text": "WARNING: multiple models allowed; please update modelKey manually\n\n"
+        }
       },
       "Unit§Neurolictor": {
         "assets": {
