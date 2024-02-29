@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.9.5",
+  "revision": "10.9.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "3P8WVD",
+      "slug": "CXBARZ",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -26947,16 +26947,7 @@
           ]
         },
         "assets": {
-          "included": [
-            {
-              "item": "Model§Torment",
-              "quantity": 3
-            },
-            {
-              "item": "Model§Mutant",
-              "quantity": 5
-            }
-          ],
+          "included": [],
           "traits": [
             {
               "item": "Ability§Feel No Pain",
@@ -26967,7 +26958,15 @@
               }
             },
             "Ability§Dark Pacts",
-            "Ability§Accursed Horde"
+            "Ability§Accursed Horde",
+            {
+              "item": "Model§Torment",
+              "quantity": 3
+            },
+            {
+              "item": "Model§Mutant",
+              "quantity": 5
+            }
           ]
         },
         "keywords": {
@@ -32314,7 +32313,10 @@
                 "iterations": 1,
                 "paths": [
                   [
-                    "{self}",
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Noise Marines",
                     "keywords",
                     "Keywords"
                   ]
@@ -32326,7 +32328,10 @@
                 "iterations": 1,
                 "paths": [
                   [
-                    "{self}",
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Noise Marines",
                     "stats",
                     "maxQty",
                     "value"
@@ -32353,9 +32358,26 @@
                   ]
                 ],
                 "value": "✓"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Character§Lucius the Eternal",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
               }
             ],
-            "evaluate": "AND",
+            "evaluate": "OR",
             "failState": "pass",
             "order": 200
           },
