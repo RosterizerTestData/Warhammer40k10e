@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.9.13",
+  "revision": "10.9.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -46,6 +46,7 @@
                     "designation"
                   ]
                 ],
+                "prepend": " ",
                 "value": [
                   "{self}",
                   "stats",
@@ -1152,7 +1153,8 @@
       "Model": {
         "aspects": {
           "Group Traits": true,
-          "Type": "game piece"
+          "Type": "game piece",
+          "Visibility": "active"
         },
         "rules": {
           "renameModel": {
@@ -1521,6 +1523,7 @@
           "items": []
         },
         "aspects": {
+          "Group By": "Category",
           "Group Includes": true,
           "Group Traits": true,
           "Lock Qty": true,
@@ -4993,6 +4996,7 @@
                     "designation"
                   ]
                 ],
+                "prepend": " ",
                 "value": [
                   "{self}",
                   "stats",
@@ -5209,6 +5213,56 @@
           "Tags": [
             "Core"
           ]
+        },
+        "rules": {
+          "putKeywordInName": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "append": ")",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "prepend": " (",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "keyword",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "keyword",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 101
+          }
+        },
+        "stats": {
+          "keyword": {
+            "statType": "term",
+            "value": null,
+            "visibility": "hidden"
+          }
         },
         "text": "* Never modified by an attack’s AP.\n* The controlling player can choose to use either a model’s invulnerable save or its Save characteristic."
       },
@@ -6894,7 +6948,6 @@
         "aspects": {
           "Collapse": true,
           "Describe": true,
-          "Group Includes": true,
           "Label": "Army",
           "Lock Qty": true,
           "Rename": true,
@@ -7337,6 +7390,39 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 50
+          },
+          "removeTextWhenUnits": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "text"
+                  ]
+                ],
+                "value": null
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "included"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
           },
           "Select your Detachment.": {
             "evals": [
@@ -7794,7 +7880,8 @@
             "value": 5,
             "visibility": "hidden"
           }
-        }
+        },
+        "text": "### Creating Your 40k Roster\n\n*This message will disappear after you add your first unit.*\n\n1. Adjust overall roster settings at the top 👆\n2. Add units from the inventory on the right 👉 (*If using a narrow screen, swipe OR click the lower-right button to access the inventory*)\n3. Edit units by modifying their statline or individual models.\n   * Model count is often controlled by a single \"Models\" stat.\n   * Simple upgrades can be done using dropdown menus in the unit.\n   * For more complex loadouts requiring single-model adjustments, do one of the following:\n      * Add a new model from the inventory\n      * Split apart a stack of models using the provided button:&nbsp;<i class=\"mdi mdi-vector-arrange-below ng-star-inserted\"></i>\n\n      This will create separate models for loadout-editing while maintaining the overall model quantity."
       },
       "Stratagem§Command Re-roll": {
         "keywords": {
