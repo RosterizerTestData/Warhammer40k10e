@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.9.5",
+  "revision": "10.9.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "N22C3Z",
+      "slug": "J33UJQ",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -8330,7 +8330,7 @@
           }
         }
       },
-      "Model§Burna Boyz": {
+      "Model§Burna Boy": {
         "assets": {
           "traits": [
             "Ranged Weapon§Burna Boyz—Burna",
@@ -18640,23 +18640,21 @@
         "allowed": {
           "items": [
             "Model§Spanner",
-            "Model§Burna Boyz",
+            "Model§Burna Boy",
             "Character§Big Mek with Kustom Force Field",
             "Character§Mad Dok Grotsnik",
             "Character§Painboy"
           ]
         },
         "assets": {
-          "included": [
-            "Model§Spanner",
-            {
-              "item": "Model§Burna Boyz",
-              "quantity": 4
-            }
-          ],
           "traits": [
             "Ability§Waaagh!",
-            "Ability§Pyromaniaks"
+            "Ability§Pyromaniaks",
+            "Model§Spanner",
+            {
+              "item": "Model§Burna Boy",
+              "quantity": 4
+            }
           ]
         },
         "keywords": {
@@ -18677,42 +18675,63 @@
             "Infantry"
           ]
         },
+        "removed": {
+          "rules": {
+            "trueModelTally": {},
+            "applyMissingModels": {},
+            "appliedModelTally": {},
+            "applyMoreModels": {}
+          }
+        },
         "rules": {
-          "Must have 1 Spanner for every 4 Burna Boyz": {
+          "appliedBurna BoyTally": {
             "evals": [
               {
                 "actionable": false,
                 "equation": {
-                  "operator": "T/O",
-                  "value": 5
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Burna Boy"
+                  ]
                 },
                 "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "tally",
-                    "Model"
+                    "Burna Boy"
                   ]
                 ]
-              },
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 40
+          },
+          "appliedSpannerTally": {
+            "evals": [
               {
-                "actionable": true,
-                "max": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "min": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Spanner"
+                  ]
+                },
                 "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
                 "operator": "AND",
                 "paths": [
                   [
@@ -18724,11 +18743,436 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "error"
+            "failState": "pass",
+            "order": 40
+          },
+          "applyMissingBurna Boys": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Burna Boy"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Burna Boy",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueBurna BoyTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Burna Boys remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Burna Boy",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 32
+          },
+          "applyMissingSpanners": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Spanner"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Spanner",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueSpannerTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Spanners remaining to be added",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Spanner",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
+          "applyMoreBurna Boys": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Burna Boy",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedBurna BoyTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Burna Boy"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 42
+          },
+          "applyMoreSpanners": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Spanner",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedSpannerTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Spanner"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 41
+          },
+          "numberOfModels": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Number of Spanners",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": false,
+                "note": "Number of Burna Boyz",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 29
+          },
+          "trueBurna BoyTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Burna Boy"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Burna Boy"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
+          },
+          "trueSpannerTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Spanner"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Spanner"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
           }
         },
         "stats": {
-          "Burna Boyz": {
+          "Burna Boy": {
             "max": 12,
             "min": 4,
             "statType": "numeric",
@@ -18757,7 +19201,8 @@
             },
             "max": 15,
             "min": 5,
-            "value": 5
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 60
@@ -20552,17 +20997,16 @@
           ]
         },
         "assets": {
-          "included": [
+          "included": [],
+          "traits": [
+            "Ability§Waaagh!",
+            "Ability§Runtherd",
+            "Ability§Thievin’ Scavengers",
             "Model§Runtherd",
             {
               "item": "Model§Gretchin",
               "quantity": 10
             }
-          ],
-          "traits": [
-            "Ability§Waaagh!",
-            "Ability§Runtherd",
-            "Ability§Thievin’ Scavengers"
           ]
         },
         "keywords": {
@@ -20583,8 +21027,266 @@
             "Infantry"
           ]
         },
+        "removed": {
+          "stats": {
+            "Models": {}
+          },
+          "rules": {
+            "trueModelTally": {},
+            "applyMissingModels": {},
+            "appliedModelTally": {},
+            "applyMoreModels": {}
+          }
+        },
         "rules": {
-          "de-tallyRuntherdBecauseOfCourse": {
+          "appliedGretchinTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedRuntherdTally",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 40
+          },
+          "appliedRuntherdTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Runtherd"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Runtherd"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 39
+          },
+          "applyMissingGretchins": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Gretchin"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Gretchin",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueGretchinTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Gretchins remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Gretchins",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Gretchin",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 32
+          },
+          "applyMissingRuntherds": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Runtherd"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Runtherd",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueRuntherdTally",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Runtherds remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Runtherds",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Runtherd",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
+          "applyMoreGretchins": {
             "actions": [
               {
                 "actionType": "modify",
@@ -20592,26 +21294,233 @@
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
+                    "traits",
+                    "item",
+                    "Model§Gretchin",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedGretchinTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Gretchins",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Model§Gretchin",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 42
+          },
+          "applyMoreRuntherds": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Runtherd",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedRuntherdTally",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Runtherds",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
                     "Runtherd"
                   ]
                 ],
-                "value": -1
+                "value": 1
               }
             ],
-            "evals": [],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 41
+          },
+          "trueGretchinTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueRuntherdTally",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
+          },
+          "trueRuntherdTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Runtherd"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Runtherd"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 29
           }
         },
         "stats": {
-          "Gretchin": {
+          "Gretchins": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 10
+            },
+            "label": "Gretchin",
             "max": 20,
             "min": 10,
+            "statOrder": 2,
             "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
+            "value": 10,
+            "visibility": "normal"
           },
           "model1stTally": {
             "value": 11
@@ -20625,24 +21534,22 @@
           "modelKey": {
             "value": null
           },
-          "Models": {
-            "increment": {
-              "value": 11
-            },
-            "max": 22,
-            "min": 11,
-            "value": 11
-          },
           "Points": {
             "value": 40
           },
-          "Runtherd": {
+          "Runtherds": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 1
+            },
             "max": 2,
             "min": 1,
+            "statOrder": 1,
             "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
+            "value": 1,
+            "visibility": "normal"
           }
         },
         "text": ""
@@ -22202,16 +23109,14 @@
           ]
         },
         "assets": {
-          "included": [
+          "traits": [
+            "Ability§Waaagh!",
+            "Ability§Dat's Our Loot!",
             "Model§Spanner",
             {
               "item": "Model§Loota",
               "quantity": 4
             }
-          ],
-          "traits": [
-            "Ability§Waaagh!",
-            "Ability§Dat's Our Loot!"
           ]
         },
         "keywords": {
@@ -22232,16 +23137,32 @@
             "Infantry"
           ]
         },
+        "removed": {
+          "rules": {
+            "trueModelTally": {},
+            "applyMissingModels": {},
+            "appliedModelTally": {},
+            "applyMoreModels": {}
+          }
+        },
         "rules": {
-          "Must have 1 Spanner for every 4 Lootas": {
+          "appliedLootaTally": {
             "evals": [
               {
                 "actionable": false,
                 "equation": {
-                  "operator": "T/O",
-                  "value": 4
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Loota"
+                  ]
                 },
                 "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
                 "operator": "AND",
                 "paths": [
                   [
@@ -22250,17 +23171,29 @@
                     "Loota"
                   ]
                 ]
-              },
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 40
+          },
+          "appliedSpannerTally": {
+            "evals": [
               {
-                "actionable": true,
-                "min": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Spanner"
+                  ]
+                },
                 "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
                 "operator": "AND",
                 "paths": [
                   [
@@ -22272,7 +23205,432 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "error"
+            "failState": "pass",
+            "order": 40
+          },
+          "applyMissingLootas": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Loota"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Loota",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueLootaTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Lootas remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Loota",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 32
+          },
+          "applyMissingSpanners": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Spanner"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Spanner",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueSpannerTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of Spanners remaining to be added",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Spanner",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
+          "applyMoreLootas": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Loota",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedLootaTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "1",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Loota"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 42
+          },
+          "applyMoreSpanners": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Spanner",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedSpannerTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "rules",
+                    "numberOfModels",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Spanner"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 41
+          },
+          "numberOfModels": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "Number of Spanners",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": false,
+                "note": "Number of Lootaz",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 29
+          },
+          "trueLootaTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Loota"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Loota"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
+          },
+          "trueSpannerTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Spanner"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Spanner"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
           }
         },
         "stats": {
@@ -22305,7 +23663,8 @@
             },
             "max": 15,
             "min": 5,
-            "value": 5
+            "value": 5,
+            "visibility": "normal"
           },
           "Points": {
             "value": 50
