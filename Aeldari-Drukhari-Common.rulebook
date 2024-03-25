@@ -1,6 +1,6 @@
 {
   "name": "Aeldari/Drukhari common",
-  "revision": "10.9.14",
+  "revision": "10.9.15",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10,7 +10,7 @@
   "isModule": true,
   "dependencies": [
     {
-      "slug": "N22C3Z",
+      "slug": "WZXSHB",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -1008,6 +1008,47 @@
           "Keywords": [
             "Special"
           ]
+        },
+        "rules": {
+          "troupeAsBattleline": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "note": "This is exhaustive but seems to only affect one unit. Future units that qualify will need specific entries OR this will need to be re-structured when we can target keywords",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Troupe",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4
+          }
         },
         "text": "If this model is your Warlord, Troupe units from your army have the Battleline keyword."
       },
@@ -4637,28 +4678,6 @@
           }
         }
       },
-      "Melee Weapon§Corsair Voidreavers—Close combat weapon": {
-        "aspects": {
-          "Label": "Close combat weapon"
-        },
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": 0
-          },
-          "D": {
-            "value": 1
-          },
-          "S": {
-            "value": 3
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
       "Melee Weapon§Corsair Voidreavers—Aeldari power sword": {
         "aspects": {
           "Label": "Aeldari power sword"
@@ -4679,6 +4698,28 @@
           },
           "S": {
             "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Corsair Voidreavers—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 3
           },
           "WS": {
             "value": 3
