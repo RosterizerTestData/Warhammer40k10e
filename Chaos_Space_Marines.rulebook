@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.9.8",
+  "revision": "10.9.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "CXBARZ",
+      "slug": "PRAKHR",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -1117,6 +1117,47 @@
           "Keywords": [
             "Special"
           ]
+        },
+        "rules": {
+          "noisemarineAsBattleline": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "note": "This is exhaustive but seems to only affect one unit. Future units that qualify will need specific entries OR this will need to be re-structured when we can target keywords",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Noise Marines",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4
+          }
         },
         "text": "If this model is your Warlord, Noise Marine units in your army have the Battleline keyword."
       },
@@ -32290,81 +32331,6 @@
           ]
         },
         "rules": {
-          "addBattlelineIfLuciusIsWarlord": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Unit§Noise Marines",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Battleline"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Unit§Noise Marines",
-                    "stats",
-                    "maxQty",
-                    "value"
-                  ]
-                ],
-                "prepend": " ",
-                "value": 6
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Character§Lucius the Eternal",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "item",
-                    "Character§Lucius the Eternal",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "pass",
-            "order": 200
-          },
           "Maximum 1 Blastmaster": {
             "evals": [
               {
