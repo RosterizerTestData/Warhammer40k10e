@@ -314,6 +314,9 @@
       "Ability§Jet Pack Insertion": {
         "text": "At the end of your opponent’s Movement phase, one or more units embarked within this Transport can disembark from it, provided every model in each of those disembarking units has the Deep Strike ability."
       },
+      "Ability§Kroot Ambush": {
+        "text": "After both players have deployed their armies and determined who has the first turn, you can redeploy this models unit and one other friendly KROOT unit. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in strategic reserves"
+      },
       "Ability§Kroot Packmates": {
         "keywords": {
           "Keywords": [
@@ -415,13 +418,19 @@
       "Ability§Reinforced Cover": {
         "text": "Each time a ranged attack is allocated to a model, if that model is not fully visible to every model in the attacking unit because of this Fortification, that model has the Benefit of Cover against that attack."
       },
-      "Ability§Ritualistic Feeding": {
+      "Ability§Rites of Feasting": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "Each time this model ends a Charge move, until the end of the turn, add 3 to the Attacks characteristic of its Shaper’s ritual blade."
+        "text": "While this model is leading a unit, models in that unit have the Feel No Pain 6+ ability. If that unit destroys one or more enemy units in the Fight phase, until the end of the battle, models in that unit have the Feel No Pain 5= ability instead."
+      },
+      "Ability§Ritual Butchery": {
+        "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the SUSTAINED HITS 1 ability."
+      },
+      "Ability§Root of Honour": {
+        "text": "Once per battle, at the start of any phase, you can select one friendly KROOT unit that is Battle-shocked and within 12\" of this modelk. That unit is no longer Battle-Shocked"
       },
       "Ability§Sentinel Protocols": {
         "text": "Each time you select this Fortification for the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ when resolving that Stratagem"
@@ -605,6 +614,9 @@
         },
         "text": "Each time this model makes a ranged attack that targets a Titanic or Towering unit, you can re-roll the Hit roll."
       },
+      "Ability§Trail Finding": {
+        "text": "Once per turn, when an enemy unit ends a Normal,Advance or Fall Back move within 9\" of this model's unit, if this models unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6."
+      },
       "Ability§Transport": {
         "text": "This model has a transport capacity of 48 T’au Empire Infantry models. This model can also transport up to 6 Battlesuit models (these models take up the space of a number of models equal to their Wounds characteristic, e.g. a Battlesuit with a Wounds characteristic of 8 would take up the space of 8 models). This model cannot transport Kroot or Vespid Stingwings models."
       },
@@ -642,6 +654,9 @@
           ]
         },
         "text": "While this model is leading a unit, add 1 to the Attacks characteristic of ranged weapons equipped by models in that unit."
+      },
+      "Ability§War Leader": {
+        "text": "Once per battle round, one unit from your army with this ability can be targeted with a Strategem for 0CP, even if another unit from your army has already been targeted with that Strategem this phase."
       },
       "Ability§Way of the Short Blade": {
         "keywords": {
@@ -2315,7 +2330,7 @@
           }
         }
       },
-      "Character§Kroot Shaper": {
+      "Character§Kroot Flesh Shaper": {
         "assets": {
           "traits": [
             {
@@ -2331,8 +2346,8 @@
               }
             },
             "Ability§Stealth",
-            "Ability§The Shaper Commands",
-            "Ability§Ritualistic Feeding"
+            "Ability§Ritual Butchery",
+            "Ability§Rites of Feasting"
           ]
         },
         "keywords": {
@@ -2367,24 +2382,123 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Shaper’s ritual blade": {
+              "Twin ritualistic blades": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Kroot Shaper—Shaper’s ritual blade"
+                    "trait": "Melee Weapon§Twin ritualistic blades"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Shaper’s ritual blade",
+            "value": "Twin ritualistic blades",
             "visibility": "normal"
           },
           "OC": {
             "value": 1
           },
           "Points": {
-            "value": 40
+            "value": 60
+          },
+          "Ranged Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Kroot Scattergun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot scattergun"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot Scattergun",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          }
+        },
+        "text": ""
+      },
+      "Character§Kroot Trail Shaper": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following unit:\n\n* Kroot Carnivores"
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Stealth",
+            "Ability§Infiltrators",
+            "Ability§Trail Finding",
+            "Ability§Kroot Ambush"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Character",
+            "Infantry",
+            "Kroot",
+            "Shaper"
+          ],
+          "Tags": [],
+          "Category": [
+            "Character"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "Melee Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Shaper’s blade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Shaper’s blade"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Shaper’s blade",
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 50
           },
           "Ranged Weapon": {
             "dynamic": true,
@@ -2398,18 +2512,111 @@
                     "trait": "Ranged Weapon§Kroot Shaper—Kroot rifle"
                   }
                 ]
-              },
-              "Pulse rifle": {
-                "order": 1,
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot rifle",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          }
+        },
+        "text": ""
+      },
+      "Character§Kroot War Shaper": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following unit:\n\n* Kroot Carnivores"
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Stealth",
+            "Ranged Weapon§Kroot Pistol",
+            "Ability§War Leader",
+            "Ability§Root of Honour"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Character",
+            "Grenades",
+            "Infantry",
+            "Kroot",
+            "Shaper"
+          ],
+          "Tags": [
+            "Character Kroot Shaper"
+          ],
+          "Category": [
+            "Character"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "Melee Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Shaper’s blade": {
+                "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Kroot Shaper—Pulse rifle"
+                    "trait": "Melee Weapon§Shaper’s blade"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Kroot rifle",
+            "value": "Shaper’s blade",
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 55
+          },
+          "Ranged Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Dart-bow and tri-blade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Dart-bow and tri-blade"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Dart-bow and tri-blade",
             "visibility": "active"
           },
           "Sv": {
@@ -2783,6 +2990,111 @@
         },
         "text": "T’au Empire model only (excluding Kroot Shaper models). While this model is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in their Guided unit have the [LETHAL HITS] ability while targeting their Spotted unit."
       },
+      "Legends§Crisis Battlesuits": {
+        "allowed": {
+          "items": [
+            "Character§Commander Farsight",
+            "Character§Commander in Coldstar Battlesuit",
+            "Character§Commander in Enforcer Battlesuit"
+          ]
+        },
+        "assets": {
+          "included": [],
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§For the Greater Good",
+            "Ability§Fireknife",
+            "Ability§Weapon Support System",
+            "Model§Crisis Shas’vre",
+            "Model§Crisis Shas’ui",
+            "Model§Crisis Shas’ui",
+            "Ability§Turbo-jets"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Walker",
+            "Fly",
+            "Battlesuit",
+            "Crisis"
+          ],
+          "Tags": [
+            "Legends",
+            "Unit Crisis Battlesuits"
+          ],
+          "Category": [
+            "Vehicle—Walker"
+          ]
+        },
+        "stats": {
+          "Crisis Shas’ui": {
+            "increment": {
+              "value": 1
+            },
+            "max": 5,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 2,
+            "visibility": "hidden"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": "10"
+          },
+          "model": {
+            "statType": "numeric",
+            "value": 0
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 400
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "model3rdCost": {},
+          "modelKey": {
+            "value": "Model§Crisis Shas’ui"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": "2"
+          },
+          "Points": {
+            "value": 200
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 4
+          }
+        },
+        "text": ""
+      },
       "Legends§Drone Sentry Turret": {
         "assets": {
           "traits": [
@@ -3105,6 +3417,116 @@
             "value": 4
           }
         }
+      },
+      "Legends§Kroot Shaper": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following unit:\n\n* Kroot Carnivores"
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Stealth",
+            "Ability§The Shaper Commands",
+            "Ability§Rites of Feasting"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Keywords": [
+            "Character",
+            "Grenades",
+            "Infantry",
+            "Kroot",
+            "Shaper"
+          ],
+          "Tags": [
+            "Character Kroot Shaper",
+            "Legends"
+          ],
+          "Category": [
+            "Character"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "Melee Weapon": {
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Shaper’s ritual blade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Kroot Shaper—Shaper’s ritual blade"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Shaper’s ritual blade",
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 40
+          },
+          "Ranged Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Kroot rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Shaper—Kroot rifle"
+                  }
+                ]
+              },
+              "Pulse rifle": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Shaper—Pulse rifle"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot rifle",
+            "visibility": "active"
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          }
+        },
+        "text": ""
       },
       "Legends§Orca Dropship": {
         "assets": {
@@ -3578,6 +4000,30 @@
           },
           "WS": {
             "value": 5
+          }
+        }
+      },
+      "Melee Weapon§Bladestave and prey-hook": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
           }
         }
       },
@@ -4328,32 +4774,6 @@
           }
         }
       },
-      "Melee Weapon§Kroot Shaper—Shaper’s ritual blade": {
-        "aspects": {
-          "Label": "Shaper’s ritual blade"
-        },
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": 0
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
-          "S": {
-            "value": 5
-          },
-          "WS": {
-            "value": 2
-          }
-        }
-      },
       "Melee Weapon§Krootox Riders—Krootox fists": {
         "aspects": {
           "Label": "Krootox fists"
@@ -4533,6 +4953,32 @@
           },
           "WS": {
             "value": 5
+          }
+        }
+      },
+      "Melee Weapon§Shaper’s blade": {
+        "aspects": {
+          "Label": "Shaper’s ritual blade"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
           }
         }
       },
@@ -4759,6 +5205,30 @@
           },
           "WS": {
             "value": 5
+          }
+        }
+      },
+      "Melee Weapon§Twin ritualistic blades": {
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 1
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
           }
         }
       },
@@ -12037,6 +12507,39 @@
           }
         }
       },
+      "Ranged Weapon§Dart-bow and tri-blade": {
+        "assets": {
+          "traits": [
+            "Ability§Anti-"
+          ]
+        },
+        "stats": {
+          "A": {
+            "ranks": {
+              "D3+1": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "D3+1"
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Devilfish—Accelerator burst cannon": {
         "aspects": {
           "Label": "Accelerator burst cannon"
@@ -13545,6 +14048,63 @@
           },
           "S": {
             "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Kroot Pistol": {
+        "allowed": {
+          "items": []
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Kroot scattergun": {
+        "assets": {
+          "traits": [
+            "Ability§Assault"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
           }
         }
       },
@@ -17397,111 +17957,6 @@
         },
         "text": ""
       },
-      "Unit§Crisis Battlesuits": {
-        "allowed": {
-          "items": [
-            "Character§Commander Farsight",
-            "Character§Commander in Coldstar Battlesuit",
-            "Character§Commander in Enforcer Battlesuit"
-          ]
-        },
-        "assets": {
-          "included": [],
-          "traits": [
-            "Ability§Deep Strike",
-            "Ability§For the Greater Good",
-            "Ability§Fireknife",
-            "Ability§Weapon Support System",
-            "Model§Crisis Shas’vre",
-            "Model§Crisis Shas’ui",
-            "Model§Crisis Shas’ui",
-            "Ability§Turbo-jets"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T’au Empire"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Keywords": [
-            "Vehicle",
-            "Walker",
-            "Fly",
-            "Battlesuit",
-            "Crisis"
-          ],
-          "Tags": [
-            "Legends",
-            "Unit Crisis Battlesuits"
-          ],
-          "Category": [
-            "Vehicle—Walker"
-          ]
-        },
-        "stats": {
-          "Crisis Shas’ui": {
-            "increment": {
-              "value": 1
-            },
-            "max": 5,
-            "min": 2,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 2,
-            "visibility": "hidden"
-          },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "10"
-          },
-          "model": {
-            "statType": "numeric",
-            "value": 0
-          },
-          "model1stTally": {
-            "value": 3
-          },
-          "model2ndCost": {
-            "value": 400
-          },
-          "model2ndTally": {
-            "value": 6
-          },
-          "model3rdCost": {},
-          "modelKey": {
-            "value": "Model§Crisis Shas’ui"
-          },
-          "Models": {
-            "increment": {
-              "value": 3
-            },
-            "max": 6,
-            "min": 3,
-            "value": 3,
-            "visibility": "normal"
-          },
-          "OC": {
-            "value": "2"
-          },
-          "Points": {
-            "value": 200
-          },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 4
-          }
-        },
-        "text": ""
-      },
       "Unit§Crisis Fireknife Battlesuits": {
         "allowed": {
           "items": [
@@ -17517,12 +17972,10 @@
             "Ability§Deep Strike",
             "Ability§For the Greater Good",
             "Model§Crisis Fireknife Shas’vre",
-            {
-              "item": "Model§Crisis Fireknife Shas’ui",
-              "quantity": 2
-            },
+            "Model§Crisis Fireknife Shas’ui",
             "Ability§Fireknife",
-            "Ability§Weapon Support System"
+            "Ability§Weapon Support System",
+            "Model§Crisis Fireknife Shas’ui"
           ]
         },
         "keywords": {
@@ -17706,12 +18159,10 @@
           "traits": [
             "Ability§Deep Strike",
             "Ability§For the Greater Good",
-            {
-              "item": "Model§Crisis Sunforge Shas’ui",
-              "quantity": 2
-            },
+            "Model§Crisis Sunforge Shas’ui",
             "Model§Crisis Sunforge Shas’vre",
-            "Ability§Sunforge"
+            "Ability§Sunforge",
+            "Model§Crisis Sunforge Shas’ui"
           ]
         },
         "keywords": {
@@ -18623,7 +19074,7 @@
         "allowed": {
           "items": [
             "Model§Kroot Carnivores",
-            "Character§Kroot Shaper"
+            "Legends§Kroot Shaper"
           ]
         },
         "assets": {
