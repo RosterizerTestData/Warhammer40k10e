@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.9.20",
+  "revision": "10.10.0",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -112,7 +112,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 200
+            "order": 99
           }
         },
         "stats": {
@@ -1170,9 +1170,8 @@
                 ],
                 "value": [
                   "{self}",
-                  "stats",
-                  "modelName",
-                  "value"
+                  "aspects",
+                  "Label"
                 ]
               }
             ],
@@ -1184,9 +1183,8 @@
                 "paths": [
                   [
                     "{self}",
-                    "stats",
-                    "modelName",
-                    "value"
+                    "aspects",
+                    "Label"
                   ]
                 ],
                 "value": ""
@@ -1218,11 +1216,6 @@
             "statType": "numeric",
             "value": null,
             "visibility": "normal"
-          },
-          "modelName": {
-            "statType": "term",
-            "value": null,
-            "visibility": "hidden"
           },
           "OC": {
             "group": "Stats",
@@ -3321,6 +3314,24 @@
                   "{self}",
                   "designation"
                 ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{self}",
+                  "stats",
+                  "unitID",
+                  "value"
+                ]
               }
             ],
             "evals": [],
@@ -4354,7 +4365,7 @@
       },
       "Wargear": {
         "aspects": {
-          "Visibility": "always"
+          "Visibility": "active"
         },
         "rules": {
           "addKeywordToGrandparent": {
