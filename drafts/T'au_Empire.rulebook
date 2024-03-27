@@ -2519,7 +2519,6 @@
               }
             },
             "Ability§Stealth",
-            "Ranged Weapon§Kroot Pistol",
             "Ability§War Leader",
             "Ability§Root of Honour"
           ]
@@ -2549,23 +2548,6 @@
           "M": {
             "value": 7
           },
-          "Melee Weapon": {
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Shaper’s blade": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Shaper’s blade"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Shaper’s blade",
-            "visibility": "normal"
-          },
           "OC": {
             "value": 1
           },
@@ -2576,17 +2558,34 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Dart-bow and tri-blade": {
+              "Dart-bow and tri-blade, Kroot Pistol & Shaper Blade": {
                 "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Dart-bow and tri-blade"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Kroot Pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Shaper’s blade"
+                  }
+                ]
+              },
+              "Kroot Pistol & Bladestave and Prey-hook": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Bladestave and prey-hook"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Dart-bow and tri-blade",
+            "value": "Dart-bow and tri-blade, Kroot Pistol & Shaper Blade",
             "visibility": "active"
           },
           "Sv": {
@@ -4527,6 +4526,54 @@
           }
         }
       },
+      "Melee Weapon§Hunting Javelin": {
+        "assets": {
+          "traits": [
+            "Ability§Lance"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 1
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Kalamandra's Bite": {
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 1
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
       "Melee Weapon§Knarloc Beak and Talons": {
         "assets": {
           "traits": [
@@ -4755,6 +4802,25 @@
           },
           "S": {
             "value": 6
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Lone-spear Close Combat weapon": {
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
           },
           "WS": {
             "value": 3
@@ -5307,6 +5373,33 @@
             "Ability§Ds8 Support Turret",
             "Ranged Weapon§Breacher Team—Support turret missile system"
           ]
+        },
+        "rules": {
+          "No Duplicated Drones": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Guardian Drone",
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "1st Drone": {
@@ -6095,94 +6188,24 @@
           ]
         },
         "rules": {
-          "Battlesuit support systems max 1": {
+          "No Duplicate Drones": {
             "evals": [
               {
                 "actionable": true,
                 "max": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "Bsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Fragmentation projector max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Frag"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Shields max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Shield"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapon support systems max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Wsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapons max 3": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 3,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Weapon"
+                    "tally",
+                    [
+                      "Guardian Drone",
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
                   ]
                 ]
               }
@@ -6378,57 +6401,24 @@
           ]
         },
         "rules": {
-          "Battlesuit support systems max 1": {
+          "No Duplicated Drones": {
             "evals": [
               {
                 "actionable": true,
                 "max": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "Bsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Shields max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Shield Drone"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error",
-            "order": 1
-          },
-          "Weapon support systems max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Wsupport"
+                    "tally",
+                    [
+                      "Guardian Drone",
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
                   ]
                 ]
               }
@@ -7971,94 +7961,23 @@
           "included": []
         },
         "rules": {
-          "Battlesuit support systems max 1": {
+          "No Duplicate Drones": {
             "evals": [
               {
                 "actionable": true,
                 "max": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "Bsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Fragmentation projector max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Frag"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Shields max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Shield"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapon support systems max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Wsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapons max 3": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 3,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Weapon"
+                    "tally",
+                    [
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
                   ]
                 ]
               }
@@ -8252,94 +8171,23 @@
           "included": []
         },
         "rules": {
-          "Battlesuit support systems max 1": {
+          "No Duplicate Drones": {
             "evals": [
               {
                 "actionable": true,
                 "max": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "Bsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Fragmentation projectors max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Frag"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Shields max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Shield"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapon support systems max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Wsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapons max 3": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 3,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Weapon"
+                    "tally",
+                    [
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
                   ]
                 ]
               }
@@ -8530,94 +8378,23 @@
       },
       "Model§Crisis Sunforge Shas’ui": {
         "rules": {
-          "Battlesuit support systems max 1": {
+          "No Duplicated drones": {
             "evals": [
               {
                 "actionable": true,
                 "max": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "Bsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Fragmentation projector max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Frag"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Shields max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Shield"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapon support systems max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Wsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapons max 3": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 3,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Weapon"
+                    "tally",
+                    [
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
                   ]
                 ]
               }
@@ -8765,94 +8542,23 @@
       },
       "Model§Crisis Sunforge Shas’vre": {
         "rules": {
-          "Battlesuit support systems max 1": {
+          "No Duplicated Drones": {
             "evals": [
               {
                 "actionable": true,
                 "max": 1,
+                "min": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
-                    "Bsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Fragmentation projectors max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Frag"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Shields max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Shield"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapon support systems max 1": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Wsupport"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Weapons max 3": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 3,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Weapon"
+                    "tally",
+                    [
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
                   ]
                 ]
               }
@@ -9035,6 +8741,33 @@
             "Melee Weapon§Strike Team—Close combat weapon",
             "Ranged Weapon§Strike Team—Support turret missile system"
           ]
+        },
+        "rules": {
+          "No duplicated drones": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Guardian Drone",
+                      "Gun Drone",
+                      "Shield Drone",
+                      "Marker Drone"
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "1st Drone": {
@@ -10980,6 +10713,34 @@
           },
           "W": {
             "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Blast Javelin": {
+        "stats": {
+          "A": {
+            "ranks": {
+              "D6": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "D6"
+          },
+          "AP": {
+            "value": 2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 10
           }
         }
       },
@@ -14004,6 +13765,34 @@
           },
           "S": {
             "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Kroot Long Gun": {
+        "assets": {
+          "traits": [
+            "Ability§Heavy",
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 6
           }
         }
       },
@@ -17160,7 +16949,7 @@
                 ]
               }
             },
-            "value": "Kauyon"
+            "value": "-"
           },
           "Faction": {
             "dynamic": false,
@@ -17961,12 +17750,6 @@
           "model1stTally": {
             "value": 3
           },
-          "model2ndCost": {
-            "value": 400
-          },
-          "model2ndTally": {
-            "value": 6
-          },
           "model3rdCost": {},
           "modelKey": {
             "value": "Model§Crisis Shas’ui"
@@ -18051,12 +17834,6 @@
           "model1stTally": {
             "value": 3
           },
-          "model2ndCost": {
-            "value": 400
-          },
-          "model2ndTally": {
-            "value": 6
-          },
           "model3rdCost": {},
           "Models": {
             "increment": {
@@ -18137,9 +17914,6 @@
           },
           "model1stTally": {
             "value": 3
-          },
-          "model2ndTally": {
-            "value": 6
           },
           "model3rdCost": {},
           "modelKey": {
@@ -19002,10 +18776,9 @@
               }
             },
             "Ability§Stealth",
-            "Ability§Grisly Feast",
             {
               "item": "Model§Kroot Carnivores",
-              "quantity": 10
+              "quantity": 9
             }
           ]
         },
@@ -19026,6 +18799,9 @@
             "Infantry"
           ]
         },
+        "removed": {
+          "stats": {}
+        },
         "stats": {
           "Kroot Carnivores": {
             "max": 20,
@@ -19045,7 +18821,7 @@
             "value": 10
           },
           "model2ndCost": {
-            "value": 110
+            "value": 150
           },
           "model2ndTally": {
             "value": 20
@@ -19063,10 +18839,10 @@
             "visibility": "normal"
           },
           "OC": {
-            "value": "1"
+            "value": 2
           },
           "Points": {
-            "value": 55
+            "value": 75
           },
           "Sv": {
             "value": 6
@@ -19336,6 +19112,94 @@
           }
         },
         "text": ""
+      },
+      "Unit§Kroot Lone-Spear": {
+        "assets": {
+          "traits": [
+            "Ability§Lone Operative",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7"
+                }
+              }
+            },
+            "Ability§Stealth",
+            "Melee Weapon§Kalamandra's Bite"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Mounted"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Category": [
+            "Character"
+          ]
+        },
+        "removed": {
+          "stats": {
+            "maxQty": {}
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 105
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
+          },
+          "Wargear": {
+            "ranks": {
+              "Kroot Long Gun & Close Combat Weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Long Gun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Lone-spear Close Combat weapon"
+                  }
+                ]
+              },
+              "Blast Javelin & Hunting Javelin": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Blast Javelin"
+                  },
+                  {
+                    "trait": "Melee Weapon§Hunting Javelin"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot Long Gun & Close Combat Weapon",
+            "visibility": "normal"
+          }
+        }
       },
       "Unit§Krootox Riders": {
         "allowed": {
@@ -20896,10 +20760,19 @@
         },
         "keywords": {
           "Keywords": [
-            "Battleline"
+            "Battleline",
+            "Grenades",
+            "Infantry",
+            "Markerlight"
           ],
           "Category": [
             "Battleline"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Faction": [
+            "T’au Empire"
           ]
         },
         "stats": {
