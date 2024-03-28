@@ -222,6 +222,9 @@
         },
         "text": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
       },
+      "Ability§Fieldcraft": {
+        "text": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+      },
       "Ability§Fireknife": {
         "text": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If that Attack yargets a unit that is at its starting strength, you can re-roll the Hit roll instead."
       },
@@ -323,7 +326,7 @@
             "Other"
           ]
         },
-        "text": "While one or more friendly Kroot Carnivore units are within 6″ of this unit, each time a model in this unit makes an attack, add 1 to the Hit roll."
+        "text": "Once per turn, in your opponent's Shooting phase, when a friendly KROOT INFANTRY unit within 6\" of this unit is selected as the selected as the target of an attack, one unit from your army with this ability can use it. If it does, after that enemy unit has finished making its attacks, that unit with this ability can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target)"
       },
       "Ability§Loping Stride": {
         "text": "Each time this model Advances, do not make an Advance roll for it. Instead, until the end of the phase, add\n6\" to the Move characteristic of this model."
@@ -9073,7 +9076,37 @@
       "Model§Kroot Carnivores": {
         "assets": {
           "traits": [
-            "Weapon§Kroot Carnivores—Kroot rifle"
+            "Melee Weapon§Kroot Farstalkers—Close combat weapon",
+            "Ranged Weapon§Kroot Carnivores—Kroot rifle",
+            "Ranged Weapon§Kroot Pistol"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Kroot Carnivores Tanglebomb Launcher": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Tanglebomb Launcher",
+            "Melee Weapon§Kroot Farstalkers—Close combat weapon"
           ]
         },
         "stats": {
@@ -9360,8 +9393,8 @@
       "Model§Krootox Riders": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Krootox Riders—Kroot gun",
-            "Melee Weapon§Krootox Riders—Krootox fists"
+            "Melee Weapon§Krootox Riders—Krootox fists",
+            "Melee Weapon§Kroot Farstalkers—Close combat weapon"
           ]
         },
         "stats": {
@@ -9374,6 +9407,31 @@
           "OC": {
             "value": 2
           },
+          "Ranged Weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "Repeator Cannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Repeater Cannon"
+                  }
+                ]
+              },
+              "Tanglecannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tanglecannon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Repeator Cannon",
+            "visibility": "normal"
+          },
           "Sv": {
             "value": 6
           },
@@ -9382,6 +9440,34 @@
           },
           "W": {
             "value": 4
+          }
+        }
+      },
+      "Model§Long Quill": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Kroot Pistol",
+            "Melee Weapon§Kroot Farstalkers—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
           }
         }
       },
@@ -13564,6 +13650,28 @@
           }
         }
       },
+      "Ranged Weapon§Kroot Carbine": {
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Kroot Carnivores—Kroot rifle": {
         "aspects": {
           "Label": "Ranged"
@@ -15021,6 +15129,40 @@
           }
         }
       },
+      "Ranged Weapon§Repeater Cannon": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 1
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 7
+          }
+        }
+      },
       "Ranged Weapon§Riptide Battlesuit—Heavy burst cannon": {
         "aspects": {
           "Label": "Heavy burst cannon"
@@ -16360,6 +16502,73 @@
           },
           "S": {
             "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Tanglebomb Launcher": {
+        "assets": {
+          "traits": [
+            "Ability§Blast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "ranks": {
+              "D3": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "D3"
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Tanglecannon": {
+        "assets": {
+          "traits": [
+            "Ability§Heavy",
+            "Ability§Blast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "ranks": {
+              "D6+1": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "D6+1"
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 6
           }
         }
       },
@@ -18761,8 +18970,10 @@
       "Unit§Kroot Carnivores": {
         "allowed": {
           "items": [
-            "Model§Kroot Carnivores",
-            "Legends§Kroot Shaper"
+            "Character§Kroot War Shaper",
+            "Character§Kroot Trail Shaper",
+            "Character§Kroot Flesh Shaper",
+            "Model§Kroot Carnivores Tanglebomb Launcher"
           ]
         },
         "assets": {
@@ -18776,10 +18987,8 @@
               }
             },
             "Ability§Stealth",
-            {
-              "item": "Model§Kroot Carnivores",
-              "quantity": 9
-            }
+            "Model§Long Quill",
+            "Ability§Fieldcraft"
           ]
         },
         "keywords": {
@@ -18802,17 +19011,122 @@
         "removed": {
           "stats": {}
         },
-        "stats": {
-          "Kroot Carnivores": {
-            "max": 20,
-            "min": 10,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
+        "rules": {
+          "Increase leaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Kroot War Shaper"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Kroot Trail Shaper"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Kroot Flesh Shaper"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
           },
+          "No Duplicate shapers": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Kroot War Shaper",
+                      "Kroot Flesh Shaper",
+                      "Kroot Trail Shaper"
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
           "Ld": {
             "value": 7
+          },
+          "Leader": {
+            "max": 2
+          },
+          "Long Quill Weapons": {
+            "group": "Loadout",
+            "ranks": {
+              "Kroot rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Carnivores—Kroot rifle"
+                  }
+                ]
+              },
+              "Kroot Carbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Carbine"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot rifle",
+            "visibility": "normal"
           },
           "M": {
             "value": "7"
@@ -19131,7 +19445,7 @@
         },
         "keywords": {
           "Keywords": [
-            "Mounted"
+            "Character"
           ],
           "Source": [
             "10th Edition Index"
@@ -19140,7 +19454,7 @@
             "T’au Empire"
           ],
           "Category": [
-            "Character"
+            "Mounted"
           ]
         },
         "removed": {
@@ -19198,6 +19512,28 @@
             "statType": "rank",
             "value": "Kroot Long Gun & Close Combat Weapon",
             "visibility": "normal"
+          }
+        }
+      },
+      "Unit§Krootox Rampagers": {
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 5
           }
         }
       },
