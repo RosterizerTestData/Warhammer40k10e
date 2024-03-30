@@ -1,6 +1,6 @@
 {
   "name": "T’au Empire Codex",
-  "revision": "10.10.0",
+  "revision": "10.10.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "8CVMSS",
+      "slug": "HS72F6",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -9135,11 +9135,10 @@
           ]
         }
       },
-      "Model§Kroot Carnivores": {
+      "Model§Kroot Carnivore": {
         "assets": {
           "traits": [
             "Melee Weapon§Kroot Farstalkers—Close combat weapon",
-            "Ranged Weapon§Kroot Carnivores—Kroot rifle",
             "Ranged Weapon§Kroot Pistol"
           ]
         },
@@ -9147,33 +9146,28 @@
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 7
-          },
-          "OC": {
-            "value": 1
-          },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
-        }
-      },
-      "Model§Kroot Carnivores Tanglebomb Launcher": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Tanglebomb Launcher",
-            "Melee Weapon§Kroot Farstalkers—Close combat weapon"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
+          "Loadout": {
+            "ranks": {
+              "Kroot rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Weapon§Kroot Carnivores—Kroot rifle"
+                  }
+                ]
+              },
+              "Tanglebomb launcher": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Tanglebomb Launcher"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot rifle",
+            "visibility": "normal"
           },
           "M": {
             "value": 7
@@ -9480,7 +9474,7 @@
           }
         }
       },
-      "Model§Krootox Rampagers": {
+      "Model§Krootox Rampager": {
         "assets": {
           "traits": [
             "Ranged Weapon§Kroot Pistol and Hunting Javelins",
@@ -9552,6 +9546,31 @@
         "stats": {
           "Ld": {
             "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "Kroot rifle": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Carnivores—Kroot rifle"
+                  }
+                ]
+              },
+              "Kroot Carbine": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Carbine"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot rifle",
+            "visibility": "normal"
           },
           "M": {
             "value": 7
@@ -19155,7 +19174,7 @@
             "Character§Kroot War Shaper",
             "Character§Kroot Trail Shaper",
             "Character§Kroot Flesh Shaper",
-            "Model§Kroot Carnivores Tanglebomb Launcher"
+            "Model§Kroot Carnivore"
           ]
         },
         "assets": {
@@ -19170,7 +19189,11 @@
             },
             "Ability§Stealth",
             "Model§Long Quill",
-            "Ability§Fieldcraft"
+            "Ability§Fieldcraft",
+            {
+              "item": "Model§Kroot Carnivore",
+              "quantity": 9
+            }
           ]
         },
         "keywords": {
@@ -19194,6 +19217,98 @@
           "stats": {}
         },
         "rules": {
+          "applyTanglebombs": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Kroot Carnivore",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Tanglebombs",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Model§Kroot Carnivore",
+                  "stats": {
+                    "Loadout": {
+                      "dynamic": false,
+                      "value": "Tanglebomb launcher"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tanglebombs",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "rules",
+                  "count1in10",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tanglebombs",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Increase leaders": {
             "actions": [
               {
@@ -19280,36 +19395,19 @@
           }
         },
         "stats": {
+          "Kroot Carnivore": {
+            "max": 19,
+            "min": 9,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Ld": {
             "value": 7
           },
           "Leader": {
             "max": 2
-          },
-          "Long Quill Weapons": {
-            "dynamic": true,
-            "group": "Loadout",
-            "ranks": {
-              "Kroot rifle": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Carnivores—Kroot rifle"
-                  }
-                ]
-              },
-              "Kroot Carbine": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Carbine"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Kroot rifle",
-            "visibility": "normal"
           },
           "M": {
             "value": "7"
@@ -19324,7 +19422,7 @@
             "value": 20
           },
           "modelKey": {
-            "value": "Model§Kroot Carnivores"
+            "value": "Model§Kroot Carnivore"
           },
           "Models": {
             "increment": {
@@ -19346,6 +19444,17 @@
           },
           "T": {
             "value": 3
+          },
+          "Tanglebombs": {
+            "group": "Loadout",
+            "increment": {
+              "value": 1
+            },
+            "max": 1,
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
           },
           "W": {
             "value": 1
@@ -19634,9 +19743,7 @@
           ]
         },
         "removed": {
-          "stats": {
-            "maxQty": {}
-          }
+          "stats": {}
         },
         "stats": {
           "Ld": {
@@ -19694,7 +19801,7 @@
       "Unit§Krootox Rampagers": {
         "allowed": {
           "items": [
-            "Model§Krootox Rampagers"
+            "Model§Krootox Rampager"
           ]
         },
         "assets": {
@@ -19709,7 +19816,7 @@
             },
             "Ability§Kroot Linebreakers",
             {
-              "item": "Model§Krootox Rampagers",
+              "item": "Model§Krootox Rampager",
               "quantity": 3
             }
           ]
@@ -19730,6 +19837,13 @@
           ]
         },
         "stats": {
+          "Krootox Rampager": {
+            "max": 6,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Ld": {
             "value": 7
           },
@@ -19745,12 +19859,17 @@
           "model2ndTally": {
             "value": 6
           },
+          "modelKey": {
+            "value": "Model§Krootox Rampager"
+          },
           "Models": {
             "increment": {
-              "value": 1
+              "value": 3
             },
             "max": 6,
-            "min": 3
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
           },
           "OC": {
             "value": 2
