@@ -38,14 +38,6 @@
       "Ability§Aerial Disengagement": {
         "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\"."
       },
-      "Ability§Aerial Scanners": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Each time this model makes an attack with a ranged weapon that targets a unit that can Fly, you can re-roll the Hit roll."
-      },
       "Ability§Aggressive Deployment": {
         "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly model that disembarked from this Transport this turn makes an attack that targets that enemy unit, you can re-roll the Wound roll."
       },
@@ -290,13 +282,13 @@
       "Ability§Hooked": {
         "text": "Each time the bearer makes an attack with this weapon that targets a Monster or Vehicle unit, if a hit is scored, until the end of the turn, if the bearer selects that unit as a target of a charge, add 2 to Charge rolls made for the bearer and enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer."
       },
-      "Ability§Hunting Pack": {
+      "Ability§Hunting Hounds": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "While one or more friendly Kroot Carnivore units within 6″ of this unit are within Engagement Range of one or more enemy units, each time a model in this unit makes a melee attack, add 1 to the Wound roll."
+        "text": "While this unit is within 12″ of one or more friendly KROOT CHARACTER models, the Objective Control characteristic of the models in this unit is 1."
       },
       "Ability§Inspirational Defiance": {
         "keywords": {
@@ -320,6 +312,9 @@
       "Ability§Kroot Ambush": {
         "text": "After both players have deployed their armies and determined who has the first turn, you can redeploy this models unit and one other friendly KROOT unit. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in strategic reserves"
       },
+      "Ability§Kroot Linebreakers": {
+        "text": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it, then roll one D6 for each model in this unit that is within Engagement range of that enemy unit: for each 4+, that enemy unit suffers D3 mortal wounds. If one or more enemy models are destroyed as a result of these mortal wounds, that enemy unit must take a Battle-shock test."
+      },
       "Ability§Kroot Packmates": {
         "keywords": {
           "Keywords": [
@@ -327,6 +322,9 @@
           ]
         },
         "text": "Once per turn, in your opponent's Shooting phase, when a friendly KROOT INFANTRY unit within 6\" of this unit is selected as the selected as the target of an attack, one unit from your army with this ability can use it. If it does, after that enemy unit has finished making its attacks, that unit with this ability can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target)"
+      },
+      "Ability§Loping Pounce": {
+        "text": "At the start of your Command phase, if this unit is within 6\" of one or more friendly KROOT INFANTRY units, then until the end of the turn, this unit is eligible to declare a charge in a turn in which it Advanced."
       },
       "Ability§Loping Stride": {
         "text": "Each time this model Advances, do not make an Advance roll for it. Instead, until the end of the phase, add\n6\" to the Move characteristic of this model."
@@ -649,6 +647,14 @@
           ]
         },
         "text": "Each time this unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6″ to the Move characteristic of models in this unit."
+      },
+      "Ability§Velocity Tracker": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this model makes an attack with a ranged weapon that targets a unit that can Fly, you can re-roll the Hit roll."
       },
       "Ability§Volley Fire": {
         "keywords": {
@@ -4529,6 +4535,30 @@
           }
         }
       },
+      "Melee Weapon§Hunting Blades": {
+        "assets": {
+          "traits": [
+            "Ability§Lance"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 1
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Hunting Javelin": {
         "assets": {
           "traits": [
@@ -4931,6 +4961,38 @@
           },
           "WS": {
             "value": 5
+          }
+        }
+      },
+      "Melee Weapon§Rampager Fists": {
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks",
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 1
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 3
           }
         }
       },
@@ -9131,12 +9193,66 @@
         }
       },
       "Model§Kroot Farstalkers": {
+        "allowed": {
+          "items": [
+            "Wargear§Pech’ra"
+          ]
+        },
         "assets": {
           "traits": [
             "Ranged Weapon§Kroot Farstalkers—Kroot pistol"
           ]
         },
+        "rules": {
+          "1 Special Weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Dvorgite Skinner",
+                      "Kroot Farstalkers—Londaxi tribalest"
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only 1 Pechra": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Pech’ra"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
+          "1 Pechra": {
+            "statType": "numeric",
+            "value": 0
+          },
           "Kroot Farstalkers—Dvorgite skinner": {
             "max": 1,
             "min": 0,
@@ -9179,10 +9295,6 @@
           "OC": {
             "value": 1
           },
-          "Pech’ra": {
-            "statType": "numeric",
-            "value": 0
-          },
           "Range Weapon": {
             "dynamic": true,
             "group": "Loadout",
@@ -9215,20 +9327,6 @@
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Kroot Farstalkers—Dvorgite skinner"
-                  }
-                ]
-              },
-              "Farstalker firearm + Pech'ra": {
-                "order": 3,
-                "tracking": {
-                  "Pech’ra": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Farstalkers—Farstalker firearm"
-                  },
-                  {
-                    "trait": "Wargear§Pech’ra"
                   }
                 ]
               }
@@ -9358,19 +9456,11 @@
                   }
                 ]
               },
-              "Pulse carbine": {
+              "T'au-Tech Rifle": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Kroot Farstalkers—Pulse carbine"
-                  }
-                ]
-              },
-              "Pulse rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Shaper—Pulse rifle"
+                    "trait": "Ranged Weapon§T'au Tech Rifle"
                   }
                 ]
               }
@@ -9388,6 +9478,15 @@
           "W": {
             "value": 1
           }
+        }
+      },
+      "Model§Krootox Rampagers": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Kroot Pistol and Hunting Javelins",
+            "Melee Weapon§Hunting Blades",
+            "Melee Weapon§Rampager Fists"
+          ]
         }
       },
       "Model§Krootox Riders": {
@@ -12621,6 +12720,39 @@
           }
         }
       },
+      "Ranged Weapon§Dvorgite Skinner": {
+        "stats": {
+          "A": {
+            "ranks": {
+              "D6": {
+                "order": 0
+              }
+            },
+            "statType": "rank",
+            "value": "D6"
+          },
+          "AP": {
+            "value": 1
+          },
+          "BS": {
+            "ranks": {
+              "N/A": {
+                "order": 0
+              }
+            },
+            "statType": "rank"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Experimental Pulse Submunition Rifle": {
         "aspects": {
           "Label": "Experimental Pulse Submunition Rifle"
@@ -13916,6 +14048,34 @@
         "stats": {
           "A": {
             "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Kroot Pistol and Hunting Javelins": {
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
           },
           "AP": {
             "value": 0
@@ -16287,6 +16447,28 @@
           },
           "S": {
             "value": 20
+          }
+        }
+      },
+      "Ranged Weapon§T'au Tech Rifle": {
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 5
           }
         }
       },
@@ -19105,6 +19287,7 @@
             "max": 2
           },
           "Long Quill Weapons": {
+            "dynamic": true,
             "group": "Loadout",
             "ranks": {
               "Kroot rifle": {
@@ -19173,9 +19356,9 @@
       "Unit§Kroot Farstalkers": {
         "allowed": {
           "items": [
+            "Model§Kroot Kill-broker",
             "Model§Kroot Farstalkers",
-            "Model§Kroot Hounds",
-            "Model§Kroot Kill-broker"
+            "Model§Kroot Hounds"
           ]
         },
         "assets": {
@@ -19281,7 +19464,7 @@
             "value": "1"
           },
           "Points": {
-            "value": 70
+            "value": 90
           },
           "Sv": {
             "value": 6
@@ -19303,20 +19486,21 @@
         },
         "assets": {
           "traits": [
-            "Ability§Hunting Pack",
+            "Ability§Hunting Hounds",
             "Ability§Stealth",
             {
               "item": "Ability§Scouts",
               "stats": {
                 "x": {
-                  "value": "9"
+                  "value": "7"
                 }
               }
             },
             {
               "item": "Model§Kroot Hounds",
-              "quantity": 4
-            }
+              "quantity": 5
+            },
+            "Ability§Loping Pounce"
           ]
         },
         "keywords": {
@@ -19368,14 +19552,6 @@
           }
         },
         "stats": {
-          "Kroot Hounds": {
-            "max": 10,
-            "min": 5,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 5,
-            "visibility": "hidden"
-          },
           "Ld": {
             "value": 8
           },
@@ -19383,24 +19559,24 @@
             "value": "12"
           },
           "model1stTally": {
-            "value": 4
+            "value": 5
           },
           "model2ndCost": {
             "value": 70
           },
           "model2ndTally": {
-            "value": 8
+            "value": 10
           },
           "modelKey": {
             "value": "Model§Kroot Hounds"
           },
           "Models": {
             "increment": {
-              "value": 4
+              "value": 5
             },
-            "max": 12,
-            "min": 4,
-            "value": 4,
+            "max": 10,
+            "min": 5,
+            "value": 5,
             "visibility": "normal"
           },
           "OC": {
@@ -19516,6 +19692,43 @@
         }
       },
       "Unit§Krootox Rampagers": {
+        "allowed": {
+          "items": [
+            "Model§Krootox Rampagers"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7"
+                }
+              }
+            },
+            "Ability§Kroot Linebreakers",
+            {
+              "item": "Model§Krootox Rampagers",
+              "quantity": 3
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Grenades",
+            "Mounted"
+          ],
+          "Category": [
+            "Mounted"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Faction": [
+            "T’au Empire"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -19523,8 +19736,27 @@
           "M": {
             "value": 7
           },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 240
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 6,
+            "min": 3
+          },
           "OC": {
             "value": 2
+          },
+          "Points": {
+            "value": 120
           },
           "Sv": {
             "value": 5
@@ -20703,7 +20935,7 @@
               }
             },
             "Ability§For the Greater Good",
-            "Ability§Aerial Scanners",
+            "Ability§Velocity Tracker",
             "Ability§Targeting Array",
             {
               "item": "Ability§Damaged:",
@@ -20714,8 +20946,7 @@
               }
             },
             "Ranged Weapon§Sky Ray Gunship—Seeker missile rack",
-            "Melee Weapon§Sky Ray Gunship—Armoured hull",
-            "Ability§Markerlight"
+            "Melee Weapon§Sky Ray Gunship—Armoured hull"
           ]
         },
         "keywords": {
@@ -20775,12 +21006,12 @@
                   }
                 ]
               },
-              "Twin smart missile system": {
+              "Smart missile system": {
                 "order": 2,
                 "traits": [
                   {
                     "trait": {
-                      "item": "Ranged Weapon§Sky Ray Gunship—Twin smart missile system",
+                      "item": "Ranged Weapon§Ta’unar—Smart missile system",
                       "quantity": 2
                     }
                   }
