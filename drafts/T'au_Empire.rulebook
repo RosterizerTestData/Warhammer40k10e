@@ -218,7 +218,7 @@
         "text": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
       },
       "Ability§Fireknife": {
-        "text": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If that Attack yargets a unit that is at its starting strength, you can re-roll the Hit roll instead."
+        "text": "Each time a model in this unit makes a ranged attack, re-roll a Hit roll of 1. If that Attack targets a unit that is at its starting strength, you can re-roll the Hit roll instead."
       },
       "Ability§For the Greater Good": {
         "keywords": {
@@ -870,25 +870,41 @@
           ]
         },
         "rules": {
-          "No ethereals allowed": {
+          "Independant Power": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Ethereal"
+              }
+            ],
             "evals": [
               {
-                "actionable": false,
+                "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
                     "tally",
-                    "Ethereal"
+                    [
+                      "Ethereal",
+                      "Commander Farsight"
+                    ]
                   ]
-                ],
-                "value": 1
+                ]
               }
             ],
             "evaluate": "AND",
-            "failState": "error",
-            "order": 1
+            "failState": "pass"
           }
         },
         "stats": {
@@ -948,8 +964,29 @@
           ]
         },
         "rules": {
-          "GainKeywordIfChosen": {
-            "evals": []
+          "No Duplicates": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Battlesuit Support System",
+                      "Shield Generator",
+                      "Weapon Support System"
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
@@ -999,6 +1036,9 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
@@ -1053,16 +1093,8 @@
                   }
                 ]
               },
-              "Battlesuit fists": {
-                "order": 7,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Commander in Coldstar Battlesuit—Battlesuit fists"
-                  }
-                ]
-              },
               "Shield Generator": {
-                "order": 8,
+                "order": 7,
                 "traits": [
                   {
                     "trait": "Wargear§Shield Generator"
@@ -1070,7 +1102,7 @@
                 ]
               },
               "Battlesuit Support System": {
-                "order": 9,
+                "order": 8,
                 "traits": [
                   {
                     "trait": "Wargear§Battlesuit Support System"
@@ -1078,10 +1110,21 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 10,
+                "order": 9,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 10,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Cyclic ion blaster": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
                   }
                 ]
               }
@@ -1140,6 +1183,9 @@
               },
               "Airbursting fragmentation projector": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
@@ -1164,6 +1210,9 @@
               },
               "Cyclic ion blaster": {
                 "order": 4,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Cyclic ion blaster": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
@@ -1221,7 +1270,7 @@
             },
             "statOrder": 2,
             "statType": "rank",
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "3rd Wargear": {
@@ -1234,6 +1283,9 @@
               },
               "Airbursting fragmentation projector": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
@@ -1301,6 +1353,17 @@
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 10,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Cyclic ion blaster": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
                   }
                 ]
               }
@@ -1320,6 +1383,9 @@
               },
               "Airbursting fragmentation projector": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
@@ -1389,12 +1455,39 @@
                     "trait": "Wargear§Weapon Support System"
                   }
                 ]
+              },
+              "Cyclic ion blaster": {
+                "order": 10,
+                "tracking": {
+                  "Commander in Coldstar Battlesuit—Cyclic ion blaster": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                  }
+                ]
               }
             },
             "statOrder": 4,
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
+          },
+          "Commander in Coldstar Battlesuit—Airbursting fragmentation projector": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Commander in Coldstar Battlesuit—Cyclic ion blaster": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Ld": {
             "value": 7
@@ -1451,6 +1544,52 @@
             "Character"
           ]
         },
+        "rules": {
+          "No Duplicate Weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No Duplicates": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    [
+                      "Battlesuit Support System",
+                      "Shield Generator",
+                      "Weapon Support System"
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "1st Drone": {
             "dynamic": true,
@@ -1498,17 +1637,23 @@
             "ranks": {
               "Airbursting fragmentation projector": {
                 "order": 0,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Airbursting fragmentation projector"
                   }
                 ]
               },
               "Cyclic ion blaster": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Crisis Battlesuit—Cyclic ion blaster": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Cyclic ion blaster"
                   }
                 ]
               },
@@ -1575,6 +1720,14 @@
                     "trait": "Ranged Weapon§Commander in Crisis Battlesuit—Burst cannon"
                   }
                 ]
+              },
+              "Battlesuit Support System": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
               }
             },
             "statType": "rank",
@@ -1630,9 +1783,12 @@
               },
               "Airbursting fragmentation projector": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Airbursting fragmentation projector"
                   }
                 ]
               },
@@ -1697,6 +1853,17 @@
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 10,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Cyclic ion blaster": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Cyclic ion blaster"
                   }
                 ]
               }
@@ -1715,9 +1882,12 @@
               },
               "Airbursting fragmentation projector": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Airbursting fragmentation projector"
                   }
                 ]
               },
@@ -1782,6 +1952,17 @@
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 10,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Cyclic ion blaster": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Cyclic ion blaster"
                   }
                 ]
               }
@@ -1800,9 +1981,12 @@
               },
               "Airbursting fragmentation projector": {
                 "order": 1,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Airbursting fragmentation projector": 1
+                },
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Airbursting fragmentation projector"
                   }
                 ]
               },
@@ -1869,11 +2053,38 @@
                     "trait": "Wargear§Weapon Support System"
                   }
                 ]
+              },
+              "Cyclic ion blaster": {
+                "order": 10,
+                "tracking": {
+                  "Commander in Enforcer Battlesuit—Cyclic ion blaster": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Enforcer Battlesuit—Cyclic ion blaster"
+                  }
+                ]
               }
             },
             "statType": "rank",
             "value": "-",
             "visibility": "normal"
+          },
+          "Commander in Enforcer Battlesuit—Airbursting fragmentation projector": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Commander in Enforcer Battlesuit—Cyclic ion blaster": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Ld": {
             "value": 7
@@ -2118,6 +2329,41 @@
           "Category": [
             "Character"
           ]
+        },
+        "rules": {
+          "Nofarsightifethereal": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Commander Farsight"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Ethereal"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "1st Drone": {
@@ -2413,6 +2659,92 @@
         },
         "text": ""
       },
+      "Character§Kroot Lone-Spear": {
+        "assets": {
+          "traits": [
+            "Ability§Lone Operative",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7"
+                }
+              }
+            },
+            "Ability§Stealth",
+            "Melee Weapon§Kalamandra's Bite"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Character"
+          ],
+          "Source": [
+            "10th Edition Index"
+          ],
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Category": [
+            "Mounted"
+          ]
+        },
+        "removed": {
+          "stats": {}
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 105
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
+          },
+          "Wargear": {
+            "ranks": {
+              "Kroot Long Gun & Close Combat Weapon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Kroot Long Gun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Lone-spear Close Combat weapon"
+                  }
+                ]
+              },
+              "Blast Javelin & Hunting Javelin": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Blast Javelin"
+                  },
+                  {
+                    "trait": "Melee Weapon§Hunting Javelin"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Kroot Long Gun & Close Combat Weapon",
+            "visibility": "normal"
+          }
+        }
+      },
       "Character§Kroot Trail Shaper": {
         "assets": {
           "traits": [
@@ -2564,6 +2896,7 @@
             "value": 55
           },
           "Ranged Weapon": {
+            "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
@@ -7377,16 +7710,8 @@
               "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Battlesuit Support System"
-                  }
-                ]
-              },
               "Seeker missile": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
@@ -7394,7 +7719,7 @@
                 ]
               },
               "Twin plasma rifle": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Twin plasma rifle"
@@ -7402,7 +7727,7 @@
                 ]
               },
               "Twin smart missile system": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Twin smart missile system"
@@ -7410,7 +7735,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 5,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -7430,16 +7755,8 @@
               "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Battlesuit Support System"
-                  }
-                ]
-              },
               "Seeker missile": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
@@ -7447,7 +7764,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -7704,16 +8021,8 @@
               "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Battlesuit Support System"
-                  }
-                ]
-              },
               "Seeker missile": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
@@ -7721,7 +8030,7 @@
                 ]
               },
               "Twin plasma rifle": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Twin plasma rifle"
@@ -7729,7 +8038,7 @@
                 ]
               },
               "Twin smart missile system": {
-                "order": 4,
+                "order": 3,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Twin smart missile system"
@@ -7737,7 +8046,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 5,
+                "order": 4,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -7757,16 +8066,8 @@
               "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Battlesuit Support System"
-                  }
-                ]
-              },
               "Seeker missile": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
@@ -7774,7 +8075,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
@@ -19231,15 +19532,6 @@
           "modelKey": {
             "value": "Model§Broadside Shas’ui"
           },
-          "Models": {
-            "increment": {
-              "value": 1
-            },
-            "max": 3,
-            "min": 1,
-            "value": 1,
-            "visibility": "normal"
-          },
           "OC": {
             "value": "2"
           },
@@ -19311,24 +19603,12 @@
           "M": {
             "value": "10"
           },
-          "model": {
-            "statType": "numeric",
-            "value": 0
-          },
           "model1stTally": {
             "value": 3
           },
           "model3rdCost": {},
           "modelKey": {
             "value": "Model§Crisis Shas’ui"
-          },
-          "Models": {
-            "increment": {
-              "value": 3
-            },
-            "max": 3,
-            "value": 3,
-            "visibility": "normal"
           },
           "OC": {
             "value": "2"
@@ -19364,7 +19644,8 @@
             "Ability§Starscythe",
             "Model§Crisis Starscythe Shas’vre",
             "Model§Crisis Starscythe Shas’ui",
-            "Model§Crisis Starscythe Shas’ui"
+            "Model§Crisis Starscythe Shas’ui",
+            "Wargear§Battlesuit Support System"
           ]
         },
         "keywords": {
@@ -19403,14 +19684,6 @@
             "value": 3
           },
           "model3rdCost": {},
-          "Models": {
-            "increment": {
-              "value": 3
-            },
-            "max": 3,
-            "value": 3,
-            "visibility": "normal"
-          },
           "OC": {
             "value": "2"
           },
@@ -19486,14 +19759,6 @@
           "model3rdCost": {},
           "modelKey": {
             "value": "Model§Crisis Shas’ui"
-          },
-          "Models": {
-            "increment": {
-              "value": 3
-            },
-            "max": 3,
-            "value": 3,
-            "visibility": "normal"
           },
           "OC": {
             "value": "2"
@@ -20310,27 +20575,26 @@
       "Unit§Kroot Farstalkers": {
         "allowed": {
           "items": [
-            "Model§Kroot Kill-broker",
-            "Model§Kroot Farstalkers",
-            "Model§Kroot Hounds"
+            "Character§Kroot Flesh Shaper",
+            "Character§Kroot Trail Shaper",
+            "Character§Kroot War Shaper"
           ]
         },
         "assets": {
-          "included": [
+          "included": [],
+          "traits": [
+            "Ability§Infiltrators",
+            "Ability§Stealth",
+            "Ability§Bounty Hunters",
             "Model§Kroot Kill-broker",
             {
-              "item": "Model§Kroot Farstalkers",
+              "item": "Model§Kroot Carnivore",
               "quantity": 9
             },
             {
               "item": "Model§Kroot Hounds",
               "quantity": 2
             }
-          ],
-          "traits": [
-            "Ability§Infiltrators",
-            "Ability§Stealth",
-            "Ability§Bounty Hunters"
           ]
         },
         "keywords": {
@@ -20556,92 +20820,6 @@
           }
         },
         "text": ""
-      },
-      "Unit§Kroot Lone-Spear": {
-        "assets": {
-          "traits": [
-            "Ability§Lone Operative",
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "7"
-                }
-              }
-            },
-            "Ability§Stealth",
-            "Melee Weapon§Kalamandra's Bite"
-          ]
-        },
-        "keywords": {
-          "Keywords": [
-            "Character"
-          ],
-          "Source": [
-            "10th Edition Index"
-          ],
-          "Faction": [
-            "T’au Empire"
-          ],
-          "Category": [
-            "Mounted"
-          ]
-        },
-        "removed": {
-          "stats": {}
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 12
-          },
-          "OC": {
-            "value": 2
-          },
-          "Points": {
-            "value": 105
-          },
-          "Sv": {
-            "value": 5
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 6
-          },
-          "Wargear": {
-            "ranks": {
-              "Kroot Long Gun & Close Combat Weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Kroot Long Gun"
-                  },
-                  {
-                    "trait": "Melee Weapon§Lone-spear Close Combat weapon"
-                  }
-                ]
-              },
-              "Blast Javelin & Hunting Javelin": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Blast Javelin"
-                  },
-                  {
-                    "trait": "Melee Weapon§Hunting Javelin"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Kroot Long Gun & Close Combat Weapon",
-            "visibility": "normal"
-          }
-        }
       },
       "Unit§Krootox Rampagers": {
         "allowed": {
@@ -21869,6 +22047,12 @@
         "text": ""
       },
       "Unit§Strike Team": {
+        "allowed": {
+          "items": [
+            "Character§Ethereal",
+            "Character§Cadre Fireblade"
+          ]
+        },
         "assets": {
           "traits": [
             "Model§Fire Warrior Shas’ui",
@@ -22402,6 +22586,11 @@
         "text": "Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3″ of the bearer’s unit and not within 9″ of any enemy units."
       },
       "Wargear§Hover Drone": {
+        "keywords": {
+          "Keywords": [
+            "Fly"
+          ]
+        },
         "rules": {
           "setuserMto10\"": {
             "actions": [
