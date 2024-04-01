@@ -1,0 +1,237 @@
+{
+          "statNameSingulars": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": #
+            },
+            "max": #,
+            "min": #,
+            "statOrder": #,
+            "statType": "numeric",
+            "value": #,
+            "visibility": "normal"
+          },
+
+
+
+          "truestatNameSingularTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "modelDesignation"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "modelDesignation"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 30
+          },
+          "applyMissingstatNameSingulars": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "prepend": "",
+                "value": "Model§modelDesignation"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§modelDesignation",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "truestatNameSingularTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of statNameSingulars remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "statNameSingulars",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§modelDesignation",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3#
+          },
+          "appliedstatNameSingularTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "modelDesignation"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "modelDesignation"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 40
+          },
+          "applyMorestatNameSingulars": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§modelDesignation",
+                    "quantity"
+                  ]
+                ],
+                "prepend": "",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedstatNameSingularTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "statNameSingulars",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "modelDesignation"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4#
+          },
+
+
+"":{}
+}
