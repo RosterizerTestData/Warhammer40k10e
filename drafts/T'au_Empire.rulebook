@@ -398,7 +398,7 @@
             "Other"
           ]
         },
-        "text": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 3+, that unit suffers 1 mortal wound."
+        "text": "Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 4+, that unit suffers 1 mortal wound."
       },
       "Ability§Puretides Teachings": {
         "keywords": {
@@ -3102,13 +3102,18 @@
             "failState": "pass"
           }
         },
-        "text": "If your Army Faction is T’au Empire, you can use this Kauyon Detachment rule.\n\nRESTRICTIONS\n■ If your army includes any Ethereal units, it cannot include a Commander Farsight model.\n■ If your army includes a Commander Farsight model, it cannot include any Ethereal units\n\nFrom the third battle round onwards, all ranged weapons equipped by T’au Empire models from your army have the [SUSTAINED HITS 1] ability. While a unit is a Guided unit (see For the Greater Good), weapons in that unit have the [SUSTAINED HITS 2] ability instead"
+        "text": "From the third battle round onwards, ranged weapons equipped by T'au Empire models from your army have the [SUSTAINED HITS 1] ability, or the [SUSTAINED HITS 2] ability instead while targeting their unit's Spotted unit"
       },
       "Detachment§Kroot Hunting Pack": {
+        "rules": {
+          "Kroot Battleline": {
+            "evals": []
+          }
+        },
         "text": "Hunter’s Instincts - Each time a KROOT model from your army makes an attack, add 1 to the Hit roll if the target of that attack is below Starting Strength, and add 1 to the Wound roll as well if the target of that attack is Below Half-strength.\n\nSkirmish Fighters\nKroot Models from your army have a 6+ Invulnerable save against melee attacks and a 5+ Invulnerable save against ranged attacks.\n\nKeywords\nIf you select this Detachment, KROOT CARNIVORE units from your army have the BATTLELINE keyword."
       },
       "Detachment§Mont'ka": {
-        "text": "During the first second and third rounds, Ranged weapons equiped by T'AU EMPIRE models from your army have the LETHAL HITS ability, While a unit is a Guided unit (see For the Greater Good), its ranged weapons have the ASSAULT abillity as well."
+        "text": "During the first second and third rounds, Ranged weapons equiped by T'AU EMPIRE models from your army have the [LETHAL HITS] ability, While a unit is a Guided unit (see For the Greater Good), its ranged weapons have the [ASSAULT] abillity as well."
       },
       "Detachment§Retaliation Cadre": {
         "text": "Each time a T'AU EMPIRE BATTLESUIT model; makes a ranged attack that targets a unit within 12\", improve the Strength of that attack by 1. If that attack targets a unit within 6\", improve the Armour Penetration characteristic by 1 as well"
@@ -3118,6 +3123,28 @@
           "Keywords": [
             "Kroot Hunting Pack"
           ]
+        },
+        "rules": {
+          "Kroots Only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
@@ -3132,6 +3159,28 @@
             "Mont'Ka"
           ]
         },
+        "rules": {
+          "No Kroot": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "text": "T’au Empire model only (excluding Kroot Shaper models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in their Guided unit have the [SUSTAINED HITS 1] ability while targeting their Spotted unit."
       },
       "Enhancement§Exemplar of Kauyon": {
@@ -3140,10 +3189,30 @@
             "Kauyon"
           ]
         },
-        "stats": {
-          "Points": {
-            "value": 15
+        "rules": {
+          "No Kroot": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
+        },
+        "stats": {
+          "Points": {}
         },
         "text": "T’au Empire model only (excluding Kroot Shaper models). While the bearer is leading a unit, that unit’s Kauyon Detachment rule takes effect from the second battle round onwards instead of the third."
       },
@@ -3152,6 +3221,28 @@
           "Keywords": [
             "Mont'Ka"
           ]
+        },
+        "rules": {
+          "No Kroot": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
@@ -3166,9 +3257,51 @@
             "Retaliation Cadre"
           ]
         },
+        "rules": {
+          "Battlesuits only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No Infantry": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
-            "value": 25
+            "value": 30
           }
         },
         "text": "T’AU EMPIRE BATTLESUIT model only. The bearer has the GRENADES keyword, and each time the bearer ends a Normal move, you can select one enemy unit that it moved over during that move. If you do so, roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
@@ -3179,6 +3312,28 @@
             "Kroot Hunting Pack"
           ]
         },
+        "rules": {
+          "Kroots Only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 10
@@ -3187,10 +3342,37 @@
         "text": "KROOT model only. Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability, and enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12” horizontally of the bearer."
       },
       "Enhancement§Nomadic Hunter": {
+        "assets": {
+          "traits": [
+            "Ability§Assault"
+          ]
+        },
         "keywords": {
           "Keywords": [
             "Kroot Hunting Pack"
           ]
+        },
+        "rules": {
+          "Kroots Only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "text": "KROOT model only. While the bearer is leading a unit, add 3” to the Move characteristic of models in that unit and ranged weapons equipped by models in that unit have the [ASSAULT] ability."
       },
@@ -3202,7 +3384,7 @@
         },
         "stats": {
           "Points": {
-            "value": 20
+            "value": 15
           }
         },
         "text": "T’au Empire model only. Each time the bearer makes a ranged attack, add 1 to the Hit roll. From the third battle round onwards, add 1 to the Wound roll as well."
@@ -3212,6 +3394,48 @@
           "Keywords": [
             "Retaliation Cadre"
           ]
+        },
+        "rules": {
+          "Battlesuits only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No Infantry": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
@@ -3226,6 +3450,48 @@
             "Retaliation Cadre"
           ]
         },
+        "rules": {
+          "Battlesuits only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No Infantry": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 25
@@ -3234,10 +3500,38 @@
         "text": "T’AU EMPIRE BATTLESUIT model only. Once per turn, you can target the bearer’s unit with a Stratagem even if you have already targeted a different unit with that Stratagem this phase."
       },
       "Enhancement§Root-Carved Weapons": {
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Precision"
+          ]
+        },
         "keywords": {
           "Keywords": [
             "Kroot Hunting Pack"
           ]
+        },
+        "rules": {
+          "Kroots only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
@@ -3254,7 +3548,7 @@
         },
         "stats": {
           "Points": {
-            "value": 25
+            "value": 30
           }
         },
         "text": "T’au Empire model only. After both players have deployed their armies, select up to three T’au Empire units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
@@ -3264,6 +3558,48 @@
           "Keywords": [
             "Retaliation Cadre"
           ]
+        },
+        "rules": {
+          "Battlesuits only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No Infantry": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "text": "T’AU EMPIRE BATTLESUIT model only. At the end of your opponent’s turn, if the bearer’s unit is not within Engagement Range of one or more enemy units, you can remove that unit from the battlefield and place it into Strategic Reserves."
       },
@@ -3275,7 +3611,7 @@
         },
         "stats": {
           "Points": {
-            "value": 10
+            "value": 15
           }
         },
         "text": "T’au Empire model only. At the start of the first battle round, before the first turn begins, select one objective marker on the battlefield. While a friendly T’AU EMPIRE model is within range of that objective marker and the bearer is on the battlefield, add 1 to that friendly model’s OC characteristic."
@@ -3286,6 +3622,11 @@
             "Mont'Ka"
           ]
         },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
         "text": "T’au Empire model only. At the start of the battle, before any moves are made using the Scouts ability, you can select up to two friendly T’AU EMPIRE units within 6” of the bearer that do not have the Scouts ability. Until the end of the battle, all models in the selected units have the Scouts 6” ability."
       },
       "Enhancement§Through Unity, Devastation": {
@@ -3294,9 +3635,31 @@
             "Kauyon"
           ]
         },
+        "rules": {
+          "No Kroot": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kroot"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
-            "value": 20
+            "value": 25
           }
         },
         "text": "T’au Empire model only (excluding Kroot Shaper models). While this model is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in their Guided unit have the [LETHAL HITS] ability while targeting their Spotted unit."
@@ -8079,6 +8442,22 @@
                 "traits": [
                   {
                     "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Twin plasma rifle": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Twin plasma rifle"
+                  }
+                ]
+              },
+              "Twin smart missile system": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Twin smart missile system"
                   }
                 ]
               }
@@ -19237,6 +19616,52 @@
           }
         }
       },
+      "Stratagem§A Tempting Trap": {
+        "keywords": {
+          "Keywords": [
+            "Kauyon",
+            "T’au Empire"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "When: Your Shooting phase.\n\nTarget: One T’au Empire unit from your army that has not been selected to shoot this phase. The first time you use this Stratagem, you must also select one objective marker that is not in your opponent’s deployment zone; until the end of the battle, this becomes your Trap Objective marker.\n\nEffect: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within range of your Trap objective marker, add 1 to the Wound roll.\n\nRestriction: You cannot use this Stratagem during the first or second battle rounds."
+      },
+      "Stratagem§Aggressive Mobility": {
+        "keywords": {
+          "Keywords": [
+            "Mont'Ka",
+            "T’au Empire"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "When: Your Movement phase.\n\nTarget: One T’AU EMPIRE INFANTRY unit from your army that has not been selected to move this phase.\n\nEffect: Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6” to the Move characteristic of models in your unit."
+      },
       "Stratagem§Combat Embarkation": {
         "keywords": {
           "Category": [
@@ -19283,6 +19708,24 @@
         },
         "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One T’au Empire unit from your army that has just been selected as an Observer unit (see For the Greater Good).\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets their Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and, if your unit has the Markerlight keyword, that attack has the [IGNORES COVER] ability."
       },
+      "Stratagem§Focused Fire": {
+        "keywords": {
+          "Keywords": [
+            "Mont'Ka",
+            "T’au Empire"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "text": "When: Start of your Shooting phase.\n\nTarget: Two T’AU EMPIRE INFANTRY that have not been selected to shoot this phase, and one enemy unit.\n\nEffect: Until the end of the phase, each time a model in either of your units makes an attack, it can only target that enemy unit (and only if it is an eligible target for that attack), and when resolving that attack, improve the Armour Penetration characteristic by 1.\n\nRestrictions: You cannot use this Stratagem during the fourth or fifth battle rounds."
+      },
       "Stratagem§Photon Grenades": {
         "keywords": {
           "Turn": [
@@ -19304,9 +19747,32 @@
             "value": 1
           }
         },
-        "text": "**WHEN**: Your opponent’s Charge phase, just after an enemy unit has declared a charge.\n\n**TARGET**: One T’au Empire Grenades unit from your army that was selected as one of the targets of that charge.\n\n**EFFECT**: That enemy unit must immediately take a Battle-shock test, and until the end of the phase, subtract 2 from Charge rolls made for that enemy unit."
+        "text": "WHEN: Your opponent’s Charge phase, just after an enemy unit has declared a charge.\n\nTarget: One T’au Empire Grenades unit from your army that was selected as one of the targets of that charge.\n\nEffect: That enemy unit must immediately take a Battle-shock test, and until the end of the phase, subtract 2 from Charge rolls made for that enemy unit.\n\nRestrictions: You cannot target a unit that is within Engagement Range of one or more enemy units."
       },
-      "Stratagem§Point-Blank Ambush": {
+      "Stratagem§Pinpoint Counter-Offensive": {
+        "keywords": {
+          "Keywords": [
+            "Mont'Ka",
+            "T’au Empire"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "When: Any phase.\n\nTarget: One T’AU EMPIRE unit (excluding KROOT units) from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.\n\nEffect: Until the end of the battle, each time a T’AU EMPIRE unit (excluding KROOT units) from your army makes an attack that targets the enemy unit that just destroyed your unit, you can re-roll the Hit roll."
+      },
+      "Stratagem§Point Blank Ambush": {
         "keywords": {
           "Keywords": [
             "Kauyon",
@@ -19315,11 +19781,11 @@
           "Phase": [
             "Shooting"
           ],
-          "Turn": [
-            "Yours"
-          ],
           "Category": [
             "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
           ]
         },
         "stats": {
@@ -19327,7 +19793,7 @@
             "value": 1
           }
         },
-        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One T’au Empire unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within 9\", improve the Armour Penetration characteristic of that attack by 1.\n\n**RESTRICTIONS**: You cannot use this Stratagem during the first or second battle rounds."
+        "text": "When: Your Shooting phase.\n\nTarget: One T’au Empire unit from your army that has not been selected to shoot this phase.\n\nEffect: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within 9”, improve the Armour Penetration characteristic of that attack by 1.\n\nRestrictions: You cannot use this Stratagem during the first or second battle round."
       },
       "Stratagem§Stimm Injectors": {
         "keywords": {
@@ -19376,6 +19842,29 @@
           }
         },
         "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One T’au Empire Battlesuit unit from your army that can Fly whose attacks have been resolved this phase.\n\n**EFFECT**: If your unit is not within Engagement Range of any enemy units, it can make a Normal move. If it does, your unit cannot declare a charge this turn."
+      },
+      "Stratagem§Wall of Mirrors": {
+        "keywords": {
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Charge"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Kauyon",
+            "T’au Empire"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "WHEN: End of your opponent’s Fight phase.\n\nTarget: One STEALTH, GHOSTKEEL, or COMMANDER SHADOWSUN unit from your army.\n\nEffect: Remove that unit from the battlefield and place it into Strategic Reserves.\n\nRestrictions: You cannot target a unit that is within Engagement Range of one or more enemy units."
       },
       "Unit§Breacher Team": {
         "allowed": {
@@ -20478,6 +20967,54 @@
             ],
             "evaluate": "OR",
             "failState": "pass"
+          },
+          "Kroot Detatchment": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "maxQty",
+                    "value"
+                  ]
+                ],
+                "value": 5
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Kroot Hunting Pack"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 200
           },
           "No Duplicate shapers": {
             "evals": [
