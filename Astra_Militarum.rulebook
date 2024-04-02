@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.10.2",
+  "revision": "10.10.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "7NGJ2J",
+      "slug": "H7HBFP",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -4681,79 +4681,6 @@
             ],
             "evaluate": "OR",
             "failState": "error"
-          },
-          "Must take 1 Jungle Fighter Sergeant per 9 Jungle Fighters": {
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T/O",
-                  "value": 9
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Jungle Fighter"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Jungle Fighter Sergeant"
-                  ]
-                ],
-                "value": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Must take 9 or 18 Jungle Fighters": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Jungle Fighter"
-                  ]
-                ],
-                "value": 9
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Jungle Fighter"
-                  ]
-                ],
-                "value": 18
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
           }
         },
         "stats": {
@@ -4782,13 +4709,51 @@
           "model2ndTally": {
             "value": 20
           },
+          "modelKey": {
+            "value": "Model§Jungle Fighter"
+          },
           "Models": {
-            "increment": {
-              "value": 10
+            "increment": {},
+            "ranks": {
+              "1": {
+                "format": "10",
+                "number": 10,
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Model§Jungle Fighter Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Jungle Fighter",
+                      "quantity": 9
+                    }
+                  }
+                ]
+              },
+              "2": {
+                "format": "20",
+                "number": 20,
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": {
+                      "item": "Model§Jungle Fighter Sergeant",
+                      "quantity": 2
+                    }
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Jungle Fighter",
+                      "quantity": 18
+                    }
+                  }
+                ]
+              }
             },
-            "max": 20,
-            "min": 10,
-            "value": 10
+            "statType": "rank",
+            "value": "1",
+            "visibility": "normal"
           },
           "Points": {
             "value": 55
@@ -4798,15 +4763,18 @@
       "Infantry/Mounted§Death Korps Grenadier Squad": {
         "allowed": {
           "items": [
-            "Model§Grenadier Sergeant",
-            "Model§Grenadier",
-            "Model§Grenadier Heavy Weapons Team"
+            "Model§Grenadier"
           ]
         },
         "assets": {
           "traits": [
             "Ability§Primed and Ready",
-            "Wargear§Vox-caster"
+            "Wargear§Vox-caster",
+            "Model§Grenadier Sergeant",
+            {
+              "item": "Model§Grenadier",
+              "quantity": 9
+            }
           ]
         },
         "keywords": {
@@ -4829,149 +4797,6 @@
           ]
         },
         "rules": {
-          "limit1S7G1HWT": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier Sergeant",
-                    "min"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier Sergeant",
-                    "max"
-                  ]
-                ],
-                "value": 1
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier",
-                    "min"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier",
-                    "max"
-                  ]
-                ],
-                "value": 7
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier Heavy Weapons Team",
-                    "min"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier Heavy Weapons Team",
-                    "max"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Unit Composition",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "1S7G1HWT"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "limit1S9G": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier Sergeant",
-                    "min"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier Sergeant",
-                    "max"
-                  ]
-                ],
-                "value": 1
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier",
-                    "min"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Grenadier",
-                    "max"
-                  ]
-                ],
-                "value": null
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Unit Composition",
-                    "processed",
-                    "term",
-                    "current"
-                  ]
-                ],
-                "value": "1S9G"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
           "No more than 2 special weapons.": {
             "evals": [
               {
@@ -4993,8 +4818,30 @@
           }
         },
         "stats": {
+          "Heavy Weapons": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Model§Grenadier Heavy Weapons Team"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Grenadier"
           },
           "Models": {
             "max": 10,
@@ -5003,60 +4850,6 @@
           },
           "Points": {
             "value": 110
-          },
-          "Unit Composition": {
-            "dynamic": true,
-            "group": "Loadout",
-            "ranks": {
-              "1 Sergeant and 9 Grenadier": {
-                "order": 0,
-                "term": "1S9G",
-                "traits": [
-                  {
-                    "trait": "Model§Grenadier Sergeant"
-                  },
-                  {
-                    "trait": {
-                      "item": "Model§Grenadier",
-                      "quantity": 7
-                    }
-                  },
-                  {
-                    "trait": "Model§Grenadier"
-                  },
-                  {
-                    "trait": "Model§Grenadier"
-                  }
-                ]
-              },
-              "1 Sergeant, 7 Grenadier and 1 Heavy Weapons Team": {
-                "order": 1,
-                "term": "1S7G1HWT",
-                "traits": [
-                  {
-                    "trait": "Model§Grenadier Sergeant"
-                  },
-                  {
-                    "trait": {
-                      "item": "Model§Grenadier",
-                      "quantity": 5
-                    }
-                  },
-                  {
-                    "trait": "Model§Grenadier"
-                  },
-                  {
-                    "trait": "Model§Grenadier"
-                  },
-                  {
-                    "trait": "Model§Grenadier Heavy Weapons Team"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "1 Sergeant and 9 Grenadier",
-            "visibility": "normal"
           }
         }
       },
@@ -5082,13 +4875,6 @@
           ]
         },
         "assets": {
-          "included": [
-            "Model§Death Korps Watchmaster",
-            {
-              "item": "Model§Death Korps Trooper",
-              "quantity": 9
-            }
-          ],
           "traits": [
             "Ability§Grim Demeanour",
             "Ability§Unit Composition"
@@ -5343,7 +5129,7 @@
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
+                    "tally",
                     "Death Korps Trooper"
                   ]
                 ],
@@ -5356,7 +5142,7 @@
                 "paths": [
                   [
                     "{self}",
-                    "tracked",
+                    "tally",
                     "Death Korps Trooper"
                   ]
                 ],
@@ -5434,13 +5220,56 @@
           "model2ndTally": {
             "value": 20
           },
+          "modelKey": {
+            "value": "Model§Death Korps Trooper"
+          },
           "Models": {
-            "increment": {
-              "value": 10
+            "increment": {},
+            "ranks": {
+              "1": {
+                "format": "10",
+                "number": 10,
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Model§Death Korps Watchmaster"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Death Korps Trooper",
+                      "quantity": 9
+                    }
+                  }
+                ]
+              },
+              "2": {
+                "format": "20",
+                "number": 20,
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Model§Death Korps Watchmaster"
+                  },
+                  {
+                    "trait": "Model§Death Korps Watchmaster"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Death Korps Trooper",
+                      "quantity": 18,
+                      "stats": {
+                        "Points": {
+                          "value": 18
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
             },
-            "max": 20,
-            "min": 10,
-            "value": 10
+            "statType": "rank",
+            "value": "1",
+            "visibility": "normal"
           },
           "Points": {
             "value": 65
@@ -5869,7 +5698,8 @@
             "Character§Inquisitor Eisenhorn",
             "Character§Inquisitor Greyfax",
             "Character§Inquisitor in Terminator Armour",
-            "Character§Lord Inquisitor Kyria Draxus"
+            "Character§Lord Inquisitor Kyria Draxus",
+            "Model§Guardsman"
           ]
         },
         "assets": {
@@ -5898,6 +5728,9 @@
           "Category": [
             "Battleline"
           ]
+        },
+        "removed": {
+          "rules": {}
         },
         "rules": {
           "1 special weapon per 10 models": {
@@ -6264,18 +6097,6 @@
                   ]
                 ],
                 "value": 1
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
-                  ]
-                ],
-                "value": 20
               }
             ],
             "evals": [
@@ -6401,13 +6222,17 @@
           "model4thTally": {
             "value": 20
           },
+          "modelKey": {
+            "value": "Model§Guardsman"
+          },
           "Models": {
             "increment": {
               "value": 1
             },
             "max": 20,
-            "min": 9,
-            "value": 9
+            "min": 10,
+            "tracked": true,
+            "value": 10
           },
           "Points": {
             "value": 60
@@ -6440,14 +6265,8 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 7
+                      "quantity": 9
                     }
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
                   }
                 ]
               },
@@ -6461,14 +6280,8 @@
                   {
                     "trait": {
                       "item": "Model§Guardsman",
-                      "quantity": 5
+                      "quantity": 7
                     }
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
                   },
                   {
                     "trait": "Model§Infantry Squad—Heavy Weapons Team"
@@ -6478,6 +6291,54 @@
               "2 Sergeant, 18 Guardsmen": {
                 "order": 2,
                 "term": "2S18G",
+                "tracking": {
+                  "Models": 10
+                },
+                "traits": [
+                  {
+                    "trait": "Model§Sergeant"
+                  },
+                  {
+                    "trait": "Model§Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Guardsman",
+                      "quantity": 18
+                    }
+                  }
+                ]
+              },
+              "2 Sergeant, 16 Guardsmen and 1 Heavy Weapons Team": {
+                "order": 3,
+                "term": "2S16G1HWT",
+                "tracking": {
+                  "Models": 10
+                },
+                "traits": [
+                  {
+                    "trait": "Model§Sergeant"
+                  },
+                  {
+                    "trait": "Model§Sergeant"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Guardsman",
+                      "quantity": 16
+                    }
+                  },
+                  {
+                    "trait": "Model§Infantry Squad—Heavy Weapons Team"
+                  }
+                ]
+              },
+              "2 Sergeant, 14 Guardsmen and 2 Heavy Weapons Team": {
+                "order": 4,
+                "term": "2S14G2HWT",
+                "tracking": {
+                  "Models": 10
+                },
                 "traits": [
                   {
                     "trait": "Model§Sergeant"
@@ -6490,81 +6351,6 @@
                       "item": "Model§Guardsman",
                       "quantity": 14
                     }
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  }
-                ]
-              },
-              "2 Sergeant, 16 Guardsmen and 1 Heavy Weapons Team": {
-                "order": 3,
-                "term": "2S16G1HWT",
-                "traits": [
-                  {
-                    "trait": "Model§Sergeant"
-                  },
-                  {
-                    "trait": "Model§Sergeant"
-                  },
-                  {
-                    "trait": {
-                      "item": "Model§Guardsman",
-                      "quantity": 12
-                    }
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Infantry Squad—Heavy Weapons Team"
-                  }
-                ]
-              },
-              "2 Sergeant, 14 Guardsmen and 2 Heavy Weapons Team": {
-                "order": 4,
-                "term": "2S14G2HWT",
-                "traits": [
-                  {
-                    "trait": "Model§Sergeant"
-                  },
-                  {
-                    "trait": "Model§Sergeant"
-                  },
-                  {
-                    "trait": {
-                      "item": "Model§Guardsman",
-                      "quantity": 10
-                    }
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
-                  },
-                  {
-                    "trait": "Model§Guardsman"
                   },
                   {
                     "trait": "Model§Infantry Squad—Heavy Weapons Team"
@@ -10939,28 +10725,6 @@
           }
         }
       },
-      "Melee Weapon§Ogryn Bodyguard—Close combat weapon": {
-        "aspects": {
-          "Label": "Close combat weapon"
-        },
-        "stats": {
-          "A": {
-            "value": 4
-          },
-          "AP": {
-            "value": 0
-          },
-          "D": {
-            "value": 1
-          },
-          "S": {
-            "value": 6
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
       "Melee Weapon§Ogryn Bodyguard—Bullgryn maul": {
         "aspects": {
           "Label": "Bullgryn maul"
@@ -10981,6 +10745,28 @@
           },
           "S": {
             "value": 7
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Ogryn Bodyguard—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 6
           },
           "WS": {
             "value": 3
@@ -13556,6 +13342,28 @@
             "Melee Weapon§Death Korps Grenadier Squad—Close combat weapon"
           ]
         },
+        "rules": {
+          "countsAsTwoModels": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          }
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -13854,6 +13662,28 @@
             "Ranged Weapon§Infantry Squad—Laspistol",
             "Melee Weapon§Heavy Weapons Squad—Weapons team close combat weapons"
           ]
+        },
+        "rules": {
+          "countsAsTwoModels": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          }
         },
         "stats": {
           "Ld": {
@@ -16246,7 +16076,7 @@
       },
       "Model§Tempestus Scion - Command Squad": {
         "aspects": {
-          "Label": "Tempestus Scion" 
+          "Label": "Tempestus Scion"
         },
         "assets": {
           "traits": [
