@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.10.4",
+  "revision": "10.10.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -129,7 +129,18 @@
         }
       },
       "Battle Honour": {
+        "aspects": {
+          "Lock Qty": true
+        },
         "stats": {
+          "Blackstone": {
+            "group": "Cost",
+            "groupOrder": -1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": null,
+            "visibility": "always"
+          },
           "Crusade Pts": {
             "statType": "numeric",
             "tracked": true,
@@ -144,17 +155,19 @@
         }
       },
       "Battle Trait": {
+        "templateClass": "Battle Honour"
+      },
+      "Blackstone Battle Honour": {
         "aspects": {
-          "Lock Qty": true,
-          "Rename": true,
           "Unique": true
         },
-        "keywords": {
-          "Tags": [],
-          "Keywords": []
+        "templateClass": "Battle Honour"
+      },
+      "Blackstone Relic": {
+        "aspects": {
+          "Unique": true
         },
-        "templateClass": "Battle Honour",
-        "text": ""
+        "templateClass": "Battle Honour"
       },
       "Campaign": {
         "allowed": {
@@ -233,6 +246,12 @@
             "visibility": "normal"
           }
         }
+      },
+      "Campaign Badge": {
+        "aspects": {
+          "Unique": true
+        },
+        "text": "At the end of any campaign battle, every unit that was part of your Crusade army for that battle that does not already have it gains a campaign badge for the campaign setting that battle took place in.\n\nAs the unit fights in other campaigns, it can gain additional campaign badges. As well as being a visual record of a unit’s fighting history, various Battle Honours are only available to units with particular campaign badges. Note that a unit keeps its campaign badges - and therefore - any associated Battle Honours, for future battles, even if those battles take part in a different campaign."
       },
       "Campaign Phase": {
         "allowed": {
@@ -363,6 +382,20 @@
                   ]
                 ],
                 "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
               }
             ],
             "evaluate": "AND",
@@ -401,6 +434,114 @@
               {
                 "actionable": true,
                 "min": 50,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowPariahRelicsHonours": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Blackstone Relic"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Blackstone Battle Honour"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Pariah Nexus",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowTyrannicRelics": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Tyrannic Relic"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Tyrannic War",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "min": 6,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -820,12 +961,6 @@
         "templateClass": "Unit"
       },
       "Crusade Relic": {
-        "aspects": {
-          "Unique": true
-        },
-        "keywords": {
-          "Tags": []
-        },
         "templateClass": "Battle Honour"
       },
       "Detachment": {
@@ -1422,6 +1557,19 @@
           }
         },
         "stats": {
+          "Blackstone Fragments": {
+            "dynamic": true,
+            "icons": [
+              "ancient-ruins"
+            ],
+            "increment": {
+              "value": 1
+            },
+            "statOrder": 3,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Supply Limit": {
             "statType": "numeric",
             "tracked": true,
@@ -1435,6 +1583,12 @@
             "visibility": "normal"
           }
         }
+      },
+      "Pariah Trait": {
+        "aspects": {
+          "Unique": true
+        },
+        "templateClass": "Battle Honour"
       },
       "Ranged Weapon": {
         "removed": {
@@ -1504,6 +1658,28 @@
             "Stratagem§Epic Challenge"
           ]
         }
+      },
+      "Tyrannic Relic": {
+        "aspects": {
+          "Unique": true
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "templateClass": "Battle Honour"
+      },
+      "Tyrannic Trait": {
+        "aspects": {
+          "Lock Qty": true,
+          "Rename": true,
+          "Unique": true
+        },
+        "keywords": {
+          "Tags": [],
+          "Keywords": []
+        },
+        "templateClass": "Battle Honour",
+        "text": ""
       },
       "Tyrannic War Battle Honour": {
         "aspects": {
@@ -1784,6 +1960,18 @@
                   ]
                 ],
                 "value": "Striding Behemoth"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster"
               }
             ],
             "evals": [
@@ -1862,6 +2050,66 @@
                   ]
                 ],
                 "value": "Mounted"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowPariahTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Pariah Trait"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Campaign Badge§Pariah Nexus Badge"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Pariah Nexus",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honour",
+                    "max"
+                  ]
+                ]
               }
             ],
             "evaluate": "AND",
@@ -2073,7 +2321,7 @@
               },
               {
                 "actionable": true,
-                "min": 0,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -2130,6 +2378,66 @@
                     "stats",
                     "Experience",
                     "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowTyrranicAssets": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Tyrannic Trait"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Campaign Badge§Tyrannic War Badge"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Tyrannic War",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Battle Honour",
+                    "max"
                   ]
                 ]
               }
@@ -5668,1016 +5976,28 @@
         },
         "text": "This unit cannot form an Attached unit, it is unaffected by the Aura abilities of friendly units, and it can't be Marked for Greatness."
       },
-      "Battle Trait§Archaeotech Powercell": {
-        "keywords": {
-          "Tags": [
-            "notWalker",
-            "Vehicle"
-          ]
-        },
-        "rules": {
-          "add": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "M",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Model",
-                    "stats",
-                    "M",
-                    "value"
-                  ]
-                ],
-                "value": 2
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Add 2″ to the move characteristic of models in this unit."
-      },
-      "Battle Trait§Auto-Repair Nodes": {
-        "keywords": {
-          "Tags": [
-            "notWalker",
-            "Vehicle"
-          ]
-        },
-        "text": "At the start of your Command phase, one model in this unit regains 1 lost wound."
-      },
-      "Battle Trait§Battle-scarred Resistance": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Feel No Pain",
-              "stats": {
-                "x": {
-                  "value": "6"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Infantry"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Feel No Pain",
-                  "stats": {
-                    "x": {
-                      "value": "6"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Models in this unit have the Feel No Pain 6+ ability."
-      },
-      "Battle Trait§Bio-Acid Burns": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Feel No Pain",
-              "stats": {
-                "x": {
-                  "value": "5"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Feel No Pain",
-                  "stats": {
-                    "x": {
-                      "value": "5"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Character models in this unit have the Feel No Pain 5+ ability."
-      },
-      "Battle Trait§Blessed Hull": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Invulnerable",
-              "stats": {
-                "x": {
-                  "value": "5"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "notWalker",
-            "Vehicle"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Invulnerable",
-                  "stats": {
-                    "x": {
-                      "value": "5"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Models in this unit have a 5+ invulnerable save."
-      },
-      "Battle Trait§Born Hunter": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "9"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Scouts",
-                  "stats": {
-                    "x": {
-                      "value": "9"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "This unit has the Scouts 9” ability."
-      },
-      "Battle Trait§Deadly Combatant": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Sustained Hits",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits",
-                    "classification",
-                    "Melee Weapon",
-                    "traits"
-                  ],
-                  [
-                    "{parent}",
-                    "traits",
-                    "classIdentity",
-                    "Weapon",
-                    "traits",
-                    "classification",
-                    "Melee Weapon",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Sustained Hits",
-                  "stats": {
-                    "x": {
-                      "value": "1"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Melee weapons equipped by Character models in this unit have the [Sustained Hits 1] ability."
-      },
-      "Battle Trait§Death Incarnate (Aura)": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "text": "While an enemy unit is within 6” of this unit, reduce the Leadership of models in that unit by 1."
-      },
-      "Battle Trait§Destructive Impulse": {
-        "keywords": {
-          "Tags": [
-            "Striding Behemoth"
-          ]
-        },
-        "text": "Each time a model in this unit destroys an enemy unit, add twice as many marks to its Tyrannic War Veteran tally as normal."
-      },
-      "Battle Trait§Elite Crew": {
-        "keywords": {
-          "Tags": [
-            "notWalker",
-            "Vehicle"
-          ]
-        },
-        "text": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1."
-      },
-      "Battle Trait§Encircling Raptors": {
-        "keywords": {
-          "Tags": [
-            "Mounted"
-          ]
-        },
-        "text": "If this unit is in Strategic Reserves, it counts the battle round number as one higher than the current battle round number, for the purpose of determining when and where it is set up."
-      },
-      "Battle Trait§Focused Gunners": {
-        "keywords": {
-          "Tags": [
-            "notWalker",
-            "Vehicle"
-          ]
-        },
-        "text": "Models in this unit do not suffer the penalty to Hit rolls for making ranged attacks while their unit is within Engagement Range of one or more enemy units."
-      },
-      "Battle Trait§Headhunters": {
-        "keywords": {
-          "Tags": [
-            "Infantry"
-          ]
-        },
-        "text": "At the start of the battle, select one enemy unit (regardless of how many units in your army have this battle trait). Until the end of the battle, each time a model in this unit makes an attack against that enemy unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
-      },
-      "Battle Trait§High-Speed Gunnery": {
-        "keywords": {
-          "Tags": [
-            "Mounted"
-          ]
-        },
-        "text": "Each time this unit advances, until the end of this turn all ranged weapons equipped by models in this unit gain the [Assault] ability."
-      },
-      "Battle Trait§Hunter's Celerity": {
-        "keywords": {
-          "Tags": [
-            "Mounted"
-          ]
-        },
-        "rules": {
-          "add": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "M",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Model",
-                    "stats",
-                    "M",
-                    "value"
-                  ]
-                ],
-                "value": 2
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Add 2” to the Move characteristic of models in this unit."
-      },
-      "Battle Trait§Mounted Guerillas": {
-        "keywords": {
-          "Tags": [
-            "Mounted"
-          ]
-        },
-        "text": "This unit is eligible to declare a Charge on a turn it Fell Back."
-      },
-      "Battle Trait§Natural Leader": {
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "text": "Each time you take a battle-shock or leadership test for this unit you can re-roll that test."
-      },
-      "Battle Trait§Obdurate Obedience": {
-        "keywords": {
-          "Tags": [
-            "Infantry"
-          ]
-        },
-        "rules": {
-          "add": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "OC",
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classification",
-                    "Model",
-                    "stats",
-                    "OC",
-                    "value"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Add 1 to the Objective Control characteristic of all models in this unit."
-      },
-      "Battle Trait§Only the Swift Survive": {
-        "keywords": {
-          "Tags": [
-            "Infantry"
-          ]
-        },
-        "text": "Add 1 to Advance and Charge rolls made for this unit."
-      },
-      "Battle Trait§Predatory Urge": {
-        "keywords": {
-          "Tags": [
-            "Mounted"
-          ]
-        },
-        "text": "You can re-roll Charge rolls made for this unit."
-      },
-      "Battle Trait§Rapid Adaptation": {
-        "keywords": {
-          "Tags": [
-            "Striding Behemoth"
-          ]
-        },
-        "rules": {
-          "allowMonsterHunter": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Monster Hunters"
-              },
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Battle Honour"
-                  ]
-                ],
-                "value": -1
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Tyrannic War Battle Honour§Giantslayers"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Tyrannic War Battle Honour§Painful Lessons"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Tyrannic War Battle Honour§Indomitable Defiance"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Tyrannic War Battle Honour§Hamstringing Attacks"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Tyrannic War Battle Honour§Nimble Defence"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Tyrannic War Battle Honour§Titans’ Bane"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
+      "Blackstone Battle Honour§Nodal Map": {
         "stats": {
-          "Crusade Pts": {
-            "value": 0
+          "Blackstone": {
+            "value": 20
           }
         },
-        "text": "Select any one of the Battle Honours from the Monster Hunters upgrade path for this unit to gain, regardless of the ones it has already unlocked.  The Battle Honour you select does not increase this unit's Crusade points total and does not count as an additional Battle Honour when determining the maximum number of Battle Honors this unit can have."
+        "text": "While the bearer is within range of an objective marker, if the bearers unit is Battle-shocked, change the Objective Control characteristic of models in that unit to 1, instead of 0."
       },
-      "Battle Trait§Reinforced Superstructure": {
-        "keywords": {
-          "Tags": [
-            "notWalker",
-            "Vehicle"
-          ]
-        },
-        "text": "Each time an attack with Strength 7 or less is allocated to a model in this unit, worsen the Armour Penetration characteristic of that attack by 1."
-      },
-      "Battle Trait§Resolute Veterans": {
-        "keywords": {
-          "Tags": [
-            "Infantry"
-          ]
-        },
-        "text": "Each time you take a Battle-shock, Leadership or Desperate Escape test for this unit, add 1 to that test."
-      },
-      "Battle Trait§Shadow Stalker": {
-        "assets": {
-          "traits": [
-            "Ability§Stealth"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Character"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Stealth"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
+      "Blackstone Relic§Empathic Disinclinator": {
+        "stats": {
+          "Blackstone": {
+            "value": 15
           }
         },
-        "text": "This unit has the Stealth ability."
+        "text": "At the start of the battle, select one objective marker. While the bearer is on the battlefield, friendly units within range of that objective marker have a 5+ invulnerable save."
       },
-      "Battle Trait§Tireless Raiders": {
-        "keywords": {
-          "Tags": [
-            "Mounted"
-          ]
-        },
-        "text": "Models in this unit can make attacks with ranged weapons even when their unit is in Engagement Range of enemy units, but they can only make such attacks against units they are in Engagement Range of. In such circumstances, those models can target enemy units even if other friendly units are within Engagement Range of the same enemy unit."
-      },
-      "Battle Trait§Vanguard Espionage": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "9"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Infantry"
-          ]
-        },
-        "rules": {
-          "apply": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Scouts",
-                  "stats": {
-                    "x": {
-                      "value": "9"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "This unit has the Scouts 9” ability."
-      },
+      "Campaign Badge§Pariah Nexus Badge": {},
+      "Campaign Badge§Tyrannic War Badge": {},
       "Campaign Phase§Phase 1": {},
       "Campaign Phase§Phase 2": {},
       "Campaign Phase§Phase 3": {},
       "Campaign§Campaign": {},
-      "Crusade Relic§Archeotech Nano-Med": {
-        "keywords": {
-          "Tags": [
-            "Antiquity Relic"
-          ]
-        },
-        "rules": {
-          "Infantry Model only.": {
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Infantry"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Infantry"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 2
-          }
-        },
-        "text": "Infantry Model Only. The first time the bearer is destroyed, you can choose to roll one D6 at the end of the phase instead of using any rules that are triggered when a model is destroyed. If you roll a 4+, the bearer is set back up on the battlefield as close as possible to where it was before it was destroyed, with D3 wounds remaining. If it was If the bear was part of an attached unit when it was destroyed and its bodyguard unit is still on the battlefield when the Bearer is set back up, it must be placed in Unit Coherency with that unit again to form an Attached Unit. You do not need to take an Out of Action pass for the Bearer at the end of the battle, unless it is destroyed again."
-      },
-      "Crusade Relic§Artificer Weapon": {
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Devastating Wounds",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Artificer Relic"
-          ]
-        },
-        "stats": {
-          "Weapon": {
-            "dynamic": true,
-            "statType": "term",
-            "value": "weapon",
-            "visibility": "normal"
-          }
-        },
-        "text": "Select a weapon the bearer is equipped with (Excluding any Enhancements or weapons affected by weapon modifications) Make a note on the bearer’s Crusade card of this weapon and give it a suitable name.  That weapon is now a Crusade Relic and each time the bearer makes an attack with it, on a Critical Hit, the target suffers 1 Mortal Wound in addition to any normal damage."
-      },
-      "Crusade Relic§Biosplint Gland": {
-        "keywords": {
-          "Tags": [
-            "Artificer Relic"
-          ]
-        },
-        "text": "Each time the bearer’s unit ends a Charge move, select one enemy unit within engagement range of the bearer.  Until the end of the turn, each time a model in that enemy unit makes an attack, subtract 1 from that attack's Hit Roll."
-      },
-      "Crusade Relic§Cranium Obscura": {
-        "keywords": {
-          "Tags": [
-            "Antiquity Relic"
-          ]
-        },
-        "rules": {
-          "Cannot be taken by Psykers.": {
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Psyker"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Psyker"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 2
-          }
-        },
-        "text": "Cannot be taken by Psyker models.  Each time a Psychic Attack targets the bearer’s unit, subtract 1 from the attack's Hit Roll."
-      },
-      "Crusade Relic§Crimson Medallion of Bastior": {
-        "keywords": {
-          "Tags": [
-            "Artificer Relic"
-          ]
-        },
-        "text": "At the start of your Command phase, if the bearer is within range of an objective marker that you control, roll one D6, on a 4+ you gain 1CP."
-      },
-      "Crusade Relic§Gheist Prism Field": {
-        "keywords": {
-          "Tags": [
-            "Legendary Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 3
-          }
-        },
-        "text": "Each time the bearer makes a Normal, Advance or Fall Back move, until the move is finished, it can move horizontally through models and terrain features (it cannot finish a move on top of another model or its base). If doing so when making a Fall Back move, models in this unit do not need to take a Desperate Escape test.  After it has finished moving, select one enemy unit it moved across (if any) and roll one D6, on a 2+ that unit suffers D3 mortal wounds."
-      },
-      "Crusade Relic§Lantern of Detestation": {
-        "keywords": {
-          "Tags": [
-            "Antiquity Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 2
-          }
-        },
-        "text": "At the start of your opponent’s Movement phase, for each enemy unit within Engagement range of the bearer (excluding Imperium and chaos units), roll one D6, on a 4+ until the end of the phase that unit cannot be selected to fall back."
-      },
-      "Crusade Relic§Master Crafted Armour": {
-        "keywords": {
-          "Tags": [
-            "Artificer Relic"
-          ]
-        },
-        "rules": {
-          "Add": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Sv",
-                    "value"
-                  ]
-                ],
-                "value": -1
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
-        "text": "Add 1 to armour saving throws made for the bearer."
-      },
-      "Crusade Relic§Null-Field Disruptor": {
-        "keywords": {
-          "Tags": [
-            "Legendary Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 3
-          }
-        },
-        "text": "Each time the bearer makes a melee attack, invulnerable saving throws cannot be made against that attack."
-      },
-      "Crusade Relic§Shadesplinter Cloak": {
-        "keywords": {
-          "Tags": [
-            "Antiquity Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 2
-          }
-        },
-        "text": "Unless the bearer is part of an Attached unit at the start of the battle, it has the Lone Operative ability."
-      },
-      "Crusade Relic§Shard of Dying Light": {
-        "keywords": {
-          "Tags": [
-            "Antiquity Relic"
-          ]
-        },
-        "rules": {
-          "Psyker Model only.": {
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Psyker"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Psyker"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          }
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 2
-          }
-        },
-        "text": "Psyker Model only. Each time the bearer makes a Psychic Attack, add 1 to that attack’s wound roll."
-      },
-      "Crusade Relic§Sigil of Sol": {
-        "keywords": {
-          "Tags": [
-            "Antiquity Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 2
-          }
-        },
-        "text": "Once per battle round, if the bearer is on the battlefield when you use a Strategic Ploy Stratagems, you can use that Stratagem without spending any CP."
-      },
-      "Crusade Relic§Vertebrax of Vodun": {
-        "keywords": {
-          "Tags": [
-            "Legendary Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 3
-          }
-        },
-        "text": "At the start of your Command phase, select one friendly model on the battlefield (excluding the bearer) and then select one Aura ability that selected model has.  Until the start of your next Command phase, the bearer has that Aura ability."
-      },
-      "Crusade Relic§Vortex Grenade": {
-        "assets": {
-          "traits": [
-            "Weapon§Vortex Grenade"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Legendary Relic"
-          ]
-        },
-        "stats": {
-          "Crusade Pts": {
-            "value": 3
-          }
-        },
-        "text": "The bearer is equipped with a vortex grenade that has the following profile:\n|Range|A|BS|S|AP|D|\n|---|---|---|---|---|---|\n|6”|1|2+|-|-|-|\n\nAbilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
-      },
       "Mission Record§Mission Record": {},
       "Mission Reward§Battle Trait": {
         "keywords": {
@@ -6731,6 +6051,230 @@
         }
       },
       "Order of Battle§Order of Battle": {},
+      "Pariah Trait§Arch-inquisitor": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 3 to the Objective Control characteristic of one **Character** model in this unit."
+      },
+      "Pariah Trait§Claim Stalker": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "text": "While this unit is within range of an objective marker, it has the Stealth ability."
+      },
+      "Pariah Trait§Duellist": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "text": "Each time a Character model in this unit makes a melee attack that targets a CHARACTER unit, you can re-roll the Hit roll."
+      },
+      "Pariah Trait§Hardened Defences": {
+        "keywords": {
+          "Tags": [
+            "Monster",
+            "Vehicle"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "6+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Models in this unit have the Feel No Pain 6+ ability."
+      },
+      "Pariah Trait§Heavily Armoured": {
+        "keywords": {
+          "Tags": [
+            "Monster",
+            "Vehicle"
+          ]
+        },
+        "text": "Once per battle, when an attack is allocated to a model in this unit, you can change the Damage characteristic of that attack to 0."
+      },
+      "Pariah Trait§Heroic Constitution": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the Wounds characteristic of one **Character** model in this unit."
+      },
+      "Pariah Trait§Horror-hardened": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "text": "You can target this unit with Stratagems even while it is Battle-shocked."
+      },
+      "Pariah Trait§Lead from the Front": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit has the Infiltrators ability."
+      },
+      "Pariah Trait§Reaper": {
+        "keywords": {
+          "Tags": [
+            "Monster",
+            "Vehicle"
+          ]
+        },
+        "text": "Each time a model in this unit makes an attack that targets an **Infantry** or **Mounted** unit, re-roll a Hit roll of 1."
+      },
+      "Pariah Trait§Stubborn Explorator": {
+        "keywords": {
+          "Tags": [
+            "Monster",
+            "Vehicle"
+          ]
+        },
+        "text": "Each time this unit makes a Normal or Advance move, it can move over terrain features that are 4” or less in height as if they were not there."
+      },
+      "Pariah Trait§Tank Hunter": {
+        "keywords": {
+          "Tags": [
+            "Monster",
+            "Vehicle"
+          ]
+        },
+        "text": "Each time a model in this unit makes an attack that targets a **Monster** or **Vehicle** unit, re-roll a Wound roll of 1."
+      },
+      "Pariah Trait§Totemic Presence": {
+        "keywords": {
+          "Tags": [
+            "Monster",
+            "Vehicle"
+          ]
+        },
+        "text": "Add 2 to the Objective Control characteristic of one model in this unit.\n\n(*need to figure out how to apply this; maybe with a subAsset that gets moved to the model*)"
+      },
       "Requisition§Fresh Recruits": {
         "stats": {
           "RP": {
@@ -7024,6 +6568,34 @@
           ]
         },
         "rules": {
+          "addBS": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Blackstone Frg.",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "assets",
+                  "classification",
+                  "Order of Battle",
+                  "stats",
+                  "Blackstone Fragments",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "addOrderOfBattle&Campaign": {
             "actions": [
               {
@@ -7536,6 +7108,46 @@
             "failState": "pass",
             "order": 0
           },
+          "Select a Crusade Mission.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tyrannic War",
+                    "value"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Pariah Nexus",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "warning"
+          },
           "Select your Detachment.": {
             "evals": [
               {
@@ -7682,6 +7294,49 @@
             "failState": "pass",
             "order": 1
           },
+          "subtractBS": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Blackstone Frg.",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Blackstone"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "subtractRP": {
             "actions": [
               {
@@ -7738,12 +7393,41 @@
                       "Faction Group",
                       "Crusade Pts",
                       "Requisition Pts",
-                      "Battle Tally"
+                      "Battle Tally",
+                      "Pariah Nexus",
+                      "Tyrannic War",
+                      "Blackstone Frg."
                     ],
                     "visibility"
                   ]
                 ],
                 "value": "normal"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
               }
             ],
             "evals": [
@@ -7760,6 +7444,44 @@
                   ]
                 ],
                 "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "usePariahNexus": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "stats",
+                    "Blackstone Fragments",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Pariah Nexus",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
               }
             ],
             "evaluate": "AND",
@@ -7839,6 +7561,16 @@
             "statType": "rank",
             "value": "Strike Force",
             "visibility": "normal"
+          },
+          "Blackstone Frg.": {
+            "group": "Cost",
+            "groupOrder": 0,
+            "min": 0,
+            "statOrder": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Character": {
             "min": 1,
@@ -7955,6 +7687,23 @@
             "value": "Leviathan",
             "visibility": "normal"
           },
+          "Pariah Nexus": {
+            "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 11,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statOrder": 11,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
+          },
           "Play": {
             "dynamic": true,
             "group": "Misc.",
@@ -7990,6 +7739,23 @@
             "statType": "numeric",
             "tracked": true,
             "value": 5,
+            "visibility": "hidden"
+          },
+          "Tyrannic War": {
+            "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 11,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statOrder": 10,
+            "statType": "rank",
+            "value": "-",
             "visibility": "hidden"
           }
         },
@@ -8242,6 +8008,1012 @@
         "text": "**WHEN**: Your Charge phase.\n\n**TARGET:** One Vehicle unit from your army.\n\n**EFFECT:** Until the end of the phase, after your unit ends a Charge move, select one enemy unit within Engagement Range of it, then select one melee weapon your unit is equipped with. Roll a number of D6 equal to that weapon’s Strength characteristic. If that Strength characteristic is greater than that enemy unit’s Toughness characteristic, roll two additional D6. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
       },
       "Stratagems§Stratagems": {},
+      "Tyrannic Relic§Archeotech Nano-Med": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "Infantry Model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "Infantry Model Only. The first time the bearer is destroyed, you can choose to roll one D6 at the end of the phase instead of using any rules that are triggered when a model is destroyed. If you roll a 4+, the bearer is set back up on the battlefield as close as possible to where it was before it was destroyed, with D3 wounds remaining. If it was If the bear was part of an attached unit when it was destroyed and its bodyguard unit is still on the battlefield when the Bearer is set back up, it must be placed in Unit Coherency with that unit again to form an Attached Unit. You do not need to take an Out of Action pass for the Bearer at the end of the battle, unless it is destroyed again."
+      },
+      "Tyrannic Relic§Artificer Weapon": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Devastating Wounds",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "stats": {
+          "Weapon": {
+            "dynamic": true,
+            "statType": "term",
+            "value": "weapon",
+            "visibility": "normal"
+          }
+        },
+        "text": "Select a weapon the bearer is equipped with (Excluding any Enhancements or weapons affected by weapon modifications) Make a note on the bearer’s Crusade card of this weapon and give it a suitable name.  That weapon is now a Crusade Relic and each time the bearer makes an attack with it, on a Critical Hit, the target suffers 1 Mortal Wound in addition to any normal damage."
+      },
+      "Tyrannic Relic§Biosplint Gland": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "text": "Each time the bearer’s unit ends a Charge move, select one enemy unit within engagement range of the bearer.  Until the end of the turn, each time a model in that enemy unit makes an attack, subtract 1 from that attack's Hit Roll."
+      },
+      "Tyrannic Relic§Cranium Obscura": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "Cannot be taken by Psykers.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "Cannot be taken by Psyker models.  Each time a Psychic Attack targets the bearer’s unit, subtract 1 from the attack's Hit Roll."
+      },
+      "Tyrannic Relic§Crimson Medallion of Bastior": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "text": "At the start of your Command phase, if the bearer is within range of an objective marker that you control, roll one D6, on a 4+ you gain 1CP."
+      },
+      "Tyrannic Relic§Gheist Prism Field": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "Each time the bearer makes a Normal, Advance or Fall Back move, until the move is finished, it can move horizontally through models and terrain features (it cannot finish a move on top of another model or its base). If doing so when making a Fall Back move, models in this unit do not need to take a Desperate Escape test.  After it has finished moving, select one enemy unit it moved across (if any) and roll one D6, on a 2+ that unit suffers D3 mortal wounds."
+      },
+      "Tyrannic Relic§Lantern of Detestation": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "At the start of your opponent’s Movement phase, for each enemy unit within Engagement range of the bearer (excluding Imperium and chaos units), roll one D6, on a 4+ until the end of the phase that unit cannot be selected to fall back."
+      },
+      "Tyrannic Relic§Master Crafted Armour": {
+        "keywords": {
+          "Tags": [
+            "Artificer Relic"
+          ]
+        },
+        "rules": {
+          "Add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to armour saving throws made for the bearer."
+      },
+      "Tyrannic Relic§Null-Field Disruptor": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "Each time the bearer makes a melee attack, invulnerable saving throws cannot be made against that attack."
+      },
+      "Tyrannic Relic§Shadesplinter Cloak": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "Unless the bearer is part of an Attached unit at the start of the battle, it has the Lone Operative ability."
+      },
+      "Tyrannic Relic§Shard of Dying Light": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "rules": {
+          "Psyker Model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "Psyker Model only. Each time the bearer makes a Psychic Attack, add 1 to that attack’s wound roll."
+      },
+      "Tyrannic Relic§Sigil of Sol": {
+        "keywords": {
+          "Tags": [
+            "Antiquity Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 2
+          }
+        },
+        "text": "Once per battle round, if the bearer is on the battlefield when you use a Strategic Ploy Stratagems, you can use that Stratagem without spending any CP."
+      },
+      "Tyrannic Relic§Vertebrax of Vodun": {
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "At the start of your Command phase, select one friendly model on the battlefield (excluding the bearer) and then select one Aura ability that selected model has.  Until the start of your next Command phase, the bearer has that Aura ability."
+      },
+      "Tyrannic Relic§Vortex Grenade": {
+        "assets": {
+          "traits": [
+            "Weapon§Vortex Grenade"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Legendary Relic"
+          ]
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 3
+          }
+        },
+        "text": "The bearer is equipped with a vortex grenade that has the following profile:\n|Range|A|BS|S|AP|D|\n|---|---|---|---|---|---|\n|6”|1|2+|-|-|-|\n\nAbilities: The bearer can only shoot with this weapon once per battle.  When an attack is made with this weapon, if a hit is scored, roll one D6 for each unit within 6” of the target unit(excluding the target unit itself) on a 4+, the unit being rolled for suffers D3 mortal wounds.  The target unit then suffers 3D3 mortal wounds."
+      },
+      "Tyrannic Trait§Archaeotech Powercell": {
+        "keywords": {
+          "Tags": [
+            "notWalker",
+            "Vehicle"
+          ]
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 2″ to the move characteristic of models in this unit."
+      },
+      "Tyrannic Trait§Auto-Repair Nodes": {
+        "keywords": {
+          "Tags": [
+            "notWalker",
+            "Vehicle"
+          ]
+        },
+        "text": "At the start of your Command phase, one model in this unit regains 1 lost wound."
+      },
+      "Tyrannic Trait§Battle-scarred Resistance": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "6"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "6"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Models in this unit have the Feel No Pain 6+ ability."
+      },
+      "Tyrannic Trait§Bio-Acid Burns": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "5"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Character models in this unit have the Feel No Pain 5+ ability."
+      },
+      "Tyrannic Trait§Blessed Hull": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "notWalker",
+            "Vehicle"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "5"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Models in this unit have a 5+ invulnerable save."
+      },
+      "Tyrannic Trait§Born Hunter": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "x": {
+                      "value": "9"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit has the Scouts 9” ability."
+      },
+      "Tyrannic Trait§Deadly Combatant": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Sustained Hits",
+                  "stats": {
+                    "x": {
+                      "value": "1"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Melee weapons equipped by Character models in this unit have the [Sustained Hits 1] ability."
+      },
+      "Tyrannic Trait§Death Incarnate (Aura)": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "text": "While an enemy unit is within 6” of this unit, reduce the Leadership of models in that unit by 1."
+      },
+      "Tyrannic Trait§Destructive Impulse": {
+        "keywords": {
+          "Tags": [
+            "Striding Behemoth"
+          ]
+        },
+        "text": "Each time a model in this unit destroys an enemy unit, add twice as many marks to its Tyrannic War Veteran tally as normal."
+      },
+      "Tyrannic Trait§Elite Crew": {
+        "keywords": {
+          "Tags": [
+            "notWalker",
+            "Vehicle"
+          ]
+        },
+        "text": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1."
+      },
+      "Tyrannic Trait§Encircling Raptors": {
+        "keywords": {
+          "Tags": [
+            "Mounted"
+          ]
+        },
+        "text": "If this unit is in Strategic Reserves, it counts the battle round number as one higher than the current battle round number, for the purpose of determining when and where it is set up."
+      },
+      "Tyrannic Trait§Focused Gunners": {
+        "keywords": {
+          "Tags": [
+            "notWalker",
+            "Vehicle"
+          ]
+        },
+        "text": "Models in this unit do not suffer the penalty to Hit rolls for making ranged attacks while their unit is within Engagement Range of one or more enemy units."
+      },
+      "Tyrannic Trait§Headhunters": {
+        "keywords": {
+          "Tags": [
+            "Infantry"
+          ]
+        },
+        "text": "At the start of the battle, select one enemy unit (regardless of how many units in your army have this battle trait). Until the end of the battle, each time a model in this unit makes an attack against that enemy unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+      },
+      "Tyrannic Trait§High-Speed Gunnery": {
+        "keywords": {
+          "Tags": [
+            "Mounted"
+          ]
+        },
+        "text": "Each time this unit advances, until the end of this turn all ranged weapons equipped by models in this unit gain the [Assault] ability."
+      },
+      "Tyrannic Trait§Hunter's Celerity": {
+        "keywords": {
+          "Tags": [
+            "Mounted"
+          ]
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 2” to the Move characteristic of models in this unit."
+      },
+      "Tyrannic Trait§Mounted Guerillas": {
+        "keywords": {
+          "Tags": [
+            "Mounted"
+          ]
+        },
+        "text": "This unit is eligible to declare a Charge on a turn it Fell Back."
+      },
+      "Tyrannic Trait§Natural Leader": {
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "text": "Each time you take a battle-shock or leadership test for this unit you can re-roll that test."
+      },
+      "Tyrannic Trait§Obdurate Obedience": {
+        "keywords": {
+          "Tags": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Add 1 to the Objective Control characteristic of all models in this unit."
+      },
+      "Tyrannic Trait§Only the Swift Survive": {
+        "keywords": {
+          "Tags": [
+            "Infantry"
+          ]
+        },
+        "text": "Add 1 to Advance and Charge rolls made for this unit."
+      },
+      "Tyrannic Trait§Predatory Urge": {
+        "keywords": {
+          "Tags": [
+            "Mounted"
+          ]
+        },
+        "text": "You can re-roll Charge rolls made for this unit."
+      },
+      "Tyrannic Trait§Rapid Adaptation": {
+        "keywords": {
+          "Tags": [
+            "Striding Behemoth"
+          ]
+        },
+        "rules": {
+          "allowMonsterHunter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Monster Hunters"
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Battle Honour"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Giantslayers"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Painful Lessons"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Indomitable Defiance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Hamstringing Attacks"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Nimble Defence"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Tyrannic War Battle Honour§Titans’ Bane"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
+          }
+        },
+        "text": "Select any one of the Battle Honours from the Monster Hunters upgrade path for this unit to gain, regardless of the ones it has already unlocked.  The Battle Honour you select does not increase this unit's Crusade points total and does not count as an additional Battle Honour when determining the maximum number of Battle Honors this unit can have."
+      },
+      "Tyrannic Trait§Reinforced Superstructure": {
+        "keywords": {
+          "Tags": [
+            "notWalker",
+            "Vehicle"
+          ]
+        },
+        "text": "Each time an attack with Strength 7 or less is allocated to a model in this unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
+      "Tyrannic Trait§Resolute Veterans": {
+        "keywords": {
+          "Tags": [
+            "Infantry"
+          ]
+        },
+        "text": "Each time you take a Battle-shock, Leadership or Desperate Escape test for this unit, add 1 to that test."
+      },
+      "Tyrannic Trait§Shadow Stalker": {
+        "assets": {
+          "traits": [
+            "Ability§Stealth"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit has the Stealth ability."
+      },
+      "Tyrannic Trait§Tireless Raiders": {
+        "keywords": {
+          "Tags": [
+            "Mounted"
+          ]
+        },
+        "text": "Models in this unit can make attacks with ranged weapons even when their unit is in Engagement Range of enemy units, but they can only make such attacks against units they are in Engagement Range of. In such circumstances, those models can target enemy units even if other friendly units are within Engagement Range of the same enemy unit."
+      },
+      "Tyrannic Trait§Vanguard Espionage": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "9"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "x": {
+                      "value": "9"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit has the Scouts 9” ability."
+      },
       "Tyrannic War Battle Honour§Gargantuan Rage": {
         "keywords": {
           "Keywords": [
