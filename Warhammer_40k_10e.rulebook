@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.10.7",
+  "revision": "10.10.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -129,6 +129,10 @@
         }
       },
       "Battle Honour": {
+        "keywords": {
+          "Tags": [],
+          "Keywords": []
+        },
         "aspects": {
           "Lock Qty": true
         },
@@ -474,6 +478,18 @@
                   ]
                 ],
                 "value": "Blackstone Battle Honour"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Pariah Relic"
               }
             ],
             "evals": [
@@ -618,6 +634,18 @@
                   ]
                 ],
                 "value": "Crusade Relic"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Pariah Relic"
               },
               {
                 "actionType": "add",
@@ -2403,54 +2431,6 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "allowTyrannicWarVet": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "allowed",
-                    "items"
-                  ]
-                ],
-                "value": "Requisition§Tyrannic War Veteran"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "min": 6,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Experience",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
           "allowTyrannicTraits": {
             "actions": [
               {
@@ -2492,6 +2472,54 @@
                     "stats",
                     "Battle Honour",
                     "max"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowTyrannicWarVet": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Tyrannic War Veteran"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
                   ]
                 ]
               }
