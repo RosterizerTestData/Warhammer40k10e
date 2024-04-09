@@ -32,12 +32,12 @@ const fileList = [
   // 'SM_Dark_Angels.rulebook',
   // 'SM_Deathwatch.rulebook',
   // 'SM_Space_Wolves.rulebook',
-  'Space_Marines.rulebook',
+  // 'Space_Marines.rulebook',
   // 'T\'au_Empire.rulebook',
   // 'Thousand_Sons.rulebook',
   // 'Titanicus_Traitoris.rulebook',
   // 'Tyranids.rulebook',
-  // 'Warhammer_40k_10e.rulebook',
+  'Warhammer_40k_10e.rulebook',
   // 'World_Eaters.rulebook'
 ];
 fileList.forEach(file => {
@@ -50,7 +50,7 @@ fileList.forEach(file => {
       "id": "",
       "link": "https://game-datacards.eu",
       "name": data.name,
-      "is_subfaction": !['40k10e','Chaos','Imperium'].includes(data.dependencies[0].name),
+      "is_subfaction": !['40k10e','Chaos','Imperium'].includes(data.dependencies?.[0]?.name),
       "parent_id": "",
       "allied_factions": ["AoI", "QI"],
       "stratagems": [],
@@ -62,7 +62,7 @@ fileList.forEach(file => {
       strat.text = strat.text.replace(/\*\*/g,'').split('\n\n').map(line => line.toLowerCase().split(': '));
       let newStrat = {
         "name": key.split('§')[1].toLocaleUpperCase(),
-        "cost": strat.stats['Command Cost'].value,
+        "cost": strat.stats?.['Command Cost']?.value || 1,
         "type": strat.keywords.Category[0],
         "detachment": strat.keywords.Keywords[0],
         "turn": strat.keywords.Turn.join(', '),
@@ -177,8 +177,9 @@ fileList.forEach(file => {
         if(characterList?.length) newUnit.ledBy = characterList;
       }
      
+      console.log(JSON.parse(JSON.stringify(statlines)))
       newUnit.stats = statlines.map((statline,i) => { return {
-        "m": statline[1].M.value + "\"",
+        "m": statline[1].M?.value + "\"",
         "t": statline[1].T.value,
         "sv": statline[1].Sv.value + "+",
         "w": statline[1].W.value,
@@ -271,6 +272,7 @@ fileList.forEach(file => {
         };
         unitAbilities.splice(dmgIdx,1);
       }
+      console.log(unitAbilities);
       let primIdx = unitAbilities.findIndex(trait => trait.keywords?.Keywords?.includes('Primarch'));
       if(primIdx >= 0){
         newUnit.abilities.primarch.push({
