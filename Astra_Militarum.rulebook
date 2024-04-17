@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.10.10",
+  "revision": "10.10.11",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1257,6 +1257,47 @@
           "Keywords": [
             "Other"
           ]
+        },
+        "rules": {
+          "tempestusAsBattleline": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "note": "This is exhaustive but seems to only affect one unit. Future units that qualify will need specific entries OR this will need to be re-structured when we can target keywords",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Infantry/Mounted§Tempestus Scions",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4
+          }
         },
         "text": "If this unit’s Tempestor Prime model is your Warlord, Tempestus Scions units from your army have the Battleline keyword."
       },
@@ -7710,81 +7751,6 @@
             ],
             "evaluate": "OR",
             "failState": "error"
-          },
-          "addBattlelineIfTempPrimeIsWarlord": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Infantry/Mounted§Tempestus Scions",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Battleline"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Infantry/Mounted§Tempestus Scions",
-                    "stats",
-                    "maxQty",
-                    "value"
-                  ]
-                ],
-                "prepend": " ",
-                "value": 6
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Character§Militarum Tempestus Command Squad",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "item",
-                    "Character§Militarum Tempestus Command Squad",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "pass",
-            "order": 200
           }
         },
         "stats": {
