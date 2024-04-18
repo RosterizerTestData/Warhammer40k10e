@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.7",
+  "revision": "10.10.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1331,7 +1331,7 @@
             "failState": "pass"
           }
         },
-        "text": "**Creeping Dread (AURA)**\n\nIn the Battle-shock step of your opponent's Command phase, if an enemy unit that is either a PSYKER unit or below its Starting Strength is within 12\" of one or more ANATHEMA PSYKANA models from your army, that enemy unit must take a Battle-shock test. If that unit is Below Half-strength, it must subtract 1 from its Battle-shock test this phase instead.\n\nDesigner's Note: This means that all enemy PSYKER units within range of this Aura ability and all enemy units within range of this Aura ability that have lost one or more models must take a Battle-shock test in your opponent's Command phase, not just those that are Below Half-strength."
+        "text": "**Creeping Dread (AURA)**\n\nIn the Battle-shock step of your opponent's Command phase, if an enemy unit that is either a PSYKER unit or below its Starting Strength is within 12\" of one or more ANATHEMA PSYKANA models from your army, that enemy unit must take a Battle-shock test. If that unit is Below Half-strength, it must subtract 1 from its Battle-shock test this phase instead.\n\nDesigner's Note: This means that all enemy PSYKER units within range of this Aura ability and all enemy units within range of this Aura ability that have lost one or more models must take a Battle-shock test in your opponent's Command phase, not just those that are Below Half-strength.\n\n**KEYWORDS**\n\nIf you select this Detachment, PROSECUTORS units from your army have the BATTLELINE keyword."
       },
       "Detachment§Shield Host": {
         "rules": {
@@ -8355,14 +8355,64 @@
           ],
           "Keywords": [
             "Infantry",
-            "Battleline",
             "Imperium",
             "Anathema Psykana",
             "Prosecutors"
           ],
           "Category": [
-            "Battleline"
+            "Infantry"
           ]
+        },
+        "rules": {
+          "battlelineifNullMaiden": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "maxQty",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 6
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Null Maiden Vigil"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 200
+          }
         },
         "stats": {
           "model1stTally": {
