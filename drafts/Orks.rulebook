@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.10.7",
+  "revision": "10.10.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3223,6 +3223,102 @@
         },
         "text": "At the start of your Command phase, select one MONSTER, VEHICLE or WARLORD unit from your opponent's army. If your opponent does not have any of these on the battlefield (or embarked within a TRANSPORT that is on the battlefield), you can select one CHARACTER unit from your opponent's army instead. Until the start of your next Command phase, that enemy unit is your Prey:\n\n- Each time a BEAST SNAGGA unit from\nyour army declares a charge that\nincludes your Prey as one of the\ntargets, you can re-roll the Charge roll.\n\n- Each time a BEAST SNAGGA model\nfrom your army makes an attack that\ntargets your Prey, improve the Armour\nPenetration characteristic of that attack\nby 1."
       },
+      "Detachment§Kult of Speed": {
+        "rules": {
+          "assignStratagem": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Speediest Freeks"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Squig Flingin'"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Dakkastorm"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Blitza Fire"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Full Throttle"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§More Gitz Over 'Ere!"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "ADRENALINE JUNKIES\n\n- SPEED FREEKS units from your army are eligible to shoot in a turn in which they Advanced or Fell Back."
+      },
       "Detachment§War Horde": {
         "rules": {
           "assignStratagems": {
@@ -3318,6 +3414,41 @@
           }
         },
         "text": "- GET STUCK IN \n\nMelee weapons equipped by Orks models from your army have the [SUSTAINED HITS 1] ability"
+      },
+      "Enhancement§Fasta Than Yooz": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed"
+          ]
+        },
+        "rules": {
+          "Orks Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "ORKS INFANTRY model only. Each time the bearer’s unit disembarks from a TRANSPORT after that TRANSPORT has made a Normal move, the bearer’s unit is still eligible to declare a charge this turn."
       },
       "Enhancement§Follow Me Ladz": {
         "keywords": {
@@ -3550,6 +3681,54 @@
         },
         "text": "BEAST SNAGGA model only. At the end of your\nCommand phase, if the bearer is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
       },
+      "Enhancement§Speed Makes Right": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "ORKS model only. In your Command phase, if the bearer (or a TRANSPORT the bearer is embarked within) is within 9\" of one or more enemy units, roll one D6: on a 3+, you gain 1CP."
+      },
+      "Enhancement§Squig-Hide Tyres": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed"
+          ]
+        },
+        "rules": {
+          "Deffkilla Wartrike model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Deffkilla Wartrike"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "DEFFKILLA WARTRIKE model only. Each time a model in the bearer’s unit makes a Consolidation move, it can move up to 6\" instead of up to 3\"."
+      },
       "Enhancement§Supa-Cybork Body": {
         "keywords": {
           "Keywords": [
@@ -3605,6 +3784,41 @@
           }
         },
         "text": "BEASTBOSS ON SQUIGOSAUR model only. While the bearer is leading a unit, each time an attack targets that unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+      },
+      "Enhancement§Wazblasta": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed"
+          ]
+        },
+        "rules": {
+          "Deffkilla Wartrike model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Deffkilla Wartrike"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "DEFFKILLA WARTRIKE model only. In your Shooting phase, after the bearer’s unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6”. If it does, until the end of the turn, it is not eligible to declare a charge."
       },
       "Melee Weapon§Attack Fighta—Armoured hull": {
         "aspects": {
@@ -17586,6 +17800,24 @@
         },
         "text": "WHEN: Start of your Movement phase.\n\nTARGET: One Orks Infantry unit from your army.\n\nEFFECT: Until the end of the turn, add 2 to Advance and Charge rolls made for your unit."
       },
+      "Stratagem§Blitza Fire": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Kult of Speed",
+            "Orks"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "WHEN: Your Shooting phase.\n\nTARGET: One SPEED FREEKS unit from your army that has not been selected to shoot this phase.\n\nEFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [LETHAL HITS] ability and, each time a model in your unit makes an attack that targets a unit within 9\", a Critical Hit is scored on an unmodified Hit roll of 5+, instead of only a 6.\n\nRESTRICTIONS: A unit cannot be targeted by this and the Dakkastorm Stratagem in the same phase."
+      },
       "Stratagem§Careen!": {
         "keywords": {
           "Keywords": [
@@ -17604,6 +17836,24 @@
           ]
         },
         "text": "WHEN: Any phase, just after an Orks Vehicle unit from your army with the Deadly Demise ability is destroyed.\n\nTARGET:That destroyed Orks Vehicle unit, if you roll a 6 for its Deadly Demise ability. You can use this Stratagem on that unit even though it was just destroyed.\n\nEFFECT: Your unit can make a Normal or Fall Back move before its Deadly Demise ability is resolved, and before any embarked units perform an Emergency Disembarkation. When making this move, your unit can move over enemy units (excluding Monsters and Vehicles) as if they were not there."
+      },
+      "Stratagem§Dakkastorm": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed",
+            "Orks"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "WHEN: Your Shooting phase.\n\nTARGET: One SPEED FREEKS unit from your army that has not been selected to shoot this phase.\n\nEFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. While targeting a unit within 9\", they have the [SUSTAINED HITS 2] ability instead.\n\nRESTRICTIONS: A unit cannot be targeted by this and the Blitza Fire Stratagem in the same phase."
       },
       "Stratagem§Dat One’s Even Bigga!": {
         "keywords": {
@@ -17642,6 +17892,24 @@
         },
         "text": "WHEN: Fight phase.\n\nTARGET: One BEAST SNAGGA unit from your army that has not been selected to fight this phase.\n\nEFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [SUSTAINED HITS 4] ability. In addition, each time a model in your unit makes a melee attack that targets your Prey, a Critical Hit is scored on an unmodified Hit roll of 5+, instead of only a 6."
       },
+      "Stratagem§Full Throttle!": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed",
+            "Orks"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "text": "WHEN: Your Charge phase, just after a SPEED FREEKS unit from your army ends a Charge move.\n\nTARGET: That SPEED FREEKS unit.\n\nEFFECT: Until the end of the turn, each time a model in your unit makes a melee attack, add 1 to the Wound roll."
+      },
       "Stratagem§Instictive Hunters": {
         "keywords": {
           "Keywords": [
@@ -17678,6 +17946,24 @@
         },
         "text": "WHEN: End of your Command phase.\n\nTARGET: One Mob unit from your army that contains 10 or more models and is not Below Half-strength.\n\nEFFECT: Select one friendly Battle-shocked ORKS INFANTRY unit within 6\" of that MOB unit. That ORKS INFANTRY unit is no longer Battle-shocked."
       },
+      "Stratagem§More Gitz Over 'Ere!": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Kult of Speed",
+            "Orks"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "WHEN: Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back.\n\nTARGET: One SPEED FREEKS unit from your army that is within 9\" of that enemy unit and is not within Engagement Range of one or more enemy units.\n\nEFFECT: Your unit can make a Normal move of up to 6\""
+      },
       "Stratagem§Orks Is Never Beaten": {
         "keywords": {
           "Keywords": [
@@ -17701,6 +17987,42 @@
           }
         },
         "text": "WHEN: Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Orks unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making attacks, and is then removed from play."
+      },
+      "Stratagem§Speediest Freeks": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Kult of Speed",
+            "Orks"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "text": "WHEN: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One SPEED FREEKS or TRUKK unit from your army that was selected as the target of one or more of the attacking unit’s attacks,\n\nEFFECT: Until the end of the phase, models in your unit have a 5+ invulnerable save. If your unit is a VEHICLE unit with an unmodified Toughness characteristic of 8 or less, until the end of the phase, models in your unit have a 4+ invulnerable Save instead."
+      },
+      "Stratagem§Squig Flingin'": {
+        "keywords": {
+          "Keywords": [
+            "Kult of Speed",
+            "Orks"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "WHEN: Your Movement phase, just after a SPEED FREEKS or TRUKK unit from your army ends a Normal, Advance or Fall Back move.\n\nTARGET: That SPEED FREEKS or TRUKK unit.\n\nEFFECT: Select one enemy unit within 9” of your unit. That enemy unit must take a Battle-shock test and, when doing so, subtract 1 from the result."
       },
       "Stratagem§Stalkin' Taktiks": {
         "keywords": {
