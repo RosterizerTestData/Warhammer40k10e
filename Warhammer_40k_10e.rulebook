@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.10.10",
+  "revision": "10.10.11",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1490,9 +1490,46 @@
           "any": [
             "forceReward",
             "unit"
+          ],
+          "none": [
+            "Legends"
           ]
         },
         "rules": {
+          "allowLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Legends"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Legends",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "hide enclosed assets": {
             "actions": [
               {
@@ -1785,7 +1822,9 @@
           "Type": "conceptual"
         },
         "constraints": {
-          "any": []
+          "none": [
+            "Legends"
+          ]
         },
         "keywords": {
           "Category": [],
@@ -1982,6 +2021,40 @@
                   ]
                 ],
                 "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Legends"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Legends",
+                    "value"
+                  ]
+                ],
+                "value": "-"
               }
             ],
             "evaluate": "AND",
@@ -5990,7 +6063,9 @@
               "value": 1
             },
             "label": "Lost Honours",
+            "min": 1,
             "statType": "numeric",
+            "tracked": true,
             "value": 0,
             "visibility": "normal"
           }
@@ -7007,11 +7082,14 @@
         "stats": {
           "Battle Honour": {
             "dynamic": true,
+            "increment": {
+              "value": 1
+            },
             "label": "Lost Honours",
-            "min": 0,
+            "min": 1,
             "statType": "numeric",
             "tracked": true,
-            "value": 0,
+            "value": 1,
             "visibility": "normal"
           },
           "RP": {
@@ -7408,7 +7486,7 @@
                 "operator": "AND",
                 "paths": [
                   [
-                    "{self}",
+                    "{roster}",
                     "stats",
                     "Legends",
                     "value"
