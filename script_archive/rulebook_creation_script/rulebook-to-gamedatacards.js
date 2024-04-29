@@ -7,7 +7,7 @@ const divisions = ['traits','included'];
 // console.log(datasheets)
 const fileList = [
   // 'Adepta_Sororitas.rulebook',
-  // 'Adeptus_Custodes.rulebook',
+  'Adeptus_Custodes.rulebook',
   // 'Adeptus_Mechanicus.rulebook',
   // 'Adeptus_Titanicus.rulebook',
   // 'Aeldari-Drukhari-Common.rulebook',
@@ -26,18 +26,18 @@ const fileList = [
   // 'Imperium.rulebook',
   // 'Leagues_of_Votann.rulebook',
   // 'Necrons.rulebook',
-  // 'Orks.rulebook',
+  'Orks.rulebook',
   // 'SM_Black_Templars.rulebook',
   // 'SM_Blood_Angels.rulebook',
   // 'SM_Dark_Angels.rulebook',
   // 'SM_Deathwatch.rulebook',
   // 'SM_Space_Wolves.rulebook',
   // 'Space_Marines.rulebook',
-  // 'T\'au_Empire.rulebook',
+  'drafts/T\'au_Empire.rulebook',
   // 'Thousand_Sons.rulebook',
   // 'Titanicus_Traitoris.rulebook',
   // 'Tyranids.rulebook',
-  'Warhammer_40k_10e.rulebook',
+  // 'Warhammer_40k_10e.rulebook',
   // 'World_Eaters.rulebook'
 ];
 fileList.forEach(file => {
@@ -77,6 +77,7 @@ fileList.forEach(file => {
     });
     Object.keys(data.rulebook.assetCatalog).filter(key => key.split('§')[0] === 'Enhancement').forEach(key => {
       let enhance = data.rulebook.assetCatalog[key];
+      // console.log(enhance)
       let newEnhance = 
       {
         "name": key.split('§')[1].toLocaleUpperCase(),
@@ -84,13 +85,13 @@ fileList.forEach(file => {
         "keywords": ["Captain"],
         "detachment": enhance.keywords.Keywords[0],
         "excludes": [],
-        "cost": enhance.stats.Points.value,
+        "cost": enhance.stats?.Points?.value,
       }
       newExport.enhancements.push(newEnhance);
     });
     Object.keys(data.rulebook.assetCatalog).filter(key => ['Character', 'Unit', 'Infantry/Mounted', 'Vehicle'].includes(key.split('§')[0])).forEach(key => {
       let unit = data.rulebook.assetCatalog[key];
-      console.log(key.split('§')[1].toLocaleUpperCase(),unit)
+      // console.log(key.split('§')[1].toLocaleUpperCase(),unit)
       let newUnit = {
         "id": "",
         "name": key.split('§')[1],
@@ -177,7 +178,7 @@ fileList.forEach(file => {
         if(characterList?.length) newUnit.ledBy = characterList;
       }
      
-      console.log(JSON.parse(JSON.stringify(statlines)))
+      // console.log(JSON.parse(JSON.stringify(statlines)))
       newUnit.stats = statlines.map((statline,i) => { return {
         "m": statline[1].M?.value + "\"",
         "t": statline[1].T.value,
@@ -272,7 +273,7 @@ fileList.forEach(file => {
         };
         unitAbilities.splice(dmgIdx,1);
       }
-      console.log(unitAbilities);
+      // console.log(unitAbilities);
       let primIdx = unitAbilities.findIndex(trait => trait.keywords?.Keywords?.includes('Primarch'));
       if(primIdx >= 0){
         newUnit.abilities.primarch.push({
