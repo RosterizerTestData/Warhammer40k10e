@@ -24,7 +24,7 @@ const fileList = [
   // 'Imperial_Agents',
   // 'Imperial_Knights',
   // 'Imperium',
-  // 'Leagues_of_Votann',
+  'Leagues_of_Votann',
   // 'Necrons',
   // 'Orks',
   // 'SM_Black_Templars',
@@ -36,7 +36,7 @@ const fileList = [
   // 'drafts/T\'au_Empire',
   // 'Thousand_Sons',
   // 'Titanicus_Traitoris',
-  'Tyranids',
+  // 'Tyranids',
   // 'Warhammer_40k_10e',
   // 'World_Eaters'
 ];
@@ -63,7 +63,6 @@ fileList.forEach(file => {
           });
           let ttsObject = ttsObjects[0];
           if(ttsObject){
-            console.log(classification, designation, item, ttsObject)
             item.meta = item.meta || {};
             if(ttsObject.Name.includes('Custom_Model')){
               if(ttsObject.CustomMesh.MeshURL) item.meta.ttsMeshURL = ttsObject.CustomMesh.MeshURL;
@@ -77,6 +76,7 @@ fileList.forEach(file => {
             if(ttsObject.States) item.meta.ttsStates = JSON.stringify(ttsObject.States);
             if(ttsObject.ChildObjects) item.meta.ttsChildObjects = JSON.stringify(ttsObject.ChildObjects);
           }else{
+            console.log("missing: ",itemKey)
             item.keywords = item.keywords || {};
             item.keywords.Tags = item.keywords.Tags || [];
             item.keywords.Tags.push('ttsModelMissing');
