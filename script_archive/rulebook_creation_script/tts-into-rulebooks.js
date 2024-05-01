@@ -108,7 +108,7 @@ function isGamePiece(itemKey){
   }else if(
     (
        (
-           ['Character','Vehicle','Monster'].includes(classification)
+          (['Character','Vehicle','Monster'].includes(classification) && !rulebookData.rulebook.assetCatalog[itemKey]?.assets?.traits?.map(trait => (trait.item ? trait.item : trait).split('§')[0]).includes('Model'))
        || (classification === 'Unit' && ['Vehicle','Vehicle—Dedicated Transport','Vehicle—Walker','Monster','Swarm'].some(cat => rulebookData.rulebook.assetCatalog[itemKey].keywords?.Category?.includes(cat)))
        )
     && rulebookData.rulebook.assetCatalog[itemKey]?.aspects?.Type !== 'conceptual'
@@ -117,6 +117,7 @@ function isGamePiece(itemKey){
   ){
     output = true
   }
+  // if(output) console.log(itemKey)
   return output
 }
 
