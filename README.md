@@ -1,6 +1,6 @@
 # WH40k10e Rulebooks
 
-If you're going to author stuff for 40k, it's wise to make it similar in structure to other elements of the 40k rulebook.
+If you’re going to author stuff for 40k, it’s wise to make it similar in structure to other elements of the 40k rulebook.
 
 ## 40k10Core
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.ruleboo
@@ -92,7 +92,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Necron
 ### Orks
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Orks.rulebook
 
-### T'au
+### T’au
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/T'au_Empire.rulebook
 
 ### Tyranids
