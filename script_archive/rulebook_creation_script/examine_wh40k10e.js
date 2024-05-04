@@ -39,6 +39,7 @@ const fileList = [
   'SM_Space_Wolves.rulebook',
   'Space_Marines.rulebook',
   'T\'au_Empire.rulebook',
+  'drafts/T\'au_Empire.rulebook',
   'Thousand_Sons.rulebook',
   'Titanicus_Traitoris.rulebook',
   'Tyranids.rulebook',
@@ -51,17 +52,32 @@ async function processFiles() {
       const response = await fetch('../../' + file);
       const data = await response.json();
 
-      data.revision = '10.8.0';
-      console.log(file)
+      console.log('~~~ ' + file + ' ~~~');
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         let [itemClass, itemDesignation] = itemKey.split('§');
-        if(itemClass.includes('Weapon')){
-          if(item.assets?.traits){
-            if(item.assets?.traits?.every(el => {
-              return (typeof el === 'string' && el?.includes('Weapon'))
-            })){
-              if(!item.keywords?.Tags?.includes('Multi-weapon')) console.log(itemKey,item)
-            }
+        if(['Unit','Infantry/Mounted','Vehicle','Character','Titan'].includes(itemClass)){
+          let modelCount = 0;
+          ['traits','included'].forEach(division => {
+            item.assets?.[division]?.forEach(asset => {
+              if(typeof asset === 'string' && asset.includes('Model')){
+                modelCount++
+              }else if (typeof asset === 'object' && asset.item.includes('Model')){
+                modelCount++
+              }
+            });
+          });
+          ['class','items'].forEach(type => {
+            item.allowed?.[type]?.forEach(allowed => {
+              if(allowed.includes('Model')){
+                modelCount++
+              }
+            })
+          })
+          // console.log(itemDesignation + '(' + itemClass + ')' + ' ' + modelCount)
+          if(['Unit','Infantry/Mounted'].includes(itemClass) && (!item.aspects?.Type || item.aspects?.Type === 'conceptual') && !modelCount){
+            console.log(itemDesignation + '(' + itemClass + ')' + ' should be a game piece')
+          }else if(['Character','Titan','Vehicle'].includes(itemClass) && (!item.aspects?.Type || item.aspects?.Type === 'game piece') && modelCount){
+            console.log(itemDesignation + '(' + itemClass + ')' + ' should be conceptual')
           }
         }
       });
