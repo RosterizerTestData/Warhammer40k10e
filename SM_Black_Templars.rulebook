@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.10.7",
+  "revision": "10.10.8",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "7WR2QE",
+      "slug": "C7RSDD",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -1227,10 +1227,10 @@
           ]
         },
         "rules": {
-          "apply2ndCostInitiates": {
+          "Cost4Init0Neo": {
             "actions": [
               {
-                "actionType": "modify",
+                "actionType": "set",
                 "iterations": 1,
                 "paths": [
                   [
@@ -1240,41 +1240,13 @@
                     "value"
                   ]
                 ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "combined2ndCost",
-                  "value"
-                ]
+                "value": 85
               }
             ],
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "initiates1stTally",
-                    "value"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
-                "min": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
+                "max": 4,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -1288,12 +1260,7 @@
               },
               {
                 "actionable": true,
-                "max": [
-                  "{self}",
-                  "stats",
-                  "neophytes1stTally",
-                  "value"
-                ],
+                "max": 0,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -1309,10 +1276,10 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "apply2ndCostNeophytes": {
+          "Cost4Init5Neo": {
             "actions": [
               {
-                "actionType": "modify",
+                "actionType": "set",
                 "iterations": 1,
                 "paths": [
                   [
@@ -1322,140 +1289,13 @@
                     "value"
                   ]
                 ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "combined2ndCost",
-                  "value"
-                ]
+                "value": 135
               }
             ],
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "neophytes1stTally",
-                    "value"
-                  ]
-                ]
-              },
-              {
                 "actionable": true,
-                "min": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Neophyte",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "max": [
-                  "{self}",
-                  "stats",
-                  "initiates1stTally",
-                  "value"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Initiate",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "apply3rdCostInitiates": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "combined3rdCost",
-                  "value"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "initiates1stTally",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "neophytes1stTally",
-                    "value"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
+                "max": 4,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -1469,19 +1309,8 @@
               },
               {
                 "actionable": true,
-                "max": [
-                  "{self}",
-                  "stats",
-                  "neophytes2ndTally",
-                  "value"
-                ],
-                "min": [
-                  "{this}",
-                  "evals",
-                  "1",
-                  "result",
-                  "integer"
-                ],
+                "max": 5,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -1497,10 +1326,10 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "apply3rdCostNeophytes": {
+          "Cost9Init0Neo": {
             "actions": [
               {
-                "actionType": "modify",
+                "actionType": "set",
                 "iterations": 1,
                 "paths": [
                   [
@@ -1510,41 +1339,125 @@
                     "value"
                   ]
                 ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "combined3rdCost",
-                  "value"
-                ]
+                "value": 150
               }
             ],
             "evals": [
               {
-                "actionable": false,
-                "equation": {
-                  "operator": "T+O",
-                  "value": 1
-                },
+                "actionable": true,
+                "min": 5,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "stats",
-                    "neophytes2ndTally",
+                    "Initiate",
                     "value"
                   ]
                 ]
               },
               {
                 "actionable": true,
-                "min": [
-                  "{this}",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
+                "max": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neophyte",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Cost9Init10Neo": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
                 ],
+                "value": 270
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 5,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Initiate",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Neophyte",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Cost9Init10Neo2": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 270
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 4,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Initiate",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 6,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -1600,16 +1513,6 @@
           }
         },
         "stats": {
-          "combined2ndCost": {
-            "statType": "numeric",
-            "value": 75,
-            "visibility": "hidden"
-          },
-          "combined3rdCost": {
-            "statType": "numeric",
-            "value": 135,
-            "visibility": "hidden"
-          },
           "Initiate": {
             "max": 9,
             "min": 4,
