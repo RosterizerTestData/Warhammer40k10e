@@ -24,7 +24,7 @@ const fileList = [
   // 'Imperial_Agents',
   // 'Imperial_Knights',
   // 'Imperium',
-  'Leagues_of_Votann',
+  // 'Leagues_of_Votann',
   // 'Necrons',
   // 'Orks',
   // 'SM_Black_Templars',
@@ -38,12 +38,13 @@ const fileList = [
   // 'Titanicus_Traitoris',
   // 'Tyranids',
   // 'Warhammer_40k_10e',
-  // 'World_Eaters'
+  // 'World_Eaters',
+  'Combat_Patrol'
 ];
 let ttsData;
 let rulebookData;
 fileList.forEach(file => {
-  fetch('../../' + file + '.rulebook')
+  fetch('../../drafts/' + file + '.rulebook')
   .then(response => response.json())
   .then(data => {
     rulebookData = data;
@@ -56,25 +57,40 @@ fileList.forEach(file => {
 
       Object.keys(rulebookData.rulebook.assetCatalog).forEach(itemKey => {
         let [classification, designation] = itemKey.split('§');
-        let item = rulebookData.rulebook.assetCatalog[itemKey];
+        console.log(itemKey,isGamePiece(itemKey))
         if(isGamePiece(itemKey)){
+          let item = rulebookData.rulebook.assetCatalog[itemKey];
+          let label = item.aspects?.Label || designation;
+          // console.log(itemKey, label,item);
           let ttsObjects = ttsData.ObjectStates.filter(objectState => {
-            return objectState.Nickname.toLowerCase() === designation.toLowerCase();
+            // console.log(label,objectState.Nickname)
+            return objectState.Nickname.toLowerCase().includes(label.toLowerCase());
           });
+          // console.log(ttsObjects)
           let ttsObject = ttsObjects[0];
           if(ttsObject){
             item.meta = item.meta || {};
-            if(ttsObject.Name.includes('Custom_Model')){
-              if(ttsObject.CustomMesh.MeshURL) item.meta.ttsMeshURL = ttsObject.CustomMesh.MeshURL;
-              if(ttsObject.CustomMesh.DiffuseURL) item.meta.ttsDiffuseURL = ttsObject.CustomMesh.DiffuseURL;
-              if(ttsObject.CustomMesh.NormalURL) item.meta.ttsNormalURL = ttsObject.CustomMesh.NormalURL;
-              if(ttsObject.CustomMesh.ColliderURL) item.meta.ttsColliderURL = ttsObject.CustomMesh.ColliderURL;
-            }else if(ttsObject.Name === 'Custom_Assetbundle'){
-              if(ttsObject.CustomAssetbundle.AssetbundleURL) item.meta.ttsAssetbundleURL = ttsObject.CustomAssetbundle.AssetbundleURL;
-              if(ttsObject.CustomAssetbundle.AssetbundleSecondaryURL) item.meta.ttsAssetbundleSecondaryURL = ttsObject.CustomAssetbundle.AssetbundleSecondaryURL;
-            }
-            if(ttsObject.States) item.meta.ttsStates = JSON.stringify(ttsObject.States);
-            if(ttsObject.ChildObjects) item.meta.ttsChildObjects = JSON.stringify(ttsObject.ChildObjects);
+            item.meta.ttsModelCode = {...ttsObject}
+            delete item.meta.ttsModelCode.GUID;
+            delete item.meta.ttsModelCode.Nickname;
+            delete item.meta.ttsModelCode.Description;
+            delete item.meta.ttsModelCode.Tags;
+            delete item.meta.ttsModelCode.States;
+            delete item.meta.ttsModelCode.LuaScript;
+            delete item.meta.ttsModelCode.LuaScriptState;
+            delete item.meta.ttsModelCode.XmlUI;
+            item.meta.ttsModelCode = JSON.stringify(item.meta.ttsModelCode);
+            // if(ttsObject.Name.includes('Custom_Model')){
+            //   if(ttsObject.CustomMesh.MeshURL) item.meta.ttsMeshURL = ttsObject.CustomMesh.MeshURL;
+            //   if(ttsObject.CustomMesh.DiffuseURL) item.meta.ttsDiffuseURL = ttsObject.CustomMesh.DiffuseURL;
+            //   if(ttsObject.CustomMesh.NormalURL) item.meta.ttsNormalURL = ttsObject.CustomMesh.NormalURL;
+            //   if(ttsObject.CustomMesh.ColliderURL) item.meta.ttsColliderURL = ttsObject.CustomMesh.ColliderURL;
+            // }else if(ttsObject.Name === 'Custom_Assetbundle'){
+            //   if(ttsObject.CustomAssetbundle.AssetbundleURL) item.meta.ttsAssetbundleURL = ttsObject.CustomAssetbundle.AssetbundleURL;
+            //   if(ttsObject.CustomAssetbundle.AssetbundleSecondaryURL) item.meta.ttsAssetbundleSecondaryURL = ttsObject.CustomAssetbundle.AssetbundleSecondaryURL;
+            // }
+            // if(ttsObject.States) item.meta.ttsStates = JSON.stringify(ttsObject.States);
+            // if(ttsObject.ChildObjects) item.meta.ttsChildObjects = JSON.stringify(ttsObject.ChildObjects);
           }else{
             console.log("missing: ",itemKey)
             item.keywords = item.keywords || {};
@@ -83,9 +99,9 @@ fileList.forEach(file => {
           }
         }
       });
-      console.log("objectsWithoutChildObjects",ttsData.ObjectStates.filter(objectState => !objectState.ChildObjects))
-      console.log("objectsWithStates",ttsData.ObjectStates.filter(objectState => objectState.States))
-      console.log(rulebookData.name, rulebookData,ttsData.ObjectStates);
+      // console.log("objectsWithoutChildObjects",ttsData.ObjectStates.filter(objectState => !objectState.ChildObjects))
+      // console.log("objectsWithStates",ttsData.ObjectStates.filter(objectState => objectState.States))
+      console.log(rulebookData.name, rulebookData);
 
 
     })
@@ -113,7 +129,7 @@ function isGamePiece(itemKey){
        )
     && rulebookData.rulebook.assetCatalog[itemKey]?.aspects?.Type !== 'conceptual'
     )
-    || rulebookData.rulebook.assetCatalog[itemKey]?.aspects?.Type === 'gamePiece'
+    || rulebookData.rulebook.assetCatalog[itemKey]?.aspects?.Type === 'game piece'
   ){
     output = true
   }

@@ -2,14 +2,6 @@
 let titleCase = function(sentence){
   return sentence.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/\s+/g,' ').toLowerCase().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ').replace(/ Of /g,' of ').replace(/ The /g,' the ').replace(/ With /g,' with ').replace(/ In /g,' in ').replace(/ On /g,' on ').replace(/ Of /g,' of ').replace(/ And /g,' and ')
 }
-// const datasheets = {};
-// Object.values(window.data).forEach(data => {
-//   data.datasheets.forEach(sheet => {
-//     if(!datasheets[titleCase(sheet.name)]) datasheets[titleCase(sheet.name)] = sheet;
-//     else datasheets[sheet.faction_id + ' ' + titleCase(sheet.name)] = sheet
-//   });
-// });
-// console.log(datasheets)
 const fileList = [
   'Adepta_Sororitas.rulebook',
   'Adeptus_Custodes.rulebook',
@@ -79,6 +71,7 @@ async function processFiles() {
           }else if(['Character','Titan','Vehicle'].includes(itemClass) && (!item.aspects?.Type || item.aspects?.Type === 'game piece') && modelCount){
             console.log(itemDesignation + '(' + itemClass + ')' + ' should be conceptual')
           }
+          if(['Character','Titan'].includes(itemClass) && item.aspects?.Type === 'conceptual') console.log(itemDesignation + '(' + itemClass + ')' + ' is conceptual')
         }
       });
     } catch (error) {

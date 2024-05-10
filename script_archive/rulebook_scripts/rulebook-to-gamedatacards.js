@@ -180,7 +180,7 @@ fileList.forEach(file => {
      
       // console.log(JSON.parse(JSON.stringify(statlines)))
       newUnit.stats = statlines.map((statline,i) => { return {
-        "m": statline[1].M?.value + "\"",
+        "m": statline[1].M?.value + "″",
         "t": statline[1].T.value,
         "sv": statline[1].Sv.value + "+",
         "w": statline[1].W.value,
@@ -342,7 +342,7 @@ function profileWeapon(weaponName,weaponAsset){
     "active": true,
     "name": weaponName.split('§')[1].split('—')[1],
     "keywords": weaponAsset.traits?.map(trait => trait.split('§')[1]) || [],
-    "range": weaponAsset.stats.Range?.value + (weaponAsset.stats.Range?.value !== 'Melee' ? "\"" : ""),
+    "range": weaponAsset.stats.Range?.value + (weaponAsset.stats.Range?.value !== 'Melee' ? "″" : ""),
     "attacks": weaponAsset.stats.A.value,
     "skill": (weaponAsset.stats.BS?.value || weaponAsset.stats.WS?.value) + "+",
     "strength": weaponAsset.stats.S.value,

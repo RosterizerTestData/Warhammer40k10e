@@ -5,6 +5,9 @@ If you’re going to author stuff for 40k, it’s wise to make it similar in str
 ## 40k10Core
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.ruleboo
 
+## Combat_Patrol
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Combat_Patrol.rulebook
+
 ## Imperium
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.ruleboo
 
