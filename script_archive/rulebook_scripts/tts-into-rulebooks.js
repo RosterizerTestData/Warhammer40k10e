@@ -44,7 +44,7 @@ const fileList = [
 let ttsData;
 let rulebookData;
 fileList.forEach(file => {
-  fetch('../../drafts/' + file + '.rulebook')
+  fetch('../../' + file + '.rulebook')
   .then(response => response.json())
   .then(data => {
     rulebookData = data;
@@ -57,9 +57,9 @@ fileList.forEach(file => {
 
       Object.keys(rulebookData.rulebook.assetCatalog).forEach(itemKey => {
         let [classification, designation] = itemKey.split('§');
-        console.log(itemKey,isGamePiece(itemKey))
-        if(isGamePiece(itemKey)){
-          let item = rulebookData.rulebook.assetCatalog[itemKey];
+        // console.log(itemKey,isGamePiece(itemKey))
+        let item = rulebookData.rulebook.assetCatalog[itemKey];
+        if(isGamePiece(itemKey) && !item.meta?.ttsModelCode){
           let label = item.aspects?.Label || designation;
           // console.log(itemKey, label,item);
           let ttsObjects = ttsData.ObjectStates.filter(objectState => {

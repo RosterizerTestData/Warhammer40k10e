@@ -1,6 +1,18 @@
+/*
+script:
+coherency fix
+base size predictions
+new tau patrol
 
-
-
+bundled model weapon fix
+Stratagem rules
+combatpatrol ranked stat selection limiter rules
+tts model nickname modifier meta field
+tts model assignment script for full models
+model exports
+rosterizer model code process
+rosterizer swapper defects
+*/
 
 
 let formatText = (text) => {
@@ -25,35 +37,7 @@ const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain'
                         'Torrent','Twin-linked',];
 
 const fileList = [
-  '../script_data/amonhotekhs_guard.json',
-  '../script_data/aurellios_banishers.json',
-  '../script_data/butchers_of_hyporia.json',
-  '../script_data/dark_zealots.json',
-  '../script_data/gordrangs_gitstompas.json',
-  '../script_data/guardians_of_the_throne.json',
-  '../script_data/hand_of_the_magus.json',
-  '../script_data/karagars_rampagers.json',
-  '../script_data/karsks_gunners.json',
-  '../script_data/maniple_verask-alpha.json',
-  '../script_data/mordekais_judgement.json',
-  '../script_data/morgrims_butchas.json',
-  '../script_data/protectors_of_aunshar.json',
-  '../script_data/purge_corps_deltic-9.json',
-  '../script_data/siguards_crusaders.json',
-  '../script_data/strike_force_marcellos.json',
-  '../script_data/strike_force_octavius.json',
-  '../script_data/strike_team_solarien.json',
-  '../script_data/the_blades_of_torment.json',
-  '../script_data/the_coven_temporus.json',
-  '../script_data/the_fatebreakers.json',
-  '../script_data/the_penitent_host.json',
-  '../script_data/the_shambling_horde.json',
-  '../script_data/the_vardenghast_swarm.json',
-  '../script_data/the_vengeful_brethren.json',
-  '../script_data/thoryks_void_hunters.json',
-  '../script_data/tristraens_gilded_blades.json',
-  '../script_data/vigil_force_alphion.json',
-  '../script_data/warspekes_prospect.json'
+  '../script_data/sudden_dawn_cadre.json',
 ];
 
 let ranks = {
@@ -451,8 +435,8 @@ async function processFiles() {
             return null;
           }
           // determine model composition
-          console.log(datasheet)
-          console.log(datasheet.composition)
+          // console.log(datasheet)
+          // console.log(datasheet.composition)
           let loadout = datasheet.loadout
             .replace(/This model/,`1 ${datasheet.stats[0].name}`)
             .replace(/Every model/,`${datasheet.composition[0].replace(/[A-Za-z\s]+\(([0-9]+)+ model[^\s]?\)/g,'$1')} ${datasheet.stats[0].name.replace(/([A-Za-z\s])s?$/,'$1')}`)
@@ -461,9 +445,9 @@ async function processFiles() {
           // if the first character of loadout isn't a number, make it a 1
           if(!loadout.match(/^\d/)) loadout = '1 '+loadout
           let comp = loadout.split('\n■ ').map(load => splitLoadout(load));
-          console.log(datasheet.loadout)
-          console.log(loadout)
-          console.log(comp)
+          // console.log(datasheet.loadout)
+          // console.log(loadout)
+          // console.log(comp)
           delete a[i].composition;
 
           // determine stats for unit/model(s)
