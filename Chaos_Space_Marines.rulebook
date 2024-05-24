@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.22",
+  "revision": "10.10.23",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7147,22 +7147,41 @@
           ]
         },
         "rules": {
-          "CHAOS LORD model only (excluding JUMP PACK models).": {
+          "CHAOS LORD model only.": {
             "evals": [
               {
                 "actionable": true,
                 "contains": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{parent}",
-                    "keywords",
-                    "Keywords"
+                    "tally",
+                    "Chaos Lord"
                   ]
-                ],
-                "value": "Chaos Lord"
+                ]
               },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Chaos Lord in Terminator Armour"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "excluding JUMP PACK models.": {
+            "evals": [
               {
                 "actionable": true,
                 "contains": true,
