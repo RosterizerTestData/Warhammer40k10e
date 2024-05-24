@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.19",
+  "revision": "10.10.20",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -17,7 +17,52 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
-      "Character": {},
+      "Character": {
+        "rules": {
+          "CharactersMarkEqualtoAttached": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mark of Chaos",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "Mark of Chaos",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Pactbound Zealots"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        }
+      },
       "Unit": {
         "rules": {
           "AddKeywordFromMark": {
@@ -29031,6 +29076,7 @@
             "value": "Chaos"
           },
           "Lost & Damned Points": {
+            "label": "Cults of the Dark Gods Points",
             "statOrder": 7,
             "statType": "numeric",
             "tracked": true,
@@ -33576,7 +33622,7 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "error"
+            "failState": "pass"
           }
         },
         "stats": {
