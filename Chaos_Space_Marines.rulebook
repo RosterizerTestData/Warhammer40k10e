@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.21",
+  "revision": "10.10.22",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -55,6 +55,18 @@
                   ]
                 ],
                 "value": "Pactbound Zealots"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
               }
             ],
             "evaluate": "AND",
@@ -4216,6 +4228,46 @@
           ]
         },
         "rules": {
+          "AddKeywordFromAllegiance": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Daemonic Allegiance",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "None"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
+          },
           "khorne": {
             "actions": [
               {
@@ -4225,7 +4277,7 @@
                   [
                     "{self}",
                     "assets",
-                    "classification",
+                    "classIdentity",
                     "Weapon",
                     "assets",
                     "classification",
@@ -4364,6 +4416,38 @@
           }
         },
         "stats": {
+          "Daemonic Allegiance": {
+            "dynamic": true,
+            "ranks": {
+              "Khorne": {
+                "order": 0,
+                "tracking": {
+                  "khorne": 1
+                }
+              },
+              "Tzeentch": {
+                "order": 1,
+                "tracking": {
+                  "tzeentch": 1
+                }
+              },
+              "Nurgle": {
+                "order": 2,
+                "tracking": {
+                  "nurgle": 1
+                }
+              },
+              "Slaanesh": {
+                "order": 3,
+                "tracking": {
+                  "slaanesh": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "Khorne",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
           },
@@ -4396,7 +4480,9 @@
                   "slaanesh": 1
                 }
               }
-            }
+            },
+            "value": "None",
+            "visibility": "hidden"
           },
           "OC": {
             "value": 3
@@ -4466,6 +4552,46 @@
           ]
         },
         "rules": {
+          "AddKeywordFromAllegiance": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Daemonic Allegiance",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Daemonic Allegiance",
+                    "value"
+                  ]
+                ],
+                "value": "None"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
+          },
           "Khorne": {
             "actions": [
               {
@@ -4475,7 +4601,7 @@
                   [
                     "{self}",
                     "assets",
-                    "classification",
+                    "classIdentity",
                     "Weapon",
                     "assets",
                     "classification",
@@ -4614,6 +4740,38 @@
           }
         },
         "stats": {
+          "Daemonic Allegiance": {
+            "dynamic": true,
+            "ranks": {
+              "Khorne": {
+                "order": 0,
+                "tracking": {
+                  "khorne": 1
+                }
+              },
+              "Tzeentch": {
+                "order": 1,
+                "tracking": {
+                  "tzeentch": 1
+                }
+              },
+              "Nurgle": {
+                "order": 2,
+                "tracking": {
+                  "nurgle": 1
+                }
+              },
+              "Slaanesh": {
+                "order": 3,
+                "tracking": {
+                  "slaanesh": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "Khorne",
+            "visibility": "normal"
+          },
           "Ld": {
             "value": 6
           },
@@ -4650,7 +4808,9 @@
                   "slaanesh": 1
                 }
               }
-            }
+            },
+            "value": "None",
+            "visibility": "hidden"
           },
           "OC": {
             "value": 3
