@@ -37,7 +37,8 @@ const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain'
                         'Torrent','Twin-linked',];
 
 const fileList = [
-  '../script_data/sudden_dawn_cadre.json',
+  '../script_data/insidious_invaders.json',
+  '../script_data/zarkans_daemonkin.json',
 ];
 
 let ranks = {
@@ -688,6 +689,7 @@ async function processFiles() {
         if(datasheet.leads){
           datasheet.leads.units.forEach(ledUnitName => {
             ledUnitName = titleCase(ledUnitName);
+            console.log(datasheet.name,ledUnitName)
             // console.log(datasheet.name,ledUnitName,datasheet,rulebook.rulebook.assetCatalog)
             let ledUnit = rulebook.rulebook.assetCatalog['Unit§'+data.detachments[0]+'—'+ledUnitName] || rulebook.rulebook.assetCatalog['Infantry/Mounted§'+data.detachments[0]+'—'+ledUnitName];
             ledUnit.stats = ledUnit.stats || {};
@@ -724,8 +726,10 @@ async function processFiles() {
       });
       let firstEnhancement = titleCase(data.enhancements[0].name);
       let secondEnhancement = titleCase(data.enhancements[1].name);
-      rulebook.rulebook.assetCatalog['Character§'+data.detachments[0]+'—' + primaryCharacter].stats = rulebook.rulebook.assetCatalog['Character§'+data.detachments[0]+'—' + primaryCharacter].stats || {}
-      rulebook.rulebook.assetCatalog['Character§'+data.detachments[0]+'—' + primaryCharacter].stats.Enhancement = {
+      let primaryKey = rulebook.rulebook.assetCatalog['Character§'+data.detachments[0]+'—' + primaryCharacter] ? 'Character§'+data.detachments[0]+'—' + primaryCharacter : 'Unit§'+data.detachments[0]+'—' + primaryCharacter;
+      let priChar = rulebook.rulebook.assetCatalog[primaryKey];
+      priChar.stats = priChar.stats || {}
+      priChar.stats.Enhancement = {
         statType: "rank",
         value: firstEnhancement,
         ranks: {
