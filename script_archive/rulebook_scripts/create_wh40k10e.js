@@ -23,35 +23,8 @@ const coreAbilityList = ['Damaged:','Deadly Demise','Deep Strike','Feel No Pain'
                         'Torrent','Twin-linked',];
 
 const fileList = [
-  '../script_data/amonhotekhs_guard.json',
-  '../script_data/aurellios_banishers.json',
-  '../script_data/butchers_of_hyporia.json',
-  '../script_data/dark_zealots.json',
-  '../script_data/gordrangs_gitstompas.json',
-  '../script_data/guardians_of_the_throne.json',
-  '../script_data/hand_of_the_magus.json',
-  '../script_data/karagars_rampagers.json',
-  '../script_data/karsks_gunners.json',
-  '../script_data/maniple_verask-alpha.json',
-  '../script_data/mordekais_judgement.json',
-  '../script_data/morgrims_butchas.json',
-  '../script_data/protectors_of_aunshar.json',
-  '../script_data/purge_corps_deltic-9.json',
-  '../script_data/siguards_crusaders.json',
-  '../script_data/strike_force_marcellos.json',
-  '../script_data/strike_force_octavius.json',
-  '../script_data/strike_team_solarien.json',
-  '../script_data/the_blades_of_torment.json',
-  '../script_data/the_coven_temporus.json',
-  '../script_data/the_fatebreakers.json',
-  '../script_data/the_penitent_host.json',
-  '../script_data/the_shambling_horde.json',
-  '../script_data/the_vardenghast_swarm.json',
-  '../script_data/the_vengeful_brethren.json',
-  '../script_data/thoryks_void_hunters.json',
-  '../script_data/tristraens_gilded_blades.json',
-  '../script_data/vigil_force_alphion.json',
-  '../script_data/wârspekes_prospect.json'
+  '../script_data/emperors_children.json',
+  '../script_data/unaligned.json',
 ];
 async function processFiles() {
   for (const file of fileList) {
@@ -63,7 +36,7 @@ async function processFiles() {
 
       console.log(datasheets);
       let rulebook = {
-        revision: '10.0.10',
+        revision: '10.10.0',
         name: data.name,
         game: 'Warhammer 40k',
         genre: 'sci-fi',
@@ -75,7 +48,8 @@ async function processFiles() {
           {
             slug: '123456',
             name: '40k10e',
-            game: 'Warhammer 40k'
+            game: 'Warhammer 40k',
+            source: 'https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook'
           }
         ],
         rulebook: {
@@ -126,9 +100,9 @@ async function processFiles() {
                 if(typeof rulebook.rulebook.assetCatalog[weaponKey].stats[statKey].value === 'string') rulebook.rulebook.assetCatalog[weaponKey].stats[statKey].statType = 'term';
               });
               if(weapon.profiles.length === 1){
-                rulebook.rulebook.assetCatalog[weaponKey].stats.weaponName = {value: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')};
+                rulebook.rulebook.assetCatalog[weaponKey].aspects = {Label: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')};
               }else{
-                rulebook.rulebook.assetCatalog[weaponKey].stats.weaponName = {value: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/^.* – (.*)/,'$1')};
+                rulebook.rulebook.assetCatalog[weaponKey].aspects = {Label: profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1').replace(/^.* – (.*)/,'$1')};
               }
               profile.keywords.forEach(keyword => {
                 let abilityName = keyword;
@@ -175,7 +149,6 @@ async function processFiles() {
                 assets: {
                   traits: weapon.profiles.map(profile => range[1] + ' Weapon§'+titleCase(datasheet.name.replace(/'/g,'’').replace(/^\s*(.*[^\s])*\s*$/,'$1'))+'—'+(profile.name.replace(/^\s*(.*[^\s])*\s*$/,'$1')))
                 },
-                stats: {wargearName: {value: (weapon.profiles[0].name.replace(/^\s*(.*[^\s])*\s*$/,'$1')).replace(/^(.*) – .*/,'$1')}},
                 keywords: {Tags: ['Multi-weapon']}
               }
             }
@@ -355,6 +328,7 @@ async function processFiles() {
             if(el.length === 1) a[i] = ['1',el[0]];
           });
           delete a[i].composition;
+          let modelItemKey;
 
           // determine stats for unit/model(s)
           let singleModelUnit = !comp.length || (comp.length === 1 && comp[0][0] == 1);
@@ -362,7 +336,7 @@ async function processFiles() {
             comp.forEach(modelType => {
               let [minQty,maxQty] = modelType[0].split('-').map(qty => Number(qty));
               let modelName = modelType[1]?.replace(/^\s*(.*[^\s])*\s*$/,'$1');
-              let modelItemKey = 'Model§'+modelName;
+              modelItemKey = 'Model§'+modelName;
               if(modelName === undefined) console.log('123456789@#%#$T^#$^%#$%^#$%^',datasheet.name)
               let statProfileIndex = datasheet.stats.findIndex(profile => profile.name.toLowerCase() === modelName?.toLowerCase());
               statProfileIndex = statProfileIndex < 0 ? 0 : statProfileIndex;
@@ -394,13 +368,13 @@ async function processFiles() {
                   if(!maxQty) unit.assets.traits.push(modelItemKey);
                   else{
                     unit.assets = unit.assets || {};
-                    unit.assets.included = unit.assets.included || [];
-                    unit.assets.included.push(modelItemKey);
+                    unit.assets.traits = unit.assets.traits || [];
+                    unit.assets.traits.push(modelItemKey);
                   }
                 }else{
                   let modelAsset = minQty > 1 ? {item: modelItemKey,quantity: Number(minQty)} : modelItemKey;
-                  unit.assets.included = unit.assets.included || [];
-                  unit.assets.included.push(modelAsset);
+                  unit.assets.traits = unit.assets.traits || [];
+                  unit.assets.traits.push(modelAsset);
                 }
               }
               if(typeof minQty === 'number' && !isNaN(minQty) && (minQty != 1 || maxQty)){
@@ -460,7 +434,7 @@ async function processFiles() {
               }
               if(i === 1){
                 unit.stats.model2ndCost = {
-                  "value": Number(point.cost - datasheet.points[0].cost)
+                  "value": Number(point.cost)
                 }
                 unit.stats.model2ndTally = {
                   "value": Number(point.models)
@@ -468,13 +442,35 @@ async function processFiles() {
               }
               if(i === 2){
                 unit.stats.model3rdCost = {
-                  "value": Number(point.cost - datasheet.points[1].cost)
+                  "value": Number(point.cost)
                 }
                 unit.stats.model3rdTally = {
                   "value": Number(point.models)
                 }
               }
+              if(i === 3){
+                unit.stats.model4thCost = {
+                  "value": Number(point.cost)
+                }
+                unit.stats.model4thTally = {
+                  "value": Number(point.models)
+                }
+              }
             });
+            if(unit.stats.model1stTally){
+              unit.stats.Models = {
+                "max": unit.stats.model4thTally?.value || unit.stats.model3rdTally?.value || unit.stats.model2ndTally?.value || unit.stats.model1stTally?.value,
+                "min": unit.stats.model1stTally?.value,
+                "value": unit.stats.model1stTally.value,
+              }
+              if(unit.stats.model2ndTally){
+                unit.stats.Models.visibility = "normal";
+                unit.stats.Models.increment = {
+                  "value": unit.stats.model2ndTally.value - unit.stats.model1stTally.value
+                }
+              }
+              unit.stats.modelKey = { value: modelItemKey };
+            }
           }
 
           let simpleSheet = singleModelUnit;
@@ -520,7 +516,7 @@ async function processFiles() {
               }else{
                 comp.forEach(modelType => {
                   let modelName = modelType[1]?.replace(/^\s*(.*[^\s])*\s*$/,'$1');
-                  let modelItemKey = 'Model§'+modelName;
+                  modelItemKey = 'Model§'+modelName;
                   if(modelName === undefined) console.log('@#%#$T^#$^%#$%^#$%^',datasheet.name)
                   rulebook.rulebook.assetCatalog[modelItemKey].stats.sampleLoadout = sampleLoadout;
                 });
@@ -546,7 +542,7 @@ async function processFiles() {
                   }else{
                     comp.forEach(modelType => {
                       let modelName = modelType[1]?.replace(/^\s*(.*[^\s])*\s*$/,'$1');
-                      let modelItemKey = 'Model§'+modelName;
+                      modelItemKey = 'Model§'+modelName;
                       if(modelName === undefined) console.log('@#%#$T^#$^%#$%^#$%^',datasheet.name)
                       rulebook.rulebook.assetCatalog[modelItemKey].assets = rulebook.rulebook.assetCatalog[modelItemKey].assets || {};
                       rulebook.rulebook.assetCatalog[modelItemKey].assets.traits = rulebook.rulebook.assetCatalog[modelItemKey].assets.traits || [];

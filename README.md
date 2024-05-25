@@ -3,16 +3,16 @@
 If you’re going to author stuff for 40k, it’s wise to make it similar in structure to other elements of the 40k rulebook.
 
 ## 40k10Core
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.ruleboo
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e
 
 ## Combat_Patrol
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Combat_Patrol.rulebook
 
 ## Imperium
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.ruleboo
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium
 
 ## Chaos
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.ruleboo
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos
 
 ### Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook
@@ -71,14 +71,17 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_
 ### Thousand_Sons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.rulebook
 
-### Titanicus_Traitoris
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titanicus_Traitoris.rulebook
-
 ### World_Eaters
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.rulebook
 
+### Emperor’s Children
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Emperor's_Children
+
+### Titanicus_Traitoris
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titanicus_Traitoris.rulebook
+
 ### Aeldari/Drukhari common
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.ruleboo
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common
 
 ### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook
