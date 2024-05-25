@@ -509,7 +509,7 @@ async function processFiles() {
           });
           if(!simpleSheet || !simpleWargear){
             // console.log(datasheet.wargear)
-            unit.text = 'ERROR: this unit’s wargear couldn’t be automatically applied and requires custom work.\n\n' + datasheet.loadout + '\n\n' + datasheet.wargear?.join('\n\n*') + (unit.text || '');
+            unit.text = 'ERROR: this unit’s wargear requires custom work. Please make a request for this unit to be completed in [the discord](https://discord.gg/F8AxGVMpxP).\n\n' + datasheet.loadout + '\n\n' + datasheet.wargear?.join('\n\n*') + (unit.text || '');
             if(sampleLoadout){
               if(singleModelUnit){
                 unit.stats.sampleLoadout = sampleLoadout;

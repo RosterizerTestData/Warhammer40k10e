@@ -93,8 +93,8 @@ fileList.forEach(file => {
             // if(ttsObject.ChildObjects) item.meta.ttsChildObjects = JSON.stringify(ttsObject.ChildObjects);
             // remove ttsModelMissing tag if it exists
             if(item.keywords && item.keywords.Tags && item.keywords.Tags.includes('ttsModelMissing')) item.keywords.Tags = item.keywords.Tags.filter(tag => tag !== 'ttsModelMissing');
-            if(!item.keywords?.Tags?.length) delete item.keywords.Tags;
-            if(!Object.keys(item.keywords).length) delete item.keywords;
+            if(item.keywords?.Tags && !item.keywords?.Tags?.length) delete item.keywords.Tags;
+            if(!Object.keys(item.keywords || {}).length) delete item.keywords;
           }else{
             console.log("missing: ",itemKey)
             item.keywords = item.keywords || {};
