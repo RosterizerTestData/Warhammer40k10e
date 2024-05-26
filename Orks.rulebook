@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.10.15",
+  "revision": "10.10.16",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -169,6 +169,9 @@
         },
         "text": "Each time this model makes a ranged attack that targets a unit that cannot Fly, re-roll a Hit roll of 1."
       },
+      "Ability§Bludgeoning Cheer": {
+        "text": "Each time this model ends a Normal, Advance, Fall Back or Charge move, select one enemy unit within 3″ of this model and roll six D6: for each 4+, that enemy unit suffers 1 mortal wound. That enemy unit must then take\na Battle-shock test."
+      },
       "Ability§Bodyguard": {
         "keywords": {
           "Keywords": [
@@ -282,6 +285,12 @@
         },
         "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
       },
+      "Ability§Da Revolushun! xmas": {
+        "aspects": {
+          "Label": "Da Revolushun!"
+        },
+        "text": "Once per battle round, at the start of any phase, you can select one friendly **Gretchin** unit that is Battle-shocked and within 12″ of this model. That unit is no longer Battle-shocked."
+      },
       "Ability§Dakkastorm": {
         "keywords": {
           "Keywords": [
@@ -379,6 +388,9 @@
         },
         "text": "Each time this unit Consolidates, each model in this unit can move up to 6″ instead of up to 3″."
       },
+      "Ability§Explosive Presents (aura)": {
+        "text": "While a friendly **Gretchin** unit is within 6″ of this model, that unit has the **Grenades** keyword and, each time such a unit uses the Grenade Stratagem, add 1 to the result of each dice rolled to see how many mortal wounds are inflicted."
+      },
       "Ability§Fix Dat Armour Up": {
         "keywords": {
           "Keywords": [
@@ -427,6 +439,9 @@
         },
         "text": "Each time this model makes a ranged attack that targets an enemy unit that contains five or more models, you can re-roll the Hit roll."
       },
+      "Ability§Gargantsmasha": {
+        "text": "Each time this model makes an attack that targets a **Titanic** unit, you can re-roll the Hit roll and you can re-roll the Wound roll."
+      },
       "Ability§Gargantuan": {
         "keywords": {
           "Keywords": [
@@ -450,6 +465,9 @@
           ]
         },
         "text": "While a friendly Orks unit is within 12″ of Makari, if you have called a Waaagh! this battle round, melee weapons equipped by models in that unit have the [LETHAL HITS] ability."
+      },
+      "Ability§Gifts for All! (aura)": {
+        "text": "While a **Gretchin** unit is within 6″ of this model, that unit’s Thievin’ Scavengers ability is successful on D6 rolls of 2+, instead of rolls of 4+."
       },
       "Ability§Grot Riggers": {
         "keywords": {
@@ -879,6 +897,53 @@
           ]
         },
         "text": "Each time a model in this unit makes an attack that targets a Monster or Vehicle unit, add 1 to the Hit roll and add 1 to the Wound roll."
+      },
+      "Ability§Tellyporta Tech": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Model",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Character",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        },
+        "text": "While this model is leading a unit, models in that unit have the Deep Strike ability."
       },
       "Ability§Thievin’ Scavengers": {
         "keywords": {
@@ -1893,6 +1958,72 @@
           }
         }
       },
+      "Character§Da Red Gobbo xmas": {
+        "aspects": {
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Lone Operative",
+            "Ability§Waaagh!",
+            "Ability§Explosive Presents (aura)",
+            "Ability§Da Revolushun! xmas",
+            "Ranged Weapon§Da Red Gobbo xmas—Kustom grot blasta",
+            "Melee Weapon§Da Red Gobbo xmas—Close combat weapon",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Orks"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Character",
+            "Da Red Gobbo",
+            "Epic Hero",
+            "Grenades",
+            "Gretchin",
+            "Infantry"
+          ],
+          "Category": [
+            "Epic Hero"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 40
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 2
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
       "Character§Deffkilla Wartrike": {
         "assets": {
           "traits": [
@@ -2016,6 +2147,76 @@
           },
           "Points": {
             "value": 235
+          }
+        }
+      },
+      "Character§Grotmas Gitz": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "5"
+                }
+              }
+            },
+            "Ability§Lone Operative",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "D6+4″"
+                }
+              }
+            },
+            "Ability§Waaagh!",
+            "Ability§Bludgeoning Cheer",
+            "Ability§Gifts for All! (aura)",
+            "Melee Weapon§Grotmas Gitz—Bludgeoning bag of gifts",
+            "Melee Weapon§Grotmas Gitz—Massive gift-filled gob"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Orks"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Category": [
+            "Epic Hero"
+          ],
+          "Keywords": [
+            "Character",
+            "Epic Hero",
+            "Fly",
+            "Gretchin",
+            "Grotmas Gitz",
+            "Mounted"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 40
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 5
           }
         }
       },
@@ -2616,6 +2817,72 @@
           },
           "W": {
             "value": 4
+          }
+        }
+      },
+      "Character§Ufthak Blackhawk": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5"
+                }
+              }
+            },
+            {
+              "item": "Ability§Leader",
+              "text": "\n\n\nThis model can be attached to the following units:\n* Boyz\n* Nobz"
+            },
+            "Ability§Waaagh!",
+            "Ability§Tellyporta Tech",
+            "Ability§Gargantsmasha",
+            "Ranged Weapon§Ufthak Blackhawk—Shokk rifle",
+            "Melee Weapon§Ufthak Blackhawk—Princess’ jaws",
+            "Melee Weapon§Ufthak Blackhawk—Snazzhammer"
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Epic Hero"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Character",
+            "Epic Hero",
+            "Grenades",
+            "Infantry",
+            "Ufthak Blackhawk",
+            "Warboss"
+          ],
+          "Faction": [
+            "Orks"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 70
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
           }
         }
       },
@@ -5673,6 +5940,25 @@
           }
         }
       },
+      "Melee Weapon§Da Red Gobbo xmas—Close combat weapon": {
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Da Red Gobbo—Icon of da Revolushun": {
         "aspects": {
           "Label": "Icon of da Revolushun"
@@ -6315,6 +6601,55 @@
           },
           "WS": {
             "value": 5
+          }
+        }
+      },
+      "Melee Weapon§Grotmas Gitz—Bludgeoning bag of gifts": {
+        "aspects": {
+          "Label": "Bludgeoning bag of gifts"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Grotmas Gitz—Massive gift-filled gob": {
+        "aspects": {
+          "Label": "Massive gift-filled gob"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 4
           }
         }
       },
@@ -8583,6 +8918,60 @@
           }
         }
       },
+      "Melee Weapon§Ufthak Blackhawk—Princess’ jaws": {
+        "aspects": {
+          "Label": "Princess’ jaws"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Ufthak Blackhawk—Snazzhammer": {
+        "aspects": {
+          "Label": "Snazzhammer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 10
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Warbikers—Big choppa": {
         "aspects": {
           "Label": "Big choppa"
@@ -10425,6 +10814,71 @@
           }
         }
       },
+      "Model§Nob": {
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          },
+          "Weapon Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Slugga & Big Choppa": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Nobz—Slugga"
+                  },
+                  {
+                    "trait": "Melee Weapon§Nobz—Big choppa"
+                  }
+                ]
+              },
+              "Slugga & Power klaw": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Nobz—Power klaw"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Nobz—Slugga"
+                  }
+                ]
+              },
+              "Kombi-weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Nobz—Kombi-weapon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Nobz—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Slugga & Big Choppa",
+            "visibility": "active"
+          }
+        }
+      },
       "Model§Nob on Smasha Squig": {
         "assets": {
           "traits": [
@@ -10559,71 +11013,6 @@
           },
           "W": {
             "value": 4
-          }
-        }
-      },
-      "Model§Nob": {
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 2
-          },
-          "Weapon Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Slugga & Big Choppa": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Nobz—Slugga"
-                  },
-                  {
-                    "trait": "Melee Weapon§Nobz—Big choppa"
-                  }
-                ]
-              },
-              "Slugga & Power klaw": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Nobz—Power klaw"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Nobz—Slugga"
-                  }
-                ]
-              },
-              "Kombi-weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Nobz—Kombi-weapon"
-                  },
-                  {
-                    "trait": "Melee Weapon§Nobz—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Slugga & Big Choppa",
-            "visibility": "active"
           }
         }
       },
@@ -13254,6 +13643,37 @@
           },
           "D": {
             "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Da Red Gobbo xmas—Kustom grot blasta": {
+        "aspects": {
+          "Label": "Kustom grot blasta"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D3"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
           },
           "Range": {
             "value": 12
@@ -17957,6 +18377,39 @@
           }
         }
       },
+      "Ranged Weapon§Ufthak Blackhawk—Shokk rifle": {
+        "aspects": {
+          "Label": "Shokk rifle"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds",
+            "Ability§Hazardous",
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "format": "D6+{v}",
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
       "Ranged Weapon§Warbikers—Slugga": {
         "aspects": {
           "Label": "Slugga"
@@ -20423,7 +20876,8 @@
             "Character§Painboy",
             "Character§Warboss",
             "Character§Weirdboy",
-            "Character§Big Mek"
+            "Character§Big Mek",
+            "Character§Ufthak Blackhawk"
           ]
         },
         "assets": {
@@ -26529,7 +26983,8 @@
             "Character§Painboy",
             "Character§Warboss",
             "Character§Big Mek with Shokk Attack Gun",
-            "Character§Big Mek"
+            "Character§Big Mek",
+            "Character§Ufthak Blackhawk"
           ]
         },
         "assets": {
