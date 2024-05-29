@@ -1,6 +1,6 @@
 {
   "name": "Emperor's Children",
-  "revision": "10.10.6",
+  "revision": "10.10.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "QWN3M5",
+      "slug": "E6YM7V",
       "name": "Chaos Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.rulebook"
@@ -17,7 +17,82 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
-      "Character": {},
+      "Character": {
+        "rules": {
+          "HereticAstartesEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAllyEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Faction",
+                  "value"
+                ]
+              }
+            ],
+            "order": 9999
+          }
+        }
+      },
       "Unit": {
         "rules": {
           "ifECMarkofChaosmustbeSlaanesh": {
