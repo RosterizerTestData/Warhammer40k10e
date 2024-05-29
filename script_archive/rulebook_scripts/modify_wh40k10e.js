@@ -56,7 +56,7 @@ async function processFiles() {
       data.revision = dataRevisionArr[0] + '.' + dataRevisionArr[1] + '.' + (Number(dataRevisionArr[2]) + 1);
       // data.wip = true;
 
-      let item;
+      let changeCount = 0;
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         let [classification, designation] = itemKey.split('§');
         item = data.rulebook.assetCatalog[itemKey];
@@ -73,18 +73,23 @@ async function processFiles() {
         });
         // console.log(itemDesignation + '(' + itemClass + ')' + ' ' + modelCount)
         if(
-          (classification === 'Unit' || classification === 'Vehicle')
-          && !modelCount
+          (classification === 'Unit')
+          && !modelCount && item.aspects?.Type !== 'game piece'
         ){
           item.aspects = item.aspects || {};
           item.aspects.Type = 'game piece';
+          changeCount++;
         }
         // dedup keywords
         Object.keys(item.keywords || {}).forEach(keyCat => {
-          item.keywords[keyCat] = Array.from(new Set(item.keywords[keyCat]));
+          let newKeys = Array.from(new Set(item.keywords[keyCat]));
+          if(JSON.stringify(newKeys) !== JSON.stringify(item.keywords[keyCat])){
+            changeCount++;
+            item.keywords[keyCat] = newKeys
+          }
         });
       });
-      console.log(data.name, data);
+      if(changeCount) console.log(data.name, data);
     } catch (error) {
       // Handle any error that occurs during loading
       console.error(error);
