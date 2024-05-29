@@ -75,7 +75,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousa
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.rulebook
 
 ### Emperor’s Children
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Emperor's_Children
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Emperor's_Children.rulebook
 
 ### Titanicus_Traitoris
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titanicus_Traitoris.rulebook
