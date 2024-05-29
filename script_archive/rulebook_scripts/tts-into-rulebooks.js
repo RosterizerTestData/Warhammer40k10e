@@ -62,12 +62,12 @@ fileList.forEach(file => {
         if(isGamePiece(itemKey) && !item.meta?.ttsModelCode){
           let label = item.aspects?.Label || designation;
           // console.log(itemKey, label,item);
-          let ttsObjects = ttsData.ObjectStates.filter(objectState => {
+          let ttsObjects = ttsData.ObjectStates?.filter(objectState => {
             // console.log(label,objectState.Nickname)
             return objectState.Nickname.toLowerCase().includes(label.toLowerCase());
           });
           // console.log(ttsObjects)
-          let ttsObject = ttsObjects[0];
+          let ttsObject = ttsObjects?.[0];
           if(ttsObject){
             item.meta = item.meta || {};
             item.meta.ttsModelCode = {...ttsObject}

@@ -43,12 +43,13 @@ const fileList = [
   'Titanicus_Traitoris.rulebook',
   'Tyranids.rulebook',
   'Warhammer_40k_10e.rulebook',
-  'World_Eaters.rulebook'
+  'World_Eaters.rulebook',
+  'Combat_Patrol.rulebook',
 ];
 async function processFiles() {
   for (const file of fileList) {
     try {
-      const response = await fetch('../../drafts/' + file);
+      const response = await fetch('../../' + file);
       const data = await response.json();
 
       dataRevisionArr = data.revision.split('.');
@@ -57,42 +58,31 @@ async function processFiles() {
 
       let item;
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
+        let [classification, designation] = itemKey.split('§');
         item = data.rulebook.assetCatalog[itemKey];
-        // if(item.stats?.Models && item.assets?.traits){
-        //   // console.log(itemKey, item.assets?.traits, item.stats?.Models, item)
-        //   let modelQty = Number(item.stats.Models.value);
-        //   let existingModels = item.assets.traits?.filter(t => typeof t === 'object' ? t.item.includes('Model§') : t.includes('Model§')) || [];
-        //   let existingModelQty = existingModels.reduce((a, b) => (a + (typeof b === 'object' ? (b.quantity || 1) : 1)), 0);
-        //   let modelDelta = modelQty - existingModelQty;
-        //   if(modelDelta && item.stats.modelKey){
-        //     let modelKey = item.stats.modelKey.value;
-        //     // console.log(existingModels, modelDelta, modelKey)
-        //     item.assets.traits = item.assets.traits || [];
-        //     item.assets.traits.push({
-        //       "item": modelKey,
-        //       "quantity": modelDelta,
-        //     });
-        //   }
-        //   if(['Character'].includes(itemKey.split('§')[0])){
-        //     delete item.stats.Models;
-        //     delete item.stats.modelKey;
-        //     if(item.allowed && item.allowed.items) item.allowed.items = item.allowed.items.filter(i => !i.includes('Model§'));
-        //     if(item.allowed?.items?.length === 0) delete item.allowed.items;
-        //     if(Object.keys(item.allowed || {}).length === 0) delete item.allowed;
-        //   }
-        // }
-        // ['Infantry','Mounted','Battleline','Vehicle','Walker','Monster','Dedicated Transport','Fortification','Character','Epic Hero',].forEach(role => {
-        //   if(item.keywords?.Keywords?.includes(role)){
-        //     // console.log(itemKey,item)
-        //     item.keywords.Role = [role];
-        //   }
-        // });
-        let [itemClass, itemDesignation] = itemKey.split('§');
-        if(['Infantry/Mounted','Vehicle','Monster'].includes(itemClass)){
-          item.keywords.Tags = ['Unit ' + itemDesignation];
-          data.rulebook.assetCatalog['Unit§' + itemDesignation] = item;
-          delete data.rulebook.assetCatalog[itemKey];
+        
+        let modelCount = 0;
+        ['traits','included'].forEach(division => {
+          item.assets?.[division]?.forEach(asset => {
+            if(typeof asset === 'string' && asset.includes('Model')){
+              modelCount++
+            }else if (typeof asset === 'object' && asset.item.includes('Model')){
+              modelCount++
+            }
+          });
+        });
+        // console.log(itemDesignation + '(' + itemClass + ')' + ' ' + modelCount)
+        if(
+          (classification === 'Unit' || classification === 'Vehicle')
+          && !modelCount
+        ){
+          item.aspects = item.aspects || {};
+          item.aspects.Type = 'game piece';
         }
+        // dedup keywords
+        Object.keys(item.keywords || {}).forEach(keyCat => {
+          item.keywords[keyCat] = Array.from(new Set(item.keywords[keyCat]));
+        });
       });
       console.log(data.name, data);
     } catch (error) {
