@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.29",
+  "revision": "10.10.30",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "RDDG39",
+      "slug": "GX52WU",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -1824,7 +1824,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Chaos Terminator Squad\n\n* Legionaries"
+              "text": "This model can be attached to the following units:\n\n* Chaos Terminator Squad\n\n* Chosen"
             },
             "Ability§Dark Pacts",
             "Ability§The Warmaster",
@@ -3553,7 +3553,7 @@
             "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units: Raptors."
+              "text": "\n\nThis model can be attached to the following units: \n\n- Raptors"
             },
             "Ability§Lord of Chaos",
             "Ability§Cruel Hunter",
@@ -4075,7 +4075,7 @@
             },
             {
               "item": "Ability§Leader",
-              "text": "This unit can be attached to the following units:\n\n* Chosen\n\n* Legionaries"
+              "text": "\n\nThis unit can be attached to the following units:\n\n* Accursed Cultists\n\n* Chosen\n\n* Cultist Mob\n\n* Legionaries"
             },
             "Ability§Dark Pacts",
             "Ability§Enhanced Warriors",
@@ -35577,6 +35577,47 @@
           ]
         },
         "rules": {
+          "copyPointsLost&Damned": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Lost & Damned Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
           "Maximum 1 Blastmaster": {
             "evals": [
               {
