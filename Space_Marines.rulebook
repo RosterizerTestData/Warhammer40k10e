@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.10.27",
+  "revision": "10.10.28",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "YPVZWJ",
+      "slug": "WH2Q7B",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -227,6 +227,40 @@
                   ]
                 ],
                 "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowCommandCompanyPromotion": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Company Command Promotion"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Lieutenant"
               }
             ],
             "evaluate": "AND",
@@ -740,6 +774,18 @@
                   ]
                 ],
                 "value": "✓"
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Completed"
+                  ]
+                ],
+                "value": 1
               }
             ],
             "evals": [
@@ -838,9 +884,332 @@
             "Requisition§Even in Death I Still Serve",
             "Requisition§A Legacy Preserved"
           ]
+        },
+        "rules": {
+          "badge1Crusaders": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Crusade Badge§Oathsworn Crusaders"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Battles Won"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Completed"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "badge2Victors": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Crusade Badge§Oathsworn Crusaders"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Battles Won"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Completed"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Reserve and Battle Company Assignment"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "badge3Veterans": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Crusade Badge§Oathsworn Crusaders"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 10,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Battles Won"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 5,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Completed"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 5,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ],
+                  [
+                    "{roster}",
+                    "traits",
+                    "classification",
+                    "Order of Battle",
+                    "assets",
+                    "templateClass",
+                    "Unit",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tally",
+                    "Promotion"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Reserve and Battle Company Assignment"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         }
       },
       "Promotion": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
+        },
         "rules": {
           "Make a Selection": {
             "actions": [
@@ -892,8 +1261,9 @@
               "laurels"
             ],
             "statType": "numeric",
+            "tracked": true,
             "value": 0,
-            "visibility": "normal"
+            "visibility": "always"
           },
           "Selection": {
             "dynamic": true,
@@ -911,6 +1281,113 @@
       "Promotion Ability": {},
       "Unit": {
         "rules": {
+          "allow1stCompanyPromotion": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§1st Company Promotion"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "1",
+                      "2"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Scout Squad"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "allowInfantry/MountedTraits": {
             "actions": [
               {
@@ -990,14 +1467,140 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "allowReserve/BCAssignment": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Promotion§Reserve and Battle Company Assignment"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Eliminator Squad"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Incursor Squad"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Infiltrator Squad"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Reiver Squad"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Scout Squad"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "value": "Suppressor Squad"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         }
       }
     },
     "assetCatalog": {
-      "Crusade Badge§Oathsworn Crusaders": {},
-      "Crusade Badge§Oathsworn Victors": {},
-      "Crusade Badge§Oathsworn Veterans": {},
       "Ability§Aerial Assault": {
         "keywords": {
           "Keywords": [
@@ -8758,6 +9361,9 @@
           }
         }
       },
+      "Crusade Badge§Oathsworn Crusaders": {},
+      "Crusade Badge§Oathsworn Veterans": {},
+      "Crusade Badge§Oathsworn Victors": {},
       "Crusade Relic§Adamantine Curiass": {
         "keywords": {
           "Tags": [
@@ -32912,6 +33518,7 @@
           }
         }
       },
+      "Order of Battle§Order of Battle": {},
       "Promotion Ability§Ardent Protectors": {
         "text": "While a **Character** model is leading this unit, add 1 to the Toughness characteristic of models in that unit."
       },
@@ -32993,6 +33600,114 @@
       },
       "Promotion Ability§Wise Orator": {
         "text": "Once per battle, at the start of the battle round, this model can use this ability. If it does, until the end of the turn, this model has the following ability:\n\n**Wise Orator (Aura):** Each time a friendly **Adeptus Astartes** unit within 6″ of this model makes a melee attack, add 1 to the Wound roll."
+      },
+      "Promotion§1st Company Promotion": {
+        "rules": {
+          "changeType": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Selection",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          },
+          "discountIfTerminatorHonours": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Honour Points",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Terminator Honours"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Honour Points": {
+            "value": 5
+          },
+          "Selection": {
+            "ranks": {
+              "Bladeguard Veteran Squad": {
+                "order": 1,
+                "term": "Infantry/Mounted§Bladeguard Veteran Squad"
+              },
+              "Company Heroes": {
+                "order": 2,
+                "term": "Infantry/Mounted§Company Heroes"
+              },
+              "Sternguard Veteran Squad": {
+                "order": 3,
+                "term": "Infantry/Mounted§Sternguard Veteran Squad"
+              },
+              "Terminator Assault Squad": {
+                "order": 4,
+                "term": "Infantry/Mounted§Terminator Assault Squad"
+              },
+              "Terminator Squad": {
+                "order": 5,
+                "term": "Infantry/Mounted§Terminator Squad"
+              }
+            }
+          }
+        }
       },
       "Promotion§Chapter Ancient": {
         "stats": {
@@ -33108,6 +33823,88 @@
           }
         }
       },
+      "Promotion§Company Command Promotion": {
+        "rules": {
+          "changeType": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Selection",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          }
+        },
+        "stats": {
+          "Honour Points": {
+            "value": 10
+          },
+          "Selection": {
+            "ranks": {
+              "Captain": {
+                "order": 0,
+                "term": "Character§Captain"
+              },
+              "Captain in Gravis Armour": {
+                "order": 1,
+                "term": "Character§Captain in Gravis Armour"
+              },
+              "Captain in Phobos Armour": {
+                "order": 2,
+                "term": "Character§Captain in Phobos Armour"
+              },
+              "Captain in Terminator Armour": {
+                "order": 3,
+                "term": "Character§Captain in Terminator Armour"
+              },
+              "Captain on Bike": {
+                "order": 4,
+                "term": "Character§Captain on Bike"
+              },
+              "Captain Sicarius": {
+                "order": 5,
+                "term": "Character§Captain Sicarius"
+              },
+              "Captain with Jump Pack": {
+                "order": 6,
+                "term": "Character§Captain with Jump Pack"
+              }
+            }
+          }
+        }
+      },
       "Promotion§Honour Guard": {
         "stats": {
           "Honour Points": {
@@ -33160,6 +33957,100 @@
               "Shielded by the Machine God": {
                 "order": 2,
                 "term": "Promotion Ability§Shielded by the Machine God"
+              }
+            }
+          }
+        }
+      },
+      "Promotion§Reserve and Battle Company Assignment": {
+        "rules": {
+          "changeType": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Selection",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          }
+        },
+        "stats": {
+          "Honour Points": {
+            "value": 5
+          },
+          "Selection": {
+            "ranks": {
+              "Aggressor Squad": {
+                "order": 1,
+                "term": "Infantry/Mounted§Aggressor Squad"
+              },
+              "Assault Intercessor Squad": {
+                "order": 2,
+                "term": "Infantry/Mounted§Assault Intercessor Squad"
+              },
+              "Assault Intercessors with Jump Packs": {
+                "order": 3,
+                "term": "Infantry/Mounted§Assault Intercessors with Jump Packs"
+              },
+              "Desolation Squad": {
+                "order": 4,
+                "term": "Infantry/Mounted§Desolation Squad"
+              },
+              "Eradicator Squad": {
+                "order": 5,
+                "term": "Infantry/Mounted§Eradicator Squad"
+              },
+              "Heavy Intercessor Squad": {
+                "order": 6,
+                "term": "Infantry/Mounted§Heavy Intercessor Squad"
+              },
+              "Hellblaster Squad": {
+                "order": 7,
+                "term": "Infantry/Mounted§Hellblaster Squad"
+              },
+              "Inceptor Squad": {
+                "order": 8,
+                "term": "Infantry/Mounted§Inceptor Squad"
+              },
+              "Infernus Squad": {
+                "order": 9,
+                "term": "Infantry/Mounted§Infernus Squad"
+              },
+              "Intercessor Squad": {
+                "order": 10,
+                "term": "Infantry/Mounted§Intercessor Squad"
               }
             }
           }
@@ -65213,11 +66104,33 @@
                   [
                     "{self}",
                     "stats",
-                    "Honour Points",
+                    [
+                      "Honour Points remaining",
+                      "Honour Points accrued"
+                    ],
                     "visibility"
                   ]
                 ],
                 "value": "normal"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Honour Points remaining",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ]
               }
             ],
             "evals": [
@@ -65234,6 +66147,27 @@
                   ]
                 ],
                 "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tracked",
+                    "Honour Points"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Honour Points accrued",
+                    "value"
+                  ]
+                ]
               }
             ],
             "evaluate": "AND",
@@ -65344,7 +66278,7 @@
             "dynamic": false,
             "value": "Imperium"
           },
-          "Honour Points": {
+          "Honour Points accrued": {
             "dynamic": true,
             "group": "Crusade",
             "groupOrder": 11,
@@ -65354,9 +66288,24 @@
             "increment": {
               "value": 1
             },
+            "label": "Honour Points",
             "min": 0,
             "statOrder": 12,
             "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Honour Points remaining": {
+            "group": "Crusade",
+            "groupOrder": 11,
+            "icons": [
+              "laurels"
+            ],
+            "label": "Unspent HP",
+            "min": 0,
+            "statOrder": 13,
+            "statType": "numeric",
+            "tracked": true,
             "value": 0,
             "visibility": "hidden"
           }
