@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.10.10",
+  "revision": "10.10.11",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -157,6 +157,236 @@
           "any": [
             "Tyranids"
           ]
+        },
+        "rules": {
+          "badge1Vanguard": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Crusade Badge§Vanguard Tendril"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Consumed"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Battles Won"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "badge2Monstrous": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Crusade Badge§Monstrous Tendril"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 6,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Battles Won"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Rural"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Industrial"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Hive"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "badge3All-consuming": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Crusade Badge§All-consuming Tendril"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 10,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Battles Won"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Rural"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Industrial"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Hive"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 5,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Consumed"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "tracked",
+                    "Legendary"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "The Norn Crown"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         }
       },
       "Requisition": {},
@@ -343,6 +573,55 @@
             "evals": [],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "worldConsumed": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "{1string}"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Devour Stage§Consumption",
+                    "stats",
+                    "Consumed",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 9999
           }
         },
         "stats": {
@@ -365,9 +644,6 @@
       }
     },
     "assetCatalog": {
-      "Crusade Badge§Vanguard Tendril": {},
-      "Crusade Badge§Monstrous Tendril": {},
-      "Crusade Badge§All-consuming Tendril": {},
       "Ability§Adaptable Predators": {
         "keywords": {
           "Keywords": [
@@ -2312,6 +2588,9 @@
           }
         }
       },
+      "Crusade Badge§All-consuming Tendril": {},
+      "Crusade Badge§Monstrous Tendril": {},
+      "Crusade Badge§Vanguard Tendril": {},
       "Crusade Relic§Balemind Membrane": {
         "keywords": {
           "Tags": [
@@ -3046,7 +3325,63 @@
         },
         "text": "## Questing Tendrils & Vanguard Prime\n**Tyranids** units with this ability are eligible to charge in a turn which they Fell Back. **Vanguard Invader** units with this ability are eligible to charge in a turn which they Advanced.\n\n**Deathleaper** loses the Hunter Organism rule and can be your **Warlord**."
       },
-      "Devour Stage§Consumption": {},
+      "Devour Stage§Consumption": {
+        "rules": {
+          "consumed": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "append": ")",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "designation"
+                  ]
+                ],
+                "prepend": " (",
+                "value": "consumed"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Consumed",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Consumed": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "active"
+          }
+        }
+      },
       "Devour Stage§Invasion": {},
       "Devour Stage§Predation": {},
       "Enhancement§Adaptive Biology": {
@@ -9121,37 +9456,37 @@
               "Malefic Hunter": {
                 "order": 11
               },
-              "To the Last":{
+              "To the Last": {
                 "order": 12
               },
-              "Reap a Tally":{
+              "Reap a Tally": {
                 "order": 13
               },
-              "Critical Resources":{
+              "Critical Resources": {
                 "order": 14
               },
-              "Psychic Beacons":{
+              "Psychic Beacons": {
                 "order": 15
               },
-              "Re-establish Communication":{
+              "Re-establish Communication": {
                 "order": 16
               },
-              "King Slayer":{
+              "King Slayer": {
                 "order": 17
               },
-              "Recover Blackstone Data":{
+              "Recover Blackstone Data": {
                 "order": 18
               },
-              "Central Position":{
+              "Central Position": {
                 "order": 19
               },
-              "First into the Fray":{
+              "First into the Fray": {
                 "order": 20
               },
-              "Calculated Destruction":{
+              "Calculated Destruction": {
                 "order": 21
               },
-              "Hold Steady":{
+              "Hold Steady": {
                 "order": 22
               },
               "Infest the Prey World": {
