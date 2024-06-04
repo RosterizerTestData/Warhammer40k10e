@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.11.12",
+  "revision": "10.11.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -189,6 +189,405 @@
           ]
         },
         "rules": {
+          "noMission": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "notPariah": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "ranks"
+                  ]
+                ],
+                "value": "Protectors"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "ranks"
+                  ]
+                ],
+                "value": "Seekers"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "ranks"
+                  ]
+                ],
+                "value": "Interlopers"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "Pariah Nexus"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "notTyrannic": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "ranks"
+                  ]
+                ],
+                "value": "Defenders"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "ranks"
+                  ]
+                ],
+                "value": "Invaders"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Alliance",
+                    "ranks"
+                  ]
+                ],
+                "value": "Raiders"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Battlefield Survivors"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Swarm the Planet"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Headhunters"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Monstrous Targets"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Eradicate the Swarm"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Critical Objectives"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Drive Home the Blade"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Cleanse Infestation"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Forward Observers"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Recover Mission Archives"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Campaign Phase",
+                    "assets",
+                    "classification",
+                    "Mission Record",
+                    "stats",
+                    [
+                      "Agenda 1",
+                      "Agenda 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Malefic Hunter"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "Tyrannic War"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Select your Alliance": {
             "evals": [
               {
@@ -207,6 +606,26 @@
               }
             ],
             "evaluate": "AND",
+            "failState": "warning"
+          },
+          "Select your Mission": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Mission",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "OR",
             "failState": "warning"
           }
         },
@@ -256,6 +675,30 @@
             },
             "statType": "numeric",
             "value": 0,
+            "visibility": "normal"
+          },
+          "Mission": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Tyrannic War": {
+                "order": 1,
+                "tracking": {
+                  "Tyrannic War": 1
+                }
+              },
+              "Pariah Nexus": {
+                "order": 2,
+                "tracking": {
+                  "Pariah Nexus": 1
+                }
+              }
+            },
+            "statOrder": -1,
+            "statType": "rank",
+            "value": "-",
             "visibility": "normal"
           }
         }
@@ -552,17 +995,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "stats",
-                    "Pariah Nexus",
-                    "value"
+                    "tracked",
+                    "Pariah Nexus"
                   ]
-                ],
-                "value": "✓"
+                ]
               },
               {
                 "actionable": true,
@@ -600,17 +1042,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "stats",
-                    "Tyrannic War",
-                    "value"
+                    "tracked",
+                    "Tyrannic War"
                   ]
-                ],
-                "value": "✓"
+                ]
               },
               {
                 "actionable": true,
@@ -2304,17 +2745,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "stats",
-                    "Pariah Nexus",
-                    "value"
+                    "tracked",
+                    "Pariah Nexus"
                   ]
-                ],
-                "value": "✓"
+                ]
               }
             ],
             "evaluate": "AND",
@@ -2338,17 +2778,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "stats",
-                    "Pariah Nexus",
-                    "value"
+                    "tracked",
+                    "Pariah Nexus"
                   ]
-                ],
-                "value": "✓"
+                ]
               },
               {
                 "actionable": true,
@@ -2530,7 +2969,7 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "allowScarsTraits": {
+          "allowScars": {
             "actions": [
               {
                 "actionType": "add",
@@ -2543,7 +2982,29 @@
                   ]
                 ],
                 "value": "Battle Scar"
-              },
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowTraits": {
+            "actions": [
               {
                 "actionType": "add",
                 "iterations": 1,
@@ -2608,17 +3069,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "stats",
-                    "Tyrannic War",
-                    "value"
+                    "tracked",
+                    "Tyrannic War"
                   ]
-                ],
-                "value": "✓"
+                ]
               }
             ],
             "evaluate": "AND",
@@ -2642,17 +3102,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
-                    "stats",
-                    "Tyrannic War",
-                    "value"
+                    "tracked",
+                    "Tyrannic War"
                   ]
-                ],
-                "value": "✓"
+                ]
               },
               {
                 "actionable": true,
@@ -9614,7 +10073,12 @@
               },
               {
                 "actionType": "add",
-                "iterations": 1,
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Campaigns",
+                  "value"
+                ],
                 "paths": [
                   [
                     "{self}",
@@ -9978,146 +10442,6 @@
             "evaluate": "AND",
             "failState": "pass"
           },
-          "notPariahNexus": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Campaign",
-                    "stats",
-                    "Alliance",
-                    "ranks"
-                  ]
-                ],
-                "value": "Protectors"
-              },
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Campaign",
-                    "stats",
-                    "Alliance",
-                    "ranks"
-                  ]
-                ],
-                "value": "Seekers"
-              },
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Campaign",
-                    "stats",
-                    "Alliance",
-                    "ranks"
-                  ]
-                ],
-                "value": "Interlopers"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Pariah Nexus",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "notTyrannicWar": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Campaign",
-                    "stats",
-                    "Alliance",
-                    "ranks"
-                  ]
-                ],
-                "value": "Defenders"
-              },
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Campaign",
-                    "stats",
-                    "Alliance",
-                    "ranks"
-                  ]
-                ],
-                "value": "Invaders"
-              },
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "classification",
-                    "Campaign",
-                    "stats",
-                    "Alliance",
-                    "ranks"
-                  ]
-                ],
-                "value": "Raiders"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Tyrannic War",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
           "preventDuplicateAllies": {
             "actions": [
               {
@@ -10250,46 +10574,6 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 0
-          },
-          "Select a Crusade Mission.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Play",
-                    "value"
-                  ]
-                ],
-                "value": "Narrative"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "OR",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Tyrannic War",
-                    "value"
-                  ],
-                  [
-                    "{self}",
-                    "stats",
-                    "Pariah Nexus",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "warning"
           },
           "Select your Detachment.": {
             "evals": [
@@ -10533,13 +10817,10 @@
                     "{self}",
                     "stats",
                     [
-                      "Faction Group",
                       "Crusade Pts",
                       "Requisition Pts",
                       "Battle Tally",
-                      "Pariah Nexus",
-                      "Tyrannic War",
-                      "Blackstone Frg."
+                      "Campaigns"
                     ],
                     "visibility"
                   ]
@@ -10614,17 +10895,16 @@
             "evals": [
               {
                 "actionable": true,
+                "min": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
-                    "stats",
-                    "Pariah Nexus",
-                    "value"
+                    "tracked",
+                    "Pariah Nexus"
                   ]
-                ],
-                "value": "✓"
+                ]
               }
             ],
             "evaluate": "AND",
@@ -10715,6 +10995,19 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Campaigns": {
+            "dynamic": true,
+            "group": "Crusade",
+            "groupOrder": 11,
+            "increment": {
+              "value": 1
+            },
+            "min": 1,
+            "statOrder": 4,
+            "statType": "numeric",
+            "value": 1,
+            "visibility": "hidden"
+          },
           "Character": {
             "min": 1,
             "statType": "numeric",
@@ -10781,7 +11074,7 @@
                 "term": "Xenos Faction"
               }
             },
-            "statOrder": 5,
+            "statOrder": 2,
             "statType": "rank",
             "value": "-",
             "visibility": "active"
@@ -10828,23 +11121,6 @@
             },
             "statType": "rank",
             "value": "Leviathan",
-            "visibility": "normal"
-          },
-          "Pariah Nexus": {
-            "dynamic": true,
-            "group": "Crusade",
-            "groupOrder": 11,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1
-              }
-            },
-            "statOrder": 11,
-            "statType": "rank",
-            "value": "-",
             "visibility": "hidden"
           },
           "Play": {
@@ -10882,23 +11158,6 @@
             "statType": "numeric",
             "tracked": true,
             "value": 5,
-            "visibility": "hidden"
-          },
-          "Tyrannic War": {
-            "dynamic": true,
-            "group": "Crusade",
-            "groupOrder": 11,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1
-              }
-            },
-            "statOrder": 10,
-            "statType": "rank",
-            "value": "-",
             "visibility": "hidden"
           }
         },
