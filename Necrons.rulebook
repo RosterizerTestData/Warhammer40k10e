@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.10.13",
+  "revision": "10.10.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -145,9 +145,6 @@
       }
     },
     "assetCatalog": {
-      "Crusade Badge§Awakened Tomb": {},
-      "Crusade Badge§Conquering Tomb": {},
-      "Crusade Badge§Subjugating Tomb": {},
       "Ability§Adaptive Strategy": {
         "keywords": {
           "Keywords": [
@@ -309,6 +306,9 @@
           ]
         },
         "text": "While this model is leading a unit, each time a model in that unit makes a ranged attack, a successful unmodifed Hit roll of 5+ scores a Critical Hit."
+      },
+      "Ability§Destroyer Madness": {
+        "text": "Each time this model makes an attack, you can re-roll the Hit roll."
       },
       "Ability§Drain Life": {
         "keywords": {
@@ -955,6 +955,137 @@
             "Noble"
           ]
         },
+        "rules": {
+          "Abilties": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lone Operative"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Leader"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "CannotAttach": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{parent}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "text": "Add 1 to the Strength and Attacks characteristics of melee weapons equipped by this unit. This unit loses the Leader ability and gains the Lone Operative ability."
       },
       "Battle Scar§Depleted Transmaterial Reserves": {
@@ -962,6 +1093,54 @@
           "Tags": [
             "Canoptek"
           ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Reanimation Protocols"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "text": "Add 1 to the Attacks characteristic of melee weapons equipped by models in this unit.\n\nThis unit cannot use its Reanimation Protocols ability."
       },
@@ -974,6 +1153,59 @@
         "text": "Each time you target this unit with a Stratagem, reduce that Stratagem’s cost by 1CP for that usage.\nThis unit cannot Fall Back or Advance."
       },
       "Battle Scar§Mindless Reaper": {
+        "rules": {
+          "decreaseOCandLD": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "text": "***DESTROYER CULT** units only*\n\nEach time a model in this unit makes an attack, you can re-roll the Hit roll.\nWorsen the Leadership and Objective Control characteristics of this unit by 1."
       },
       "Battle Trait§Autocratic Avarice": {
@@ -1078,6 +1310,63 @@
             "Mounted",
             "Vehicle"
           ]
+        },
+        "rules": {
+          "applyignorecover": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Ignores Cover"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
         },
         "text": "Ranged weapons equipped by models in this unit have the Ignores Cover ability."
       },
@@ -3075,6 +3364,9 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Warlord": {
+            "value": "✓"
           }
         }
       },
@@ -3304,6 +3596,9 @@
           }
         }
       },
+      "Crusade Badge§Awakened Tomb": {},
+      "Crusade Badge§Conquering Tomb": {},
+      "Crusade Badge§Subjugating Tomb": {},
       "Crusade Relic§Casket of Heshkefnet": {
         "keywords": {
           "Tags": [
@@ -10514,6 +10809,97 @@
             "Necrons",
             "Noble"
           ]
+        },
+        "rules": {
+          "applyabilities": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Leader"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lone Operative"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Destroyer Madness"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Destroyer Cult"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "CannotAttach": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{parent}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "RP": {
