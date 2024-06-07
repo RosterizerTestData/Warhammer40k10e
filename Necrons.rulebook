@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.10.18",
+  "revision": "10.10.19",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -995,6 +995,29 @@
           "Keywords": [
             "Special"
           ]
+        },
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
         },
         "text": "If this unit is in your army, it must be your Warlord."
       },
@@ -3599,28 +3622,6 @@
             "Epic Hero"
           ]
         },
-        "rules": {
-          "If the Silent King is in your army, it must be your Warlord": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "model1stTally": {
             "value": 3
@@ -3636,9 +3637,7 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Warlord": {
-            "value": "✓"
-          }
+          "Warlord": {}
         }
       },
       "Character§Transcendent C’tan": {

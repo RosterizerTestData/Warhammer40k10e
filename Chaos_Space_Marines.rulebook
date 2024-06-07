@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.35",
+  "revision": "10.10.36",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "GX52WU",
+      "slug": "5FABXK",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -749,9 +749,6 @@
       }
     },
     "assetCatalog": {
-      "Crusade Badge§1": {},
-      "Crusade Badge§2": {},
-      "Crusade Badge§3": {},
       "Ability§[psychic] Ability. That Unit Must Take A Leadership Test": {
         "keywords": {
           "Keywords": [
@@ -1732,6 +1729,31 @@
         },
         "text": "Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move over models (excluding Titanic models) and terrain features that are 4″ or less in height as if they were not there."
       },
+      "Ability§Supreme Commander": {
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        }
+      },
       "Ability§Surgeon Acolyte": {
         "keywords": {
           "Keywords": [
@@ -1935,28 +1957,6 @@
             "Epic Hero"
           ]
         },
-        "rules": {
-          "Abaddon must be the Warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Ld": {
             "value": 5
@@ -1979,9 +1979,7 @@
           "W": {
             "value": 9
           },
-          "Warlord": {
-            "value": "✓"
-          }
+          "Warlord": {}
         }
       },
       "Character§Chaos Lord": {
@@ -6318,6 +6316,9 @@
           }
         }
       },
+      "Crusade Badge§1": {},
+      "Crusade Badge§2": {},
+      "Crusade Badge§3": {},
       "Detachment§Chaos Cult": {
         "rules": {
           "assignStratagems": {

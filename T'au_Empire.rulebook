@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.10.18",
+  "revision": "10.10.19",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "4K5ERQ",
+      "slug": "KWGXK6",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -108,9 +108,6 @@
       }
     },
     "assetCatalog": {
-      "Crusade Badge§Devotee of the T’au’va": {},
-      "Crusade Badge§Champion of the T’au’va": {},
-      "Crusade Badge§Hero of the T’au’va": {},
       "Ability§Advanced Armour": {
         "keywords": {
           "Keywords": [
@@ -583,6 +580,29 @@
           "Keywords": [
             "Special"
           ]
+        },
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
         },
         "text": "If this model is in your army, it must be your Warlord."
       },
@@ -2241,28 +2261,6 @@
             "Epic Hero"
           ]
         },
-        "rules": {
-          "Shadowson must be Warlord": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Ld": {
             "value": 6
@@ -3229,6 +3227,9 @@
           }
         }
       },
+      "Crusade Badge§Champion of the T’au’va": {},
+      "Crusade Badge§Devotee of the T’au’va": {},
+      "Crusade Badge§Hero of the T’au’va": {},
       "Detachment§Kauyon": {
         "rules": {
           "applystratagems": {

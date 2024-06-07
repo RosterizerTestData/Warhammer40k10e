@@ -1,6 +1,6 @@
 {
   "name": "Chaos",
-  "revision": "10.10.15",
+  "revision": "10.10.16",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1434,6 +1434,29 @@
             "Special"
           ]
         },
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        },
         "text": "If this model is in your army, it must be your Warlord."
       },
       "Ability§Swallow Energy (psychic)": {
@@ -1658,28 +1681,6 @@
             "notKhorne"
           ]
         },
-        "rules": {
-          "Be’lakor must be your warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1702,9 +1703,7 @@
           "W": {
             "value": 18
           },
-          "Warlord": {
-            "value": "✓"
-          }
+          "Warlord": {}
         }
       },
       "Character§Bloodmaster": {
