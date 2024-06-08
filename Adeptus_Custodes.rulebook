@@ -183,11 +183,89 @@
       },
       "Unit": {
         "allowed": {
-          "items": [
-            "Requisition§Proven Mettle"
-          ]
+          "items": []
         },
         "rules": {
+          "allowProvenMettle": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Proven Mettle"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "min": 30,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "1",
+                      "2"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "dontShowMountedBattleTraits": {
             "actions": [
               {
@@ -512,22 +590,6 @@
         },
         "text": "Each time this model is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if this model made a Charge move this turn: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
       },
-      "Ability§Earned Name": {
-        "keywords": {
-          "Tags": [
-            "Requisition"
-          ],
-          "Keywords": [
-            "Adeptus Custodes",
-            "Character",
-            "Model Ability"
-          ]
-        },
-        "removed": {
-          "stats": {}
-        },
-        "text": "Each time this model’s unit is selected to fight, both Ka’tah Stances are active for that unit, instead of only one."
-      },
       "Ability§Fire Support": {
         "keywords": {
           "Keywords": [
@@ -841,72 +903,12 @@
         "text": "The first time this model is destroyed, remove it from play without resolving its Deadly Demise ability. Then, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with D6 wounds remaining."
       },
       "Battle Scar§Immediate Threats": {
-        "rules": {
-          "addAbility": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Battle Scar§Immediate Threats"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "text": "In your Charge phase, each time this unit declares a charge, you can only select the closest enemy unit as the target of that charge.\nEach time a model in this unit makes a melee attack, you can re-roll a Wound roll of 1."
       },
       "Battle Scar§Lions. Not Wolves": {
-        "rules": {
-          "addAbility": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Battle Scar§Lions. Not Wolves"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "text": "This unit loses its Martial Ka'tah ability.\nEach time a model in this unit makes a melee attack, you can re-roll a Hit roll of 1 and you can re-roll a Wound roll of 1."
       },
       "Battle Scar§Sense of Insufficiency": {
-        "rules": {
-          "addAbility": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Battle Scar§Sense of Insufficiency"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "text": "Change the Objective Control characteristic of models in this unit to 0. It cannot be increased by any means.\nEach time this unit is selected to fight, both Ka'tah Stances are active for this unit, instead of only one."
       },
       "Battle Trait§Celeritous Sentries": {
@@ -7090,7 +7092,7 @@
       },
       "Requisition§Earning of a Name": {
         "rules": {
-          "addAbility": {
+          "addUse": {
             "actions": [
               {
                 "actionType": "add",
@@ -7101,7 +7103,7 @@
                     "traits"
                   ]
                 ],
-                "value": "Ability§Earned Name"
+                "value": "Ability§Earning of a Name"
               }
             ],
             "evals": [],
@@ -7117,28 +7119,6 @@
         "text": "Purchase this Requisition after a battle in which the enemy WARLORD was destroyed by an ADEPTUS CUSTODES CHARACTER model (excluding ANATHEMA PSYKANA and EPIC HERO models) from your Crusade army. Generate an additional Honour-Name for that CHARACTER model (this has no rules purpose) then gain the following ability:\n\nEarned Name: Each time this model’s unit is selected to fight, both Ka’tah Stances are active for that unit, instead of only one."
       },
       "Requisition§Proven Mettle": {
-        "rules": {
-          "make sure to reset unit xp back to 6 once using this requisition": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Experience",
-                    "min"
-                  ]
-                ],
-                "value": 30
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "warning"
-          }
-        },
         "stats": {
           "RP": {
             "value": 1
