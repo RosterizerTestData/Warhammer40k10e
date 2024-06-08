@@ -261,9 +261,27 @@
                   ]
                 ],
                 "value": true
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "3"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
               }
             ],
-            "evaluate": "AND",
+            "evaluate": "OR",
             "failState": "pass"
           },
           "dontShowMountedBattleTraits": {
@@ -485,6 +503,40 @@
                   ]
                 ],
                 "value": "Anathema Psykana"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "notAllowVeracity": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Veracity, the Sword of Oblivion"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Knight-centura"
               }
             ],
             "evaluate": "AND",
@@ -1828,6 +1880,9 @@
         "text": "The bearer is equipped with the following ranged weapon in addition to its other weapons:\n\nBlinding Light: Each time a unit is hit by this weapon, it is blinded until the start of your next turn. While a unit is blinded, each time a model in that units makes an attack, subtract 1 from the Hit roll."
       },
       "Crusade Relic§Aurulent Warding": {
+        "assets": {
+          "traits": []
+        },
         "keywords": {
           "Tags": [
             "Artificer Relic"
@@ -1844,6 +1899,11 @@
             "Adeptus Custodes",
             "Infantry"
           ]
+        },
+        "rules": {
+          "addWeapon": {
+            "evals": []
+          }
         },
         "text": "ADEPTUS CUSTODES INFANTRY model only. The bearer is equipped with the following melee weapon in addition to its other weapons:"
       },
@@ -1891,6 +1951,9 @@
         "text": "Once per battle, at the end of any of your phases, the bearer can use the Twilight Pallium. If it does, remove the bearer’s unit from the battlefield and set it up again anywhere on the battlefield more than 3\" horizontally away from all enemy units. The bearer’s unit is not eligible to charge in a turn in which it was set up in this manner unless it is more than 9\" horizontally away from all enemy units."
       },
       "Crusade Relic§Veracity, the Sword of Oblivion": {
+        "assets": {
+          "traits": []
+        },
         "keywords": {
           "Tags": [
             "Antiquity Relic"
@@ -1898,6 +1961,54 @@
           "Keywords": [
             "Knight-centura"
           ]
+        },
+        "rules": {
+          "addWeapon": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "item",
+                    "Melee Weapon§Knight-centura—Executioner greatblade",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "item",
+                    "Melee Weapon§Knight-centura—Executioner greatblade",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Sustained Hits",
+                  "stats": {
+                    "abilityName": {
+                      "value": "Sustained Hits"
+                    },
+                    "x": {
+                      "value": "1"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 98
+          }
         },
         "text": "KNIGHT-CENTURA model equipped with an executioner greatblade only. The bearer’s melee weapons gain the [LANCE] and [SUSTAINED HITS 1] abilities."
       },
