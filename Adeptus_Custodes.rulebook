@@ -188,6 +188,136 @@
           ]
         },
         "rules": {
+          "dontShowMountedBattleTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Trait§On Gilded Wings"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Trait§Tip of the Talon"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Trait§Heralds of the Host"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "notAllowAdeptusCustodes": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Trait§Hunters' Strike"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Trait§Relentless Pursuit"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Trait§Rapid Prosecution"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "notAllowAnathemaPsykana": {
             "actions": [
               {
@@ -264,54 +394,6 @@
               }
             ],
             "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Anathema Psykana"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "notAllowProvenMettle": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "disallowed",
-                    "items"
-                  ]
-                ],
-                "value": "Requisition§Proven Mettle"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Infantry"
-              },
               {
                 "actionable": true,
                 "contains": true,
@@ -433,11 +515,12 @@
       "Ability§Earned Name": {
         "keywords": {
           "Tags": [
-            "Model Ability"
+            "Requisition"
           ],
           "Keywords": [
             "Adeptus Custodes",
-            "Character"
+            "Character",
+            "Model Ability"
           ]
         },
         "removed": {
@@ -758,12 +841,72 @@
         "text": "The first time this model is destroyed, remove it from play without resolving its Deadly Demise ability. Then, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with D6 wounds remaining."
       },
       "Battle Scar§Immediate Threats": {
+        "rules": {
+          "addAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Battle Scar§Immediate Threats"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "text": "In your Charge phase, each time this unit declares a charge, you can only select the closest enemy unit as the target of that charge.\nEach time a model in this unit makes a melee attack, you can re-roll a Wound roll of 1."
       },
       "Battle Scar§Lions. Not Wolves": {
+        "rules": {
+          "addAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Battle Scar§Lions. Not Wolves"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "text": "This unit loses its Martial Ka'tah ability.\nEach time a model in this unit makes a melee attack, you can re-roll a Hit roll of 1 and you can re-roll a Wound roll of 1."
       },
       "Battle Scar§Sense of Insufficiency": {
+        "rules": {
+          "addAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Battle Scar§Sense of Insufficiency"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "text": "Change the Objective Control characteristic of models in this unit to 0. It cannot be increased by any means.\nEach time this unit is selected to fight, both Ka'tah Stances are active for this unit, instead of only one."
       },
       "Battle Trait§Celeritous Sentries": {
@@ -787,7 +930,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Infantry"
           ]
         },
         "text": "While this unit is within range of an objective marker, it has the Feel No Pain 6+ ability."
@@ -798,7 +942,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Infantry"
           ]
         },
         "text": "Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1."
@@ -809,7 +954,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Infantry"
           ]
         },
         "text": "Each time a Psychic Attack targets this unit, subtract 1 from the Hit roll."
@@ -820,7 +966,8 @@
             "Mounted"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Mounted"
           ]
         },
         "text": "Each time this unit Advances, add 2\" to its Move characteristic (this is cumulative with the Turbo-boost ability)."
@@ -843,7 +990,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Infantry"
           ]
         },
         "text": "Each time a model within this unit makes a ranged attack that targets a unit that contains 10 or more models, that attack has the [SUSTAINED HITS 1] ability."
@@ -866,7 +1014,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Anathema Psykana"
+            "Anathema Psykana",
+            "Infantry"
           ]
         },
         "text": "This unit is eligible to either shoot or declare a charge (but not both) in a turn in which it Advanced."
@@ -877,7 +1026,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Anathema Psykana"
+            "Anathema Psykana",
+            "Infantry"
           ]
         },
         "text": "You can re-roll Advance and Charge rolls made for this unit."
@@ -888,7 +1038,8 @@
             "Mounted"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Mounted"
           ]
         },
         "text": "Each time a model in this unit makes a ranged attack that targets an enemy unit within 6\", add 1 to the Strength characteristic of that attack."
@@ -899,7 +1050,8 @@
             "Infantry"
           ],
           "Keywords": [
-            "Adeptus Custodes"
+            "Adeptus Custodes",
+            "Infantry"
           ]
         },
         "text": "You can target this unit with Stratagems even while it is Battle-shocked."
@@ -6966,7 +7118,7 @@
       },
       "Requisition§Proven Mettle": {
         "rules": {
-          "this requisition is available but make sure to change the xp of this unit to 6": {
+          "make sure to reset unit xp back to 6 once using this requisition": {
             "evals": [
               {
                 "actionable": true,
@@ -6977,10 +7129,10 @@
                     "{parent}",
                     "stats",
                     "Experience",
-                    "max"
+                    "min"
                   ]
                 ],
-                "value": 29
+                "value": 30
               }
             ],
             "evaluate": "AND",
