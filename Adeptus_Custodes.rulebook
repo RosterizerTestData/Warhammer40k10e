@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.16",
+  "revision": "10.10.17",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -6868,6 +6868,28 @@
         "text": "Purchase this Requisition after a battle in which the enemy WARLORD was destroyed by an ADEPTUS CUSTODES CHARACTER model (excluding ANATHEMA PSYKANA and EPIC HERO models) from your Crusade army. Generate an additional Honour-Name for that CHARACTER model (this has no rules purpose) then gain the following ability:\n\nEarned Name: Each time this model’s unit is selected to fight, both Ka’tah Stances are active for that unit, instead of only one."
       },
       "Requisition§Proven Mettle": {
+        "rules": {
+          "this requisition is available but make sure to change the xp of this unit to 6": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Experience",
+                    "max"
+                  ]
+                ],
+                "value": 29
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "warning"
+          }
+        },
         "stats": {
           "RP": {
             "value": 1
