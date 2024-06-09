@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "WH2Q7B",
+      "slug": "STJC98",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -48,8 +48,8 @@
       "Character": {
         "allowed": {
           "items": [
-            "Requisition§Artefacts of the Vaults",
-            "Requisition§Earning of a Name"
+            "Requisition§Earning of a Name",
+            "Requisition§Artefacts of the Vaults"
           ]
         },
         "disallowed": {
@@ -61,6 +61,54 @@
           ]
         },
         "rules": {
+          "notAllowArtefactReq": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Artefacts of the Vaults"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anathema Psykana"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
           "NotAllowEarningOfAName": {
             "actions": [
               {
@@ -212,9 +260,10 @@
           }
         }
       },
-      "Magisterium Lex Ultima": {
-        "text": "If your Crusade force includes TRAJANN VALORIS or any other SHIELD-CAPTAIN units and you are not currently on an Endeavour, you can claim the Magisterium Lex Ultima before a battle. If you do, you must commence an Endeavour for your Crusade force. This entails a collection of objectives (known as Imperatives) that you must attempt to complete in sequence over a series of battles. Doing so will earn you Endeavour Rewards, but failure will bring about Dishonour.\n\nWhen you commence an Endeavour, you must determine its three Imperatives from the Imperative tables. To do this, roll one D6 to decide which Imperative table to use, then another D6 to determine an Imperative from that Imperative table. You cannot determine the same Imperative for each Endeavour more than once (roll again until a new Imperative is determined). Once you have determined all three of your Imperatives, make a note of them, and the order in which they were generated, in your Order of Battle. Your Endeavour has now commenced and you must complete its Imperatives one at a time, starting with the first Imperative you determined - this is known as the active Imperative.\n\nAt the end of a battle, if you have completed the active Imperative, mark that Imperative as completed in your Order of Battle. The next Imperative you determined is now active for subsequent battles. Once you have completed all of your Endeavour’s Imperatives, you can claim an Endeavour Reward, and can then claim the Magisterium Lex Ultima once more.\n\nYou can abandon an Endeavour at the end of a battle. If you do, and you have completed two out of three Imperatives, you can randomly select an Endeavour Reward from the two you have completed, and the other Endeavour Reward is lost.\n\nIn addition, if you have not completed all of your Endeavour’s Imperatives within nine battles of beginning that Endeavour, then it is abandoned.\n\nWhen an Endeavour is abandoned, you must select a Dishonour, and can then start a new Endeavour before the next battle."
+      "Endeavour": {
+        "templateClass": "Magisterium Lex Ultima"
       },
+      "Magisterium Lex Ultima": {},
       "Order of Battle": {
         "allowed": {
           "items": [
@@ -2351,6 +2400,7 @@
         },
         "text": "**REVERED COMPANIONS**\n\n- ANATHEMA PSYKANA units from your army\ngain the following the ability:\n\n**Null Aegis (Aura):**\n\nWhile an ADEPTUS CUSTODES unit is within 6″ of this unit, models in that unit have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.\n\n- All other ADEPTUS CUSTODES units from\nyour army gain the following ability:\n\n**Deadly Unity (Aura):**\n\nWhile an ANATHEMA PSYKANA unit is within 6″ of this unit, each time a model in that ANATHEMA PSYKANA unit makes an attack, add 1 to the Hit roll."
       },
+      "Endeavour§Imperative": {},
       "Enhancement§Aegis Projector": {
         "keywords": {
           "Keywords": [
@@ -7211,6 +7261,27 @@
         }
       },
       "Requisition§Artefacts of the Vaults": {
+        "rules": {
+          "allowArtefact": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Artefact of the Vaults"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "RP": {
             "value": 1
