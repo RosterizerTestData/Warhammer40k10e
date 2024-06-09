@@ -112,6 +112,54 @@
             "evaluate": "OR",
             "failState": "pass"
           },
+          "notAllowEmperorsLight": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Emperor's Light"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
           "notAllowVeracity": {
             "actions": [
               {
@@ -1912,7 +1960,23 @@
         },
         "rules": {
           "addWeapon": {
-            "evals": []
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Emperor's Light"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
           }
         },
         "text": "ADEPTUS CUSTODES INFANTRY model only. The bearer is equipped with the following melee weapon in addition to its other weapons:"
@@ -3718,9 +3782,6 @@
         }
       },
       "Melee Weapon§Emperor's Light": {
-        "aspects": {
-          "Label": "Misericordia"
-        },
         "assets": {
           "traits": [
             "Ability§Devastating Wounds",
@@ -3736,10 +3797,6 @@
           },
           "D": {
             "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
           },
           "S": {
             "value": 5
