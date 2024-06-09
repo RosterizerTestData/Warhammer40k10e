@@ -30,6 +30,113 @@
           ]
         },
         "rules": {
+          "allowArtefacts": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Arae-Shrike"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Mortis Gyre"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Twilight Pallium"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Anathematic Diadem"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Pareldor's Caducatrix"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Auriferous Orb"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Epoch Auspice"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 50,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "NotAllowArtefacts": {
             "actions": [
               {
@@ -327,6 +434,9 @@
             "failState": "pass"
           }
         }
+      },
+      "Magisterium Lex Ultima": {
+        "text": "If your Crusade force includes TRAJANN VALORIS or any other SHIELD-CAPTAIN units and you are not currently on an Endeavour, you can claim the Magisterium Lex Ultima before a battle. If you do, you must commence an Endeavour for your Crusade force. This entails a collection of objectives (known as Imperatives) that you must attempt to complete in sequence over a series of battles. Doing so will earn you Endeavour Rewards, but failure will bring about Dishonour.\n\nWhen you commence an Endeavour, you must determine its three Imperatives from the Imperative tables. To do this, roll one D6 to decide which Imperative table to use, then another D6 to determine an Imperative from that Imperative table. You cannot determine the same Imperative for each Endeavour more than once (roll again until a new Imperative is determined). Once you have determined all three of your Imperatives, make a note of them, and the order in which they were generated, in your Order of Battle. Your Endeavour has now commenced and you must complete its Imperatives one at a time, starting with the first Imperative you determined - this is known as the active Imperative.\n\nAt the end of a battle, if you have completed the active Imperative, mark that Imperative as completed in your Order of Battle. The next Imperative you determined is now active for subsequent battles. Once you have completed all of your Endeavour’s Imperatives, you can claim an Endeavour Reward, and can then claim the Magisterium Lex Ultima once more.\n\nYou can abandon an Endeavour at the end of a battle. If you do, and you have completed two out of three Imperatives, you can randomly select an Endeavour Reward from the two you have completed, and the other Endeavour Reward is lost.\n\nIn addition, if you have not completed all of your Endeavour’s Imperatives within nine battles of beginning that Endeavour, then it is abandoned.\n\nWhen an Endeavour is abandoned, you must select a Dishonour, and can then start a new Endeavour before the next battle."
       },
       "Mission Record§Mission Record": {
         "stats": {
@@ -2072,6 +2182,31 @@
             "evals": [],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "cancelOutBattleHonour": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
           }
         },
         "text": "The bearer gains the following ability:\n\nAnathematic Diadem (Aura): When an enemy model within 12\" of this model makes an attack with a Psychic weapon, subtract 1 from the Wound roll."
@@ -2095,6 +2230,33 @@
           "Keywords": [
             "Infantry"
           ]
+        },
+        "rules": {
+          "cancelOutBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
+          }
         },
         "text": "Enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12\" of this unit."
       },
@@ -2125,6 +2287,31 @@
             "evals": [],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "cancelOutBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
           }
         },
         "text": "The bearer is equipped with the following ranged weapon in addition to its other weapons:\n\nBlinding Light: Each time a unit is hit by this weapon, it is blinded until the start of your next turn. While a unit is blinded, each time a model in that units makes an attack, subtract 1 from the Hit roll."
@@ -2182,6 +2369,33 @@
             "Infantry"
           ]
         },
+        "rules": {
+          "cancelOutBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
+          }
+        },
         "text": "Once per battle, at the start of the battle round, the bearer can deploy the Epoch Auspice. If it does, until the end of the battle round, each time an attack targets the bearer’s unit, subtract 1 from the Wound roll."
       },
       "Crusade Relic§Lucent Aureole": {
@@ -2201,6 +2415,33 @@
             "Infantry"
           ]
         },
+        "rules": {
+          "cancelOutBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
+          }
+        },
         "text": "Once per battle, when the bearer is selected to fight, it can activate the Mortis Gyre. If it does, until that fight is resolved, melee attacks made by this model that target an INFANTRY unit have the [DEVASTATING WOUNDS] ability."
       },
       "Crusade Relic§Pareldor's Caducatrix": {
@@ -2212,6 +2453,33 @@
             "Infantry"
           ]
         },
+        "rules": {
+          "cancelOutBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
+          }
+        },
         "text": "Once per battle, in your Command phase, the bearer can regain up to D6 lost wounds."
       },
       "Crusade Relic§Twilight Pallium": {
@@ -2222,6 +2490,33 @@
           "Keywords": [
             "Infantry"
           ]
+        },
+        "rules": {
+          "cancelOutBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Crusade Pts": {
+            "value": 0
+          }
         },
         "text": "Once per battle, at the end of any of your phases, the bearer can use the Twilight Pallium. If it does, remove the bearer’s unit from the battlefield and set it up again anywhere on the battlefield more than 3\" horizontally away from all enemy units. The bearer’s unit is not eligible to charge in a turn in which it was set up in this manner unless it is more than 9\" horizontally away from all enemy units."
       },
@@ -3317,6 +3612,31 @@
           }
         },
         "text": "**Adeptus Custodes** model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any Command phase, triple the bearer’s Objective Control characteristic until the end of the turn."
+      },
+      "Magisterium Lex Ultima§Endeavour": {
+        "stats": {
+          "Imperative 1": {
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Imperative 2": {
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Imperative 3": {
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Started": {
+            "dynamic": true,
+            "statType": "rank",
+            "value": null,
+            "visibility": "normal"
+          }
+        }
       },
       "Melee Weapon§Agamatus Custodians—Interceptor lance": {
         "aspects": {
