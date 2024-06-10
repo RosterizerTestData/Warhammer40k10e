@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.16",
+  "revision": "10.10.17",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -17,74 +17,575 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
-      "Mission Record§Mission Record": {
-        "stats": {
-          "Agenda 1": {
-            "ranks": {
-              "Pursuit of Excellence": {
-                "order": 12,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
-              },
-              "Judgement Delivered": {
-                "order": 13,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
-              },
-              "Great Tithe": {
-                "order": 14,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
-              },
-              "Unto the Dark Cells": {
-                "order": 15,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
+      "Artefact of the Vaults": {
+        "aspects": {
+          "Unique": true
+        },
+        "rules": {
+          "reduceBattleHonours": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": -1
               }
-            }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "templateClass": "Crusade Relic"
+      },
+      "Character": {
+        "allowed": {
+          "items": [
+            "Requisition§Earning of a Name",
+            "Requisition§Artefacts of the Vaults"
+          ]
+        },
+        "disallowed": {
+          "items": [
+            "Requisition§Proven Mettle"
+          ],
+          "classifications": [
+            "Artefact of the Vaults"
+          ]
+        },
+        "rules": {
+          "notAllowArtefactReq": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Artefacts of the Vaults"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
           },
-          "Agenda 2": {
-            "ranks": {
-              "Pursuit of Excellence": {
-                "order": 12,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
-              },
-              "Judgement Delivered": {
-                "order": 13,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
-              },
-              "Great Tithe": {
-                "order": 14,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
-              },
-              "Unto the Dark Cells": {
-                "order": 15,
-                "tracking": {
-                  "Custodes Agenda": 1
-                }
+          "NotAllowEarningOfAName": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Earning of a Name"
               }
-            }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anathema Psykana"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
+          "notAllowEmperorsLight": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Emperor's Light"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
+          "notAllowVeracity": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Veracity, the Sword of Oblivion"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Knight-centura"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Executioner greatblade"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
+          "notApollonianSpear": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Apollonian Spear"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Shield-captain"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         }
       },
+      "Endeavour": {
+        "templateClass": "Magisterium Lex Ultima"
+      },
+      "Magisterium Lex Ultima": {},
       "Order of Battle": {
         "allowed": {
           "items": [
-            "Requisition§Artefacts of the Vaults",
-            "Requisition§Earning of a Name",
             "Requisition§Superhuman Focus",
-            "Requisition§Proven Mettle"
+            "Crusade Badge§Auric Exemplar",
+            "Crusade Badge§Champion of the Throne",
+            "Crusade Badge§Trusted Sentinel"
           ]
+        }
+      },
+      "Unit": {
+        "rules": {
+          "allowAnathemaTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Anathema Psykana"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anathema Psykana"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowCustodesInfantryTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anathema Psykana"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowMountedBattleTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Mounted"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowProvenMettle": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Proven Mettle"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 30,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Experience",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "1",
+                      "2"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anathema Psykana"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "notAllowCustodesBattleScars": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Scar§Immediate Threats"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Scar§Lions. Not Wolves"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Battle Scar§Sense of Insufficiency"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         }
       }
     },
@@ -96,6 +597,17 @@
           ]
         },
         "text": "Each time this model makes an attack with its twin iliastus accelerator cannon that targets an enemy unit (excluding Monsters and Vehicles), that attack has the [LETHAL HITS] ability. Each time this model makes an attack with its twin arachnus heavy blaze cannon that targets an enemy Monster or Vehicle unit, that attack has the [LETHAL HITS] ability."
+      },
+      "Ability§Anathematic Diadem": {
+        "keywords": {
+          "Tags": [
+            "Model Ability"
+          ],
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "text": "The bearer gains the following ability:\n\nAnathematic Diadem (Aura): When an enemy model within 12\" of this model makes an attack with a Psychic weapon, subtract 1 from the Wound roll."
       },
       "Ability§Assault Dropship": {
         "keywords": {
@@ -497,6 +1009,102 @@
         },
         "text": "The first time this model is destroyed, remove it from play without resolving its Deadly Demise ability. Then, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with D6 wounds remaining."
       },
+      "Artefact of the Vaults§Anathematic Diadem": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "addAura": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Anathematic Diadem"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "The bearer gains the following ability:\n\nAnathematic Diadem (Aura): When an enemy model within 12\" of this model makes an attack with a Psychic weapon, subtract 1 from the Wound roll."
+      },
+      "Artefact of the Vaults§Arae-Shrike": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "text": "Enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12\" of this unit."
+      },
+      "Artefact of the Vaults§Auriferous Orb": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "AddWeapon": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Auriferous Orb"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "The bearer is equipped with the following ranged weapon in addition to its other weapons:\n\nBlinding Light: Each time a unit is hit by this weapon, it is blinded until the start of your next turn. While a unit is blinded, each time a model in that units makes an attack, subtract 1 from the Hit roll."
+      },
+      "Artefact of the Vaults§Epoch Auspice": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "text": "Once per battle, at the start of the battle round, the bearer can deploy the Epoch Auspice. If it does, until the end of the battle round, each time an attack targets the bearer’s unit, subtract 1 from the Wound roll."
+      },
+      "Artefact of the Vaults§Mortis Gyre": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "text": "Once per battle, when the bearer is selected to fight, it can activate the Mortis Gyre. If it does, until that fight is resolved, melee attacks made by this model that target an INFANTRY unit have the [DEVASTATING WOUNDS] ability."
+      },
+      "Artefact of the Vaults§Pareldor's Caducatrix": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "text": "Once per battle, in your Command phase, the bearer can regain up to D6 lost wounds."
+      },
+      "Artefact of the Vaults§Twilight Pallium": {
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
+        "text": "Once per battle, at the end of any of your phases, the bearer can use the Twilight Pallium. If it does, remove the bearer’s unit from the battlefield and set it up again anywhere on the battlefield more than 3\" horizontally away from all enemy units. The bearer’s unit is not eligible to charge in a turn in which it was set up in this manner unless it is more than 9\" horizontally away from all enemy units."
+      },
       "Battle Scar§Immediate Threats": {
         "text": "In your Charge phase, each time this unit declares a charge, you can only select the closest enemy unit as the target of that charge.\nEach time a model in this unit makes a melee attack, you can re-roll a Wound roll of 1."
       },
@@ -510,10 +1118,6 @@
         "keywords": {
           "Tags": [
             "Infantry"
-          ],
-          "Keywords": [
-            "Adeptus Custodes",
-            "Infantry"
           ]
         },
         "text": "Once per battle, you can target this unit with the Counter-offensive Stratagem for 0CP."
@@ -522,9 +1126,6 @@
         "keywords": {
           "Tags": [
             "Infantry"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "While this unit is within range of an objective marker, it has the Feel No Pain 6+ ability."
@@ -533,9 +1134,6 @@
         "keywords": {
           "Tags": [
             "Infantry"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1."
@@ -544,9 +1142,6 @@
         "keywords": {
           "Tags": [
             "Infantry"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "Each time a Psychic Attack targets this unit, subtract 1 from the Hit roll."
@@ -555,9 +1150,6 @@
         "keywords": {
           "Tags": [
             "Mounted"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "Each time this unit Advances, add 2\" to its Move characteristic (this is cumulative with the Turbo-boost ability)."
@@ -565,11 +1157,7 @@
       "Battle Trait§Hunters' Strike": {
         "keywords": {
           "Tags": [
-            "Infantry"
-          ],
-          "Keywords": [
-            "Anathema Psykana",
-            "Infantry"
+            "Anathema Psykana"
           ]
         },
         "text": "Each time this unit is selected to fight, if this unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in this unit."
@@ -578,9 +1166,6 @@
         "keywords": {
           "Tags": [
             "Infantry"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "Each time a model within this unit makes a ranged attack that targets a unit that contains 10 or more models, that attack has the [SUSTAINED HITS 1] ability."
@@ -589,10 +1174,6 @@
         "keywords": {
           "Tags": [
             "Mounted"
-          ],
-          "Keywords": [
-            "Adeptus Custodes",
-            "Mounted"
           ]
         },
         "text": "This unit has the Stealth ability. Each time this unit Remains Stationary, it loses this ability until the start of your next Movement phase."
@@ -600,9 +1181,6 @@
       "Battle Trait§Rapid Prosecution": {
         "keywords": {
           "Tags": [
-            "Infantry"
-          ],
-          "Keywords": [
             "Anathema Psykana"
           ]
         },
@@ -611,9 +1189,6 @@
       "Battle Trait§Relentless Pursuit": {
         "keywords": {
           "Tags": [
-            "Infantry"
-          ],
-          "Keywords": [
             "Anathema Psykana"
           ]
         },
@@ -623,38 +1198,17 @@
         "keywords": {
           "Tags": [
             "Mounted"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "Each time a model in this unit makes a ranged attack that targets an enemy unit within 6\", add 1 to the Strength characteristic of that attack."
       },
-      "Battle Trait§Wall of Auramite": {
+      "Battle Trait§Will of Auramite": {
         "keywords": {
           "Tags": [
             "Infantry"
-          ],
-          "Keywords": [
-            "Adeptus Custodes"
           ]
         },
         "text": "You can target this unit with Stratagems even while it is Battle-shocked."
-      },
-      "Campaign Badge§Auric Exemplar": {
-        "keywords": {
-          "Keywords": [
-            "Adeptus Custodes",
-            "Character"
-          ]
-        },
-        "text": "You have completed 15 Imperatives and earned five Endeavour Rewards.\nYou have won ten or more battles.\nYou have used the Artefacts of the Vaults Requisition at least three times, and won three or more battles while a model from your Crusade army has an Artefact of the Vaults.\nAn ADEPTUS CUSTODES CHARACTER model has reached the Legendary rank."
-      },
-      "Campaign Badge§Champion of the Throne": {
-        "text": "You have completed nine Imperatives and earned three Endeavour Rewards.\nYou have won six or more battles.\nYou have used the Artefacts of the Vaults Requisition at least once, and won one or more battles while a model from your Crusade army has an Artefact of the Vaults."
-      },
-      "Campaign Badge§Trusted Sentinel": {
-        "text": "You have completed three Imperatives or more and earned one Endeavour Reward.\nYou have won two or more battles."
       },
       "Character§Aleya": {
         "aspects": {
@@ -1372,16 +1926,14 @@
           }
         }
       },
-      "Crusade Badge§Auric Exemplar": {},
-      "Crusade Badge§Champion of the Throne": {},
-      "Crusade Badge§Trusted Sentinel": {},
-      "Crusade Relic§Anathematic Diadem": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ]
-        },
-        "text": "The bearer gains the following ability:\n\nAnathematic Diadem (Aura): When an enemy model within 12\" of this model makes an attack with a Psychic weapon, subtract 1 from the Wound roll."
+      "Crusade Badge§Auric Exemplar": {
+        "text": "You have completed 15 Imperatives and earned five Endeavour Rewards.\nYou have won ten or more battles.\nYou have used the Artefacts of the Vaults Requisition at least three times, and won three or more battles while a model from your Crusade army has an Artefact of the Vaults.\nAn ADEPTUS CUSTODES CHARACTER model has reached the Legendary rank."
+      },
+      "Crusade Badge§Champion of the Throne": {
+        "text": "You have completed nine Imperatives and earned three Endeavour Rewards.\nYou have won six or more battles.\nYou have used the Artefacts of the Vaults Requisition at least once, and won one or more battles while a model from your Crusade army has an Artefact of the Vaults."
+      },
+      "Crusade Badge§Trusted Sentinel": {
+        "text": "You have completed three Imperatives or more and earned one Endeavour Reward.\nYou have won two or more battles."
       },
       "Crusade Relic§Apollonian Spear": {
         "keywords": {
@@ -1393,22 +1945,6 @@
           ]
         },
         "text": "SHIELD-CAPTAIN model only. Once per battle, at the start of the Fight phase, the bearer can use this ability. If it does, add 3 to the Strength and Attacks characteristics of the bearer’s melee weapons until the end of that phase."
-      },
-      "Crusade Relic§Arae-Shrike": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ]
-        },
-        "text": "Enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12\" of this unit."
-      },
-      "Crusade Relic§Auriferous Orb": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ]
-        },
-        "text": "The bearer is equipped with the following ranged weapon in addition to its other weapons:\n\nBlinding Light: Each time a unit is hit by this weapon, it is blinded until the start of your next turn. While a unit is blinded, each time a model in that units makes an attack, subtract 1 from the Hit roll."
       },
       "Crusade Relic§Aurulent Warding": {
         "keywords": {
@@ -1428,15 +1964,28 @@
             "Infantry"
           ]
         },
-        "text": "ADEPTUS CUSTODES INFANTRY model only. The bearer is equipped with the following melee weapon in addition to its other weapons:"
-      },
-      "Crusade Relic§Epoch Auspice": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ]
+        "rules": {
+          "addWeapon": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Emperor's Light"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
+          }
         },
-        "text": "Once per battle, at the start of the battle round, the bearer can deploy the Epoch Auspice. If it does, until the end of the battle round, each time an attack targets the bearer’s unit, subtract 1 from the Wound roll."
+        "text": "ADEPTUS CUSTODES INFANTRY model only. The bearer is equipped with the following melee weapon in addition to its other weapons:"
       },
       "Crusade Relic§Lucent Aureole": {
         "keywords": {
@@ -1446,33 +1995,6 @@
         },
         "text": "The bearer has a 3+ invulnerable save."
       },
-      "Crusade Relic§Mortis Gyre": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ],
-          "Keywords": [
-            "Infantry"
-          ]
-        },
-        "text": "Once per battle, when the bearer is selected to fight, it can activate the Mortis Gyre. If it does, until that fight is resolved, melee attacks made by this model that target an INFANTRY unit have the [DEVASTATING WOUNDS] ability."
-      },
-      "Crusade Relic§Pareldor's Caducatrix": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ]
-        },
-        "text": "Once per battle, in your Command phase, the bearer can regain up to D6 lost wounds."
-      },
-      "Crusade Relic§Twilight Pallium": {
-        "keywords": {
-          "Tags": [
-            "Artefacts of the Vaults"
-          ]
-        },
-        "text": "Once per battle, at the end of any of your phases, the bearer can use the Twilight Pallium. If it does, remove the bearer’s unit from the battlefield and set it up again anywhere on the battlefield more than 3\" horizontally away from all enemy units. The bearer’s unit is not eligible to charge in a turn in which it was set up in this manner unless it is more than 9\" horizontally away from all enemy units."
-      },
       "Crusade Relic§Veracity, the Sword of Oblivion": {
         "keywords": {
           "Tags": [
@@ -1481,6 +2003,54 @@
           "Keywords": [
             "Knight-centura"
           ]
+        },
+        "rules": {
+          "addWeapon": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "item",
+                    "Melee Weapon§Knight-centura—Executioner greatblade",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "item",
+                    "Melee Weapon§Knight-centura—Executioner greatblade",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Sustained Hits",
+                  "stats": {
+                    "abilityName": {
+                      "value": "Sustained Hits"
+                    },
+                    "x": {
+                      "value": "1"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 98
+          }
         },
         "text": "KNIGHT-CENTURA model equipped with an executioner greatblade only. The bearer’s melee weapons gain the [LANCE] and [SUSTAINED HITS 1] abilities."
       },
@@ -1868,6 +2438,7 @@
         },
         "text": "**REVERED COMPANIONS**\n\n- ANATHEMA PSYKANA units from your army\ngain the following the ability:\n\n**Null Aegis (Aura):**\n\nWhile an ADEPTUS CUSTODES unit is within 6″ of this unit, models in that unit have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.\n\n- All other ADEPTUS CUSTODES units from\nyour army gain the following ability:\n\n**Deadly Unity (Aura):**\n\nWhile an ANATHEMA PSYKANA unit is within 6″ of this unit, each time a model in that ANATHEMA PSYKANA unit makes an attack, add 1 to the Hit roll."
       },
+      "Endeavour§Imperative": {},
       "Enhancement§Aegis Projector": {
         "keywords": {
           "Keywords": [
@@ -2514,6 +3085,31 @@
           }
         },
         "text": "**Adeptus Custodes** model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any Command phase, triple the bearer’s Objective Control characteristic until the end of the turn."
+      },
+      "Magisterium Lex Ultima§Endeavour": {
+        "stats": {
+          "Imperative 1": {
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Imperative 2": {
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Imperative 3": {
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Started": {
+            "dynamic": true,
+            "statType": "rank",
+            "value": null,
+            "visibility": "normal"
+          }
+        }
       },
       "Melee Weapon§Agamatus Custodians—Interceptor lance": {
         "aspects": {
@@ -3180,9 +3776,6 @@
         }
       },
       "Melee Weapon§Emperor's Light": {
-        "aspects": {
-          "Label": "Misericordia"
-        },
         "assets": {
           "traits": [
             "Ability§Devastating Wounds",
@@ -3198,10 +3791,6 @@
           },
           "D": {
             "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
           },
           "S": {
             "value": 5
@@ -3879,32 +4468,56 @@
           "Agenda 1": {
             "ranks": {
               "Pursuit of Excellence": {
-                "order": 23
-              },
-              "Great Tithe": {
-                "order": 24
+                "order": 12,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
               },
               "Judgement Delivered": {
-                "order": 25
+                "order": 13,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
+              },
+              "Great Tithe": {
+                "order": 14,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
               },
               "Unto the Dark Cells": {
-                "order": 26
+                "order": 15,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
               }
             }
           },
           "Agenda 2": {
             "ranks": {
               "Pursuit of Excellence": {
-                "order": 23
-              },
-              "Great Tithe": {
-                "order": 24
+                "order": 12,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
               },
               "Judgement Delivered": {
-                "order": 25
+                "order": 13,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
+              },
+              "Great Tithe": {
+                "order": 14,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
               },
               "Unto the Dark Cells": {
-                "order": 26
+                "order": 15,
+                "tracking": {
+                  "Custodes Agenda": 1
+                }
               }
             }
           }
@@ -4609,6 +5222,7 @@
           }
         }
       },
+      "Order of Battle§Order of Battle": {},
       "Ranged Weapon§Agamatus Custodians—Adrathic devastator": {
         "aspects": {
           "Label": "Adrathic devastator"
@@ -5011,6 +5625,30 @@
             "value": 18
           }
         }
+      },
+      "Ranged Weapon§Auriferous Orb": {
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D3"
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 8
+          },
+          "S": {
+            "value": 1
+          }
+        },
+        "text": "Blinding Light: Each time a unit is hit by this weapon, it is blinded until the start of your next turn. While a unit is blinded, each time a model in that units makes an attack, subtract 1 from the Hit roll."
       },
       "Ranged Weapon§Caladius Grav-tank—Twin arachnus heavy blaze cannon": {
         "aspects": {
@@ -6661,6 +7299,27 @@
         }
       },
       "Requisition§Artefacts of the Vaults": {
+        "rules": {
+          "allowArtefact": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "disallowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Artefact of the Vaults"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "RP": {
             "value": 1
@@ -6669,6 +7328,26 @@
         "text": "Purchase this Requisition before a battle. Select one ADEPTUS CUSTODES CHARACTER model from your Crusade army (excluding EPIC HERO models), then select one of the following for that model:\nYou can only select this option if your Crusade force is on an Endeavour. Select one Artefact of the Vaults. That model gains that Artefact of the Vaults until your Crusade force completes its active Imperative or abandons its Endeavour. Your Crusade force can only have one Artefact of the Vaults at any time.\nRemove one Enhancement from that model and replace it with another that it is eligible to have."
       },
       "Requisition§Earning of a Name": {
+        "rules": {
+          "addUse": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Earning of a Name"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "RP": {
             "value": 1
@@ -6693,6 +7372,27 @@
         "text": "Purchase this Requisition after you have rolled to determine your Imperatives. Select one of those Imperatives, then select a different Imperative to replace it (this must be unique to the other Imperatives you have rolled and you can only use this Requisition once per Endeavour)."
       },
       "Roster§Roster": {
+        "rules": {
+          "Your Crusade force can only have one Artefact of the Vaults at any time.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Artefact of the Vaults"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Detachment": {
             "ranks": {
@@ -9804,26 +10504,6 @@
           "Tags": [
             "Multi-weapon"
           ]
-        }
-      },
-      "Weapon§Auriferous Orb": {
-        "stats": {
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 2
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 8
-          },
-          "S": {
-            "value": 1
-          },
-          "WS": {}
         }
       },
       "Weapon§Contemptor-Achillus Dreadnought—Achillus dreadspear": {
