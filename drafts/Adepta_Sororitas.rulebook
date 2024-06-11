@@ -1,6 +1,6 @@
 {
   "name": "Adepta Sororitas",
-  "revision": "10.10.11",
+  "revision": "10.10.12",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -198,7 +198,7 @@
             "Other"
           ]
         },
-        "text": "At the start of your Shooting phase, select one enemy unit within 12″ of and visible to Ephrael Stern. That unit must take a Leadership test, subtracting 2 from the result if it is a Chaos unit. If the test is failed, that enemy unit suffers 3 mortal wounds."
+        "text": "At the start of your Shooting phase, select one enemy unit within 12″ of and visible to Ephrael Stern. That unit must take a BattleShock-test, subtracting 2 from the result if it is a Chaos unit. If the test is failed, that enemy unit suffers 3 mortal wounds."
       },
       "Ability§Holy Mission": {
         "keywords": {
@@ -289,7 +289,7 @@
             "Other"
           ]
         },
-        "text": "While this unit contains a Repentia Superior, each time a model in this unit makes a melee attack, you can re-roll the Hit roll and, if this unit made a Charge move this turn, you can also re-roll the Wound roll."
+        "text": "While this unit contains a Repentia Superior, each time a Sisters Repentia model in this unit makes a melee attack, you can re-roll the Hit roll and you can re-roll the Wound roll."
       },
       "Ability§Purge and Cleanse": {
         "keywords": {
@@ -912,268 +912,55 @@
             "Character"
           ]
         },
-        "rules": {
-          "Brazier of holy fire requires chainsword": {
-            "evals": [
-              {
-                "actionable": true,
-                "equation": {
-                  "operator": "T-O",
-                  "value": [
-                    "{self}",
-                    "tally",
-                    "Chainsword"
-                  ]
-                },
-                "max": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Brazier of holy fire"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "hideRod": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Special Options 2",
-                    "value"
-                  ]
-                ],
-                "value": "-"
-              },
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Special Options 2",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Canoness—Plasma pistol",
-                      "Plasma pistol"
-                    ]
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    [
-                      "Canoness—Power weapon",
-                      "Power weapon"
-                    ]
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "pass"
-          },
-          "Null rod requires chainsword": {
-            "evals": [
-              {
-                "actionable": true,
-                "equation": {
-                  "operator": "T-O",
-                  "value": [
-                    "{self}",
-                    "tally",
-                    "Chainsword"
-                  ]
-                },
-                "max": 0,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Null Rod"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Ld": {
             "value": 7
           },
-          "M": {
-            "value": 12
-          },
-          "Melee Options": {
+          "Loadout": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Chainsword": {
+              "Blessed Halberd": {
                 "order": 0,
-                "tracking": {},
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Canoness—Chainsword"
+                    "trait": "Melee Weapon§Canoness—Blessed Halberd"
                   }
                 ]
               },
-              "Blessed Blade": {
+              "Holy Eviscerator": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Canoness—Blessed blade"
+                    "trait": "Melee Weapon§Canoness—Holy Eviscerator"
                   }
                 ]
               },
-              "Power Weapon": {
+              "Power Weapon & Hand Flamer": {
                 "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Canoness—Power weapon"
+                  },
+                  {
+                    "trait": "Melee Weapon§Canoness—Ministorum hand flamer"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Chainsword",
+            "value": "Blessed Halberd",
             "visibility": "active"
+          },
+          "M": {
+            "value": 12
           },
           "OC": {
             "value": 1
           },
           "Points": {
             "value": 50
-          },
-          "Ranged Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Bolt pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Canoness—Bolt pistol"
-                  }
-                ]
-              },
-              "Condemnor boltgun": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Canoness—Condemnor boltgun"
-                  }
-                ]
-              },
-              "Inferno pistol": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Canoness—Inferno pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 3,
-                "tracking": {},
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Canoness—Plasma pistol"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "visibility": "active"
-          },
-          "Special Options 1": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Brazier of Holy Fire": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Canoness—Brazier of holy fire"
-                  }
-                ]
-              },
-              "Null Rod": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Null Rod"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
-          "Special Options 2": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Rod of Office": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Rod of Office"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -1260,7 +1047,7 @@
               "item": "Ability§Invulnerable",
               "stats": {
                 "x": {
-                  "value": "6+"
+                  "value": "4+"
                 }
               }
             },
@@ -1666,12 +1453,12 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
             "Character",
-            "Fly",
             "Epic Hero",
+            "Fly",
             "Imperium",
-            "Junith Eruita"
+            "Junith Eruita",
+            "Mounted"
           ],
           "Category": [
             "Epic Hero"
@@ -1988,14 +1775,6 @@
             {
               "item": "Ability§Leader",
               "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Sisters Novitiate Squad"
-            },
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "6″"
-                }
-              }
             },
             "Ability§Acts of Faith",
             "Ability§Fury of the Righteous",
@@ -2318,6 +2097,294 @@
           }
         }
       },
+      "Detachment§Army of Faith": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Shield of Faith"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Light of the Emperor"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Faith and Fury"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Blinding Radiance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Divine Guidance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Angelic Descent"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "*Sacred Rites*\n\nEach Adepta Sororitas unit from your army can perform up to two Acts of Faith per phase, instead of just one."
+      },
+      "Detachment§Bringers of Flame": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Shield of Aversion"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Righteous Blows"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Carry Forth the Faithful"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Cleansing Flames"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Rites of Fire"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Blazing Ire"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "*Fervent Purgation*\n\nRanged weapons equipped by Adepta Sororitas models from your army have the [Assault] ability, and each time an attack made with such a weapon targets a unit within 12\", add 1 to the Strength characteristic of that attack."
+      },
+      "Detachment§Penitent Host": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Final Redemption"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Purity of Suffering"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Passion of the Penitent"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Lash of Guilt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Boundless Zeal"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Devout Fanaticism"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "At the start of the battle round, select one of the following Vows of Atonement to be active for your army until the start of the next battle round. You can only select each Vow of Atonement once per battle.\n\n*The Path of the Penitent*\n\nAdd 3\" to the Move characteristic of Penitent models from your army.\n\n*Absolution in Battle*\n\nEach time a unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks and Strength characteristics of melee weapons equipped by Penitent models in that unit.\n\n*Death before Disgrace*\n\nEach time a Penitent model from your army is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 2+, do not remove it from play; the destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
+      },
       "Detachment§The Blood of Martyrs": {
         "rules": {
           "assignStratagems": {
@@ -2415,6 +2482,477 @@
         "text": "Each time an Adepta Sororitas model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll, as well, if that model’s unit is Below Half-strength. For the purposes of this ability, if a unit has a Starting Strength of 1, it is considered to be below its Starting Strength while it has lost one or more wounds."
       },
       "Enhancement§Blade of Saint Ellynor": {
+        "keywords": {
+          "Keywords": [
+            "Army of Faith"
+          ]
+        },
+        "rules": {
+          "Add abilities": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Precision"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Adepta Sororitas model only. Improve the Strength and Armour Penetration characteristics of the bearer's melee weapons by 1, and those weapons have the [Precision] ability. In addition, each time the bearer fights, if one or more enemy models are destroyed by those attacks, you gain 1 Miracle dice."
+      },
+      "Enhancement§Catechism of Divine Penitence": {
+        "keywords": {
+          "Keywords": [
+            "Penitent Host"
+          ]
+        },
+        "rules": {
+          "Canoness, Palatine, or Ministorum Priest only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Canoness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Palatine"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ministorum Priest"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Gain Penitent keyword": {
+            "actions": [
+              {
+                "actionType": "add",
+                "append": "Penitent",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": null
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 5
+          }
+        },
+        "text": "Canoness, Palatine or Ministorum Priest model only. The bearer gains the Penitent keyword and, during the Declare Battle Formations step, can be attached to a Repentia Squad unit."
+      },
+      "Enhancement§Chaplet of Sacrifice": {
+        "keywords": {
+          "Keywords": [
+            "The Blood of Martyrs"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "group": "Cost",
+            "statType": "numeric",
+            "value": 25,
+            "visibility": "normal"
+          }
+        },
+        "text": "Adepta Sororitas model only. At the end of your Command phase, if the bearer is on the battlefield, you can re-roll one Miracle dice from your Miracle dice pool and return it to your Miracle dice pool with the new result you rolled. When doing so, if the bearer has lost one or more wounds or is leading a unit that is Below Half-strength, you can re-roll up to three Miracle dice in this way instead."
+      },
+      "Enhancement§Divine Aspect": {
+        "keywords": {
+          "Keywords": [
+            "Army of Faith"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 5
+          }
+        },
+        "text": "Adepta Sororitas model only. In your Movement phase, you can select one enemy unit within 12\" of the bearer; that unit must take a Battle-shock test. If that test is failed, you gain 1 Miracle dice."
+      },
+      "Enhancement§Fire and Fury": {
+        "keywords": {
+          "Keywords": [
+            "Bringers of Flame"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Adepta Sororitas model only. While the bearer is leading a unit, add 1 to the Attacks characteristic of Torrent weapons equipped by models in that unit, and all other ranged weapons equipped by models in that unit have the [Sustained Hits 1] ability."
+      },
+      "Enhancement§Iron Surplice of Saint Istalela": {
+        "keywords": {
+          "Keywords": [
+            "Bringers of Flame"
+          ]
+        },
+        "rules": {
+          "Canoness or Palatine only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Canoness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Palatine"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "Change Save and FNP": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 5
+          }
+        },
+        "text": "Canoness or Palatine model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability."
+      },
+      "Enhancement§Litanies of Faith": {
+        "keywords": {
+          "Keywords": [
+            "Army of Faith"
+          ]
+        },
+        "rules": {
+          "Canoness or Palatine only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Canoness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Palatine"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Canoness or Palatine model only. At the start of your Command phase, if the bearer is on the battlefield, take a Leadership test for the bearer. If that test is passed, you gain 1 Miracle dice."
+      },
+      "Enhancement§Mantle of Ophelia": {
+        "keywords": {
+          "Keywords": [
+            "The Blood of Martyrs"
+          ]
+        },
+        "rules": {
+          "Canoness or Palatine model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Canoness"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Palatine"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "group": "Cost",
+            "statType": "numeric",
+            "value": 20,
+            "visibility": "normal"
+          }
+        },
+        "text": "Canoness or Palatine model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1."
+      },
+      "Enhancement§Mantle of Saint Griselda": {
+        "keywords": {
+          "Keywords": [
+            "Bringers of Flame"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Adepta Sororitas model only. At the start of your Command phase, you can discard up to 2 Miracle dice. Then, add 1 Miracle dice to your Miracle Dice pool showing a value equal to the sum of the two Miracle dice you just discarded (to a maximum of 6)."
+      },
+      "Enhancement§Psalm of Righteous Judgement": {
+        "keywords": {
+          "Keywords": [
+            "Penitent Host"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Adepta Sororitas model only. While the bearer is on the battlefield, each time an enemy unit is destroyed by a Penitent unit from your army, you can discard 1 Miracle dice then gain 1 Miracle dice showing a value of 6."
+      },
+      "Enhancement§Refrain of Enduring Faith": {
+        "keywords": {
+          "Keywords": [
+            "Penitent Host"
+          ]
+        },
+        "rules": {
+          "Penitent Model Only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Penitent"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Penitent model only. While the bearer is leading a unit, models in that unit have a 5+ invulnerable save."
+      },
+      "Enhancement§Righteous Rage": {
+        "keywords": {
+          "Keywords": [
+            "Bringers of Flame"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Adepta Sororitas model only. Each time the bearer is selected to fight, you can first discard up to 3 Miracle dice. For each Miracle dice just discarded, until the end of the phase, add 1 to the Attacks and Strength characteristics of the bearer's melee weapons."
+      },
+      "Enhancement§Saintly Example": {
+        "keywords": {
+          "Keywords": [
+            "The Blood of Martyrs"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "group": "Cost",
+            "statType": "numeric",
+            "value": 10,
+            "visibility": "normal"
+          }
+        },
+        "text": "Adepta Sororitas model only. When the bearer is destroyed, you gain an additional D3 Miracle dice."
+      },
+      "Enhancement§Through Suffering, Strength": {
         "keywords": {
           "Keywords": [
             "The Blood of Martyrs"
@@ -2517,30 +3055,27 @@
         },
         "text": "Adepta Sororitas model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. If the bearer has lost one or more wounds, add 2 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons instead."
       },
-      "Enhancement§Litanies of Faith": {
+      "Enhancement§Triptych of the Macharian Crusade": {
         "keywords": {
           "Keywords": [
-            "The Blood of Martyrs"
+            "Army of Faith"
           ]
         },
         "stats": {
           "Points": {
-            "group": "Cost",
-            "statType": "numeric",
-            "value": 25,
-            "visibility": "normal"
+            "value": 20
           }
         },
-        "text": "Adepta Sororitas model only. At the end of your Command phase, if the bearer is on the battlefield, you can re-roll one Miracle dice from your Miracle dice pool and return it to your Miracle dice pool with the new result you rolled. When doing so, if the bearer has lost one or more wounds or is leading a unit that is Below Half-strength, you can re-roll up to three Miracle dice in this way instead."
+        "text": "Adepta Sororitas model only. Each time the bearer uses an Act of Faith to substitute a saving throw, that saving throw is successful, irrespective of the value of the Miracle dice used."
       },
-      "Enhancement§Mantle of Ophelia": {
+      "Enhancement§Verse of Holy Piety": {
         "keywords": {
           "Keywords": [
-            "The Blood of Martyrs"
+            "Penitent Host"
           ]
         },
         "rules": {
-          "Canoness or Palatine model only": {
+          "Penitent Model Only": {
             "evals": [
               {
                 "actionable": true,
@@ -2554,52 +3089,19 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Canoness"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Palatine"
+                "value": "Penitent"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "error"
           }
         },
         "stats": {
           "Points": {
-            "group": "Cost",
-            "statType": "numeric",
-            "value": 20,
-            "visibility": "normal"
+            "value": 15
           }
         },
-        "text": "Canoness or Palatine model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1."
-      },
-      "Enhancement§Saintly Example": {
-        "keywords": {
-          "Keywords": [
-            "The Blood of Martyrs"
-          ]
-        },
-        "stats": {
-          "Points": {
-            "group": "Cost",
-            "statType": "numeric",
-            "value": 10,
-            "visibility": "normal"
-          }
-        },
-        "text": "Adepta Sororitas model only. When the bearer is destroyed, you gain an additional D3 Miracle dice."
+        "text": "Penitent model only. Once per battle, at the start of the battle round, select one Vow of Atonement (see detachment rule). Until the start of the next battle round, that Vow of Atonement is active for the bearer's unit in addition to any that is active for your army, even if you have already selected that Vow of Atonement this battle."
       },
       "Melee Weapon§Aestred Thurga and Agathae Dolan—Blade of Vigil": {
         "aspects": {
@@ -2773,6 +3275,104 @@
         "aspects": {
           "Label": "Blessed blade"
         },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Canoness—Blessed Halberd": {
+        "aspects": {
+          "Label": "Blessed blade"
+        },
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Canoness—Chainsword": {
+        "aspects": {
+          "Label": "Chainsword"
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Canoness—Holy Eviscerator": {
+        "aspects": {
+          "Label": "Blessed blade"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
             "value": 3
@@ -2795,13 +3395,17 @@
           }
         }
       },
-      "Melee Weapon§Canoness—Chainsword": {
+      "Melee Weapon§Canoness—Ministorum hand flamer": {
         "aspects": {
-          "Label": "Chainsword"
+          "Label": "Blessed blade"
+        },
+        "assets": {
+          "traits": []
         },
         "stats": {
           "A": {
-            "value": 5
+            "statType": "term",
+            "value": "D6"
           },
           "AP": {
             "value": 0
@@ -2811,10 +3415,37 @@
           },
           "Range": {
             "statType": "term",
+            "value": "12\""
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {}
+        }
+      },
+      "Melee Weapon§Canoness—Power Weapon": {
+        "aspects": {
+          "Label": "Blessed blade"
+        },
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 3
+            "value": 4
           },
           "WS": {
             "value": 2
@@ -2833,7 +3464,7 @@
             "value": -2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -2877,6 +3508,18 @@
         "aspects": {
           "Label": "Anointed halberd"
         },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
             "value": 3
@@ -2902,6 +3545,11 @@
       "Melee Weapon§Celestian Sacresants—Hallowed mace": {
         "aspects": {
           "Label": "Hallowed mace"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
         },
         "stats": {
           "A": {
@@ -3597,6 +4245,11 @@
       "Melee Weapon§Morvenn Vahl—Lance of Illumination – sweep": {
         "aspects": {
           "Label": "Sweep"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
         },
         "stats": {
           "A": {
@@ -10093,6 +10746,30 @@
                     "trait": "Detachment§The Blood of Martyrs"
                   }
                 ]
+              },
+              "Penitent Host": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Detachment§Penitent Host"
+                  }
+                ]
+              },
+              "Bringers of Flame": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Detachment§Bringers of Flame"
+                  }
+                ]
+              },
+              "Army of Faith": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Detachment§Army of Faith"
+                  }
+                ]
               }
             },
             "value": "The Blood of Martyrs"
@@ -10132,6 +10809,154 @@
           }
         }
       },
+      "Stratagem§Angelic Descent": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Army of Faith"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** End of your opponent’s Fight phase.\n\n**TARGET:** One **Adepta Sororitas** **Jump Pack** Unit from your army.\n\n**EFFECT:** Remove your unit from the battlefield and place it into Strategic Reserves.\n\n**RESTRICTIONS:** You cannot select a unit that is within Engagement Range of one or more enemy units."
+      },
+      "Stratagem§Blazing Ire": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Bringers of Flame"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has shot.\n\n**TARGET:** One **Adepta Sororitas** **Transport** Unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT:** One unit embarked within your **Transport** can disembark as if it were your Movement phase, and can then shoot as if it were your Shooting phase, but must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target."
+      },
+      "Stratagem§Blinding Radiance": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Army of Faith"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One **Adepta Sororitas** unit from your army that was selected as the target of one or more of the attacking unit’s attacks, or one friendly **Adepta Sororitas** **Jump Pack** unit within 3″ of such a unit.\n\n**EFFECT:** Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll. If you targeted an **Adepta Sororitas** **Jump Pack** Unit from your army with this Stratagem, then until the end of the phase, while a friendly **Adepta Sororitas** unit is unit is within 3″ of your unit, each time an attack targets that unit, subtract 1 from the Hit roll."
+      },
+      "Stratagem§Boundless Zeal": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Penitent Host"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase, just after an **Adepta Sororitas** unit from your army Falls Back.\n\n**TARGET:** That **Adepta Sororitas** Unit.\n\n**EFFECT:** Until the end of the turn, your unit is eligible to shoot or declare a charge in a turn in which it Fell Back. If your unit has the **Penitent** keyword, it is eligible to shoot and declare a charge in a turn in which it Fell Back instead."
+      },
+      "Stratagem§Carry Forth the Faithful": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Bringers of Flame"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase, just before an **Adepta Sororitas** **Transport** model from your army Advances.\n\n**TARGET:** That **Adepta Sororitas** **Transport** model. \n\n**EFFECT:** Until the end of the turn, you can re-roll Advance rolls made for your **Transport**, and units can disembark from your **Transport** even though it Advanced. Units that do so count as having made a Normal move, and cannot declare a charge this turn."
+      },
+      "Stratagem§Cleansing Flames": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Bringers of Flame"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** \nYour Shooting phase\n\n**TARGET:** One **Adepta Sororitas** Unit from your army that has not been selected to shoot this phase.\n\n**EFFECT:** Until the end of the phase, Torrent\nweapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability."
+      },
+      "Stratagem§Devout Fanaticism": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Penitent Host"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has selected its targets\n\n**TARGET:** One **Penitent** unit from your army that was selected as the target as one or more of the attacking unit’s attacks.\n\n**EFFECT:** Roll one D6: your unit can be moved a distance in inches up to the result, but it must end that move as close as possible to the closest enemy unit (excluding **Aircraft**). When doing so, models in your unit can be moved within Engagement Range of enemy units."
+      },
+      "Stratagem§Divine Guidance": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Army of Faith"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your Shooting phase or the Fight phase.\n\n**TARGET:** One **Adepta Sororitas** unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit makes an attack, improve the Armour Penetration characteristic of that attack by 1. If one or more enemy models are destroyed as the result of any of those attacks, you gain 1 Miracle dice."
+      },
       "Stratagem§Divine Intervention": {
         "keywords": {
           "Keywords": [
@@ -10151,44 +10976,121 @@
           ],
           "Faction": []
         },
-        "text": "WHEN: Any phase.\n\nTARGET: One Adepta Sororitas Character unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.\n\nEFFECT: Discard 1-3 Miracle dice. At the end of the phase, set the last destroyed model from your unit back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models. That model is set back up with a number of wounds remaining equal to the number of Miracle dice you discarded.\n\nRESTRICTIONS: You cannot select Saint Celestine as the target of this Stratagem. You cannot select the same Character as the target of this Stratagem more than once per battle."
+        "text": "WHEN: Any phase.\n\nTARGET: One Adepta Sororitas Character unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.\n\nEFFECT: Discard 1-3 Miracle dice. At the end of the phase, set the last destroyed model from your unit back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models. Roll one D3, adding 1 to the result for each Miracle dice you discarded. That model is set back up with that number of wounds remaining (up to its starting number of wounds).\n\nRESTRICTIONS: You cannot select Saint Celestine as the target of this Stratagem. You cannot select the same Character as the target of this Stratagem more than once per battle."
       },
-      "Stratagem§Holy Rage": {
+      "Stratagem§Faith and Fury": {
         "keywords": {
           "Keywords": [
             "Adepta Sororitas",
-            "The Blood of Martyrs"
-          ],
-          "Phase": [
-            "Fight"
+            "Army of Faith"
           ],
           "Category": [
-            "Strategic Ploy"
+            "Battle Tactic"
           ],
           "Turn": [
             "Opponent’s",
             "Yours"
+          ],
+          "Phase": [
+            "Fight"
           ]
         },
-        "text": "WHEN: Fight phase.\n\nTARGET: One Adepta Sororitas unit from your army that has not been selected to fight this phase.\n\nEFFECT: Until the end of the phase, each time a model in your unit makes a melee attack, add 1 to the Wound roll."
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Adepta Sororitas** unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If one or more enemy models are destroyed as the result of your unit’s attacks this phase, you gain 1 Miracle dice."
+      },
+      "Stratagem§Final Redemption": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Penitent Host"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "text": "**WHEN:** Any phase.\n\n**TARGET:** One **Penitent** unit from your army that was just destroyed while it was within range of an objective marker you controlled. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT:** That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+      },
+      "Stratagem§Lash of Guilt": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Penitent Host"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase, just before a **Penitent** unit from your army Advances.\n\n**TARGET:** That **Penitent** Unit.\n\n**EFFECT:** Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Advanced. If your unit has the **Penitent Engines** keyword, do not make an Advance roll for it: instead, until the end of the phase, add 6″ to the Move characteristic of models in your unit."
       },
       "Stratagem§Light of the Emperor": {
         "keywords": {
           "Keywords": [
             "Adepta Sororitas",
-            "The Blood of Martyrs"
-          ],
-          "Phase": [
-            "Command"
-          ],
-          "Turn": [
-            "Yours"
+            "Army of Faith"
           ],
           "Category": [
             "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
           ]
         },
-        "text": "WHEN: Command phase.\n\nTARGET: One Adepta Sororitas unit from your army that is below its Starting Strength. For the purposes of this Stratagem, if a unit has a Starting Strength of 1, it is considered to be below its Starting Strength while it has lost one or more wounds.\n\nEFFECT: Until the end of the turn, your unit can ignore any or all modifiers to its characteristics and/or to any roll or test made for it (excluding modifiers to saving throws)."
+        "text": "**WHEN:** Command phase.\n\n**TARGET:** One **Adepta Sororitas** unit from your army.\n\n**EFFECT:** Until the end of the turn, your unit is blessed. While a unit is blessed, it can ignore any or all modifiers to the following: the profile characteristics of its models; the Weapon Skill or Balistic Skill characteristics of weapons equipped by its models; any roll or test made for it (excluding modifiers to saving throws). If your unit has the **Jump Pack** keyword, until the end of the turn, while a friendly **Adepta Sororitas** unit is within 3″ of your unit, that friendly unit is also blessed."
+      },
+      "Stratagem§Passion of the Penitent": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Adepta Sororitas",
+            "Penitent Host"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Penitent** unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a **Penitent** model in your unit makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit."
+      },
+      "Stratagem§Purity of Suffering": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Penitent Host"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One **Penitent** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, **Penitent** models in your unit have the Feel No Pain 4+ ability."
       },
       "Stratagem§Rejoice the Fallen": {
         "keywords": {
@@ -10207,6 +11109,120 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks.\n\nTARGET: One Adepta Sororitas unit from your army that had one or more of its models destroyed as a result of the attacking unit’s attacks.\n\nEFFECT: Your unit can shoot as if it were your Shooting phase, but it must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target."
+      },
+      "Stratagem§Righteous Blows": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Bringers of Flame"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Adepta Sororitas** unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If one or more enemy models are destroyed as the result of attacks made by those weapons this phase, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test."
+      },
+      "Stratagem§Righteous Vengeance": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "The Blood of Martyrs"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "WHEN: Fight phase\n\nTARGET: One Adepta Sororitas unit from your army that has not been selected to fight this phase.\n\nEFFECT: Until the end of the phase, each time a model in your unit makes a melee attack, you can re-roll the Hit roll and, if your unit is Below Half-strength, you can re-roll the Wound roll as well."
+      },
+      "Stratagem§Rites of Fire": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Bringers of Flame"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One **Adepta Sororitas** Unit from your army that disembarked from a **Transport** this turn and has not been selected to shoot this phase.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within 12″ that is also within range of an objective marker, add 1 to the Wound roll. If one or more enemy models are destroyed as the result of those attacks, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test."
+      },
+      "Stratagem§Sanctified Immolation": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "The Blood of Martyrs"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "text": "WHEN: Any phase.\n\nTARGET: One Adepta Sororitas Vehicle model from your army with the Deadly Demise ability that was just destroyed. You can use this Stratagem on that model even though it was just destroyed.\n\nEFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by your model's Deadly Demise ability. instead, mortal wounds are automatically inflicted."
+      },
+      "Stratagem§Shield of Aversion": {
+        "keywords": {
+          "Keywords": [
+            "Adepta Sororitas",
+            "Bringers of Flame"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One **Adepta Sororitas** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
+      "Stratagem§Shield of Faith": {
+        "keywords": {
+          "Phase": [
+            "Any"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Adepta Sororitas",
+            "Army of Faith"
+          ]
+        },
+        "text": "**WHEN:** Any phase, just after an **Adepta Sororitas** unit from your army suffers a mortal wound.\n\n**TARGET:** That **Adepta Sororitas** unit, or one friendly **Adepta Sororitas** **Jump Pack** unit within 3″ of it.\n\n**EFFECT:** Until the end of the phase, models in your unit have the Feel No Pain +5 ability against mortal wounds. If you targeted an **Adepta Sororitas** **Jump Pack** unit from your army with this Stratagem, then until the end of the phase, while a friendly **Adepta Sororitas** unit is unit is within 3″ of your unit, models in that unit have the Feel No Pain +5 ability against mortal wounds."
       },
       "Stratagem§Spirit of the Martyr": {
         "keywords": {
@@ -10249,14 +11265,15 @@
             "Yours"
           ]
         },
-        "text": "WHEN: Start of the Fight phase. TARGET: One Adepta Sororitas Infantry or Adepta Sororitas Walker unit from your army.\n\nEFFECT: Until the end of the phase, each time an enemy model within Engagement range of your unit selects targets, it must select your unit as the target of its attacks"
+        "text": "WHEN: Start of the Fight phase. \n\nTARGET: One Adepta Sororitas Infantry or Adepta Sororitas Walker unit from your army.\n\nEFFECT: Until the end of the phase, each time an enemy model whose unit is within Engagement range of your unit selects targets, it must select your unit as the target of its attacks"
       },
       "Unit§Arco-flagellants": {
         "allowed": {
           "items": [
             "Model§Arco-flagellant",
             "Character§Missionary",
-            "Character§Preacher"
+            "Character§Preacher",
+            "Character§Ministorum Priest"
           ]
         },
         "assets": {
@@ -10412,7 +11429,8 @@
             "Character§Junith Eruita",
             "Character§Missionary",
             "Character§Palatine",
-            "Character§Triumph of Saint Katherine"
+            "Character§Triumph of Saint Katherine",
+            "Character§Ministorum Priest"
           ]
         },
         "assets": {
@@ -10902,7 +11920,7 @@
             "Adepta Sororitas"
           ],
           "Source": [
-            "10th Edition Index"
+            "Legends"
           ],
           "Keywords": [
             "Infantry",
@@ -10984,7 +12002,7 @@
             "Adepta Sororitas"
           ],
           "Source": [
-            "10th Edition Index"
+            "Legends"
           ],
           "Keywords": [
             "Infantry",
@@ -11045,7 +12063,10 @@
             "Character§Dogmata",
             "Character§Hospitaller",
             "Character§Imagifier",
-            "Character§Palatine"
+            "Character§Palatine",
+            "Character§Canoness",
+            "Character§Junith Eruita",
+            "Character§Ministorum Priest"
           ]
         },
         "assets": {
@@ -12068,7 +13089,10 @@
             "Character§Dialogus",
             "Character§Dogmata",
             "Character§Hospitaller",
-            "Character§Imagifier"
+            "Character§Imagifier",
+            "Character§Junith Eruita",
+            "Character§Palatine",
+            "Character§Canoness"
           ]
         },
         "assets": {
@@ -12137,7 +13161,8 @@
         "allowed": {
           "items": [
             "Model§Seraphim",
-            "Character§Saint Celestine"
+            "Character§Saint Celestine",
+            "Character§Canoness with Jump Pack"
           ]
         },
         "assets": {
@@ -12251,7 +13276,10 @@
             "Character§Hospitaller",
             "Character§Missionary",
             "Character§Palatine",
-            "Character§Preacher"
+            "Character§Preacher",
+            "Character§Aestred Thurga and Agathae Dolan",
+            "Character§Canoness",
+            "Character§Junith Eruita"
           ]
         },
         "assets": {
@@ -12509,7 +13537,8 @@
         "allowed": {
           "items": [
             "Model§Zephyrim",
-            "Character§Saint Celestine"
+            "Character§Saint Celestine",
+            "Character§Canoness with Jump Pack"
           ]
         },
         "assets": {
