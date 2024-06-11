@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.10.17",
+  "revision": "10.10.20",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "SXND8H",
+      "slug": "YPVZWJ",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -1199,6 +1199,29 @@
             "Special"
           ]
         },
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        },
         "text": "If this model is in your army, it must be your Warlord."
       },
       "Ability§Tactical Genius": {
@@ -2361,28 +2384,6 @@
             "Epic Hero"
           ]
         },
-        "rules": {
-          "Lord Solar must be your Warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Ld": {
             "value": 6
@@ -2413,8 +2414,7 @@
                 "order": 1,
                 "tracking": {}
               }
-            },
-            "value": "✓"
+            }
           }
         }
       },
@@ -4189,13 +4189,7 @@
             "Character§Primaris Psyker",
             "Character§Regimental Enginseer",
             "Character§Regimental Preacher",
-            "Character§Ursula Creed",
-            "Character§Inquisitor",
-            "Character§Inquisitor Coteaz",
-            "Character§Inquisitor Eisenhorn",
-            "Character§Inquisitor Greyfax",
-            "Character§Inquisitor in Terminator Armour",
-            "Character§Lord Inquisitor Kyria Draxus"
+            "Character§Ursula Creed"
           ]
         },
         "assets": {
@@ -4630,13 +4624,7 @@
             "Character§Primaris Psyker",
             "Character§Regimental Enginseer",
             "Character§Regimental Preacher",
-            "Character§Sergeant Harker",
-            "Character§Inquisitor",
-            "Character§Inquisitor Coteaz",
-            "Character§Inquisitor Eisenhorn",
-            "Character§Inquisitor Greyfax",
-            "Character§Inquisitor in Terminator Armour",
-            "Character§Lord Inquisitor Kyria Draxus"
+            "Character§Sergeant Harker"
           ]
         },
         "assets": {
@@ -4935,13 +4923,7 @@
             "Character§Primaris Psyker",
             "Character§Quartermaster Cadre Squad",
             "Character§Regimental Enginseer",
-            "Character§Regimental Preacher",
-            "Character§Inquisitor",
-            "Character§Inquisitor Coteaz",
-            "Character§Inquisitor Eisenhorn",
-            "Character§Inquisitor Greyfax",
-            "Character§Inquisitor in Terminator Armour",
-            "Character§Lord Inquisitor Kyria Draxus"
+            "Character§Regimental Preacher"
           ]
         },
         "assets": {
@@ -5767,12 +5749,6 @@
             "Character§Regimental Enginseer",
             "Character§Regimental Preacher",
             "Character§Ursula Creed",
-            "Character§Inquisitor",
-            "Character§Inquisitor Coteaz",
-            "Character§Inquisitor Eisenhorn",
-            "Character§Inquisitor Greyfax",
-            "Character§Inquisitor in Terminator Armour",
-            "Character§Lord Inquisitor Kyria Draxus",
             "Model§Guardsman"
           ]
         },
@@ -13007,7 +12983,9 @@
               },
               "Lasgun + Medi-pack": {
                 "order": 2,
-                "tracking": {},
+                "tracking": {
+                  "Medi": 1
+                },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Korps of Krieg—Lasgun"
@@ -13316,8 +13294,7 @@
               "Sniper rifle": {
                 "order": 6,
                 "tracking": {
-                  "special": 1,
-                  "special weapon": 0
+                  "special weapon": 1
                 },
                 "traits": [
                   {

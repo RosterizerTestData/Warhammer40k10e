@@ -1,6 +1,6 @@
 {
   "name": "World Eaters",
-  "revision": "10.10.7",
+  "revision": "10.10.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "J9K7NG",
+      "slug": "382FNB",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -261,6 +261,31 @@
         },
         "text": "At the start of your Command phase, this model regains 1 lost wound."
       },
+      "Ability§Supreme Commander": {
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        }
+      },
       "Ability§Swooping Predator": {
         "keywords": {
           "Keywords": [
@@ -369,28 +394,6 @@
           "Category": [
             "Epic Hero"
           ]
-        },
-        "rules": {
-          "Angron must be your Warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
         },
         "stats": {
           "Ld": {
@@ -3438,6 +3441,10 @@
                     "trait": "Ranged Weapon§World Eaters Terminator Squad—Reaper autocannon"
                   }
                 ]
+              },
+              "-": {
+                "order": 4,
+                "tracking": {}
               }
             },
             "statType": "rank",

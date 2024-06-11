@@ -1,6 +1,6 @@
 {
   "name": "Thousand Sons",
-  "revision": "10.10.11",
+  "revision": "10.10.12",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "J9K7NG",
+      "slug": "382FNB",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -427,6 +427,31 @@
           ]
         },
         "text": "Each time this model ends a Normal move, you can select one enemy unit it moved over this phase and roll nine D6: for each 6, that unit suffers 1 mortal wound."
+      },
+      "Ability§Supreme Commander": {
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        }
       },
       "Ability§The Weave of Fate (psychic)": {
         "keywords": {
@@ -1060,28 +1085,6 @@
           "Category": [
             "Epic Hero"
           ]
-        },
-        "rules": {
-          "Magnus must be your warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
         },
         "stats": {
           "Ld": {

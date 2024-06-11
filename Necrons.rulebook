@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.10.17",
+  "revision": "10.10.19",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "8W3WEE",
+      "slug": "KWGXK6",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -17,6 +17,106 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
+      "Character": {
+        "rules": {
+          "disableInfantryTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "notCharacter"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "disableNecronScar": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "notCtan"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Transcendent C’tan"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
       "Mission Record": {
         "stats": {
           "Agenda 1": {
@@ -89,6 +189,66 @@
       },
       "Unit": {
         "rules": {
+          "allowCanoptekTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Canoptek"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "notCanoptek"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Canoptek"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "allowCryptothralls": {
             "actions": [
               {
@@ -136,6 +296,102 @@
                   ]
                 ],
                 "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowDestroyerTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Destroyer Cult"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Destroyer Cult"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowNobleTraits": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Noble"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Noble"
               }
             ],
             "evaluate": "AND",
@@ -740,6 +996,29 @@
             "Special"
           ]
         },
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        },
         "text": "If this unit is in your army, it must be your Warlord."
       },
       "Ability§Surrogate Hosts": {
@@ -1147,7 +1426,8 @@
       "Battle Scar§Engrammatic Degradation": {
         "keywords": {
           "Tags": [
-            "Necrons"
+            "Necrons",
+            "notCtan"
           ]
         },
         "text": "Each time you target this unit with a Stratagem, reduce that Stratagem’s cost by 1CP for that usage.\nThis unit cannot Fall Back or Advance."
@@ -1232,7 +1512,8 @@
       "Battle Trait§Engrammatic Imprinting": {
         "keywords": {
           "Tags": [
-            "Infantry"
+            "Infantry",
+            "notCharacter"
           ]
         },
         "text": "While this unit is within 6″ of one or more CHARACTER models from your Crusade army, each time a model in this unit makes an attack, re-roll a Hit roll of 1."
@@ -1249,6 +1530,7 @@
         "keywords": {
           "Tags": [
             "Mounted",
+            "notCanoptek",
             "Vehicle"
           ]
         },
@@ -1313,6 +1595,7 @@
         "keywords": {
           "Tags": [
             "Mounted",
+            "notCanoptek",
             "Vehicle"
           ]
         },
@@ -1379,6 +1662,7 @@
         "keywords": {
           "Tags": [
             "Mounted",
+            "notCanoptek",
             "Vehicle"
           ]
         },
@@ -1387,7 +1671,8 @@
       "Battle Trait§The Will to Serve": {
         "keywords": {
           "Tags": [
-            "Infantry"
+            "Infantry",
+            "notCharacter"
           ]
         },
         "text": "Out of Action tests taken for this unit are automatically passed."
@@ -1395,7 +1680,8 @@
       "Battle Trait§Undying Revenants": {
         "keywords": {
           "Tags": [
-            "Infantry"
+            "Infantry",
+            "notCharacter"
           ]
         },
         "text": "Each time you make a Reanimation Protocols roll for this unit, add 1 to the result."
@@ -3336,28 +3622,6 @@
             "Epic Hero"
           ]
         },
-        "rules": {
-          "If the Silent King is in your army, it must be your Warlord": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "model1stTally": {
             "value": 3
@@ -3373,9 +3637,7 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Warlord": {
-            "value": "✓"
-          }
+          "Warlord": {}
         }
       },
       "Character§Transcendent C’tan": {
@@ -10853,97 +11115,6 @@
       "Requisition§The Slow Decay of the Self": {
         "keywords": {
           "Tags": []
-        },
-        "rules": {
-          "applyabilities": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Leader"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Lone Operative"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Destroyer Madness"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Destroyer Cult"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "CannotAttach": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "{parent}",
-                    "disallowed",
-                    "items"
-                  ]
-                ],
-                "value": [
-                  "{parent}",
-                  "item"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "{parent}",
-                    "classIdentity"
-                  ]
-                ],
-                "value": "Unit"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
         },
         "stats": {
           "RP": {

@@ -1,6 +1,6 @@
 {
   "name": "Emperor's Children",
-  "revision": "10.10.8",
+  "revision": "10.10.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "DPSRUG",
+      "slug": "HNZKMZ",
       "name": "Chaos Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.rulebook"
@@ -339,28 +339,6 @@
             "Lucius the Eternal"
           ]
         },
-        "rules": {
-          "Lucius must be the Warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
           "Ld": {
             "value": 6
@@ -396,8 +374,7 @@
                 "order": 1,
                 "tracking": {}
               }
-            },
-            "value": "✓"
+            }
           }
         }
       },
@@ -1041,6 +1018,46 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 12
+          },
+          "setLuciusasWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Lucius the Eternal",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Lucius the Eternal",
+                    "quantity"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
           }
         },
         "stats": {

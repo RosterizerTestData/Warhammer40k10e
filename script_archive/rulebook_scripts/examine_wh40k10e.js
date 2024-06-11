@@ -31,7 +31,6 @@ const fileList = [
   'SM_Space_Wolves.rulebook',
   'Space_Marines.rulebook',
   'T\'au_Empire.rulebook',
-  'drafts/T\'au_Empire.rulebook',
   'Thousand_Sons.rulebook',
   'Titanicus_Traitoris.rulebook',
   'Tyranids.rulebook',
@@ -47,32 +46,14 @@ async function processFiles() {
       console.log('~~~ ' + file + ' ~~~');
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         let [itemClass, itemDesignation] = itemKey.split('§');
-        if(['Unit','Infantry/Mounted','Vehicle','Character','Titan'].includes(itemClass)){
-          let modelCount = 0;
-          ['traits','included'].forEach(division => {
-            item.assets?.[division]?.forEach(asset => {
-              if(typeof asset === 'string' && asset.includes('Model')){
-                modelCount++
-              }else if (typeof asset === 'object' && asset.item.includes('Model')){
-                modelCount++
-              }
-            });
-          });
-          ['class','items'].forEach(type => {
-            item.allowed?.[type]?.forEach(allowed => {
-              if(allowed.includes('Model')){
-                modelCount++
-              }
-            })
+        Object.keys(item.stats || {}).forEach(statKey => {
+          let stat = item.stats[statKey];
+          Object.keys(stat.ranks || {}).forEach(rankIndex => {
+            if(rankIndex == '1'){
+              console.log(itemKey, statKey, item.stats[statKey],item)
+            }
           })
-          // console.log(itemDesignation + '(' + itemClass + ')' + ' ' + modelCount)
-          if(['Unit','Infantry/Mounted'].includes(itemClass) && (!item.aspects?.Type || item.aspects?.Type === 'conceptual') && !modelCount){
-            console.log(itemDesignation + '(' + itemClass + ')' + ' should be a game piece')
-          }else if(['Character','Titan','Vehicle'].includes(itemClass) && (!item.aspects?.Type || item.aspects?.Type === 'game piece') && modelCount){
-            console.log(itemDesignation + '(' + itemClass + ')' + ' should be conceptual')
-          }
-          if(['Character','Titan'].includes(itemClass) && item.aspects?.Type === 'conceptual') console.log(itemDesignation + '(' + itemClass + ')' + ' is conceptual')
-        }
+        })
       });
     } catch (error) {
       // Handle any error that occurs during loading

@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.10.19",
+  "revision": "10.10.23",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -151,9 +151,6 @@
       }
     },
     "assetCatalog": {
-      "Crusade Badge§Ambitious Boss": {},
-      "Crusade Badge§Rampaging Bigboss": {},
-      "Crusade Badge§Grand Warlord": {},
       "Ability§’ere We Go (aura)": {
         "keywords": {
           "Keywords": [
@@ -961,6 +958,29 @@
             "Special"
           ]
         },
+        "rules": {
+          "setWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 20
+          }
+        },
         "text": "If this unit is in your army, its Ghazghkull Thraka model must be your Warlord."
       },
       "Ability§Tank Hunters": {
@@ -1186,7 +1206,10 @@
             "Ranged Weapon§Beastboss on Squigosaur—Slugga",
             "Melee Weapon§Beastboss on Squigosaur—Beastchoppa",
             "Melee Weapon§Beastboss on Squigosaur—Squigosaur’s jaws",
-            "Ability§Leader",
+            {
+              "item": "Ability§Leader",
+              "text": "\n\nThis model can be attached to the following unit:\n\n* Squighog Boyz"
+            },
             "Ability§Thundering Stampede"
           ]
         },
@@ -1232,16 +1255,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Beastboss on Squigosaur—Thump gun"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
@@ -1258,7 +1281,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units: Boyz, Lootas, MEK GUNZ, NOBZ"
+              "text": "\n\nThis model can be attached to the following units: \n\n* Boyz\n* Lootas\n* Mek Gunz\n* Nobz"
             },
             "Ability§Waaagh!",
             "Ability§More Dakka",
@@ -1761,16 +1784,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Wargear§Grot Helper"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
@@ -1805,7 +1828,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Boyz\n\n* Lootaz\n\n* Mek Gunz"
+              "text": "\n\nThis model can be attached to the following units:\n\n* Boyz\n\n* Lootaz\n\n* Mek Gunz\n\n* Nobz"
             },
             "Ability§Waaagh!",
             "Ability§More Dakka",
@@ -1838,16 +1861,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Wargear§Grot Assistant"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
@@ -2232,7 +2255,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This unit can be attached to the following unit:\n\n* Meganobz If this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength."
+              "text": "\n\nThis unit can be attached to the following unit:\n\n* Meganobz \n\nIf this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength."
             },
             "Ability§Waaagh!",
             "Ability§Prophet of Da Great Waaagh!",
@@ -2598,7 +2621,7 @@
             "Melee Weapon§Mozrog Skragbad—Gutrippa",
             {
               "item": "Ability§Leader",
-              "text": "\n\nThis model can be attached to the following unit: Squighog Boys."
+              "text": "\n\nThis model can be attached to the following unit: \n\n* Squighog Boyz"
             }
           ]
         },
@@ -2743,16 +2766,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Wargear§Grot Orderly"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
@@ -2818,16 +2841,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Wargear§Grot Orderly"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
@@ -3521,6 +3544,9 @@
           }
         }
       },
+      "Crusade Badge§Ambitious Boss": {},
+      "Crusade Badge§Grand Warlord": {},
+      "Crusade Badge§Rampaging Bigboss": {},
       "Detachment§Bully Boyz": {
         "rules": {
           "assignStratagems": {
@@ -21934,16 +21960,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Burna-bommer—Skorcha missile rack"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
@@ -28312,16 +28338,16 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "1": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Trukk—Wreckin’ ball"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
