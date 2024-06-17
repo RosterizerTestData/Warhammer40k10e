@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Mechanicus",
-  "revision": "10.10.11",
+  "revision": "10.10.12",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "KXV2YV",
+      "slug": "KK6XJN",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -680,7 +680,7 @@
                 "iterations": 1,
                 "paths": [
                   [
-                    "{self}",
+                    "{parent}",
                     "traits"
                   ]
                 ],
@@ -694,7 +694,10 @@
                 }
               }
             ],
-            "evals": []
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
           }
         },
         "text": "This unit has the Feel No Pain 6+ ability."
@@ -713,6 +716,118 @@
           "Tags": [
             "Infantry/Mounted"
           ]
+        },
+        "rules": {
+          "Apply4+": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "4+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kataphron"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Apply5+": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kataphron"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 90
+          }
         },
         "text": "This unit has a 4+ invulnerable save. If this unit is a Battleline or Kataphron unit, it has a 5+ invulnerable save instead."
       },
@@ -810,7 +925,9 @@
                 }
               }
             ],
-            "evals": []
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "text": "This model has a 4+ invulnerable save."
@@ -935,7 +1052,7 @@
             "Tech-Priest"
           ]
         },
-        "text": "Once per battle round, in your opponent’s Charge phase, just after an enemy unit selects this unitasthe target of a charge, roll one 06: on a 3+, that enemy unit suffers 03 mortal wounds and musttake a Battleshocktest."
+        "text": "Once per battle round, in your opponent’s Charge phase, just after an enemy unit selects this unitasthe target of a charge, roll one D6: on a 3+, that enemy unit suffers 03 mortal wounds and musttake a Battleshocktest."
       },
       "Character§Belisarius Cawl": {
         "aspects": {
@@ -2187,6 +2304,51 @@
           ]
         },
         "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "abilityName": {
+                      "value": "Anti-"
+                    },
+                    "keyword": {
+                      "value": "vehicle"
+                    },
+                    "x": {
+                      "value": "4+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
           "Tech-Priest model only.": {
             "evals": [
               {
@@ -2255,6 +2417,90 @@
           "Keywords": [
             "Rad-Zone Corps"
           ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "abilityName": {
+                      "value": "Anti-"
+                    },
+                    "keyword": {
+                      "value": "infantry"
+                    },
+                    "x": {
+                      "value": "2+"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "abilityName": {
+                      "value": "Anti-"
+                    },
+                    "keyword": {
+                      "value": "monster"
+                    },
+                    "x": {
+                      "value": "4+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
         },
         "stats": {
           "Points": {
@@ -2340,6 +2586,49 @@
           ]
         },
         "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "abilityName": {
+                      "value": "Scouts"
+                    },
+                    "keyword": {
+                      "value": "infantry"
+                    },
+                    "x": {
+                      "value": "6\""
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
           "Skitarii model only.": {
             "evals": [
               {
@@ -2729,6 +3018,25 @@
           ]
         },
         "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Fights First"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
           "Tech-Priest model only.": {
             "evals": [
               {
