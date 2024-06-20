@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.42",
+  "revision": "10.10.43",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1134,7 +1134,7 @@
             "Other"
           ]
         },
-        "text": "Each time this model makes a Dark Pact and does not fail the resulting Leadership test, if the result of that test was 7+, you gain 1CP."
+        "text": "Each time this model's unit makes a Dark Pact and does not fail the resulting Leadership test, if the result of that test was 7+, you gain 1CP."
       },
       "Ability§Dark Favour (psychic)": {
         "keywords": {
@@ -6367,7 +6367,7 @@
             "failState": "pass"
           }
         },
-        "text": "**DESPERATE DEVOTION**\n\nEach time a DAMNED unit from your army with the Dark Pacts ability is selected to make a Normal or Advance move or declare a charge (excluding units that arrived from Reserves this turn), it can make a Desperate Pact (see below), If it does, until the end of the phase, add 2″ to the Move characteristic of models in that unit and add 2 to Charge rolls made for that unit.\n\n**Desperate Pacts**\n\nEach time a unit makes a Desperate Pact, it must first take a Leadership test; if that test is failed, that unit suffers D3 mortal wounds before any effects of that Desperate Pact are resolved.\n\n**Keywords**\n\nTRAITOR GUARDSMEN units from your army gain the BATTLELINE keyword."
+        "text": "**DESPERATE DEVOTION**\n\nEach time a DAMNED unit from your army with the Dark Pacts ability is selected to make a Normal or Advance move or declare a charge (excluding units that arrived from Reserves this turn), it can make a Desperate Pact (see below), If it does, until the end of the phase, add 2″ to the Move characteristic of models in that unit and add 2 to Charge rolls made for that unit.\n\n**Desperate Pacts**\n\nEach time a unit makes a Desperate Pact, it must first take a Leadership test; if that test is failed, that unit suffers D3 mortal wounds before any effects of that Desperate Pact are resolved.\n\n**Keywords**\n\nTRAITOR GUARDSMEN SQUAD units from your army gain the BATTLELINE keyword."
       },
       "Detachment§Deceptors": {
         "rules": {
@@ -7408,7 +7408,7 @@
             "value": 20
           }
         },
-        "text": "HERETIC ASTARTES model only (excluding Damned models). The bearer’s unit is eligible to shoot and declare a charge in a turn in which it Fell Back. While doing so, each time a model in that unit makes an attack that targets your focus of hatred, add 1 to the Hit roll, and each time you select your focus of hatred as a target of that unit’s charge, add 1 to the Charge roll,"
+        "text": "HERETIC ASTARTES model only (excluding Damned models). The bearer’s unit is eligible to shoot and declare a charge in a turn in which it Fell Back. Each time a model in the bearer's unit makes an attack that targets your focus of hatred, if the bearer's unit Fell Back this turn, add 1 to the Hit roll, and each time you select your focus of hatred as a target of that unit’s charge, add 1 to the Charge roll,"
       },
       "Enhancement§Eater of Dread": {
         "keywords": {
@@ -8412,32 +8412,6 @@
             ],
             "evaluate": "OR",
             "failState": "error"
-          },
-          "PermanentBonus": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": {
-                  "item": "Ability§Scouts",
-                  "stats": {
-                    "x": {
-                      "value": "6"
-                    }
-                  }
-                }
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
           }
         },
         "stats": {
@@ -8445,7 +8419,7 @@
             "value": 10
           }
         },
-        "text": "DARK APOSTLE or DAMNED model only. The bearer has the Scouts 6″ ability."
+        "text": "DARK APOSTLE or DAMNED model only. While the bearer is leading a unit with the Scouts 6\" ability, every model in the bearer's unit bearer has the Scouts 6″ ability."
       },
       "Enhancement§Willbreaker": {
         "keywords": {
@@ -31644,7 +31618,10 @@
           ]
         },
         "stats": {
-          "Combi Option": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options 1": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -31673,17 +31650,33 @@
             "value": "-",
             "visibility": "active"
           },
-          "Havoc launcher": {
+          "Loadout Options 2": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "-": {
-                "order": 0
+              "Combi-bolter": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Rhino—Combi-bolter"
+                  }
+                ]
               },
-              "✓": {
+              "Havoc launcher": {
                 "order": 1,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Rhino—Havoc launcher"
+                  }
+                ]
+              },
+              "Combi-bolter & Havoc Launcher": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Chaos Rhino—Combi-bolter"
+                  },
                   {
                     "trait": "Ranged Weapon§Chaos Rhino—Havoc launcher"
                   }
@@ -31691,11 +31684,8 @@
               }
             },
             "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
-          "Ld": {
-            "value": 6
+            "value": "Combi-bolter",
+            "visibility": "active"
           },
           "M": {
             "value": 12
