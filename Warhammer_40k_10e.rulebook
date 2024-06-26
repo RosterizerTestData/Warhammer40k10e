@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.11.25",
+  "revision": "10.11.26",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7541,7 +7541,7 @@
             "Weapon Ability"
           ]
         },
-        "text": "After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead)."
+        "text": "After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon suffers 3 mortal wounds."
       },
       "Ability§Heavy": {
         "keywords": {
@@ -7576,7 +7576,7 @@
             "Weapon Ability"
           ]
         },
-        "text": "* Can target and make attacks against units that are not visible to the attacking unit.\n* If no models are visible in a target unit when it is selected, then when making an attack against that target with an Indirect Fire weapon, subtract 1 from that attack’s Hit roll and the target has the Benefit of Cover against that attack."
+        "text": "* Can target and make attacks against units that are not visible to the attacking unit.\n* If no models are visible in a target unit when it is selected, then when making an attack against that target with an Indirect Fire weapon, subtract 1 from that attack’s Hit roll, an unmodified Hit roll of 1-3 always fails,  and the target has the Benefit of Cover against that attack."
       },
       "Ability§Infiltrators": {
         "keywords": {
@@ -8901,7 +8901,7 @@
                   "item": "Ability§Invulnerable",
                   "stats": {
                     "x": {
-                      "value": "4+"
+                      "value": "4"
                     }
                   }
                 }
@@ -11199,6 +11199,18 @@
           }
         },
         "stats": {
+          "Lost Honours": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "label": "Lost Honours",
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "normal"
+          },
           "RP": {
             "dynamic": true,
             "increment": {
@@ -12697,7 +12709,7 @@
             "Yours"
           ]
         },
-        "text": "**WHEN:** In any phase, just after you have made a Hit roll, a Wound roll, a Damage roll, a saving throw, an Advance roll, a Charge roll, a Desperate Escape test, a Hazardous test, or just after you have rolled the dice to determine the number of attacks made with a weapon, for an attack, model or unit from your army.\n\n**EFFECT:** You re-roll that roll, test or saving throw."
+        "text": "**WHEN**: Any phase, just after you make an Advance roll, a Charge roll, a Desperate Escape test or a Hazardous test for a unit from your army, or a Hit roll, a Wound roll, a Damage roll or a saving throw for a model in that unit, or a roll to determine the number of attacks made with a weapon equipped by a model in that unit. If you are using fast dice rolling (pg 24), this Stratagem can still be used after rolling multiple rolls or saving throws at once.\n\n**TARGET**:That unit or model from your army.\n\n**EFFECT**: You re-roll that roll, test or saving throw. If you are using fast dice rolling, select one of those rolls or saving throws to re-roll."
       },
       "Stratagem§Counter-offensive": {
         "keywords": {
@@ -12756,7 +12768,7 @@
             "Core"
           ]
         },
-        "text": "**WHEN:** Your opponent’s Movement or Charge phase, just after an enemy unit is set up or when an enemy unit starts or ends a Normal, Advance, Fall Back or Charge move.\n\n**TARGET:** One unit from your army that is within 24″ of that enemy unit and that would be eligible to shoot if it were your Shooting phase.\n\n**EFFECT:** Your unit can shoot that enemy unit as if it were your Shooting phase.\n\n**RESTRICTIONS:** Until the end of the phase, each time a model in your unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers. You can only use this Stratagem once per turn."
+        "text": "**WHEN**: Your opponent’s Movement or Charge phase, just after an enemy unit is set up or when an enemy unit starts or ends a Normal, Advance, Fall Back or Charge move.\n\n**TARGET**: One unit from your army that is within 24\" of that enemy unit and that would be eligible to shoot if it were your Shooting phase.\n\n**EFFECT**: If that enemy unit is visible to your unit, your unit can shoot that enemy unit as if it were your Shooting phase. \n\n**RESTRICTIONS**: You cannot target a Titanic unit with this Stratagem. Until the end of the phase, each time a model in your unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers. You can only use this Stratagem once per turn."
       },
       "Stratagem§Go to Ground": {
         "keywords": {
@@ -12790,7 +12802,7 @@
             "Yours"
           ]
         },
-        "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase.\n\n**EFFECT:** Select one enemy unit that is not within Engagement Range of any units from your army and is within 8″ of and visible to your Grenades unit. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Grenades unit from your army (excluding units that Advanced, Fell Back or have shot this turn) that is not within Engagement Range of one or more enemy units.\n\n**EFFECT**: Select one Grenades model in your unit and one enemy unit that is not within Engagement Range of one or more units from your army and is within 8\" of and visible to your Grenades model. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
       },
       "Stratagem§Heroic Intervention": {
         "keywords": {
@@ -12808,9 +12820,7 @@
           ]
         },
         "stats": {
-          "Command Cost": {
-            "value": 2
-          }
+          "Command Cost": {}
         },
         "text": "**WHEN:** Your opponent’s Charge phase, just after an enemy unit ends a Charge move.\n\n**TARGET:** One unit from your army that is within 6″ of that enemy unit and would be eligible to declare a charge against that enemy unit if it were your Charge phase.\n\n**EFFECT:** Your unit now declares a charge that targets only that enemy unit, and you resolve that charge as if it were your Charge phase.\n\n**RESTRICTIONS:** You can only select a Vehicle unit from your army if it is a Walker. Note that even if this charge is successful, your unit does not receive any Charge bonus this turn (pg 29)."
       },
@@ -12829,7 +12839,7 @@
             "Epic Deed"
           ]
         },
-        "text": "**WHEN:** Battle-shock step of your Command phase, just after you have failed a Battle-shock test taken for a unit from your army (pg 11).\n\n**TARGET:** The unit from your army that Battle-shock test was just taken for (even though your Battle-shocked units cannot normally be affected by your Stratagems).\n\n**EFFECT:** Your unit is treated as having passed that test instead, and is not Battle-shocked as a result."
+        "text": "**WHEN**: Battle-shock step of your Command phase, just before you take a Battle-shock test\nfor a unit from your army.\n\n**TARGET**: That unit from your army.\n\n**EFFECT**: Your unit automatically passes that Battle-shock test.\n\n**RESTRICTIONS**: You cannot use this Stratagem more than once per battle."
       },
       "Stratagem§Rapid Ingress": {
         "keywords": {
@@ -12846,7 +12856,7 @@
             "Opponent’s"
           ]
         },
-        "text": "**WHEN:** End of your opponent’s Movement phase.\n\n**TARGET:** One unit from your army that is in Reserves.\n\n**EFFECT:** Your unit can arrive on the battlefield as if it were the Reinforcements step of your Movement phase.\n\n**RESTRICTIONS:** You cannot use this Stratagem to enable a unit to arrive on the battlefield during a battle round it would not normally be able to do so in."
+        "text": "**WHEN**: End of your opponent’s Movement phase.\n\n**TARGET**: One unit from your army that is in Reserves.\n\n**EFFECT**: Your unit can arrive on the battlefield as if it were the Reinforcements step of your Movement phase, and if every model in that unit has the Deep Strike ability, you can set that unit up as described in the Deep Strike ability (even though it is not your Movement phase).\n\n**RESTRICTIONS**: You cannot use this Stratagem to enable a unit to arrive on the battlefield during a battle round it would not normally be able to do so in."
       },
       "Stratagem§Smokescreen": {
         "keywords": {
@@ -12880,7 +12890,7 @@
             "Yours"
           ]
         },
-        "text": "**WHEN**: Your Charge phase.\n\n**TARGET:** One Vehicle unit from your army.\n\n**EFFECT:** Until the end of the phase, after your unit ends a Charge move, select one enemy unit within Engagement Range of it, then select one melee weapon your unit is equipped with. Roll a number of D6 equal to that weapon’s Strength characteristic. If that Strength characteristic is greater than that enemy unit’s Toughness characteristic, roll two additional D6. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
+        "text": "**WHEN**: Your Charge phase, just after a Vehicle unit from your army ends a Charge move.\n\n**TARGET**: That Vehicle unit.\n\n**EFFECT**: Select one enemy unit within Engagement Range of your unit, and select one Vehicle model in your unit that is within Engagement Range of that enemy unit. Roll a number of D6 equal to the Toughness characteristic of the selected Vehicle model. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
       },
       "Stratagems§Stratagems": {},
       "Tyrannic Relic§Archeotech Nano-Med": {
