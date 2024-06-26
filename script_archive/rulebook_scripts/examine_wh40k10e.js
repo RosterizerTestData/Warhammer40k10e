@@ -48,11 +48,8 @@ async function processFiles() {
         let [itemClass, itemDesignation] = itemKey.split('§');
         Object.keys(item.stats || {}).forEach(statKey => {
           let stat = item.stats[statKey];
-          Object.keys(stat.ranks || {}).forEach(rankIndex => {
-            if(rankIndex == '1'){
-              console.log(itemKey, statKey, item.stats[statKey],item)
-            }
-          })
+          let rankKeys = Object.keys(stat.ranks || {});
+          if(stat.ranks && stat.hasOwnProperty('value') && !rankKeys.filter(key => stat.value == key).length) console.log(itemKey, statKey, stat.value)
         })
       });
     } catch (error) {
