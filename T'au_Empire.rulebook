@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.10.23",
+  "revision": "10.10.35",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -114,6 +114,40 @@
           ]
         },
         "rules": {
+          "allowPrototypeSystemsReq": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§Prototype System"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battlesuit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "allowTauTraits": {
             "actions": [
               {
@@ -426,7 +460,7 @@
         "text": "At the end of your opponent’s Movement phase, one or more units embarked within this Transport can disembark from it, provided every model in each of those disembarking units has the Deep Strike ability."
       },
       "Ability§Kroot Ambush": {
-        "text": "After both players have deployed their armies and determined who has the first turn, you can redeploy this models unit and one other friendly KROOT unit. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in strategic reserves"
+        "text": "After both players have deployed their armies, you can redeploy this models unit and one other friendly KROOT unit. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in strategic reserves"
       },
       "Ability§Kroot Linebreakers": {
         "text": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it, then roll one D6 for each model in this unit that is within Engagement range of that enemy unit: for each 4+, that enemy unit suffers D3 mortal wounds. If one or more enemy models are destroyed as a result of these mortal wounds, that enemy unit must take a Battle-shock test."
@@ -470,7 +504,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle, in your Shooting phase, select one ranged weapon equipped by this model. Until the end of the phase, that weapon has the [DEVASTATING WOUNDS] ability."
+        "text": "Once per battle, when this unit is selected to shoot in your Shooting phase, select one ranged weapon equipped by this model. Until the end of the phase, that weapon has the [DEVASTATING WOUNDS] ability."
       },
       "Ability§Nova Shielding": {
         "text": "Once per battle, when this model is selected as the target of a ranged attack, it can use this ability. If it does, until the end of the phase, each time an attack targets this model, if the Strength characteristic of that attack is greater than the Toughness characteristic of this model, subtract 1 from the Wound roll."
@@ -1066,7 +1100,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Drone": {
@@ -1104,7 +1138,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -1330,7 +1364,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -1474,7 +1508,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -1803,7 +1837,7 @@
             "value": 2
           },
           "Points": {
-            "value": 110
+            "value": 95
           },
           "Sv": {
             "value": 3
@@ -1910,7 +1944,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -2053,7 +2087,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -2396,7 +2430,7 @@
             "value": 2
           },
           "Points": {
-            "value": 90
+            "value": 80
           },
           "Sv": {
             "value": 2
@@ -2662,7 +2696,7 @@
             "statOrder": 1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -2718,7 +2752,7 @@
             "statOrder": 2,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Hover Drone": {
@@ -2729,7 +2763,7 @@
               "-": {
                 "order": 0
               },
-              "Hover Drone": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
@@ -2739,7 +2773,7 @@
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -3286,14 +3320,14 @@
                   }
                 ]
               },
-              "2 x Twin smart missile system": {
+              "2 x Smart missile system": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Longstrike—Twin smart missile system"
+                    "trait": "Ranged Weapon§Longstrike—Smart missile system"
                   },
                   {
-                    "trait": "Ranged Weapon§Longstrike—Twin smart missile system"
+                    "trait": "Ranged Weapon§Longstrike—Smart missile system"
                   }
                 ]
               }
@@ -3319,6 +3353,9 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -3337,13 +3374,10 @@
                     "trait": "Ranged Weapon§Longstrike—Seeker missile"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -6122,7 +6156,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Drone": {
@@ -6160,7 +6194,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -6321,7 +6355,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -6394,7 +6428,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -6629,7 +6663,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -6702,7 +6736,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -6885,7 +6919,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -6956,7 +6990,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -7350,8 +7384,19 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "Missile pod": {
+              "-": {
                 "order": 0,
+                "tracking": {
+                  "Weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Missile pod": {
+                "order": 1,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7362,7 +7407,7 @@
                 ]
               },
               "Plasma rifle": {
-                "order": 1,
+                "order": 2,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7373,7 +7418,7 @@
                 ]
               },
               "Burst Cannon": {
-                "order": 2,
+                "order": 3,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7384,7 +7429,7 @@
                 ]
               },
               "Airbursting fragmentation projector": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7395,7 +7440,7 @@
                 ]
               },
               "Cyclic ion blaster": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7406,7 +7451,7 @@
                 ]
               },
               "Fusion blaster": {
-                "order": 5,
+                "order": 6,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7417,7 +7462,7 @@
                 ]
               },
               "T’au flamer": {
-                "order": 6,
+                "order": 7,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7428,7 +7473,7 @@
                 ]
               },
               "Shield Generator": {
-                "order": 7,
+                "order": 8,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7439,7 +7484,7 @@
                 ]
               },
               "Battlesuit Support System": {
-                "order": 8,
+                "order": 9,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7450,17 +7495,6 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 9,
-                "tracking": {
-                  "Weapon": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Wargear§Weapon Support System"
-                  }
-                ]
-              },
-              "-": {
                 "order": 10,
                 "tracking": {
                   "Weapon": 1
@@ -7473,7 +7507,7 @@
               }
             },
             "statType": "rank",
-            "value": "Burst Cannon",
+            "value": "-",
             "visibility": "active"
           },
           "2nd Drone": {
@@ -7520,8 +7554,14 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "Missile pod": {
+              "-": {
                 "order": 0,
+                "tracking": {
+                  "Weapon": 1
+                }
+              },
+              "Missile pod": {
+                "order": 1,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7532,7 +7572,7 @@
                 ]
               },
               "Plasma rifle": {
-                "order": 1,
+                "order": 2,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7543,7 +7583,7 @@
                 ]
               },
               "Burst Cannon": {
-                "order": 2,
+                "order": 3,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7554,7 +7594,7 @@
                 ]
               },
               "Airbursting fragmentation projector": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7565,7 +7605,7 @@
                 ]
               },
               "Cyclic ion blaster": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7576,7 +7616,7 @@
                 ]
               },
               "Fusion blaster": {
-                "order": 5,
+                "order": 6,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7587,7 +7627,7 @@
                 ]
               },
               "T’au flamer": {
-                "order": 6,
+                "order": 7,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7598,7 +7638,7 @@
                 ]
               },
               "Shield Generator": {
-                "order": 7,
+                "order": 8,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7609,7 +7649,7 @@
                 ]
               },
               "Battlesuit Support System": {
-                "order": 8,
+                "order": 9,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7620,7 +7660,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 9,
+                "order": 10,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7629,12 +7669,6 @@
                     "trait": "Wargear§Weapon Support System"
                   }
                 ]
-              },
-              "-": {
-                "order": 10,
-                "tracking": {
-                  "Weapon": 1
-                }
               }
             },
             "statType": "rank",
@@ -7646,8 +7680,14 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "Missile pod": {
+              "-": {
                 "order": 0,
+                "tracking": {
+                  "Weapon": 1
+                }
+              },
+              "Missile pod": {
+                "order": 1,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7658,7 +7698,7 @@
                 ]
               },
               "Plasma rifle": {
-                "order": 1,
+                "order": 2,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7669,7 +7709,7 @@
                 ]
               },
               "Burst Cannon": {
-                "order": 2,
+                "order": 3,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7680,7 +7720,7 @@
                 ]
               },
               "Airbursting fragmentation projector": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7691,7 +7731,7 @@
                 ]
               },
               "Cyclic ion blaster": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7702,7 +7742,7 @@
                 ]
               },
               "Fusion blaster": {
-                "order": 5,
+                "order": 6,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7713,7 +7753,7 @@
                 ]
               },
               "T’au flamer": {
-                "order": 6,
+                "order": 7,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7724,7 +7764,7 @@
                 ]
               },
               "Shield Generator": {
-                "order": 7,
+                "order": 8,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7735,7 +7775,7 @@
                 ]
               },
               "Battlesuit Support System": {
-                "order": 8,
+                "order": 9,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7746,7 +7786,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 9,
+                "order": 10,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7755,12 +7795,6 @@
                     "trait": "Wargear§Weapon Support System"
                   }
                 ]
-              },
-              "-": {
-                "order": 10,
-                "tracking": {
-                  "Weapon": 1
-                }
               }
             },
             "statType": "rank",
@@ -7772,8 +7806,14 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
-              "Missile pod": {
+              "-": {
                 "order": 0,
+                "tracking": {
+                  "Weapon": 1
+                }
+              },
+              "Missile pod": {
+                "order": 1,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7784,7 +7824,7 @@
                 ]
               },
               "Plasma rifle": {
-                "order": 1,
+                "order": 2,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7795,7 +7835,7 @@
                 ]
               },
               "Burst Cannon": {
-                "order": 2,
+                "order": 3,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7806,7 +7846,7 @@
                 ]
               },
               "Airbursting fragmentation projector": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7817,7 +7857,7 @@
                 ]
               },
               "Cyclic ion blaster": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7828,7 +7868,7 @@
                 ]
               },
               "Fusion blaster": {
-                "order": 5,
+                "order": 6,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7839,7 +7879,7 @@
                 ]
               },
               "T’au flamer": {
-                "order": 6,
+                "order": 7,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7850,7 +7890,7 @@
                 ]
               },
               "Shield Generator": {
-                "order": 7,
+                "order": 8,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7861,7 +7901,7 @@
                 ]
               },
               "Battlesuit Support System": {
-                "order": 8,
+                "order": 9,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7872,7 +7912,7 @@
                 ]
               },
               "Weapon Support System": {
-                "order": 9,
+                "order": 10,
                 "tracking": {
                   "Weapon": 1
                 },
@@ -7881,12 +7921,6 @@
                     "trait": "Wargear§Weapon Support System"
                   }
                 ]
-              },
-              "-": {
-                "order": 10,
-                "tracking": {
-                  "Weapon": 1
-                }
               }
             },
             "statType": "rank",
@@ -8657,7 +8691,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -8728,7 +8762,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -8867,7 +8901,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "1st Wargear": {
@@ -8938,7 +8972,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Wargear": {
@@ -9074,7 +9108,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Drone": {
@@ -9113,7 +9147,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -9238,7 +9272,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Drone": {
@@ -9277,7 +9311,7 @@
             "statOrder": -1,
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -9447,7 +9481,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Drone": {
@@ -9485,7 +9519,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -9763,7 +9797,7 @@
             "value": 7
           },
           "OC": {
-            "value": 1
+            "value": 2
           },
           "Sv": {
             "value": 6
@@ -9876,10 +9910,10 @@
           "Pechra": {
             "dynamic": true,
             "ranks": {
-              "0": {
+              "-": {
                 "order": 0
               },
-              "1": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
@@ -9889,7 +9923,7 @@
               }
             },
             "statType": "rank",
-            "value": 0,
+            "value": "-",
             "visibility": "normal"
           },
           "Range Weapon": {
@@ -10152,7 +10186,7 @@
             "value": 6
           },
           "T": {
-            "value": 5
+            "value": 6
           },
           "W": {
             "value": 5
@@ -10199,7 +10233,7 @@
             "value": 7
           },
           "OC": {
-            "value": 1
+            "value": 2
           },
           "Sv": {
             "value": 6
@@ -10398,7 +10432,7 @@
           }
         }
       },
-      "Model§Pathfinder Shas’ui With Drones": {
+      "Model§Pathfinder Shas’ui with Drones": {
         "assets": {
           "traits": [
             "Ranged Weapon§Pathfinder Team—Pulse pistol",
@@ -10572,7 +10606,7 @@
           }
         }
       },
-      "Model§Pathfinder With Drones": {
+      "Model§Pathfinder with Drones": {
         "assets": {
           "traits": [
             "Melee Weapon§Pathfinder Team—Close combat weapon"
@@ -10784,6 +10818,9 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -10802,13 +10839,10 @@
                     "trait": "Ranged Weapon§Piranha—Seeker missile"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "-",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -10870,7 +10904,7 @@
               "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
+              "✓": {
                 "order": 1,
                 "tracking": {
                   "1 in 3 battlesuit": 1
@@ -10883,7 +10917,7 @@
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -10979,7 +11013,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "2nd Drone": {
@@ -11017,7 +11051,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Battlesuit Support System": {
@@ -11028,7 +11062,7 @@
               "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
+              "✓": {
                 "order": 1,
                 "tracking": {
                   "1 in 3 battlesuit": 1
@@ -11042,7 +11076,7 @@
             },
             "statType": "rank",
             "tracked": true,
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -11230,6 +11264,9 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -11242,19 +11279,16 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Piranha—Seeker missile",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Piranha—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Piranha—Seeker missile"
                   }
                 ]
-              },
-              "-": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -11804,7 +11838,7 @@
         },
         "stats": {
           "A": {
-            "value": 3
+            "value": 4
           },
           "AP": {
             "value": 0
@@ -13164,6 +13198,36 @@
           }
         }
       },
+      "Ranged Weapon§Devilfish—Smart missile system": {
+        "aspects": {
+          "Label": "Smart missile system"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Indirect Fire"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
       "Ranged Weapon§Devilfish—Twin pulse carbine": {
         "aspects": {
           "Label": "Twin pulse carbine"
@@ -13189,37 +13253,6 @@
           },
           "Range": {
             "value": 20
-          },
-          "S": {
-            "value": 5
-          }
-        }
-      },
-      "Ranged Weapon§Devilfish—Twin smart missile system": {
-        "aspects": {
-          "Label": "Twin smart missile system"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Indirect Fire",
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 2
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 30
           },
           "S": {
             "value": 5
@@ -13395,12 +13428,9 @@
             "value": 1
           },
           "BS": {
-            "ranks": {
-              "N/A": {
-                "order": 0
-              }
-            },
-            "statType": "rank"
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
           },
           "D": {
             "value": 1
@@ -14198,6 +14228,36 @@
           }
         }
       },
+      "Ranged Weapon§Hammerhead Gunship—Smart missile system": {
+        "aspects": {
+          "Label": "Smart missile system"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Indirect Fire"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
       "Ranged Weapon§Hammerhead Gunship—Twin pulse carbine": {
         "aspects": {
           "Label": "Twin pulse carbine"
@@ -14222,37 +14282,6 @@
           },
           "Range": {
             "value": 20
-          },
-          "S": {
-            "value": 5
-          }
-        }
-      },
-      "Ranged Weapon§Hammerhead Gunship—Twin smart missile system": {
-        "aspects": {
-          "Label": "Twin smart missile system"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Indirect Fire",
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 30
           },
           "S": {
             "value": 5
@@ -14520,6 +14549,7 @@
             "value": -1
           },
           "BS": {
+            "format": "{t}",
             "statType": "term",
             "value": "N/A"
           },
@@ -15057,6 +15087,36 @@
           }
         }
       },
+      "Ranged Weapon§Longstrike—Smart missile system": {
+        "aspects": {
+          "Label": "Smart missile system"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Indirect Fire"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
       "Ranged Weapon§Longstrike—Twin pulse carbine": {
         "aspects": {
           "Label": "Twin pulse carbine"
@@ -15082,37 +15142,6 @@
           },
           "Range": {
             "value": 20
-          },
-          "S": {
-            "value": 5
-          }
-        }
-      },
-      "Ranged Weapon§Longstrike—Twin smart missile system": {
-        "aspects": {
-          "Label": "Twin smart missile system"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Indirect Fire",
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 4
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 30
           },
           "S": {
             "value": 5
@@ -16283,6 +16312,36 @@
           }
         }
       },
+      "Ranged Weapon§Sky Ray Gunship—Smart missile system": {
+        "aspects": {
+          "Label": "Smart missile system"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Indirect Fire"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
       "Ranged Weapon§Sky Ray Gunship—Twin pulse carbine": {
         "aspects": {
           "Label": "Twin pulse carbine"
@@ -16308,37 +16367,6 @@
           },
           "Range": {
             "value": 20
-          },
-          "S": {
-            "value": 5
-          }
-        }
-      },
-      "Ranged Weapon§Sky Ray Gunship—Twin smart missile system": {
-        "aspects": {
-          "Label": "Twin smart missile system"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Indirect Fire",
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 4
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 30
           },
           "S": {
             "value": 5
@@ -16704,7 +16732,7 @@
         },
         "stats": {
           "A": {
-            "value": 2
+            "value": 3
           },
           "AP": {
             "value": 0
@@ -17484,13 +17512,7 @@
         },
         "stats": {
           "A": {
-            "ranks": {
-              "1": {
-                "order": 0
-              }
-            },
-            "statType": "rank",
-            "value": "1"
+            "value": 1
           },
           "AP": {
             "value": 5
@@ -18592,6 +18614,9 @@
             "dynamic": true,
             "group": "Loadout",
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -18604,10 +18629,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -18615,10 +18640,13 @@
                 "order": 3,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 3
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -18626,10 +18654,16 @@
                 "order": 4,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 4
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -18637,10 +18671,19 @@
                 "order": 5,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 5
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -18648,19 +18691,28 @@
                 "order": 6,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 6
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -18825,6 +18877,9 @@
             "dynamic": true,
             "group": "Loadout",
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -18837,10 +18892,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -18848,10 +18903,13 @@
                 "order": 3,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 3
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -18859,19 +18917,22 @@
                 "order": 4,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 4
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -18936,12 +18997,8 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "6"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 10
           },
@@ -18953,21 +19010,13 @@
             "min": 10,
             "value": 10
           },
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
             "value": 100
           },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Broadside Battlesuits": {
@@ -19015,23 +19064,19 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "5"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 1
           },
           "model2ndCost": {
-            "value": 220
+            "value": 180
           },
           "model2ndTally": {
             "value": 2
           },
           "model3rdCost": {
-            "value": 330
+            "value": 300
           },
           "model3rdTally": {
             "value": 3
@@ -19039,21 +19084,21 @@
           "modelKey": {
             "value": "Model§Broadside Shas’ui"
           },
-          "OC": {
-            "value": "2"
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 3,
+            "value": 1,
+            "visibility": "normal"
           },
+          "OC": {},
           "Points": {
-            "value": 110
+            "value": 90
           },
-          "Sv": {
-            "value": 2
-          },
-          "T": {
-            "value": 6
-          },
-          "W": {
-            "value": 8
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Crisis Battlesuits": {
@@ -19110,12 +19155,8 @@
             "value": 2,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "10"
-          },
+          "Ld": {},
+          "M": {},
           "model": {
             "statType": "numeric",
             "value": 0
@@ -19142,21 +19183,13 @@
             "value": 3,
             "visibility": "normal"
           },
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
             "value": 200
           },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 4
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Crisis Fireknife Battlesuits": {
@@ -19206,12 +19239,8 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "10"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 3
           },
@@ -19219,21 +19248,13 @@
           "modelKey": {
             "value": "Model§Crisis Shas’ui"
           },
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
-            "value": 150
+            "value": 130
           },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 4
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Crisis Starscythe Battlesuits": {
@@ -19282,31 +19303,19 @@
             "value": 1,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "10"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 3
           },
           "model3rdCost": {},
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
-            "value": 130
+            "value": 110
           },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 4
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Crisis Sunforge Battlesuits": {
@@ -19324,7 +19333,15 @@
             "Model§Crisis Sunforge Shas’vre",
             "Ability§Sunforge",
             "Model§Crisis Sunforge Shas’ui",
-            "Model§Crisis Sunforge Shas’ui"
+            "Model§Crisis Sunforge Shas’ui",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -19353,12 +19370,8 @@
             "value": 2,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "10"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 3
           },
@@ -19366,21 +19379,13 @@
           "modelKey": {
             "value": "Model§Crisis Shas’ui"
           },
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
-            "value": 170
+            "value": 150
           },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 4
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Devilfish": {
@@ -19460,7 +19465,7 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Twin pulse carbine": {
+              "2x Twin pulse carbine": {
                 "order": 0,
                 "traits": [
                   {
@@ -19471,20 +19476,20 @@
                   }
                 ]
               },
-              "Twin smart missile system": {
+              "2x Smart missile system": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Devilfish—Twin smart missile system"
+                    "trait": "Ranged Weapon§Devilfish—Smart missile system"
                   },
                   {
-                    "trait": "Ranged Weapon§Devilfish—Twin smart missile system"
+                    "trait": "Ranged Weapon§Devilfish—Smart missile system"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Twin pulse carbine",
+            "value": "2x Twin pulse carbine",
             "visibility": "active"
           },
           "Seeker missile": {
@@ -19493,6 +19498,9 @@
             "groupOrder": 2,
             "increment": {},
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -19511,13 +19519,10 @@
                     "trait": "Ranged Weapon§Devilfish—Seeker missile"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -19739,10 +19744,10 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "N/A": {
+              "-": {
                 "order": 0
               },
-              "Battlesuit Support System": {
+              "✓": {
                 "order": 1,
                 "traits": [
                   {
@@ -19752,7 +19757,7 @@
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "Ld": {
@@ -19993,14 +19998,14 @@
                   }
                 ]
               },
-              "2 x Twin smart missile system": {
+              "2 x Smart missile system": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Hammerhead Gunship—Twin smart missile system"
+                    "trait": "Ranged Weapon§Hammerhead Gunship—Smart missile system"
                   },
                   {
-                    "trait": "Ranged Weapon§Hammerhead Gunship—Twin smart missile system"
+                    "trait": "Ranged Weapon§Hammerhead Gunship—Smart missile system"
                   }
                 ]
               }
@@ -20037,13 +20042,16 @@
             "value": 3
           },
           "Points": {
-            "value": 130
+            "value": 145
           },
           "Seeker missile": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -20062,13 +20070,10 @@
                     "trait": "Ranged Weapon§Hammerhead Gunship—Seeker missile"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -20486,15 +20491,11 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
+          "Ld": {},
           "Leader": {
             "max": 2
           },
-          "M": {
-            "value": "7"
-          },
+          "M": {},
           "model1stTally": {
             "value": 10
           },
@@ -20516,18 +20517,12 @@
             "value": 10,
             "visibility": "normal"
           },
-          "OC": {
-            "value": 2
-          },
+          "OC": {},
           "Points": {
             "value": 75
           },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
+          "Sv": {},
+          "T": {},
           "Tanglebombs": {
             "group": "Loadout",
             "increment": {
@@ -20539,9 +20534,7 @@
             "value": 0,
             "visibility": "normal"
           },
-          "W": {
-            "value": 1
-          }
+          "W": {}
         }
       },
       "Unit§Kroot Farstalkers": {
@@ -20637,12 +20630,8 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "7"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 12
           },
@@ -20654,21 +20643,13 @@
             "min": 12,
             "value": 12
           },
-          "OC": {
-            "value": "1"
-          },
+          "OC": {},
           "Points": {
             "value": 85
           },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Kroot Hounds": {
@@ -20753,12 +20734,8 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 8
-          },
-          "M": {
-            "value": "12"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 5
           },
@@ -20780,27 +20757,19 @@
             "value": 5,
             "visibility": "normal"
           },
-          "OC": {
-            "value": "0"
-          },
+          "OC": {},
           "Points": {
             "value": 40
           },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 3
-          },
+          "Sv": {},
+          "T": {},
           "Unit Kroot Hound": {
             "statType": "numeric",
             "tracked": true,
             "value": 1,
             "visibility": "hidden"
           },
-          "W": {
-            "value": 1
-          }
+          "W": {}
         }
       },
       "Unit§Krootox Rampagers": {
@@ -20923,12 +20892,8 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "7"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 1
           },
@@ -20956,21 +20921,13 @@
             "value": 1,
             "visibility": "normal"
           },
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
             "value": 35
           },
-          "Sv": {
-            "value": 6
-          },
-          "T": {
-            "value": 5
-          },
-          "W": {
-            "value": 5
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Manta": {
@@ -21154,15 +21111,15 @@
         "allowed": {
           "items": [
             "Model§Pathfinder",
-            "Model§Pathfinder With Drones",
+            "Model§Pathfinder with Drones",
             "Model§Pathfinder Shas’ui",
-            "Model§Pathfinder Shas’ui With Drones",
+            "Model§Pathfinder Shas’ui with Drones",
             "Character§Darkstrider"
           ]
         },
         "assets": {
           "included": [
-            "Model§Pathfinder Shas’ui With Drones",
+            "Model§Pathfinder Shas’ui with Drones",
             {
               "item": "Model§Pathfinder",
               "quantity": 9
@@ -21230,12 +21187,12 @@
                   [
                     "{self}",
                     "tally",
-                    "Pathfinders With Drones"
+                    "Pathfinders with Drones"
                   ],
                   [
                     "{self}",
                     "tally",
-                    "Pathfinder Shas’ui With Drones"
+                    "Pathfinder Shas’ui with Drones"
                   ]
                 ]
               }
@@ -21274,7 +21231,7 @@
                   [
                     "{self}",
                     "tally",
-                    "Pathfinder Shas’ui With Drones"
+                    "Pathfinder Shas’ui with Drones"
                   ],
                   [
                     "{self}",
@@ -21328,12 +21285,8 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "7"
-          },
+          "Ld": {},
+          "M": {},
           "Marker Drone": {
             "max": 2,
             "statType": "numeric",
@@ -21349,9 +21302,7 @@
             "min": 10,
             "value": 10
           },
-          "OC": {
-            "value": "1"
-          },
+          "OC": {},
           "Pathfinder": {
             "max": 9,
             "min": 8,
@@ -21368,7 +21319,7 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Pathfinder Shas’ui With Drones": {
+          "Pathfinder Shas’ui with Drones": {
             "max": 1,
             "min": 0,
             "statType": "numeric",
@@ -21376,7 +21327,7 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Pathfinder With Drones": {
+          "Pathfinder with Drones": {
             "max": 1,
             "min": 0,
             "statType": "numeric",
@@ -21402,15 +21353,9 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Piranha": {
@@ -21604,10 +21549,10 @@
                     "trait": "Ranged Weapon§Missile Drone—Missile pods"
                   },
                   {
-                    "trait": {
-                      "item": "Wargear§Missile Drone",
-                      "quantity": 2
-                    }
+                    "trait": "Wargear§Missile Drone"
+                  },
+                  {
+                    "trait": "Wargear§Missile Drone"
                   }
                 ]
               }
@@ -21995,9 +21940,6 @@
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Missile Drone—Missile pods"
-                  },
-                  {
                     "trait": "Wargear§Missile Drone"
                   }
                 ]
@@ -22006,13 +21948,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Missile Drone—Missile pods"
+                    "trait": "Wargear§Missile Drone"
                   },
                   {
-                    "trait": {
-                      "item": "Wargear§Missile Drone",
-                      "quantity": 2
-                    }
+                    "trait": "Wargear§Missile Drone"
                   }
                 ]
               }
@@ -22102,42 +22041,42 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Accelerator burst cannon": {
+              "2x Twin pulse carbine": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Sky Ray Gunship—Accelerator burst cannon",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Sky Ray Gunship—Twin pulse carbine"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Sky Ray Gunship—Twin pulse carbine"
                   }
                 ]
               },
-              "Twin pulse carbine": {
+              "2x Accelerator burst cannon": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Sky Ray Gunship—Twin pulse carbine",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Sky Ray Gunship—Accelerator burst cannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Sky Ray Gunship—Accelerator burst cannon"
                   }
                 ]
               },
-              "Smart missile system": {
+              "2x Smart missile system": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Ta’unar—Smart missile system",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Sky Ray Gunship—Smart missile system"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Sky Ray Gunship—Smart missile system"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Twin pulse carbine",
+            "value": "2x Twin pulse carbine",
             "visibility": "active"
           },
           "Sv": {
@@ -22475,30 +22414,18 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": 6
-          },
+          "Ld": {},
+          "M": {},
           "maxQty": {
             "value": 10
           },
-          "OC": {
-            "value": 2
-          },
+          "OC": {},
           "Points": {
-            "value": 80
+            "value": 75
           },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 3
-          },
-          "W": {
-            "value": 1
-          }
+          "Sv": {},
+          "T": {},
+          "W": {}
         }
       },
       "Unit§Sun Shark Bomber": {
@@ -22828,12 +22755,8 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "14"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 2
           },
@@ -22855,18 +22778,12 @@
             "value": 2,
             "visibility": "normal"
           },
-          "OC": {
-            "value": "2"
-          },
+          "OC": {},
           "Points": {
             "value": 80
           },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 7
-          },
+          "Sv": {},
+          "T": {},
           "Tetra": {
             "max": 4,
             "min": 2,
@@ -22875,9 +22792,7 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "W": {
-            "value": 7
-          }
+          "W": {}
         }
       },
       "Unit§Tidewall Droneport": {
@@ -23098,20 +23013,20 @@
             "dynamic": true,
             "group": "Loadout",
             "ranks": {
-              "Tidewall Defence Platform": {
-                "order": 0,
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ability§Tidewall Defence Platform"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 1
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "-",
             "visibility": "normal"
           },
           "W": {
@@ -23269,6 +23184,9 @@
             "group": "Loadout",
             "groupOrder": 7,
             "ranks": {
+              "0": {
+                "order": 0
+              },
               "1": {
                 "order": 1,
                 "traits": [
@@ -23281,10 +23199,10 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -23292,10 +23210,13 @@
                 "order": 3,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 3
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -23303,10 +23224,16 @@
                 "order": 4,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 4
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -23314,10 +23241,19 @@
                 "order": 5,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 5
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
               },
@@ -23325,19 +23261,28 @@
                 "order": 6,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Ranged Weapon§Broadside Battlesuits—Seeker missile",
-                      "quantity": 6
-                    }
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Broadside Battlesuits—Seeker missile"
                   }
                 ]
-              },
-              "N/A": {
-                "order": 0
               }
             },
             "statType": "rank",
-            "value": "N/A",
+            "value": "0",
             "visibility": "normal"
           },
           "Sv": {
@@ -23662,12 +23607,8 @@
           ]
         },
         "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "12"
-          },
+          "Ld": {},
+          "M": {},
           "model1stTally": {
             "value": 5
           },
@@ -23679,18 +23620,12 @@
             "min": 5,
             "value": 5
           },
-          "OC": {
-            "value": "1"
-          },
+          "OC": {},
           "Points": {
             "value": 65
           },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 4
-          },
+          "Sv": {},
+          "T": {},
           "Vespid Stingwing": {
             "max": 4,
             "min": 4,
@@ -23699,9 +23634,7 @@
             "value": 0,
             "visibility": "hidden"
           },
-          "W": {
-            "value": 1
-          }
+          "W": {}
         }
       },
       "Unit§XV9 Hazard Battlesuits": {
@@ -23853,13 +23786,13 @@
                 "order": 2,
                 "traits": [
                   {
-                    "trait": {
-                      "item": "Wargear§Missile Drone",
-                      "quantity": 2
-                    }
+                    "trait": "Ranged Weapon§Missile Drone—Missile pods"
                   },
                   {
-                    "trait": "Ranged Weapon§Missile Drone—Missile pods"
+                    "trait": "Wargear§Missile Drone"
+                  },
+                  {
+                    "trait": "Wargear§Missile Drone"
                   }
                 ]
               }
