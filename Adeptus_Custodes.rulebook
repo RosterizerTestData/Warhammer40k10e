@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.25",
+  "revision": "10.10.26",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -54,10 +54,8 @@
       },
       "Character": {
         "allowed": {
-          "items": [
-            "Requisition§Earning of a Name",
-            "Requisition§Artefacts of the Vaults"
-          ]
+          "classifications": [],
+          "items": []
         },
         "disallowed": {
           "items": [
@@ -76,7 +74,7 @@
                 "paths": [
                   [
                     "{self}",
-                    "disallowed",
+                    "allowed",
                     "items"
                   ]
                 ],
@@ -87,7 +85,7 @@
               {
                 "actionable": true,
                 "contains": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -97,15 +95,29 @@
                   ]
                 ],
                 "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "NotAllowEarningOfAName": {
             "actions": [
               {
-                "actionType": "remove",
+                "actionType": "add",
                 "iterations": 1,
                 "paths": [
                   [
@@ -121,7 +133,7 @@
               {
                 "actionable": true,
                 "contains": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -131,9 +143,23 @@
                   ]
                 ],
                 "value": "Anathema Psykana"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "notAllowEmperorsLight": {
@@ -165,9 +191,23 @@
                   ]
                 ],
                 "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "notAllowVeracity": {
@@ -212,9 +252,23 @@
                     "Executioner greatblade"
                   ]
                 ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "notApollonianSpear": {
@@ -246,6 +300,20 @@
                   ]
                 ],
                 "value": "Shield-captain"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
             "evaluate": "AND",
