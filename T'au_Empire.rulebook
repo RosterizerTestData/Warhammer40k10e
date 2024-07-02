@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.10.35",
+  "revision": "10.10.40",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "47ADKB",
+      "slug": "RDT64A",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -556,7 +556,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, you can target this models unit with a Strategem for 0 CP, and can do so even if you have already targeted a different unit with that Strategem this phase"
+        "text": "Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP."
       },
       "Ability§Rapid Deployment": {
         "keywords": {
@@ -1229,16 +1229,20 @@
             "evals": [
               {
                 "actionable": true,
-                "min": 1,
-                "not": false,
-                "operator": "AND",
+                "not": true,
+                "operator": "OR",
                 "paths": [
                   [
-                    "{roster}",
-                    "tally",
-                    "Commander Farsight"
+                    "{parent}",
+                    "classification"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classification"
                   ]
-                ]
+                ],
+                "value": "Order of Battle"
               }
             ],
             "evaluate": "AND",
@@ -1265,7 +1269,7 @@
             "value": 5
           },
           "W": {
-            "value": 6
+            "value": 8
           }
         }
       },
@@ -2625,7 +2629,7 @@
           ]
         },
         "rules": {
-          "Nofarsightifethereal": {
+          "noFarsightIfEthereal": {
             "actions": [
               {
                 "actionType": "add",
@@ -2643,16 +2647,20 @@
             "evals": [
               {
                 "actionable": true,
-                "min": 1,
-                "not": false,
-                "operator": "AND",
+                "not": true,
+                "operator": "OR",
                 "paths": [
                   [
-                    "{roster}",
-                    "tally",
-                    "Ethereal"
+                    "{parent}",
+                    "classification"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classification"
                   ]
-                ]
+                ],
+                "value": "Order of Battle"
               }
             ],
             "evaluate": "AND",
@@ -3467,6 +3475,45 @@
       },
       "Crusade Badge§Hero of the T’au’va": {
         "text": "You have taken over twenty or more planets.\nYou have won ten or more battles.\nAt least one CHARACTER unit from your Order of Battle has reached the Legendary rank."
+      },
+      "Crusade Relic§Seismic Destabiliser": {
+        "rules": {
+          "notAllowed": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Crusade Relic§Seismic Destabiliser"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "At the start of your Shooting phase, select one enemy unit within 12\" of the bearer that is not fully visible to the bearer due to intervening terrain or because it is within a terrain feature. Roll one D6, adding 2 to the result if the unit is on or within a ruins terrain feature: on a 3-5, that unit suffers D3 mortal wounds; on a 6+, that unit suffers 3 mortal wounds."
       },
       "Detachment§Kauyon": {
         "rules": {
@@ -17075,6 +17122,11 @@
       "Ranged Weapon§Swiftstrike Railgun": {
         "aspects": {
           "Label": "Swiftstrike railgun"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
         },
         "stats": {
           "A": {
