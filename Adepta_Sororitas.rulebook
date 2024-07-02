@@ -1,6 +1,6 @@
 {
   "name": "Adepta Sororitas",
-  "revision": "10.10.18",
+  "revision": "10.10.23",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -91,7 +91,7 @@
             "Other"
           ]
         },
-        "text": "Each time a model in this unit makes an attack that targets a Character unit, re-roll a Wound roll of 1."
+        "text": "Each time a model in this unit makes an attack that targets a Character unit, you can re-roll the Wound roll."
       },
       "Ability§Defenders of the Faith": {
         "keywords": {
@@ -390,7 +390,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, one unit from your army with this ability can be targeted with a Stratagem for 0CP, even if another unit from your army has already been targeted with that Stratagem this phase."
+        "text": "Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP."
       },
       "Ability§Sacred Healing": {
         "keywords": {
@@ -422,7 +422,7 @@
             "Other"
           ]
         },
-        "text": "While a Missionary or Preacher model is leading this unit, models in this unit have the Feel No Pain 4+ ability against mortal wounds."
+        "text": "Models in this unit have the Feel no Pain 4+ ability against Psychic Attacks and mortal wounds."
       },
       "Ability§Stanchion of Holy Martyrs": {
         "keywords": {
@@ -1092,6 +1092,131 @@
           "Category": [
             "Character"
           ]
+        },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Canoness"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Palatine"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Junith Eruita"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Aestred Thurga and Agathae Dolan"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{this}",
+                    "evals",
+                    "1",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{this}",
+                    "evals",
+                    "2",
+                    "result",
+                    "truthy"
+                  ],
+                  [
+                    "{this}",
+                    "evals",
+                    "3",
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battle Sisters Squad"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -3411,13 +3536,13 @@
         },
         "stats": {
           "A": {
-            "value": 2
+            "value": 3
           },
           "AP": {
             "value": -2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -5217,7 +5342,7 @@
             "value": 3
           },
           "W": {
-            "value": 1
+            "value": 2
           }
         }
       },
@@ -5245,7 +5370,7 @@
             "value": 3
           },
           "W": {
-            "value": 1
+            "value": 2
           }
         }
       },
@@ -11660,7 +11785,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 35
+            "value": 25
           }
         }
       },
@@ -11686,7 +11811,9 @@
             {
               "item": "Model§Death Cult Assassin",
               "quantity": 2
-            }
+            },
+            "Ability§Infiltrators",
+            "Ability§Lone Operative"
           ]
         },
         "keywords": {
@@ -11742,7 +11869,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 45
+            "value": 35
           }
         }
       },
@@ -11862,7 +11989,7 @@
             "evals": [
               {
                 "actionable": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -11872,7 +11999,7 @@
                     "value"
                   ]
                 ],
-                "value": "✓"
+                "value": 0
               }
             ],
             "evaluate": "AND",

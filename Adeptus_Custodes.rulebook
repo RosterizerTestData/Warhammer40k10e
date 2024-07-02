@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.22",
+  "revision": "10.10.26",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -45,12 +45,17 @@
         },
         "templateClass": "Crusade Relic"
       },
+      "Campaign": {
+        "allowed": {
+          "classifications": [
+            "Endeavour"
+          ]
+        }
+      },
       "Character": {
         "allowed": {
-          "items": [
-            "Requisition§Earning of a Name",
-            "Requisition§Artefacts of the Vaults"
-          ]
+          "classifications": [],
+          "items": []
         },
         "disallowed": {
           "items": [
@@ -69,7 +74,7 @@
                 "paths": [
                   [
                     "{self}",
-                    "disallowed",
+                    "allowed",
                     "items"
                   ]
                 ],
@@ -80,7 +85,7 @@
               {
                 "actionable": true,
                 "contains": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -90,15 +95,29 @@
                   ]
                 ],
                 "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "NotAllowEarningOfAName": {
             "actions": [
               {
-                "actionType": "remove",
+                "actionType": "add",
                 "iterations": 1,
                 "paths": [
                   [
@@ -114,7 +133,7 @@
               {
                 "actionable": true,
                 "contains": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -124,9 +143,23 @@
                   ]
                 ],
                 "value": "Anathema Psykana"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "notAllowEmperorsLight": {
@@ -158,9 +191,23 @@
                   ]
                 ],
                 "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "notAllowVeracity": {
@@ -205,9 +252,23 @@
                     "Executioner greatblade"
                   ]
                 ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           },
           "notApollonianSpear": {
@@ -239,6 +300,20 @@
                   ]
                 ],
                 "value": "Shield-captain"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
               }
             ],
             "evaluate": "AND",
@@ -247,6 +322,62 @@
         }
       },
       "Endeavour": {
+        "stats": {
+          "Imperative 1": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {}
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Imperative 2": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {}
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Imperative 3": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "number": 0,
+                "order": 0
+              },
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {}
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          }
+        },
         "templateClass": "Magisterium Lex Ultima"
       },
       "Magisterium Lex Ultima": {},
@@ -935,7 +1066,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, you can select one model from your army with this ability. You can target that model’s unit with a Stratagem for 0CP, and do so even if that you have already targetted a different unit with that Stratagem this phase."
+        "text": "Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP."
       },
       "Ability§Strike From the Skies": {
         "keywords": {
@@ -2438,7 +2569,7 @@
         },
         "text": "**REVERED COMPANIONS**\n\n- ANATHEMA PSYKANA units from your army\ngain the following the ability:\n\n**Null Aegis (Aura):**\n\nWhile an ADEPTUS CUSTODES unit is within 6″ of this unit, models in that unit have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.\n\n- All other ADEPTUS CUSTODES units from\nyour army gain the following ability:\n\n**Deadly Unity (Aura):**\n\nWhile an ANATHEMA PSYKANA unit is within 6″ of this unit, each time a model in that ANATHEMA PSYKANA unit makes an attack, add 1 to the Hit roll."
       },
-      "Endeavour§Imperative": {},
+      "Endeavour§Endeavour": {},
       "Enhancement§Aegis Projector": {
         "keywords": {
           "Keywords": [
@@ -10300,7 +10431,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 40
+            "value": 50
           },
           "Vigilator": {
             "max": 10,
