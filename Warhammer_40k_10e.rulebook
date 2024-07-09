@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.11.31",
+  "revision": "10.11.32",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -11230,6 +11230,41 @@
           "Unique": true
         },
         "rules": {
+          "addBattlehonourOnGainedRank": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Battle Honour",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Reason?",
+                    "value"
+                  ]
+                ],
+                "value": "Gained a Rank"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "allowEnhancements": {
             "actions": [
               {
@@ -11263,16 +11298,18 @@
           }
         },
         "stats": {
-          "Lost Honors": {
+          "Reason?": {
             "dynamic": true,
-            "increment": {
-              "value": 1
+            "ranks": {
+              "Joined the Roster": {
+                "order": 0
+              },
+              "Gained a Rank": {
+                "order": 1
+              }
             },
-            "label": "Lost Honours",
-            "min": 0,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 1,
+            "statType": "rank",
+            "value": "Joined the Roster",
             "visibility": "normal"
           },
           "RP": {
@@ -11285,7 +11322,7 @@
             "value": 1
           }
         },
-        "text": "Adds an Enhancement to a Character. Costs 1 for the first, 2 for the second and 3 for every enhancement added after that. Usable when a character joins the roster or when they gain a rank. Characters cannot have more than 1 enhancement."
+        "text": "Adds an Enhancement to a Character. Costs 1 for the first, 2 for the second and 3 for every enhancement added after that. Usable when a character joins the roster or when they gain a rank (if using this Requisition when that unit gains a rank, this is instead of it gaining a Battle Honour). Characters cannot have more than 1 enhancement."
       },
       "Requisition§Repair and Recuperate": {
         "stats": {
