@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.10.27",
+  "revision": "10.10.28",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "47ADKB",
+      "slug": "PCJ8SD",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -42,6 +42,9 @@
         "templateClass": ""
       },
       "Character": {
+        "allowed": {
+          "items": []
+        },
         "rules": {
           "disableInfantryTraits": {
             "actions": [
@@ -312,13 +315,86 @@
           "items": [
             "Requisition§Viral Vectors",
             "Requisition§Cunning Advisors",
-            "Requisition§The Slow Decay of the Self",
             "Requisition§Power Reserves Reallocated"
           ]
         }
       },
       "Unit": {
         "rules": {
+          "addSlowDecay": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Requisition§The Slow Decay of the Self"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "classification"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Noble"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "allowCanoptekTraits": {
             "actions": [
               {
@@ -11596,6 +11672,85 @@
       "Requisition§The Slow Decay of the Self": {
         "keywords": {
           "Tags": []
+        },
+        "rules": {
+          "Abilities": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lone Operative"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Leader"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Destroyer Madness"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "CannotAttach": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{parent}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "RP": {
