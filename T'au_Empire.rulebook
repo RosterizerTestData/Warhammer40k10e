@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.10.42",
+  "revision": "10.10.43",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -10598,6 +10598,9 @@
               },
               "Pulse Accelerator Drone": {
                 "order": 2,
+                "tracking": {
+                  "acceleratordrone": 1
+                },
                 "traits": [
                   {
                     "trait": "Wargear§Pulse Accelerator Drone"
@@ -15375,6 +15378,44 @@
       "Ranged Weapon§Pathfinder Team—Pulse carbine": {
         "aspects": {
           "Label": "Pulse carbine"
+        },
+        "rules": {
+          "applypulse": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Range",
+                    "value"
+                  ]
+                ],
+                "value": 6
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "stats",
+                    "acceleratordrone",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "A": {
@@ -21302,6 +21343,12 @@
           "2nd Drone": {
             "max": 1,
             "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "acceleratordrone": {
+            "statType": "numeric",
+            "tracked": true,
             "value": 0,
             "visibility": "hidden"
           },
