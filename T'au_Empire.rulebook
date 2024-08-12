@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.10.45",
+  "revision": "10.10.46",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1033,6 +1033,204 @@
         },
         "text": "Once per battle, when an attack is allocated to this model, you can change the Damage characteristic of that attack to 0."
       },
+      "Character§Aun’shi": {
+        "assets": {
+          "traits": [
+            "Ability§Martial Warrior",
+            "Ability§Inspirational Defiance",
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following units:\n■ Breacher Team\n■ Kroot Carnivores\n■ Kroot Farstalkers\n■ Strike Team"
+            },
+            "Melee Weapon§Aun’shi—Fidelity",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Aun’shi",
+            "Character",
+            "Epic Hero",
+            "Ethereal",
+            "Infantry"
+          ],
+          "Category": [
+            "Epic Hero"
+          ],
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ]
+        },
+        "rules": {
+          "noFarsightIfEthereal": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Commander Farsight"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classification"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classification"
+                  ]
+                ],
+                "value": "Order of Battle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 50
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
+      "Character§Aun’va": {
+        "allowed": {
+          "items": [
+            "Model§Ethereal Guards"
+          ]
+        },
+        "aspects": {
+          "Type": "conceptual"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Duality Shield",
+            "Ability§Paradox of Duality",
+            "Model§Aun’Va – Epic Hero",
+            {
+              "item": "Model§Ethereal Guards",
+              "quantity": 2
+            },
+            "Ability§Supreme Loyalty (aura)",
+            "Ability§Lone Operative",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Epic Hero"
+          ],
+          "Keywords": [
+            "Ethereal"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Faction": [
+            "T’au Empire"
+          ]
+        },
+        "rules": {
+          "noFarsightIfEthereal": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Commander Farsight"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classification"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classification"
+                  ]
+                ],
+                "value": "Order of Battle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Ethereal Guards": {
+            "max": 2,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 65
+          }
+        }
+      },
       "Character§Cadre Fireblade": {
         "assets": {
           "traits": [
@@ -1224,6 +1422,18 @@
                   ]
                 ],
                 "value": "Ethereal"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Character§Ethereal"
               }
             ],
             "evals": [
@@ -1853,6 +2063,510 @@
             "value": 6
           }
         }
+      },
+      "Character§Commander in Crisis Battlesuit": {
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following unit:\n\n* Crisis Battlesuits"
+            },
+            "Ability§For the Greater Good",
+            "Ability§Crisis Commander",
+            "Melee Weapon§Commander in Crisis Battlesuit—Battlesuit fists"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Walker",
+            "Fly",
+            "Character",
+            "Battlesuit",
+            "Commander in Crisis Battlesuit"
+          ],
+          "Category": [
+            "Character"
+          ]
+        },
+        "stats": {
+          "1st Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Gun Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Gun Drone"
+                  }
+                ]
+              },
+              "Shield Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Drone"
+                  }
+                ]
+              },
+              "Marker Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Marker Drone"
+                  }
+                ]
+              }
+            },
+            "statOrder": -1,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "1st Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "Airbursting fragmentation projector": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                  }
+                ]
+              },
+              "Fusion blaster": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Fusion blaster"
+                  }
+                ]
+              },
+              "Missile pod": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Missile pod"
+                  }
+                ]
+              },
+              "Plasma rifle": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Plasma rifle"
+                  }
+                ]
+              },
+              "T’au flamer": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—T’au flamer"
+                  }
+                ]
+              },
+              "Shield Generator": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Generator"
+                  }
+                ]
+              },
+              "Weapon Support System": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              },
+              "Burst cannon": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Crisis Battlesuit—Burst cannon"
+                  }
+                ]
+              },
+              "Battlesuit Support System": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Burst cannon",
+            "visibility": "active"
+          },
+          "2nd Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Gun Drone": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Gun Drone"
+                  }
+                ]
+              },
+              "Shield Drone": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Drone"
+                  }
+                ]
+              },
+              "Marker Drone": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Marker Drone"
+                  }
+                ]
+              }
+            },
+            "statOrder": -1,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "2nd Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Airbursting fragmentation projector": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                  }
+                ]
+              },
+              "Battlesuit Support System": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
+              },
+              "Burst cannon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Burst cannon"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                  }
+                ]
+              },
+              "Fusion blaster": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Fusion blaster"
+                  }
+                ]
+              },
+              "Missile pod": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Crisis Battlesuit—Missile pod"
+                  }
+                ]
+              },
+              "Plasma rifle": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Plasma rifle"
+                  }
+                ]
+              },
+              "Shield Generator": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Generator"
+                  }
+                ]
+              },
+              "T’au flamer": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—T’au flamer"
+                  }
+                ]
+              },
+              "Weapon Support System": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "3rd Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Airbursting fragmentation projector": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                  }
+                ]
+              },
+              "Battlesuit Support System": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
+              },
+              "Burst cannon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Burst cannon"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                  }
+                ]
+              },
+              "Fusion blaster": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Fusion blaster"
+                  }
+                ]
+              },
+              "Missile pod": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Crisis Battlesuit—Missile pod"
+                  }
+                ]
+              },
+              "Plasma rifle": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Plasma rifle"
+                  }
+                ]
+              },
+              "Shield Generator": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Generator"
+                  }
+                ]
+              },
+              "T’au flamer": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—T’au flamer"
+                  }
+                ]
+              },
+              "Weapon Support System": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "4th Wargear": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Airbursting fragmentation projector": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Airbursting fragmentation projector"
+                  }
+                ]
+              },
+              "Battlesuit Support System": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Wargear§Battlesuit Support System"
+                  }
+                ]
+              },
+              "Burst cannon": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Burst cannon"
+                  }
+                ]
+              },
+              "Cyclic ion blaster": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Cyclic ion blaster"
+                  }
+                ]
+              },
+              "Fusion blaster": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Fusion blaster"
+                  }
+                ]
+              },
+              "Missile pod": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Crisis Battlesuit—Missile pod"
+                  }
+                ]
+              },
+              "Plasma rifle": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—Plasma rifle"
+                  }
+                ]
+              },
+              "Shield Generator": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Wargear§Shield Generator"
+                  }
+                ]
+              },
+              "T’au flamer": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Commander in Coldstar Battlesuit—T’au flamer"
+                  }
+                ]
+              },
+              "Weapon Support System": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Wargear§Weapon Support System"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Points": {
+            "value": 80
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 5
+          }
+        },
+        "text": ""
       },
       "Character§Commander in Enforcer Battlesuit": {
         "assets": {
@@ -3241,7 +3955,7 @@
             "Vehicle"
           ],
           "Category": [
-            "Character"
+            "Epic Hero"
           ],
           "Source": [
             "Legends"
@@ -6046,6 +6760,13 @@
         "assets": {
           "traits": [
             "Melee Weapon§Aun’va—Close combat weapon"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Character",
+            "Epic Hero",
+            "Infantry"
           ]
         },
         "stats": {
@@ -9390,6 +10111,11 @@
             "Melee Weapon§Aun’va—Supreme honour blade"
           ]
         },
+        "keywords": {
+          "Keywords": [
+            "Infantry"
+          ]
+        },
         "stats": {
           "Ld": {
             "value": 7
@@ -9552,7 +10278,7 @@
           }
         }
       },
-      "Model§Fire Warriors": {
+      "Model§Fire Warrior": {
         "assets": {
           "traits": [
             "Ranged Weapon§Strike Team—Pulse pistol",
@@ -11249,38 +11975,6 @@
             "statType": "rank",
             "value": "Plasma rifle",
             "visibility": "active"
-          },
-          "Seeker missile": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "0": {
-                "order": 0
-              },
-              "1": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Piranha—Seeker missile"
-                  }
-                ]
-              },
-              "2": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Piranha—Seeker missile"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Piranha—Seeker missile"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "0",
-            "visibility": "normal"
           },
           "Sv": {
             "value": 4
@@ -18986,7 +19680,8 @@
             "Model§Breacher Fire Warrior",
             "Character§Cadre Fireblade",
             "Character§Ethereal",
-            "Model§Breacher Fire Warrior Shas’ui"
+            "Model§Breacher Fire Warrior Shas’ui",
+            "Character§Aun’shi"
           ]
         },
         "assets": {
@@ -19140,7 +19835,8 @@
           "items": [
             "Character§Commander Farsight",
             "Character§Commander in Coldstar Battlesuit",
-            "Character§Commander in Enforcer Battlesuit"
+            "Character§Commander in Enforcer Battlesuit",
+            "Character§Commander in Crisis Battlesuit"
           ]
         },
         "assets": {
@@ -19232,7 +19928,8 @@
             "Model§Crisis Fireknife Shas’ui",
             "Character§Commander Farsight",
             "Character§Commander in Coldstar Battlesuit",
-            "Character§Commander in Enforcer Battlesuit"
+            "Character§Commander in Enforcer Battlesuit",
+            "Character§Commander in Crisis Battlesuit"
           ]
         },
         "assets": {
@@ -19296,7 +19993,8 @@
           "items": [
             "Character§Commander Farsight",
             "Character§Commander in Coldstar Battlesuit",
-            "Character§Commander in Enforcer Battlesuit"
+            "Character§Commander in Enforcer Battlesuit",
+            "Character§Commander in Crisis Battlesuit"
           ]
         },
         "assets": {
@@ -19357,7 +20055,8 @@
           "items": [
             "Character§Commander Farsight",
             "Character§Commander in Coldstar Battlesuit",
-            "Character§Commander in Enforcer Battlesuit"
+            "Character§Commander in Enforcer Battlesuit",
+            "Character§Commander in Crisis Battlesuit"
           ]
         },
         "assets": {
@@ -20248,7 +20947,8 @@
             "Character§Kroot War Shaper",
             "Character§Kroot Trail Shaper",
             "Character§Kroot Flesh Shaper",
-            "Model§Kroot Carnivore"
+            "Model§Kroot Carnivore",
+            "Character§Aun’shi"
           ]
         },
         "assets": {
@@ -20617,7 +21317,8 @@
             "Character§Kroot Flesh Shaper",
             "Character§Kroot Trail Shaper",
             "Character§Kroot War Shaper",
-            "Model§Kroot Farstalkers"
+            "Model§Kroot Farstalkers",
+            "Character§Aun’shi"
           ]
         },
         "assets": {
@@ -22463,25 +23164,32 @@
         "allowed": {
           "items": [
             "Character§Ethereal",
-            "Character§Cadre Fireblade"
+            "Character§Cadre Fireblade",
+            "Model§Fire Warrior Shas’ui",
+            "Model§Fire Warrior",
+            "Character§Aun’shi"
           ]
         },
         "assets": {
-          "traits": [
+          "included": [
             "Model§Fire Warrior Shas’ui",
             {
-              "item": "Model§Fire Warriors",
+              "item": "Model§Fire Warrior",
               "quantity": 9
-            },
+            }
+          ],
+          "traits": [
             "Ability§Suppression Volley"
           ]
         },
         "keywords": {
           "Keywords": [
             "Battleline",
+            "Fire Warrior",
             "Grenades",
             "Infantry",
-            "Markerlight"
+            "Markerlight",
+            "Strike Team"
           ],
           "Category": [
             "Battleline"
@@ -22494,10 +23202,21 @@
           ]
         },
         "stats": {
+          "Fire Warrior": {
+            "max": 9,
+            "min": 9,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Ld": {},
           "M": {},
           "maxQty": {
             "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Fire Warrior"
           },
           "OC": {},
           "Points": {
@@ -22791,6 +23510,91 @@
             "value": 30
           }
         }
+      },
+      "Unit§Tactical Drones": {
+        "allowed": {
+          "items": [
+            "Model§Tactical Drones"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            {
+              "item": "Model§Tactical Drones",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "T’au Empire"
+          ],
+          "Source": [
+            "Legends"
+          ],
+          "Keywords": [
+            "Drone",
+            "Fly",
+            "Tactical Drones"
+          ],
+          "Category": [
+            "Drone"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": "8"
+          },
+          "model1stTally": {
+            "value": 4
+          },
+          "model2ndCost": {},
+          "model2ndTally": {
+            "value": 8
+          },
+          "model3rdCost": {},
+          "model3rdTally": {
+            "value": 12
+          },
+          "modelKey": {
+            "value": "Model§Tactical Drones"
+          },
+          "Models": {
+            "increment": {
+              "value": 4
+            },
+            "max": 12,
+            "min": 4,
+            "value": 4,
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": "0"
+          },
+          "Points": {},
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "Tactical Drones": {
+            "max": 12,
+            "min": 4,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "W": {
+            "value": 1
+          }
+        },
+        "text": ""
       },
       "Unit§Tetras": {
         "allowed": {
@@ -23410,133 +24214,6 @@
           "Type": "game piece"
         },
         "assets": {
-          "included": [],
-          "traits": [
-            {
-              "item": "Ability§Deadly Demise",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            },
-            {
-              "item": "Ability§Scouts",
-              "stats": {
-                "x": {
-                  "value": "9″"
-                }
-              }
-            },
-            "Ability§For the Greater Good",
-            "Ability§Outflank"
-          ]
-        },
-        "keywords": {
-          "Faction": [
-            "T’au Empire"
-          ],
-          "Source": [
-            "Legends"
-          ],
-          "Keywords": [
-            "Vehicle",
-            "Fly",
-            "Piranha"
-          ],
-          "Category": [
-            "Vehicle"
-          ]
-        },
-        "stats": {
-          "Ld": {
-            "value": 7
-          },
-          "M": {
-            "value": "14"
-          },
-          "OC": {
-            "value": "2"
-          },
-          "Points": {
-            "value": 60
-          },
-          "Ranged Weapon": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Plasma rifle": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": {
-                      "item": "Ranged Weapon§Crisis Battlesuits—Plasma rifle",
-                      "quantity": 2
-                    }
-                  }
-                ]
-              },
-              "Fusion blaster": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": {
-                      "item": "Ranged Weapon§Piranha—Piranha fusion blaster",
-                      "quantity": 2
-                    }
-                  }
-                ]
-              },
-              "Rail rifle": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": {
-                      "item": "Ranged Weapon§Pathfinder Team—Rail rifle",
-                      "quantity": 2,
-                      "stats": {
-                        "BS": {
-                          "value": 4
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "Missile pod": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": {
-                      "item": "Ranged Weapon§Crisis Battlesuits—Missile pod",
-                      "quantity": 2
-                    }
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Plasma rifle",
-            "visibility": "active"
-          },
-          "Sv": {
-            "value": 4
-          },
-          "T": {
-            "value": 7
-          },
-          "W": {
-            "value": 7
-          }
-        },
-        "text": "Every model is equipped with: Piranha burst cannon; 2 twin pulse carbines; armoured hull.\n\nAny number of models can each have their Piranha burst cannon can be replaced with 1 Piranha fusion blaster.\n\n*Any number of models can each be equipped with up to 2 seeker missiles."
-      },
-      "Unit§Tx42 Piranha": {
-        "aspects": {
-          "Type": "game piece"
-        },
-        "assets": {
           "traits": [
             {
               "item": "Ability§Deadly Demise",
@@ -23586,7 +24263,7 @@
             "value": 2
           },
           "Points": {
-            "value": 55
+            "value": 60
           },
           "Ranged Options": {
             "dynamic": true,
