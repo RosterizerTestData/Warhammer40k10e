@@ -27,7 +27,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blo
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.rulebook
 
 ### SM_Deathwatch
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.rulebook.old
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.ruleboo
 
 ### SM_Space_Wolves
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.rulebook
