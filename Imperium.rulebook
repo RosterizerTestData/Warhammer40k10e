@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.10.29",
+  "revision": "10.10.30",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -952,7 +952,7 @@
         "text": "Each time a model in this unit makes an attack, add 1 to the Hit roll if this unit is below its Starting Strength, and add 1 to the Wound roll as well if this unit is Below Half-strength."
       },
       "Ability§Inquisitorial Henchmen": {
-        "text": "If you attach one or more Inquisitor units to this unit, this unit does not count towards the total number of Retinue selections in your army."
+        "text": "If your Army Faction is not Agents of the Imperium, then for each Inquisitor unit you include in your army, you can include one Inquisitorial Agents unit in your army that does not count towards the number of Retinue units your army can include."
       },
       "Ability§Inquisitorial Retinue": {
         "text": "If your Army Faction is not Agents of the Imperium, then for each unique pairing of 1 Inquisitorial Agents unit and 1 Daemonhost unit occuring in your army, increase the maximum number of Retinue units permitted in your army by 1.\n\n\nAt the start of the Declare Battle Formations \nstep, this unit can join one Inquisitorial Agents \nunit from your army that is being led by an Inquisitor model (a unit cannot have more than one Daemonhost unit joined to it). If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly"
@@ -1080,7 +1080,7 @@
         "text": "While an Inquisitor model is leading this unit, enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12” of one or more of this unit’s Mystic models."
       },
       "Ability§Navy Bodyguard": {
-        "text": "If you attach one or more Voidfarers Character units to this unit, this unit does not count towards the total number of Retinue selections in your army."
+        "text": "If your Army Faction is not Agents of the Imperium, then for each Voidfarers Character unit you include in your army, you can include one Voidsmen-at-Arms unit in your army that does not count towards the number of Retinue units your army can include."
       },
       "Ability§No Mercy": {
         "keywords": {
@@ -31812,6 +31812,20 @@
                     "Inquisitor"
                   ]
                 ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "Agents of the Imperium"
               }
             ],
             "evaluate": "AND",
@@ -35768,7 +35782,7 @@
             ],
             "evals": [
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -35781,7 +35795,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -35792,9 +35806,41 @@
                     "Rogue Trader Entourage"
                   ]
                 ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "Agents of the Imperium"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass",
             "order": 50
           }
