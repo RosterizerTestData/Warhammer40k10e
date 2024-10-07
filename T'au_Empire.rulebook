@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.10.49",
+  "revision": "10.10.50",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -208,7 +208,7 @@
             "Other"
           ]
         },
-        "text": "At the end of your Movement phase, if this unit is not within Engagement Range of any enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
+        "text": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
       },
       "Ability§Armour Hunter": {
         "keywords": {
@@ -11987,13 +11987,63 @@
       "Model§Vespid Stingwing": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Vespid Stingwings—Neutron blaster",
             "Melee Weapon§Vespid Stingwings—Stingwing claws"
           ]
         },
         "stats": {
           "Ld": {
             "value": 7
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Neutron Blaster": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Vespid Stingwings—Neutron blaster"
+                  }
+                ]
+              },
+              "Neutron Grenade Launcher": {
+                "order": 1,
+                "tracking": {
+                  "grenade": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Vespid Stingwings—Neutron grenade launcher"
+                  }
+                ]
+              },
+              "Neutron Rail Rifle": {
+                "order": 2,
+                "tracking": {
+                  "rifle": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Vespid Stingwings—Neutron rail rifle"
+                  }
+                ]
+              },
+              "T’au flamer": {
+                "order": 3,
+                "tracking": {
+                  "flamer": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Vespid Stingwings—T’au flamer"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Neutron Blaster",
+            "visibility": "active"
           },
           "M": {
             "value": 12
@@ -12028,6 +12078,30 @@
           },
           "OC": {
             "value": 1
+          },
+          "Oversight Drone": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "drone": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Oversight Drone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 4
@@ -18434,6 +18508,112 @@
           }
         }
       },
+      "Ranged Weapon§Vespid Stingwings—Neutron grenade launcher": {
+        "aspects": {
+          "Label": "Neutron grenade launcher"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            },
+            "Ability§Blast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Vespid Stingwings—Neutron rail rifle": {
+        "aspects": {
+          "Label": "Neutron rail rifle"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 30
+          },
+          "S": {
+            "value": 10
+          }
+        }
+      },
+      "Ranged Weapon§Vespid Stingwings—T’au flamer": {
+        "aspects": {
+          "Label": "T’au flamer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "D6"
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Xv9 Hazard Battlesuits—Fusion cascade": {
         "aspects": {
           "Label": "Fusion cascade"
@@ -24361,19 +24541,195 @@
             "Infantry"
           ]
         },
+        "rules": {
+          "If this unit contains 10 models, one Stingwing can be equipped with a flamer.": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "flamer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "If this unit contains 10 models, one Stingwing can be equipped with a grenade launcher.": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "grenade"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "If this unit contains 10 models, one Stingwing can be equipped with a rail rifle.": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "rifle"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "If this unit contains 10 models, the Strain leader can be equipped with a oversight drone.": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 9
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "drone"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Ld": {},
           "M": {},
           "model1stTally": {
             "value": 5
           },
+          "model2ndCost": {
+            "value": 130
+          },
+          "model2ndTally": {
+            "value": 10
+          },
           "modelKey": {
             "value": "Model§Vespid Stingwing"
           },
           "Models": {
-            "max": 5,
+            "increment": {
+              "value": 5
+            },
+            "max": 10,
             "min": 5,
-            "value": 5
+            "value": 5,
+            "visibility": "normal"
           },
           "OC": {},
           "Points": {
@@ -24382,7 +24738,7 @@
           "Sv": {},
           "T": {},
           "Vespid Stingwing": {
-            "max": 4,
+            "max": 9,
             "min": 4,
             "statType": "numeric",
             "tracked": true,
@@ -24787,6 +25143,9 @@
           }
         },
         "text": "The bearer is equipped with the following ranged weapon:\n\nMissile Pod\n\nRANGE 30″ A:2 BS:5+ S:7 AP:2 D:2"
+      },
+      "Wargear§Oversight Drone": {
+        "text": "Once per battle, when the bearer’s unit is selected to shoot, until the end of the phase, ranged weapons equipped by models in this unit have the [IGNORES COVER] ability"
       },
       "Wargear§Pech’ra": {
         "text": "Ranged weapons equipped by the bearer’s unit have the [IGNORES COVER] ability."
