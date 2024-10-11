@@ -1,6 +1,6 @@
 {
   "name": "40k10e",
-  "revision": "10.11.36",
+  "revision": "10.11.37",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -8630,6 +8630,33 @@
             "forceReward"
           ]
         },
+        "rules": {
+          "addRP": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Requisition Pts",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "RP Reward",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Description": {
             "dynamic": true,
@@ -8637,10 +8664,14 @@
             "value": "Reason for RP gain",
             "visibility": "normal"
           },
-          "RP": {
+          "RP Reward": {
             "dynamic": true,
-            "max": 0,
-            "min": -10,
+            "increment": {
+              "value": 1
+            },
+            "label": "RP",
+            "max": 10,
+            "min": 0,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
