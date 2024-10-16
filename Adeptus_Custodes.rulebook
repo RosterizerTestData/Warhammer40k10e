@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.30",
+  "revision": "10.10.31",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -811,6 +811,9 @@
           ]
         },
         "text": "Each time a melee attack targets this unit, subtract 1 from the Hit roll."
+      },
+      "Ability§Devoted to Destruction": {
+        "text": "If this model is equipped with 2 Telemon caestus weapons in addition to its armoured feet weapon, add 2 to the Attacks characteristic of those Telemon caestus weapons."
       },
       "Ability§Disintegration Beams": {
         "keywords": {
@@ -9855,7 +9858,8 @@
               }
             },
             "Ranged Weapon§Telemon Heavy Dreadnought—Spiculus bolt launcher",
-            "Melee Weapon§Telemon Heavy Dreadnought—Armoured feet"
+            "Melee Weapon§Telemon Heavy Dreadnought—Armoured feet",
+            "Ability§Devoted to Destruction"
           ]
         },
         "keywords": {
@@ -9874,6 +9878,60 @@
           "Category": [
             "Vehicle—Walker"
           ]
+        },
+        "rules": {
+          "moreAttackif2Caestus": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 1",
+                    "value"
+                  ]
+                ],
+                "value": "Telemon caestus & Twin plasma projector"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout 2",
+                    "value"
+                  ]
+                ],
+                "value": "Telemon caestus & Twin plasma projector"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
