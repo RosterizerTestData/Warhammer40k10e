@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.10.34",
+  "revision": "10.10.35",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -35414,6 +35414,43 @@
             "Infantry"
           ]
         },
+        "rules": {
+          "ModifyifImperiumOnly": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 15
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Faction",
+                    "value"
+                  ]
+                ],
+                "value": "Agents of the Imperium"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Cyber-mastiff": {
             "max": 1,
@@ -35438,7 +35475,7 @@
             "value": 11
           },
           "Points": {
-            "value": 100
+            "value": 85
           },
           "Subductor": {
             "max": 9,
