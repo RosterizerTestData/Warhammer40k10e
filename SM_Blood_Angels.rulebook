@@ -1,6 +1,6 @@
 {
   "name": "Blood Angels",
-  "revision": "10.10.12",
+  "revision": "10.10.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2070,7 +2070,7 @@
             "failState": "pass"
           }
         },
-        "text": "**Red Thirst**\n\nEach time an ADEPTUS ASTARTES unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit."
+        "text": "**Red Thirst**\n\nEach time an ADEPTUS ASTARTES unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.\n\n**RESTRICTIONS**\n\nYour army can include Blood Angels units, but it cannot include any Adeptus Astartes units drawn from any other Chapter."
       },
       "Detachment§The Angelic Host": {
         "rules": {
@@ -2166,7 +2166,7 @@
             "failState": "pass"
           }
         },
-        "text": "**Upon Wings of Fire**\n\nAt the end of your opponent s turn, you can select a number of ADEPTUS ASTARTES JUMP PACK units from your army (excluding units that are within Engagement Range of one or more enemy units). The maximum number of units you can select depends on the battle size, as follows:\n\n|||\n|---|---|\n|BATTLE SIZE| UNITS|\n|INCURSION|Up to 1 units|\n|STRIKE FORCE|Up to 2 units|\n|ONSLAUGHT|Up to 3 units|\n\n\nOnce you have made your selections, remove those units from the battlefield and place them into Strategic Reserves. In the Reinforcements step of your next Movement phase, set each of those units up using their Deep Strike ability."
+        "text": "**Upon Wings of Fire**\n\nAt the end of your opponent s turn, you can select a number of ADEPTUS ASTARTES JUMP PACK units from your army (excluding units that are within Engagement Range of one or more enemy units). The maximum number of units you can select depends on the battle size, as follows:\n\n|||\n|---|---|\n|BATTLE SIZE| UNITS|\n|INCURSION|Up to 1 units|\n|STRIKE FORCE|Up to 2 units|\n|ONSLAUGHT|Up to 3 units|\n\n\nOnce you have made your selections, remove those units from the battlefield and place them into Strategic Reserves. In the Reinforcements step of your next Movement phase, set each of those units up using their Deep Strike ability.\n\n**RESTRICTIONS**\n\nYour army can include Blood Angels units, but it cannot include any Adeptus Astartes units drawn from any other Chapter."
       },
       "Detachment§The Lost Brethren": {
         "rules": {
@@ -2262,7 +2262,7 @@
             "failState": "pass"
           }
         },
-        "text": "**A Noble Death in Combat**\n\nEach time a DEATH COMPANY model from your army makes a melee attack, re-roll a Wound roll of 1 if that model’s unit is below its Starting Strength; if that model’s unit is Below Half-strength, you can re-roll the Wound roll instead.\n\n**KEYWORDS**\n\n\nIf you select this Detachment, DEATH COMPANY MARINES and DEATH COMPANY MARINES WITH BOLT RIFLES units from your army have the BATTLELINE keyword."
+        "text": "**A Noble Death in Combat**\n\nEach time a DEATH COMPANY model from your army makes a melee attack, re-roll a Wound roll of 1 if that model’s unit is below its Starting Strength; if that model’s unit is Below Half-strength, you can re-roll the Wound roll instead.\n\n**KEYWORDS**\n\n\nIf you select this Detachment, DEATH COMPANY MARINES and DEATH COMPANY MARINES WITH BOLT RIFLES units from your army have the BATTLELINE keyword.\n\n**RESTRICTIONS**\n\nYour army can include Blood Angels units, but it cannot include any Adeptus Astartes units drawn from any other Chapter."
       },
       "Enhancement§Archangel’s Shard": {
         "keywords": {
@@ -3274,6 +3274,33 @@
           ]
         },
         "rules": {
+          "1 in 3 can have an Inferno Pistol": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in3",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "inferno"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Maximum 1 Banner": {
             "evals": [
               {
@@ -3286,25 +3313,6 @@
                     "{self}",
                     "tracked",
                     "flag"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Maximum of 1 Inferno Pistol": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "inferno"
                   ]
                 ]
               }
@@ -8690,7 +8698,7 @@
             "The Angelic Host"
           ]
         },
-        "text": "**WHEN**: Your Charge phase.\n\n**TARGET**: One ADEPTUS ASTARTES JUMP PACK unit from your army that Advanced or Fell Back this turn.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
+        "text": "**WHEN**: Your Movement phase, just after an Adeptus Astartes Jump Pack unit from your army Advances or Falls Back.\n\n**TARGET**: That Adeptus Astartes Jump Pack unit\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
       },
       "Stratagem§Descent of Angels": {
         "keywords": {
