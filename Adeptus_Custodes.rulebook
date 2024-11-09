@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.31",
+  "revision": "10.10.32",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -5007,6 +5007,42 @@
         }
       },
       "Model§Custodian Warden": {
+        "rules": {
+          "applyVaxilla": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Vex"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -8272,14 +8308,17 @@
                 }
               },
               {
-                "actionType": "set",
+                "actionType": "modify",
                 "iterations": 1,
                 "paths": [
                   [
                     "{self}",
+                    "traits",
+                    "item",
+                    "Model§Allarus Custodian",
                     "stats",
-                    "Vexilla",
-                    "max"
+                    "OC",
+                    "value"
                   ]
                 ],
                 "prepend": " ",
@@ -9145,14 +9184,17 @@
                 }
               },
               {
-                "actionType": "set",
+                "actionType": "modify",
                 "iterations": 1,
                 "paths": [
                   [
                     "{self}",
+                    "traits",
+                    "item",
+                    "Model§Custodian Guard",
                     "stats",
-                    "Vexilla",
-                    "max"
+                    "OC",
+                    "value"
                   ]
                 ],
                 "prepend": " ",
@@ -9457,6 +9499,12 @@
           },
           "Points": {
             "value": 200
+          },
+          "Vex": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
@@ -10666,28 +10714,6 @@
         "text": "The bearer has a Wounds characteristic of 4."
       },
       "Wargear§Vexilla": {
-        "rules": {
-          "Vexillas": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "OC",
-                    "value"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass"
-          }
-        },
         "text": "Add 1 to the Objective Control characteristic of models in the bearer’s unit."
       },
       "Weapon§Allarus Custodians—Castellan axe": {
