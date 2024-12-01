@@ -1,6 +1,6 @@
 {
   "name": "Death Guard",
-  "revision": "10.10.14",
+  "revision": "10.10.15",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "GGS9XD",
+      "slug": "J6B8MH",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -2132,6 +2132,102 @@
           }
         }
       },
+      "Detachment§Flyblown Host": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Nauseating Paroxysms"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Droning Horror"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Vermin Cloud"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Eye of the Swarm"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Enervating Onslaught"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Myphitic Invigoration"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## VERMINOUS HAZE ##\n\n**Death Guard Infantry** units from your army that are not embarked within a Transport have the Scouts 5\" and Stealth abilities."
+      },
       "Detachment§Plague Company": {
         "rules": {
           "assignStratagems": {
@@ -2285,6 +2381,133 @@
         },
         "text": "Death Guard model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons. While the bearer is within range of an Infected objective marker you control, add 2 to the Strength and Attacks characteristics of the bearer’s melee weapons instead."
       },
+      "Enhancement§Droning Chorus": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Assault"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Death Guard Infantry** model only. Ranged weapons equipped by models in the bearer’s unit have the **[ASSAULT]** ability."
+      },
+      "Enhancement§Insectile Murmuration": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ]
+        },
+        "rules": {
+          "Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Death Guard Infantry** model only. Each time a model in the bearer’s unit makes an attack that targets a unit that is within Contagion Range of one or more **Death Guard** units from your army, re‑roll a Wound roll of 1."
+      },
       "Enhancement§Living Plague": {
         "keywords": {
           "Keywords": [
@@ -2297,6 +2520,76 @@
           }
         },
         "text": "Death Guard model only. Add 3″ to the range of the bearer’s Aura abilities (including Nurgle’s Gift)."
+      },
+      "Enhancement§Plagueveil": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ]
+        },
+        "rules": {
+          "Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Death Guard Infantry** model only. While the bearer’s unit is within range of one or more objective markers that you control, that unit can only be selected as the target of a ranged attack if the attacking model is within 18\"."
+      },
+      "Enhancement§Rejuvenating Swarm": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ]
+        },
+        "rules": {
+          "infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Death Guard Infantry** model only. At the end of each phase, the bearer regains all of its lost wounds."
       },
       "Enhancement§Shamblerot": {
         "keywords": {
@@ -8530,9 +8823,17 @@
                     "trait": "Detachment§Plague Company"
                   }
                 ]
+              },
+              "Flyblown Host": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Detachment§Flyblown Host"
+                  }
+                ]
               }
             },
-            "value": "Plague Company"
+            "value": "-"
           },
           "Faction": {
             "dynamic": false,
@@ -8602,6 +8903,57 @@
         },
         "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One Death Guard unit from your army that was selected as the target of one or more of that enemy unit’s attacks. \n\n**EFFECT**: Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack."
       },
+      "Stratagem§Droning Horror": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One **Death Guard Infantry** unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a ranged attack, re‑roll a Hit roll of 1. If that attack targets a unit within half range, you can re‑roll the Hit roll instead."
+      },
+      "Stratagem§Enervating Onslaught": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "text": "**WHEN**: Your Charge phase, just after a Death Guard Infantry unit from your army makes a Charge move.\n\n**TARGET**: That **Death Guard Infantry** unit.\n\n**EFFECT**: Select one enemy unit within Engagement Range of your unit (excluding Monsters and Vehicles). Roll one D6 for each model in your unit that is within Engagement Range of that unit, adding 1 to the result if that model is not a Cultist or Poxwalker model: for each 5+, the selected enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
+      },
+      "Stratagem§Eye of the Swarm": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Flyblown Host"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One **Death Guard Infantry** unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit (excluding Blast weapons) have the [PISTOL] ability"
+      },
       "Stratagem§Ferric Blight": {
         "keywords": {
           "Keywords": [
@@ -8638,6 +8990,41 @@
         },
         "text": "**WHEN**: Your Command phase. \n\n**TARGET**: One Death Guard model from your army. \n\n**EFFECT**: Your model regains up to D3 lost wounds. If your model’s unit is within Contagion Range of an Infected objective marker you control, your model regains up to 3 lost wounds instead."
       },
+      "Stratagem§Myphitic Invigoration": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Flyblown Host"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **Death Guard Infantry** unit from your army that is within 6\" of one or more friendly **Myphitic Blight‑hauler** units and that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of this unit, subtract 1 from the Wound roll."
+      },
+      "Stratagem§Nauseating Paroxysms": {
+        "keywords": {
+          "Keywords": [
+            "Flyblown Host"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN**: Start of the Fight phase.\n\n**TARGET**: One **Death Guard Infantry** unit from your army that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Select one enemy unit within Engagement Range of your unit. That unit must take a Battle‑shock test, subtracting 1 from the result."
+      },
       "Stratagem§Sanguous Flux": {
         "keywords": {
           "Keywords": [
@@ -8655,6 +9042,24 @@
           ]
         },
         "text": "**WHEN**: Fight phase. \n\n**TARGET**: One Death Guard unit from your army that has not been selected to fight this phase. \n\n**EFFECT**: Until the end of the phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. While your unit is within range of an Infected objective marker you control, those weapons have the [SUSTAINED HITS 2] ability instead."
+      },
+      "Stratagem§Vermin Cloud": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Flyblown Host"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One Death Guard Infantry unit from your\narmy that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a\nmodel in this unit makes a Pile‑in or Consolidation\nmove, it can move up to 6\" instead of up to 3\"."
       },
       "Unit§Blightlord Terminators": {
         "allowed": {
