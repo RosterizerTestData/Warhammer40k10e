@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Mechanicus",
-  "revision": "10.10.17",
+  "revision": "10.10.18",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2147,6 +2147,102 @@
         },
         "text": "At the start of your Command phase, select one objective marker. Until the start of your next Command phase, that objective marker is your Acquisition objective marker. Each time an Adeptus Mechanicus model from your army makes an attack, if that model’s unit is within range of your Acquisition objective marker, or if the target of that attack is within range of your Acquisition objective marker, re-roll a Wound roll of 1."
       },
+      "Detachment§Haloscreed Battle Clade": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Eradication Protocols"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Targeting Override"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Neural Overload"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Aggressive Impulse"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Guided Retreat"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Analytical Divination"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**Noospheric Transference**\n\nIn your Command phase, select one or more units from your army (including units that are embarked within Transports). The maximum number of units you can select depends on the battle size, as follows:\n\n|||\n|---|---|\n|INCURSION|1 UNITS|\n|STRIKE FORCE| 2 UNITS|\n|ONSLAUGHT|3 UNITS|\n\nUntil the start of your next Command phase, those units gain the Halo Override keyword. Then, select one of the Override abilities below. Until the start of your next Command phase, units from your army with the Halo Override keyword have the selected Override ability: Electromotive Energisation Add 2\" to the Move characteristic of models in this unit. Microactuator Bracing Add 1 to the Toughness characteristic of models in this unit. Predation Protocols This unit is eligible to declare a charge in a turn in which it Advanced. Muted Servomotors Models in this unit have the Stealth ability"
+      },
       "Detachment§Rad-Zone Corps": {
         "rules": {
           "assignStratagems": {
@@ -2699,6 +2795,41 @@
         },
         "text": "Skitarii model only. The bearer, and models in any unit they are leading, have the Infiltrators and Scouts 6″ abilities."
       },
+      "Enhancement§Cognitive Reinforcement": {
+        "keywords": {
+          "Keywords": [
+            "Haloscreed Battle Clade"
+          ]
+        },
+        "rules": {
+          "Excluding Cybernetica Datasmith models": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Cybernetica Datasmith"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "Adeptus Mechanicus model only (excluding Cybernetica Datasmith models). The Conqueror Imperative and Protector Imperative are both active for the bearer’s unit."
+      },
       "Enhancement§Data-blessed Autosermon": {
         "keywords": {
           "Keywords": [
@@ -2803,6 +2934,136 @@
           }
         },
         "text": "Tech-Priest model only. While the bearer is leading a unit that is within range of your Acquisition objective marker, models in that unit have a 4+ invulnerable save."
+      },
+      "Enhancement§Inloaded Lethality": {
+        "keywords": {
+          "Keywords": [
+            "Haloscreed Battle Clade"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Tech‑Priest Dominus or Tech‑Priest Manipulus model only.": {
+            "evals": [
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Dominus"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Manipulus"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Tech‑Priest Dominus or Tech‑Priest Manipulus model only. Add 3 to the Attacks characteristic of the bearer’s melee weapons and add 1 to the Damage characteristic of the bearer’s melee weapons."
       },
       "Enhancement§Logis": {
         "keywords": {
@@ -3053,6 +3314,19 @@
         },
         "text": "Adeptus Mechanicus model only. From the second battle round onwards, when resolving the Fallout effect of the Rad-bombardment Detachment rule, if the bearer is on the battlefield, roll one D6 for each enemy unit within 6″ of your opponent’s deployment zone, in addition to those that are within your opponent’s deployment zone."
       },
+      "Enhancement§Sanctified Ordnance": {
+        "keywords": {
+          "Keywords": [
+            "Haloscreed Battle Clade"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Adeptus Mechanicus model only. Add 6\" to the range characteristic of ranged weapons equipped by models in the bearer’s unit and, each time a Hazardous test is taken for that unit, you can re‑roll the result."
+      },
       "Enhancement§Temporcopia": {
         "keywords": {
           "Keywords": [
@@ -3106,6 +3380,41 @@
           }
         },
         "text": "Tech-Priest model only. The bearer’s unit has the Fights First ability."
+      },
+      "Enhancement§Transoracular Dyad Wafers": {
+        "keywords": {
+          "Keywords": [
+            "Haloscreed Battle Clade"
+          ]
+        },
+        "rules": {
+          "Cybernetica Datasmith model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Cybernetica Datasmith"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "Cybernetica Datasmith model only. When the bearer is attached to a Kastelan Robots unit, until the end of the battle, models in that unit have the Doctrina Imperatives ability and gain the Halo Override keyword. This unit cannot be selected when selecting units as part of the Noospheric Transference Detachment rule."
       },
       "Enhancement§Veiled Hunter": {
         "keywords": {
@@ -9594,6 +9903,14 @@
                     "trait": "Detachment§Skitarii Hunter Cohort"
                   }
                 ]
+              },
+              "Haloscreed Battle Clade": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Detachment§Haloscreed Battle Clade"
+                  }
+                ]
               }
             }
           },
@@ -9612,6 +9929,18 @@
           }
         }
       },
+      "Stratagem§Aggressive Impulse": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Adeptus Mechanicus",
+            "Haloscreed Battle Clade"
+          ]
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Skorpius Dunerider model from your army that has not been selected to move this phase.\n\n**EFFECT**: Until the end of the turn, each time an Adeptus Mechanicus unit disembarks from that model after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+      },
       "Stratagem§Aggressor Imperative": {
         "keywords": {
           "Keywords": [
@@ -9629,6 +9958,24 @@
           ]
         },
         "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Skitarii unit from your army that has not been selected to move this phase. If that unit is Battleline, you can also target one friendly Skitarii unit (excluding Battleline units) within 6″ of it.\n\n**EFFECT**: Until the end of the phase, each time one of those units Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6″ to the Move characteristic of models in that unit."
+      },
+      "Stratagem§Analytical Divination": {
+        "keywords": {
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Keywords": [
+            "Adeptus Mechanicus",
+            "Haloscreed Battle Clade"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n**TARGET**: One Adeptus Mechanicus Infantry unit (excluding Kataphron units) from your army that is within 9\" of that enemy unit and not within Engagement Range of one or more enemy units.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\", or up to 6\" instead if it is a Halo Override unit."
       },
       "Stratagem§Auto-divinatory Targeting": {
         "keywords": {
@@ -9817,6 +10164,26 @@
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One Cult Mechanicus unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a Cult Mechanicus model in your unit makes a melee attack, add 1 to the Wound roll."
       },
+      "Stratagem§Eradication Protocols": {
+        "keywords": {
+          "Keywords": [
+            "Adeptus Mechanicus",
+            "Haloscreed Battle Clade"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Adeptus Mechanicus unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, re‑roll a Wound roll of 1, and, if it is a Halo Override unit, re‑roll a Hit roll of 1."
+      },
       "Stratagem§Expedited Purge Protocol": {
         "keywords": {
           "Keywords": [
@@ -9852,6 +10219,24 @@
           ]
         },
         "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One Tech-Priest model from your army and one objective marker within 24″ of that model.\n\n**EFFECT**: Roll one D6 for each enemy unit within range of that objective marker. On a 4+, that unit suffers 1 mortal wound and it must take a Battle-shock test."
+      },
+      "Stratagem§Guided Retreat": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Adeptus Mechanicus",
+            "Haloscreed Battle Clade"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN**: Your Movement phase, just after an Adeptus Mechanicus unit from your army makes a Fall Back move.\n\n**TARGET**: That Adeptus Mechanicus unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back, and, if it is a Halo Override unit, you can re‑roll Desperate Escape tests taken for it."
       },
       "Stratagem§Incantation of the Iron Soul": {
         "keywords": {
@@ -10034,6 +10419,24 @@
         },
         "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One Adeptus Mechanicus Vehicle unit from your army.\n\n**EFFECT**: Until the start of your next Command phase, add 3″ to the Move characteristic of models in your unit and add 1 to Advance and Charge rolls made for it."
       },
+      "Stratagem§Neural Overload": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Adeptus Mechanicus",
+            "Haloscreed Battle Clade"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Adeptus Mechanicus unit from your army.\n\n**EFFECT**: If your unit is a Halo Override unit, it suffers D3 mortal wounds. Select one Override ability. Until the start of your next Command phase, that ability is active for your unit.\n\n**Designer’s Note**:This means that if the targeted unit already has the Halo Override keyword, it can be affected by multiple Override abilities at the same time, but suffers mortal wounds to do so. Alternatively, if your unit does not have the Halo Override keyword, it instead has the chosen Override ability until the start of your next Command phase, but does not benefit from any other Override abilities that are active."
+      },
       "Stratagem§Pre-calibrated Purge Solution": {
         "keywords": {
           "Keywords": [
@@ -10124,6 +10527,26 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Skitarii Infantry unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, your unit can only be selected as the target of a ranged attack if the attacking model is within 12″."
+      },
+      "Stratagem§Targeting Override": {
+        "keywords": {
+          "Keywords": [
+            "Adeptus Mechanicus",
+            "Haloscreed Battle Clade"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Adeptus Mechanicus unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Stratagem§Transcendent Cogitation": {
         "keywords": {
