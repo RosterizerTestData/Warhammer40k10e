@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.10.33",
+  "revision": "10.10.34",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -5055,6 +5055,102 @@
         },
         "text": "In your Command phase, select one enemy unit. Until the start of your next Command phase, each time an Noble, Lychguard or Triarch unit from your army makes an attack that targets that unit, add 1 to the Wound roll."
       },
+      "Detachment§Starshatter Arsenal": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Merciless Reclamation"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unyielding Forms"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Chronoshift"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Dimensional Tunnel"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Endless Servitude"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Reactive Reposition"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**RELENTLESS ONSLAUGHT**\n\nEach time a Necrons model from your army makes an attack that targets a unit within range of one or more objective markers, add 1 to the Hit roll. In addition, ranged weapons equipped by Necrons Vehicle and Necrons Mounted models (excluding Titanic models) from your army have the [ASSAULT] ability."
+      },
       "Enhancement§Arisen Tyrant": {
         "keywords": {
           "Keywords": [
@@ -5102,6 +5198,32 @@
           }
         },
         "text": "Cryptek model only. Each time your opponent gains a CP as the result of an ability, roll one D6: on a 2+, you also gain 1CP"
+      },
+      "Enhancement§Chrono-Impedance Fields": {
+        "keywords": {
+          "Keywords": [
+            "Starshatter Arsenal"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Necrons** model only. In your Command phase, select one friendly **Necrons Vehicle** or **Necrons Mounted** unit (excluding **Titanic** units) within 6\" of the bearer. Until the start of your next Command phase, each time an attack is allocated to a model in that unit, subtract 1 from the Damage characteristic of that attack."
+      },
+      "Enhancement§Demanding Leader": {
+        "keywords": {
+          "Keywords": [
+            "Starshatter Arsenal"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Necrons** model only. In your Movement phase, select one friendly **Necrons Vehicle** or **Necrons Mounted** unit (excluding **Titanic** units) within 6\" of the bearer. Until the start of your next Command phase, that unit is eligible to shoot in a turn in which it Fell Back."
       },
       "Enhancement§Dimensional Overseer": {
         "keywords": {
@@ -5173,6 +5295,73 @@
           }
         },
         "text": "Cryptek model only. Models in the bearer’s unit have the Infiltrators ability."
+      },
+      "Enhancement§Dread Majesty": {
+        "keywords": {
+          "Keywords": [
+            "Starshatter Arsenal"
+          ]
+        },
+        "rules": {
+          "Overlord or Catacomb Command Barge model only.": {
+            "evals": [
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Overlord"
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Catacomb Command Barge"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**Overlord** or **Catacomb Command Barge** model only. While a friendly **Necrons** unit (excluding **Titanic** units) is within 6\" of the bearer, each time a model in that unit makes an attack, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1."
       },
       "Enhancement§Eldritch Nightmare": {
         "keywords": {
@@ -5428,6 +5617,78 @@
           }
         },
         "text": "Cryptek model only. Once per phase, when an enemy unit selects the bearer’s unit as a target of a charge, roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds."
+      },
+      "Enhancement§Miniaturised Nebuloscope": {
+        "keywords": {
+          "Keywords": [
+            "Starshatter Arsenal"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Ignores Cover"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Necrons** model only. Ranged weapons equipped by models in the bearer’s unit have the **[IGNORES COVER]** ability"
       },
       "Enhancement§Nether Realm Casket": {
         "keywords": {
@@ -11944,9 +12205,16 @@
                     "trait": "Detachment§Obeisance Phalanx"
                   }
                 ]
+              },
+              "Starshatter Arsenal": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Detachment§Starshatter Arsenal"
+                  }
+                ]
               }
-            },
-            "value": "Awakened Dynasty"
+            }
           },
           "Faction": {
             "dynamic": false,
@@ -11980,6 +12248,24 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Movement phase, just after an enemy unit ends a Fall Back move.\n\n**TARGET**: One Destroyer Cult or Flayed Ones unit from your army that started the phase within Engagement Range of that enemy unit.\n\n**EFFECT**: Roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds. Your unit can then make a Normal move, but must end that move as close as possible to that enemy unit."
+      },
+      "Stratagem§Chronoshift": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Necrons",
+            "Starshatter Arsenal"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One **Necrons Vehicle** or **Necrons Mounted** unit (excluding **Titanic** units) from your army that has not been selected to move this phase.\n\n**EFFECT**: Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6\" to the Move characteristic of models in your unit."
       },
       "Stratagem§Cosmic Precision": {
         "keywords": {
@@ -12083,6 +12369,42 @@
         },
         "text": "**WHEN**: Your Charge phase.\n\n**TARGET**: One Necrons unit from your army that was set up on the battlefield this turn using the Eternity Gate ability of a Monolith model that started the turn on the battlefield.\n\n**EFFECT**: Your unit is eligible to charge this phase."
       },
+      "Stratagem§Dimensional Tunnel": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Necrons",
+            "Starshatter Arsenal"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One **Necrons Vehicle** or **Necrons Mounted** unit (excluding **Titanic** units) from your army.\n\n**EFFECT**: Until the end of the phase, models in your unit can move horizontally through models and terrain features."
+      },
+      "Stratagem§Endless Servitude": {
+        "keywords": {
+          "Keywords": [
+            "Necrons",
+            "Starshatter Arsenal"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN**: End of your Fight phase.\n\n**TARGET**: One **Necrons** unit (excluding **Titanic** units) from your army that is within range of one or more objective markers you control.\n\n**EFFECT**: Your unit’s Reanimation Protocols activate."
+      },
       "Stratagem§Enslaved Artifice": {
         "keywords": {
           "Keywords": [
@@ -12180,6 +12502,26 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Destroyer Cult or Flayed Ones unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll."
+      },
+      "Stratagem§Merciless Reclamation": {
+        "keywords": {
+          "Keywords": [
+            "Necrons",
+            "Starshatter Arsenal"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One **Necrons** unit (excluding **Titanic** units) from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, if the target of that attack is within range of one or more objective markers, add 1 to the Wound roll."
       },
       "Stratagem§Murderous Reanimation": {
         "keywords": {
@@ -12372,6 +12714,24 @@
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Necrons Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, models in your unit have a 4+ invulnerable save."
       },
+      "Stratagem§Reactive Reposition": {
+        "keywords": {
+          "Keywords": [
+            "Necrons",
+            "Starshatter Arsenal"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has shot.\n\n**TARGET**: One **Necrons** unit from your army (excluding **Titanic** units) that was the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\", or up to 6\" instead if it is a **Mounted** or **Vehicle** unit."
+      },
       "Stratagem§Reactive Subroutines": {
         "keywords": {
           "Category": [
@@ -12517,6 +12877,26 @@
         },
         "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Destroyer Cult or Flayed Ones unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model from your unit makes an attack that targets a unit below Starting Strength, add 1 to the Hit roll. If the target is Below Half-strength, add 1 to the Wound roll as well."
       },
+      "Stratagem§Unyielding Forms": {
+        "keywords": {
+          "Keywords": [
+            "Necrons",
+            "Starshatter Arsenal"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **Necrons Vehicle** or **Necrons Mounted** unit (excluding **Titanic** units) from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets a model in your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+      },
       "Stratagem§Your Time is Nigh": {
         "keywords": {
           "Keywords": [
@@ -12584,7 +12964,7 @@
             "value": 7
           },
           "M": {
-            "value": 9
+            "value": 10
           },
           "OC": {
             "value": 3
