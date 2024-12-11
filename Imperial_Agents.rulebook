@@ -1,6 +1,6 @@
 {
   "name": "Agents of the Imperium",
-  "revision": "10.10.6",
+  "revision": "10.10.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -47,6 +47,12 @@
           ]
         }
       },
+      "Ability§Decoy Targets": {
+        "text": "Callidus Assassin models only. Twice per battle, in your Movement phase, you can select one other friendly Infantry model that is on the battlefield and not within Engagement Range of one or more enemy units. The selected model is destroyed (ignoring any rules that are triggered when a model is destroyed) and this model is removed from the battlefield and set up again as close as possible to where that destroyed model was and not within Engagement Range of one or more enemy units. This ability cannot be used more than once in the same battle round."
+      },
+      "Ability§Esoteric Explosives": {
+        "text": "Culexus Assassin models only. Each time this model is targeted with the Grenades Stratagem, 1 mortal wound is inflicted for each D6 roll of 3+ instead of for each 4+."
+      },
       "Ability§Evade and Survive": {
         "keywords": {
           "Keywords": [
@@ -70,6 +76,12 @@
           ]
         },
         "text": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test."
+      },
+      "Ability§Intraneural Biotech": {
+        "text": "Eversor Assassin models only. Once per battle\nround, you can target this model with the Heroic Intervention or Counter‑offensive Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+      },
+      "Ability§Micromelta Rounds": {
+        "text": "Vindicare Assassin models only. This model’s exitus rifle has the [ANTI‑MONSTER 4+] and [ANTI‑VEHICLE 4+] abilities."
       },
       "Ability§Power of the Rosette": {
         "keywords": {
@@ -100,6 +112,262 @@
           "Keywords": [
             "Other"
           ]
+        }
+      },
+      "Character§Callidus Assassin": {
+        "rules": {
+          "extremisDetach": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 40
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Decoy Targets"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Veiled Blade Elimination Force"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        }
+      },
+      "Character§Culexus Assassin": {
+        "rules": {
+          "extremisDetach": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 40
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Esoteric Explosives"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Veiled Blade Elimination Force"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        }
+      },
+      "Character§Eversor Assassin": {
+        "rules": {
+          "extremisDetach": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 35
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Intraneural Biotech"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Veiled Blade Elimination Force"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        }
+      },
+      "Character§Vindicare Assassin": {
+        "rules": {
+          "extremisDetach": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 45
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Micromelta Rounds"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Ranged Weapon§Vindicare Assassin—Exitus Rifle",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "keyword": {
+                      "value": "vehicle"
+                    },
+                    "x": {
+                      "value": "4+"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Ranged Weapon§Vindicare Assassin—Exitus Rifle",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "keyword": {
+                      "value": "monster"
+                    },
+                    "x": {
+                      "value": "4+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Veiled Blade Elimination Force"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
         }
       },
       "Detachment§Alien Hunters": {
@@ -485,6 +753,105 @@
           }
         },
         "text": "**ROOT OUT HERESY**\n\nADEPTUS ARBITES, INQUISITOR, INQUISITORIAL AGENTS and ORDO HERETICUS models from your army have the [IGNORES COVER] ability. \n\nEach time an ADEPTUS ARBITES, INQUISITOR, INQUISITORIAL AGENTS or ORDO HERETICUS model from your army makes an attack that targets a CHAOS unit containing 5 or more models, that attack has the [SUSTAINED HITS 1] ability."
+      },
+      "Detachment§Veiled Blade Elimination Force": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Prime Target"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Orbital Oversight"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Hyperstimms"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Blind Grenades"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Will-Sapping Salvo"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Ensnaring Trap"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "EXTREMIS SANCTION\n\nOfficio Assassinorum units from your\narmy can use the Overkill, Soulless\nHorror and Shieldbreaker abilities twice\nper battle, instead of once per battle (but\ncannot use such an ability more than\nonce in the same battle round).\n\nWhen mustering your army, each\nOfficio Assassinorum unit from your\narmy has the relevant Extremis ability\nshown on the right, and you must\nincrease the points cost of each of those\nunits by the amount shown. If this causes\nyour army to exceed the points limit for\nthe battle you are playing, you cannot\ninclude that unit in your army."
       },
       "Enhancement§Amulet of Auto-chastisement": {
         "keywords": {
@@ -1346,6 +1713,14 @@
                     "trait": "Detachment§Imperialis Fleet"
                   }
                 ]
+              },
+              "Veiled Blade Elimination Force": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Detachment§Veiled Blade Elimination Force"
+                  }
+                ]
               }
             }
           },
@@ -1396,6 +1771,17 @@
           ]
         },
         "text": "WHEN: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One DEATHWATCH unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\nEFFECT: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
+      "Stratagem§Blind Grenades": {
+        "keywords": {
+          "Keywords": [
+            "Veiled Blade Elimination Force"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "WHEN: Your opponent’s Charge phase, just after an\nenemy unit has declared a charge.\n\nTARGET: One Agents of the Imperium Grenades\nor Vindicare Assassin unit from your army that\nwas selected as one of the targets of that charge\nand is not within Engagement Range of one or more\nenemy units.\n\nEFFECT: Until the end of the phase, subtract 1 from\nCharge rolls made for that enemy unit, or, if your unit\nis a Vindicare Assassin, subtract 2 from Charge rolls\nmade for that enemy unit instead."
       },
       "Stratagem§Close-quarters Barrage": {
         "keywords": {
@@ -1488,6 +1874,17 @@
         },
         "text": "WHEN: Your Movement phase.\n\nTARGET: One AGENTS OF THE IMPERIUM unit from your army.\n\nEFFECT: Until the end of the phase, your unit is\neligible to shoot in a turn in which it Advanced or Fell Back."
       },
+      "Stratagem§Ensnaring Trap": {
+        "keywords": {
+          "Keywords": [
+            "Veiled Blade Elimination Force"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "WHEN: End of your opponent’s Charge phase.\n\nTARGET: One Agents of the Imperium Infantry\nunit from your army that is within 6\" of one or more\nenemy units and would be eligible to declare a\ncharge against one or more of those enemy units.\n\nEFFECT: Your unit can declare a charge. When doing\nso, you must select one or more of those enemy\nunits as the targets of that charge, and your unit does\nnot receive a Charge bonus this turn. In addition, if it\nis a Callidus Assassin unit and it makes a Charge\nmove as a result of this Stratagem, until the end of\nthe turn, each time a model in your unit makes a\nmelee attack, add 1 to the Wound roll."
+      },
       "Stratagem§Exact Punishment": {
         "keywords": {
           "Keywords": [
@@ -1565,6 +1962,17 @@
         },
         "text": "WHEN: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One ORDO MALLEUS unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\nEFFECT: Until the end of the phase, all Psychic\nweapons equipped by models in the attacking unit have the [HAZARDOUS] ability."
       },
+      "Stratagem§Hyperstimms": {
+        "keywords": {
+          "Keywords": [
+            "Veiled Blade Elimination Force"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "WHEN: Your opponent’s Shooting phase or the\nFight phase, just after an enemy unit has selected\nits targets.\n\nTARGET: One Agents of the Imperium Character\nunit from your army that was selected as the target\nof one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, add 1 to the\nToughness characteristic of models in your unit. In\naddition, if it is an Eversor Assassin unit, until the\nend of the phase, it has the Feel No Pain 4+ ability."
+      },
       "Stratagem§Inviolate Jurisdiction": {
         "keywords": {
           "Keywords": [
@@ -1638,6 +2046,28 @@
           ]
         },
         "text": "WHEN: Your Movement phase.\n\nTARGET: One VOIDFARERS CHARACTER unit from your army.\n\nEFFECT: Until the end of the phase, each AGENTS OF THE IMPERIUM unit from your army that is arriving from Strategic Reserves this turn can be set up within your opponent's deployment zone (all other restrictions still apply)."
+      },
+      "Stratagem§Orbital Oversight": {
+        "keywords": {
+          "Keywords": [
+            "Veiled Blade Elimination Force"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "WHEN: Your opponent’s Shooting phase, just after an\nenemy unit has selected its targets.\n\nTARGET: One Agents of the Imperium Infantry unit\nfrom your army that was selected as the target of\none or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, your unit can\nonly be selected as the target of a ranged attack if\nthe attacking model is within 18\", or, if your unit has\nthe Lone Operative ability, if the attacking model is\nwithin 6\"."
+      },
+      "Stratagem§Prime Target": {
+        "keywords": {
+          "Keywords": [
+            "Veiled Blade Elimination Force"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "WHEN: Your Shooting phase or the Fight phase.\n\nTARGET: One Agents of the Imperium unit from your\narmy that has not been selected to shoot or fight\nthis phase.\n\nEFFECT: Until the end of the phase, each time a\nmodel in your unit makes an attack that targets\na Character unit, re‑roll a Wound roll of 1. If that\nattack is made by an Officio Assassinorum model\nand it targets the enemy Warlord, you can re‑roll\nthe Wound roll instead."
       },
       "Stratagem§Psybolt Ammunition": {
         "keywords": {
@@ -1817,6 +2247,17 @@
           }
         },
         "text": "WHEN: Your Shooting phase or the Fight phase.\n\nTARGET: One AGENTS OF THE IMPERIUM unit from your army.\n\nEFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of an objective marker, that attack has the [SUSTAINED HITS 1], [LANCE] and [IGNORES COVER] abilities."
+      },
+      "Stratagem§Will-Sapping Salvo": {
+        "keywords": {
+          "Keywords": [
+            "Veiled Blade Elimination Force"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "WHEN: Your Shooting phase.\n\nTARGET: One Agents of the Imperium Infantry unit\nfrom your army that has not been selected to shoot\nthis phase.\n\nEFFECT: Until the end of the phase, ranged\nweapons equipped by models in your unit have\nthe [SUSTAINED HITS 1] ability. In addition, if it\nis a Culexus Assassin unit, until the end of the\nphase, change the Damage characteristic of ranged\nweapons equipped by models in your unit to 3."
       }
     },
     "gameModes": {},
