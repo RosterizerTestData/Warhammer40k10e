@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.10.32",
+  "revision": "10.10.33",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -659,6 +659,83 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "nosolarWalkerStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Solar Spearhead Character Walker",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Solar Spearhead Character Walker",
+                    "ranks"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Solar Spearhead"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 220
+          },
           "notAllowCustodesBattleScars": {
             "actions": [
               {
@@ -716,6 +793,216 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "solarBuff": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Solar Spearhead"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "solarCharacter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "characterwalker"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          },
+          "solarWalkerStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Solar Spearhead Character Walker",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Custodes"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Solar Spearhead"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          }
+        },
+        "stats": {
+          "Solar Spearhead Character Walker": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "characterwalker": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
           }
         }
       }
@@ -997,7 +1284,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle, after this unit ends an Advance move, you can select one enemy unit (excluding Monster and Vehicle units) that it moved over during that move, then roll one D6 for each model in this unit: for each 2+, that enemy unit suffers 2 mortal wounds."
+        "text": "Once per battle, after this unit ends a Normal or Advance move, you can select one enemy unit (excluding Monster and Vehicle units) that it moved over during that move, then roll one D6 for each model in this unit: for each 2+, that enemy unit suffers 2 mortal wounds."
       },
       "Ability§Resolute Will": {
         "keywords": {
@@ -1885,7 +2172,7 @@
             "value": 2
           },
           "Points": {
-            "value": 140
+            "value": 160
           },
           "Ranged Options": {
             "dynamic": true,
@@ -1917,10 +2204,10 @@
             "value": 2
           },
           "T": {
-            "value": 6
+            "value": 7
           },
           "W": {
-            "value": 7
+            "value": 8
           }
         }
       },
@@ -2499,6 +2786,102 @@
         },
         "text": "**Martial Mastery**\n\nAt the start of the battle round, you can select one of the bullet points below. If you do, until the start of the next battle round, that bullet point’s effects apply.\n\n\n*  Each time an **Adeptus Custodes** model from your army with the Martial Ka’tah ability makes a melee attack, a succesful unmodified Hit roll of 5+ scores a Critical Hit.\n\n*  Improve the Armour Penetration characteristic of melee weapons equipped by **Adeptus Custodes** models from your army with the Martial Ka’tah ability by 1."
       },
+      "Detachment§Solar Spearhead": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Flawless Construction"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unstoppable"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Emperor's Vengeance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Relentless Persecution"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Wrathful Advance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Punishment Inescapable"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "AURIC ARMOUR\n\n■ While an Adeptus Custodes Vehicle\nunit from your army is at Starting\nStrength, unless that unit is an\nAircraft or it is Battle‑shocked, add 2\nto the Objective Control characteristic\nof models in that unit.\n\n■ While an Adeptus Custodes Vehicle\nunit from your army is below Starting\nStrength, each time a model in that\nunit makes an attack, re‑roll a Hit roll\nof 1.\n\n■ While an Adeptus Custodes Vehicle\nunit from your army is Below\nHalf‑strength, each time a model in\nthat unit makes an attack, re‑roll a Hit\nroll of 1 and re‑roll a Wound roll of 1.\n\nMORITOI ANCIENTS\n\nAdd 2\" to the Move characteristic of\nmodels in Adeptus Custodes Walker units\nfrom your army and add 1 to Advance\nand Charge rolls made for such units.\n\nKEYWORDS\n\nIn the Muster Armies step, you can select\nup to 2 Adeptus Custodes Walker models\nfrom your army. The selected units gain\nthe Character keyword.\n[Designer’s Note: This means that\nthe selected models can be given\nEnhancements and one of them can be\nselected as your Warlord.]"
+      },
       "Detachment§Talons of the Emperor": {
         "rules": {
           "assignStratagems": {
@@ -2596,6 +2979,112 @@
         "text": "**REVERED COMPANIONS**\n\n- ANATHEMA PSYKANA units from your army\ngain the following the ability:\n\n**Null Aegis (Aura):**\n\nWhile an ADEPTUS CUSTODES unit is within 6″ of this unit, models in that unit have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.\n\n- All other ADEPTUS CUSTODES units from\nyour army gain the following ability:\n\n**Deadly Unity (Aura):**\n\nWhile an ANATHEMA PSYKANA unit is within 6″ of this unit, each time a model in that ANATHEMA PSYKANA unit makes an attack, add 1 to the Hit roll."
       },
       "Endeavour§Endeavour": {},
+      "Enhancement§Adamantine Talisman": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Adeptus Custodes model only. Improve the Attacks,\nStrength and Damage characteristics of melee\nweapons equipped by the bearer by 1."
+      },
       "Enhancement§Aegis Projector": {
         "keywords": {
           "Keywords": [
@@ -2608,6 +3097,47 @@
           }
         },
         "text": "ADEPTUS CUSTODES model only. Once per turn, the first time a saving throw is failed for the bearer’s unit, change the Damage characteristic of that attack to 0."
+      },
+      "Enhancement§Augury Uplink": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Adeptus Custodes model only. The bearer has the\nFeel No Pain 5+ ability."
       },
       "Enhancement§Auric Mantle": {
         "keywords": {
@@ -2884,6 +3414,19 @@
           }
         },
         "text": "**ADEPTUS CUSTODES** model only. Each time the bearer makes a melee attack, add 1 to the Wound roll."
+      },
+      "Enhancement§Honoured Fallen (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Adeptus Custodes Vehicle model only. While a\nfriendly Adeptus Custodes Infantry or Adeptus\nCustodes Mounted unit is within 6\" of the bearer, each\ntime a model in that unit makes an attack, re‑roll a\nHit roll of 1."
       },
       "Enhancement§Huntress’ Eye": {
         "keywords": {
@@ -3242,6 +3785,19 @@
           }
         },
         "text": "**Adeptus Custodes** model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any Command phase, triple the bearer’s Objective Control characteristic until the end of the turn."
+      },
+      "Enhancement§Veteran of the Kataphraktoi": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Adeptus Custodes Infantry or Adeptus Custodes\nMounted model only. In your Movement phase, select\none Adeptus Custodes Vehicle or Adeptus Custodes\nMounted unit within 6\" of the bearer. Until the start\nof your next Command phase, that unit is eligible to\nshoot in a turn in which it Fell Back."
       },
       "Magisterium Lex Ultima§Endeavour": {
         "stats": {
@@ -5298,10 +5854,10 @@
             "value": 2
           },
           "T": {
-            "value": 6
+            "value": 7
           },
           "W": {
-            "value": 4
+            "value": 5
           }
         }
       },
@@ -7401,24 +7957,30 @@
         "aspects": {
           "Label": "Salvo launcher"
         },
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked"
+          ]
+        },
         "stats": {
           "A": {
             "value": 1
           },
           "AP": {
-            "value": -2
+            "value": -3
           },
           "BS": {
             "value": 2
           },
           "D": {
-            "value": 3
+            "statType": "term",
+            "value": "D6+1"
           },
           "Range": {
             "value": 24
           },
           "S": {
-            "value": 9
+            "value": 10
           }
         }
       },
@@ -7444,13 +8006,13 @@
             "value": 3
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "value": 2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "value": 18
@@ -7569,6 +8131,25 @@
       },
       "Roster§Roster": {
         "rules": {
+          "Only 2 Character Walkers for Solar": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "characterwalker"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "Your Crusade force can only have one Artefact of the Vaults at any time.": {
             "evals": [
               {
@@ -7621,6 +8202,14 @@
                 "traits": [
                   {
                     "trait": "Detachment§Null Maiden Vigil"
+                  }
+                ]
+              },
+              "Solar Spearhead": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Detachment§Solar Spearhead"
                   }
                 ]
               }
@@ -7806,6 +8395,17 @@
         },
         "text": "**WHEN**: Start of the Fight phase.\n\n**TARGET**: Up to two **ADEPTUS CUSTODES** units from your army.\n\n**EFFECT:** Until the end of the phase, each time a model in one of your units targets an enemy unit that is below its Starting Strength, add 1 to the Wound roll.\n\n**RESTRICTIONS**: You can only select two units if one (and only one) of them is an **ANATHEMA PSYKANA** unit and both are within 6″ of each other."
       },
+      "Stratagem§Emperor's Vengeance": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "WHEN: Fight phase, just after an enemy unit has\nselected its targets.\n\nTARGET: One Adeptus Custodes unit from your army\nthat was selected as the target of one or more of the\nattacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time a\nmodel in your unit is destroyed, if that model has not\nfought this phase, roll one D6, adding 1 to the result\nif your unit has the Walker keyword. On a 4+, do\nnot remove it from play; The destroyed model can\nfight after the attacking unit has finished making\nits attacks (when doing so, it is assumed to have 1\nwound remaining), and is then removed from play."
+      },
       "Stratagem§Empyric Severance": {
         "keywords": {
           "Category": [
@@ -7825,6 +8425,17 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **ADEPTUS CUSTODES** unit from your army that was selected as the target of one or more of the attacking unit’s attacks, and one friendly **ANATHEMA PSYKANA** unit within 6″ of that **ADEPTUS CUSTODES** unit.\n\n**EFFECT**: Until the end of the phase, your unit has the Feel No Pain 4+ ability against Psychic attacks and mortal wounds."
+      },
+      "Stratagem§Flawless Construction": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Solar Spearhead"
+          ]
+        },
+        "text": "WHEN: Your opponent’s Shooting phase or the\nFight phase, just after an enemy unit has selected\nits targets.\n\nTARGET: One Adeptus Custodes Vehicle unit from\nyour army that was selected as the target of one or\nmore of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time an\nattack targets a model in your unit, if the Strength\ncharacteristic of that attack is greater than the\nToughness characteristic of your unit, subtract 1\nfrom the Wound roll."
       },
       "Stratagem§Hunt as One": {
         "keywords": {
@@ -7898,6 +8509,17 @@
         },
         "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One ANATHEMA PSYKANA INFANTRY unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, your unit has the Stealth ability, and Battle-shocked and PSYKER models can only select your unit as a target of a ranged attack if they are within 12″."
       },
+      "Stratagem§Punishment Inescapable": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "WHEN: Your Shooting phase.\n\nTARGET: One Adeptus Custodes unit from your army\nthat has not been selected to shoot this phase.\n\nEFFECT: Until the end of the phase, ranged\nweapons equipped by models in your unit have the\n[IGNORES COVER] ability, and until the end of the\nphase, each time a model in your unit makes an\nattack, you can ignore any or all modifiers to that\nattack’s Ballistic Skill characteristic and/or any or all\nmodifiers to the Hit roll."
+      },
       "Stratagem§Purgation Sweep": {
         "keywords": {
           "Category": [
@@ -7915,6 +8537,17 @@
           ]
         },
         "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One WITCHSEEKERS unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, add 1 to the Attacks characteristic of Torrent weapons equipped by models in your unit. If such a weapon targets a PSYKER or Battle-shocked unit this phase, add 2 to its Attacks characteristic instead."
+      },
+      "Stratagem§Relentless Persecution": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "WHEN: Your Movement phase, just after an Adeptus\nCustodes Vehicle unit from your army Advances.\n\nTARGET: That Adeptus Custodes Vehicle unit.\n\nEFFECT: Until the end of the turn, your unit is eligible\nto shoot in a turn in which it Advanced. If your unit\nhas the Walker keyword, until the end of the turn,\nyour unit is eligible to shoot and declare a charge in a\nturn in which it Advanced instead."
       },
       "Stratagem§Shield of Honour": {
         "keywords": {
@@ -8050,6 +8683,17 @@
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **ADEPTUS CUSTODES CHARACTER** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, **CHARACTER** models in your unit have the Feel No Pain 4+ ability."
       },
+      "Stratagem§Unstoppable": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Solar Spearhead"
+          ]
+        },
+        "text": "WHEN: Start of your Movement phase.\n\nTARGET: One Adeptus Custodes Vehicle or Adeptus\nCustodes Mounted unit from your army.\n\nEFFECT: Until the end of the phase, models in your\nunit can move horizontally through models and\nterrain features."
+      },
       "Stratagem§Unwavering Sentinels": {
         "keywords": {
           "Keywords": [
@@ -8133,6 +8777,17 @@
           ]
         },
         "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One ANATHEMA PSYKANA unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability, but models in your unit can only target PSYKER units with their attacks."
+      },
+      "Stratagem§Wrathful Advance": {
+        "keywords": {
+          "Keywords": [
+            "Solar Spearhead"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "WHEN: Fight phase, just before an Adeptus\nCustodes unit from your army Piles In.\n\nTARGET: That Adeptus Custodes unit.\n\nEFFECT: Until the end of the phase, each time a\nmodel in your unit makes a Pile‑in move, it can move\nup to D3+3\" instead of up to 3\"."
       },
       "Unit§Agamatus Custodians": {
         "allowed": {
@@ -10456,7 +11111,7 @@
             "value": 2
           },
           "model2ndCost": {
-            "value": 210
+            "value": 225
           },
           "model2ndTally": {
             "value": 3
@@ -10475,7 +11130,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 140
+            "value": 150
           },
           "Vertus Praetor": {
             "max": 3,
