@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.10.58",
+  "revision": "10.10.59",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "YJEHQK",
+      "slug": "5CWN5D",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -6381,6 +6381,105 @@
         },
         "text": "**DESPERATE DEVOTION**\n\nEach time a DAMNED unit from your army with the Dark Pacts ability is selected to make a Normal or Advance move or declare a charge (excluding units that arrived from Reserves this turn), it can make a Desperate Pact (see below), If it does, until the end of the phase, add 2″ to the Move characteristic of models in that unit and add 2 to Charge rolls made for that unit.\n\n**Desperate Pacts**\n\nEach time a unit makes a Desperate Pact, it must first take a Leadership test; if that test is failed, that unit suffers D3 mortal wounds before any effects of that Desperate Pact are resolved.\n\n**Keywords**\n\nTRAITOR GUARDSMEN SQUAD units from your army gain the BATTLELINE keyword."
       },
+      "Detachment§Creations of Bile": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagem": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Monstrous Visages"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Delayed Mutations"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Masters are Watching"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Diabolic Regeneration"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Specimens for the Spider"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Autostimulants"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**EXPERIMENTAL AUGMENTATIONS**\n\nAt the start of the battle, select which augmentations are active for **Heretic Astartes Infantry** models (excluding **Damned** models) from your army until the end of the battle. To do so, either select one from the list below, or randomly determine two by rolling two D6. If **Fabius Bile** is your Warlord, when randomly determining your augmentations, you can re‑roll one or both of the dice. Duplicated augmentations have no additional effect.\n\n**[Roll of 1] Cholinergic Accelerants**: Add 1 to the Attacks characteristic of melee weapons equipped by this model.\n\n**[Roll of 2] Hyperadrenal Infusion**: Add 2\" to the Move characteristic of this model.\n\n**[Roll of 3] Paraneural Reactions**: Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1.\n\n**[Roll of 4] Supracutaneous Chitination**: Improve the Toughness characteristic of this model by 1.\n\n**[Roll of 5] Macrotensile Sinews**: Add 1 to the Strength characteristic of melee weapons equipped by this model.\n\n**[Roll of 6] Ophthalmic Enhancement**: Improve the Ballistic Skill characteristic of ranged weapons equipped by this model by 1."
+      },
       "Detachment§Deceptors": {
         "rules": {
           "assignStratagems": {
@@ -7559,6 +7658,41 @@
         },
         "text": "HERETIC ASTARTES model only. In your Command Phase, select one friendly HERETIC ASTARTES VEHICLE unit within 12″ of the bearer. Until the start of your next Command phase, that unit has the Feel No Pain 6+ ability."
       },
+      "Enhancement§Helm of All-Seeing": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ]
+        },
+        "rules": {
+          "Heretic Astartes Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Heretic Astartes Infantry** model (excluding **Damned** models) only. Enemy units that are set up on the battlefield from Reserves cannot be set up within 12\" of the bearer."
+      },
       "Enhancement§Incendiary Goad": {
         "keywords": {
           "Keywords": [
@@ -7886,6 +8020,41 @@
         },
         "text": "HERETIC ASTARTES model only. Each time the bearer makes an attack while within range of an objective marker, add 1 to the Wound roll."
       },
+      "Enhancement§Living Carapace": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ]
+        },
+        "rules": {
+          "Chaos Lord model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaos Lord"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Chaos Lord model only**. Add 1 to the bearer’s Wounds characteristic and the bearer has the Feel No Pain 5+ ability."
+      },
       "Enhancement§Mark of Legend": {
         "keywords": {
           "Keywords": [
@@ -8056,6 +8225,77 @@
         },
         "text": "Heretic Astartes Nurgle model only. At the end of the Fight phase, roll one D6 for every enemy unit within 3″ of the bearer, adding 1 to the result if the bearer’s unit made a Dark Pact that phase and did not fail the resulting Leadership test: on a 4+, that enemy unit suffers D3 mortal wounds."
       },
+      "Enhancement§Prime Test Subject": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Heretic Astartes Infantry model (excluding Damned models) only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "**Heretic Astartes Infantry** model (excluding **Damned** models) only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer. Each time the bearer makes a melee attack, you can re‑roll the Hit roll."
+      },
       "Enhancement§Shroud of Obfuscation": {
         "keywords": {
           "Keywords": [
@@ -8168,6 +8408,73 @@
           }
         },
         "text": "HERETIC ASTARTES INFANTRY model only. At the start of your Command phase, you can select one other HERETIC ASTARTES INFANTRY CHARACTER model from your army (excluding EPIC HEROES). Until the start of your next Command phase, the bearer gains the Psyker keyword and replace the bearer’s datasheet abilities with the datasheet abilities of the CHARACTER you selected."
+      },
+      "Enhancement§Surgical Precision": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Precision"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Heretic Astartes model (excluding Damned models) only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Heretic Astartes** model (excluding **Damned** models) only. The bearer’s melee weapons have the\n**[PRECISION]** ability."
       },
       "Enhancement§Talisman of Burning Blood": {
         "keywords": {
@@ -30216,6 +30523,14 @@
                     "trait": "Detachment§Pactbound Zealots"
                   }
                 ]
+              },
+              "Creations of Bile": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Detachment§Creations of Bile"
+                  }
+                ]
               }
             }
           },
@@ -30241,6 +30556,23 @@
             "visibility": "hidden"
           }
         }
+      },
+      "Stratagem§Autostimulants": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "text": "**WHEN**: Start of your Charge phase.\n\n**TARGET**: One **Heretic Astartes Infantry** unit from your army.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Advanced."
       },
       "Stratagem§Black Crusade": {
         "keywords": {
@@ -30407,6 +30739,28 @@
         },
         "text": "WHEN: Your Command phase.\n\nTARGET: One HERETIC ASTARTES VEHICLE unit from your army (excluding DAEMON units).\n\nEFFECT: Until the end of the battle, your unit has the DAEMON keyword."
       },
+      "Stratagem§Delayed Mutations": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One **Heretic Astartes Infantry** unit (excluding **Damned** units) from your army.\n\n**EFFECT**: Your unit suffers D3 mortal wounds. Then select one augmentation (see Experimental Augmentations). Until the start of your next Command phase, models in your unit have the selected augmentation in addition to any other augmentations they have."
+      },
       "Stratagem§Depthless Cruelty": {
         "keywords": {
           "Category": [
@@ -30461,6 +30815,23 @@
           ]
         },
         "text": "WHEN: Any phase, just after an enemy model ASTARTES unitF from your army Falls Back with the Deadly Demise ability (excluding Titanic\nmodels) is destroyed.\n\nTARGET: One HERETIC ASTARTES CHARACTER unit from your army that was within 18″ of that enemy model when it was destroyed.\n\nEFFECT: Your opponent does not roll to determine whether mortal wounds are inflicted by their model’s Deadly Demise ability. Instead, mortal wounds are automatically inflicted {if that ability inflicts a random number of mortal wounds, your opponent rolls to determine that number as normal)."
+      },
+      "Stratagem§Diabolic Regeneration": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One **Heretic Astartes Infantry** unit (excluding **Damned** units) from your army.\n\n**EFFECT**: One destroyed model (excluding **Character** models) is returned to your unit. If your unit is a **Battleline** unit, D3 destroyed models (excluding **Character** models) are returned to your unit instead."
       },
       "Stratagem§Endless Ire": {
         "keywords": {
@@ -30629,6 +31000,23 @@
         },
         "text": "WHEN: Your Shooting phase.\n\nTARGET: One HERETIC ASTARTES unit from your army (excluding TZEENTCH units) that has not been selected to shoot this phase.\n\nEFFECT: Until the end of the phase, ranged\nweapons equipped by models in your unit have the [IGNORES COVER] ability, and change the Attacks characteristic of Torrent weapons equipped by\nmodels in your unit to 6."
       },
+      "Stratagem§Masters are Watching": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Any"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN**: Fight phase, just after an enemy unit has\nselected its targets.\n\n**TARGET**: One **Heretic Astartes Infantry** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, subtracting 1 from the result if it is a Damned unit: on a 4+, do not remove it from play. That destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.v"
+      },
       "Stratagem§Merciless Pursuit": {
         "keywords": {
           "Category": [
@@ -30662,6 +31050,25 @@
           ]
         },
         "text": "WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall back move.\n\n\nTARGET: One Heretic Astartes Infantry or Heretic\nAstartes Mounted unit from your army (excluding DAMNED units) that is within 9″ of that enemy unit and not within Engagement Range of one or more enemy units:\n\nEFFECT: Your unit can make a Normal move of up to 6”."
+      },
+      "Stratagem§Monstrous Visages": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Creations of Bile"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **Heretic Astartes Infantry** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll."
       },
       "Stratagem§Mortal Thralls": {
         "keywords": {
@@ -31009,6 +31416,28 @@
           ]
         },
         "text": "WHEN: Your Command phase. \n\nTARGET: One Heretic Astartes unit from your army. \n\nEFFECT: One model in your unit regains up to 3 lost wounds. In addition, if your unit is a Tzeentch unit below its Starting Strength, one destroyed model (excluding Character models) is returned to your unit with its full wounds remaining."
+      },
+      "Stratagem§Specimens for the Spider": {
+        "keywords": {
+          "Keywords": [
+            "Creations of Bile"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Any"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One **Heretic Astartes Infantry** unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a melee attack that targets a **Character** unit, you can re‑roll the Wound roll. After your unit has fought, if one or more enemy\n**Character** models were destroyed as a result of those attacks, select one enemy unit within 6\" of your unit. That enemy unit must take a Battle‑shock test. If the enemy Warlord was destroyed as a result of those attacks, each enemy unit within 6\" of\nyour unit must take a Battle‑shock test instead."
       },
       "Stratagem§Steadfast Determination": {
         "keywords": {
