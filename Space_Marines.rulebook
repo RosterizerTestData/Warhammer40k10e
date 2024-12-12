@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.10.54",
+  "revision": "10.10.55",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2536,7 +2536,7 @@
             "Other"
           ]
         },
-        "text": "After both players have deployed their armies,  if your army includes one or more models with this ability, you can select up to three friendly Adeptus Astartes Phobos, Adeptus Astartes Scout Squad or Adeptus Astartes Scout Sniper Squad units and redeploy all of those units. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+        "text": "After both players have deployed their armies, if your army includes one or more models with this ability, you can select up to three friendly Adeptus Astartes Infantry units and redeploy all of those units. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves."
       },
       "Ability§Master of Prescience (psychic)": {
         "keywords": {
@@ -2781,7 +2781,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP."
+        "text": ""
       },
       "Ability§Rites of Tempering": {
         "keywords": {
@@ -8409,6 +8409,55 @@
             "Character"
           ]
         },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Captain"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Chapter Master"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -8497,7 +8546,7 @@
             "value": 4
           },
           "W": {
-            "value": 4
+            "value": 5
           }
         }
       },
@@ -28160,6 +28209,11 @@
             "Ranged Weapon§Company Heroes—Bolt Pistol",
             "Ranged Weapon§Company Heroes—Bolt Rifle",
             "Melee Weapon§Company Heroes—Close combat weapon"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Ancient"
           ]
         },
         "stats": {
