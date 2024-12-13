@@ -1,6 +1,6 @@
 {
   "name": "Imperial Knights",
-  "revision": "10.10.4",
+  "revision": "10.10.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -451,12 +451,73 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "QuestorDetachAllies2": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Adeptus Mechanicus"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Questor Forgepact"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
           }
         },
         "stats": {
           "Allied faction 1": {
             "ranks": {
               "Adeptus Mechanicus": {
+                "order": 0
+              },
+              "-": {
+                "order": 1
+              },
+              "Imperial Knights": {
+                "order": 2
+              },
+              "Agents of the Imperium": {
+                "order": 3
+              },
+              "Adeptus Titanicus": {
                 "order": 4
               }
             }
