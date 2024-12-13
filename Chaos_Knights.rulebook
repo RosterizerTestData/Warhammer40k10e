@@ -1,6 +1,6 @@
 {
   "name": "Chaos Knights",
-  "revision": "10.10.6",
+  "revision": "10.10.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "YJEHQK",
+      "slug": "5CWN5D",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -392,6 +392,55 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "IconoclastDetachAllies2": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Iconoclast Fiefdom"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
           }
         },
         "stats": {
