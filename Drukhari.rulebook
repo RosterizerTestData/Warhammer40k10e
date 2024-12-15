@@ -1,6 +1,6 @@
 {
   "name": "Drukhari",
-  "revision": "10.10.3",
+  "revision": "10.10.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "A22XTK",
+      "slug": "F4YM84",
       "name": "Aeldari/Drukari common",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.rulebook"
@@ -18,7 +18,114 @@
   "rulebook": {
     "assetTaxonomy": {
       "Character": {
+        "removed": {
+          "rules": {
+            "noAllyEnhancements": {},
+            "detachmentEnhancements": {}
+          }
+        },
         "rules": {
+          "allyDetachmentEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Drukhari"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Aeldari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
+          "noAllyReaperEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Drukhari"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Aeldari"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Your Warlord cannot be Harlequins or Anhrathe.": {
             "evals": [
               {
@@ -226,6 +333,107 @@
         },
         "text": "At the start of the battle, you gain an additional 1 Pain token for each of the following your army contains:\n- One or more Archon models\n- One or more Succubus models\n- One or more Haemonculus models"
       },
+      "Detachment§Reaper's Wager": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Malicious Frenzy"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Shorten the Odds"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Fateful Role"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Scintillating Tempo"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Murderer's Circus"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Dance Macabre"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "CALLOUS COMPETITION\n\nAt the start of the battle, **Drukhari** units\nfrom your army are winning the wager.\n\nEach time a **Drukhari** unit from your\narmy destroys an enemy unit, **Drukhari**\nunits from your army are winning\nthe wager.\n\nEach time a **Harlequins** unit from your\narmy destroys an enemy unit, **Harlequin**\nunits from your army are winning\nthe wager.\n\nWhile **Drukhari** units from your army\nare winning the wager, **Harlequin** units\nfrom your army are losing the wager, and\nvice versa.\n\nEach time a **Drukhari** or **Harlequins**\nmodel from your army makes an attack,\nif that model’s unit is losing the wager,\nre‑roll a Hit roll of 1 and re‑roll a Wound\nroll of 1.\n\n**HARLEQUINS**\n\nYou can include **Harlequins** units in your\narmy (see *Index: Aeldari*). The combined\npoints cost of such units depends on your\nbattle size:\n\n■ Incursion: Up to 500 pts\n\n■ Strike Force: Up to 1000 pts\n\n■ Onslaught: Up to 1500 pts\n\nNo **Harlequins** models from your army\ncan be your Warlord."
+      },
       "Detachment§Skysplinter Assault": {
         "rules": {
           "assignStratagems": {
@@ -322,6 +530,55 @@
         },
         "text": "Each time a Drukhari unit from your army disembarks from a Transport, until the end of the turn, that unit’s ranged weapons have the [IGNORES COVER] ability and that unit’s melee weapons have the [LANCE] ability"
       },
+      "Enhancement§Archraider": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ]
+        },
+        "rules": {
+          "Harlequins or Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Harlequins"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Harlequins** or **Drukhari** model only. In the Declare\nBattle Formations step, if the bearer starts the battle\nembarked within a **Dedicated Transport**, that\n**Dedicated Transport** has the Scouts 9\" ability."
+      },
       "Enhancement§Blood Dancer": {
         "keywords": {
           "Keywords": [
@@ -415,6 +672,41 @@
         },
         "text": "Succubus model only. Improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 1. While the bearer is Empowered, Improve the Attacks and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead."
       },
+      "Enhancement§Conductor of Torment": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ]
+        },
+        "rules": {
+          "Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Drukhari** model only. In your Command phase, you\ncan do one of the following:\n\n■ If your **Drukhari** units are currently losing the\nwager, you can gain 1 Pain token. If you do,\n**Drukhari** units from your army are now winning\nthe wager.\n\n■ If your **Drukhari** units are currently winning the\nwager, you can discard 1 Pain token. If you do,\n**Harlequins** units from your army are now winning\nthe wager."
+      },
       "Enhancement§Crucible of Malediction": {
         "keywords": {
           "Keywords": [
@@ -493,6 +785,28 @@
             "Skysplinter Assault"
           ]
         },
+        "rules": {
+          "Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 20
@@ -506,6 +820,28 @@
             "Skysplinter Assault"
           ]
         },
+        "rules": {
+          "Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 20
@@ -513,11 +849,108 @@
         },
         "text": "Drukhari model only. While the bearer’s unit is wholly within 6” of a friendly Drukhari Transport, models in the bearer’s unit have the Benefit of Cover and the Stealth ability."
       },
+      "Enhancement§Reaper's Cowl": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Harlequins model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Harlequins"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Harlequins** model only. Models in the bearer’s unit\nhave the *Stealth* and *Infiltrators* abilities."
+      },
       "Enhancement§Sadistic Fulcrum": {
         "keywords": {
           "Keywords": [
             "Skysplinter Assault"
           ]
+        },
+        "rules": {
+          "Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
@@ -532,6 +965,28 @@
             "Skysplinter Assault"
           ]
         },
+        "rules": {
+          "Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 10
@@ -545,6 +1000,28 @@
             "Realspace Raiders"
           ]
         },
+        "rules": {
+          "Drukhari model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "group": "Cost",
@@ -554,6 +1031,79 @@
           }
         },
         "text": "Drukhari model only. In your Command phase, if the bearer is on the battlefield, you gain 1 Pain token."
+      },
+      "Enhancement§Webway Walker": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Harlequins or Drukhari model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Harlequins"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drukhari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Harlequins** or **Drukhari** model only. Models in the\nbearer’s unit have the Deep Strike ability. Each time\nthe bearer’s unit is set up on the battlefield using the\nDeep Strike ability, if that unit is currently losing\nthe wager, until the end of the turn, you can re‑roll\nCharge rolls made for that unit."
       },
       "Melee Weapon§Raven Strike Fighter—Bladed wings": {
         "aspects": {
@@ -843,43 +1393,90 @@
             "failState": "pass",
             "order": 50
           },
-          "Maximum 250 points of Harlequins/Anhrathe in an Incursion game.": {
-            "evals": [
+          "reaperAllySet": {
+            "actions": [
               {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
+                "actionType": "set",
+                "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
                     "stats",
-                    "Battle Size",
+                    "Allied faction 1",
                     "value"
                   ]
                 ],
-                "value": "Incursion"
+                "value": "Harlequins/Anhrathe"
               },
               {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
                 "actionable": true,
-                "max": 250,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
                     "stats",
-                    "Ally 1 Points",
+                    "Detachment",
                     "value"
                   ]
-                ]
+                ],
+                "value": "Reaper's Wager"
               }
             ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
           },
-          "Maximum 500 points of Harlequins/Anhrathe in a Strike Force game.": {
+          "setMaxHarlequinPoints": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "MaxHarlequinPoints"
+                ]
+              }
+            ],
             "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Harlequins/Anhrathe"
+              },
               {
                 "actionable": true,
                 "not": true,
@@ -888,68 +1485,100 @@
                   [
                     "{roster}",
                     "stats",
-                    "Battle Size",
+                    "Detachment",
                     "value"
                   ]
                 ],
-                "value": "Strike Force"
-              },
-              {
-                "actionable": true,
-                "max": 500,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ]
+                "value": "Reaper's Wager"
               }
             ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
+            "evaluate": "AND",
+            "failState": "pass"
           },
-          "Maximum 750 points of Harlequins/Anhrathe in an Onslaught game.": {
+          "setMaxReaperHarlequinPoints": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "MaxReaperHarlequinPoints"
+                ]
+              }
+            ],
             "evals": [
               {
                 "actionable": true,
-                "not": true,
+                "not": false,
                 "operator": "AND",
                 "paths": [
                   [
-                    "{roster}",
+                    "{self}",
                     "stats",
-                    "Battle Size",
+                    "Allied faction 1",
                     "value"
                   ]
                 ],
-                "value": "Onslaught"
+                "value": "Harlequins/Anhrathe"
               },
               {
                 "actionable": true,
-                "max": 750,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{roster}",
                     "stats",
-                    "Ally 1 Points",
+                    "Detachment",
                     "value"
                   ]
-                ]
+                ],
+                "value": "Reaper's Wager"
               }
             ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "Incursion": {
+                "order": 1,
+                "tracking": {
+                  "MaxHarlequinPoints": 250,
+                  "maxPoints": 1000,
+                  "MaxReaperHarlequinPoints": 500
+                }
+              },
+              "Strike Force": {
+                "order": 2,
+                "tracking": {
+                  "MaxHarlequinPoints": 500,
+                  "maxPoints": 2000,
+                  "MaxReaperHarlequinPoints": 1000
+                }
+              },
+              "Onslaught": {
+                "order": 3,
+                "tracking": {
+                  "MaxHarlequinPoints": 750,
+                  "maxPoints": 3000,
+                  "MaxReaperHarlequinPoints": 1500
+                }
+              }
+            }
+          },
           "Detachment": {
             "ranks": {
               "Realspace Raiders": {
@@ -965,6 +1594,14 @@
                 "traits": [
                   {
                     "trait": "Detachment§Skysplinter Assault"
+                  }
+                ]
+              },
+              "Reaper's Wager": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Detachment§Reaper's Wager"
                   }
                 ]
               }
@@ -1023,6 +1660,45 @@
         },
         "text": "**WHEN**: Start of any phase.\n\n**TARGET**: One Archon, one Succubus and one Haemonculus from your army.\n\n**EFFECT**: Discard one Pain token from your Pain token pool. Until the end of the phase, all three of those models’ units are Empowered.\n\n**RESTRICTIONS**: You can only use this Stratagem if you are able to select all three of the target models stated above"
       },
+      "Stratagem§Dance Macabre": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN:** Your opponent’s Movement phase, just\nafter an enemy unit ends a Normal, Advance or Fall\nBack move.\n\n**TARGET:** One **Drukhari Infantry** or **Harlequins\nInfantry** unit from your army that is within 9\" of that\nenemy unit.\n\nEFFECT: Your unit can make a Normal move of up to\nD6\". If your unit is currently losing the wager, it can\nmake a Normal move of up to 6\" instead."
+      },
+      "Stratagem§Fateful Role": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase, just after an enemy unit has\nselected its targets.\n\n**TARGET:** One **Drukhari** or **Harlequins** unit from\nyour army that was selected as the target of one or\nmore of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, each time a\nmodel in your unit is destroyed, if that model has not\nfought this phase, roll one D6, adding 1 to the result\nif that unit is losing the wager: on a 4+, do not remove\nit from play. That destroyed model can fight after\nthe attacking model’s unit has finished making its\nattacks, and is then removed from play."
+      },
       "Stratagem§Insensible to Pain": {
         "keywords": {
           "Keywords": [
@@ -1042,6 +1718,41 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Haemonculus Covens unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll."
+      },
+      "Stratagem§Malicious Frenzy": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your Shooting phase or the Fight phase.\n\n**TARGET:** One **Drukhari** or **Harlequins** unit from\nyour army that has not been selected to shoot or\nfight this phase.\n\n**EFFECT:** Select **[LETHAL HITS]** or **[SUSTAINED HITS 1]**.\nUntil the end of the phase, weapons equipped by\nmodels in your unit have the selected ability."
+      },
+      "Stratagem§Murderer's Circus": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase, just after an enemy unit has\nselected its targets.\n\n**TARGET:** One **Drukhari** or **Harlequins** unit from\nyour army that was selected as the target of one or\nmore of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, each time an\nattack targets your unit, subtract 1 from the Hit roll."
       },
       "Stratagem§Night Shield": {
         "keywords": {
@@ -1116,6 +1827,41 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Drukhari unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time an attack that targets your unit, subtract 1 from the Hit roll.\n\nRESTRICTIONS: You cannot target a Haemonculus Covens unit from your army for this Stratagem."
+      },
+      "Stratagem§Scintillating Tempo": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge",
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase or your Charge phase,\njust after a **Drukhari** or **Harlequins** unit from your\narmy is selected to make a Normal, Advance or Fall\nBack move, is set up on the battlefield, or declares\na charge.\n\n**TARGET:** That unit.\n\n**EFFECT:** Until the end of the turn, enemy units\ncannot use the Fire Overwatch Stratagem to shoot\nat your unit."
+      },
+      "Stratagem§Shorten the Odds": {
+        "keywords": {
+          "Keywords": [
+            "Reaper's Wager"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase, just after a **Drukhari**\nor **Harlequins** unit from your army has Advanced.\n\n**TARGET:** That unit.\n\n**EFFECT:** Until the end of the turn, your unit is eligible\nto shoot and declare a charge in a turn in which\nit Advanced."
       },
       "Stratagem§Skyborne Annihilation": {
         "keywords": {
