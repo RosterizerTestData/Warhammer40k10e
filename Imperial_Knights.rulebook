@@ -1,6 +1,6 @@
 {
   "name": "Imperial Knights",
-  "revision": "10.10.5",
+  "revision": "10.10.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -16,7 +16,119 @@
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Character": {
+        "removed": {
+          "rules": {
+            "noAllyEnhancements": {},
+            "detachmentEnhancements": {}
+          }
+        },
+        "rules": {
+          "detachmentImperialKnightsEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Imperial Knights"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Mechanicus"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAllyImperialKnightsEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Imperial Knights"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Mechanicus"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Code Chivalric": {
         "removed": {
@@ -245,6 +357,28 @@
             "Questor Forgepact"
           ]
         },
+        "rules": {
+          "Imperial Knights model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Imperial Knights"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 20
@@ -257,6 +391,28 @@
           "Keywords": [
             "Questor Forgepact"
           ]
+        },
+        "rules": {
+          "Tech-Priest model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tech-Priest"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
@@ -341,6 +497,26 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 90
+          },
+          "Imperial Knights model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Imperial Knights"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
           }
         },
         "stats": {
@@ -403,6 +579,28 @@
           "Keywords": [
             "Questor Forgepact"
           ]
+        },
+        "rules": {
+          "Imperial Knights model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Imperial Knights"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
