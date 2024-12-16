@@ -14,8 +14,10 @@ const fileList = [
   'Chaos_Knights.rulebook',
   'Chaos_Space_Marines.rulebook',
   'Chaos.rulebook',
+  'Combat_Patrol.rulebook',
   'Death_Guard.rulebook',
   'Drukhari.rulebook',
+  'Emperor\'s_Children.rulebook',
   'Genestealer_Cults.rulebook',
   'Grey_Knights.rulebook',
   'Imperial_Agents.rulebook',
@@ -42,16 +44,26 @@ async function processFiles() {
     try {
       const response = await fetch('../../' + file);
       const data = await response.json();
+      data.revision = '10.12.0';
 
       console.log('~~~ ' + file + ' ~~~');
       Object.entries(data.rulebook.assetCatalog).forEach(([itemKey, item]) => {
         let [itemClass, itemDesignation] = itemKey.split('§');
         Object.keys(item.stats || {}).forEach(statKey => {
           let stat = item.stats[statKey];
-          let rankKeys = Object.keys(stat.ranks || {});
-          if(stat.ranks && stat.hasOwnProperty('value') && !rankKeys.filter(key => stat.value == key).length) console.log(itemKey, statKey, stat.value)
+          if(typeof stat.value === 'string' && stat.value?.includes('D6')){
+            // regex to determine what die modifier exists. i.e. D6+1 = 1 while 2D6 = 0
+            let regex = /(\d*D\d)\+*(\d*)/g;
+            let match = regex.exec(stat.value);
+            let statFormat = match[1];
+            let statNum = Number(match[2]) || 0;
+            delete stat.statType;
+            stat.value = statNum;
+            stat.format = statFormat;
+          }
         })
       });
+      console.log(data);
     } catch (error) {
       // Handle any error that occurs during loading
       console.error(error);
@@ -60,26 +72,3 @@ async function processFiles() {
 }
 
 processFiles();
-
-function replaceStringsInObject(obj, searchString, replaceString) {
-  // Base case: if the object is a string, replace the search string with the replace string
-  if (typeof obj === 'string' && obj === searchString) {
-    return replaceString;
-  }
-
-  // Recursive case: if the object is an array or an object, iterate over its properties
-  if (Array.isArray(obj)) {
-    return obj.map(element => replaceStringsInObject(element, searchString, replaceString));
-  }
-
-  if (typeof obj === 'object' && obj !== null) {
-    const newObj = {};
-    for (let key in obj) {
-      newObj[key] = replaceStringsInObject(obj[key], searchString, replaceString);
-    }
-    return newObj;
-  }
-
-  // If the object is neither a string, an array, nor an object, return it as is
-  return obj;
-}
