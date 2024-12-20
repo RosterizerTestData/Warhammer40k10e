@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.12.0",
+  "revision": "10.12.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "2U3UX7",
+      "slug": "9ACQCX",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -392,6 +392,7 @@
         }
       },
       "Unit": {
+        "keywords": {},
         "rules": {
           "allowAnathemaTraits": {
             "actions": [
@@ -794,6 +795,57 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "renametoWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "prepend": "WL ",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "string"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "solarBuff": {
             "actions": [
               {
@@ -905,6 +957,10 @@
             "evals": [
               {
                 "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 1
+                },
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -984,9 +1040,50 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 220
+          },
+          "solarWalkerWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Solar Spearhead Character Walker",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
+          "characterwalker": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Solar Spearhead Character Walker": {
             "dynamic": true,
             "ranks": {
@@ -1003,6 +1100,25 @@
             "statType": "rank",
             "value": "-",
             "visibility": "hidden"
+          },
+          "Warlord": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "statOrder": 100,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
           }
         }
       }
