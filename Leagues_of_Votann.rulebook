@@ -1,6 +1,6 @@
 {
   "name": "Leagues of Votann",
-  "revision": "10.12.0",
+  "revision": "10.12.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "5NSPXQ",
+      "slug": "PCJ8SD",
       "name": "40k10e",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
@@ -637,6 +637,105 @@
           }
         }
       },
+      "Detachment§Hearthband": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Brekkeknots"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unyielding Aggression"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Sure of Purpose"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Materialisation Matrices"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Superior Craftsmanship"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Fury of the Hearth"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**METHODICAL ANNIHILATION**\n\nEach time a **Leagues of Votann** model\nfrom your army makes an attack with a\nweapon (excluding Blast weapons) that\ntargets the closest eligible target or a\ntarget that is within Engagement Range\nof that model’s unit:\n\n■ Re‑roll a Hit roll of 1.\n\n■ If your unit is a Kâhl, Einhyr\nHearthguard or Ûthar the Destined\nunit, improve the Armour Penetration\ncharacteristic of that attack by 1."
+      },
       "Detachment§Oathband": {
         "rules": {
           "addStratagems": {
@@ -759,6 +858,19 @@
         },
         "text": "Leagues of Votann model only. In your Command phase, you can select one objective marker your opponent controls. Until the start of your next command phase, while an enemy unit is within range of that objective marker, it counts as having one more Judgement token than it actually has (to a maximum of 2)."
       },
+      "Enhancement§Bastion Shield": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Leagues of Votann** model only. Each time a ranged\nattack targets the bearer’s unit, if the attacking model\nis within 12\" of the bearer’s unit, worsen the Armour\nPenetration characteristic of that attack by 1."
+      },
       "Enhancement§Grim Demeanour": {
         "keywords": {
           "Keywords": [
@@ -771,6 +883,111 @@
           }
         },
         "text": "Leagues of Votann model only. You can re-roll Battle-shock tests taken for the bearer’s unit, and models in that unit can ignore any or all modifiers to their characteristics and/or to any rolls or tests made for them (excluding modifiers to saving throws)."
+      },
+      "Enhancement§High Kâhl": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ]
+        },
+        "rules": {
+          "Kâhl model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kâhl"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**Kâhl** model only. Each time a model in the bearer’s\nunit is destroyed by a melee attack, if it has not fought\nthis phase, roll one D6: on a 4+, do not remove it\nfrom play. The destroyed model can fight after the\nattacking unit has finished making its attacks, and is\n1 then removed from play."
+      },
+      "Enhancement§Ironskein": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Leagues of Votann** model only. Add 2 to the bearer’s\nWounds characteristic."
+      },
+      "Enhancement§Quake Multigenerator": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ]
+        },
+        "rules": {
+          "Kâhl model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Kâhl"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Kâhl** model only. In your Shooting phase, after the\nbearer has shot, select one enemy unit (excluding\n**Titanic** units) hit by one or more of those attacks.\nUntil the start of your next turn, that enemy unit is\nsuppressed. While a unit is suppressed, each time a\nmodel in that unit makes an attack, subtract 1 from\nthe Hit roll."
       },
       "Enhancement§Wayfarer’s Grace": {
         "keywords": {
@@ -4473,6 +4690,14 @@
                     "trait": "Detachment§Oathband"
                   }
                 ]
+              },
+              "Hearthband": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Detachment§Hearthband"
+                  }
+                ]
               }
             },
             "value": "Oathband"
@@ -4513,6 +4738,58 @@
           ]
         },
         "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One Leagues of Votann unit from your army.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit makes a ranged attack, that attack has the [SUSTAINED HITS 1] ability, and each time a model in your unit makes a ranged attack that targets a unit that has one or more Judgement tokens, that attack has the [SUSTAINED HITS 2] ability instead."
+      },
+      "Stratagem§Brekkeknots": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase or the\nFight phase, just after an enemy unit has selected\nits targets.\n\n**TARGET:** One **Kâhl, Ûthar the Destined** or **Einhyr\nHearthguard** unit from your army that was\nselected as the target of one or more of the attacking\nunit’s attacks.\n\n**EFFECT:** Until the end of the phase, models in your\nunit have a 4+ invulnerable save."
+      },
+      "Stratagem§Fury of the Hearth": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One **Einhyr Hearthguard** unit from your\narmy that has not been selected to shoot this phase.\n\n**EFFECT:** Until the end of the phase, ranged weapons\n(excluding Blast weapons) equipped by models in\nyour unit have the **[RAPID FIRE 1]** ability."
+      },
+      "Stratagem§Materialisation Matrices": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** The Reinforcements step of your\nMovement phase.\n\n**TARGET:** One **Leagues of Votann** unit from\nyour army that is in Reserves and has the Deep\nStrike ability.\n\nEFFECT: Until the end of the phase, when your unit is\nset up on the battlefield using the Deep Strike ability,\nit can be set up anywhere on the battlefield that is\nmore than 6\" horizontally away from all enemy units.\n\nRESTRICTIONS: Until the end of the turn, your unit is\nnot eligible to declare a charge."
       },
       "Stratagem§Newfound Nemesis": {
         "keywords": {
@@ -4573,6 +4850,56 @@
           }
         },
         "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit that has one or more Judgement tokens has resolved its attacks.\n\n**TARGET:** One Leagues of Votann unit from your army that was selected as the target of one or more of the attacking unit’s attacks\n\n**EFFECT:** Your Leagues of Votann unit can shoot as if it were your Shooting phase, but it must target the enemy unit that just attacked it, and can only do so if that enemy unit is an eligible target"
+      },
+      "Stratagem§Superior Craftsmanship": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Leagues of Votann** unit from your\narmy that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a\nmodel in your unit makes an attack that targets\na Monster or Vehicle unit, add 1 to the Damage\ncharacteristic of that attack."
+      },
+      "Stratagem§Sure of Purpose": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Leagues of Votann** unit from your\narmy that has not been selected to fight this phase.\n\nEFFECT: Until the end of the phase, each time a\nmodel in your unit makes a Pile‑in or Consolidation\nmove, it can move up to 6\" instead of up to 3\"."
+      },
+      "Stratagem§Unyielding Aggression": {
+        "keywords": {
+          "Keywords": [
+            "Hearthband"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase, just after a **Leagues\nof Votann Infantry** unit from your army Falls Back.\n\n**TARGET:** That **Leagues of Votann Infantry** unit.\n\n**EFFECT:** Until the end of the turn, your unit is eligible\nto shoot and declare a charge in a turn in which it\nFell Back."
       },
       "Stratagem§Void Armour": {
         "keywords": {
