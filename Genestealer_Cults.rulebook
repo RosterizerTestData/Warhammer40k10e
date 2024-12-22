@@ -1,6 +1,6 @@
 {
   "name": "Genestealer Cults",
-  "revision": "10.12.0",
+  "revision": "10.12.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,16 +9,81 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "B5ZW62",
+      "slug": "PCSXU4",
       "name": "Astra Militarum",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.rulebook"
+    },
+    {
+      "slug": "M5UF6M",
+      "name": "Tyranids",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.rulebook"
     }
   ],
   "rulebook": {
     "assetTaxonomy": {
       "Character": {
+        "removed": {
+          "rules": {
+            "detachmentEnhancements": {},
+            "noAllyEnhancements": {}
+          }
+        },
         "rules": {
+          "allyDetachmentEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Genestealer Cults"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Tyranids"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
           "An Astra Militarum model cannot be your Warlord.": {
             "evals": [
               {
@@ -52,6 +117,61 @@
             ],
             "evaluate": "OR",
             "failState": "error"
+          },
+          "noAllyFinalDayEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Genestealer Cults"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Enhancement": {
+        "removed": {
+          "rules": {
+            "Tyranids model only.": {}
           }
         }
       },
@@ -214,7 +334,8 @@
             "failState": "pass"
           }
         }
-      }
+      },
+      "Unit": {}
     },
     "assetCatalog": {
       "Ability§A Plan Generations in the Making": {
@@ -1167,6 +1288,13 @@
           }
         }
       },
+      "Character§Hive Tyrant": {
+        "keywords": {
+          "Tags": [
+            "hivetag"
+          ]
+        }
+      },
       "Character§Jackal Alphus": {
         "assets": {
           "traits": [
@@ -1677,6 +1805,13 @@
           }
         }
       },
+      "Character§Parasite of Mortrex": {
+        "keywords": {
+          "Tags": [
+            "FinalDayNid"
+          ]
+        }
+      },
       "Character§Patriarch": {
         "aspects": {
           "Unique": true
@@ -1966,6 +2101,21 @@
           }
         }
       },
+      "Character§Winged Hive Tyrant": {
+        "keywords": {
+          "Tags": [
+            "FinalDayNid",
+            "Winged Hive Tyrant"
+          ]
+        }
+      },
+      "Character§Winged Tyranid Prime": {
+        "keywords": {
+          "Tags": [
+            "FinalDayNid"
+          ]
+        }
+      },
       "Detachment§Biosanctic Broodsurge": {
         "rules": {
           "assignStratagems": {
@@ -2157,6 +2307,105 @@
           }
         },
         "text": "**INTEGRATED AUXILIA**\n\nEach time an **Astra Militarum** unit from your army (see below) is selected to shoot, you can select one enemy unit within 18” of and visible to that unit. If you do, until the end of the phase, models in that **Astra Militarum** unit can only target that enemy unit (and only if it is an eligible target) and that enemy unit is caught in overlapping fire. While an enemy unit is caught in overlapping fire, each time a **Genestealer Cults** model from your army targets that enemy unit with a ranged attack, add 1 to the Hit roll.\n\n\n**Brood Brothers**\n\nYou can include **Astra Militarum** units in your army, even though they do not have the **Genestealer Cults** Faction keyword. The combined points cost of such units you can include in your army is:\n\n- Incursion: Up to 500 pts\n- Strike Force: Up to 1000 pts\n- Onslaught: Up to 1500 pts\n\nA Genestealer Cults model must be your Warlord, and Astra Militarum models from your army and they lose the Voice of Command ability if they have it. You cannot include units with any of the following keywords in your army using this rule: **Aircraft; Comissar; Epic Hero; Militarum Tempestus; Ogryn; Ratling; Tech-Priest Enginseer; Ministorum Priest."
+      },
+      "Detachment§Final Day": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Hyperferocity"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Psi Surge"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Avenge the Star Children"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Divine Imperative"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Darting Attacks"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Resistance Tunnels"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "**PSIONIC PARASITISM**\n\nAt the end of your Movement phase,\nfor each **Tyranids Synapse** unit from\nyour army, you can select one friendly\n**Genestealer Cults** unit (excluding\n**Purestrain Genestealer** and **Patriarch**\nunits) and one friendly **Tyranids** unit\neach within 9\" of and visible to that\n**Synapse** unit. If you do, that **Genestealer\nCults** unit from your army suffers D3+1\nmortal wounds and one model in the\nselected **Tyranids** unit regains up to that\nmany lost wounds and until the start of\nyour next Movement phase, each time\na model in the selected **Tyranids** unit\nmakes an attack, add 1 to the Hit roll.\n\n**Tyranids** units from your army have the\nfollowing ability:\n\nCatalyst (Aura): While an enemy unit is\nwithin 6\" of this unit, each time a friendly\n**Genestealer Cults** unit makes an attack\nthat targets that enemy unit, add 1 to the\nHit roll.\n\nTHE STAR CHILDREN’S BLESSINGS\n\nYou can include **Tyranids Vanguard\nInvader** units (excluding **Aircraft,\nBroodlord** and **Genestealers** units) in\nyour army. The combined points cost of\nsuch units depends on your battle size:\n\n■ Incursion: Up to 500 pts\n\n■ Strike Force: Up to 1000 pts\n\n■ Onslaught: Up to 1500 pts\n\n*No* **Tyranids** models from your army can\nbe your **Warlord**."
       },
       "Detachment§Host of Ascension": {
         "rules": {
@@ -2835,6 +3084,41 @@
         },
         "text": "**Magus**, **Primus** or **Acolyte Iconward** model only. Each time a model in the bearer's unit makes an attack that targets a **Character** unit, add 1 to the Hit roll and add\n1 to the Wound roll."
       },
+      "Enhancement§Enraptured Damnation": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ]
+        },
+        "rules": {
+          "Genestealer Cults model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "FinalDayNid"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Genestealer Cults** model only. Enemy units cannot\nuse the Fire Overwatch Stratagem to shoot at the\nbearer’s unit."
+      },
       "Enhancement§Firepoint Commander": {
         "keywords": {
           "Keywords": [
@@ -2995,6 +3279,41 @@
           }
         },
         "text": "**Magus**, **Primus**, **Acolyte Iconward** model  only. The bearer's unit is eligible to declare a charge in a turn in which it Advanced."
+      },
+      "Enhancement§Inhuman Integration": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ]
+        },
+        "rules": {
+          "Genestealer Cults model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "FinalDayNid"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Genestealer Cults** model only. Weapons equipped by\nmodels in the bearer’s unit have the **[SUSTAINED HITS 1]**\nability while targeting an enemy unit within 6\" of one\nor more friendly **Tyranids** units."
       },
       "Enhancement§Martial Espionage": {
         "keywords": {
@@ -3276,6 +3595,41 @@
         },
         "text": "**Genestealer Cults Mounted** model only. In your Shooting phase, after the bearer has shot, select one enemy unit hit by one or more of those attacks made with a cult sniper rifle. Until the start of your next Shooting phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll."
       },
+      "Enhancement§Synaptic Auger": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ]
+        },
+        "rules": {
+          "Tyranids model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "FinalDayNid"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Tyranids** model only. Each time the bearer would\nregain one or more lost wounds from the Psionic\nParasitism Detachment rule, it regains up to twice\nthat number of lost wounds instead."
+      },
       "Enhancement§The Hero Returned": {
         "keywords": {
           "Keywords": [
@@ -3310,6 +3664,105 @@
           }
         },
         "text": "**Genestealer Cults Infantry** model only. Improve the Leadership and Objective Control characteristics of models in the bearer’s unit by 1."
+      },
+      "Enhancement§Vanguard Tyrant": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Winged Hive Tyrant model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "Winged Hive Tyrant"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Winged Hive Tyrant** model only. Improve the Strength\nand Armour Penetration characteristics of melee\nweapons equipped by the bearer by 1."
       },
       "Melee Weapon§Aberrants—Aberrant Weapons": {
         "aspects": {
@@ -6842,115 +7295,51 @@
             "Ministorum Priest",
             "Regimental Enginseer",
             "Aircraft",
-            "Gaunt’s Ghosts"
+            "Gaunt’s Ghosts",
+            "Broodlord",
+            "Malanthrope",
+            "Neurotyrant",
+            "Old One Eye",
+            "Tervigon",
+            "The Swarmlord",
+            "Barbed Hierodule",
+            "Barbgaunts",
+            "Biovores",
+            "Carnifexes",
+            "Dimachaeron",
+            "Exocrine",
+            "Genestealers",
+            "Harpy",
+            "Harridan",
+            "Haruspex",
+            "Hierophant",
+            "Hive Crone",
+            "Hive Guard",
+            "Hormagaunts",
+            "Maleceptor",
+            "Mucolid Spores",
+            "Neurogaunts",
+            "Norn Assimilator",
+            "Norn Emissary",
+            "Psychophage",
+            "Pyrovores",
+            "Ripper Swarms",
+            "Screamer-Killer",
+            "Scythed Hierodule",
+            "Sky-slasher Swarms",
+            "Spore Mines",
+            "Sporocyst",
+            "Termagants",
+            "Toxicrene",
+            "Tyranid Warriors with Melee Bio-weapons",
+            "Tyranid Warriors with Ranged Bio-weapons",
+            "Tyrannofex",
+            "Tyrant Guard",
+            "Zoanthropes",
+            "hivetag"
           ]
         },
         "rules": {
-          "Maximum 1000 points of Astra Militarum in a Strike Force game.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Battle Size",
-                    "value"
-                  ]
-                ],
-                "value": "Strike Force"
-              },
-              {
-                "actionable": true,
-                "max": 1000,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
-          },
-          "Maximum 1500 points of Astra Militarum in an Onslaught game.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Battle Size",
-                    "value"
-                  ]
-                ],
-                "value": "Onslaught"
-              },
-              {
-                "actionable": true,
-                "max": 1500,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
-          },
-          "Maximum 500 points of Astra Militarum in an Incursion game.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Battle Size",
-                    "value"
-                  ]
-                ],
-                "value": "Incursion"
-              },
-              {
-                "actionable": true,
-                "max": 500,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
-          },
           "NoBroodBrother": {
             "actions": [
               {
@@ -6966,17 +7355,17 @@
                 "value": "Astra Militarum"
               },
               {
-                "actionType": "set",
+                "actionType": "remove",
                 "iterations": 1,
                 "paths": [
                   [
                     "{roster}",
                     "stats",
                     "Allied faction 1",
-                    "value"
+                    "ranks"
                   ]
                 ],
-                "value": "-"
+                "value": "Astra Militarum"
               }
             ],
             "evals": [
@@ -6993,6 +7382,53 @@
                   ]
                 ],
                 "value": "Brood Brother Auxilia"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "NoLastDay": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "ranks"
+                  ]
+                ],
+                "value": "Tyranids"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Final Day"
               }
             ],
             "evaluate": "AND",
@@ -7096,9 +7532,289 @@
                   ]
                 ],
                 "value": "Combined Regiment"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Bridgehead Strike"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Invasion Fleet"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Crusher Stampede"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Unending Swarm"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Assimilation Swarm"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Vanguard Onslaught"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Synaptic Nexus"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Warrior Bioform Onslaught"
               }
             ],
             "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "setBroodBrotherAllies": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Astra Militarum"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Brood Brother Auxilia"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
+          "setFinalDayAllies": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Final Day"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
+          "setMaxGuard": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxGuard"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Astra Militarum"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "setMaxNids": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxNids"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Tyranids"
+              }
+            ],
             "evaluate": "AND",
             "failState": "pass"
           }
@@ -7106,20 +7822,52 @@
         "stats": {
           "Allied faction 1": {
             "ranks": {
-              "-": {
-                "order": 0
-              },
               "Astra Militarum": {
-                "order": 1
-              },
-              "Imperial Knights": {
-                "order": 2
-              },
-              "Agents of the Imperium": {
-                "order": 3
-              },
-              "Adeptus Titanicus": {
                 "order": 4
+              },
+              "Tyranids": {
+                "order": 5
+              }
+            }
+          },
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "Incursion": {
+                "format": "Incursion",
+                "order": 1,
+                "tracking": {
+                  "maxAgents": 1,
+                  "maxGuard": 500,
+                  "maxMechanicus": 250,
+                  "maxNids": 500,
+                  "maxPoints": 1000,
+                  "maxRequisitioned": 1
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 2,
+                "tracking": {
+                  "maxAgents": 2,
+                  "maxGuard": 1000,
+                  "maxMechanicus": 500,
+                  "maxNids": 1000,
+                  "maxPoints": 2000,
+                  "maxRequisitioned": 1
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 3,
+                "tracking": {
+                  "maxAgents": 3,
+                  "maxGuard": 1500,
+                  "maxMechanicus": 750,
+                  "maxNids": 1500,
+                  "maxPoints": 3000,
+                  "maxRequisitioned": 2
+                }
               }
             }
           },
@@ -7162,6 +7910,14 @@
                 "traits": [
                   {
                     "trait": "Detachment§Brood Brother Auxilia"
+                  }
+                ]
+              },
+              "Final Day": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Detachment§Final Day"
                   }
                 ]
               }
@@ -7261,6 +8017,24 @@
         },
         "text": "**WHEN**: Any phase, just after an enemy unit ends a move within 9” of one or more of your Cult Ambush markers.\n\n**TARGET**: One **Atalan Jackals** unit from your army in Cult Ambush.\n\n**EFFECT**: Select one of those Cult Ambush markers. You can set up that Cult Ambush marker anywhere on the battlefield that is more than 9” horizontally away from all enemy units and wholly within 6” of one or more battlefield edges. Until the end of the battle, you can only select **Atalan Jackals** units from your army to set up using that Cult Ambush."
       },
+      "Stratagem§Avenge the Star Children": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase or the Fight\nphase, just after an enemy unit has shot or fought.\n\n**TARGET:** One **Tyranids Character** unit from your\narmy that was destroyed by that enemy unit this\nphase. You can use this Stratagem on that unit even\nthough it was just destroyed.\n\nEFFECT: Until the end of the battle, each time a\n**Genestealer Cults** model from your army makes\nan attack that targets that enemy unit, add 1 to the\nHit roll and add 1 to the Wound roll."
+      },
       "Stratagem§Bio-horror Revelation": {
         "keywords": {
           "Phase": [
@@ -7322,6 +8096,24 @@
         },
         "text": "**WHEN**: The start of your Shooting phase or the start of the Fight phase.\n\n**TARGET**: Two Genestealer Cults units from your army that have not been selected to shoot or fight this phase, and one enemy unit.\n\n**EFFECT:** Select one enemy unit ( if this Stratagem is used in the Fight phase, that enemy unit must be within Engagement Range of both of your units). Until the end of the phase, each time a model in either of your units makes an attack, it can only target that enemy unit (and only if it is an eligible target for that attack), and when resolving that attack, add 1 to the Wound roll."
       },
+      "Stratagem§Darting Attacks": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge",
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your Shooting phase or your Charge phase.\n\n**TARGET:** One **Tyranids** unit from your army.\n\n**EFFECT:** Until the end of the phase, your unit is\neligible to shoot and declare a charge in a turn in\nwhich it Fell Back."
+      },
       "Stratagem§Deft Manoeuvring": {
         "keywords": {
           "Keywords": [
@@ -7359,6 +8151,23 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **Goliath Rockgrinder** or **Goliath Truck** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Damage characteristic of that attack."
+      },
+      "Stratagem§Divine Imperative": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "text": "**WHEN:** Your Charge phase.\n\n**TARGET:** One **Genestealer Cults** unit from your\narmy that has not declared a charge this phase.\n\n**EFFECT:** Select one enemy unit within Engagement\nRange of one or more **Tyranids** units from your\narmy. Until the end of the phase, each time your\n**Genestealer Cults** unit declares a charge, if that\nenemy unit is one of the targets of that charge, add 1\nto Charge rolls made for your unit and you can re‑roll\nthe Charge roll."
       },
       "Stratagem§Encircling the Prey": {
         "keywords": {
@@ -7454,6 +8263,20 @@
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One **Aberrants**, **Biophagus** or **Purestrain Genestealers** unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6” instead of 3”. In addition, it does not need to end that move closer to the closest enemy model, provided it ends it as close as possible to the closest enemy unit."
       },
+      "Stratagem§Hyperferocity": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Genestealer Cults** unit from your\narmy that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a\nmodel in your unit makes an attack that targets an\nenemy unit, re‑roll a Wound roll of 1. If one or more\nfriendly **Tyranids** units are within 6\" of that enemy\nunit, you can re‑roll the Wound roll instead."
+      },
       "Stratagem§In the Shadow of Iron": {
         "keywords": {
           "Keywords": [
@@ -7510,6 +8333,20 @@
         },
         "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Genestealer Cults unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a model inyour unit makes an attack, a Critical Hit is scored on an unmodified Hit roll of 5+. instead of only a 6."
       },
+      "Stratagem§Psi Surge": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "text": "**WHEN:** Start of any phase.\n\n**TARGET:** One **Tyranids** unit from your army.\n\n**EFFECT:** Until the start of your next Command phase,\nincrease the range of your unit’s Catalyst ability\nby 3\".\n\n**RESTRICTIONS:** Each time you use this Stratagem,\nuntil the end of your next Command phase, you\ncannot use this Stratagem again."
+      },
       "Stratagem§Rapid Feint": {
         "keywords": {
           "Keywords": [
@@ -7547,6 +8384,23 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an **Astra Militarum Infantry Regiment** unit from your army (excluding **Artillery** and **Character** units) is destroyed.\n\n**TARGET**: That **Infantry** unit. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT**: Roll one D6: on a 3+, your unit is placed into Cult Ambush and you can place one Cult Ambush marker anywhere on the battlefield that is more than 9” horizontally away from all enemy units (If this is not possible, no marker is placed)."
+      },
+      "Stratagem§Resistance Tunnels": {
+        "keywords": {
+          "Keywords": [
+            "Final Day"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** End of your opponent’s Fight phase.\n\n**TARGET:** One **Genestealer Cults** or **Tyranids** unit\nfrom your army that is not within Engagement Range\nof one or more enemy units.\n\n**EFFECT:** Remove your unit from the battlefield and\nplace it into Strategic Reserves."
       },
       "Stratagem§Return To the Shadows": {
         "keywords": {
