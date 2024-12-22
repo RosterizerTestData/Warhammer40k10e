@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.12.0",
+  "revision": "10.12.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "",
+      "slug": "E9MSJY",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -846,6 +846,172 @@
         },
         "text": "**TEMPLAR VOWS**\n\nAt the start of the first battle round, select one of the four Templar Vows below to be active for Adeptus Astartes units from your army until the end of the battle.\n\n* Suffer Not the Unclean to Live: Melee weapons equipped by models in this unit have the [LETHAL HITS] ability.\n\n* Uphold the Honour of the Emperor: Models in this unit have the Feel No Pain 6+ ability and a Leadership characteristic of 5+.\n\n* Abhor the Witch, Destroy the Witch: Models in this unit have a 4+ invulnerable save against Psychic Attacks and melee weapons equipped by models in this unit have the [ANTI-PSYKER 4+] ability.\n\n* Accept Any Challenge, No Matter the Odds: Melee weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability\n\n**RESTRICTIONS**\n\n- Your army cannot include any ADEPTUS ASTARTES PSYKER models, and cannot include any of the following models that do not have the BLACK TEMPLARS keyword: GLADIATOR LANCER; GLADIATOR REAPER; GLADIATOR VALIANT; IMPULSOR; REPULSOR; REPULSOR EXECUTIONER.\n\n- Your army can include BLACK TEMPLARS units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter."
       },
+      "Detachment§Wrathful Procession": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Fuelled by Faith"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Brute Fervour"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Relentless Momentum"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Castigate the Demagogues"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Voice of Devotion"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "ZEALOUS LITANIES\n\nAt the start of the battle round, you can\nselect one of the Litanies listed below. If\nyou do, until the end of the battle round,\nthat Litany is active and its effects apply\nto all **Adeptus Astartes Infantry** and\n**Adeptus Astartes Mounted** units from\nyour army.\n\n**Chorus of Relentless Hate:**\nAdd 2\" to the Move characteristic of\nmodels in this unit and add 1 to Advance\nrolls made for it.\n\n**Rite of Perfervid Wrath:**\nAdd 1 to the Strength characteristic of\nmelee weapons equipped by models in\nthis unit.\n\n**Chant of Deathless Devotion:**\nModels in this unit have a 5+\ninvulnerable save against ranged attacks.\n\nRESTRICTIONS\n\nYour army can include\n**Black Templars** units, but it *cannot*\ninclude **Adeptus Astartes** units drawn\nfrom any other Chapter."
+      },
+      "Enhancement§Benediction of Fury": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Devastating Wounds"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Chaplain model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaplain"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Chaplain** model only. The bearer’s melee weapons\nhave the **[DEVASTATING WOUNDS]** ability."
+      },
       "Enhancement§Perdition’s Edge": {
         "keywords": {
           "Keywords": [
@@ -927,6 +1093,57 @@
         },
         "text": "Adeptus Astartes model only.\n* Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1.\n* If the Suffer Not the Unclean to Live vow is active for your army, add 1 to the Attacks characteristic of the bearer’s melee weapons as well."
       },
+      "Enhancement§Pyrebrand": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Black Templars** model only. Models in the bearer’s\nunit have the Stealth ability."
+      },
+      "Enhancement§Sacred Rage": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**Adeptus Astartes** model only. Once per battle,\nat the start of the Fight phase, the bearer can use\nthis Enhancement. If it does, until the end of\nthe phase, models in the bearer’s unit have the\nFights First ability."
+      },
       "Enhancement§Sigismund’s Seal": {
         "keywords": {
           "Keywords": [
@@ -996,6 +1213,19 @@
           }
         },
         "text": "Adeptus Astartes model only.\n* Each time an attack is allocated to the bearer, halve the Damage characteristic of that attack.\n* While the bearer is leading a unit, if the Uphold the Honour of the Emperor vow is active for your army, models in that unit have the Feel No Pain 5+ ability."
+      },
+      "Enhancement§Taramond's Censer": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Black Templars** model only. At the start of the Fight\nphase, each enemy unit within Engagement Range of\nthe bearer’s unit must take a Battle‑shock test. When\ndoing so, subtract 1 from the result."
       },
       "Enhancement§Witchseeker Bolts": {
         "keywords": {
@@ -7372,10 +7602,18 @@
           "Detachment": {
             "ranks": {
               "Righteous Crusaders": {
-                "order": 2,
+                "order": 9,
                 "traits": [
                   {
                     "trait": "Detachment§Righteous Crusaders"
+                  }
+                ]
+              },
+              "Wrathful Procession": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Detachment§Wrathful Procession"
                   }
                 ]
               }
@@ -7416,6 +7654,34 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
+      "Stratagem§Brute Fervour": {
+        "keywords": {
+          "Phase": [
+            "Fight"
+          ],
+          "Keywords": [
+            "Wrathful Procession"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Adeptus Astartes** unit from your army\nthat has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a\nmodel in your unit makes an attack, re‑roll a Hit roll\nof 1 and you can ignore any or all modifiers to the\nfollowing: that attack’s Weapon Skill characteristic;\nthe Hit roll; the Wound roll."
+      },
+      "Stratagem§Castigate the Demagogues": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Adeptus Astartes** unit from your army\nthat has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, melee weapons\nequipped by models in your unit have the\n**[PRECISION]** ability."
       },
       "Stratagem§Crusader’s Wrath": {
         "keywords": {
@@ -7469,6 +7735,20 @@
         },
         "text": "WHEN: Your Command phase.\n\nTARGET: One Adeptus Astartes Character unit from your army.\n\nEFFECT: Select one Templar Vow that is not active for your army. Until the start of your next Command phase, while that Character is leading a unit, models in that unit gain the benefits of that vow in addition to the vow selected to be active for your army at the start of the battle"
       },
+      "Stratagem§Fuelled by Faith": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "text": "**WHEN:** Any phase, just after a mortal wound\nis allocated to an Adeptus Astartes unit from\nyour army.\n\n**TARGET:** That **Adeptus Astartes** unit.\n\nEFFECT: Until the end of the phase, models in\nyour unit have the Feel No Pain 5+ ability against\nmortal wounds."
+      },
       "Stratagem§No Escape": {
         "keywords": {
           "Keywords": [
@@ -7485,6 +7765,20 @@
           ]
         },
         "text": "WHEN: Your opponent’s Movement phase, when an enemy unit (excluding Vehicles and Monsters) is selected to Fall Back.\n\nTARGET: One Adeptus Astartes unit from your army that is within Engagement Range of that enemy unit.\n\nEFFECT: Roll one D6, adding 1 to the result if the Accept Any Challenge, No Matter the Odds vow is active for your army. On a 4+, that enemy unit cannot Fall Back this phase and must Remain Stationary. Otherwise, that enemy unit can Fall Back this phase, but if it does, all models in that unit must take a Desperate Escape test."
+      },
+      "Stratagem§Relentless Momentum": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Adeptus Astartes** unit from your\narmy that has not been selected to fight this phase\nand is within Engagement Range of one or more\nenemy units.\n\n**EFFECT:** Until the end of the phase, when\ndetermining which models in your unit are eligible\nto fight, any models in it that are within 3\" of one\nor more enemy models are eligible to fight. When\nresolving those attacks, such models can target one\nof those enemy units that is within 3\" of them and\nwithin Engagement Range of their unit."
       },
       "Stratagem§Vicious Riposte": {
         "keywords": {
@@ -7503,6 +7797,23 @@
           ]
         },
         "text": "WHEN: Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 to the result if the Uphold the Honour of the Emperor vow is active for your army. On a 4+, do not remove the destroyed model from play; it can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
+      },
+      "Stratagem§Voice of Devotion": {
+        "keywords": {
+          "Keywords": [
+            "Wrathful Procession"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "text": "**WHEN:** Your Command phase.\n\n**TARGET:** One **Adeptus Astartes Infantry** or\n**Adeptus Astartes Mounted** unit from your army.\n\n**EFFECT:** Select the Chorus of Relentless Hate, Rite\nof Perfervid Wrath or Chant of Deathless Devotion\nLitany. Until the end of the battle round, that Litany is\nactive for your unit instead of any other Litany that is\nactive for your army."
       },
       "Vehicle§Black Templars Gladiator Lancer": {
         "assets": {
