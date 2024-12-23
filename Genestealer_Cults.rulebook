@@ -9,13 +9,13 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "PCSXU4",
+      "slug": "7R899N",
       "name": "Astra Militarum",
       "game": "Warhammer 40k",
-      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.rulebook"
+      "source": ""
     },
     {
-      "slug": "M5UF6M",
+      "slug": "V2XY72",
       "name": "Tyranids",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Tyranids.rulebook"
@@ -8900,6 +8900,49 @@
             "failState": "pass",
             "order": 100
           },
+          "Count3in5": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 5
+                },
+                "not": false,
+                "note": "track 1/5 of the models",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 3
+                },
+                "not": false,
+                "note": "track 3/5 of the models",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
           "Maximum 1 cult icon.": {
             "evals": [
               {
@@ -8923,7 +8966,15 @@
             "evals": [
               {
                 "actionable": true,
-                "max": 3,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "Count3in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -8931,19 +8982,6 @@
                     "{self}",
                     "tracked",
                     "specialWeapons"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 10,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tally",
-                    "Model"
                   ]
                 ]
               }
