@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.12.2",
+  "revision": "10.12.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -64,6 +64,11 @@
           "classifications": [
             "Artefact of the Vaults"
           ]
+        },
+        "removed": {
+          "rules": {
+            "hideWarlordOption": {}
+          }
         },
         "rules": {
           "notAllowArtefactReq": {
@@ -660,6 +665,68 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "hideSolarWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          },
           "nosolarWalkerStat": {
             "actions": [
               {
@@ -1075,7 +1142,7 @@
               {
                 "actionable": true,
                 "contains": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
@@ -1084,7 +1151,7 @@
                     "Keywords"
                   ]
                 ],
-                "value": "Walker"
+                "value": "Character"
               }
             ],
             "evaluate": "AND",
