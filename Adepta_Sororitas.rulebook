@@ -1,5 +1,5 @@
 {
-  "name": "Adepta Sororitas",
+  "name": "Adepta Sororitas Crusade",
   "revision": "10.12.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
@@ -18,6 +18,138 @@
   "rulebook": {
     "assetTaxonomy": {
       "Agendas": {},
+      "Character": {
+        "rules": {
+          "showSaintPotentia": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Saint Potentia",
+                    "visibility"
+                  ]
+                ],
+                "value": "active"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "useCrusadeSaint": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "Saint Points accruded",
+                      "Martyr Points accruded"
+                    ],
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "saintPotentia"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Martyr Points accruded": {
+            "increment": {
+              "value": 1
+            },
+            "label": "Martyr Points",
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Saint Points accruded": {
+            "increment": {
+              "value": 1
+            },
+            "label": "Saint Points",
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Saint Potentia": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "saintPotentia": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "hidden"
+          }
+        }
+      },
       "Trails of a Living Saint": {
         "keywords": {
           "Keywords": [
