@@ -1,6 +1,6 @@
 {
   "name": "Thousand Sons",
-  "revision": "10.12.0",
+  "revision": "10.12.1",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "FNJKT7",
+      "slug": "5CWN5D",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
@@ -19,6 +19,160 @@
     "assetTaxonomy": {
       "Character": {},
       "Unit": {
+        "rules": {
+          "swapKeywordsCSMLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Thousand Sons"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Dark Pacts"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "TSShared"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 250
+          },
+          "swapKeywordsHHLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Imperium"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaos"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Thousand Sons"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Oath of Moment"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tzeentch"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "chaosShared"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 250
+          }
+        },
         "stats": {
           "Cabal Points": {
             "group": "Resources",
@@ -7448,6 +7602,10 @@
         "constraints": {
           "none": [
             "notTzeentch"
+          ],
+          "any": [
+            "chaosShared",
+            "TSShared"
           ]
         },
         "rules": {
@@ -7524,10 +7682,7 @@
             "dynamic": false,
             "value": "Chaos"
           },
-          "Legends": {
-            "dynamic": false,
-            "visibility": "hidden"
-          }
+          "Legends": {}
         }
       },
       "Stratagem§Destined by Fate": {
@@ -7754,6 +7909,20 @@
           ]
         },
         "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Thousand Sons unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 to the result if your unit is wholly within your army’s Flow of Magic: on a 4+, do not remove it from play. That destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
+      },
+      "Unit§Hell Blade": {
+        "keywords": {
+          "Keywords": [
+            "Tzeentch"
+          ]
+        }
+      },
+      "Unit§Hell Talon": {
+        "keywords": {
+          "Keywords": [
+            "Tzeentch"
+          ]
+        }
       },
       "Unit§Mutalith Vortex Beast": {
         "aspects": {

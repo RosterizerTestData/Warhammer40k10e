@@ -1,6 +1,6 @@
 {
   "name": "World Eaters",
-  "revision": "10.12.1",
+  "revision": "10.12.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,181 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "GFZN6Z",
+      "slug": "5CWN5D",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Unit": {
+        "rules": {
+          "swapKeywordsCSMLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "World Eaters"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Dark Pacts"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Blessings of Khorne"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "WEShared"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 250
+          },
+          "swapKeywordsHHLegends": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Imperium"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaos"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "World Eaters"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Oath of Moment"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Blessings of Khorne"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Tags"
+                  ]
+                ],
+                "value": "chaosShared"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 250
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Aggressive Advance": {
         "keywords": {
@@ -5732,6 +5899,10 @@
         "constraints": {
           "none": [
             "notKhorne"
+          ],
+          "any": [
+            "chaosShared",
+            "WEShared"
           ]
         },
         "stats": {
@@ -5772,10 +5943,7 @@
             "dynamic": false,
             "value": "Chaos"
           },
-          "Legends": {
-            "dynamic": false,
-            "visibility": "hidden"
-          }
+          "Legends": {}
         }
       },
       "Stratagem§Apoplectic Frenzy": {
@@ -6182,6 +6350,20 @@
           "Points": {
             "value": 155
           }
+        }
+      },
+      "Unit§Hell Blade": {
+        "keywords": {
+          "Keywords": [
+            "Khorne"
+          ]
+        }
+      },
+      "Unit§Hell Talon": {
+        "keywords": {
+          "Keywords": [
+            "Khorne"
+          ]
         }
       },
       "Unit§Jakhals": {
