@@ -1,6 +1,6 @@
 {
   "name": "Blood Angels",
-  "revision": "10.12.2",
+  "revision": "10.12.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "5T934T",
+      "slug": "GUEX73",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -95,7 +95,18 @@
             "Other"
           ]
         },
-        "text": "Each time this model makes an attack, you can re-roll the Hit roll. While this model is not within 12″ of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0."
+        "text": "Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and the Objective Control characteristic of models in this unit is 0."
+      },
+      "Ability§Black Rage (Legends)": {
+        "aspects": {
+          "Label": "Black Rage"
+        },
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this model makes an attack, you can re-roll the Hit roll. While this model is not within 12\" of one or more friendly Chaplain models, it cannot be selected to Fall Back and its Objective Control characteristic is 0."
       },
       "Ability§Blood Chalice": {
         "keywords": {
@@ -1906,7 +1917,6 @@
               }
             },
             "Ability§Oath of Moment",
-            "Ability§Black Rage",
             "Ability§Death Vision of Sanguinius",
             "Ability§Tycho",
             {
@@ -1920,7 +1930,8 @@
             "Melee Weapon§Tycho the Lost—Dead Man’s Hand",
             "Ranged Weapon§Tycho the Lost—Blood Song",
             "Ranged Weapon§Tycho the Lost—Bolt pistol",
-            "Ability§Forlorn Hero (Tycho)"
+            "Ability§Forlorn Hero (Tycho)",
+            "Ability§Black Rage (Legends)"
           ]
         },
         "keywords": {
@@ -2999,6 +3010,55 @@
             "evaluate": "AND",
             "failState": "error"
           },
+          "lostDetachBonus": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "maxQty",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 6
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "The Lost Brethren"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 200
+          },
           "Only one model can swap their bolt pistol for a special pistol.": {
             "evals": [
               {
@@ -3177,6 +3237,55 @@
             "evaluate": "AND",
             "failState": "error"
           },
+          "lostDetachBonus": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "maxQty",
+                    "value"
+                  ]
+                ],
+                "prepend": " ",
+                "value": 6
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "The Lost Brethren"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 200
+          },
           "Only 1 special weapon change for the bolt rifle.": {
             "evals": [
               {
@@ -3270,12 +3379,12 @@
               }
             },
             "Ability§Oath of Moment",
-            "Ability§Black Rage",
             "Ability§An Honourable Death in Combat",
             {
               "item": "Model§Death Company Marine with Boltgun",
               "quantity": 5
-            }
+            },
+            "Ability§Black Rage (Legends)"
           ]
         },
         "keywords": {
@@ -3353,12 +3462,12 @@
               }
             },
             "Ability§Oath of Moment",
-            "Ability§Black Rage",
             "Ability§Berserk Fury",
             {
               "item": "Model§Death Company Marines with Boltgun and Jump Pack",
               "quantity": 5
-            }
+            },
+            "Ability§Black Rage (Legends)"
           ]
         },
         "keywords": {
@@ -10997,8 +11106,8 @@
               }
             },
             "Ability§Oath of Moment",
-            "Ability§Black Rage",
-            "Ability§Frenzied Reprisal"
+            "Ability§Frenzied Reprisal",
+            "Ability§Black Rage (Legends)"
           ]
         },
         "keywords": {
