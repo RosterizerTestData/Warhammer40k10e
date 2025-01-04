@@ -1,6 +1,6 @@
 {
-  "name": "Adepta Sororitas",
-  "revision": "10.12.1",
+  "name": "Adepta Sororitas Crusade",
+  "revision": "10.12.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,14 +9,155 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "9ACQCX",
+      "slug": "XKYMS8",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Agendas": {},
+      "Character": {
+        "rules": {
+          "showSaintPotentia": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Saint Potentia",
+                    "visibility"
+                  ]
+                ],
+                "value": "active"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "useCrusadeSaint": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "Saint Points accruded",
+                      "Martyr Points accruded"
+                    ],
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "saintPotentia"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Martyr Points accruded": {
+            "increment": {
+              "value": 1
+            },
+            "label": "Martyr Points",
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Saint Points accruded": {
+            "increment": {
+              "value": 1
+            },
+            "label": "Saint Points",
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Saint Potentia": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "saintPotentia": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "Trails of a Living Saint": {
+        "keywords": {
+          "Keywords": [
+            "Saint Potentia"
+          ]
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Abbess Sanctorum": {
         "keywords": {
@@ -57,6 +198,22 @@
           ]
         },
         "text": "While this unit is leading a unit and contains an Aestred Thurga model, weapons equipped by models in that unit have the [Devastating Wounds] ability."
+      },
+      "Ability§Beacon of Divine Grace": {
+        "aspects": {
+          "Label": "Beacon of Divine Grace"
+        },
+        "keywords": {
+          "Keywords": [
+            "Trails of a Living Saint"
+          ]
+        },
+        "stats": {
+          "abilityName": {
+            "value": "Beacon of Divine Grace"
+          }
+        },
+        "text": "Gain 2 Saint points at the end of a battle if this model performed 3 or more Acts of Faith during that battle.\nMiraculous Feat: Gain 1 Saint point at the end of a battle for each Miracle dice remaining in your Miracle Dice pool (to a maximum of 2 Saint points)."
       },
       "Ability§Cherub": {
         "keywords": {
@@ -3191,6 +3348,56 @@
           }
         },
         "text": "Adepta Sororitas model only. Each time the bearer is selected to fight, you can first discard up to 3 Miracle dice. For each Miracle dice just discarded, until the end of the phase, add 1 to the Attacks and Strength characteristics of the bearer's melee weapons."
+      },
+      "Enhancement§Saint Potentia": {
+        "keywords": {
+          "Keywords": [
+            "Saint Potentia"
+          ]
+        },
+        "removed": {
+          "rules": {
+            "There are more than 1 of this unique enhancement.": {}
+          }
+        },
+        "rules": {
+          "saintPotentiaChoice": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "prepend": "keywords",
+                "value": "Saint Potentia"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          }
+        },
+        "text": "When you start a Crusade force, if there are any ADEPTA SORORITAS CHARACTER models on your Order of Battle, you can select one of them (excluding EPIC HEROES). That model has the potential to become a LIVING SAINT, and gains the SAINT POTENTIA keyword. In addition to gaining XP as you play through your Crusade battles, that model will gain Saint points and Martyr points (see below). which you must keep track of on its Crusade card."
       },
       "Enhancement§Saintly Example": {
         "keywords": {
@@ -10931,7 +11138,152 @@
           }
         }
       },
+      "Requisition§Ascend to the Order": {
+        "allowed": {
+          "items": [
+            "Unit§Sisters Novitiate Squad"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        },
+        "text": "Purchase this Requisition before a battle. Select one SISTERS NOVITIATES SQUAD unit on your Order of Battle with the Blooded rank or higher. Remove that unit from your Order of Battle and add one BATTLE SISTERS SQUAD, DOMINION SQUAD or RETRIBUTOR SQUAD unit to your Order of Battle. The new unit has the same Battle Honours and Battle Scars as the unit it replaced, and has 5 more XP than the unit it replaced.*"
+      },
+      "Requisition§Divine Calling": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition at the end of a battle, when your SAINT POTENTIA model abandons its current Trial and starts a new one. After resetting its Saint points to 0, it gains a number of Saint points towards its new Trial equal to half the number of Saint points it had gained towards that abandoned Trial (rounding up)."
+      },
+      "Requisition§Glorious Redemption": {
+        "allowed": {
+          "items": [
+            "Unit§Repentia Squad"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition before a battle. Select one REPENTIA SQUAD unit on your Order of Battle that has 3 Redemption points (see the Atonement in Battle Agenda). Remove that unit from your Order of Battle and add a SERAPHIM SQUAD, ZEPHYRIM SQUAD, CELESTIAN SACRESANTS or PARAGON WARSUITS unit to your Order of Battle. The new unit has the same Battle Honours and Battle Scars as the unit it replaced, and gains one Battle Trait of your choice (this must be a Battle Trait it can have, but does not count towards the maximum number of Battle Traits a unit can have). If the Legendary Veterans Requisition is used on this unit, that Requisition only costs you 1RP.*"
+      },
+      "Requisition§In Suffering, Enlightenment": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition after a battle, before an ADEPTA SORORITAS unit from your Crusade army takes an Out of Action test. That test is automatically failed and that unit gains 1 Battle Scar and 1 Battle Honour of your choice. If that unit was a SAINT POTENTIA, it also gains 3 Saint points and 1 Martyr point. You cannot use this Requisition on the same unit more than once."
+      },
+      "Requisition§Saintly Benediction": {
+        "stats": {
+          "RP": {
+            "value": 1
+          }
+        },
+        "text": "Purchase this Requisition before a battle. During the first battle round of that battle, each of the Miracle dice you gain at the start of each player’s turn is automatically a 6."
+      },
+      "Requisition§The Penitent Path": {
+        "allowed": {
+          "items": [
+            "Unit§Battle Sisters Squad",
+            "Unit§Dominion Squad",
+            "Unit§Retributor Squad"
+          ]
+        },
+        "stats": {
+          "RP": {
+            "value": 2
+          }
+        },
+        "text": "Purchase this Requisition before a battle. Select one of the following:\n    Select one BATTLE SISTERS SQUAD, DOMINION SQUAD or RETRIBUTOR SQUAD unit on your Order of Battle that has suffered a Devastating Blow result. Remove that unit from your Order of Battle and add one REPENTIA SQUAD unit to your Order of Battle.\n    Select one REPENTIA SQUAD unit on your Order of Battle that has suffered a Devastating Blow result. Remove that unit from your Order of Battle and add one MORTIFIERS unit to your Order of Battle. \n\nIn either case, the new unit has the same Battle Honours, Battle Scars and XP as the unit it replaced, and until it is removed from your Order of Battle, it will gain 2XP from Dealers of Death, instead of just 1XP.*"
+      },
       "Roster§Roster": {
+        "rules": {
+          "usingCrusadeSaint": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "Honour Points remaining",
+                      "Saint Points accruded"
+                    ],
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Honour Points remaining",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Play",
+                    "value"
+                  ]
+                ],
+                "value": "Narrative"
+              },
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "tracked",
+                    "Saint Points accruded"
+                  ]
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Saint Points accruded",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Detachment": {
             "ranks": {
@@ -11010,6 +11362,18 @@
               }
             },
             "value": "Imperium"
+          },
+          "Saint Points accruded": {
+            "increment": {
+              "value": 1
+            },
+            "label": "Saint Points",
+            "max": 5,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           }
         }
       },
