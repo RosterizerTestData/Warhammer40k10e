@@ -1,6 +1,6 @@
 {
   "name": "Adepta Sororitas",
-  "revision": "10.12.1",
+  "revision": "10.12.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1135,7 +1135,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad\n\n* Sisters Novitiate Squad \n\nThis model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad\n\n* Sisters Novitiate Squad \n\n* Crusaders\n\nThis model can be attached to a BATTLE SISTERS SQUAD, even if one CANONESS, PALATINE, JUNITH ERUITA or AESTRED THURGA model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Acts of Faith",
             "Ability§Laud Hailer",
@@ -1247,28 +1247,12 @@
                   [
                     "{this}",
                     "evals",
-                    "0",
-                    "result",
-                    "truthy"
-                  ],
-                  [
-                    "{this}",
-                    "evals",
-                    "1",
-                    "result",
-                    "truthy"
-                  ],
-                  [
-                    "{this}",
-                    "evals",
-                    "2",
-                    "result",
-                    "truthy"
-                  ],
-                  [
-                    "{this}",
-                    "evals",
-                    "3",
+                    [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
                     "result",
                     "truthy"
                   ]
@@ -1323,7 +1307,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad \n\nThis model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad \n\n* Crusaders\n\nThis model can be attached to a BATTLE SISTERS SQUAD, even if one CANONESS, PALATINE, JUNITH ERUITA or AESTRED THURGA model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Acts of Faith",
             "Ability§Executioner of Heretics (aura)",
@@ -1358,6 +1342,115 @@
             "Character"
           ]
         },
+        "rules": {
+          "allowTwoleaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Canoness"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Palatine"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Junith Eruita"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Aestred Thurga and Agathae Dolan"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battle Sisters Squad"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1387,7 +1480,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad\n\n* Sisters Novitiate Squad \n\nThis model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad\n\n* Sisters Novitiate Squad \n\n* Crusaders\n\nThis model can be attached to a BATTLE SISTERS SQUAD, even if one CANONESS, PALATINE, JUNITH ERUITA or AESTRED THURGA model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Acts of Faith",
             "Ability§Medicus Ministorum",
@@ -1440,7 +1533,7 @@
             ],
             "evals": [
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -1453,7 +1546,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -1466,7 +1559,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -1477,9 +1570,56 @@
                     "Junith Eruita"
                   ]
                 ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Aestred Thurga and Agathae Dolan"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battle Sisters Squad"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           }
         },
@@ -1512,7 +1652,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad \n\nThis model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine or Junith Eruita model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This model can be attached to the following units:\n\n* Battle Sisters Squad\n\n* Celestian Sacresants\n\n* Dominion Squad\n\n* Retributor Squad \n\n* Crusaders\n\nThis model can be attached to a BATTLE SISTERS SQUAD, even if one CANONESS, PALATINE, JUNITH ERUITA or AESTRED THURGA model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Acts of Faith",
             "Ability§Litany of Deeds",
@@ -1567,7 +1707,7 @@
             ],
             "evals": [
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -1580,7 +1720,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -1593,7 +1733,7 @@
                 ]
               },
               {
-                "actionable": true,
+                "actionable": false,
                 "min": 1,
                 "not": false,
                 "operator": "AND",
@@ -1604,9 +1744,56 @@
                     "Junith Eruita"
                   ]
                 ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Aestred Thurga and Agathae Dolan"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battle Sisters Squad"
               }
             ],
-            "evaluate": "OR",
+            "evaluate": "AND",
             "failState": "pass"
           }
         },
