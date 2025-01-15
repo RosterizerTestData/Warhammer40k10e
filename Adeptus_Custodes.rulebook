@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.12.4",
+  "revision": "10.12.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "9ACQCX",
+      "slug": "XB7MKD",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -3632,6 +3632,28 @@
             "Solar Spearhead"
           ]
         },
+        "rules": {
+          "Vehicle model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 15
@@ -4003,12 +4025,48 @@
             "Solar Spearhead"
           ]
         },
+        "rules": {
+          "Infantry or Mounted model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mounted"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Points": {
             "value": 10
           }
         },
-        "text": "Adeptus Custodes Infantry or Adeptus Custodes\nMounted model only. In your Movement phase, select\none Adeptus Custodes Vehicle or Adeptus Custodes\nMounted unit within 6\" of the bearer. Until the start\nof your next Command phase, that unit is eligible to\nshoot in a turn in which it Fell Back."
+        "text": "**Adeptus Custodes Infantry** or **Adeptus Custodes\nMounted** model only. In your Command phase, select\none **Adeptus Custodes Vehicle** or **Adeptus Custodes\nMounted** unit within 6\" of the bearer. Until the start\nof your next Command phase, that unit is eligible to\nshoot in a turn in which it Fell Back."
       },
       "Magisterium Lex Ultima§Endeavour": {
         "stats": {
