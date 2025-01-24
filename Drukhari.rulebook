@@ -1,5 +1,5 @@
 {
-  "name": "Drukhari Copy",
+  "name": "Drukhari",
   "revision": "10.12.3",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
@@ -9,10 +9,10 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "HFK73V",
-      "name": "Aeldari/Drukhari common Copy",
+      "slug": "000000",
+      "name": "Harlequins",
       "game": "Warhammer 40k",
-      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.rulebook"
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Harlequins.rulebook"
     }
   ],
   "rulebook": {
@@ -72,7 +72,7 @@
                     "Faction"
                   ]
                 ],
-                "value": "Aeldari"
+                "value": "Harlequins"
               }
             ],
             "evaluate": "OR",
@@ -120,13 +120,13 @@
                     "Faction"
                   ]
                 ],
-                "value": "Aeldari"
+                "value": "Harlequins"
               }
             ],
             "evaluate": "AND",
             "failState": "pass"
           },
-          "Your Warlord cannot be Harlequins or Anhrathe.": {
+          "Your Warlord cannot be Harlequins.": {
             "evals": [
               {
                 "actionable": true,
@@ -1356,7 +1356,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Harlequins"
@@ -1715,7 +1715,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Harlequins"
@@ -1882,7 +1882,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Harlequins"
@@ -7483,53 +7483,6 @@
       },
       "Roster§Roster": {
         "rules": {
-          "allowTravellingPlayers": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Harlequins"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "constraints",
-                    "any"
-                  ]
-                ],
-                "value": "Anhrathe"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "Harlequins/Anhrathe"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          },
           "reaperAllySet": {
             "actions": [
               {
@@ -7543,7 +7496,7 @@
                     "value"
                   ]
                 ],
-                "value": "Harlequins/Anhrathe"
+                "value": "Harlequins"
               },
               {
                 "actionType": "set",
@@ -7557,6 +7510,19 @@
                   ]
                 ],
                 "value": false
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
               }
             ],
             "evals": [
@@ -7577,60 +7543,7 @@
             ],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 50
-          },
-          "setMaxHarlequinPoints": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Ally 1 Points",
-                    "max"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "tracked",
-                  "MaxHarlequinPoints"
-                ]
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "Harlequins/Anhrathe"
-              },
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Detachment",
-                    "value"
-                  ]
-                ],
-                "value": "Reaper's Wager"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
+            "order": 49
           },
           "setMaxReaperHarlequinPoints": {
             "actions": [
@@ -7659,20 +7572,6 @@
                 "operator": "AND",
                 "paths": [
                   [
-                    "{self}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "Harlequins/Anhrathe"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
                     "{roster}",
                     "stats",
                     "Detachment",
@@ -7687,13 +7586,19 @@
           }
         },
         "stats": {
+          "Allied faction 1": {
+            "ranks": {
+              "Harlequins": {
+                "order": 1
+              }
+            }
+          },
           "Battle Size": {
             "increment": {},
             "ranks": {
               "Incursion": {
                 "order": 1,
                 "tracking": {
-                  "MaxHarlequinPoints": 250,
                   "maxPoints": 1000,
                   "MaxReaperHarlequinPoints": 500
                 }
@@ -7701,7 +7606,6 @@
               "Strike Force": {
                 "order": 2,
                 "tracking": {
-                  "MaxHarlequinPoints": 500,
                   "maxPoints": 2000,
                   "MaxReaperHarlequinPoints": 1000
                 }
@@ -7709,7 +7613,6 @@
               "Onslaught": {
                 "order": 3,
                 "tracking": {
-                  "MaxHarlequinPoints": 750,
                   "maxPoints": 3000,
                   "MaxReaperHarlequinPoints": 1500
                 }
