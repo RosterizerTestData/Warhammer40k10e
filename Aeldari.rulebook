@@ -19,6 +19,68 @@
     "assetTaxonomy": {
       "Unit": {
         "rules": {
+          "addYnnariToAsuryani": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ynnari"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Asuryani"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Devoted of Ynnead"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "applyHarlequinAbilities": {
             "actions": [
               {
@@ -63,6 +125,54 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 1
+          },
+          "You may only have Ynnari EPIC HERO units.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Devoted of Ynnead"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Epic Hero"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Ynnari"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
           }
         }
       }
@@ -140,14 +250,6 @@
         },
         "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
       },
-      "Ability§Champion of Ynnead": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Each time this model is selected to fight, select one of the abilities below for Asu-var, the Sword of Silent Screams, to gain until the end of the phase: \n\n* [  SUSTAINED HITS 2] \n\n* [DEVASTATING WOUNDS] \n\n* [  LETHAL HITS]"
-      },
       "Ability§Cloudbreakers": {
         "keywords": {
           "Keywords": [
@@ -188,14 +290,6 @@
         },
         "text": "Each time this model is selected to shoot, you can re-roll one Hit roll and you can re-roll one Wound roll when resolving those attacks."
       },
-      "Ability§Deathly Form": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Each time an attack is allocated to this model, halve the Damage characteristic of that attack."
-      },
       "Ability§Defence Tactics": {
         "keywords": {
           "Keywords": [
@@ -235,6 +329,14 @@
           ]
         },
         "text": "At the start of your Shooting phase, you can select one enemy unit within 18″ of and visible to this Psyker and roll one D6: on a 2+, until the end of the turn, each time a friendly Aeldari model makes an attack that targets that enemy unit, add 1 to the Wound roll."
+      },
+      "Ability§Ethereal Form": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this model destroys an enemy unit, it regains up to D3 lost wounds."
       },
       "Ability§Face of Death": {
         "keywords": {
@@ -315,7 +417,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
+        "text": "At the start of the Fight phase, select one enemy unit within Engagement Range of this model. Until the end of the phase, each time a friendly AELDARI model makes an attack that targets that unit, you can re-roll the Wound roll."
       },
       "Ability§Indomitable Strength of Will (Aura)": {
         "keywords": {
@@ -339,7 +441,7 @@
             "Other"
           ]
         },
-        "text": "Once in each of your turns, if this model is on the battlefield, when another unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up again as close as possible to where that destroyed model was and not within Engagement Range of any enemy models."
+        "text": "Once in each of your opponent's turns, if this model is on the battlefield when another friendly AELDARI unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units."
       },
       "Ability§Into the Foe": {
         "keywords": {
@@ -647,7 +749,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, that unit has the Fights First ability."
+        "text": "While this model is leading a unit, models in that unit have the Fights First ability."
       },
       "Ability§Way of the Shaper (psychic)": {
         "keywords": {
@@ -671,7 +773,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, in your Command phase, you can roll one D6: on a 2+, D3 destroyed Bodyguard models are returned to that unit."
+        "text": "While this model is leading a unit, in your Command phase, roll one D6: on a 2+, D3+1 destroyed Bodyguard models (excluding SUPPORT WEAPON models) are returned to that unit with their full wounds remaining."
       },
       "Ability§Wraithbone Form": {
         "keywords": {
@@ -680,6 +782,14 @@
           ]
         },
         "text": "Each time an attack is allocated to this model, subtract 1 from that attack’s Damage characteristic."
+      },
+      "Ability§Yvraine's Champion": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "While this model is leading a unit, other CHARACTER models attached to that unit have the Feel No Pain 4+ ability."
       },
       "Character§Amallyn Shadowguide": {
         "aspects": {
@@ -1911,7 +2021,6 @@
             },
             "Ability§Battle Focus",
             "Ability§Way of the Blade",
-            "Ability§Champion of Ynnead",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1920,21 +2029,23 @@
                 }
               }
             },
-            "Melee Weapon§The Visarch—Asu-var, the Sword of Silent Screams"
+            "Melee Weapon§The Visarch—Asu-var",
+            "Ability§Disparate Paths",
+            "Ability§Yvraine's Champion"
           ]
         },
         "keywords": {
           "Faction": [
-            "Aeldari"
+            "Ynnari"
           ],
           "Source": [
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
+            "Aeldari",
             "Character",
             "Epic Hero",
-            "Ynnari",
+            "Infantry",
             "The Visarch"
           ],
           "Category": [
@@ -2018,7 +2129,6 @@
             },
             "Ability§Battle Focus",
             "Ability§Inevitable Death",
-            "Ability§Deathly Form",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -2028,24 +2138,27 @@
               }
             },
             "Ranged Weapon§The Yncarne—Swirling soul energy",
-            "Melee Weapon§The Yncarne—Vilith-zhar, the Sword of Souls"
+            "Melee Weapon§The Yncarne—Vilith-zhar",
+            "Ability§Deep Strike",
+            "Ability§Disparate Paths",
+            "Ability§Ethereal Form"
           ]
         },
         "keywords": {
           "Faction": [
-            "Aeldari"
+            "Ynnari"
           ],
           "Source": [
             "10th Edition Index"
           ],
           "Keywords": [
-            "Monster",
+            "Aeldari",
             "Character",
+            "Daemon",
             "Epic Hero",
             "Fly",
+            "Monster",
             "Psyker",
-            "Daemon",
-            "Ynnari",
             "The Yncarne"
           ],
           "Category": [
@@ -2063,7 +2176,7 @@
             "value": 3
           },
           "Points": {
-            "value": 350
+            "value": 250
           },
           "Sv": {
             "value": 2
@@ -2304,7 +2417,6 @@
         },
         "assets": {
           "traits": [
-            "Ability§Deep Strike",
             {
               "item": "Ability§Leader",
               "text": "This model can be attached to the following units:\n\n* Corsair Voidscarred\n\n* Corsair Voidreavers\n\n* Guardian Defenders\n\n* Kabalite Warriors (see Drukhari)\n\n* Storm Guardians\n\n* Troupe\n\n* Wyches (see Drukhari)"
@@ -2321,21 +2433,22 @@
               }
             },
             "Ranged Weapon§Yvraine—Storm of Whispers",
-            "Melee Weapon§Yvraine—Kha-vir, the Sword of Sorrows"
+            "Melee Weapon§Yvraine—Kha-vir",
+            "Ability§Disparate Paths"
           ]
         },
         "keywords": {
           "Faction": [
-            "Aeldari"
+            "Ynnari"
           ],
           "Source": [
             "10th Edition Index"
           ],
           "Keywords": [
-            "Infantry",
+            "Aeldari",
             "Character",
             "Epic Hero",
-            "Ynnari",
+            "Infantry",
             "Psyker",
             "Yvraine"
           ],
@@ -2354,7 +2467,7 @@
             "value": 1
           },
           "Points": {
-            "value": 125
+            "value": 100
           },
           "Sv": {
             "value": 6
@@ -2576,6 +2689,25 @@
           ]
         },
         "rules": {
+          "allowYnnari": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Ynnari"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "assignStratagems": {
             "actions": [
               {
@@ -2666,6 +2798,46 @@
             "evals": [],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "Yvraine or The Yncarne must be your WARLORD.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Yvraine",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§The Yncarne",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
           }
         },
         "text": "**STRENGTH FROM DEATH**\n\nYou can use the following rules:\n\n*Lethal Intent*\nAt the end of your opponent's Shooting phase, if one or more YNNARI units from your army were destroyed this phase, select one YNNARI unit from your army (excluding TITANIC units). That unit can make a Normal move.\n\n*Lethal Surge*\nOnce per turn, when a YNNARI unit from your army performs the Fade Back Agile Manoeuvre (pg 101), it can make a Lethal Surge move instead of a Normal move. If it does, roll one D6 and add 1 to the result: that unit can be moved a number of inches up to the total. When doing so, those models can be moved within Engagement Range of the enemy unit that just triggered that Agile Manoeuvre.\n\n*Lethal Reprisal*\nAt the start of the Fight phase, select one YNNARI unit from your army (excluding TITANIC units) that is below its Starting Strength. Until the end of the phase, that unit has the Fights First ability.\n\n**SERVANTS OF THE WHISPERING GOD**\n\n- You can include YNNARI units in your army (pg 164-171), even though they do not have the ASURYANI Faction keyword.\n- ASURYANI units (excluding EPIC HEROES) from your army gain the YNNARI keyword.\n- You must include YVRAINE and/or THE YNCARNE in your army, and one of those models must be your WARLORD."
@@ -6868,13 +7040,20 @@
           }
         }
       },
-      "Melee Weapon§The Visarch—Asu-var, the Sword of Silent Screams": {
+      "Melee Weapon§The Visarch—Asu-var": {
         "aspects": {
-          "Label": "Asu-var, the Sword of Silent Screams"
+          "Label": "Asu-var"
         },
         "assets": {
           "traits": [
-            "Ability§Precision"
+            "Melee Weapon§The Visarch—Asu-var - quicksilver stance",
+            "Melee Weapon§The Visarch—Asu-var - duellist stance",
+            "Melee Weapon§The Visarch—Asu-var - mythic stance"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
           ]
         },
         "stats": {
@@ -6899,14 +7078,114 @@
           }
         }
       },
-      "Melee Weapon§The Yncarne—Vilith-zhar, the Sword of Souls": {
+      "Melee Weapon§The Visarch—Asu-var - duellist stance": {
         "aspects": {
-          "Label": "Vilith-zhar, the Sword of Souls"
+          "Label": "Duellist stance"
         },
         "assets": {
           "traits": [
-            "Melee Weapon§The Yncarne—Vilith-zhar, the Sword of Souls – strike",
-            "Melee Weapon§The Yncarne—Vilith-zhar, the Sword of Souls – sweep"
+            "Ability§Devastating Wounds",
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§The Visarch—Asu-var - mythic stance": {
+        "aspects": {
+          "Label": "Mythic stance"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Precision",
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "epic hero"
+                },
+                "x": {
+                  "value": "2+"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -4
+          },
+          "D": {
+            "value": 3
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§The Visarch—Asu-var - quicksilver stance": {
+        "aspects": {
+          "Label": "Quicksilver stance"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 8
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§The Yncarne—Vilith-zhar": {
+        "aspects": {
+          "Label": "Vilith-zhar"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§The Yncarne—Vilith-zhar – strike",
+            "Melee Weapon§The Yncarne—Vilith-zhar – sweep"
           ]
         },
         "keywords": {
@@ -6915,7 +7194,7 @@
           ]
         }
       },
-      "Melee Weapon§The Yncarne—Vilith-zhar, the Sword of Souls – strike": {
+      "Melee Weapon§The Yncarne—Vilith-zhar – strike": {
         "aspects": {
           "Label": "Strike"
         },
@@ -6942,7 +7221,7 @@
           }
         }
       },
-      "Melee Weapon§The Yncarne—Vilith-zhar, the Sword of Souls – sweep": {
+      "Melee Weapon§The Yncarne—Vilith-zhar – sweep": {
         "aspects": {
           "Label": "Sweep"
         },
@@ -7688,9 +7967,9 @@
           }
         }
       },
-      "Melee Weapon§Yvraine—Kha-vir, the Sword of Sorrows": {
+      "Melee Weapon§Yvraine—Kha-vir": {
         "aspects": {
-          "Label": "Kha-vir, the Sword of Sorrows"
+          "Label": "Kha-vir"
         },
         "assets": {
           "traits": [
@@ -17315,6 +17594,29 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 51
+          },
+          "tempIgnore": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Autarch",
+                    "aspects",
+                    "Unique"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
           }
         },
         "stats": {
@@ -17406,11 +17708,11 @@
           "Faction": {
             "dynamic": false,
             "ranks": {
-              "Aeldari": {
+              "Asuryani": {
                 "order": 1
               }
             },
-            "value": "Aeldari"
+            "value": "Asuryani"
           },
           "Faction Group": {
             "dynamic": false,
