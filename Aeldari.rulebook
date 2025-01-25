@@ -15215,288 +15215,38 @@
           "not": []
         },
         "rules": {
-          "disallowedYnnariUnits": {
+          "hideAllyPoints": {
             "actions": [
               {
-                "actionType": "add",
+                "actionType": "set",
                 "iterations": 1,
+                "note": "Harlequins are effectively a permanent ally for Aeldari, as they have a separate faction keyword but an army rule that allows them anyway. They don't *really* count as an ally and there's no need to show their points subtotal - they're included as an ally purely as a convenient way of allowing their units.",
                 "paths": [
                   [
-                    "{roster}",
-                    "constraints",
-                    "none"
-                  ]
-                ],
-                "value": "Phoenix Lord"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "constraints",
-                    "none"
-                  ]
-                ],
-                "value": "Avatar of Khaine"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "constraints",
-                    "none"
-                  ]
-                ],
-                "value": "Solitaire"
-              },
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "constraints",
-                    "none"
-                  ]
-                ],
-                "value": "Haemonculus Covens"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "Drukhari"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 60
-          },
-          "Maximum 1000 points of Drukhari in a Strike Force game.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Battle Size",
-                    "value"
-                  ]
-                ],
-                "value": "Strike Force"
-              },
-              {
-                "actionable": true,
-                "max": 1000,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
+                    "{self}",
                     "stats",
                     "Ally 1 Points",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
-          },
-          "Maximum 1500 points of Drukhari in an Onslaught game.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Battle Size",
-                    "value"
+                    "visibility"
                   ]
                 ],
-                "value": "Onslaught"
-              },
-              {
-                "actionable": true,
-                "max": 1500,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
-          },
-          "Maximum 500 points of Drukhari in an Incursion game.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Battle Size",
-                    "value"
-                  ]
-                ],
-                "value": "Incursion"
-              },
-              {
-                "actionable": true,
-                "max": 500,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Ally 1 Points",
-                    "value"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error",
-            "order": 60
-          },
-          "noDrukhariIfNotSelected": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "constraints",
-                    "none"
-                  ]
-                ],
-                "value": "Drukhari"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "Drukhari"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
-          },
-          "removeTravellingPlayers": {
-            "actions": [
-              {
-                "actionType": "remove",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Allied faction 1",
-                    "ranks"
-                  ]
-                ],
-                "value": "Harlequins/Anhrathe"
+                "value": "hidden"
               }
             ],
             "evals": [],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 50
-          },
-          "You may only include Drukhari if Yvraine is your Warlord.": {
-            "evals": [
-              {
-                "actionable": true,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Allied faction 1",
-                    "value"
-                  ]
-                ],
-                "value": "Drukhari"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "OR",
-                "paths": [
-                  [
-                    "{roster}",
-                    "assets",
-                    "item",
-                    "Character§Yvraine",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ],
-                  [
-                    "{roster}",
-                    "assets",
-                    "classification",
-                    "Unit",
-                    "assets",
-                    "item",
-                    "Character§Yvraine",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
+            "order": 51
           }
         },
         "stats": {
+          "Allied faction 1": {
+            "ranks": {
+              "Harlequins": {
+                "order": 1
+              }
+            },
+            "value": "Harlequins"
+          },
           "Detachment": {
             "ranks": {
               "Battle Host": {
