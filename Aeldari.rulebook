@@ -2677,6 +2677,34 @@
           ]
         },
         "rules": {
+          "allowExtraCharacters": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    [
+                      "Character§Death Jester",
+                      "Character§Troupe Master",
+                      "Character§Shadowseer"
+                    ],
+                    "stats",
+                    "maxQty",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 7
+          },
           "assignStratagems": {
             "actions": [
               {
@@ -2767,6 +2795,51 @@
             "evals": [],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "makeTroupesBattleline": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Troupe",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Troupe",
+                    "assets",
+                    "item",
+                    [
+                      "Model§Lead Player",
+                      "Model§Player"
+                    ],
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
           }
         },
         "text": "**ACROBATIC ONSLAUGHT**\n\nEach time a HARLEQUINS model from your army makes a Charge move, it can move through enemy models.\n\n**TRAVELLING PLAYERS**\n\n- TROUPE units from your army gain the BATTLELINE keyword and TROUPE models in those units have an Objective Control characteristic of 2.\n- You can include up to three of each of the following models in your army: DEATH JESTER, SHADOWSEER, TROUPE MASTER."
