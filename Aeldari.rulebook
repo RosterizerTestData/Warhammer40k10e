@@ -847,6 +847,14 @@
         },
         "text": "While a Farseer model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll."
       },
+      "Ability§Psychic Communion (Psychic)": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this model is selected to shoot, for each WARLOCK model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model's Destructor weapon for each other friendly AELDARI PSYKER model within 6\" of that model (to a maximum of +2)."
+      },
       "Ability§Psytronome Shaper": {
         "keywords": {
           "Keywords": [
@@ -893,7 +901,7 @@
             "Other"
           ]
         },
-        "text": "In your Command phase, select one of the following to take effect until the start of your next Command phase: \n\n*  Conceal: Models in this model’s unit have the Stealth ability. \n\n*  Reveal: Ranged weapons equipped by models in this model’s unit have the [IGNORES COVER] ability."
+        "text": "While this unit is leading a unit, weapons equipped by models in that unit have the [IGNORES COVER] ability."
       },
       "Ability§Runes of Fortune (Psychic)": {
         "keywords": {
@@ -901,7 +909,7 @@
             "Other"
           ]
         },
-        "text": "In your Command phase, select one of the following to take effect until the start of your next Command phase: \n\n*  Quicken: Each time this model’s unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6″ to the Move characteristic of models in that unit. \n\n*  Restrain: Each time an enemy unit declares a charge, if this model’s unit is selected as a target of that charge, subtract 2 from the Charge roll. The same enemy unit can only be affected in this way once per phase."
+        "text": "Each time an enemy unit declares a charge, if one or more units with this ability are selected as a target of that charge, subtract 2 from the Charge roll."
       },
       "Ability§Sadistic Raiders": {
         "keywords": {
@@ -1054,19 +1062,6 @@
           ]
         },
         "text": "Once per battle round, when an enemy unit targets this unit, after that unit has finished making its attacks, this unit can shoot as if it were your Shooting phase. When doing so, it must target only that enemy unit, and can only do so if that enemy unit is an eligible target."
-      },
-      "Ability§Warlock Conclave": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "rules": {
-          "AddFNP": {
-            "evals": []
-          }
-        },
-        "text": "Models in this unit have the Feel No Pain 4+ ability against Psychic Attacks."
       },
       "Ability§Wave Serpent Shield": {
         "keywords": {
@@ -2078,6 +2073,42 @@
             "Character"
           ]
         },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "note": "Warlock Skyrunners is itself a leader unit, so if this Farseer is leading them it'll look like two leaders in one unit when really that's not the case. As a workaround, permit two leaders when this is leading warlocks.",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": "Character§Warlock Skyrunners"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -2646,7 +2677,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character models in Attached units.\n\nThis model can be attached to the following units:\n\n* Guardian Defenders\n\n* Storm Guardians \n\nYou can attach this model to one of the above units, even if one other Leader unit (excluding Warlock units) has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This model can be attached to the following units:\n\n* Guardian Defenders\n\n* Storm Guardians \n\nYou can attach this model to a unit, even if one AUTARCH or FARSEER model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Battle Focus",
             "Ability§Runes of Fortune (Psychic)",
@@ -2659,7 +2690,8 @@
               }
             },
             "Ranged Weapon§Warlock—Destructor",
-            "Ranged Weapon§Warlock—Shuriken pistol"
+            "Ranged Weapon§Warlock—Shuriken pistol",
+            "Ability§Psychic Communion (Psychic)"
           ]
         },
         "keywords": {
@@ -2751,12 +2783,18 @@
           }
         }
       },
-      "Character§Warlock Skyrunner": {
+      "Character§Warlock Skyrunners": {
+        "allowed": {
+          "items": [
+            "Model§Warlock Skyrunner",
+            "Character§Farseer Skyrunner"
+          ]
+        },
         "assets": {
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "* Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n* Attached units can only contain one Leader.\n* Attacks cannot be allocated to Character models in Attached units.\n\nThis model can be attached to the following unit:\n\n* Windriders \n\nYou can attach this unit to the above unit, even if one other Leader unit (excluding Warlock units) has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This unit can be attached to the following unit:\n\n* Windriders"
             },
             "Ability§Battle Focus",
             "Ability§Runes of Battle (Psychic)",
@@ -2768,9 +2806,8 @@
                 }
               }
             },
-            "Ranged Weapon§Warlock Skyrunner—Destructor",
-            "Ranged Weapon§Warlock Skyrunner—Shuriken pistol",
-            "Ranged Weapon§Warlock Skyrunner—Twin shuriken catapult"
+            "Model§Warlock Skyrunner",
+            "Ability§Psychic Communion (Psychic)"
           ]
         },
         "keywords": {
@@ -2793,75 +2830,29 @@
             "Character"
           ]
         },
-        "rules": {
-          "allowTwoleaders": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Leader",
-                    "max"
-                  ]
-                ],
-                "value": 2
-              }
-            ],
-            "evals": [],
-            "evaluate": "OR",
-            "failState": "pass"
-          }
-        },
         "stats": {
-          "Ld": {
-            "value": 6
+          "model1stTally": {
+            "value": 1
           },
-          "M": {
-            "value": 14
+          "model2ndCost": {
+            "value": 90
           },
-          "Melee": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Witchblade": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Warlock Skyrunner—Witchblade"
-                  }
-                ]
-              },
-              "Singing spear": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Warlock Skyrunner—Singing spear"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Witchblade",
-            "visibility": "active"
-          },
-          "OC": {
+          "model2ndTally": {
             "value": 2
           },
+          "modelKey": {
+            "value": "Model§Warlock Skyrunner"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 2,
+            "value": 1,
+            "visibility": "normal"
+          },
           "Points": {
-            "value": 55
-          },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 4
-          },
-          "W": {
-            "value": 3
+            "value": 45
           }
         }
       },
@@ -11416,6 +11407,76 @@
             "Melee Weapon§Wyches—Hekatarii blade"
           ]
         },
+        "rules": {
+          "equipBlast": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Wyches—Blast pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Hekatrix pistol",
+                    "value"
+                  ]
+                ],
+                "value": "Blast pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Wyches—Splinter pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Hekatrix pistol",
+                    "value"
+                  ]
+                ],
+                "value": "Splinter pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -11425,32 +11486,6 @@
           },
           "OC": {
             "value": 2
-          },
-          "Pistol Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Blast pistol": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Wyches—Blast pistol"
-                  }
-                ]
-              },
-              "Splinter pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Wyches—Splinter pistol"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Splinter pistol",
-            "visibility": "active"
           },
           "Sv": {
             "value": 6
@@ -11801,38 +11836,82 @@
         }
       },
       "Model§Klaivex": {
+        "rules": {
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Incubi—Klaive"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Klaivex loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Klaive"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipDemi": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Incubi—Demiklaives"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Klaivex loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Demiklaives"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
           },
           "M": {
             "value": 7
-          },
-          "Melee Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Demiklaives": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Incubi—Demiklaives"
-                  }
-                ]
-              },
-              "Klaive": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Incubi—Klaive"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Demiklaives",
-            "visibility": "active"
           },
           "OC": {
             "value": 1
@@ -13181,18 +13260,7 @@
           "traits": [
             "Ranged Weapon§Warlock Skyrunner—Destructor",
             "Ranged Weapon§Warlock Skyrunner—Twin shuriken catapult",
-            "Ranged Weapon§Warlock Skyrunner—Shuriken pistol",
-            {
-              "item": "Ability§Feel No Pain",
-              "stats": {
-                "keyword": {
-                  "value": "Psychic"
-                },
-                "x": {
-                  "value": "4+"
-                }
-              }
-            }
+            "Ranged Weapon§Warlock Skyrunner—Shuriken pistol"
           ]
         },
         "stats": {
@@ -13232,7 +13300,7 @@
             "value": 2
           },
           "Sv": {
-            "value": 3
+            "value": 6
           },
           "T": {
             "value": 4
@@ -25700,7 +25768,6 @@
         "assets": {
           "traits": [
             "Ability§Battle Focus",
-            "Ability§Warlock Conclave",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -25713,7 +25780,8 @@
             {
               "item": "Model§Warlock",
               "quantity": 2
-            }
+            },
+            "Ability§Psychic Communion (Psychic)"
           ]
         },
         "keywords": {
@@ -26189,9 +26257,8 @@
         "allowed": {
           "items": [
             "Model§Windrider",
-            "Character§Autarch Skyrunner",
             "Character§Farseer Skyrunner",
-            "Character§Warlock Skyrunner"
+            "Character§Warlock Skyrunners"
           ]
         },
         "assets": {
@@ -27111,6 +27178,23 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Klaivex loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Klaive": {
+                "order": 0
+              },
+              "Demiklaives": {
+                "order": 1
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Klaive",
+            "visibility": "active"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -27704,6 +27788,23 @@
           ]
         },
         "stats": {
+          "Hekatrix pistol": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Splinter pistol": {
+                "order": 0
+              },
+              "Blast pistol": {
+                "order": 1
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Splinter pistol",
+            "visibility": "active"
+          },
           "model1stTally": {
             "value": 10
           },
