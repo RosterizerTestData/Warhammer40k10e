@@ -126,6 +126,222 @@
             "failState": "pass",
             "order": 1
           },
+          "firstAspectShrineToken": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Wargear§Aspect Shrine Token"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 72
+          },
+          "secondAspectShrineToken": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Wargear§Aspect Shrine Token"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 72
+          },
+          "setAspectShrinesToOne": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 9,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 71
+          },
+          "setAspectShrinesToTwo": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 10
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 71
+          },
+          "showAspectShrineStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aspect Shrine Tokens",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Aspect Warriors"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "item"
+                  ]
+                ],
+                "value": "Unit§Shining Spears"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 70
+          },
           "You may only have Ynnari EPIC HERO units.": {
             "evals": [
               {
@@ -174,6 +390,19 @@
             "evaluate": "OR",
             "failState": "error"
           }
+        },
+        "stats": {
+          "Aspect Shrine Tokens": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "max": 2,
+            "min": 0,
+            "statOrder": 10,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "hidden"
+          }
         }
       }
     },
@@ -185,14 +414,6 @@
           ]
         },
         "text": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
-      },
-      "Ability§Aerobatic Grace": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Each time an attack targets this unit, subtract 1 from the Hit roll."
       },
       "Ability§Aethersails": {
         "keywords": {
@@ -218,13 +439,21 @@
         },
         "text": "In your Shooting phase, after this unit has shot, select one enemy unit (excluding Monster and Vehicle untis) that was hit by one or more of those attacks. Until the start of your next turn, while this unit is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
       },
+      "Ability§Aspect Training": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "* While this model is leading a Howling Banshees unit, it has the Fights First ability.\n* While this model is leading a Striking Scorpions unit, it has the Infiltrators, Scouts 7\" and Stealth abilities."
+      },
       "Ability§Assured Destruction": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "Each time a model in this unit makes a ranged attack that targets a Monster or Vehicle unit, re-roll a Wound roll of 1 and re-roll a Damage roll of 1."
+        "text": "In your Shooting phase, each time a model in this unit makes a ranged attack that targets a Monster or Vehicle unit, you can re-roll the Hit roll, you can re-roll the Wound roll and you can re-roll the Damage roll."
       },
       "Ability§Battle Focus": {
         "keywords": {
@@ -233,6 +462,14 @@
           ]
         },
         "text": "If your Army Faction is ASURYANI, at the start of the battle round, you receive a number of Battle Focus tokens based on the battle size, as shown in the table below.\n- Incursion: 2 tokens\n- Strike Force: 4 tokens\n- Onslaught: 6 tokens\n\nEach time one of the triggers shown in the Agile Manoeuvres section below occurs, you can spend one Battle Focus token to enable the relevant eligible unit to perform that Agile Manoeuvre. A unit is eligible to perform an Agile Manoeuvre if it has this ability and has not already performed an Agile Manoeuvre in the same phase. Unless otherwise stated, you cannot trigger the same Agile Manoeuvre more than once per phase. At the end of the battle round, all unspent Battle Focus tokens are lost.\n\n**AGILE MANOEUVRES**\n\nSWIFT AS THE WIND\n**TRIGGER:** When an eligible unit from your army is selected to make a Normal, Advance or Fall Back move. You can trigger this Agile Manoeuvre more than once per phase (provided a different unit. performs it each time].\n**EFFECT:** Until the end of the phase, add 2\" to the Move characteristic of models in that unit.\n\nFLITTING SHADOWS\n**TRIGGER:** When an eligible unit from your army is selected to make a Normal, Advance or Fall Back move, is set up on the battlefield, or declares a charge.\n**EFFECT:** Until the end of the turn, enemy units cannot use the Fire Overwatch Stratagem to shoot at that unit.\n\nSTAR ENGINES\n**TRIGGER:** When an eligible VEHICLE unit from your army is selected to make a Normal move.\n**EFFECT:** Until the end of the phase, add D6+1 to the Move characteristic of models in that unit.\n\nSUDDEN STRIKE\n**TRIGGER:** When an eligible unit from your army is selected to fight.\n**EFFECT:** Until the end of the phase, each time a model in that unit makes a Pile-in or Consolidation move, it can move up to 6\" instead of up to 3\".\n\nOPPORTUNITY SEIZED\n**TRIGGER:** When an enemy unit ends a Fall Back move.\n**EFFECT:** One eligible unit from your army (excluding TITANIC units) that started the phase within Engagement Range of that enemy unit can make a Normal move of up to D6+1\".\n\nFADE BACK\n**TRIGGER:** In your opponent's Shooting phase, just after an enemy unit has shot.\n**EFFECT:** One eligible unit from your army (excluding TITANIC units) that was hit by one or more of those attacks can make a Normal move of up to D6+1\"."
+      },
+      "Ability§Bladestorm": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Ranged weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability while targeting an enemy unit within half range."
       },
       "Ability§Bonesinger": {
         "keywords": {
@@ -248,7 +485,7 @@
             "Other"
           ]
         },
-        "text": "Once per turn, when you use a Fate dice to substitute a roll made for a model or unit within 12” of a Farseer model from your army, one model from your army with this ability can use it. If it does, the result of that Fate dice is first changed to a 6."
+        "text": "While this model is leading a unit, once per phase, you can change the result of one Hit roll, one Wound roll or one Damage roll made for a model in that unit (excluding SUPPORT WEAPON models) to an unmodified 6."
       },
       "Ability§Burning Lance": {
         "keywords": {
@@ -256,7 +493,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+        "text": "While this model is leading a unit, add 6\" to the Range characteristic of Melta weapons equipped by models in that unit."
       },
       "Ability§Cloudbreakers": {
         "keywords": {
@@ -272,7 +509,7 @@
             "Other"
           ]
         },
-        "text": "In your Shooting phase, after this model’s unit has shot, if it is not within Engagement Range of any enemy units, that unit can make a Normal move of up to 6″ as if it were your Movement phase. If it does, until the end of the turn, that unit is not eligible to declare a charge."
+        "text": "While this model is leading a unit, at the end of your opponent's turn, if that unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves. In addition, while this model is leading a unit, when that unit is set up on that battlefield using the Deep Strike ability, it can use this ability; if it does, that unit can be set up anywhere on the battlefield that is more than 3\" horizontally away from all enemy models, but until the end of the turn, it is not eligible to declare a charge."
       },
       "Ability§Crewed Platform": {
         "keywords": {
@@ -288,7 +525,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+        "text": "Each time this model is set up on the battlefield, until the end of the turn, each time this model makes a ranged attack, a successful unmodified Hit roll scores a Critical Hit."
       },
       "Ability§Crystal Matrix": {
         "keywords": {
@@ -297,14 +534,6 @@
           ]
         },
         "text": "Each time this model is selected to shoot, you can re-roll one Hit roll and you can re-roll one Wound roll when resolving those attacks."
-      },
-      "Ability§Defence Tactics": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 5+, or unmodified Hit rolls of 4+ instead if this unit is within range of an objective marker you control."
       },
       "Ability§Defenders of Fate": {
         "keywords": {
@@ -328,7 +557,7 @@
             "Other"
           ]
         },
-        "text": "At the start of the battle, when making your first Strands of Fate roll, roll an additional three D6 (this means that roll will consist of nine D6)."
+        "text": "At the start of your Command phase, if this model is on the battlefield, you gain 1CP."
       },
       "Ability§Doom (Psychic)": {
         "keywords": {
@@ -336,7 +565,7 @@
             "Other"
           ]
         },
-        "text": "At the start of your Shooting phase, you can select one enemy unit within 18″ of and visible to this Psyker and roll one D6: on a 2+, until the end of the turn, each time a friendly Aeldari model makes an attack that targets that enemy unit, add 1 to the Wound roll."
+        "text": "At the end of your Movement phase, select one enemy unit within 18″ of and visible to this model. Until the start of your next Command phase, each time a friendly Aeldari model makes an attack that targets that enemy unit, add 1 to the Wound roll."
       },
       "Ability§Empowered by Death": {
         "keywords": {
@@ -345,6 +574,14 @@
           ]
         },
         "text": "At the start of the Fight phase, if this model's unit is below its Starting Strength, until the end of the phase, models in that unit have the Fights First ability."
+      },
+      "Ability§Empyric Ambush": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "While this model is leading a unit, that unit is eligible to declare a charge in a turn in which it used its Flickerjump ability."
       },
       "Ability§Ethereal Form": {
         "keywords": {
@@ -362,13 +599,21 @@
         },
         "text": "Each time this unit ends a Normal move, you can select one enemy unit (excluding MONSTERS and VEHICLES) that it moved over during that move. If you do, roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound."
       },
+      "Ability§Extreme Mobility": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this unit makes a Normal, Advance, Fall Back or Charge move, ignore any vertical distance when determining the total distance models in this unit can be moved during that move."
+      },
       "Ability§Face of Death": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "Each time this model makes an attack that targets a unit that is Below Half-strength, you can re-roll the Hit roll and you can re-roll the Wound roll."
+        "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test, subtracting 1 from the result."
       },
       "Ability§Fated Hero": {
         "keywords": {
@@ -393,15 +638,15 @@
             "Other"
           ]
         },
-        "text": "In your Movement phase, when this unit makes a Normal move, it can make a flickerjump. If it does, until the end of the phase, its Move characteristic is changed to 24″ but you must roll one D6 after this unit ends that move: on a 1, this unit suffers 1 mortal wound. This unit is not eligible to declare a charge in the same turn in which it makes a flickerjump."
+        "text": "In your Movement phase, each time this unit is selected to make a Normal move, it can use this ability. If it does, until the end of the turn, this unit is not eligible to declare a charge and models in it have a Move characteristic of 24″. Each time this unit uses this ability, at the end of the phase, roll one D6 for each model in this unit: for each 1, this unit suffers 1 mortal wound."
       },
-      "Ability§Fortune (Psychic)": {
+      "Ability§Grenade Pack Flyover": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "In your Command phase, you can roll one D6: on a 2+, select one friendly Aeldari unit within 12″ of this Psyker. Until the start of your next Command phase, each time an attack targets that unit, subtract 1 from the Wound roll."
+        "text": "Once per turn, in your Movement phase, after this unit is set up on the battlefield or ends a Normal, Advance or Fall Back move, it can use this ability. If it does, select one enemy unit within 8\" of and visible to this unit and roll one D6 for each SWOOPING HAWKS model in this unit: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds). Each time this unit uses this ability, until the end of the turn, you cannot target this unit with the Grenade Stratagem."
       },
       "Ability§Guide (Psychic)": {
         "keywords": {
@@ -409,7 +654,7 @@
             "Other"
           ]
         },
-        "text": "In your Command phase, you can roll one D6: on a 2+, select one friendly Aeldari unit within 12″ of this Psyker. Until the start of your next Command phase, each time a model in that unit makes an attack, you can re-roll the Hit roll."
+        "text": "At the end of your Movement phase, select one enemy unit within 18\" of and visible to this model. Until the start of your next Command phase, each time a friendly AELDARI model makes an attack that targets that enemy unit, add 1 to the Hit roll. Each unit can only be selected for this ability once per turn."
       },
       "Ability§Hand of Asuryan": {
         "keywords": {
@@ -417,7 +662,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+        "text": "Once per battle, when this model is selected to shoot, it can use this ability. If it does, until the end of the phase, its Bloody Twins weapon has a Damage characteristic of 3 and the [ANTI-INFANTRY 3+] and [DEVASTATING WOUNDS] abilities."
       },
       "Ability§Harassment Fire": {
         "keywords": {
@@ -433,7 +678,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+        "text": "While this model is leading a unit, in your Shooting phase, after selecting targets for that unit's attacks, if every attack targets the same unit, roll one D6 for the target unit and one D6 for every other enemy unit within 3\" of the target unit. On a 5+, the unit being rolled for is struck by explosive debris: after resolving all of that unit's attacks against the target unit, each unit struck by explosive debris suffers D3 mortal wounds."
       },
       "Ability§Herald of Ynnead": {
         "keywords": {
@@ -443,13 +688,13 @@
         },
         "text": "At the start of the Fight phase, select one enemy unit within Engagement Range of this model. Until the end of the phase, each time a friendly AELDARI model makes an attack that targets that unit, you can re-roll the Wound roll."
       },
-      "Ability§Indomitable Strength of Will (Aura)": {
+      "Ability§Indomitable Strength of Will": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "While a friendly Aeldari unit is within 6″ of this model, each time that unit takes a Battle-shock or Leadership test, add 1 to that test."
+        "text": "While this model is leading a unit, each time you spend a Battle Focus token to enable that unit to perform an Agile Manoeuvre, roll one D6: on a 3+, you gain 1 Battle Focus token."
       },
       "Ability§Inescapable Accuracy": {
         "keywords": {
@@ -457,7 +702,7 @@
             "Other"
           ]
         },
-        "text": "Each time a model in this unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and to the Hit roll."
+        "text": "Each time a model in this unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and any or all modifiers to the Hit roll."
       },
       "Ability§Inevitable Death": {
         "keywords": {
@@ -506,6 +751,14 @@
         },
         "text": "Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 4+, do not remove it from play; that destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
       },
+      "Ability§Mandiblasters": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time a model in this unit makes a melee attack, if it made a Charge move this turn, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
       "Ability§Mindshock Pod (Aura, Psychic)": {
         "keywords": {
           "Keywords": [
@@ -513,6 +766,14 @@
           ]
         },
         "text": "While an enemy unit is within 9″ of this model, subtract 1 from Battle-shock and Leadership tests taken for that unit."
+      },
+      "Ability§Misfortune (Psychic)": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "At the end of your Movement phase, select one enemy unit within 18\" of and visible to this model. Until the start of your next Command phase, each time a model in that unit makes an attack, subtract 1 from the Wound roll. Each unit can only be selected for this ability once per turn."
       },
       "Ability§Molten Form": {
         "keywords": {
@@ -552,7 +813,7 @@
             "Other"
           ]
         },
-        "text": "At the start of your Command phase, if this model is your Warlord and is on the battlefield, you gain 1CP."
+        "text": "Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP."
       },
       "Ability§Path of the Outcast": {
         "keywords": {
@@ -666,14 +927,6 @@
         },
         "text": "Each time this model makes a ranged attack that targets a unit that can Fly, add 1 to the Hit roll and add 1 to the Wound roll."
       },
-      "Ability§Skyleap": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield and place it into Strategic Reserves."
-      },
       "Ability§Spirit Mark": {
         "keywords": {
           "Keywords": [
@@ -696,7 +949,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll."
+        "text": "Each time this model makes an attach that targets a CHARACTER unit, you can re-roll the Wound roll."
       },
       "Ability§Stormblades": {
         "keywords": {
@@ -720,7 +973,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP."
+        "text": "While this model is leading a unit, you can re-roll Advance rolls made for that unit, and you can re-roll any rolls made for that unit while it is performing an Agile Manoeuvre."
       },
       "Ability§Swift Demise": {
         "keywords": {
@@ -736,7 +989,7 @@
             "Other"
           ]
         },
-        "text": "Once per turn, you can target this model’s unit with the Fire Overwatch Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+        "text": "While this model is leading a unit, in your Shooting phase, after that unit has shot, it can make a Normal move of up to 6\". If it does, until the end of the turn, that unit is not eligible to declare a charge."
       },
       "Ability§Target Acquisition": {
         "keywords": {
@@ -792,7 +1045,7 @@
             "Other"
           ]
         },
-        "text": "The first time this model is destroyed, roll one D6 at the end of the phase. On a 2+, set this model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with its full wounds remaining."
+        "text": "The first time this model is destroyed, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with its full wounds remaining."
       },
       "Ability§War Construct": {
         "keywords": {
@@ -845,7 +1098,15 @@
             "Other"
           ]
         },
-        "text": "Once per turn, you can target this model’s unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+        "text": "While this model is leading a unit, each time that unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in that unit and each time a model in that unit makes an Advance move, ignore any vertical distance that model can be moved during that move."
+      },
+      "Ability§Whispering Web": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly AELDARI model makes an attack that targets that unit, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Ability§Word of the Phoenix (Psychic)": {
         "keywords": {
@@ -954,12 +1215,12 @@
               "item": "Ability§Invulnerable",
               "stats": {
                 "x": {
-                  "value": "3+"
+                  "value": "4+"
                 }
               }
             },
-            "Ranged Weapon§Asurmen—The Bloody Twins",
-            "Melee Weapon§Asurmen—The Sword of Asur"
+            "Ranged Weapon§Asurmen—Bloody Twins",
+            "Melee Weapon§Asurmen—Sword of Asur"
           ]
         },
         "keywords": {
@@ -971,11 +1232,12 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warrior",
+            "Asurmen",
             "Character",
             "Epic Hero",
-            "Phoenix Lord",
-            "Asurmen"
+            "Infantry",
+            "Phoenix Lord"
           ],
           "Category": [
             "Epic Hero"
@@ -992,7 +1254,7 @@
             "value": 1
           },
           "Points": {
-            "value": 115
+            "value": 135
           },
           "Sv": {
             "value": 2
@@ -1010,7 +1272,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Guardian Defenders\n\n* Storm Guardians"
+              "text": "This model can be attached to the following units:\n\n* Guardian Defenders\n\n* Storm Guardians\n\n* Dark Reapers\n\n* Dire Avengers\n\n* Fire Dragons\n\n* Howling Banshees\n\n* Striking Scorpions"
             },
             "Ability§Battle Focus",
             "Ability§Superlative Strategist",
@@ -1022,7 +1284,8 @@
                   "value": "4+"
                 }
               }
-            }
+            },
+            "Ability§Aspect Training"
           ]
         },
         "keywords": {
@@ -1042,6 +1305,99 @@
           "Category": [
             "Character"
           ]
+        },
+        "rules": {
+          "aspectTrainingBanshees": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Fights First"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": "Unit§Howling Banshees"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "aspectTrainingScorpions": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "x": {
+                      "value": "7\""
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "item"
+                  ]
+                ],
+                "value": "Unit§Striking Scorpions"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
@@ -1148,35 +1504,6 @@
           },
           "W": {
             "value": 4
-          },
-          "Wargear": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Howling Banshee Mask": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Autarch - Howling Banshee Mask"
-                  }
-                ]
-              },
-              "Mandiblasters": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Mandiblasters"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
           }
         }
       },
@@ -1184,9 +1511,8 @@
         "assets": {
           "traits": [
             "Ability§Deep Strike",
-            "Ability§Lone Operative",
             "Ability§Battle Focus",
-            "Ability§Indomitable Strength of Will (Aura)",
+            "Ability§Indomitable Strength of Will",
             "Ability§Path of Command",
             {
               "item": "Ability§Invulnerable",
@@ -1195,6 +1521,10 @@
                   "value": "4+"
                 }
               }
+            },
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following units: SWOOPING HAWKS, WARP SPIDERS"
             }
           ]
         },
@@ -1263,7 +1593,7 @@
             "value": 1
           },
           "Points": {
-            "value": 115
+            "value": 80
           },
           "Ranged": {
             "dynamic": true,
@@ -1326,35 +1656,6 @@
           },
           "W": {
             "value": 4
-          },
-          "Wargear Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Howling Banshee Mask": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Autarch Wayleaper - Howling Banshee Mask"
-                  }
-                ]
-              },
-              "Mandiblasters": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Mandiblasters"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
           }
         }
       },
@@ -1391,8 +1692,8 @@
                 }
               }
             },
-            "Ranged Weapon§Avatar of Khaine—The Wailing Doom",
-            "Melee Weapon§Avatar of Khaine—The Wailing Doom"
+            "Ranged Weapon§Avatar of Khaine—Wailing Doom",
+            "Melee Weapon§Avatar of Khaine—Wailing Doom"
           ]
         },
         "keywords": {
@@ -1425,7 +1726,7 @@
             "value": 5
           },
           "Points": {
-            "value": 335
+            "value": 300
           },
           "Sv": {
             "value": 2
@@ -1461,7 +1762,7 @@
               }
             },
             "Ranged Weapon§Baharroth—Fury of the Tempest",
-            "Melee Weapon§Baharroth—The Shining Blade"
+            "Melee Weapon§Baharroth—Shining Blade"
           ]
         },
         "keywords": {
@@ -1473,14 +1774,15 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warrior",
+            "Baharroth",
             "Character",
             "Epic Hero",
-            "Jump Pack",
             "Fly",
             "Grenades",
-            "Phoenix Lord",
-            "Baharroth"
+            "Infantry",
+            "Jump Pack",
+            "Phoenix Lord"
           ],
           "Category": [
             "Epic Hero"
@@ -1497,7 +1799,7 @@
             "value": 1
           },
           "Points": {
-            "value": 125
+            "value": 115
           },
           "Sv": {
             "value": 2
@@ -1596,7 +1898,7 @@
             },
             "Ranged Weapon§Eldrad Ulthran—Shuriken pistol",
             "Ranged Weapon§Eldrad Ulthran—Mind War",
-            "Melee Weapon§Eldrad Ulthran—The Staff of Ulthamar and witchblade"
+            "Melee Weapon§Eldrad Ulthran—Staff of Ulthamar and witchblade"
           ]
         },
         "keywords": {
@@ -1648,11 +1950,10 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Guardian Defenders\n\n* Storm Guardians\n\n* Warlock Conclave"
+              "text": "This model can be attached to the following units:\n\n* Guardian Defenders\n\n* Storm Guardians"
             },
             "Ability§Battle Focus",
             "Ability§Branching Fates (Psychic)",
-            "Ability§Fortune (Psychic)",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1662,7 +1963,8 @@
               }
             },
             "Ranged Weapon§Farseer—Shuriken pistol",
-            "Ranged Weapon§Farseer—Eldritch Storm"
+            "Ranged Weapon§Farseer—Eldritch Storm",
+            "Ability§Guide (Psychic)"
           ]
         },
         "keywords": {
@@ -1720,7 +2022,7 @@
             "value": 1
           },
           "Points": {
-            "value": 80
+            "value": 70
           },
           "Sv": {
             "value": 6
@@ -1738,11 +2040,10 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Windriders"
+              "text": "This model can be attached to the following units:\n\n* Windriders\n\n* Warlock Skyrunners"
             },
             "Ability§Battle Focus",
             "Ability§Branching Fates (Psychic)",
-            "Ability§Guide (Psychic)",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -1753,7 +2054,8 @@
             },
             "Ranged Weapon§Farseer Skyrunner—Eldritch Storm",
             "Ranged Weapon§Farseer Skyrunner—Shuriken pistol",
-            "Ranged Weapon§Farseer Skyrunner—Twin shuriken catapult"
+            "Ranged Weapon§Farseer Skyrunner—Twin shuriken catapult",
+            "Ability§Misfortune (Psychic)"
           ]
         },
         "keywords": {
@@ -1813,7 +2115,7 @@
             "value": 2
           },
           "Points": {
-            "value": 90
+            "value": 80
           },
           "Sv": {
             "value": 3
@@ -1833,14 +2135,6 @@
         "assets": {
           "traits": [
             {
-              "item": "Ability§Feel No Pain",
-              "stats": {
-                "x": {
-                  "value": "5+"
-                }
-              }
-            },
-            {
               "item": "Ability§Leader",
               "text": "This model can be attached to the following unit:\n\n* Fire Dragons"
             },
@@ -1855,7 +2149,7 @@
                 }
               }
             },
-            "Melee Weapon§Fuegan—The Fire Axe",
+            "Melee Weapon§Fuegan—Fire Axe",
             "Ranged Weapon§Fuegan—Searsong"
           ]
         },
@@ -1868,11 +2162,13 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warrior",
             "Character",
             "Epic Hero",
-            "Phoenix Lord",
-            "Fuegan"
+            "Fuegan",
+            "Grenades",
+            "Infantry",
+            "Phoenix Lord"
           ],
           "Category": [
             "Epic Hero"
@@ -1889,7 +2185,7 @@
             "value": 1
           },
           "Points": {
-            "value": 130
+            "value": 120
           },
           "Sv": {
             "value": 2
@@ -1924,8 +2220,8 @@
                 }
               }
             },
-            "Ranged Weapon§Jain Zar—The Silent Death",
-            "Melee Weapon§Jain Zar—The Blade of Destruction"
+            "Ranged Weapon§Jain Zar—Silent Death",
+            "Melee Weapon§Jain Zar—Blade of Destruction"
           ]
         },
         "keywords": {
@@ -1937,11 +2233,12 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warrior",
             "Character",
             "Epic Hero",
-            "Phoenix Lord",
-            "Jain Zar"
+            "Infantry",
+            "Jain Zar",
+            "Phoenix Lord"
           ],
           "Category": [
             "Epic Hero"
@@ -1958,7 +2255,69 @@
             "value": 1
           },
           "Points": {
-            "value": 90
+            "value": 105
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 5
+          }
+        }
+      },
+      "Character§Lhykhis": {
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following unit: WARP SPIDERS"
+            },
+            "Ability§Battle Focus",
+            "Ranged Weapon§Lhykhis—Brood Twain",
+            "Melee Weapon§Lhykhis—Spider's Fangs",
+            "Melee Weapon§Lhykhis—Weaverender",
+            "Ability§Empyric Ambush",
+            "Ability§Whispering Web"
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Epic Hero"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Asuryani"
+          ],
+          "Keywords": [
+            "Aeldari",
+            "Aspect Warrior",
+            "Character",
+            "Epic Hero",
+            "Fly",
+            "Infantry",
+            "Jump Pack",
+            "Lhykhis",
+            "Phoenix Lord"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 120
           },
           "Sv": {
             "value": 2
@@ -1992,7 +2351,7 @@
                 }
               }
             },
-            "Weapon§Maugan Ra—The Maugetar"
+            "Weapon§Maugan Ra—Maugetar"
           ]
         },
         "keywords": {
@@ -2004,11 +2363,12 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warrior",
             "Character",
             "Epic Hero",
-            "Phoenix Lord",
-            "Maugan Ra"
+            "Infantry",
+            "Maugan Ra",
+            "Phoenix Lord"
           ],
           "Category": [
             "Epic Hero"
@@ -2025,7 +2385,7 @@
             "value": 1
           },
           "Points": {
-            "value": 115
+            "value": 100
           },
           "Sv": {
             "value": 2
@@ -5485,9 +5845,9 @@
           }
         }
       },
-      "Melee Weapon§Asurmen—The Sword of Asur": {
+      "Melee Weapon§Asurmen—Sword of Asur": {
         "aspects": {
-          "Label": "The Sword of Asur"
+          "Label": "Sword of Asur"
         },
         "assets": {
           "traits": [
@@ -5520,15 +5880,30 @@
         "aspects": {
           "Label": "Banshee blade"
         },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
             "value": 5
           },
           "AP": {
-            "value": -3
+            "value": 2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -5560,10 +5935,10 @@
         },
         "stats": {
           "A": {
-            "value": 6
+            "value": 7
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "D": {
             "value": 1
@@ -5573,7 +5948,7 @@
             "value": "Melee"
           },
           "S": {
-            "value": 5
+            "value": 4
           },
           "WS": {
             "value": 2
@@ -5586,13 +5961,13 @@
         },
         "stats": {
           "A": {
-            "value": 5
+            "value": 4
           },
           "AP": {
-            "value": -2
+            "value": -3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "statType": "term",
@@ -5602,7 +5977,7 @@
             "value": 6
           },
           "WS": {
-            "value": 3
+            "value": 2
           }
         }
       },
@@ -5610,15 +5985,30 @@
         "aspects": {
           "Label": "Banshee blade"
         },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
             "value": 5
           },
           "AP": {
-            "value": -3
+            "value": -2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -5650,10 +6040,10 @@
         },
         "stats": {
           "A": {
-            "value": 6
+            "value": 7
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "D": {
             "value": 1
@@ -5663,7 +6053,7 @@
             "value": "Melee"
           },
           "S": {
-            "value": 5
+            "value": 4
           },
           "WS": {
             "value": 2
@@ -5676,13 +6066,13 @@
         },
         "stats": {
           "A": {
-            "value": 5
+            "value": 4
           },
           "AP": {
-            "value": -2
+            "value": -3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "statType": "term",
@@ -5692,18 +6082,18 @@
             "value": 6
           },
           "WS": {
-            "value": 3
+            "value": 2
           }
         }
       },
-      "Melee Weapon§Avatar of Khaine—The Wailing Doom": {
+      "Melee Weapon§Avatar of Khaine—Wailing Doom": {
         "aspects": {
-          "Label": "The Wailing Doom"
+          "Label": "Wailing Doom"
         },
         "assets": {
           "traits": [
-            "Melee Weapon§Avatar of Khaine—The Wailing Doom – strike",
-            "Melee Weapon§Avatar of Khaine—The Wailing Doom – sweep"
+            "Melee Weapon§Avatar of Khaine—Wailing Doom – strike",
+            "Melee Weapon§Avatar of Khaine—Wailing Doom – sweep"
           ]
         },
         "keywords": {
@@ -5712,7 +6102,7 @@
           ]
         }
       },
-      "Melee Weapon§Avatar of Khaine—The Wailing Doom – strike": {
+      "Melee Weapon§Avatar of Khaine—Wailing Doom – strike": {
         "aspects": {
           "Label": "Strike"
         },
@@ -5732,14 +6122,14 @@
             "value": "Melee"
           },
           "S": {
-            "value": 14
+            "value": 16
           },
           "WS": {
             "value": 2
           }
         }
       },
-      "Melee Weapon§Avatar of Khaine—The Wailing Doom – sweep": {
+      "Melee Weapon§Avatar of Khaine—Wailing Doom – sweep": {
         "aspects": {
           "Label": "Sweep"
         },
@@ -5758,16 +6148,16 @@
             "value": "Melee"
           },
           "S": {
-            "value": 7
+            "value": 8
           },
           "WS": {
             "value": 2
           }
         }
       },
-      "Melee Weapon§Baharroth—The Shining Blade": {
+      "Melee Weapon§Baharroth—Shining Blade": {
         "aspects": {
-          "Label": "The Shining Blade"
+          "Label": "Shining Blade"
         },
         "assets": {
           "traits": [
@@ -6274,13 +6664,11 @@
           "Label": "Diresword"
         },
         "assets": {
-          "traits": [
-            "Ability§Devastating Wounds"
-          ]
+          "traits": []
         },
         "stats": {
           "A": {
-            "value": 3
+            "value": 4
           },
           "AP": {
             "value": -2
@@ -6309,7 +6697,7 @@
             "value": 3
           },
           "AP": {
-            "value": -2
+            "value": -3
           },
           "D": {
             "value": 1
@@ -6326,9 +6714,9 @@
           }
         }
       },
-      "Melee Weapon§Eldrad Ulthran—The Staff of Ulthamar and witchblade": {
+      "Melee Weapon§Eldrad Ulthran—Staff of Ulthamar and witchblade": {
         "aspects": {
-          "Label": "The Staff of Ulthamar and witchblade"
+          "Label": "Staff of Ulthamar and witchblade"
         },
         "assets": {
           "traits": [
@@ -6566,6 +6954,29 @@
           }
         }
       },
+      "Melee Weapon§Fire Dragons—Dragon axe": {
+        "aspects": {
+          "Label": "Dragon axe"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -4
+          },
+          "D": {
+            "format": "D6",
+            "value": 0
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Fire Prism—Wraithbone hull": {
         "aspects": {
           "Label": "Wraithbone hull"
@@ -6618,9 +7029,9 @@
           }
         }
       },
-      "Melee Weapon§Fuegan—The Fire Axe": {
+      "Melee Weapon§Fuegan—Fire Axe": {
         "aspects": {
-          "Label": "The Fire Axe"
+          "Label": "Fire Axe"
         },
         "stats": {
           "A": {
@@ -6700,15 +7111,30 @@
         "aspects": {
           "Label": "Banshee blade"
         },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
-            "value": 3
+            "value": 2
           },
           "AP": {
-            "value": -3
+            "value": -2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -6718,13 +7144,69 @@
             "value": 4
           },
           "WS": {
-            "value": 3
+            "value": 2
           }
         }
       },
       "Melee Weapon§Howling Banshees—Executioner": {
         "aspects": {
           "Label": "Executioner"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Howling Banshees—Mirrorswords": {
+        "aspects": {
+          "Label": "Mirrorswords"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
+          ]
         },
         "stats": {
           "A": {
@@ -6741,36 +7223,10 @@
             "value": "Melee"
           },
           "S": {
-            "value": 5
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
-      "Melee Weapon§Howling Banshees—Mirrorswords": {
-        "aspects": {
-          "Label": "Mirrorswords"
-        },
-        "stats": {
-          "A": {
-            "value": 6
-          },
-          "AP": {
-            "value": -3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
-          "S": {
             "value": 4
           },
           "WS": {
-            "value": 3
+            "value": 2
           }
         }
       },
@@ -6778,12 +7234,27 @@
         "aspects": {
           "Label": "Melee"
         },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
+          ]
+        },
         "stats": {
           "A": {
-            "value": 5
+            "value": 6
           },
           "AP": {
-            "value": -2
+            "value": -1
           },
           "D": {
             "value": 1
@@ -6796,7 +7267,7 @@
             "value": 3
           },
           "WS": {
-            "value": 3
+            "value": 2
           }
         }
       },
@@ -6899,20 +7370,44 @@
           }
         }
       },
-      "Melee Weapon§Jain Zar—The Blade of Destruction": {
+      "Melee Weapon§Jain Zar—Blade of Destruction": {
         "aspects": {
-          "Label": "The Blade of Destruction"
+          "Label": "Blade of Destruction"
         },
         "assets": {
           "traits": [
-            "Melee Weapon§Jain Zar—The Blade of Destruction – strike",
-            "Melee Weapon§Jain Zar—The Blade of Destruction – sweep"
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
           ]
         },
         "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
+          "Tags": []
+        },
+        "stats": {
+          "A": {
+            "value": 8
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
         }
       },
       "Melee Weapon§Jain Zar—The Blade of Destruction – strike": {
@@ -7034,7 +7529,59 @@
           }
         }
       },
-      "Melee Weapon§Maugan Ra—The Maugetar": {
+      "Melee Weapon§Lhykhis—Spider's Fangs": {
+        "aspects": {
+          "Label": "Spider's Fangs"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks",
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Lhykhis—Weaverender": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Maugan Ra—Maugetar": {
         "aspects": {
           "Label": "Melee"
         },
@@ -7237,7 +7784,29 @@
         },
         "assets": {
           "traits": [
-            "Ability§Lance"
+            "Ability§Lance",
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "vehicle"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            },
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "monster"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -7248,14 +7817,14 @@
             "value": -2
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 4
+            "value": 5
           },
           "WS": {
             "value": 3
@@ -7281,7 +7850,7 @@
             "value": "Melee"
           },
           "S": {
-            "value": 4
+            "value": 5
           },
           "WS": {
             "value": 3
@@ -7294,7 +7863,29 @@
         },
         "assets": {
           "traits": [
-            "Ability§Lance"
+            "Ability§Lance",
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "vehicle"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            },
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "monster"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -7305,17 +7896,17 @@
             "value": -3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 4
+            "value": 5
           },
           "WS": {
-            "value": 2
+            "value": 3
           }
         }
       },
@@ -7458,13 +8049,13 @@
         },
         "stats": {
           "A": {
-            "value": 5
+            "value": 4
           },
           "AP": {
-            "value": -1
+            "value": -3
           },
           "D": {
-            "value": 2
+            "value": 1
           },
           "Range": {
             "statType": "term",
@@ -7472,6 +8063,41 @@
           },
           "S": {
             "value": 5
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Striking Scorpions—Chainsabres": {
+        "aspects": {
+          "Label": "Melee"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
           },
           "WS": {
             "value": 3
@@ -7499,7 +8125,7 @@
             "value": 4
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "D": {
             "value": 1
@@ -7518,23 +8144,14 @@
       },
       "Melee Weapon§Striking Scorpions—Scorpion’s claw": {
         "aspects": {
-          "Label": "Melee"
+          "Label": "Scorpion's claw"
         },
         "assets": {
-          "traits": [
-            {
-              "item": "Ability§Sustained Hits",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
-          ]
+          "traits": []
         },
         "stats": {
           "A": {
-            "value": 4
+            "value": 3
           },
           "AP": {
             "value": -2
@@ -7550,7 +8167,7 @@
             "value": 8
           },
           "WS": {
-            "value": 4
+            "value": 3
           }
         }
       },
@@ -7621,32 +8238,6 @@
           }
         }
       },
-      "Melee Weapon§Swooping Hawks—Aeldari power sword": {
-        "aspects": {
-          "Label": "Aeldari power sword"
-        },
-        "stats": {
-          "A": {
-            "value": 3
-          },
-          "AP": {
-            "value": -2
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
-          "S": {
-            "value": 4
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
       "Melee Weapon§Swooping Hawks—Close combat weapon": {
         "aspects": {
           "Label": "Close combat weapon"
@@ -7667,6 +8258,32 @@
           },
           "S": {
             "value": 3
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Swooping Hawks—Power sword": {
+        "aspects": {
+          "Label": "Power sword"
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
           },
           "WS": {
             "value": 3
@@ -8255,13 +8872,47 @@
           }
         }
       },
+      "Melee Weapon§Warp Spiders—Powerblade array": {
+        "aspects": {
+          "Label": "Powerblade array"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked",
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 10
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Warp Spiders—Powerblades": {
         "aspects": {
           "Label": "Powerblades"
         },
+        "assets": {
+          "traits": [
+            "Ability§Twin-linked",
+            "Ability§Lethal Hits"
+          ]
+        },
         "stats": {
           "A": {
-            "value": 3
+            "value": 5
           },
           "AP": {
             "value": -2
@@ -9983,6 +10634,144 @@
             "Melee Weapon§Dark Reapers—Close combat weapon"
           ]
         },
+        "rules": {
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Dark Reapers—Reaper launcher"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Reaper launcher"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipMissile": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Dark Reapers—Missile launcher"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Missile launcher"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipShuriken": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Dark Reapers—Shuriken cannon"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Shuriken cannon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipTempest": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Dark Reapers—Tempest launcher"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Tempest launcher"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -9992,48 +10781,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "Ranged": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Reaper launcher": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dark Reapers—Reaper launcher"
-                  }
-                ]
-              },
-              "Aeldari missile launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dark Reapers—Aeldari missile launcher"
-                  }
-                ]
-              },
-              "Shuriken cannon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dark Reapers—Shuriken cannon"
-                  }
-                ]
-              },
-              "Tempest launcher": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dark Reapers—Tempest launcher"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Reaper launcher",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -10080,24 +10827,14 @@
             "Melee Weapon§Dire Avengers—Close combat weapon"
           ]
         },
+        "keywords": {
+          "Tags": []
+        },
         "rules": {
-          "HideandRemoveSecondCatapult": {
+          "equipDefault": {
             "actions": [
               {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Additional Shuriken Catapult",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              },
-              {
-                "actionType": "remove",
+                "actionType": "add",
                 "iterations": 1,
                 "paths": [
                   [
@@ -10115,49 +10852,23 @@
                 "operator": "AND",
                 "paths": [
                   [
-                    "{self}",
+                    "{parent}",
                     "stats",
-                    "Loadout",
+                    "Exarch loadout",
                     "value"
                   ]
                 ],
-                "value": "Shuriken pistol and Diresword"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Shuriken pistol and Power glaive"
+                "value": "Avenger shuriken catapult"
               }
             ],
-            "evaluate": "OR",
-            "failState": "pass"
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
           },
-          "HideandRemoveShimmershield": {
+          "equipDireswordPistol": {
             "actions": [
               {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Replace Shuriken pistol with Shimmershield",
-                    "visibility"
-                  ]
-                ],
-                "value": "hidden"
-              },
-              {
-                "actionType": "remove",
+                "actionType": "add",
                 "iterations": 1,
                 "paths": [
                   [
@@ -10165,32 +10876,10 @@
                     "traits"
                   ]
                 ],
-                "value": "Wargear§Shimmershield"
-              }
-            ],
-            "evals": [
+                "value": "Melee Weapon§Dire Avengers—Diresword"
+              },
               {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Avenger shuriken catapult"
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "pass"
-          },
-          "RemoveShurikenPistol": {
-            "actions": [
-              {
-                "actionType": "remove",
+                "actionType": "add",
                 "iterations": 1,
                 "paths": [
                   [
@@ -10208,9 +10897,178 @@
                 "operator": "AND",
                 "paths": [
                   [
-                    "{self}",
+                    "{parent}",
                     "stats",
-                    "Replace Shuriken pistol with Shimmershield",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Diresword and pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipDireswordShield": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Dire Avengers—Diresword"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Wargear§Shimmershield"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Diresword and shimmershield"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipGlaivePistol": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Dire Avengers—Power glaive"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Dire Avengers—Shuriken pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Power glaive and pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipGlaiveShield": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Dire Avengers—Power glaive"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Wargear§Shimmershield"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Power glaive and shimmershield"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipSecondShuriken": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Dire Avengers—Avenger shuriken catapult"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Additional Avenger",
                     "value"
                   ]
                 ],
@@ -10218,100 +11076,19 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 60
           }
         },
         "stats": {
-          "Additional Shuriken Catapult": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dire Avengers—Avenger shuriken catapult"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
           "Ld": {
             "value": 6
-          },
-          "Loadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Avenger shuriken catapult": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dire Avengers—Avenger shuriken catapult"
-                  }
-                ]
-              },
-              "Shuriken pistol and Diresword": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dire Avengers—Shuriken pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Dire Avengers—Diresword"
-                  }
-                ]
-              },
-              "Shuriken pistol and Power glaive": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Dire Avengers—Shuriken pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Dire Avengers—Power glaive"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Avenger shuriken catapult",
-            "visibility": "active"
           },
           "M": {
             "value": 7
           },
           "OC": {
             "value": 1
-          },
-          "Replace Shuriken pistol with Shimmershield": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Shimmershield"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
           },
           "Sv": {
             "value": 4
@@ -10358,6 +11135,155 @@
             "Melee Weapon§Fire Dragons—Close combat weapon"
           ]
         },
+        "rules": {
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Fire Dragons—Exarch's Dragon fusion gun"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Fusion gun"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipFirepike": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Fire Dragons—Firepike"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Firepike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipFlamer": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Fire Dragons—Dragon’s breath flamer"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Flamer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipPistolAndAxe": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Fire Dragons—Dragon fusion pistol"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Fire Dragons—Dragon axe"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Pistol and axe"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -10367,40 +11293,6 @@
           },
           "OC": {
             "value": 1
-          },
-          "Ranged": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Dragon fusion gun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fire Dragons—Dragon fusion gun"
-                  }
-                ]
-              },
-              "Dragon’s breath flamer": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fire Dragons—Dragon’s breath flamer"
-                  }
-                ]
-              },
-              "Firepike": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Fire Dragons—Firepike"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Dragon fusion gun",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -10600,60 +11492,180 @@
         }
       },
       "Model§Howling Banshee Exarch": {
+        "rules": {
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Howling Banshees—Banshee blade"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Howling Banshees—Shuriken pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Blade and pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipExecutioner": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Howling Banshees—Executioner"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Howling Banshees—Shuriken pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Executioner and pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipMirrorswords": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Howling Banshees—Mirrorswords"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Mirrorswords"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipTriskele": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Weapon§Howling Banshees—Triskele"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Howling Banshees—Shuriken pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Triskele and pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
-          },
-          "Loadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Shuriken pistol and Banshee blade": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Howling Banshees—Shuriken pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Howling Banshees—Banshee blade"
-                  }
-                ]
-              },
-              "Shuriken Pistol and Executioner": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Howling Banshees—Executioner"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Howling Banshees—Shuriken pistol"
-                  }
-                ]
-              },
-              "Shuriken Pistol and Triskele": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Howling Banshees—Triskele"
-                  },
-                  {
-                    "trait": "Ranged Weapon§Howling Banshees—Shuriken pistol"
-                  }
-                ]
-              },
-              "Mirrorswords": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Howling Banshees—Mirrorswords"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Shuriken pistol and Banshee blade",
-            "visibility": "active"
           },
           "M": {
             "value": 8
@@ -11061,6 +12073,212 @@
         }
       },
       "Model§Shining Spear Exarch": {
+        "rules": {
+          "equipBikeCannon": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Shining Spears—Shuriken cannon"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch bike weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Shuriken cannon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipBikeDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Shining Spears—Twin shuriken catapult"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch bike weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Twin shuriken catapult"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Weapon§Shining Spears—Laser lance"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Laser lance"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipParagon": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Shining Spears—Paragon sabre"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Paragon sabre"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipShield": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Wargear§Shimmershield"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch shimmershield",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipStar": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Weapon§Shining Spears—Star lance"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Star lance"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -11068,89 +12286,8 @@
           "M": {
             "value": 14
           },
-          "Melee": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Laser lance": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Weapon§Shining Spears—Laser lance"
-                  }
-                ]
-              },
-              "Paragon sabre": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Shining Spears—Paragon sabre"
-                  }
-                ]
-              },
-              "Star lance": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Weapon§Shining Spears—Star lance"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Laser lance",
-            "visibility": "active"
-          },
           "OC": {
             "value": 2
-          },
-          "Ranged": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Twin shuriken catapult": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Shining Spears—Twin shuriken catapult"
-                  }
-                ]
-              },
-              "Shuriken cannon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Shining Spears—Shuriken cannon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Twin shuriken catapult",
-            "visibility": "active"
-          },
-          "Shimmershield": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Wargear§Shimmershield"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
           },
           "Sv": {
             "value": 3
@@ -11315,8 +12452,7 @@
         "assets": {
           "traits": [
             "Melee Weapon§Striking Scorpions—Scorpion chainsword",
-            "Ranged Weapon§Striking Scorpions—Shuriken pistol",
-            "Wargear§Mandiblasters"
+            "Ranged Weapon§Striking Scorpions—Shuriken pistol"
           ]
         },
         "stats": {
@@ -11342,53 +12478,148 @@
       },
       "Model§Striking Scorpion Exarch": {
         "assets": {
-          "traits": [
-            "Wargear§Mandiblasters"
-          ]
+          "traits": []
+        },
+        "rules": {
+          "equipBlade": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Striking Scorpions—Biting blade"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Striking Scorpions—Shuriken pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Biting blade and pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Striking Scorpions—Scorpion’s claw"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Striking Scorpions—Scorpion chainsword"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Striking Scorpions—Shuriken pistol"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Claw, chainsword, pistol"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipSabres": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Weapon§Striking Scorpions—Chainsabres"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Chainsabres"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
         },
         "stats": {
           "Ld": {
             "value": 6
-          },
-          "Loadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Shuriken pistol and Scorpion chainsword": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Striking Scorpions—Shuriken pistol"
-                  },
-                  {
-                    "trait": "Melee Weapon§Striking Scorpions—Scorpion chainsword"
-                  }
-                ]
-              },
-              "Scorpion chainsword and Scorpion’s claw": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Weapon§Striking Scorpions—Scorpion’s claw"
-                  },
-                  {
-                    "trait": "Melee Weapon§Striking Scorpions—Scorpion chainsword"
-                  }
-                ]
-              },
-              "Biting blade": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Striking Scorpions—Biting blade"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Shuriken pistol and Scorpion chainsword",
-            "visibility": "active"
           },
           "M": {
             "value": 7
@@ -11436,62 +12667,163 @@
         }
       },
       "Model§Swooping Hawk Exarch": {
-        "stats": {
-          "Aeldari power sword": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Swooping Hawks—Aeldari power sword"
-                  }
-                ]
+        "assets": {
+          "traits": [
+            "Melee Weapon§Swooping Hawks—Close combat weapon"
+          ]
+        },
+        "rules": {
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Swooping Hawks—Hawk’s talon"
               }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Hawk's talon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
           },
+          "equipLasblaster": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Swooping Hawks—Exarch's lasblaster"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Exarch's lasblaster"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipPistolAndSword": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Swooping Hawks—Sunpistol"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Swooping Hawks—Power sword"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Sunpistol and sword"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipScatter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Swooping Hawks—Scatter laser"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Scatter laser"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
+        "stats": {
           "Ld": {
             "value": 6
-          },
-          "Loadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Lasblaster and Close combat weapon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Swooping Hawks—Lasblaster"
-                  },
-                  {
-                    "trait": "Melee Weapon§Swooping Hawks—Close combat weapon"
-                  }
-                ]
-              },
-              "Hawk’s talon and Close combat weapon": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Swooping Hawks—Hawk’s talon"
-                  },
-                  {
-                    "trait": "Melee Weapon§Swooping Hawks—Close combat weapon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Lasblaster and Close combat weapon",
-            "visibility": "active"
           },
           "M": {
             "value": 14
@@ -11941,9 +13273,188 @@
       "Model§Warp Spider Exarch": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Warp Spiders—Death spinner",
             "Melee Weapon§Warp Spiders—Close combat weapon"
           ]
+        },
+        "rules": {
+          "equipArray": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Warp Spiders—Powerblade array"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Powerblade array"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipDefault": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Warp Spiders—Exarch's death spinner"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Exarch's death spinner"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipPowerblades": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Melee Weapon§Warp Spiders—Powerblades"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Warp Spiders—Death weavers"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Powerblades and death weavers"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipRifle": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Warp Spiders—Spinneret rifle"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Warp Spiders—Death weavers"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Exarch loadout",
+                    "value"
+                  ]
+                ],
+                "value": "Spinneret rifle and death weavers"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 2
+          }
         }
       },
       "Model§Way Seeker": {
@@ -12224,14 +13735,13 @@
           }
         }
       },
-      "Ranged Weapon§Asurmen—The Bloody Twins": {
+      "Ranged Weapon§Asurmen—Bloody Twins": {
         "aspects": {
-          "Label": "The Bloody Twins"
+          "Label": "Bloody Twins"
         },
         "assets": {
           "traits": [
             "Ability§Assault",
-            "Ability§Lethal Hits",
             "Ability§Pistol"
           ]
         },
@@ -12252,7 +13762,7 @@
             "value": 24
           },
           "S": {
-            "value": 4
+            "value": 5
           }
         }
       },
@@ -12262,8 +13772,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Devastating Wounds",
-            "Ability§Torrent"
+            "Ability§Torrent",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -12272,7 +13782,7 @@
             "value": 0
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "format": "{t}",
@@ -12329,9 +13839,9 @@
           }
         }
       },
-      "Ranged Weapon§Autarch Wayleaper—Fusion pistol": {
+      "Ranged Weapon§Autarch Wayleaper—Dragon fusion pistol": {
         "aspects": {
-          "Label": "Fusion pistol"
+          "Label": "Dragon fusion pistol"
         },
         "assets": {
           "traits": [
@@ -12340,7 +13850,7 @@
               "item": "Ability§Melta",
               "stats": {
                 "x": {
-                  "value": "2"
+                  "value": "3"
                 }
               }
             },
@@ -12359,13 +13869,13 @@
           },
           "D": {
             "statType": "term",
-            "value": "D3"
+            "value": "D6"
           },
           "Range": {
             "value": 6
           },
           "S": {
-            "value": 8
+            "value": 9
           }
         }
       },
@@ -12391,7 +13901,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Heavy"
+            "Ability§Heavy",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -12405,13 +13916,13 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "value": 48
           },
           "S": {
-            "value": 8
+            "value": 10
           }
         }
       },
@@ -12421,7 +13932,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Heavy"
+            "Ability§Heavy",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -12429,7 +13941,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -12441,7 +13953,7 @@
             "value": 48
           },
           "S": {
-            "value": 5
+            "value": 4
           }
         }
       },
@@ -12482,8 +13994,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Devastating Wounds",
-            "Ability§Torrent"
+            "Ability§Torrent",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -12492,7 +14004,7 @@
             "value": 0
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "format": "{t}",
@@ -12549,9 +14061,9 @@
           }
         }
       },
-      "Ranged Weapon§Autarch—Fusion pistol": {
+      "Ranged Weapon§Autarch—Dragon fusion pistol": {
         "aspects": {
-          "Label": "Fusion pistol"
+          "Label": "Dragon fusion pistol"
         },
         "assets": {
           "traits": [
@@ -12560,7 +14072,7 @@
               "item": "Ability§Melta",
               "stats": {
                 "x": {
-                  "value": "2"
+                  "value": "3"
                 }
               }
             },
@@ -12579,13 +14091,13 @@
           },
           "D": {
             "statType": "term",
-            "value": "D3"
+            "value": "D6"
           },
           "Range": {
             "value": 6
           },
           "S": {
-            "value": 8
+            "value": 9
           }
         }
       },
@@ -12611,7 +14123,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Heavy"
+            "Ability§Heavy",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -12625,13 +14138,13 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "value": 48
           },
           "S": {
-            "value": 8
+            "value": 10
           }
         }
       },
@@ -12641,7 +14154,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Heavy"
+            "Ability§Heavy",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -12649,7 +14163,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -12661,7 +14175,7 @@
             "value": 48
           },
           "S": {
-            "value": 5
+            "value": 4
           }
         }
       },
@@ -12696,9 +14210,9 @@
           }
         }
       },
-      "Ranged Weapon§Avatar of Khaine—The Wailing Doom": {
+      "Ranged Weapon§Avatar of Khaine—Wailing Doom": {
         "aspects": {
-          "Label": "The Wailing Doom"
+          "Label": "Wailing Doom"
         },
         "assets": {
           "traits": [
@@ -14402,14 +15916,14 @@
           }
         }
       },
-      "Ranged Weapon§Dark Reapers—Aeldari missile launcher": {
+      "Ranged Weapon§Dark Reapers—Missile launcher": {
         "aspects": {
-          "Label": "Aeldari missile launcher"
+          "Label": "Missile launcher"
         },
         "assets": {
           "traits": [
-            "Ranged Weapon§Dark Reapers—Aeldari missile launcher – starshot",
-            "Ranged Weapon§Dark Reapers—Aeldari missile launcher – sunburst"
+            "Ranged Weapon§Dark Reapers—Missile launcher – starshot",
+            "Ranged Weapon§Dark Reapers—Missile launcher – sunburst"
           ]
         },
         "keywords": {
@@ -14418,7 +15932,7 @@
           ]
         }
       },
-      "Ranged Weapon§Dark Reapers—Aeldari missile launcher – starshot": {
+      "Ranged Weapon§Dark Reapers—Missile launcher – starshot": {
         "aspects": {
           "Label": "Starshot"
         },
@@ -14435,7 +15949,7 @@
             "value": -2
           },
           "BS": {
-            "value": 3
+            "value": 2
           },
           "D": {
             "format": "D6",
@@ -14449,7 +15963,7 @@
           }
         }
       },
-      "Ranged Weapon§Dark Reapers—Aeldari missile launcher – sunburst": {
+      "Ranged Weapon§Dark Reapers—Missile launcher – sunburst": {
         "aspects": {
           "Label": "Sunburst"
         },
@@ -14468,7 +15982,7 @@
             "value": -1
           },
           "BS": {
-            "value": 3
+            "value": 2
           },
           "D": {
             "value": 1
@@ -14517,13 +16031,13 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "value": 48
           },
           "S": {
-            "value": 8
+            "value": 10
           }
         }
       },
@@ -14541,7 +16055,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -14564,14 +16078,7 @@
         "assets": {
           "traits": [
             "Ability§Ignores Cover",
-            {
-              "item": "Ability§Sustained Hits",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
+            "Ability§Lethal Hits"
           ]
         },
         "stats": {
@@ -14633,13 +16140,12 @@
         },
         "assets": {
           "traits": [
-            "Ability§Assault",
-            "Ability§Lethal Hits"
+            "Ability§Assault"
           ]
         },
         "stats": {
           "A": {
-            "value": 3
+            "value": 4
           },
           "AP": {
             "value": -1
@@ -15266,6 +16772,46 @@
           }
         }
       },
+      "Ranged Weapon§Fire Dragons—Dragon fusion pistol": {
+        "aspects": {
+          "Label": "Dragon fusion pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Pistol",
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "3"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 0
+          },
+          "Range": {
+            "value": 6
+          },
+          "S": {
+            "value": 9
+          }
+        }
+      },
       "Ranged Weapon§Fire Dragons—Dragon’s breath flamer": {
         "aspects": {
           "Label": "Dragon’s breath flamer"
@@ -15273,16 +16819,17 @@
         "assets": {
           "traits": [
             "Ability§Ignores Cover",
-            "Ability§Torrent"
+            "Ability§Torrent",
+            "Ability§Assault"
           ]
         },
         "stats": {
           "A": {
             "format": "D6",
-            "value": 0
+            "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "format": "{t}",
@@ -15300,6 +16847,45 @@
           }
         }
       },
+      "Ranged Weapon§Fire Dragons—Exarch's Dragon fusion gun": {
+        "aspects": {
+          "Label": "Exarch's Dragon fusion gun"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "6"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 0
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 9
+          }
+        }
+      },
       "Ranged Weapon§Fire Dragons—Firepike": {
         "aspects": {
           "Label": "Firepike"
@@ -15313,7 +16899,8 @@
                   "value": "3"
                 }
               }
-            }
+            },
+            "Ability§Assault"
           ]
         },
         "stats": {
@@ -15620,6 +17207,14 @@
               "stats": {
                 "x": {
                   "value": "D3"
+                }
+              }
+            },
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "1"
                 }
               }
             }
@@ -15968,7 +17563,18 @@
         },
         "assets": {
           "traits": [
-            "Ability§Assault"
+            "Ability§Assault",
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "3+"
+                }
+              }
+            }
           ]
         },
         "stats": {
@@ -15976,7 +17582,7 @@
             "value": 3
           },
           "AP": {
-            "value": -2
+            "value": -1
           },
           "BS": {
             "value": 3
@@ -15988,13 +17594,13 @@
             "value": 12
           },
           "S": {
-            "value": 4
+            "value": 3
           }
         }
       },
-      "Ranged Weapon§Jain Zar—The Silent Death": {
+      "Ranged Weapon§Jain Zar—Silent Death": {
         "aspects": {
-          "Label": "The Silent Death"
+          "Label": "Silent Death"
         },
         "assets": {
           "traits": [
@@ -16281,7 +17887,42 @@
           }
         }
       },
-      "Ranged Weapon§Maugan Ra—The Maugetar": {
+      "Ranged Weapon§Lhykhis—Brood Twain": {
+        "aspects": {
+          "Label": "Brood Twain"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent",
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Maugan Ra—Maugetar": {
         "aspects": {
           "Label": "Ranged"
         },
@@ -16296,7 +17937,7 @@
             "value": 6
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 2
@@ -16795,7 +18436,7 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "value": 6
@@ -16811,14 +18452,7 @@
         },
         "assets": {
           "traits": [
-            {
-              "item": "Ability§Sustained Hits",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
+            "Ability§Lethal Hits"
           ]
         },
         "stats": {
@@ -16859,10 +18493,10 @@
             "value": -3
           },
           "BS": {
-            "value": 2
+            "value": 3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "value": 6
@@ -17125,19 +18759,20 @@
           }
         }
       },
-      "Ranged Weapon§Striking Scorpions—Scorpion’s claw": {
+      "Ranged Weapon§Striking Scorpions—Chainsabres": {
         "aspects": {
           "Label": "Ranged"
         },
         "assets": {
           "traits": [
             "Ability§Assault",
-            "Ability§Pistol"
+            "Ability§Pistol",
+            "Ability§Twin-linked"
           ]
         },
         "stats": {
           "A": {
-            "value": 2
+            "value": 1
           },
           "AP": {
             "value": -1
@@ -17390,9 +19025,9 @@
           }
         }
       },
-      "Ranged Weapon§Swooping Hawks—Hawk’s talon": {
+      "Ranged Weapon§Swooping Hawks—Exarch's lasblaster": {
         "aspects": {
-          "Label": "Hawk’s talon"
+          "Label": "Exarch's lasblaster"
         },
         "assets": {
           "traits": [
@@ -17405,7 +19040,7 @@
             "value": 4
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "value": 3
@@ -17418,6 +19053,36 @@
           },
           "S": {
             "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Swooping Hawks—Hawk’s talon": {
+        "aspects": {
+          "Label": "Hawk’s talon"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 6
           }
         }
       },
@@ -17446,6 +19111,75 @@
           },
           "Range": {
             "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Swooping Hawks—Scatter laser": {
+        "aspects": {
+          "Label": "Scatter laser"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Swooping Hawks—Sunpistol": {
+        "aspects": {
+          "Label": "Sunpistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Lethal Hits",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
           },
           "S": {
             "value": 4
@@ -18456,8 +20190,8 @@
         },
         "assets": {
           "traits": [
-            "Ability§Devastating Wounds",
-            "Ability§Torrent"
+            "Ability§Torrent",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -18466,7 +20200,7 @@
             "value": 0
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "format": "{t}",
@@ -18481,6 +20215,109 @@
           },
           "S": {
             "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Warp Spiders—Death weavers": {
+        "aspects": {
+          "Label": "Death weavers"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Twin-linked",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 0
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 6
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Warp Spiders—Exarch's death spinner": {
+        "aspects": {
+          "Label": "Exarch's death spinner"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 0
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Warp Spiders—Spinneret rifle": {
+        "aspects": {
+          "Label": "Spinneret rifle"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 0
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 5
           }
         }
       },
@@ -20932,7 +22769,6 @@
           "included": [],
           "traits": [
             "Ability§Deep Strike",
-            "Ability§Skyleap",
             {
               "item": "Model§Corsair Skyreavers",
               "quantity": 5
@@ -21603,7 +23439,8 @@
         "allowed": {
           "items": [
             "Model§Dark Reaper",
-            "Character§Maugan Ra"
+            "Character§Maugan Ra",
+            "Character§Autarch"
           ]
         },
         "assets": {
@@ -21634,8 +23471,9 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
-            "Dark Reapers"
+            "Aspect Warriors",
+            "Dark Reapers",
+            "Infantry"
           ],
           "Category": [
             "Infantry"
@@ -21650,11 +23488,34 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Reaper launcher": {
+                "order": 0
+              },
+              "Missile launcher": {
+                "order": 1
+              },
+              "Shuriken cannon": {
+                "order": 2
+              },
+              "Tempest launcher": {
+                "order": 3
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Reaper launcher",
+            "visibility": "active"
+          },
           "model1stTally": {
             "value": 5
           },
           "model2ndCost": {
-            "value": 170
+            "value": 180
           },
           "model2ndTally": {
             "value": 10
@@ -21672,7 +23533,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 85
+            "value": 90
           }
         }
       },
@@ -21680,13 +23541,13 @@
         "allowed": {
           "items": [
             "Model§Dire Avenger",
-            "Character§Asurmen"
+            "Character§Asurmen",
+            "Character§Autarch"
           ]
         },
         "assets": {
           "traits": [
             "Ability§Battle Focus",
-            "Ability§Defence Tactics",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -21699,7 +23560,8 @@
             {
               "item": "Model§Dire Avenger",
               "quantity": 4
-            }
+            },
+            "Ability§Bladestorm"
           ]
         },
         "keywords": {
@@ -21711,15 +23573,33 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warriors",
+            "Dire Avengers",
             "Grenades",
-            "Dire Avengers"
+            "Infantry"
           ],
           "Category": [
             "Infantry"
           ]
         },
         "stats": {
+          "Additional Avenger": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
           "Dire Avenger": {
             "max": 9,
             "min": 4,
@@ -21728,11 +23608,37 @@
             "value": 0,
             "visibility": "hidden"
           },
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Avenger shuriken catapult": {
+                "order": 0
+              },
+              "Diresword and pistol": {
+                "order": 1
+              },
+              "Diresword and shimmershield": {
+                "order": 2
+              },
+              "Power glaive and pistol": {
+                "order": 3
+              },
+              "Power glaive and shimmershield": {
+                "order": 4
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Avenger shuriken catapult",
+            "visibility": "active"
+          },
           "model1stTally": {
             "value": 5
           },
           "model2ndCost": {
-            "value": 140
+            "value": 150
           },
           "model2ndTally": {
             "value": 10
@@ -21750,7 +23656,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 70
+            "value": 75
           }
         }
       },
@@ -21909,7 +23815,8 @@
         "allowed": {
           "items": [
             "Model§Fire Dragon",
-            "Character§Fuegan"
+            "Character§Fuegan",
+            "Character§Autarch"
           ]
         },
         "assets": {
@@ -21940,15 +23847,39 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
+            "Aspect Warriors",
+            "Fire Dragons",
             "Grenades",
-            "Fire Dragons"
+            "Infantry"
           ],
           "Category": [
             "Infantry"
           ]
         },
         "stats": {
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Fusion gun": {
+                "order": 0
+              },
+              "Flamer": {
+                "order": 1
+              },
+              "Pistol and axe": {
+                "order": 2
+              },
+              "Firepike": {
+                "order": 3
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Fusion gun",
+            "visibility": "normal"
+          },
           "Fire Dragon": {
             "max": 9,
             "min": 4,
@@ -21961,7 +23892,7 @@
             "value": 5
           },
           "model2ndCost": {
-            "value": 180
+            "value": 200
           },
           "model2ndTally": {
             "value": 10
@@ -21979,7 +23910,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 90
+            "value": 100
           }
         }
       },
@@ -22310,7 +24241,8 @@
         "allowed": {
           "items": [
             "Model§Howling Banshee",
-            "Character§Jain Zar"
+            "Character§Jain Zar",
+            "Character§Autarch"
           ]
         },
         "assets": {
@@ -22342,14 +24274,38 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
-            "Howling Banshees"
+            "Aspect Warriors",
+            "Howling Banshees",
+            "Infantry"
           ],
           "Category": [
             "Infantry"
           ]
         },
         "stats": {
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Blade and pistol": {
+                "order": 0
+              },
+              "Executioner and pistol": {
+                "order": 1
+              },
+              "Triskele and pistol": {
+                "order": 2
+              },
+              "Mirrorswords": {
+                "order": 3
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Blade and pistol",
+            "visibility": "active"
+          },
           "Howling Banshee": {
             "max": 9,
             "min": 4,
@@ -22362,7 +24318,7 @@
             "value": 5
           },
           "model2ndCost": {
-            "value": 140
+            "value": 180
           },
           "model2ndTally": {
             "value": 10
@@ -22380,7 +24336,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 70
+            "value": 90
           }
         }
       },
@@ -22640,7 +24596,6 @@
         "assets": {
           "traits": [
             "Ability§Battle Focus",
-            "Ability§Aerobatic Grace",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -22653,7 +24608,8 @@
             {
               "item": "Model§Shining Spear",
               "quantity": 2
-            }
+            },
+            "Ability§Extreme Mobility"
           ]
         },
         "keywords": {
@@ -22665,8 +24621,9 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Mounted",
+            "Aspect Warriors",
             "Fly",
+            "Mounted",
             "Shining Spears"
           ],
           "Category": [
@@ -22674,11 +24631,65 @@
           ]
         },
         "stats": {
+          "Exarch bike weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Twin shuriken catapult": {
+                "order": 0
+              },
+              "Shuriken cannon": {
+                "order": 1
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "Twin shuriken catapult",
+            "visibility": "normal"
+          },
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Laser lance": {
+                "order": 0
+              },
+              "Paragon sabre": {
+                "order": 1
+              },
+              "Star lance": {
+                "order": 2
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Laser lance",
+            "visibility": "active"
+          },
+          "Exarch shimmershield": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 3
           },
           "model2ndCost": {
-            "value": 180
+            "value": 240
           },
           "model2ndTally": {
             "value": 6
@@ -22696,7 +24707,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 90
+            "value": 120
           },
           "Shining Spear": {
             "max": 5,
@@ -22926,7 +24937,8 @@
       "Unit§Striking Scorpions": {
         "allowed": {
           "items": [
-            "Model§Striking Scorpion"
+            "Model§Striking Scorpion",
+            "Character§Autarch"
           ]
         },
         "assets": {
@@ -22945,7 +24957,17 @@
             {
               "item": "Model§Striking Scorpion",
               "quantity": 4
-            }
+            },
+            "Ability§Stealth",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7\""
+                }
+              }
+            },
+            "Ability§Mandiblasters"
           ]
         },
         "keywords": {
@@ -22957,6 +24979,7 @@
           ],
           "Keywords": [
             "Aeldari",
+            "Aspect Warriors",
             "Infantry",
             "Striking Scorpions"
           ],
@@ -22965,11 +24988,31 @@
           ]
         },
         "stats": {
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Claw, chainsword, pistol": {
+                "order": 0
+              },
+              "Biting blade and pistol": {
+                "order": 1
+              },
+              "Chainsabres": {
+                "order": 2
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Claw, chainsword, pistol",
+            "visibility": "active"
+          },
           "model1stTally": {
             "value": 5
           },
           "model2ndCost": {
-            "value": 130
+            "value": 150
           },
           "model2ndTally": {
             "value": 10
@@ -22987,7 +25030,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 65
+            "value": 75
           },
           "Striking Scorpion": {
             "max": 9,
@@ -23089,14 +25132,14 @@
         "allowed": {
           "items": [
             "Model§Swooping Hawk",
-            "Character§Baharroth"
+            "Character§Baharroth",
+            "Character§Autarch Wayleaper"
           ]
         },
         "assets": {
           "traits": [
             "Ability§Deep Strike",
             "Ability§Battle Focus",
-            "Ability§Skyleap",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -23109,7 +25152,8 @@
             {
               "item": "Model§Swooping Hawk",
               "quantity": 4
-            }
+            },
+            "Ability§Grenade Pack Flyover"
           ]
         },
         "keywords": {
@@ -23121,10 +25165,11 @@
           ],
           "Keywords": [
             "Aeldari",
-            "Infantry",
-            "Jump Pack",
+            "Aspect Warriors",
             "Fly",
             "Grenades",
+            "Infantry",
+            "Jump Pack",
             "Swooping Hawks"
           ],
           "Category": [
@@ -23132,6 +25177,29 @@
           ]
         },
         "stats": {
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Hawk's talon": {
+                "order": 0
+              },
+              "Exarch's lasblaster": {
+                "order": 1
+              },
+              "Sunpistol and sword": {
+                "order": 2
+              },
+              "Scatter laser": {
+                "order": 3
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Hawk's talon",
+            "visibility": "active"
+          },
           "model1stTally": {
             "value": 5
           },
@@ -23704,7 +25772,9 @@
       "Unit§Warp Spiders": {
         "allowed": {
           "items": [
-            "Model§Warp Spider"
+            "Model§Warp Spider",
+            "Character§Autarch Wayleaper",
+            "Character§Lhykhis"
           ]
         },
         "assets": {
@@ -23736,9 +25806,10 @@
           ],
           "Keywords": [
             "Aeldari",
+            "Aspect Warriors",
+            "Fly",
             "Infantry",
             "Jump Pack",
-            "Fly",
             "Warp Spiders"
           ],
           "Category": [
@@ -23746,11 +25817,34 @@
           ]
         },
         "stats": {
+          "Exarch loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Exarch's death spinner": {
+                "order": 0
+              },
+              "Spinneret rifle and death weavers": {
+                "order": 1
+              },
+              "Powerblades and death weavers": {
+                "order": 2
+              },
+              "Powerblade array": {
+                "order": 3
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Exarch's death spinner",
+            "visibility": "normal"
+          },
           "model1stTally": {
             "value": 5
           },
           "model2ndCost": {
-            "value": 250
+            "value": 190
           },
           "model2ndTally": {
             "value": 10
@@ -23768,7 +25862,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 125
+            "value": 95
           },
           "Warp Spider": {
             "max": 9,
@@ -25634,53 +27728,8 @@
           }
         }
       },
-      "Wargear§Autarch - Howling Banshee Mask": {
-        "rules": {
-          "addFightsfirst": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Fights First"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          }
-        },
-        "text": "The bearer’s unit has the Fights First ability."
-      },
-      "Wargear§Autarch Wayleaper - Howling Banshee Mask": {
-        "rules": {
-          "AddFightsFirst": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ability§Fights First"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          }
-        },
-        "text": "The bearer has the Fights First ability."
+      "Wargear§Aspect Shrine Token": {
+        "text": "Once per battle for each Aspect Shrine token this unit has, you can change the result of one Hit roll or one Wound roll made for a model in this unit to an unmodified 6."
       },
       "Wargear§Channeller Stones": {
         "text": "Once per turn, the first time a saving throw is failed for the bearer’s unit, change the Damage characteristic of that attack to 0."
@@ -25724,9 +27773,6 @@
       },
       "Wargear§Grav-talon": {
         "text": "The bearer’s melee weapons have the [LANCE] ability."
-      },
-      "Wargear§Mandiblasters": {
-        "text": "Melee weapons equipped by the bearer have the [DEVASTATING WOUNDS] ability when targeting units without the Monster or Vehicle keywords."
       },
       "Wargear§Mistshield": {
         "rules": {
@@ -25822,7 +27868,7 @@
             "evals": [],
             "evaluate": "AND",
             "failState": "pass",
-            "order": 50
+            "order": 65
           }
         },
         "text": "The bearer has a 4+ invulnerable save."
@@ -25878,14 +27924,14 @@
           ]
         }
       },
-      "Weapon§Maugan Ra—The Maugetar": {
+      "Weapon§Maugan Ra—Maugetar": {
         "aspects": {
-          "Label": "The Maugetar"
+          "Label": "Maugetar"
         },
         "assets": {
           "traits": [
-            "Melee Weapon§Maugan Ra—The Maugetar",
-            "Ranged Weapon§Maugan Ra—The Maugetar"
+            "Melee Weapon§Maugan Ra—Maugetar",
+            "Ranged Weapon§Maugan Ra—Maugetar"
           ]
         },
         "keywords": {
@@ -25926,14 +27972,14 @@
           ]
         }
       },
-      "Weapon§Striking Scorpions—Scorpion’s claw": {
+      "Weapon§Striking Scorpions—Chainsabres": {
         "aspects": {
-          "Label": "Scorpion’s claw"
+          "Label": "Chainsabres"
         },
         "assets": {
           "traits": [
-            "Melee Weapon§Striking Scorpions—Scorpion’s claw",
-            "Ranged Weapon§Striking Scorpions—Scorpion’s claw"
+            "Ranged Weapon§Striking Scorpions—Chainsabres",
+            "Melee Weapon§Striking Scorpions—Chainsabres"
           ]
         },
         "keywords": {
