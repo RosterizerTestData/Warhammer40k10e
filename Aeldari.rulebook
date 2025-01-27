@@ -495,11 +495,35 @@
         },
         "text": "While this model is leading a unit, at the end of your opponent's turn, if that unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves. In addition, while this model is leading a unit, when that unit is set up on that battlefield using the Deep Strike ability, it can use this ability; if it does, that unit can be set up anywhere on the battlefield that is more than 3\" horizontally away from all enemy models, but until the end of the turn, it is not eligible to declare a charge."
       },
-      "Ability§Crewed Platform": {
+      "Ability§Crewed Platform (GD)": {
+        "aspects": {
+          "Label": "Crewed Platform"
+        },
         "keywords": {
           "Keywords": [
             "Other"
           ]
+        },
+        "stats": {
+          "abilityName": {
+            "value": "Crewed Platform"
+          }
+        },
+        "text": "When the last Guardian Defender model in this unit is destroyed, any remaining Heavy Weapon Platform models in this unit are also destroyed."
+      },
+      "Ability§Crewed Platform (SG)": {
+        "aspects": {
+          "Label": "Crewed Platform"
+        },
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "stats": {
+          "abilityName": {
+            "value": "Crewed Platform"
+          }
         },
         "text": "When the last Storm Guardian model in this unit is destroyed, any remaining Serpent’s Scale Platform models in this unit are also destroyed."
       },
@@ -518,14 +542,6 @@
           ]
         },
         "text": "Each time this model is selected to shoot, you can re-roll one Hit roll and you can re-roll one Wound roll when resolving those attacks."
-      },
-      "Ability§Defenders of Fate": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "At the end of your Command phase, for each objective marker you control that has one or more units from your army with this ability within range of it, roll one D6 and add it to your Fate dice pool displaying the result you just rolled."
       },
       "Ability§Disparate Paths": {
         "keywords": {
@@ -616,6 +632,14 @@
         "text": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly model that disembarked from this Transport this turn makes an attack that targets that enemy unit, you can re-roll the Wound roll."
       },
       "Ability§Firing Deck": {},
+      "Ability§Fleet of Foot": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "This unit can perform the Fade Back Agile Manoeuvre (pg 101) without spending a Battle Focus token to do so. It can do so even if other units have done so in the same phase, and doing so does not prevent other units from performing the same Agile Manoeuvre in the same phase."
+      },
       "Ability§Flickerjump": {
         "keywords": {
           "Keywords": [
@@ -984,7 +1008,7 @@
             "Other"
           ]
         },
-        "text": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+        "text": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase."
       },
       "Ability§Strafing Run": {
         "keywords": {
@@ -8029,7 +8053,7 @@
       },
       "Melee Weapon§Storm Guardians—Aeldari power sword": {
         "aspects": {
-          "Label": "Aeldari power sword"
+          "Label": "Power sword"
         },
         "stats": {
           "A": {
@@ -8055,7 +8079,7 @@
       },
       "Melee Weapon§Storm Guardians—Guardian combat weapon": {
         "aspects": {
-          "Label": "Guardian combat weapon"
+          "Label": "Close combat weapon"
         },
         "stats": {
           "A": {
@@ -11362,7 +11386,7 @@
         },
         "stats": {
           "Ld": {
-            "value": 6
+            "value": 7
           },
           "M": {
             "value": 7
@@ -11387,65 +11411,187 @@
             "Melee Weapon§Guardian Defenders—Close combat weapon"
           ]
         },
+        "rules": {
+          "equipLance": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Guardian Defenders—Bright lance"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Heavy weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Bright lance"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipMissile": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Guardian Defenders—Missile launcher"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Heavy weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Missile launcher"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipScatter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Guardian Defenders—Scatter laser"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Heavy weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Scatter laser"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipShuriken": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Guardian Defenders—Shuriken cannon"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Heavy weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Shuriken cannon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          },
+          "equipStar": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ranged Weapon§Guardian Defenders—Starcannon"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Heavy weapon",
+                    "value"
+                  ]
+                ],
+                "value": "Starcannon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 60
+          }
+        },
         "stats": {
           "Ld": {
-            "value": 6
+            "value": 7
           },
           "M": {
             "value": 7
           },
           "OC": {
             "value": 0
-          },
-          "Ranged": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Shuriken cannon": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Guardian Defenders—Shuriken cannon"
-                  }
-                ]
-              },
-              "Aeldari missile launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Guardian Defenders—Aeldari missile launcher"
-                  }
-                ]
-              },
-              "Bright lance": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Guardian Defenders—Bright lance"
-                  }
-                ]
-              },
-              "Scatter laser": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Guardian Defenders—Scatter laser"
-                  }
-                ]
-              },
-              "Starcannon": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Guardian Defenders—Starcannon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Shuriken cannon",
-            "visibility": "active"
           },
           "Sv": {
             "value": 4
@@ -12126,7 +12272,7 @@
         },
         "stats": {
           "Ld": {
-            "value": 6
+            "value": 7
           },
           "M": {
             "value": 7
@@ -12505,7 +12651,7 @@
       "Model§Storm Guardian": {
         "stats": {
           "Ld": {
-            "value": 6
+            "value": 7
           },
           "M": {
             "value": 7
@@ -17480,14 +17626,40 @@
           }
         }
       },
-      "Ranged Weapon§Guardian Defenders—Aeldari missile launcher": {
+      "Ranged Weapon§Guardian Defenders—Bright lance": {
         "aspects": {
-          "Label": "Aeldari missile launcher"
+          "Label": "Bright lance"
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 12
+          }
+        }
+      },
+      "Ranged Weapon§Guardian Defenders—Missile launcher": {
+        "aspects": {
+          "Label": "Missile launcher"
         },
         "assets": {
           "traits": [
-            "Ranged Weapon§Guardian Defenders—Aeldari missile launcher – starshot",
-            "Ranged Weapon§Guardian Defenders—Aeldari missile launcher – sunburst"
+            "Ranged Weapon§Guardian Defenders—Missile launcher – starshot",
+            "Ranged Weapon§Guardian Defenders—Missile launcher – sunburst"
           ]
         },
         "keywords": {
@@ -17496,7 +17668,7 @@
           ]
         }
       },
-      "Ranged Weapon§Guardian Defenders—Aeldari missile launcher – starshot": {
+      "Ranged Weapon§Guardian Defenders—Missile launcher – starshot": {
         "aspects": {
           "Label": "Starshot"
         },
@@ -17522,7 +17694,7 @@
           }
         }
       },
-      "Ranged Weapon§Guardian Defenders—Aeldari missile launcher – sunburst": {
+      "Ranged Weapon§Guardian Defenders—Missile launcher – sunburst": {
         "aspects": {
           "Label": "Sunburst"
         },
@@ -17553,35 +17725,21 @@
           }
         }
       },
-      "Ranged Weapon§Guardian Defenders—Bright lance": {
-        "aspects": {
-          "Label": "Bright lance"
-        },
-        "stats": {
-          "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": -3
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "format": "D6",
-            "value": 2
-          },
-          "Range": {
-            "value": 36
-          },
-          "S": {
-            "value": 12
-          }
-        }
-      },
       "Ranged Weapon§Guardian Defenders—Scatter laser": {
         "aspects": {
           "Label": "Scatter laser"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
         },
         "stats": {
           "A": {
@@ -17610,14 +17768,7 @@
         },
         "assets": {
           "traits": [
-            {
-              "item": "Ability§Sustained Hits",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
+            "Ability§Lethal Hits"
           ]
         },
         "stats": {
@@ -18869,7 +19020,7 @@
       },
       "Ranged Weapon§Storm Guardians—Aeldari flamer": {
         "aspects": {
-          "Label": "Aeldari flamer"
+          "Label": "Flamer"
         },
         "assets": {
           "traits": [
@@ -18904,7 +19055,7 @@
       },
       "Ranged Weapon§Storm Guardians—Guardian fusion gun": {
         "aspects": {
-          "Label": "Guardian fusion gun"
+          "Label": "Fusion gun"
         },
         "assets": {
           "traits": [
@@ -24410,22 +24561,21 @@
             "Character§The Visarch",
             "Character§Warlock",
             "Character§Yvraine",
-            "Unit§D-cannon Platform"
+            "Unit§D-cannon Platform",
+            "Unit§Vibro Cannon Platform",
+            "Unit§Shadow Weaver Platform"
           ]
         },
         "assets": {
           "traits": [
             "Ability§Battle Focus",
-            "Ability§Defenders of Fate",
-            {
-              "item": "Ability§Crewed Platform",
-              "text": "When the last Storm Guardian model in this unit is destroyed, any remaining Serpent’s Scale Platform models in this unit are also destroyed."
-            },
             "Model§Heavy Weapon Platform",
             {
               "item": "Model§Guardian Defender",
               "quantity": 10
-            }
+            },
+            "Ability§Crewed Platform (GD)",
+            "Ability§Fleet of Foot"
           ]
         },
         "keywords": {
@@ -24477,6 +24627,32 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
+          },
+          "Heavy weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Shuriken cannon": {
+                "order": 0
+              },
+              "Missile launcher": {
+                "order": 1
+              },
+              "Bright lance": {
+                "order": 2
+              },
+              "Scatter laser": {
+                "order": 3
+              },
+              "Starcannon": {
+                "order": 4
+              }
+            },
+            "statOrder": 0,
+            "statType": "rank",
+            "value": "Shuriken cannon",
+            "visibility": "normal"
           },
           "model1stTally": {
             "value": 11
@@ -25196,7 +25372,7 @@
           "traits": [
             "Ability§Battle Focus",
             "Ability§Stormblades",
-            "Ability§Crewed Platform",
+            "Ability§Crewed Platform (SG)",
             "Model§Serpent’s Scale Platform",
             {
               "item": "Model§Storm Guardian",
