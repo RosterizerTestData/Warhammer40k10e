@@ -6,7 +6,7 @@
   "publisher": "Games Workshop",
   "url": "https://warhammer40000.com",
   "notes": "This rulebook is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
-  "wip": true,
+  "wip": false,
   "dependencies": [
     {
       "slug": "000000",
@@ -5789,6 +5789,51 @@
           ]
         },
         "rules": {
+          "applyEffects": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classification"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 70
+          },
           "SHADOWSEER model only.": {
             "evals": [
               {
