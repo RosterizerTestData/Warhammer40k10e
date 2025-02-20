@@ -1,6 +1,6 @@
 {
   "name": "Drukhari",
-  "revision": "10.12.3",
+  "revision": "10.12.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "000000",
+      "slug": "ECK6RF",
       "name": "Harlequins",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Harlequins.rulebook"
@@ -1090,7 +1090,7 @@
             "failState": "pass"
           }
         },
-        "text": "At the start of the battle, you gain an additional 1 Pain token for each of the following your army contains:\n- One or more Archon models\n- One or more Succubus models\n- One or more Haemonculus models"
+        "text": "At the start of the battle, you gain an additional 1 Pain token for each of the following your army contains:\n- One or more Archon models\n- One or more Succubus models\n- One or more Haemonculus models \n\n\n**CORSAIRS AND TRAVELLING PLAYERS**\n\n\nIf your Army Faction is Drukhari, you can include Harlequins and\nAnhrathe units in your army, even though they do not have the\nDrukhari Faction keyword. The combined points value of Harlequins\nand/or Anhrathe units you can include in your army depends on the\nbattle size, as follows:\n\n\n■ Incursion: Up to 250 pts\n■ Strike Force: Up to 500 pts\n■ Onslaught: Up to 750 pts\n\n\nNo Harlequins or Anhrathe models included in your army in this way\ncan be your Warlord, and they cannot be given Enhancements."
       },
       "Detachment§Reaper's Wager": {
         "keywords": {
@@ -1287,7 +1287,7 @@
             "failState": "pass"
           }
         },
-        "text": "Each time a Drukhari unit from your army disembarks from a Transport, until the end of the turn, that unit’s ranged weapons have the [IGNORES COVER] ability and that unit’s melee weapons have the [LANCE] ability"
+        "text": "Each time a Drukhari unit from your army disembarks from a Transport, until the end of the turn, that unit’s ranged weapons have the [IGNORES COVER] ability and that unit’s melee weapons have the [LANCE] ability\n\n\n**CORSAIRS AND TRAVELLING PLAYERS**\n\n\nIf your Army Faction is Drukhari, you can include Harlequins and\nAnhrathe units in your army, even though they do not have the\nDrukhari Faction keyword. The combined points value of Harlequins\nand/or Anhrathe units you can include in your army depends on the\nbattle size, as follows:\n\n\n■ Incursion: Up to 250 pts\n■ Strike Force: Up to 500 pts\n■ Onslaught: Up to 750 pts\n\n\nNo Harlequins or Anhrathe models included in your army in this way\ncan be your Warlord, and they cannot be given Enhancements."
       },
       "Enhancement§Archraider": {
         "keywords": {
@@ -7496,6 +7496,59 @@
             "failState": "pass",
             "order": 49
           },
+          "setMaxHarlequinPoints": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "MaxHarlequinPoints"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Realspace Raiders"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Skysplinter Assault"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          },
           "setMaxReaperHarlequinPoints": {
             "actions": [
               {
@@ -7550,6 +7603,7 @@
               "Incursion": {
                 "order": 1,
                 "tracking": {
+                  "MaxHarlequinPoints": 250,
                   "maxPoints": 1000,
                   "MaxReaperHarlequinPoints": 500
                 }
@@ -7557,6 +7611,7 @@
               "Strike Force": {
                 "order": 2,
                 "tracking": {
+                  "MaxHarlequinPoints": 500,
                   "maxPoints": 2000,
                   "MaxReaperHarlequinPoints": 1000
                 }
@@ -7564,6 +7619,7 @@
               "Onslaught": {
                 "order": 3,
                 "tracking": {
+                  "MaxHarlequinPoints": 750,
                   "maxPoints": 3000,
                   "MaxReaperHarlequinPoints": 1500
                 }
