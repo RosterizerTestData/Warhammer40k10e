@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.12.5",
+  "revision": "10.12.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -392,7 +392,7 @@
             "Other"
           ]
         },
-        "text": "In your Shooting phase, after this model has shot, if one or more of those attacks made with its earthshaker cannon scored a hit against an enemy Infantry unit, until the end of your opponent’s next turn, that unit is shaken. While a unit is shaken, subtract 2″ from its Move characteristic and subtract 2 from Advance and Charge rolls made for it."
+        "text": "In your Shooting phase, after this model has shot, if one or more of those attacks made with its earthshaker cannon scored a hit against an enemy Infantry unit, until the end of your opponent’s next turn, that unit is shaken. While a unit is shaken, subtract 2″ from its Move characteristic and subtract 2 from Charge\nrolls made for it."
       },
       "Ability§Embarking": {
         "text": "While embarked within a **Transport**, each model takes up the space of 2 models, and each weapon equipped by these models is considered to be 2 models' weapons for the purposes of the Firing Deck ability."
@@ -428,7 +428,7 @@
         "text": "Each time this model makes a ranged attack that targets a unit that can Fly, add 1 to the Hit roll."
       },
       "Ability§Final Duty": {
-        "text": "While this unit contains a Fire Coordinator, each time a Heavy Weapons Gunner model is destroyed, roll one D6: on a 3+, do not remove it from play. The destroyed model can shoot after the attacking model's unit has finished making its attacks, and is then removed from play."
+        "text": "While the Fire Coordinator model is on the battlefield, each time a Heavy Weapons Gunner model is destroyed, roll one D6: on a 3+, do not remove it from play. The destroyed model can shoot after the attacking model's unit has finished making its attacks, and is then removed from play."
       },
       "Ability§Fire Support": {
         "keywords": {
@@ -922,7 +922,7 @@
         "text": "At the start of the Declare Battle Formations step, this unit can join one other unit from your army that is being led by a Regimental Enginseer (a unit cannot have more than one Munitorum Servitors unit joined to it). If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly."
       },
       "Ability§Servo‑sentry": {
-        "text": "When this unit is set up on the battlefield using the Deep Strike ability, the Tempestor Aquilon can shoot with its sentry weapon (its sentry flamer, sentry grenade launcher or sentry hot‑shot volley gun) as if it were your Shooting phase."
+        "text": "When this unit is set up on the battlefield using the Deep Strike ability, the Tempestor Aquilon can shoot with its sentry weapon (its sentry flamer, sentry grenade launcher or sentry hot‑shot volley gun).’"
       },
       "Ability§Shock Troops": {
         "keywords": {
@@ -4799,7 +4799,7 @@
             "failState": "pass"
           }
         },
-        "text": "## Masters of Camouflage\n**Astra Militarum Walker** and **Regiment** models from your army have the Benefit of Cover. While such a model has the Benefit of Cover for any other reason (e.g. because \n it is wholly within a **Ruin**), improve the Save characteristic of models in that unit by 1 (to a maximum of 3+)."
+        "text": "## Masters of Camouflage\n**Astra Militarum Walker** and **Regiment** models from your army have the Benefit of Cover. While such a model has the Benefit of Cover for any other reason (e.g. because  it is wholly within a **Ruin**), improve the Save characteristic of that model by 1 (to a maximum of 3+)."
       },
       "Detachment§Siege Regiment": {
         "keywords": {
@@ -16789,17 +16789,17 @@
             "evals": [
               {
                 "actionable": true,
-                "not": false,
+                "not": true,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "stats",
-                    "Bolt pistol & Close combat weapon",
+                    "Bolt options",
                     "value"
                   ]
                 ],
-                "value": "✓"
+                "value": "-"
               }
             ],
             "evaluate": "AND",
@@ -16815,7 +16815,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Bolt pistol & Close combat weapon",
+                    "Bolt options",
                     "visibility"
                   ]
                 ],
@@ -16958,7 +16958,7 @@
                   [
                     "{self}",
                     "stats",
-                    "Bolt pistol & Close combat weapon",
+                    "Bolt options",
                     "value"
                   ]
                 ],
@@ -16971,7 +16971,7 @@
           }
         },
         "stats": {
-          "Bolt pistol & Close combat weapon": {
+          "Bolt options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
@@ -16979,11 +16979,22 @@
               "-": {
                 "order": 0
               },
-              "✓": {
+              "Bolt pistol": {
                 "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Death Korps of Krieg—Bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Death Korps of Krieg—Close combat weapon"
+                  }
+                ]
+              },
+              "Boltgun": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Death Korps of Krieg—Boltgun"
                   },
                   {
                     "trait": "Melee Weapon§Death Korps of Krieg—Close combat weapon"
@@ -17023,8 +17034,16 @@
                   }
                 ]
               },
+              "Close combat weapon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Korps of Krieg—Close combat weapon"
+                  }
+                ]
+              },
               "-": {
-                "order": 2
+                "order": 3
               }
             },
             "statType": "rank",
@@ -31840,7 +31859,7 @@
             "value": 1
           },
           "Range": {
-            "value": 48
+            "value": 12
           },
           "S": {
             "value": 3
@@ -42470,7 +42489,7 @@
           },
           "BS": {
             "statType": "term",
-            "value": "4"
+            "value": "3"
           },
           "D": {
             "value": 1
