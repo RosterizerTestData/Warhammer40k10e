@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.12.12",
+  "revision": "10.12.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2821,6 +2821,81 @@
           ]
         },
         "rules": {
+          "bridgedetach": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "note": "This is exhaustive but seems to only affect one unit. Future units that qualify will need specific entries OR this will need to be re-structured when we can target keywords",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Infantry/Mounted§Tempestus Scions",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Infantry/Mounted§Tempestus Scions",
+                    "assets",
+                    "item",
+                    [
+                      "Model§Tempestor",
+                      "Model§Tempestus Scion"
+                    ],
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Bridgehead Strike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4
+          },
           "removeParentTallies": {
             "actions": [
               {
@@ -10729,62 +10804,6 @@
             ],
             "evaluate": "OR",
             "failState": "error"
-          },
-          "bridgeDetach": {
-            "actions": [
-              {
-                "actionType": "modify",
-                "iterations": 1,
-                "note": "This is exhaustive but seems to only affect one unit. Future units that qualify will need specific entries OR this will need to be re-structured when we can target keywords",
-                "paths": [
-                  [
-                    "{self}",
-                    "assets",
-                    "item",
-                    [
-                      "Model§Tempestus Scion",
-                      "Model§Tempestor"
-                    ],
-                    "stats",
-                    "OC",
-                    "value"
-                  ]
-                ],
-                "value": 1
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Detachment",
-                    "value"
-                  ]
-                ],
-                "value": "Bridgehead Strike"
-              },
-              {
-                "actionable": true,
-                "contains": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "keywords",
-                    "Keywords"
-                  ]
-                ],
-                "value": "Battleline"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass"
           }
         },
         "stats": {
