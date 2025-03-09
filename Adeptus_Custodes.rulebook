@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.12.5",
+  "revision": "10.12.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "XB7MKD",
+      "slug": "47EAE2",
       "name": "Imperium",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium.rulebook"
@@ -5833,7 +5833,7 @@
       },
       "Model§Custodian Warden": {
         "rules": {
-          "applyVaxilla": {
+          "applyVexilla": {
             "actions": [
               {
                 "actionType": "modify",
@@ -5859,7 +5859,7 @@
                   [
                     "{parent}",
                     "tracked",
-                    "Vex"
+                    "VexOC"
                   ]
                 ]
               }
@@ -5889,7 +5889,7 @@
               "✓": {
                 "order": 1,
                 "tracking": {
-                  "Vex": 1
+                  "VexOC": 1
                 },
                 "traits": [
                   {
@@ -9283,9 +9283,12 @@
                 "paths": [
                   [
                     "{self}",
-                    "traits",
-                    "item",
-                    "Model§Allarus Custodian",
+                    "assets",
+                    "classification",
+                    [
+                      "Character",
+                      "Model"
+                    ],
                     "stats",
                     "OC",
                     "value"
@@ -9316,7 +9319,8 @@
               }
             ],
             "evaluate": "AND",
-            "failState": "pass"
+            "failState": "pass",
+            "order": 150
           },
           "Maximum 1 Vexilla": {
             "evals": [
@@ -10159,9 +10163,12 @@
                 "paths": [
                   [
                     "{self}",
-                    "traits",
-                    "item",
-                    "Model§Custodian Guard",
+                    "assets",
+                    "classification",
+                    [
+                      "Character",
+                      "Model"
+                    ],
                     "stats",
                     "OC",
                     "value"
@@ -10417,6 +10424,43 @@
           ]
         },
         "rules": {
+          "applyCharacterVexillaBuff": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tracked",
+                    "VexOC"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
           "Maximum 1 Vexilla": {
             "evals": [
               {
@@ -10428,7 +10472,7 @@
                   [
                     "{self}",
                     "tracked",
-                    "Vex"
+                    "VexOC"
                   ]
                 ]
               }
