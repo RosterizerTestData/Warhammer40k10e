@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Custodes",
-  "revision": "10.12.6",
+  "revision": "10.12.7",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2805,6 +2805,105 @@
         },
         "text": "**Assemblage of Might**\n\nAt the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model in an **Adeptus Custodes Character** unit from your army makes an attack that targets that enemy unit, add 1 to the Wound roll."
       },
+      "Detachment§Lions of the Emperor": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Gilded Champion"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Defiant To The Last"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unleash The Lions"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Manoeuvre And Fire"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Peerless Warrior"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Swift As The Eagle"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## AGAINST ALL ODDS\n\nEach time an **Adeptus Custodes** unit from your army (excluding **Vehicles**) makes an attack, if there are no other friendly units within 6\" of that unit, add 1 to the Hit roll and add 1 to the Wound roll."
+      },
       "Detachment§Null Maiden Vigil": {
         "rules": {
           "assignstratagems": {
@@ -3296,6 +3395,133 @@
         },
         "text": "Adeptus Custodes model only. Improve the Attacks,\nStrength and Damage characteristics of melee\nweapons equipped by the bearer by 1."
       },
+      "Enhancement§Admonimortis": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "D",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Shield‑Captain model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Shield-captain"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Shield‑Captain** model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 3, and improve the Armour Penetration and Damage characteristics of those weapons by 1"
+      },
       "Enhancement§Aegis Projector": {
         "keywords": {
           "Keywords": [
@@ -3514,6 +3740,41 @@
           }
         },
         "text": "ANATHEMA PSYKANA model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage\ncharacteristic of that attack. If that attack was made by a PSYKER or Battle-shocked model, change the Damage characteristic of that attack to 1 instead."
+      },
+      "Enhancement§Fierce Conqueror": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ]
+        },
+        "rules": {
+          "Shield‑Captain model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Shield-captain"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Shield‑Captain** model only. At the start of the Fight phase, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer for every 5 enemy models within 6\" of the bearer (rounding down)."
       },
       "Enhancement§From the Hall of Armouries": {
         "keywords": {
@@ -3829,6 +4090,51 @@
         },
         "text": "**Shield-Captain** or **Blade Champion** model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [IGNORES COVER] ability."
       },
+      "Enhancement§Praesidius": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lone Operative"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Adeptus Custodes** model only. The bearer has the Lone Operative and Stealth abilities."
+      },
       "Enhancement§Radiant Mantle": {
         "keywords": {
           "Keywords": [
@@ -3967,6 +4273,41 @@
           }
         },
         "text": "ANATHEMA PSYKANA model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is within Engagement Range of one or more enemy PSYKER units that are Battle-shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons instead."
+      },
+      "Enhancement§Superior Creation": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ]
+        },
+        "rules": {
+          "Infantry model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Adeptus Custodes Infantry** model only. The first time the bearer is destroyed, roll one D6 at the end of the phase. On a 2+, set the bearer back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with its full wounds remaining."
       },
       "Enhancement§Veiled Blade": {
         "keywords": {
@@ -8448,6 +8789,14 @@
         "stats": {
           "Detachment": {
             "ranks": {
+              "6": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Detachment§Lions of the Emperor"
+                  }
+                ]
+              },
               "Shield Host": {
                 "order": 1,
                 "traits": [
@@ -8608,6 +8957,24 @@
         },
         "text": "**WHEN**: Start of the Fight phase.\n\n**TARGET**: One **Adeptus Custodes** unit from your army (excluding **Anathema Psykana** models) that is below its Starting Strength.\n\n**EFFECT**: Until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. If that unit is Below Half-strength, until the end of the phase, add 2 to the Attacks characteristic of those melee weapons instead."
       },
+      "Stratagem§Defiant To The Last": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One **Adeptus Custodes** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 2 to the result if that model has the **Character** keyword. On a 4+, do not remove it from play; the destroyed model can fight after the attacking unit has finished making its attacks (when doing so, it is treated as having 1 wound remaining), and is then removed from play."
+      },
       "Stratagem§Desperation’s Price": {
         "keywords": {
           "Category": [
@@ -8727,6 +9094,24 @@
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Adeptus Custodes Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets a model in your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of your unit, subtract 1 from the Wound roll."
       },
+      "Stratagem§Gilded Champion": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "text": "**WHEN:** Any phase, just after an **Adeptus Custodes Character** model from your army has used an ability on its datasheet that states it can only be used ‘once per battle’.\n\n**TARGET:**  That **Adeptus Custodes Character** model.\n\n**EFFECT:** Your model can use that ‘once per battle’ ability one additional time during the battle (but not in the same phase).\n\n**RESTRICTIONS:** : You cannot use this Stratagem on the same **Adeptus Custodes Character** model more than once per battle."
+      },
       "Stratagem§Hunt as One": {
         "keywords": {
           "Keywords": [
@@ -8745,6 +9130,23 @@
         },
         "text": "**WHEN**: Start of your Movement phase.\n\n**TARGET**: Up to two **ADEPTUS CUSTODES** units from your army.\n\n**EFFECT**: Until the end of the turn, your units are eligible to shoot and/or declare a charge in a turn in which they Fell Back.\n\n**RESTRICTIONS**: You can only select two units if one (and only one) of them is an **ANATHEMA PSYKANA** unit and both are within 6″ of each other."
       },
+      "Stratagem§Manoeuvre And Fire": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "text": "**WHEN:** Your Movement phase, just after an **Adeptus Custodes** unit from your army Falls Back.\n\n**TARGET:** That **Adeptus Custodes** unit.\n\n**EFFECT:** Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+      },
       "Stratagem§Multipotentiality": {
         "keywords": {
           "Phase": [
@@ -8762,6 +9164,24 @@
           ]
         },
         "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One **Adeptus Custodes** unit from your army Fell Back this phase.\n\n**EFFECT**: Until the end of your turn, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+      },
+      "Stratagem§Peerless Warrior": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Adeptus Custodes** unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, melee weapons equipped by models in your unit have the **[PRECISION]** ability."
       },
       "Stratagem§Psy-Chaff Volley": {
         "keywords": {
@@ -8930,6 +9350,23 @@
         },
         "text": "**WHEN**: Any phase, just after an **ADEPTUS CUSTODES WARLORD** model from your\narmy has used an ability on its datasheet or from an Enhancement that says it can only be used ’Once per battle’.\n\n**TARGET**: That **ADEPTUS CUSTODES WARLORD** model.\n\n**EFFECT**: Your model can use its ’Once per battle’ ability one additional time during this battle (but not in the same phase).\n\n**RESTRICTIONS**: You cannot use this Stratagem more than once per battle."
       },
+      "Stratagem§Swift As The Eagle": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has shot.\n\n**TARGET:** One **Adeptus Custodes** unit from your army (excluding **VEHICLE** units) that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT:** Your unit can make a Normal move of up to D6\"."
+      },
       "Stratagem§Taloned Pincer": {
         "keywords": {
           "Category": [
@@ -8984,6 +9421,23 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One **ADEPTUS CUSTODES CHARACTER** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, **CHARACTER** models in your unit have the Feel No Pain 4+ ability."
+      },
+      "Stratagem§Unleash The Lions": {
+        "keywords": {
+          "Keywords": [
+            "Lions of the Emperor"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "text": "**WHEN:** Your Command phase.\n\n**TARGET:** One **Allarus Custodians** or **Aquilon Custodians** unit from your army that is on the battlefield.\n\n**EFFECT:** That unit is split into separate units, each containing one model. These new units each have a Starting Strength of 1."
       },
       "Stratagem§Unstoppable": {
         "keywords": {
