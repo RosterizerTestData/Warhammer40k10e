@@ -1,6 +1,6 @@
 {
   "name": "Chaos Daemons",
-  "revision": "10.12.5",
+  "revision": "10.12.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -16,7 +16,119 @@
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Character": {
+        "removed": {
+          "rules": {
+            "detachmentEnhancements": {},
+            "noAllyEnhancements": {}
+          }
+        },
+        "rules": {
+          "detachmentDaemonAstartesEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Legiones Daemonica"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAllyShadowLegionEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Legiones Daemonica"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§Bounding Assault": {
         "keywords": {
@@ -1110,6 +1222,105 @@
         },
         "text": "**FATES IN FLUX**\n\nYou start the battle with three Flux\ntokens (we recommend using a dice to\ntrack how many Flux tokens you have).\nYou can spend one Flux token just after\nan Advance roll, Hit roll, Wound roll,\nDamage roll, saving throw or Hazardous\ntest is made for a **Legiones Daemonica\nTzeentch** model or **Legiones Daemonica\nTzeentch** unit from your army to re‑roll\nthe result of that roll, throw or test. Flux\ntokens can also be spent to enhance the\neffect of some Stratagems. Each time you\nspend a Flux token, reduce the number\nof Flux tokens you have by one and your\nopponent gains one Flux token.\n\nWhenever your opponent has one or\nmore Flux tokens, they can spend one\nFlux token after an Advance roll, Hit roll,\nWound roll or saving throw is made for a\nmodel or unit from their army, to re‑roll\nthe result of that roll or throw. If they do,\nthey reduce the number of Flux tokens\nthey have by one and you gain one Flux\ntoken. This is ignored if your opponent\nhas the Fates in Flux Detachment rule.\n\nIn your Command phase, if your\nopponent has one or more Flux tokens,\nyou gain one Flux token.\n\n**Designer’s Note:** When using fast dice\nrolling, this rule can be used to spend any\nnumber of Flux tokens (up to the amount\nyou have), to re‑roll a number of dice up\nto the amount spent, after rolling multiple\nrolls or saving throws at once."
       },
+      "Detachment§Shadow Legion": {
+        "keywords": {
+          "Keywords": []
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Spiteful Demise"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Channelled Wrath"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Death Denied"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Encroaching Darkness"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Binding Shadow"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Shade Path"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## FIRST PRINCE OF CHAOS\n\nUnits from your army have the relevant abilities\npresented below.\n\n- **MURDERER’S COWL**\n\n**Shadow Legion Khorne** units only. This unit is\neligible to shoot and declare a charge in a turn in\nwhich it Advanced.\n\n- **PENUMBRAL PUPPETRY**\n\n**Shadow Legion Tzeentch** units only. Each time an\nattack targets this unit, subtract 1 from the Hit roll.\n\n- **GLOAM ROT**\n\n**Shadow Legion Nurgle** units only. Each time an\nattack targets this unit, if the Strength characteristic\nof that attack is greater than this unit’s Toughness\ncharacteristic, subtract 1 from the Wound roll.\n\n- **SHADOW’S CARESS**\n\n**Shadow Legion Slaanesh** units only. Enemy units\ncannot use the Fire Overwatch Stratagem to shoot\nat this unit.\n\n- **DISCIPLES OF BE’LAKOR**\n\n**Shadow Legion Undivided** units only.\n\n■ This unit has the Dark Pacts army rule, and can use\nit as described in Codex: Chaos Space Marines,\neven though your Army Faction is not **Heretic\nAstartes**. If this unit is **Be’lakor**, it automatically\npasses the Leadership test required for Dark Pacts.\n\n■ **Shadow Legion Heretic Astartes** models in this\nunit have the Deep Strike ability"
+      },
       "Enhancement§A’rgath, The King of Blades": {
         "keywords": {
           "Keywords": [
@@ -1390,6 +1601,19 @@
           }
         },
         "text": "**Legiones Daemonica Nurgle Monster** model only. While a friendly **Legiones Daemonica Nurgle** unit is within 6\" of the bearer, that unit can only be targeted by a ranged attack if the attacking model is within 18\"."
+      },
+      "Enhancement§Fade to Darkness": {
+        "keywords": {
+          "Keywords": [
+            "Shadow Legion"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Shadow Legion model only**. At the end of the Fight phase, if the bearer’s unit destroyed one or more enemy units this phase and is not within Engagement Range of one or more enemy units, you can remove the bearer’s unit from the battlefield and place it into Strategic Reserves."
       },
       "Enhancement§False Majesty (Aura)": {
         "keywords": {
@@ -1692,6 +1916,55 @@
         },
         "text": "**Legiones Daemonica Tzeentch Monster** model\nonly. Each time the bearer is selected to shoot, you\ncan select one other friendly **Legiones Daemonica\nTzeentch** unit within 9\" of the bearer. If you do, when\nselecting targets for ranged weapons equipped by\nthe bearer, you can measure range and determine\nvisibility from one model of your choice in the\nselected unit instead."
       },
+      "Enhancement§Leaping Shadows": {
+        "keywords": {
+          "Keywords": [
+            "Shadow Legion"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Scouts"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Scouts",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "value": "9”"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Shadow Legion model only**. Models in the bearer’s unit have the Scouts 9” ability."
+      },
       "Enhancement§Maggot Maws": {
         "keywords": {
           "Keywords": [
@@ -1726,6 +1999,32 @@
           }
         },
         "text": "**Legiones Daemonica Nurgle** model only. In your\nShooting phase, select one enemy unit within 6\" of the\nbearer; that enemy unit must take a Battle‑shock test.\nThen roll one D6: on a 3+, that enemy unit suffers\nD3 mortal wounds. Each time the bearer uses this\nEnhancement, no mortal wounds are inflicted by your\narmy’s Daemonic Terror rule."
+      },
+      "Enhancement§Malice Made Manifest": {
+        "keywords": {
+          "Keywords": [
+            "Shadow Legion"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Shadow Legion model only**. At the start of the Fight phase, select one enemy unit within Engagement Range of the bearer’s unit and roll one D6: on a 2‑5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds."
+      },
+      "Enhancement§Mantle of Gloom (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Shadow Legion"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Shadow Legion model only.** While an enemy unit is within Engagement Range of the bearer’s unit, subtract 1 from the Objective Control characteristic of models in that enemy unit."
       },
       "Enhancement§Neverblade": {
         "keywords": {
@@ -2963,7 +3262,147 @@
         }
       },
       "Roster§Roster": {
+        "rules": {
+          "setHereticAlly1": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    [
+                      "Allied faction 1",
+                      "Allied faction 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Shadow Legion"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "setHereticAlly2": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Shadow Legion"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
         "stats": {
+          "Allied faction 1": {
+            "ranks": {
+              "Heretic Astartes": {
+                "order": 4
+              }
+            }
+          },
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "Incursion": {
+                "format": "Incursion",
+                "order": 1,
+                "tracking": {
+                  "maxDaemons": 250,
+                  "maxDamned": 250,
+                  "maxHeretic": 500,
+                  "maxPoints": 1000
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 2,
+                "tracking": {
+                  "maxDaemons": 500,
+                  "maxDamned": 500,
+                  "maxHeretic": 1000,
+                  "maxPoints": 2000
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 3,
+                "tracking": {
+                  "maxDaemons": 750,
+                  "maxDamned": 750,
+                  "maxHeretic": 1500,
+                  "maxPoints": 3000
+                }
+              },
+              "Combat Patrol": {
+                "format": "Combat Patrol",
+                "order": 4,
+                "tracking": {
+                  "maxDaemons": 0,
+                  "maxPoints": 500
+                }
+              }
+            }
+          },
           "Detachment": {
             "ranks": {
               "Daemonic Incursion": {
@@ -3008,6 +3447,14 @@
                     "trait": "Detachment§Plague Legion"
                   }
                 ]
+              },
+              "Shadow Legion": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Detachment§Shadow Legion"
+                  }
+                ]
               }
             },
             "value": "Daemonic Incursion"
@@ -3042,6 +3489,23 @@
         },
         "text": "**WHEN:** Fight phase.\n\n**TARGET:** One **Legiones Daemonica Slaanesh\nMonster** unit or up to *two* **Legiones Daemonica\nSlaanesh** units (excluding **Monsters**) from your\narmy that have not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a\nmodel in one of those units makes an attack, add 1\nto the Wound roll."
       },
+      "Stratagem§Binding Shadow": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Shadow Legion"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:**  End of your opponent’s Fight phase.\n\n**TARGET:** Up to one **Shadow Legion Heretic Astartes** unit from your army and up to one **Shadow Legion Legiones Daemonica** unit from your army. You can only select units that are not within Engagement Range of one or more enemy units.\n\n**EFFECT:** Remove those selected units from the battlefield and place them into Strategic Reserves."
+      },
       "Stratagem§Blood Begets Skulls": {
         "keywords": {
           "Keywords": [
@@ -3075,6 +3539,24 @@
           ]
         },
         "text": "**WHEN:** Your Charge phase, just after a **Legiones\nDaemonica Slaanesh** unit from your army ends a\nCharge move.\n\n**TARGET:** That **Legiones Daemonica Slaanesh** unit.\n\n**EFFECT:** Select one enemy unit within Engagement\nRange of your unit, then roll one D6 for each model\nin your unit that is within Engagement Range of that\nenemy unit, or roll six D6 instead if your unit is a\nMonster unit: for each 4+, that enemy unit suffers 1\nmortal wound."
+      },
+      "Stratagem§Channelled Wrath": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Shadow Legion"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "text": "**WHEN:**  Fight phase.\n\n**TARGET:** One **Shadow Legion** unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, melee weapons equipped by models in your unit have the **[LANCE]** ability. If your unit has the **Khorne** keyword, until the end of the phase, improve the Armour Penetration characteristic of those weapons by 1 as well."
       },
       "Stratagem§Corrupt Realspace": {
         "keywords": {
@@ -3112,6 +3594,23 @@
           ]
         },
         "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Legiones Daemonica unit from your army that was selected as the target of one or more of that enemy unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an invulnerable saving throw is made for a model in your unit, re-roll a saving throw of 1."
+      },
+      "Stratagem§Death Denied": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Shadow Legion"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "text": "**WHEN:**  Your Command phase.\n\n**TARGET:** One **Shadow Legion** unit from your army\n\n**EFFECT:** One model in your unit regains up to 3 lost wounds. In addition, If your unit has the **Tzeentch** keyword, return up to one destroyed model (excluding **Character** models) to your unit with its full wounds remaining"
       },
       "Stratagem§Delirium Unmade": {
         "keywords": {
@@ -3167,6 +3666,23 @@
           ]
         },
         "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Legiones Daemonica unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, improve the Armour Penetration characteristic of weapons equipped by models in that unit by 1. In addition, until the end of the phase, each time such a weapon targets a unit that is Battle-shocked, you can re-roll the Wound roll."
+      },
+      "Stratagem§Encroaching Darkness": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Shadow Legion"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "text": "**WHEN:**  Your Shooting phase.\n\n**TARGET:** Up to one **Shadow Legion Heretic Astartes** unit from your army and up to one **Shadow Legion Legiones Daemonica** unit from your army. You can only select units that arrived from Reserves this turn.\n\n**EFFECT:** Until the end of the phase, weapons equipped by models in your selected units have the **[IGNORES COVER]** ability."
       },
       "Stratagem§Fateborn Nightmares": {
         "keywords": {
@@ -3452,6 +3968,28 @@
         },
         "text": "**WHEN:** Your Command phase.\n\n**TARGET:** One **Legiones Daemonica Slaanesh\nMonster** unit from your army that is on\nthe battlefield.\n\n**EFFECT:** Each unit on the battlefield that is\nwithin your army’s Shadow of Chaos must take a\nBattle‑shock test, subtracting 1 from that test if they\nare Below Half‑strength.\n\n**Designer’s Note:** This Stratagem forces all friendly\nand enemy units alike within your army’s Shadow\nof Chaos to take a Battle‑shock test. This can\nallow a Chaos Daemons player to heal units from\ntheir army through the Daemonic Terror army rule,\nat the risk of causing some of their own units to\nbecome Battle‑shocked."
       },
+      "Stratagem§Shade Path": {
+        "keywords": {
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Keywords": [
+            "Shadow Legion"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN:** Your opponent’s Charge phase, just after an enemy unit declares a charge\n\n**TARGET:** One **Shadow Legion** unit from your army that was selected as a target of that charge.\n\n**EFFECT:** Until the end of the phase, subtract 2 from Charge rolls made for that enemy unit. In addition, if your unit has the **Nurgle** keyword, that enemy unit must take a Battle-shock test."
+      },
       "Stratagem§Sheated in Brass": {
         "keywords": {
           "Keywords": [
@@ -3485,6 +4023,24 @@
           ]
         },
         "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One **Legiones Daemonica Khorne\nInfantry** or **Legiones Daemonica Khorne Mounted**\nunit from your army (excluding units that Fell Back\nthis turn) that is not within Engagement Range of one\nor more enemy units.\n\n**EFFECT:** Select one enemy unit that is not within\nEngagement Range of one or more units from your\narmy and is within 8\" of and visible to your unit.\nRoll six D6: for each 4+, that enemy unit suffers 1\nmortal wound."
+      },
+      "Stratagem§Spiteful Demise": {
+        "keywords": {
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Keywords": [
+            "Shadow Legion"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "text": "**WHEN:** Any phase, just after a **Shadow Legion** unit from your army is destroyed, before removing the last model in that unit from the battlefield and before rolling any dice for the Deadly Demise ability.\n\n**TARGET:** That **Shadow Legion** unit. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT:** Roll one D6 for each enemy unit that is within Engagement Range of the last model in your unit, adding 2 to the result if your unit has the **Slaanesh** keyword: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds."
       },
       "Stratagem§The Realm of Chaos": {
         "keywords": {
