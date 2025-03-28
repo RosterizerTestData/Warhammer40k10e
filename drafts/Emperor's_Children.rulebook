@@ -1,0 +1,1302 @@
+{
+  "name": "Emperor's Children",
+  "revision": "10.12.1",
+  "game": "Warhammer 40k",
+  "genre": "sci-fi",
+  "publisher": "Games Workshop",
+  "url": "https://warhammer40000.com",
+  "notes": "This rulebook is provided for the purposes of testing Rosterizer and is not intended for distribution. Data load provided by [Game-Datacards](https://game-datacards.eu)",
+  "wip": true,
+  "dependencies": [
+    {
+      "slug": "WY4CVX",
+      "name": "Chaos",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
+    }
+  ],
+  "rulebook": {
+    "assetTaxonomy": {
+      "Character": {
+        "rules": {
+          "noAllyEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Faction",
+                  "value"
+                ]
+              }
+            ],
+            "order": 9999
+          }
+        }
+      },
+      "Unit": {}
+    },
+    "assetCatalog": {
+      "Ability§A Challenge Worthy of Skill": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this model makes an attack that targets a **Character**, **Monsters** or **Walker** unit, you can re-roll the Hit-roll and you can re-roll the Wound roll."
+      },
+      "Ability§Beguiling Form": {
+        "text": "Each time a model makes an attack that targets this model, subtract 1 from the Hit roll."
+      },
+      "Ability§Daemon Primarch of Slaanesh": {
+        "assets": {
+          "traits": [
+            "Ability§Beguiling Form",
+            "Ability§Daemonic Speed",
+            "Ability§Enthralling Hypnosis (Aura)"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Primarch"
+          ]
+        },
+        "text": "At the start of your opponent's Command phase, select one of the abilities in the Daemon Primarch of Slaanesh section. Until the start of your opponent's next Command Phase, this model has that ability."
+      },
+      "Ability§Daemonic Patrons": {
+        "text": "Each time this unit is selected to fight, it can call upon daemonic patrons. If it does, until the end of the phase, each time a model in this unit makes an attack, an unmodified Wound roll of 3+ scores a Critical Wound. At the end of the Fight phase, if this unit called upon daemonic patrons this phase and no enemy models were destroyed by attacks made by models in this unit this phase, one model in this unit is destroyed."
+      },
+      "Ability§Daemonic Poisons": {
+        "text": "In your Shooting phase and Fight phase, after this model has finished making its attacks, select one enemy unit hit by one or more of those attacks. Until the end of the battle, that enemy unit is poisoned. At the start of each player's Command phase, roll one D6 for each poisoned enemy unit on the battlefield: on a 4+, that enemy unit suffers D3 mortal wounds."
+      },
+      "Ability§Daemonic Speed": {
+        "text": "This model has the Fights First ability."
+      },
+      "Ability§Dark Pacts": {
+        "keywords": {
+          "Keywords": [
+            "Faction"
+          ]
+        }
+      },
+      "Ability§Duellist’s Hubris": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "At the start of the Fight phase, if this model is not leading a unit, until the end of the phase, it has the Fights First ability."
+      },
+      "Ability§Ecstatic Death": {
+        "text": "If this model is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 2+, do not remove it from play. This model can fight after the attacking unit has finished making its attacks, and is then removed from play."
+      },
+      "Ability§Emperor’s Children": {
+        "keywords": {
+          "Keywords": [
+            "Special"
+          ]
+        },
+        "rules": {
+          "noisemarineasBattleline": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Noise Marines",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 4
+          }
+        },
+        "text": "If this model is your Warlord, Noise Marine units in your army have the Battleline keyword."
+      },
+      "Ability§Enthralling Hypnosis (Aura)": {
+        "text": "While an enemy unit is within 6″ of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead."
+      },
+      "Ability§Excessive Vigour (Aura)": {
+        "text": "While a friendly **Slaanesh** unit is within 6\" of this model, if that unit made a Charge move this turn, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1."
+      },
+      "Ability§Lord of Excess": {
+        "text": "While this model is within 3\" of one or more friendly **Slaanesh Infantry** units, this model has the Lone Operative ability."
+      },
+      "Ability§Terrifying Crescendo": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next Shooting phase, each time a Battle-shock or Leadership test is taken for that enemy unit, subtract 1 from that test."
+      },
+      "Ability§Thrill Seekers": {
+        "text": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:\n\n- It cannot target a unit it was within Engagement Range of at the start of the turn.\n\n- It cannot target a unit that was the target of another unit’s charge or attack this phase."
+      },
+      "Character§Daemon Prince of Chaos": {
+        "stats": {
+          "Daemonic Allegiance": {
+            "value": "Slaanesh"
+          }
+        }
+      },
+      "Character§Daemon Prince of Chaos with Wings": {
+        "stats": {
+          "Daemonic Allegiance": {
+            "value": "Slaanesh"
+          }
+        }
+      },
+      "Character§Daemon Prince of Slaanesh": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Thrill Seekers",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Lord of Excess",
+            "Ability§Excessive Vigour (Aura)",
+            "Ability§Ecstatic Death",
+            "Ranged Weapon§Daemon Prince of Slaanesh—Infernal cannon",
+            "Melee Weapon§Daemon Prince of Slaanesh—Hellforged weapons"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Chaos",
+            "Character",
+            "Daemon",
+            "Daemon Prince",
+            "Monster",
+            "Slaanesh"
+          ],
+          "Category": [
+            "Character"
+          ],
+          "Faction": [
+            "Emperor’s Children"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 195
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 10
+          },
+          "W": {
+            "value": 10
+          }
+        }
+      },
+      "Character§Fulgrim": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D6"
+                }
+              }
+            },
+            "Ability§Deep Strike",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Thrill Seekers",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-6 wounds remaining"
+                }
+              }
+            },
+            "Ability§Supreme Commander",
+            "Ability§Daemonic Poisons",
+            "Ability§Daemon Primarch of Slaanesh",
+            "Ranged Weapon§Fulgrim—Malefic lash",
+            "Melee Weapon§Fulgrim—Daemonic blades",
+            "Melee Weapon§Fulgrim—Serpentine tail"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Emperor’s Children"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Epic Hero"
+          ],
+          "Keywords": [
+            "Chaos",
+            "Character",
+            "Daemon Primarch",
+            "Epic Hero",
+            "Fly",
+            "Fulgrim",
+            "Monster",
+            "Slaanesh"
+          ]
+        },
+        "removed": {
+          "stats": {
+            "Mark of Chaos": {}
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 5
+          },
+          "M": {
+            "value": 16
+          },
+          "OC": {
+            "value": 6
+          },
+          "Points": {
+            "value": 385
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 11
+          },
+          "W": {
+            "value": 16
+          },
+          "Warlord": {
+            "dynamic": false,
+            "ranks": {
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {}
+              }
+            },
+            "value": "✓"
+          }
+        }
+      },
+      "Character§Lucius the Eternal": {
+        "aspects": {
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "This model can be attached to the following units:\n\n\n\n* Flawless Blades"
+            },
+            "Ability§Duellist’s Hubris",
+            "Ability§A Challenge Worthy of Skill",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Melee Weapon§Lucius the Eternal—Blade of the Laer",
+            "Melee Weapon§Lucius the Eternal—Lash of Torment",
+            "Ability§Thrill Seekers",
+            "Ability§Lone Operative",
+            {
+              "item": "Ability§Feel No Pain",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Epic Hero"
+          ],
+          "Faction": [
+            "Emperor’s Children"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Infantry",
+            "Character",
+            "Epic Hero",
+            "Chaos",
+            "Slaanesh",
+            "Lucius the Eternal"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 8
+          },
+          "model1stTally": {},
+          "Models": {
+            "increment": {
+              "value": 1
+            }
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 140
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
+          },
+          "Warlord": {
+            "ranks": {
+              "✓": {
+                "number": 1,
+                "order": 1,
+                "tracking": {}
+              }
+            }
+          }
+        }
+      },
+      "Melee Weapon§Daemon Prince of Slaanesh—Hellforged weapons": {
+        "aspects": {
+          "Label": "Hellforged weapons"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Fulgrim—Daemonic blades – strike",
+            "Melee Weapon§Fulgrim—Daemonic blades – sweep"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Melee Weapon§Flawless Blades—Blissblade": {
+        "aspects": {
+          "Label": "Blissblade"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Fulgrim—Daemonic blades": {
+        "aspects": {
+          "Label": "Daemonic blades"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Fulgrim—Daemonic blades – strike",
+            "Melee Weapon§Fulgrim—Daemonic blades – sweep"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Melee Weapon§Fulgrim—Daemonic blades – strike": {
+        "aspects": {
+          "Label": "Strike"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "format": "D6",
+            "value": 1
+          },
+          "S": {
+            "value": 14
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Fulgrim—Daemonic blades – sweep": {
+        "aspects": {
+          "Label": "Sweep"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 12
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 8
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Fulgrim—Serpentine tail": {
+        "aspects": {
+          "Label": "Serpentine tail"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Lucius the Eternal—Blade of the Laer": {
+        "aspects": {
+          "Label": "Blade of the Laer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Lucius the Eternal—Lash of Torment": {
+        "aspects": {
+          "Label": "Lash of Torment"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 10
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Noise Marines—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Noise Marines—Power sword": {
+        "aspects": {
+          "Label": "Power sword"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Model§Disharmonist": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Noise Marines—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Sonic Blaster": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Noise Marines—Sonic blaster"
+                  }
+                ]
+              },
+              "Screamer Pistol and Power sword": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Noise Marines—Screamer pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Noise Marines—Power sword"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Sonic Blaster",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Flawless Blade": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Flawless Blades—Bolt pistol",
+            "Melee Weapon§Flawless Blades—Blissblade"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 1
+          },
+          "M": {
+            "value": 8
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
+      "Model§Noise Marine": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Noise Marines—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Sonic Blaster": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Noise Marines—Sonic blaster"
+                  }
+                ]
+              },
+              "Blastmaster": {
+                "order": 1,
+                "tracking": {
+                  "blast": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Noise Marines—Blastmaster"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Sonic Blaster",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Ranged Weapon§Daemon Prince of Slaanesh—Infernal cannon": {
+        "aspects": {
+          "Label": "Infernal cannon"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Flawless Blades—Bolt pistol": {
+        "aspects": {
+          "Label": "Bolt pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Fulgrim—Malefic lash": {
+        "aspects": {
+          "Label": "Malefic lash"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Noise Marines—Blastmaster": {
+        "assets": {
+          "traits": []
+        },
+        "keywords": {
+          "Tags": []
+        }
+      },
+      "Ranged Weapon§Noise Marines—Blastmaster – Single frequency": {
+        "aspects": {
+          "Label": "Single frequency"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 10
+          }
+        }
+      },
+      "Ranged Weapon§Noise Marines—Blastmaster – Varied frequency": {
+        "aspects": {
+          "Label": "Varied frequency"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Noise Marines—Screamer pistol": {
+        "aspects": {
+          "Label": "Screamer pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol",
+            "Ability§Ignores Cover"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Noise Marines—Sonic blaster": {
+        "aspects": {
+          "Label": "Sonic blaster"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Roster§Roster": {
+        "assets": {
+          "traits": []
+        },
+        "constraints": {
+          "any": []
+        },
+        "removed": {
+          "rules": {},
+          "assets": {
+            "traits": [
+              "Ability§Cults of the Dark Gods"
+            ]
+          }
+        },
+        "stats": {
+          "Allied faction 1": {
+            "ranks": {
+              "Chaos Knights": {
+                "order": 2
+              },
+              "Titanicus Traitoris": {
+                "order": 3
+              }
+            }
+          },
+          "Faction": {
+            "dynamic": false,
+            "ranks": {
+              "Emperor’s Children": {
+                "order": 1
+              }
+            },
+            "value": "Emperor’s Children"
+          }
+        }
+      },
+      "Unit§Flawless Blades": {
+        "allowed": {
+          "items": [
+            "Model§Flawless Blade",
+            "Character§Lucius the Eternal"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Thrill Seekers",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Ability§Daemonic Patrons",
+            {
+              "item": "Model§Flawless Blade",
+              "quantity": 3
+            }
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Emperor’s Children"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Infantry"
+          ],
+          "Keywords": [
+            "Chaos",
+            "Flawless Blades",
+            "Grenades",
+            "Infantry",
+            "Slaanesh"
+          ]
+        },
+        "stats": {
+          "Flawless Blade": {
+            "max": 6,
+            "min": 3,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Mark of Chaos": {
+            "statType": "term",
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 220
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "modelKey": {
+            "value": "Model§Flawless Blade"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 110
+          }
+        }
+      },
+      "Unit§Noise Marines": {
+        "allowed": {
+          "items": [
+            "Model§Noise Marine"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Terrifying Crescendo",
+            "Model§Disharmonist",
+            {
+              "item": "Model§Noise Marine",
+              "quantity": 5
+            },
+            "Ability§Thrill Seekers"
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Infantry"
+          ],
+          "Faction": [
+            "Emperor’s Children"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Chaos",
+            "Infantry",
+            "Noise Marines",
+            "Slaanesh"
+          ]
+        },
+        "rules": {
+          "Up to 2 Noise Marines can replace their Sonic blasters for Blastmasters": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "blast"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 6
+          },
+          "model2ndCost": {},
+          "model2ndTally": {},
+          "modelKey": {
+            "value": "Model§Noise Marine"
+          },
+          "Models": {
+            "increment": {
+              "value": 5
+            },
+            "max": 6,
+            "min": 6,
+            "value": 6
+          },
+          "Noise Marine": {
+            "max": 5,
+            "min": 5,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 135
+          }
+        },
+        "text": ""
+      },
+      "Unit§Soul Grinder": {
+        "stats": {
+          "Daemonic Allegiance": {
+            "value": "Slaanesh"
+          }
+        }
+      },
+      "Wargear§Chaos Icon": {
+        "text": "Each time the bearer’s unit takes a Leadership test for the Dark Pacts ability, you can re-roll that test."
+      }
+    },
+    "gameModes": {},
+    "theme": {}
+  }
+}
