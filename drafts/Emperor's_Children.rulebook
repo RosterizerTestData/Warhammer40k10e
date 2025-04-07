@@ -18,8 +18,14 @@
   "rulebook": {
     "assetTaxonomy": {
       "Character": {
+        "removed": {
+          "rules": {
+            "noAllyEnhancements": {},
+            "detachmentEnhancements": {}
+          }
+        },
         "rules": {
-          "noAllyEnhancements": {
+          "detachmentEmperorChildrenEnhancements": {
             "actions": [
               {
                 "actionType": "remove",
@@ -47,15 +53,78 @@
                     "Faction"
                   ]
                 ],
+                "value": "Emperor’s Children"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Legion of Excess"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAllyEmperorChildrenEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
                 "value": [
                   "{roster}",
                   "stats",
-                  "Faction",
+                  "Detachment",
                   "value"
                 ]
               }
             ],
-            "order": 9999
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Emperor’s Children"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Legion of Excess"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
           }
         }
       },
@@ -889,6 +958,192 @@
             "value": 4
           }
         }
+      },
+      "Detachment§Carnival of Excess": {
+        "text": "## DAEMONIC ENPOWERMENT\n\n■ While an **Emperor's Children** unit from your army is within 6\" of one or more friendly **Legion of Excess** units, it is Enpowered.\n■ While a **Legion of Excess** unit from your army is within 6\" of one or more friendly **Emperor's Children** units, it is Enpowered.\n\nWhile a unit from your army is Enpowered, weapons equipped by models in that unit have the [SUSTAINED HITS 1] abilty. If such weapon already has that ability, each time an attack is made with that weapon, an unmodified hit roll of 5+ scores a Critical Hit.\n\n**LEGION OF EXCESS**\n\nYou can incluse **Legion of Excess** units in your army, even though they do not have the **Emperor's Children** Faction keyword. The combined points cost of such units you can include in your army is:\n\n■ Incursion: Up to 500 pts\n\n■ Strike Force: Up to 1000 pts\n\n■ Onslaught: Up to 1500 pts\n\nNo **Legion of Excess** models from your army can be your **Warlord**."
+      },
+      "Detachment§Coterie of the Conceited": {
+        "text": "At the start of the battle round, if your **Warlord** is on the battlefield, you must pledge a number to Slaanesh representing how many enemy units will be destroyed this battle round, if the number of enemy units destroyed this battle round is greater than or equal to your pledge, you gain a number of Pact points equal to your pledge. Otherwise, you do not gain any Pact points this battle round and your **Warlord** model suffers D3 mortal wounds.\n\n**Emperor's Children** units from your army gain a bonus depending on how many Pacts points you have gained during the battle, as shown below (these are all cumulative).\n\n|||\n|---|---|\n|Pact points|Bonus|\n|1+|Each time a model in this makes an attack, re-roll a Hit-roll of 1|\n|3+|Each time a model in this makes an attack, re-roll a Wound roll of 1|\n|5+|Melee weapons equipped by models in this unit have the [LETHAL HITS] and [SUSTAINED HITS 1] abilities.|\n|7+|Each time a model in this unit makes an attack, a Critical Hit is scored on an unmodified Hit roll of 5+"
+      },
+      "Detachment§Mercurial Host": {
+        "text": "## QUICKSILVER GRACE\n\nYou can re-roll Advance rolls made for **Emperor's Children** units from your army."
+      },
+      "Detachment§Peerless Bladesmen": {
+        "text": "## EXQUISITE SWORDSMANSHIP\n\n\nEach time an **Emperor's Children** unit from your army is selected to fight, if it made a Charge move this turn, select one of the abilities below. While resolving those attacks, melee weapons equipped by models in that unit have that ability:\n\n■ [LETHAL HITS]\n\n■ [SUSTAINED HITS 1]"
+      },
+      "Detachment§Rapid Evisceration": {
+        "text": "## MECHANISED MURDER\n\nEach time an **Emperor's Children** model from your army makes an attack, if it disembarked from a **Transport** this turn, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+      },
+      "Detachment§Slaanesh's Chosen": {
+        "text": "## INTERNAL RIVALRIES\n\n**Emperor's Children Character** units from your army can ignore any or all modifiers to their Move characteristic and any or all modifiers to Advance and Charge rolls made for them.\n\nAt the start of the battle, your **Warlord's** unit is your army's Favoured Champions. The first time in each player's turn that an **Emperor's Children Character** unit from your army destroys an enemy unit, after resolving all of its attacks, that **Character** unit becomes your army's new Favoured Champions, replacing the old one.\n\nEach time a model in your army's Favoured Champion's unit makes an attack, you can re-roll the Wound roll."
+      },
+      "Enhancement§Dark Blessings": {
+        "keywords": {
+          "Keywords": [
+            "Carnival of Excess"
+          ]
+        },
+        "rules": {
+          "Emperor's Children Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Emperor’s Children"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Emperor's Children** Infantry model only. Once per battle, just after an enemy unit has selected its targets, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ Invulnerable save."
+      },
+      "Enhancement§Empyric Suffusion": {
+        "keywords": {
+          "Keywords": [
+            "Carnival of Excess"
+          ]
+        },
+        "rules": {
+          "Emperor's Children model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Emperor’s Children"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Emperor's Children** model only. Once per battle round, you can target one friendly **Slaanesh** unit within 6\" of the bearer with the Heroic Intervention Stratagem for 0CP."
+      },
+      "Enhancement§Possessed Blade": {
+        "keywords": {
+          "Keywords": [
+            "Carnival of Excess"
+          ]
+        },
+        "rules": {
+          "Emperor's Children model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Emperor’s Children"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children** model only. At the start of the battle, select one melee weapons equipped by the bearer, add 1 to the Attacks characteristic of that weapon. In addition, each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those ttacks, add 1 to the Damage characteristic of that weapon and that weapon has the **[DEVASTING WOUNDS]** and **[HAZARDOUS]** abilities."
+      },
+      "Enhancement§Warp Walker": {
+        "keywords": {
+          "Keywords": [
+            "Carnival of Excess"
+          ]
+        },
+        "rules": {
+          "Emperor's Children or Keeper of Secrets model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Keeper of Secrets"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Emperor’s Children"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**Emperor's Children** or **Keeper of Secrets** model only. Each time the bearer's unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in that unit. Each time a model in the bearer's unit makes a Normal, Advance or Fallback move, it can move through enemy models. When doing so, it can move within Engagement Range of them, and any Desperate Escape test is automatically passed."
       },
       "Melee Weapon§Chaos Land Raider—Armoured tracks": {
         "aspects": {
@@ -3464,14 +3719,244 @@
             ]
           }
         },
+        "rules": {
+          "carnivalDetachAllies": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    [
+                      "Allied faction 1",
+                      "Allied faction 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Legion of Excess"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Carnival of Excess"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "carnivalDetachAllies2": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Legion of Excess"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Carnival of Excess"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
+          "setLegionofExcessPointsAlly1": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxLegionofExcess"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Legion of Excess"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Allied faction 1": {
             "ranks": {
+              "Legiones Daemonica": {
+                "order": 1
+              },
               "Chaos Knights": {
-                "order": 2
+                "order": 1
               },
               "Titanicus Traitoris": {
+                "order": 2
+              },
+              "Legion of Excess": {
                 "order": 3
+              }
+            }
+          },
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "Incursion": {
+                "format": "Incursion",
+                "order": 1,
+                "tracking": {
+                  "maxDaemons": 250,
+                  "maxDamned": 250,
+                  "maxLegionofExcess": 500,
+                  "maxPoints": 1000
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 2,
+                "tracking": {
+                  "maxDaemons": 500,
+                  "maxDamned": 500,
+                  "maxLegionofExcess": 1000,
+                  "maxPoints": 2000
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 3,
+                "tracking": {
+                  "maxDaemons": 750,
+                  "maxDamned": 750,
+                  "maxLegionofExcess": 1500,
+                  "maxPoints": 3000
+                }
+              },
+              "Combat Patrol": {
+                "format": "Combat Patrol",
+                "order": 4,
+                "tracking": {
+                  "maxDaemons": 0,
+                  "maxPoints": 500
+                }
+              }
+            }
+          },
+          "Detachment": {
+            "ranks": {
+              "Carnival of Excess": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Detachment§Carnival of Excess"
+                  }
+                ]
+              },
+              "Mercurial Host": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Detachment§Mercurial Host"
+                  }
+                ]
+              },
+              "Coterie of the Conceited": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Detachment§Coterie of the Conceited"
+                  }
+                ]
+              },
+              "Slaanesh's Chosen": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Detachment§Slaanesh's Chosen"
+                  }
+                ]
+              },
+              "Rapid Evisceration": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Detachment§Rapid Evisceration"
+                  }
+                ]
+              },
+              "Peerless Bladesmen": {
+                "order": 6,
+                "traits": [
+                  {
+                    "trait": "Detachment§Peerless Bladesmen"
+                  }
+                ]
               }
             }
           },
