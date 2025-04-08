@@ -977,6 +977,54 @@
       "Detachment§Slaanesh's Chosen": {
         "text": "## INTERNAL RIVALRIES\n\n**Emperor's Children Character** units from your army can ignore any or all modifiers to their Move characteristic and any or all modifiers to Advance and Charge rolls made for them.\n\nAt the start of the battle, your **Warlord's** unit is your army's Favoured Champions. The first time in each player's turn that an **Emperor's Children Character** unit from your army destroys an enemy unit, after resolving all of its attacks, that **Character** unit becomes your army's new Favoured Champions, replacing the old one.\n\nEach time a model in your army's Favoured Champion's unit makes an attack, you can re-roll the Wound roll."
       },
+      "Enhancement§Accomplished Tactician": {
+        "keywords": {
+          "Keywords": [
+            "Rapid Evisceration"
+          ]
+        },
+        "rules": {
+          "Infantry model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "**Emperor's Children Infantry** model only. Once per turn, in your opponent's Shooting phase, just after an enemy unit has shot, you can select one friendly **Emperor's Children** unit within 9\" of the bearer that was hit by one or more of those attacks, then select one friendly **Transport** that unit is wholly within 6\" of and is able to embark within."
+      },
+      "Enhancement§Blinding Speed": {
+        "keywords": {
+          "Keywords": [
+            "Peerless Bladesmen"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children** model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer's unit have the Fights First ability."
+      },
       "Enhancement§Dark Blessings": {
         "keywords": {
           "Keywords": [
@@ -1009,7 +1057,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Emperor’s Children"
@@ -1025,6 +1073,76 @@
           }
         },
         "text": "**Emperor's Children** Infantry model only. Once per battle, just after an enemy unit has selected its targets, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer has a 3+ Invulnerable save."
+      },
+      "Enhancement§Distortion": {
+        "keywords": {
+          "Keywords": [
+            "Peerless Bladesmen"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "D"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "D"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children** model only. Add 1 to the Attacks and Damage characteristics of melee weapons equipped by the bearer."
+      },
+      "Enhancement§Eager to Prove": {
+        "keywords": {
+          "Keywords": [
+            "Slaanesh's Chosen"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Emperor's Children** model only. You can re-roll Charge rolls made for the bearer's unit. While the bearer's unit is your army's Favoured Champions, add 2\" to the Move characteristic of models in that unit."
       },
       "Enhancement§Empyric Suffusion": {
         "keywords": {
@@ -1044,7 +1162,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Emperor’s Children"
@@ -1060,6 +1178,194 @@
           }
         },
         "text": "**Emperor's Children** model only. Once per battle round, you can target one friendly **Slaanesh** unit within 6\" of the bearer with the Heroic Intervention Stratagem for 0CP."
+      },
+      "Enhancement§Faultless Opportunist": {
+        "keywords": {
+          "Keywords": [
+            "Peerless Bladesmen"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Emperor's Children** model only. You can target the bearer's unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase."
+      },
+      "Enhancement§Heretek Adept": {
+        "keywords": {
+          "Keywords": [
+            "Rapid Evisceration"
+          ]
+        },
+        "rules": {
+          "Infantry model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "**Emperor's Children Infantry** model only. Once per battle round, when a saving throw is failed for a friendly **Emperor's Children Vehicle** model within 6\" of the bearer, you can change the Damage characteristic of that attack to 0."
+      },
+      "Enhancement§Intoxicating Musk": {
+        "keywords": {
+          "Keywords": [
+            "Mercurial Host"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Emperor's Children** model only. Each time a melee attack targets the bearer's unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+      },
+      "Enhancement§Loathsome Dexterity": {
+        "keywords": {
+          "Keywords": [
+            "Mercurial Host"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Emperor's Children** model only. Each time a model in the bearer's unit makes a Normal, Advance or Fall Back move, it can move through enemy models. When doing so, it can move within Engagement Range of such models but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed."
+      },
+      "Enhancement§Pledge of Dark Glory": {
+        "keywords": {
+          "Keywords": [
+            "Coterie of the Conceited"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "Ld",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children** model only. While the bearer is leading a unit, improve the Leadership and Objective Control characteristics of model in that unit by 1."
+      },
+      "Enhancement§Pledge of Eternal Servitude": {
+        "keywords": {
+          "Keywords": [
+            "Coterie of the Conceited"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children** model only. The first time the bearer is destroyed, take a Leadership test for the bearer at the end of the phase. If that test is passed, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with D6 wounds remaining (up to its Wounds characteristics)."
+      },
+      "Enhancement§Pledge of Mortal Pain": {
+        "keywords": {
+          "Keywords": [
+            "Coterie of the Conceited"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Emperor's Children** model only. At the start of your Shooting phase, select one enemy unit within 12\" of and visible to the bearer. That unit must take a Leadership test, subtracting 2 from the result if it is Battle-shocked: if failed, that enemy unit suffers 3 mortal wounds."
+      },
+      "Enhancement§Pledge of Unholy Fortune": {
+        "keywords": {
+          "Keywords": [
+            "Coterie of the Conceited"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Emperor's Children** model only. Once per turn, just after making a Hit roll, a Wound roll or a saving throw for a model in the bearer's unit, if the bearer is not Battle-shocked, it can use this Enhancement. If it does, treat the result as an unmodified roll of 6 instead."
       },
       "Enhancement§Possessed Blade": {
         "keywords": {
@@ -1079,7 +1385,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Emperor’s Children"
@@ -1095,6 +1401,199 @@
           }
         },
         "text": "**Emperor's Children** model only. At the start of the battle, select one melee weapons equipped by the bearer, add 1 to the Attacks characteristic of that weapon. In addition, each time the bearer is selected to fight, it can use this Enhancement. If it does, while resolving those ttacks, add 1 to the Damage characteristic of that weapon and that weapon has the **[DEVASTING WOUNDS]** and **[HAZARDOUS]** abilities."
+      },
+      "Enhancement§Proud and Vainglorious": {
+        "keywords": {
+          "Keywords": [
+            "Slaanesh's Chosen"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Emperor's Children** model only. You can re-roll Battle-shock and Leadership tests taken for the bearer's unit. While the bearer's unit is your army's Favoured Champions, add 1 to the Objective Control characteristic of models in that unit."
+      },
+      "Enhancement§Repulsed by Weakness": {
+        "keywords": {
+          "Keywords": [
+            "Slaanesh's Chosen"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children** model only. Each time an enemy unit (excluding **MONSTERS** and **VEHICLES**) within Engagement Range of the bearer's unit Falls Back, models in that enemy unit must take Desperate\nEscape tests. When doing so, if the bearer's unit is your army's Favoured Champions, subtract 1 from each of those Desperate Escape tests."
+      },
+      "Enhancement§Rise to the Challenge": {
+        "keywords": {
+          "Keywords": [
+            "Peerless Bladesmen"
+          ]
+        },
+        "rules": {
+          "Infantry model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**Emperor's Children Infantry** model only. Once per battle, at the end of the Fight phase, if the bearer is within Engagement Range of three or more enemy models, it can use this Enhancement. If it does, the bearer can fight one additional time. When doing so, you can select one ability using the Exquisite Swordsmanship Detachment rule to apply to those attacks."
+      },
+      "Enhancement§Slayer of Champions": {
+        "keywords": {
+          "Keywords": [
+            "Slaanesh's Chosen"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Precision"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Emperor's Children** model only. The bearer's melee weapons have the [PRECISION] ability, and each time the bearer makes a melee attack that targets a CHARACTER unit, improve the Strength and Armour Penetration characteristics of that attack by 1."
+      },
+      "Enhancement§Spearhead Striker": {
+        "keywords": {
+          "Keywords": [
+            "Rapid Evisceration"
+          ]
+        },
+        "rules": {
+          "Infantry model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Emperor's Children Infantry** model only. Each time the bearer disembarks from a **Transport**, until the end of the turn, you can re-roll Charge rolls made for the bearer's unit and enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer's unit."
+      },
+      "Enhancement§Steeped in Suffering": {
+        "keywords": {
+          "Keywords": [
+            "Mercurial Host"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Emperor's Children** model only. Each time a model in the bearer's unit makes an attack that targets an enemy unit below its Starting Strength, add 1 to the Hit roll. If that target is also Below Half-strength, add 1 to the Wound roll as well."
+      },
+      "Enhancement§Sublime Prescience": {
+        "keywords": {
+          "Keywords": [
+            "Rapid Evisceration"
+          ]
+        },
+        "rules": {
+          "Infantry model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Emperor's Children Infantry** model only. Once per turn, in your Movement phase, the bearer can use this Enhancement. If it does, select one friendly **Emperor's Children Transport** that is in Strategic Reserves. Until the end of the phase, for the purposes of setting up that **Transport** on the battlefield, treat the current battle round number as being one higher\nthan it actually is."
+      },
+      "Enhancement§Tactical Perfection": {
+        "keywords": {
+          "Keywords": [
+            "Mercurial Host"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Emperor's Children** model only. After both players have deployed their armies, select up to two **Emperor's Children** units from your army redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
       },
       "Enhancement§Warp Walker": {
         "keywords": {
@@ -1128,7 +1627,7 @@
                   [
                     "{parent}",
                     "keywords",
-                    "Keywords"
+                    "Faction"
                   ]
                 ],
                 "value": "Emperor’s Children"
