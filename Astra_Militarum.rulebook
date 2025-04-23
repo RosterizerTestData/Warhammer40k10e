@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.12.18",
+  "revision": "10.12.19",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7866,6 +7866,46 @@
             "evaluate": "OR",
             "failState": "error"
           },
+          "1 in 10 can have a vox-caster": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in10",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Vox"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "Vox"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
           "1 in 10 can have grenade launcher": {
             "evals": [
               {
@@ -8019,46 +8059,6 @@
                     "{self}",
                     "tracked",
                     "special weapon"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "OR",
-            "failState": "error"
-          },
-          "2 in 10 can have Vox or Plasma or Melta": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count2in10",
-                  "evals",
-                  "1",
-                  "result",
-                  "integer"
-                ],
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Plasma+Vox+Melta"
-                  ]
-                ]
-              },
-              {
-                "actionable": true,
-                "min": 1,
-                "not": true,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "Plasma+Vox+Melta"
                   ]
                 ]
               }
@@ -16692,7 +16692,6 @@
               "Lasgun + Vox-caster": {
                 "order": 1,
                 "tracking": {
-                  "Plasma+Vox+Melta": 1,
                   "Vox": 1
                 },
                 "traits": [
@@ -16746,7 +16745,6 @@
                 "order": 5,
                 "tracking": {
                   "Melta": 1,
-                  "Plasma+Vox+Melta": 1,
                   "special weapon": 1
                 },
                 "traits": [
@@ -16759,8 +16757,7 @@
                 "order": 6,
                 "tracking": {
                   "Plasma": 1,
-                  "Plasma+Vox+Melta": 1,
-                  "special weapon": 0
+                  "special weapon": 1
                 },
                 "traits": [
                   {
