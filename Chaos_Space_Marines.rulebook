@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.12.10",
+  "revision": "10.12.11",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1890,6 +1890,14 @@
         },
         "text": "At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test."
       },
+      "Ability§Terrifying Crescendo": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next Shooting phase, each time a Battle-shock or Leadership test is taken for that enemy unit, subtract 1 from that test."
+      },
       "Ability§The Tyrant of Badab": {
         "keywords": {
           "Keywords": [
@@ -1905,6 +1913,9 @@
           ]
         },
         "text": "In your Command phase, select one Warmaster ability (see below). Until the start of your next Command phase, this model has that ability.\n\nParagon of Hatred (Aura): While a friendly Heretic Astartes (excluding DAMNED units) unit is within 6″ of this model, each time a model in that unit makes an attack, you can re-roll the Hit roll. Mark of \n\nChaos Ascendant (Aura): While a friendly Heretic Astartes Infantry or Heretic Astartes Mounted unit (excluding DAMNED units) is within 6″ of this model, models in that unit have a 4+ invulnerable save. \n\nLord of the Traitor Legions (Aura): While a friendly Heretic Astartes unit (excluding DAMNED units) is within 6″ of this model, you can re-roll Leadership and Battle-shock tests taken for that unit."
+      },
+      "Ability§Thrill Seekers": {
+        "text": "If your Army Faction is Emperor’s Children, this unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back, but when doing so:\n\n- It cannot target a unit it was within Engagement Range of at the start of the turn.\n\n- It cannot target a unit that was the target of another unit’s charge or attack this phase."
       },
       "Ability§Trophy Taker": {
         "keywords": {
@@ -11745,58 +11756,6 @@
           }
         }
       },
-      "Melee Weapon§Noise Marines—Accursed weapon": {
-        "aspects": {
-          "Label": "Accursed weapon"
-        },
-        "stats": {
-          "A": {
-            "value": 4
-          },
-          "AP": {
-            "value": -2
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
-          "S": {
-            "value": 5
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
-      "Melee Weapon§Noise Marines—Astartes chainsword": {
-        "aspects": {
-          "Label": "Astartes chainsword"
-        },
-        "stats": {
-          "A": {
-            "value": 4
-          },
-          "AP": {
-            "value": -1
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
-          "S": {
-            "value": 4
-          },
-          "WS": {
-            "value": 3
-          }
-        }
-      },
       "Melee Weapon§Noise Marines—Close combat weapon": {
         "aspects": {
           "Label": "Close combat weapon"
@@ -11823,26 +11782,26 @@
           }
         }
       },
-      "Melee Weapon§Noise Marines—Power fist": {
+      "Melee Weapon§Noise Marines—Power sword": {
         "aspects": {
-          "Label": "Power fist"
+          "Label": "Power sword"
         },
         "stats": {
           "A": {
-            "value": 3
+            "value": 4
           },
           "AP": {
             "value": -2
           },
           "D": {
-            "value": 2
+            "value": 1
           },
           "Range": {
             "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 8
+            "value": 5
           },
           "WS": {
             "value": 3
@@ -14682,6 +14641,63 @@
           }
         }
       },
+      "Model§Disharmonist": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Noise Marines—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Sonic Blaster": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Noise Marines—Sonic blaster"
+                  }
+                ]
+              },
+              "Screamer Pistol and Power sword": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Noise Marines—Screamer pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Noise Marines—Power sword"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Sonic Blaster",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
       "Model§Fabius Bile": {
         "assets": {
           "traits": [
@@ -15809,312 +15825,56 @@
           }
         }
       },
-      "Model§Noise Champion": {
+      "Model§Noise Marine": {
         "assets": {
           "traits": [
             "Melee Weapon§Noise Marines—Close combat weapon"
           ]
         },
-        "rules": {
-          "Maximum 1 plasma pistol": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "plasma"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          }
-        },
         "stats": {
-          "Boltgun Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Boltgun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Boltgun"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 1,
-                "tracking": {
-                  "plasma": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Plasma pistol"
-                  }
-                ]
-              },
-              "Accursed weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Accursed weapon"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Astartes chainsword"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Power fist"
-                  }
-                ]
-              },
-              "Sonic blaster": {
-                "order": 5,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Sonic blaster"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Boltgun",
-            "visibility": "normal"
-          },
-          "Chaos Icon": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "tracking": {
-                  "icon": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Wargear§Chaos Icon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
-          "Doom Siren": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Doom siren"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
           "Ld": {
             "value": 6
           },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Pistol Options": {
+          "Loadout Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Bolt pistol": {
+              "Sonic Blaster": {
                 "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Bolt pistol"
-                  }
-                ]
-              },
-              "Plasma pistol": {
-                "order": 1,
-                "tracking": {
-                  "plasma": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Plasma pistol"
-                  }
-                ]
-              },
-              "Accursed weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Accursed weapon"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 3,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Astartes chainsword"
-                  }
-                ]
-              },
-              "Power fist": {
-                "order": 4,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Power fist"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "Bolt pistol",
-            "visibility": "normal"
-          },
-          "Sv": {
-            "value": 3
-          },
-          "T": {
-            "value": 4
-          },
-          "W": {
-            "value": 2
-          }
-        }
-      },
-      "Model§Noise Marine": {
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Noise Marines—Bolt pistol"
-          ]
-        },
-        "stats": {
-          "Chaos Icon": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "tracking": {
-                  "icon": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Wargear§Chaos Icon"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
-          "Ld": {
-            "value": 6
-          },
-          "M": {
-            "value": 6
-          },
-          "OC": {
-            "value": 1
-          },
-          "Ranged Options": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Boltgun": {
-                "order": 0,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Noise Marines—Boltgun"
-                  },
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Close combat weapon"
-                  }
-                ]
-              },
-              "Astartes chainsword": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Astartes chainsword"
-                  }
-                ]
-              },
-              "Sonic blaster": {
-                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Noise Marines—Sonic blaster"
-                  },
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Close combat weapon"
                   }
                 ]
               },
               "Blastmaster": {
-                "order": 3,
+                "order": 1,
                 "tracking": {
                   "blast": 1
                 },
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Noise Marines—Blastmaster"
-                  },
-                  {
-                    "trait": "Melee Weapon§Noise Marines—Close combat weapon"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Boltgun",
+            "value": "Sonic Blaster",
             "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
           },
           "Sv": {
             "value": 3
           },
           "T": {
-            "value": 4
+            "value": 5
           },
           "W": {
             "value": 2
@@ -24239,28 +23999,23 @@
         }
       },
       "Ranged Weapon§Noise Marines—Blastmaster": {
-        "aspects": {
-          "Label": "Blastmaster"
-        },
         "assets": {
           "traits": [
-            "Ranged Weapon§Noise Marines—Blastmaster – single frequency",
-            "Ranged Weapon§Noise Marines—Blastmaster – varied frequency"
+            "Ranged Weapon§Noise Marines—Blastmaster – Single frequency",
+            "Ranged Weapon§Noise Marines—Blastmaster – Varied frequency"
           ]
         },
         "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
+          "Tags": []
         }
       },
-      "Ranged Weapon§Noise Marines—Blastmaster – single frequency": {
+      "Ranged Weapon§Noise Marines—Blastmaster – Single frequency": {
         "aspects": {
           "Label": "Single frequency"
         },
         "assets": {
           "traits": [
-            "Ability§Heavy"
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -24271,160 +24026,31 @@
             "value": -2
           },
           "BS": {
-            "value": 4
+            "value": 3
           },
           "D": {
             "value": 3
           },
           "Range": {
-            "value": 48
+            "value": 18
           },
           "S": {
-            "value": 9
+            "value": 10
           }
         }
       },
-      "Ranged Weapon§Noise Marines—Blastmaster – varied frequency": {
+      "Ranged Weapon§Noise Marines—Blastmaster – Varied frequency": {
         "aspects": {
           "Label": "Varied frequency"
         },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover"
+          ]
+        },
         "stats": {
           "A": {
             "value": 6
-          },
-          "AP": {
-            "value": -1
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 36
-          },
-          "S": {
-            "value": 6
-          }
-        }
-      },
-      "Ranged Weapon§Noise Marines—Bolt pistol": {
-        "aspects": {
-          "Label": "Bolt pistol"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Pistol"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 12
-          },
-          "S": {
-            "value": 4
-          }
-        }
-      },
-      "Ranged Weapon§Noise Marines—Boltgun": {
-        "aspects": {
-          "Label": "Boltgun"
-        },
-        "stats": {
-          "A": {
-            "value": 2
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 24
-          },
-          "S": {
-            "value": 4
-          }
-        }
-      },
-      "Ranged Weapon§Noise Marines—Doom siren": {
-        "aspects": {
-          "Label": "Doom siren"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Torrent"
-          ]
-        },
-        "stats": {
-          "A": {
-            "format": "D6",
-            "value": 0
-          },
-          "AP": {
-            "value": -1
-          },
-          "BS": {
-            "format": "{t}",
-            "statType": "term",
-            "value": "N/A"
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 12
-          },
-          "S": {
-            "value": 6
-          }
-        }
-      },
-      "Ranged Weapon§Noise Marines—Plasma pistol": {
-        "aspects": {
-          "Label": "Plasma pistol"
-        },
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Noise Marines—Plasma pistol – standard",
-            "Ranged Weapon§Noise Marines—Plasma pistol – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        }
-      },
-      "Ranged Weapon§Noise Marines—Plasma pistol – standard": {
-        "aspects": {
-          "Label": "Standard"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Pistol"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
           },
           "AP": {
             "value": -2
@@ -24436,29 +24062,29 @@
             "value": 1
           },
           "Range": {
-            "value": 12
+            "value": 18
           },
           "S": {
-            "value": 7
+            "value": 6
           }
         }
       },
-      "Ranged Weapon§Noise Marines—Plasma pistol – supercharge": {
+      "Ranged Weapon§Noise Marines—Screamer pistol": {
         "aspects": {
-          "Label": "Supercharge"
+          "Label": "Screamer pistol"
         },
         "assets": {
           "traits": [
-            "Ability§Hazardous",
-            "Ability§Pistol"
+            "Ability§Pistol",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
           "A": {
-            "value": 1
+            "value": 3
           },
           "AP": {
-            "value": -3
+            "value": -1
           },
           "BS": {
             "value": 3
@@ -24470,7 +24096,7 @@
             "value": 12
           },
           "S": {
-            "value": 8
+            "value": 5
           }
         }
       },
@@ -24480,7 +24106,7 @@
         },
         "assets": {
           "traits": [
-            "Ability§Assault"
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -24488,16 +24114,16 @@
             "value": 3
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "value": 3
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
-            "value": 24
+            "value": 18
           },
           "S": {
             "value": 5
@@ -33845,16 +33471,19 @@
         },
         "assets": {
           "traits": [
-            "Ability§Dark Pacts",
-            "Ability§Riotous Cacophony",
-            "Model§Noise Champion",
+            "Ability§Terrifying Crescendo",
+            "Model§Disharmonist",
             {
               "item": "Model§Noise Marine",
-              "quantity": 4
-            }
+              "quantity": 5
+            },
+            "Ability§Thrill Seekers"
           ]
         },
         "keywords": {
+          "Category": [
+            "Infantry"
+          ],
           "Faction": [
             "Heretic Astartes"
           ],
@@ -33862,63 +33491,18 @@
             "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
-            "Grenades",
             "Chaos",
-            "Slaanesh",
-            "Noise Marines"
-          ],
-          "Category": [
-            "Infantry"
+            "Infantry",
+            "Noise Marines",
+            "Slaanesh"
           ]
         },
         "rules": {
-          "copyPointsLost&Damned": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Lost & Damned Points",
-                    "value"
-                  ]
-                ],
-                "value": [
-                  "{self}",
-                  "stats",
-                  "Points",
-                  "value"
-                ]
-              }
-            ],
+          "Up to 2 Noise Marines can replace their Sonic blasters for Blastmasters": {
             "evals": [
               {
                 "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{roster}",
-                    "stats",
-                    "Faction",
-                    "value"
-                  ]
-                ],
-                "value": "Heretic Astartes"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 80
-          },
-          "Maximum 1 Blastmaster": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
+                "max": 2,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -33926,25 +33510,6 @@
                     "{self}",
                     "tracked",
                     "blast"
-                  ]
-                ]
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "error"
-          },
-          "Maximum 1 Chaos Icon": {
-            "evals": [
-              {
-                "actionable": true,
-                "max": 1,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "tracked",
-                    "icon"
                   ]
                 ]
               }
@@ -33961,14 +33526,10 @@
             "visibility": "hidden"
           },
           "model1stTally": {
-            "value": 5
+            "value": 6
           },
-          "model2ndCost": {
-            "value": 170
-          },
-          "model2ndTally": {
-            "value": 10
-          },
+          "model2ndCost": {},
+          "model2ndTally": {},
           "modelKey": {
             "value": "Model§Noise Marine"
           },
@@ -33976,23 +33537,23 @@
             "increment": {
               "value": 5
             },
-            "max": 10,
-            "min": 5,
-            "value": 5,
-            "visibility": "normal"
+            "max": 6,
+            "min": 6,
+            "value": 6
           },
           "Noise Marine": {
-            "max": 9,
-            "min": 4,
+            "max": 5,
+            "min": 5,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
           },
           "Points": {
-            "value": 85
+            "value": 135
           }
-        }
+        },
+        "text": ""
       },
       "Unit§Obliterators": {
         "allowed": {
