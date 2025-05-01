@@ -1,6 +1,6 @@
 {
   "name": "Aeldari",
-  "revision": "10.12.8",
+  "revision": "10.12.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -25911,6 +25911,67 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "allow3LeadersConclaveYvraine": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "note": "This is a workaround for the fact this unit has a Leader rule that actually isn't a Leader rule, so you can end up with both a real leader and this under a unit.",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Warlock Conclave"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Yvraine"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "The Visarch"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
@@ -27142,6 +27203,67 @@
                     "{self}",
                     "tally",
                     "WarlockLeaderTag"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allow3LeadersConclaveYvraine": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "note": "This is a workaround for the fact this unit has a Leader rule that actually isn't a Leader rule, so you can end up with both a real leader and this under a unit.",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Warlock Conclave"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Yvraine"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "The Visarch"
                   ]
                 ]
               }
