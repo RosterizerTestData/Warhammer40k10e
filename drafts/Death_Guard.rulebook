@@ -17,6 +17,117 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
+      "Character": {
+        "removed": {
+          "rules": {
+            "detachmentEnhancements": {},
+            "noAllyEnhancements": {}
+          }
+        },
+        "rules": {
+          "detachmentDeathGuardEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Death Guard"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Plague Legions"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAllyDeathGuardEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Death Guard"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Plague Legions"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        }
+      },
       "Unit": {
         "rules": {
           "swapKeywordsCSMLegends": {
@@ -222,7 +333,7 @@
             "Other"
           ]
         },
-        "text": "Each time a model in this unit makes a ranged attack, if it targets the closest eligible enemy unit, re-roll a Wound roll of 1."
+        "text": "If this unit has a Starting Strength of 5 or more, or if a CHARACTER is leading this unit, then each time a model in this unit makes a ranged attack that targets an Afflicted unit, improve the Strength and Armour Penetration characteristics of that attack by 1."
       },
       "Ability§Boon of Death": {
         "keywords": {
@@ -247,7 +358,7 @@
             "Other"
           ]
         },
-        "text": "Each time a model in this unit makes an attack that destroys an enemy model (excluding Monster and Vehicle models), you can return one destroyed Poxwalker model to this unit. While Typhus is leading this unit, enemy models destroyed as a result of Typhus’ The Eater Plague ability count as enemy models destroyed by an attack made by a model in this unit for the purposes of this ability."
+        "text": "Each time a POXWALKER model in this unit makes an attack that destroys an enemy model (excluding MONSTER and VEHICLE models), after this unit has resolved its attacks, you can return one destroyed POXWALKER model to this unit.\n\nWhile TYPHUS is leading this unit, enemy models destroyed as a result of TYPHUS&apos; Eater Plague ability count as enemy models destroyed by attacks made by a POXWALKER model in this unit for the purposes of this ability."
       },
       "Ability§Daemon Lord of Nurgle (aura)": {
         "text": ""
@@ -257,6 +368,9 @@
           "Label": "Daemon Lord of Nurgle (aura)"
         },
         "text": "While a friendly PLAGUE LEGION unit is within 6\" of this model, add 1 to the Toughness characteristic of models in that unit."
+      },
+      "Ability§Death Approaches": {
+        "text": "Each time this unit is set up on the battlefield using the Deep Strike ability, it can be set up anywhere on the battlefield that is more than 6&quot; horizontally away from all Afflicted enemy units, and more than 9\" horizontally away from all other enemy units."
       },
       "Ability§Death Guard Defender": {
         "keywords": {
@@ -309,6 +423,9 @@
           ]
         },
         "text": "While an enemy unit (excluding MONSTERS and VEHICLES) is within 6\" of this model, each time that unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those Desperate Escape tests."
+      },
+      "Ability§Explosive Blight": {
+        "text": "In your Shooting phase, each time this model makes an attack that destroys an enemy unit, before removing the last model in that unit from play, roll a D6, adding 1 to the result if that unit is Afflicted: on a 5+, each enemy unit within 6&quot; of that model is Afflicted until the start of your next turn."
       },
       "Ability§Extraction of Fresh Disease": {
         "keywords": {
@@ -435,6 +552,22 @@
         },
         "text": "In your opponent's Shooting phase, when a friendly **Death Guard** unit within 6\" of this model is selected as the target of an attack, this model can use this ability. If it does, after the attacking unit has finished making its attacks, that **Death Guard** unit can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target)."
       },
+      "Ability§Infused with the Blessings of Nurgle": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "In your Shooting phase, each time this unit is selected to shoot, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the start of your next turn, that enemy unit is Afflicted."
+      },
+      "Ability§Lethal Ichor": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time a melee attack is allocated to a model in this unit, after the attacking unit has finished making its attacks, roll one D6 (to a maximum of six D6 per attacking unit); for each 4+, the attacking unit suffers 1 mortal wound."
+      },
       "Ability§Lord of the Death Guard": {
         "assets": {
           "traits": [
@@ -533,22 +666,6 @@
         },
         "text": "At the start of the Fight phase, you can roll one D6: on a 1, this Psyker’s unit suffers D3 mortal wounds; on a 2+, until the end of the phase, each time an attack is allocated to a model in this Psyker’s unit, subtract 1 from the Damage characteristic of that attack."
       },
-      "Ability§Regenerating Monstrosities": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "At the start of each player’s Command phase, one model in this unit regains up to D3 lost wounds."
-      },
-      "Ability§Remorseless": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "While this unit is within range of an objective marker you control, each time you take a Battle-shock test for this unit, add 1 to that test."
-      },
       "Ability§Seven-fold Chant": {
         "keywords": {
           "Keywords": [
@@ -574,7 +691,7 @@
             "Other"
           ]
         },
-        "text": "While a Character model is leading this unit, each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll."
+        "text": "While a CHARACTER model is leading this unit, that CHARACTER model has the Feel No Pain 4+ ability."
       },
       "Ability§Spore-laced Shock Waves": {
         "keywords": {
@@ -582,7 +699,7 @@
             "Other"
           ]
         },
-        "text": "In your Shooting phase, after this model has shot, if one or more of those attacks made with its Plagueburst mortar scored a hit against an enemy Infantry unit, that Infantry unit must take a Battle-shock test."
+        "text": "In your Shooting phase, each time you select a target for this model&apos;s Plagueburst mortar, roll one D6 for the target unit and every other enemy unit within 3\" of the target unit, adding 1 to the roll if the unit being rolled for is Afflicted. On a 6+, the unit being rolled for is struck by spores; after resolving all of this model's attacks against the target unit, each unit struck by spores suffers D3 mortal wounds."
       },
       "Ability§Tainted Narthecium": {
         "keywords": {
@@ -598,7 +715,7 @@
             "Other"
           ]
         },
-        "text": "Each time a model in this unit makes a ranged attack that targets a Vehicle unit, add 1 to the Wound roll."
+        "text": "In your Shooting phase, each time a model in this unit makes an attack that targets a MONSTER or VEHICLE unit, add 1 to the Hit roll and add 1 to the Wound roll."
       },
       "Ability§The Destroyer Hive": {
         "keywords": {
@@ -2506,6 +2623,22 @@
           }
         }
       },
+      "Detachment§Champions of Contagion": {
+        "keywords": {
+          "Keywords": [
+            "Champions of Contagion"
+          ]
+        },
+        "text": "## Manifold Maladies\n\nAt the start of the battle round, you can select one of the Plagues listed in Nurgle's Gift. Until the end of the battle, that is your chosen Plague instead of any previously chosen Plague."
+      },
+      "Detachment§Death Lord’s Chosen": {
+        "keywords": {
+          "Keywords": [
+            "Death Lord’s Chosen"
+          ]
+        },
+        "text": "## DEADLY VECTORS\n\nIn your opponent’s Command phase, roll 2D6 for each Afflicted enemy unit, subtracting 1 from the result if that unit is Below Half-strength. If the result is 6 or less, that enemy unit suffers D3 mortal wounds."
+      },
       "Detachment§Flyblown Host": {
         "rules": {
           "assignStratagems": {
@@ -2602,7 +2735,61 @@
         },
         "text": "## VERMINOUS HAZE ##\n\n**Death Guard Infantry** units from your army that are not embarked within a Transport have the Scouts 5\" and Stealth abilities."
       },
-      "Detachment§Plague Company": {
+      "Detachment§Mortarion’s Hammer": {
+        "keywords": {
+          "Keywords": [
+            "Mortarion’s Hammer"
+          ]
+        },
+        "text": "## Miasmic Bombardment\n\nAt the start of the battle round, select a number of enemy units more than 12\" away from every model from your army that is on the battlefield. Until the end of the battle round, those enemy units are Afflicted. The maximum number of units you can select in this way depends on the battle size, as shown below:\n\n- Incursion: 1\n- Strike Force: 2\n- Onslaught: 3"
+      },
+      "Detachment§Shamblerot Vectorium": {
+        "keywords": {
+          "Keywords": [
+            "Shamblerot Vectorium"
+          ]
+        },
+        "rules": {
+          "assignBattleline": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Poxwalkers",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          }
+        },
+        "text": "In your Command phase in each of the following battle rounds, depending on your chosen battle size, add a new **Poxwalkers** unit with a Starting Strength of 10 to your army, in Strategic Reserves:\n\n- Incursion: Battle Rounds 2, 3\n- Strike Force: Battle Rounds 2, 3, 4\n- Onslaught: Battle Rounds 2, 3, 4, 5\n\n---\n## KEYWORDS\n**Poxwalkers** units from your army gain the **Battleline** keyword."
+      },
+      "Detachment§Tallyband Summoners": {
+        "keywords": {
+          "Keywords": [
+            "Tallyband Summoners"
+          ]
+        },
+        "text": "While a **Plague Legions** unit from your army is within 7\" of one or more **Death Guard** units from your army, that **Plague Legions** unit has the Nurgle&apos;s Gift ability.\n\nWhile a **Death Guard** unit from your army is within 7\" of one or more **Plague Legions** units from your army, add 3\" to that **Death Guard** unit&apos;s Contagion Range.\n\nYou can include **Plague Legions** units in your army, even though they do not have the **Death Guard** Faction keyword. The combined points cost of such units you can include in your army is:\n- **Incursion**: Up to 500pts\n- **Strike Force**: Up to 1000pts\n- **Onslaught**: Up to 1500pts\n\nNo **Plague Legions** models from your army can be your **Warlord**."
+      },
+      "Detachment§Virulent Vectorium": {
+        "keywords": {
+          "Keywords": [
+            "Virulent Vectorium"
+          ]
+        },
         "rules": {
           "assignStratagems": {
             "actions": [
@@ -2696,64 +2883,138 @@
             "failState": "pass"
           }
         },
-        "text": "SPREAD THE SICKNESS\nDuring the Declare Battle Formations step, select one of the Sicknesses below. Until the end of the battle, all units from your army with the Nurgle’s Gift ability gain the selected Sickness.\n- Skullsquirm Blight (Aura): While an enemy unit is within Contagion Range of this unit, worsen the Ballistic Skill and Weapon Skill characteristics of weapons equipped by models in that enemy unit by 1.\n- Rattlejoint Ague (Aura): While an enemy unit is within Contagion Range of this unit, worsen the Save characteristic of models in that enemy unit by 1.\n- Scabrous Soulrot (Aura): While an enemy unit is within Contagion Range of this unit, worsen the Leadership and Objective Control characteristics of models in that enemy unit by 1 (to a minimum of 1).’\n\nIf you control an objective marker at the end of your Command phase and a Death Guard unit from your army is within range of that objective marker, that objective marker is said to be Infected and remains under your control even if you have no models within range of it, until your opponent controls it at the start or end of any turn. In addition, while an objective marker is Infected and under your control, it has the Nurgle’s Gift ability as if it were a unit from your army (so enemy units within Contagion Range of it will have their characteristics modified)."
+        "text": "## Worldblight\n\nIf you control an objective marker at the end of your Command phase and a **Death Guard** unit from your army (excluding Battle-shocked units) is within range of that objective marker, that objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase.\n\n\nIn addition, until you lose control of that objective marker, it has the Nurgle's Gift ability as if it were a **Death Guard** model from your army."
       },
-      "Enhancement§Deadly Pathogen": {
+      "Enhancement§Arch Contaminator": {
         "keywords": {
           "Keywords": [
-            "Plague Company"
+            "Virulent Vectorium"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Death Guard** model only. While the bearer\"s unit is within range of an objective marker you control, each time a model in the bearer\"s unit makes an attack, you can re-roll the Wound roll."
+      },
+      "Enhancement§Beckoning Blight": {
+        "keywords": {
+          "Keywords": [
+            "Tallyband Summoners"
           ]
         },
         "rules": {
-          "Ability": {
-            "actions": [
+          "Death Guard model only.": {
+            "evals": [
               {
-                "actionType": "modify",
-                "iterations": 1,
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
                 "paths": [
                   [
                     "{parent}",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    [
-                      "A",
-                      "S"
-                    ],
-                    "value"
-                  ],
-                  [
-                    "{parent}",
-                    "assets",
-                    "classIdentity",
-                    "Weapon",
-                    "assets",
-                    "classification",
-                    "Melee Weapon",
-                    "stats",
-                    [
-                      "A",
-                      "S"
-                    ],
-                    "value"
+                    "keywords",
+                    "Faction"
                   ]
                 ],
-                "value": 1
+                "value": "Death Guard"
               }
             ],
-            "evals": [],
             "evaluate": "AND",
-            "failState": "pass",
-            "order": 999
+            "failState": "error"
           }
         },
         "stats": {
           "Points": {
-            "value": 15
+            "value": 20
           }
         },
-        "text": "Death Guard model only. Add 1 to the Strength and Attacks characteristics of the bearer’s melee weapons. While the bearer is within range of an Infected objective marker you control, add 2 to the Strength and Attacks characteristics of the bearer’s melee weapons instead."
+        "text": "**Death Guard** model only. Each time a **Plague Legions** unit from your army is set up on the battlefield using the Deep Strike ability, if it is set up wholly within 12\" of the bearer, it can be set up anywhere that is more than 6\" horizontally away from all enemy models, instead of more than 9\"."
+      },
+      "Enhancement§Bilemaw Blight": {
+        "keywords": {
+          "Keywords": [
+            "Mortarion’s Hammer"
+          ]
+        },
+        "rules": {
+          "Malignant Plaguecaster only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Malignant Plaguecaster"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Malignant Plaguecaster** only. At the start of your Shooting phase, until the end of the phase, add 12\" to the Range characteristics of the bearer&apos;s Plague Wind weapon."
+      },
+      "Enhancement§Cornucophagus": {
+        "keywords": {
+          "Keywords": [
+            "Champions of Contagion"
+          ]
+        },
+        "rules": {
+          "Lord of Poxes only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Lord of Poxes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "**Lord of Poxes** only. In the Declare Battle Formations step, select 1 Plague. Until the end of the battle, while an enemy unit is within Contagion Range of the bearer, that enemy unit has the effect of that Plague in addition to any other."
+      },
+      "Enhancement§Daemon Weapon of Nurgle": {
+        "keywords": {
+          "Keywords": [
+            "Virulent Vectorium"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Death Guard** model only. Each time the bearer makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Enhancement§Droning Chorus": {
         "keywords": {
@@ -2847,6 +3108,312 @@
         },
         "text": "**Death Guard Infantry** model only. Ranged weapons equipped by models in the bearer’s unit have the **[ASSAULT]** ability."
       },
+      "Enhancement§Entropic Knell": {
+        "keywords": {
+          "Keywords": [
+            "Tallyband Summoners"
+          ]
+        },
+        "rules": {
+          "Great Unclean one only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Great Unclean One"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Great Unclean One** only. In the Battle-shock step of your opponent's Command phase, each enemy unit within 6&quot; of the bearer that is below its Starting Strength must take a Battle-shock test, subtracting 1 from that test."
+      },
+      "Enhancement§Eye of Affliction": {
+        "keywords": {
+          "Keywords": [
+            "Mortarion’s Hammer"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Death Guard** model only. Ranged weapons equipped by models in the bearer's unit have the [[Ignores Cover]] ability while targeting an Afflicted enemy unit."
+      },
+      "Enhancement§Face of Death": {
+        "keywords": {
+          "Keywords": [
+            "Death Lord’s Chosen"
+          ]
+        },
+        "rules": {
+          "Terminator model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Terminator** model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer&apos;s unit must take a Battle-shock test."
+      },
+      "Enhancement§Fell Harvester": {
+        "keywords": {
+          "Keywords": [
+            "Tallyband Summoners"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          },
+          "Death Guard model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Death Guard"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Death Guard** model only. Add 2 to the Attacks characteristic of the bearer&apos;s melee weapons."
+      },
+      "Enhancement§Final Ingredient": {
+        "keywords": {
+          "Keywords": [
+            "Champions of Contagion"
+          ]
+        },
+        "rules": {
+          "Biologus Putrifier only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Biologus Putrifier"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Biologus Putrifier** only. Once per battle, after the bearer&apos;s unit has fought, if one or more **Character** models were destroyed as a result of those attacks, select one Plague. Until the end of the battle, while an enemy unit is Afflicted, that unit has the effect of the selected Plague in addition to any other."
+      },
+      "Enhancement§Furnace of Plagues": {
+        "keywords": {
+          "Keywords": [
+            "Virulent Vectorium"
+          ]
+        },
+        "rules": {
+          "Ability": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Devastating Wounds"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25,
+            "visibility": "always"
+          }
+        },
+        "text": "**Death Guard** model only. Add 1 to the Strength and Attacks characteristics of the bearer's melee weapons, and the bearer's melee weapons have the [Devastating Wounds] ability."
+      },
+      "Enhancement§Helm of the Fly King": {
+        "keywords": {
+          "Keywords": [
+            "Death Lord’s Chosen"
+          ]
+        },
+        "rules": {
+          "Terminator model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Terminator** model only. While the bearer is leading a unit, models in that unit cannot be targeted by ranged attacks unless the attacking model is within 18\"."
+      },
       "Enhancement§Insectile Murmuration": {
         "keywords": {
           "Keywords": [
@@ -2882,18 +3449,53 @@
         },
         "text": "**Death Guard Infantry** model only. Each time a model in the bearer’s unit makes an attack that targets a unit that is within Contagion Range of one or more **Death Guard** units from your army, re‑roll a Wound roll of 1."
       },
-      "Enhancement§Living Plague": {
+      "Enhancement§Lord of the Walking Pox": {
         "keywords": {
           "Keywords": [
-            "Plague Company"
+            "Shamblerot Vectorium"
           ]
         },
         "stats": {
           "Points": {
-            "value": 20
+            "value": 15
           }
         },
-        "text": "Death Guard model only. Add 3″ to the range of the bearer’s Aura abilities (including Nurgle’s Gift)."
+        "text": "**Death Guard** model only. If the bearer is leading a **Poxwalker** unit, and is in Strategic Reserves, for the purposes of setting up that unit on the battlefield, treat the current battle round as the third battle round."
+      },
+      "Enhancement§Needle of Nurgle": {
+        "keywords": {
+          "Keywords": [
+            "Champions of Contagion"
+          ]
+        },
+        "rules": {
+          "Plague Surgeon only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Plague Surgeon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Plague Surgeon** only. Each time the bearer uses its Tainted Narthecium ability, you can return up to D3 destroyed models to the bearer's unit (instead of 1)."
       },
       "Enhancement§Plagueveil": {
         "keywords": {
@@ -2965,10 +3567,99 @@
         },
         "text": "**Death Guard Infantry** model only. At the end of each phase, the bearer regains all of its lost wounds."
       },
-      "Enhancement§Shamblerot": {
+      "Enhancement§Revolting Regeneration": {
         "keywords": {
           "Keywords": [
-            "Plague Company"
+            "Virulent Vectorium"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Feel No Pain",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**Death Guard** model only. The bearer has the Feel No Pain 5+ ability."
+      },
+      "Enhancement§Shriekworm Familiar": {
+        "keywords": {
+          "Keywords": [
+            "Mortarion’s Hammer"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Death Guard** model only. Once per battle round, you can target the bearer's unit with the Fire Overwatch Stratagem for 0CP."
+      },
+      "Enhancement§Sorrowsyphon": {
+        "keywords": {
+          "Keywords": [
+            "Shamblerot Vectorium"
+          ]
+        },
+        "rules": {
+          "Malignant Plaguecaster only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Malignant Plaguecaster"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**Malignant Plaguecaster** only. While the bearer is leading a **Poxwalkers** unit, add 1 to the Damage characteristic of the bearer's Plague Wind weapon. Each time the bearer makes one or more attacks with a Plague Wind weapon, after the bearer&apos;s unit has resolved its attacks, D3 Bodyguard models from the bearer&apos;s unit are destroyed."
+      },
+      "Enhancement§Talisman of Burgeoning": {
+        "keywords": {
+          "Keywords": [
+            "Shamblerot Vectorium"
           ]
         },
         "stats": {
@@ -2976,20 +3667,217 @@
             "value": 25
           }
         },
-        "text": "Death Guard model only. Each time the bearer’s unit is selected as a target of an enemy unit’s charge, until the end of the phase, subtract 2 from Charge rolls made for that enemy unit."
+        "text": "**Death Guard** model only. While the bearer is leading a unit, add 1 to the toughness characteristic of **Poxwalkers** models in that unit."
       },
-      "Enhancement§The Droning (Aura)": {
+      "Enhancement§Tendrilous Emissions": {
         "keywords": {
           "Keywords": [
-            "Plague Company"
+            "Mortarion’s Hammer"
           ]
+        },
+        "rules": {
+          "Lord of Virulence only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Lord of Virulence"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
-            "value": 10
+            "value": 20
           }
         },
-        "text": "Death Guard model only. While an enemy unit is within Contagion Range of the bearer, each time that unit fails a Battle-shock test, roll one D6: on a 2-5, that unit suffers 1 mortal wound; on a 6, that unit suffers D3 mortal wounds."
+        "text": "**Lord of Virulence** only. While the bearer is within 3\" of one or more friendly Death Guard Vehicle units, the bearer has the Lone Operative ability and each time one of those Vehicle units makes a ranged attack, re-roll a wound roll of 1"
+      },
+      "Enhancement§Tome of Bounteous Blessings": {
+        "keywords": {
+          "Keywords": [
+            "Tallyband Summoners"
+          ]
+        },
+        "rules": {
+          "Malignant Plaguecaster only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Malignant Plaguecaster"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Malignant Plaguecaster** only. Each time a **Plague Legions** unit within 12\" of the bearer takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a **Battleline** unit and that test is passed, up to D3 destroyed models can be returned to that unit instead)."
+      },
+      "Enhancement§Vile Vigour": {
+        "keywords": {
+          "Keywords": [
+            "Death Lord’s Chosen"
+          ]
+        },
+        "rules": {
+          "Terminator model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Terminator** model only. While the bearer is leading a unit, add 1\" to the Movement characteristic of models in that unit and you can re-roll Advance rolls made for that unit."
+      },
+      "Enhancement§Visions of Virulence": {
+        "keywords": {
+          "Keywords": [
+            "Champions of Contagion"
+          ]
+        },
+        "rules": {
+          "Malignant Plaguecaster only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Malignant Plaguecaster"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**Malignant Plaguecaster** only. While an enemy unit is enfeebled by the bearer's Pestilent Fallout ability, that unit is also Afflicted."
+      },
+      "Enhancement§Warprot Talisman": {
+        "keywords": {
+          "Keywords": [
+            "Death Lord’s Chosen"
+          ]
+        },
+        "rules": {
+          "Terminator model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**Terminator** model only. Once per battle, at the end of your opponent&apos;s turn, if the bearer's unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
+      },
+      "Enhancement§Witherbone Pipes": {
+        "keywords": {
+          "Keywords": [
+            "Shamblerot Vectorium"
+          ]
+        },
+        "rules": {
+          "Noxious Blightbringer model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Noxious Blightbringer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**Noxious Blightbringer** only. While the bearer is leading a **Poxwalkers** unit, add 1 to the Objective Control characteristic of models in that unit, and each time that unit takes a Battle-shock or Leadership test, add 1 to that test."
       },
       "Melee Weapon§Biologus Putrifier—Plague knives": {
         "aspects": {
@@ -3022,6 +3910,32 @@
           }
         }
       },
+      "Melee Weapon§Blightlord Terminator—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Blightlord Terminators—Bubotic blade": {
         "aspects": {
           "Label": "Bubotic blade"
@@ -3033,13 +3947,13 @@
         },
         "stats": {
           "A": {
-            "value": 4
+            "value": 3
           },
           "AP": {
             "value": -2
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -4063,10 +4977,10 @@
         },
         "stats": {
           "A": {
-            "value": 6
+            "value": 8
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "D": {
             "value": 1
@@ -4076,10 +4990,10 @@
             "value": "Melee"
           },
           "S": {
-            "value": 5
+            "value": 4
           },
           "WS": {
-            "value": 2
+            "value": 3
           }
         }
       },
@@ -4637,6 +5551,37 @@
           }
         }
       },
+      "Melee Weapon§Plague Marines—Power fist": {
+        "aspects": {
+          "Label": "Power fist"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Plague Surgeon—Balesword": {
         "aspects": {
           "Label": "Balesword"
@@ -4869,7 +5814,7 @@
             "visibility": "active"
           },
           "M": {
-            "value": 4
+            "value": 5
           },
           "OC": {
             "value": 1
@@ -4878,7 +5823,7 @@
             "value": 2
           },
           "T": {
-            "value": 6
+            "value": 7
           },
           "W": {
             "value": 3
@@ -4886,6 +5831,192 @@
         }
       },
       "Model§Blightlord Terminator": {
+        "rules": {
+          "removePlagueSpewer": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "ranks"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "setPlagueSpewer": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout Options",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Loadout Options",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "showPlagueSpewer": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "visibility"
+                  ]
+                ],
+                "value": "active"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Plague spewer and Close combat weapon",
+                    "dynamic"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -4923,7 +6054,7 @@
               "Blight launcher": {
                 "order": 2,
                 "tracking": {
-                  "heavy": 1
+                  "blight": 1
                 },
                 "traits": [
                   {
@@ -4937,7 +6068,7 @@
               "Reaper autocannon": {
                 "order": 3,
                 "tracking": {
-                  "heavy": 1
+                  "reaper": 1
                 },
                 "traits": [
                   {
@@ -4972,6 +6103,24 @@
                     "trait": "Melee Weapon§Blightlord Terminators—Flail of corruption"
                   }
                 ]
+              },
+              "Plague spewer and Close combat weapon": {
+                "order": 6,
+                "tracking": {
+                  "3man": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Blightlord Terminators—Plague spewer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Blightlord Terminator—Close combat weapon"
+                  }
+                ]
+              },
+              "-": {
+                "order": 7,
+                "tracking": {}
               }
             },
             "statType": "rank",
@@ -4979,16 +6128,44 @@
             "visibility": "active"
           },
           "M": {
-            "value": 4
+            "value": 5
           },
           "OC": {
             "value": 1
+          },
+          "Plague spewer and Close combat weapon": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0,
+                "tracking": {}
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "3man": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Blightlord Terminators—Plague spewer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Blightlord Terminator—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
           },
           "Sv": {
             "value": 2
           },
           "T": {
-            "value": 6
+            "value": 7
           },
           "W": {
             "value": 3
@@ -5015,7 +6192,7 @@
             "value": 4
           },
           "T": {
-            "value": 5
+            "value": 7
           },
           "W": {
             "value": 4
@@ -5157,11 +6334,32 @@
             "value": "-",
             "visibility": "active"
           },
+          "Icon of Despair": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Wargear§Icon of Despair (Aura)"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "active"
+          },
           "Ld": {
             "value": 6
           },
           "M": {
-            "value": 4
+            "value": 5
           },
           "OC": {
             "value": 1
@@ -5170,10 +6368,10 @@
             "value": 2
           },
           "T": {
-            "value": 6
+            "value": 7
           },
           "W": {
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -5189,7 +6387,7 @@
             "value": 6
           },
           "M": {
-            "value": 4
+            "value": 5
           },
           "OC": {
             "value": 1
@@ -5198,10 +6396,10 @@
             "value": 2
           },
           "T": {
-            "value": 6
+            "value": 7
           },
           "W": {
-            "value": 3
+            "value": 4
           }
         }
       },
@@ -5242,7 +6440,7 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Plague boltgun": {
+              "Boltgun": {
                 "order": 0,
                 "traits": [
                   {
@@ -5250,7 +6448,7 @@
                   }
                 ]
               },
-              "Plague bolt pistol": {
+              "Bolt pistol": {
                 "order": 1,
                 "traits": [
                   {
@@ -5276,7 +6474,7 @@
               }
             },
             "statType": "rank",
-            "value": "Plague boltgun",
+            "value": "Boltgun",
             "visibility": "active"
           },
           "Ld": {
@@ -5326,7 +6524,7 @@
             "value": 3
           },
           "T": {
-            "value": 5
+            "value": 6
           },
           "W": {
             "value": 2
@@ -5353,7 +6551,7 @@
             "value": 3
           },
           "T": {
-            "value": 5
+            "value": 6
           },
           "W": {
             "value": 2
@@ -5445,6 +6643,20 @@
                 "traits": [
                   {
                     "trait": "Melee Weapon§Plague Marines—Heavy plague weapon"
+                  }
+                ]
+              },
+              "Icon of Despair & Boltgun": {
+                "order": 8,
+                "tracking": {
+                  "icon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Plague Marines—Plague boltgun"
+                  },
+                  {
+                    "trait": "Wargear§Icon of Despair (Aura)"
                   }
                 ]
               }
@@ -5568,7 +6780,7 @@
             "value": 8
           },
           "M": {
-            "value": 4
+            "value": 5
           },
           "OC": {
             "value": 1
@@ -7978,12 +9190,14 @@
         },
         "assets": {
           "traits": [
-            "Ability§Lethal Hits"
+            "Ability§Lethal Hits",
+            "Ability§Blast"
           ]
         },
         "stats": {
           "A": {
-            "value": 6
+            "format": "D6",
+            "value": 2
           },
           "AP": {
             "value": -2
@@ -7992,13 +9206,13 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 3
           },
           "Range": {
             "value": 36
           },
           "S": {
-            "value": 8
+            "value": 10
           }
         }
       },
@@ -8585,7 +9799,8 @@
                   "value": "2"
                 }
               }
-            }
+            },
+            "Ability§Lethal Hits"
           ]
         },
         "stats": {
@@ -8698,7 +9913,8 @@
         },
         "stats": {
           "A": {
-            "value": 2
+            "format": "D3",
+            "value": 0
           },
           "AP": {
             "value": -1
@@ -8802,7 +10018,7 @@
       },
       "Ranged Weapon§Plague Marines—Plague bolt pistol": {
         "aspects": {
-          "Label": "Plague bolt pistol"
+          "Label": "Bolt pistol"
         },
         "assets": {
           "traits": [
@@ -8833,7 +10049,7 @@
       },
       "Ranged Weapon§Plague Marines—Plague boltgun": {
         "aspects": {
-          "Label": "Plague boltgun"
+          "Label": "Boltgun"
         },
         "assets": {
           "traits": [
@@ -9129,7 +10345,7 @@
             "value": 1
           },
           "Range": {
-            "value": 24
+            "value": 36
           },
           "S": {
             "value": 10
@@ -9139,6 +10355,11 @@
       "Ranged Weapon§Plagueburst Crawler—Heavy slugger": {
         "aspects": {
           "Label": "Heavy slugger"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
         },
         "stats": {
           "A": {
@@ -9270,7 +10491,7 @@
             "value": 1
           },
           "Range": {
-            "value": 24
+            "value": 36
           },
           "S": {
             "value": 5
@@ -9363,16 +10584,14 @@
       },
       "Roster§Roster": {
         "constraints": {
-          "none": [
-            "notNurgle"
-          ],
+          "none": [],
           "any": [
             "chaosShared",
             "DGShared"
           ]
         },
         "rules": {
-          "hereUntilTheyUpdateTheAllyRules": {
+          "plagueDetachAllies": {
             "actions": [
               {
                 "actionType": "remove",
@@ -9388,15 +10607,191 @@
                     "ranks"
                   ]
                 ],
-                "value": "Legiones Daemonica"
+                "value": "Plague Legions"
               }
             ],
-            "evals": [],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Tallyband Summoners"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "setPlagueDetach": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Plague Legions"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Tallyband Summoners"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
+          "setPlaguePointsAlly": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxPlague"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Plague Legions"
+              }
+            ],
             "evaluate": "AND",
             "failState": "pass"
           }
         },
         "stats": {
+          "Allied faction 1": {
+            "ranks": {
+              "Legiones Daemonica": {
+                "order": 1
+              },
+              "Chaos Knights": {
+                "order": 1
+              },
+              "Titanicus Traitoris": {
+                "order": 2
+              },
+              "Plague Legions": {
+                "order": 3
+              }
+            }
+          },
+          "Allied faction 2": {
+            "ranks": {
+              "Legiones Daemonica": {
+                "order": 1
+              },
+              "Chaos Knights": {
+                "order": 1
+              },
+              "Titanicus Traitoris": {
+                "order": 2
+              }
+            }
+          },
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "Incursion": {
+                "format": "Incursion",
+                "order": 1,
+                "tracking": {
+                  "maxDaemons": 250,
+                  "maxDamned": 250,
+                  "maxPlague": 500,
+                  "maxPoints": 1000
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 2,
+                "tracking": {
+                  "maxDaemons": 500,
+                  "maxDamned": 500,
+                  "maxPlague": 1000,
+                  "maxPoints": 2000
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 3,
+                "tracking": {
+                  "maxDaemons": 750,
+                  "maxDamned": 750,
+                  "maxPlague": 1500,
+                  "maxPoints": 3000
+                }
+              },
+              "Combat Patrol": {
+                "format": "Combat Patrol",
+                "order": 4,
+                "tracking": {
+                  "maxDaemons": 0,
+                  "maxPoints": 500
+                }
+              }
+            }
+          },
           "Detachment": {
             "ranks": {
               "Plague Company": {
@@ -9412,6 +10807,14 @@
                 "traits": [
                   {
                     "trait": "Detachment§Flyblown Host"
+                  }
+                ]
+              },
+              "Tallyband Summoners": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Detachment§Tallyband Summoners"
                   }
                 ]
               }
@@ -9704,7 +11107,7 @@
             "Model§Blightlord Champion",
             {
               "item": "Model§Blightlord Terminator",
-              "quantity": 4
+              "quantity": 2
             }
           ]
         },
@@ -9713,7 +11116,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Infantry",
@@ -9727,7 +11130,7 @@
           ]
         },
         "rules": {
-          "1 in 5 models can have a blight launcher or reaper autocannon": {
+          "1 in 5 models can have a blight launcher": {
             "evals": [
               {
                 "actionable": true,
@@ -9746,7 +11149,7 @@
                   [
                     "{self}",
                     "tracked",
-                    "heavy"
+                    "blight"
                   ]
                 ]
               }
@@ -9808,6 +11211,33 @@
             "evaluate": "AND",
             "failState": "error"
           },
+          "1 in 5 models can have a Reaper autocannon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "reaper"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "3 in 5 models can have a combi-weapon": {
             "evals": [
               {
@@ -9848,24 +11278,49 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "If this unit contains exactly 3 models, you can have a plague spewer with close combat weapon.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "3man"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
           "Blightlord Terminator": {
             "max": 9,
-            "min": 4,
+            "min": 2,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
           },
           "model1stTally": {
-            "value": 5
+            "value": 3
           },
           "model2ndCost": {
-            "value": 310
+            "value": 185
           },
           "model2ndTally": {
+            "value": 5
+          },
+          "model3rdCost": {
+            "value": 370
+          },
+          "model3rdTally": {
             "value": 10
           },
           "modelKey": {
@@ -9873,15 +11328,15 @@
           },
           "Models": {
             "increment": {
-              "value": 5
+              "value": 1
             },
             "max": 10,
-            "min": 5,
-            "value": 5,
+            "min": 3,
+            "value": 3,
             "visibility": "normal"
           },
           "Points": {
-            "value": 155
+            "value": 115
           }
         }
       },
@@ -9890,6 +11345,9 @@
           "items": [
             "Model§Chaos Spawn"
           ]
+        },
+        "aspects": {
+          "Label": "Chaos Spawn"
         },
         "assets": {
           "traits": [
@@ -9902,10 +11360,26 @@
               }
             },
             "Ability§Nurgle’s Gift (aura)",
-            "Ability§Regenerating Monstrosities",
+            "Ability§Lethal Ichor",
             {
               "item": "Model§Chaos Spawn",
               "quantity": 2
+            },
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "6″"
+                }
+              }
             }
           ]
         },
@@ -11258,7 +12732,8 @@
             {
               "item": "Model§Deathshroud Terminator",
               "quantity": 2
-            }
+            },
+            "Ability§Death Approaches"
           ]
         },
         "keywords": {
@@ -11266,7 +12741,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Infantry",
@@ -11324,7 +12799,7 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "1"
+                  "value": "D3"
                 }
               }
             },
@@ -11346,7 +12821,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Vehicle",
@@ -11377,16 +12852,8 @@
                   }
                 ]
               },
-              "Heavy blight launcher": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Foetid Bloat-drone—Heavy blight launcher"
-                  }
-                ]
-              },
               "2 Plaguespitters": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Foetid Bloat-drone—Plaguespitter"
@@ -11398,8 +12865,79 @@
               }
             },
             "statType": "rank",
-            "value": "Heavy blight launcher",
+            "value": "Fleshmower",
             "visibility": "active"
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 90
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 9
+          },
+          "W": {
+            "value": 10
+          }
+        }
+      },
+      "Unit§Foetid Bloat-drone with Heavy blight launcher": {
+        "aspects": {
+          "Type": "game piece"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Nurgle’s Gift (aura)",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Melee Weapon§Foetid Bloat-drone—Plague probe",
+            "Ranged Weapon§Foetid Bloat-drone—Heavy blight launcher",
+            "Ability§Explosive Blight"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Death Guard"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Vehicle",
+            "Fly",
+            "Chaos",
+            "Nurgle",
+            "Daemon",
+            "Foetid Bloat-drone"
+          ],
+          "Category": [
+            "Vehicle"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
           },
           "M": {
             "value": 10
@@ -11510,7 +13048,7 @@
               "item": "Ability§Deadly Demise",
               "stats": {
                 "x": {
-                  "value": "1"
+                  "value": "D3"
                 }
               }
             },
@@ -11535,7 +13073,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Vehicle",
@@ -11559,12 +13097,8 @@
           "model2ndTally": {
             "value": 2
           },
-          "model3rdCost": {
-            "value": 255
-          },
-          "model3rdTally": {
-            "value": 3
-          },
+          "model3rdCost": {},
+          "model3rdTally": {},
           "modelKey": {
             "value": "Model§Myphitic Blight-hauler"
           },
@@ -11572,13 +13106,12 @@
             "increment": {
               "value": 1
             },
-            "max": 3,
-            "min": 1,
+            "max": 2,
             "value": 1,
             "visibility": "normal"
           },
           "Myphitic Blight-hauler": {
-            "max": 3,
+            "max": 2,
             "min": 1,
             "statType": "numeric",
             "tracked": true,
@@ -11688,7 +13221,7 @@
         "assets": {
           "traits": [
             "Ability§Nurgle’s Gift (aura)",
-            "Ability§Remorseless",
+            "Ability§Infused with the Blessings of Nurgle",
             "Model§Plague Champion",
             {
               "item": "Model§Plague Marine",
@@ -11701,7 +13234,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Infantry",
@@ -11850,6 +13383,25 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "Max 1 Icon of Despair": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "icon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
@@ -11969,7 +13521,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Vehicle",
@@ -12022,7 +13574,7 @@
             "value": 10
           },
           "OC": {
-            "value": 4
+            "value": 3
           },
           "Points": {
             "value": 180
@@ -12088,7 +13640,8 @@
             {
               "item": "Model§Poxwalker",
               "quantity": 10
-            }
+            },
+            "Ability§Infiltrators"
           ]
         },
         "keywords": {
@@ -12096,7 +13649,7 @@
             "Death Guard"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Infantry",
@@ -12152,6 +13705,9 @@
       },
       "Wargear§Diseased Icon": {
         "text": "Melee weapons in the bearer’s unit have the [LETHAL HITS] ability."
+      },
+      "Wargear§Icon of Despair (Aura)": {
+        "text": "While an enemy unit is within 6\" of the bearer, worsen the Leadership characteristic of models in that unit by 1."
       }
     },
     "gameModes": {},
