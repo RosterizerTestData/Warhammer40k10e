@@ -1,6 +1,6 @@
 {
   "name": "Aeldari",
-  "revision": "10.12.9",
+  "revision": "10.12.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "A6CSVN",
+      "slug": "GQET3U",
       "name": "Harlequins",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Harlequins.rulebook"
@@ -5088,7 +5088,7 @@
             "value": 10
           }
         },
-        "text": "ASURYANI model only. While the bearer is leading a STORM GUARDIANS unit, each time you roll to determine the number of attacks made with a flamer equipped by a model in that unit, you can re-roll the result, and each time you make a Damage roll for a model equipped with a Guardian fusion gun in that unit, you can re-roll the result."
+        "text": "ASURYANI model only. While the bearer is leading a STORM GUARDIANS unit, each time you roll to determine the number of attacks made with a flamer equipped by a model in that unit, you can re-roll the result, and each time you make a Damage roll for a model equipped with with a\nfusion gun in that unit, you can re-roll the result."
       },
       "Enhancement§Cegorach's Coil": {
         "keywords": {
@@ -11200,138 +11200,6 @@
             "Melee Weapon§Corsair Voidreavers—Close combat weapon"
           ]
         },
-        "rules": {
-          "equipPistol": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ranged Weapon§Corsair Voidreavers—Shuriken pistol"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Pistol and power sword"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          },
-          "equipRifle": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "value": "Ranged Weapon§Corsair Voidreavers—Shuriken rifle"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Shuriken rifle"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Unit default"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          },
-          "equipSword": {
-            "actions": [
-              {
-                "actionType": "add",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{self}",
-                    "traits"
-                  ]
-                ],
-                "value": "Melee Weapon§Corsair Voidreavers—Power sword"
-              }
-            ],
-            "evals": [
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Pistol and power sword"
-              },
-              {
-                "actionable": true,
-                "not": false,
-                "operator": "AND",
-                "paths": [
-                  [
-                    "{self}",
-                    "stats",
-                    "Loadout",
-                    "value"
-                  ]
-                ],
-                "value": "Unit default"
-              }
-            ],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 50
-          }
-        },
         "stats": {
           "Ld": {
             "value": 7
@@ -11341,11 +11209,29 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Unit default": {
-                "order": 0
+              "Shuriken pistol and power sword": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Voidreavers—Shuriken pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Corsair Voidreavers—Power sword"
+                  }
+                ]
+              },
+              "Shuriken rifle": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Voidreavers—Shuriken rifle"
+                  }
+                ]
               },
               "Blaster": {
-                "order": 1,
+                "order": 2,
                 "tracking": {
                   "corsairWeapon": 1
                 },
@@ -11356,7 +11242,7 @@
                 ]
               },
               "Shredder": {
-                "order": 2,
+                "order": 3,
                 "tracking": {
                   "corsairWeapon": 1
                 },
@@ -11367,7 +11253,7 @@
                 ]
               },
               "Shuriken cannon": {
-                "order": 3,
+                "order": 4,
                 "tracking": {
                   "cannon": 1
                 },
@@ -11378,7 +11264,7 @@
                 ]
               },
               "Wraithcannon": {
-                "order": 4,
+                "order": 5,
                 "tracking": {
                   "cannon": 1
                 },
@@ -11390,7 +11276,7 @@
               }
             },
             "statType": "rank",
-            "value": "Unit default",
+            "value": "Shuriken pistol and power sword",
             "visibility": "active"
           },
           "M": {
@@ -23665,7 +23551,7 @@
             "Fight"
           ]
         },
-        "text": "**WHEN:** Your Shooting phase or the Fight phase, just after an ASURYANI MOUNTED unit from your army destroys an enemy unit.\n\n**TARGET:** That ASURYANI MOUNTED unit.\n\n**EFFECT:** Your unit can make a Normal move of up to 7\"."
+        "text": "**WHEN:** End of your Shooting phase or the end of the Fight phase.\n\n**TARGET:** One Asuryani Mounted unit from your army that destroyed\none or more enemy units this phase.\n\n**EFFECT:** Your unit can make a Normal move of up to 7\"."
       },
       "Stratagem§Pall of Dread": {
         "keywords": {
@@ -23818,7 +23704,7 @@
             "Fight"
           ]
         },
-        "text": "**WHEN:** End of the Fight phase.\n\n**TARGET:** One ASURYANI unit from your army and one friendly TRANSPORT it is able to embark within.\n\n**EFFECT:** If your ASURYANI unit is not within Engagement Range of one or more enemy units and is wholly within 6\" of that TRANSPORT, it can embark within it."
+        "text": "**WHEN:** End of the Fight phase.\n\n**TARGET:** One ASURYANI unit from your army and one friendly TRANSPORT it is able to embark within.\n\n**EFFECT:** If your Asuryani unit is not within Engagement Range of one or more enemy units and is wholly within 6\" of that Transport, it can embark within it."
       },
       "Stratagem§Soul Bridge": {
         "keywords": {
@@ -24617,23 +24503,6 @@
             "tracked": true,
             "value": 0,
             "visibility": "hidden"
-          },
-          "Loadout": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "Pistol and power sword": {
-                "order": 0
-              },
-              "Shuriken rifle": {
-                "order": 1
-              }
-            },
-            "statOrder": 0,
-            "statType": "rank",
-            "value": "Pistol and power sword",
-            "visibility": "normal"
           },
           "model1stTally": {
             "value": 5
