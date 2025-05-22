@@ -1,6 +1,6 @@
 {
   "name": "Death Guard",
-  "revision": "10.12.9",
+  "revision": "10.12.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -13064,6 +13064,56 @@
           ]
         },
         "rules": {
+          "helbfistsbuff": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{self}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "hbfist"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
           "Maximum 1 Plague combi-bolter or Heavy flamer per helbrute fist": {
             "evals": [
               {
@@ -13235,7 +13285,7 @@
               "Helbrute fist": {
                 "order": 5,
                 "tracking": {
-                  "fist": 1
+                  "hbfist": 1
                 },
                 "traits": [
                   {
@@ -13261,19 +13311,8 @@
                   }
                 ]
               },
-              "Helbrute fist": {
-                "order": 1,
-                "tracking": {
-                  "fist": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute fist"
-                  }
-                ]
-              },
               "Helbrute hammer": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Guard Helbrute—Helbrute hammer"
@@ -13281,10 +13320,21 @@
                 ]
               },
               "Power scourge": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Melee Weapon§Death Guard Helbrute—Power scourge"
+                  }
+                ]
+              },
+              "Helbrute fist": {
+                "order": 3,
+                "tracking": {
+                  "hbfist": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Death Guard Helbrute—Helbrute fist"
                   }
                 ]
               }
