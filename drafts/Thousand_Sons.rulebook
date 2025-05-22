@@ -17,7 +17,117 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
-      "Character": {},
+      "Character": {
+        "removed": {
+          "rules": {
+            "noAllyEnhancements": {},
+            "detachmentEnhancements": {}
+          }
+        },
+        "rules": {
+          "detachmentTSEnhancements": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Thousand Sons"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Scintillating Legions"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noAllyTSEnhancements": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Thousand Sons"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Scintillating Legions"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        }
+      },
       "Unit": {
         "rules": {
           "swapKeywordsCSMLegends": {
@@ -192,6 +302,14 @@
         },
         "text": "Your army cannot contain both Ahriman and Ahriman on Disc of Tzeentch."
       },
+      "Ability§Ambushing Hunters": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "At the end of your oppponent's turn, if the unit is more than 6\" horizontally away from all enemy units, you can remove this unit from the battlefield and place it inside Strategic Reserves."
+      },
       "Ability§Arcane Shield (psychic)": {
         "keywords": {
           "Keywords": [
@@ -302,24 +420,8 @@
         },
         "text": "At the end of your Command phase, if this unit’s Aspiring Sorcerer or Scarab Occult Sorcerer model is on the battlefield and not Battle-shocked, it generates 1 Cabal point."
       },
-      "Ability§Dark Blessing (psychic)": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability."
-      },
       "Ability§Destroyer of Futures": {
         "text": "Each time you target this unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ when resolving that Stratagem. For each of those attacks that targets an enemy unit within 9\" of one or more Thousands Sons Psyker units from your army, a hit is scored on an unmodified Hit roll of 4+ instead."
-      },
-      "Ability§Destructor": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Each time this model makes a ranged attack that targets an Infantry unit, improve the Armour Penetration characteristic of that attack by 1."
       },
       "Ability§Devoted to Destruction": {
         "keywords": {
@@ -344,6 +446,14 @@
           ]
         },
         "text": "Each time this model makes a ranged attack that targets a Monster or Vehicle unit that was hit by one or more Psychic attacks made by a Thousand Sons Psyker model from your army this phase (including the Doombolt Ritual), you can re-roll the Hit roll and you can re-roll the Damage roll."
+      },
+      "Ability§Ensorcelled Destruction": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this model makes a ranged attack that targets a unit (excluding Monsters and Vehicles) that was hit by one or more Psychic Attacks made by a Thousand Sons Psyker model from your army this phase (including the Doombolt Ritual), improve the Strength and Armour Penetration of that attack by 1."
       },
       "Ability§Flame-wreathed": {
         "keywords": {
@@ -394,15 +504,7 @@
             "Other"
           ]
         },
-        "text": "While a friendly Thousand Sons Psyker unit is within 6″ of this model, each time that unit uses a Ritual that specifies a range, you can double that range while resolving that Ritual."
-      },
-      "Ability§Implacable Guardians": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "While this unit contains one or more Psyker models, each time an attack is made against this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll."
+        "text": "While a friendly Thousand Sons Psyker unit is within 6″ of this model, each time that model Channels the Warp, add 1 to the Psychic test result."
       },
       "Ability§Impossible Form (Psychic)": {
         "keywords": {
@@ -430,12 +532,7 @@
         "text": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability."
       },
       "Ability§Malign Trickery": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9″ of this unit, if this unit is not within Engagement Range of any enemy units, it can make a Normal move of up to D6″ as if it were your Movement phase."
+        "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6\"."
       },
       "Ability§Marked By Fate (psychic)": {
         "keywords": {
@@ -453,6 +550,9 @@
         },
         "text": "At the end of your Movement phase, roll one D6 for each enemy unit within 6″ of this model: on a 2-3, that unit suffers 1 mortal wound; on a 4-5, that unit suffers D3 mortal wounds; on a 6, that unit suffers D6 mortal wounds. Each enemy unit within range of this ability must then take a Battle-shock test."
       },
+      "Ability§Pact of Sorcery": {
+        "text": "When mustering your army, unless specifically stated otherwise, you cannot select SCINTILLATING LEGIONS as your Army Faction."
+      },
       "Ability§Pawns of Fate": {
         "keywords": {
           "Keywords": [
@@ -460,6 +560,17 @@
           ]
         },
         "text": "Each time this unit destroys an enemy unit, roll one D6: on a 2+, you gain 1CP. When this unit is destroyed, roll one D6: on a 2+, you gain 1CP."
+      },
+      "Ability§Prophesied Doom": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it, then roll one D6 for each model in this unit that is within Engagement Range of that enemy unit: for each 4+, that enemy unit suffers 1 mortal wound."
+      },
+      "Ability§Prophetic Sentinels": {
+        "text": "Once per battle round, you can target this unit with the Fire Overwatch or Heroic Intervention Stratagem for 0CP."
       },
       "Ability§Rebind Rubricae (psychic)": {
         "keywords": {
@@ -475,15 +586,23 @@
             "Other"
           ]
         },
-        "text": "At the start of each player’s Command phase, one model in this unit regains up to D3 lost wounds."
+        "text": "At the start of each player’s Command phase, one model in this unit regains up to 3 lost wounds."
       },
-      "Ability§Relic Hunters": {
+      "Ability§Rites of Coalescence": {
         "keywords": {
           "Keywords": [
             "Other"
           ]
         },
-        "text": "At the end of your Command phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it: for each 4+, you gain 1 Cabal point."
+        "text": "While this unit contains one or more Psyker models, each time an attack targets this unit, subtract 1 from the Wound roll."
+      },
+      "Ability§Sacrificial Blessing": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "While this model is leading a unit, in your Shooting phase and the Fight phase, each time that unit is selected to shoot or fight, this model can use this ability. If it does, select one Bodyguard model in that unit; that Bodyguard model is destroyed and, until the end of the phase, add D3 to the Attacks and Strength characteristics of Psychic weapons equipped by this model."
       },
       "Ability§Scryer of Fates (Psychic)": {
         "keywords": {
@@ -519,6 +638,9 @@
           ]
         },
         "text": "You can target this model with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase. In addition, each time this model declares a charge that targets an enemy unit within Engagement Range of one or more Thousand Sons Psyker units from your army, you can re-roll the Charge roll."
+      },
+      "Ability§Sorcerous Support": {
+        "text": "In your Shooting phase, after is model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly model that disembarked from this Transport this turn makes a Psychic Attack that targets that enemy unit, add 1 to the Hit roll and add 1 to the Wound roll."
       },
       "Ability§Spirit Snare": {
         "keywords": {
@@ -1024,6 +1146,82 @@
           }
         }
       },
+      "Character§Kairos Fateweaver": {
+        "assets": {
+          "traits": [
+            "Ability§Pact of Sorcery"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Summoned"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Scintillating Legions"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Source": [
+              "10th Edition Index"
+            ],
+            "Faction": [
+              "Legiones Daemonica"
+            ]
+          },
+          "assets": {
+            "traits": [
+              "Ability§The Shadow of Chaos"
+            ]
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 260
+          }
+        }
+      },
+      "Character§Lord of Change": {
+        "assets": {
+          "traits": [
+            "Ability§Pact of Sorcery"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Summoned"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Scintillating Legions"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Source": [
+              "10th Edition Index"
+            ],
+            "Faction": [
+              "Legiones Daemonica"
+            ]
+          },
+          "assets": {
+            "traits": [
+              "Ability§The Shadow of Chaos"
+            ]
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 250
+          }
+        }
+      },
       "Character§Magnus the Red": {
         "aspects": {
           "Unique": true
@@ -1461,13 +1659,13 @@
               "item": "Ability§Leader",
               "text": "This model can be attached to the following units:\n\n* Tzaangor Enlightened\n\n* Tzaangors"
             },
-            "Ability§Dark Blessing (psychic)",
+            "Ability§Sacrificial Blessing",
             "Ability§Bestial Prophet",
             {
               "item": "Ability§Invulnerable",
               "stats": {
                 "x": {
-                  "value": "6+"
+                  "value": "5+"
                 }
               }
             },
@@ -1481,16 +1679,17 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
-            "Mounted",
+            "Chaos",
             "Character",
             "Fly",
+            "Mounted",
+            "Mutant",
             "Psyker",
-            "Chaos",
-            "Tzeentch",
-            "Tzaangor Shaman"
+            "Tzaangor Shaman",
+            "Tzeentch"
           ],
           "Category": [
             "Character"
@@ -1504,10 +1703,10 @@
             "value": 10
           },
           "OC": {
-            "value": 1
+            "value": 2
           },
           "Points": {
-            "value": 60
+            "value": 55
           },
           "Sv": {
             "value": 5
@@ -3262,14 +3461,14 @@
             "value": -2
           },
           "D": {
-            "value": 4
+            "value": 3
           },
           "Range": {
             "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 9
+            "value": 10
           },
           "WS": {
             "value": 3
@@ -3389,6 +3588,58 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Sekhetar Robots—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Sekhetar Robots—Power claw": {
+        "aspects": {
+          "Label": "Power claw"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 10
+          },
+          "WS": {
+            "value": 4
           }
         }
       },
@@ -4144,9 +4395,14 @@
         "aspects": {
           "Label": "Chainsword"
         },
+        "assets": {
+          "traits": [
+            "Ability§Precision"
+          ]
+        },
         "stats": {
           "A": {
-            "value": 4
+            "value": 6
           },
           "AP": {
             "value": 0
@@ -4207,10 +4463,10 @@
             "value": 3
           },
           "AP": {
-            "value": -2
+            "value": -1
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
             "statType": "term",
@@ -4291,7 +4547,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": 0
           },
           "D": {
             "value": 1
@@ -4312,7 +4568,7 @@
         "assets": {
           "included": [],
           "traits": [
-            "Ranged Weapon§Rubric Marines—Warpsmite",
+            "Ranged Weapon§Rubric Marines—Malefic Curse",
             "Melee Weapon§Rubric Marines—Force weapon"
           ]
         },
@@ -4326,7 +4582,7 @@
             "value": 6
           },
           "M": {
-            "value": 5
+            "value": 6
           },
           "OC": {
             "value": 2
@@ -4344,16 +4600,8 @@
                   }
                 ]
               },
-              "Plasma pistol": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Rubric Marines—Plasma pistol"
-                  }
-                ]
-              },
               "Warpflame pistol": {
-                "order": 2,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Rubric Marines—Warpflame pistol"
@@ -4372,7 +4620,7 @@
             "value": 4
           },
           "W": {
-            "value": 2
+            "value": 3
           }
         }
       },
@@ -4419,22 +4667,56 @@
                     "trait": "Melee Weapon§Tzaangor Enlightened—Chainsword"
                   }
                 ]
-              },
-              "Fatecaster greatbow and close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tzaangor Enlightened—Fatecaster greatbow"
-                  },
-                  {
-                    "trait": "Melee Weapon§Tzaangor Enlightened—Close combat weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
             "value": "Divining spear",
             "visibility": "active"
+          }
+        }
+      },
+      "Model§Aviarch (Greatbows)": {
+        "aspects": {
+          "Label": "Aviarch"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Tzaangor Enlightened—Fatecaster greatbow",
+            "Melee Weapon§Tzaangor Enlightened—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Blue Horror": {
+        "stats": {
+          "OC": {
+            "value": 0
+          }
+        }
+      },
+      "Model§Brimstone Horror": {
+        "stats": {
+          "OC": {
+            "value": 0
           }
         }
       },
@@ -4493,17 +4775,6 @@
                     "trait": "Melee Weapon§Tzaangor Enlightened—Chainsword"
                   }
                 ]
-              },
-              "Fatecaster greatbow and close combat weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Tzaangor Enlightened—Fatecaster greatbow"
-                  },
-                  {
-                    "trait": "Melee Weapon§Tzaangor Enlightened—Close combat weapon"
-                  }
-                ]
               }
             },
             "statType": "rank",
@@ -4524,6 +4795,58 @@
           },
           "W": {
             "value": 2
+          }
+        }
+      },
+      "Model§Enlightened (Greatbows)": {
+        "aspects": {
+          "Label": "Enlightened"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Tzaangor Enlightened—Fatecaster greatbow",
+            "Melee Weapon§Tzaangor Enlightened—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Flamer": {
+        "stats": {
+          "Ld": {
+            "value": 8
+          }
+        }
+      },
+      "Model§Pink Horror": {
+        "stats": {
+          "OC": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Pyrocaster": {
+        "stats": {
+          "Ld": {
+            "value": 8
           }
         }
       },
@@ -4596,10 +4919,10 @@
             "visibility": "normal"
           },
           "Ld": {
-            "value": 6
+            "value": 7
           },
           "M": {
-            "value": 5
+            "value": 6
           },
           "OC": {
             "value": 2
@@ -4618,7 +4941,7 @@
       "Model§Scarab Occult Sorcerer": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Scarab Occult Terminators—Warpsmite",
+            "Ranged Weapon§Scarab Occult Terminators—Malefic Curse",
             "Melee Weapon§Scarab Occult Terminators—Force weapon"
           ]
         },
@@ -4644,7 +4967,7 @@
             "value": 5
           },
           "W": {
-            "value": 3
+            "value": 4
           },
           "Weapon": {
             "dynamic": true,
@@ -4747,7 +5070,7 @@
             "visibility": "normal"
           },
           "Ld": {
-            "value": 6
+            "value": 7
           },
           "M": {
             "value": 5
@@ -4763,6 +5086,72 @@
           },
           "W": {
             "value": 3
+          }
+        }
+      },
+      "Model§Screamer": {
+        "stats": {
+          "Ld": {
+            "value": 8
+          }
+        }
+      },
+      "Model§Sekhetar Robot": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Sekhetar Robots—Heavy warpflamer",
+            "Ranged Weapon§Sekhetar Robots—Hellfyre missile rack",
+            "Melee Weapon§Sekhetar Robots—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Pyreflux meltagun": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sekhetar Robots—Pyreflux meltagun"
+                  }
+                ]
+              },
+              "Warpflame projector & Power claw": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Sekhetar Robots—Warpflame projector"
+                  },
+                  {
+                    "trait": "Melee Weapon§Sekhetar Robots—Power claw"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Pyreflux meltagun",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 4
           }
         }
       },
@@ -4881,7 +5270,7 @@
             "value": 6
           },
           "OC": {
-            "value": 2
+            "value": 1
           },
           "Sv": {
             "value": 6
@@ -4962,7 +5351,7 @@
             "value": 6
           },
           "OC": {
-            "value": 2
+            "value": 1
           },
           "Sv": {
             "value": 6
@@ -5470,7 +5859,7 @@
             "value": 1
           },
           "AP": {
-            "value": -4
+            "value": -3
           },
           "BS": {
             "value": 3
@@ -5480,7 +5869,7 @@
             "value": 6
           },
           "Range": {
-            "value": 24
+            "value": 36
           },
           "S": {
             "value": 18
@@ -5545,7 +5934,7 @@
             "value": 1
           },
           "Range": {
-            "value": 12
+            "value": 18
           },
           "S": {
             "value": 6
@@ -5591,7 +5980,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -5607,65 +5996,30 @@
           }
         }
       },
-      "Ranged Weapon§Rubric Marines—Plasma pistol": {
+      "Ranged Weapon§Rubric Marines—Malefic Curse": {
         "aspects": {
-          "Label": "Plasma pistol"
+          "Label": "Malefic Curse"
         },
         "assets": {
           "traits": [
-            "Ranged Weapon§Rubric Marines—Plasma pistol – standard",
-            "Ranged Weapon§Rubric Marines—Plasma pistol – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        }
-      },
-      "Ranged Weapon§Rubric Marines—Plasma pistol – standard": {
-        "aspects": {
-          "Label": "Standard"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Pistol"
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Devastating Wounds",
+            "Ability§Psychic"
           ]
         },
         "stats": {
           "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": -2
-          },
-          "BS": {
             "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 12
-          },
-          "S": {
-            "value": 7
-          }
-        }
-      },
-      "Ranged Weapon§Rubric Marines—Plasma pistol – supercharge": {
-        "aspects": {
-          "Label": "Supercharge"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Hazardous",
-            "Ability§Pistol"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
           },
           "AP": {
             "value": -3
@@ -5674,13 +6028,13 @@
             "value": 3
           },
           "D": {
-            "value": 2
+            "value": 1
           },
           "Range": {
-            "value": 12
+            "value": 24
           },
           "S": {
-            "value": 8
+            "value": 4
           }
         }
       },
@@ -5698,7 +6052,7 @@
             "value": 6
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -5777,49 +6131,6 @@
           },
           "Range": {
             "value": 12
-          },
-          "S": {
-            "value": 4
-          }
-        }
-      },
-      "Ranged Weapon§Rubric Marines—Warpsmite": {
-        "aspects": {
-          "Label": "Warpsmite"
-        },
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Anti-",
-              "stats": {
-                "keyword": {
-                  "value": "infantry"
-                },
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Ability§Devastating Wounds",
-            "Ability§Pistol",
-            "Ability§Psychic"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 2
-          },
-          "AP": {
-            "value": -3
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 18
           },
           "S": {
             "value": 4
@@ -5922,39 +6233,9 @@
           }
         }
       },
-      "Ranged Weapon§Scarab Occult Terminators—Soulreaper cannon": {
+      "Ranged Weapon§Scarab Occult Terminators—Malefic Curse": {
         "aspects": {
-          "Label": "Soulreaper cannon"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Devastating Wounds"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 6
-          },
-          "AP": {
-            "value": -1
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 24
-          },
-          "S": {
-            "value": 6
-          }
-        }
-      },
-      "Ranged Weapon§Scarab Occult Terminators—Warpsmite": {
-        "aspects": {
-          "Label": "Warpsmite"
+          "Label": "Malefic Curse"
         },
         "assets": {
           "traits": [
@@ -5970,7 +6251,6 @@
               }
             },
             "Ability§Devastating Wounds",
-            "Ability§Pistol",
             "Ability§Psychic"
           ]
         },
@@ -5988,10 +6268,171 @@
             "value": 1
           },
           "Range": {
-            "value": 18
+            "value": 24
           },
           "S": {
             "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Scarab Occult Terminators—Soulreaper cannon": {
+        "aspects": {
+          "Label": "Soulreaper cannon"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Sekhetar Robots—Heavy warpflamer": {
+        "aspects": {
+          "Label": "Heavy warpflamer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 0
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Sekhetar Robots—Hellfyre missile rack": {
+        "aspects": {
+          "Label": "Hellfyre missile rack"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 10
+          }
+        }
+      },
+      "Ranged Weapon§Sekhetar Robots—Pyreflux meltagun": {
+        "aspects": {
+          "Label": "Pyreflux meltagun"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "format": "D6",
+            "value": 0
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 10
+          }
+        }
+      },
+      "Ranged Weapon§Sekhetar Robots—Warpflame projector": {
+        "aspects": {
+          "Label": "Warpflame projector"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D3",
+            "value": 0
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 3
           }
         }
       },
@@ -6962,7 +7403,7 @@
             "value": 3
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "format": "{t}",
@@ -6989,7 +7430,7 @@
             "value": 6
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -7057,7 +7498,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -7106,7 +7547,7 @@
             "value": 1
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 4
@@ -7487,7 +7928,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -7536,7 +7977,7 @@
             "value": 1
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 4
@@ -7704,7 +8145,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -7753,7 +8194,7 @@
             "value": 1
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 4
@@ -8060,7 +8501,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 3
@@ -8109,7 +8550,7 @@
             "value": 1
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 4
@@ -8162,7 +8603,8 @@
         "assets": {
           "traits": [
             "Ability§Lethal Hits",
-            "Ability§Precision"
+            "Ability§Precision",
+            "Ability§Ignores Cover"
           ]
         },
         "stats": {
@@ -8170,7 +8612,7 @@
             "value": 2
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "BS": {
             "value": 4
@@ -8268,7 +8710,7 @@
           "AddCabalPointsStat": {
             "evals": []
           },
-          "hereUntilTheyUpdateTheAllyRules": {
+          "legionsDetachAllies": {
             "actions": [
               {
                 "actionType": "remove",
@@ -8284,10 +8726,26 @@
                     "ranks"
                   ]
                 ],
-                "value": "Legiones Daemonica"
+                "value": "Scintillating Legions"
               }
             ],
-            "evals": [],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Changehost of Deceit"
+              }
+            ],
             "evaluate": "AND",
             "failState": "pass"
           },
@@ -8314,9 +8772,170 @@
             ],
             "evaluate": "AND",
             "failState": "error"
+          },
+          "removeLegionesDaemonica": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    [
+                      "Allied faction 1",
+                      "Allied faction 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Legiones Daemonica"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "setLegionsDetach": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Scintillating Legions"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Allied faction 1",
+                    "dynamic"
+                  ]
+                ],
+                "value": false
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Changehost of Deceit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 50
+          },
+          "setLegionsPointMax": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "maxLegions"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Allied faction 1",
+                    "value"
+                  ]
+                ],
+                "value": "Changehost of Deceit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           }
         },
         "stats": {
+          "Allied faction 1": {
+            "ranks": {
+              "Scintillating Legions": {
+                "order": 4
+              }
+            }
+          },
+          "Battle Size": {
+            "increment": {},
+            "ranks": {
+              "Incursion": {
+                "format": "Incursion",
+                "order": 1,
+                "tracking": {
+                  "maxDaemons": 250,
+                  "maxDamned": 250,
+                  "maxLegions": 500,
+                  "maxPoints": 1000
+                }
+              },
+              "Strike Force": {
+                "format": "Strike Force",
+                "order": 2,
+                "tracking": {
+                  "maxDaemons": 500,
+                  "maxDamned": 500,
+                  "maxLegions": 1000,
+                  "maxPoints": 2000
+                }
+              },
+              "Onslaught": {
+                "format": "Onslaught",
+                "order": 3,
+                "tracking": {
+                  "maxDaemons": 750,
+                  "maxDamned": 750,
+                  "maxLegions": 1500,
+                  "maxPoints": 3000
+                }
+              },
+              "Combat Patrol": {
+                "format": "Combat Patrol",
+                "order": 4,
+                "tracking": {
+                  "maxDaemons": 0,
+                  "maxPoints": 500
+                }
+              }
+            }
+          },
           "Cabal Points": {
             "group": "Resources",
             "statType": "numeric",
@@ -9187,6 +9806,77 @@
         },
         "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Thousand Sons unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 to the result if your unit is wholly within your army’s Flow of Magic: on a 4+, do not remove it from play. That destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
       },
+      "Unit§Blue Horrors": {
+        "assets": {
+          "traits": [
+            "Ability§Pact of Sorcery"
+          ]
+        },
+        "keywords": {
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Scintillating Legions"
+          ],
+          "Keywords": [
+            "Summoned"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Source": [
+              "10th Edition Index"
+            ],
+            "Faction": [
+              "Legiones Daemonica"
+            ]
+          },
+          "assets": {
+            "traits": [
+              "Ability§The Shadow of Chaos"
+            ]
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 90
+          }
+        }
+      },
+      "Unit§Flamers": {
+        "assets": {
+          "traits": [
+            "Ability§Pact of Sorcery"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Summoned"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Scintillating Legions"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Faction": [
+              "Legiones Daemonica"
+            ],
+            "Source": [
+              "10th Edition Index"
+            ]
+          },
+          "assets": {
+            "traits": [
+              "Ability§The Shadow of Chaos"
+            ]
+          }
+        }
+      },
       "Unit§Hell Blade": {
         "keywords": {
           "Keywords": [
@@ -9254,11 +9944,11 @@
             "10th Edition Index"
           ],
           "Keywords": [
-            "Monster",
-            "Daemon",
             "Chaos",
-            "Tzeentch",
-            "Mutalith Vortex Beast"
+            "Monster",
+            "Mutalith Vortex Beast",
+            "Mutant",
+            "Tzeentch"
           ],
           "Category": [
             "Monster"
@@ -9275,7 +9965,7 @@
             "value": 4
           },
           "Points": {
-            "value": 165
+            "value": 160
           },
           "Sv": {
             "value": 4
@@ -9285,6 +9975,44 @@
           },
           "W": {
             "value": 13
+          }
+        }
+      },
+      "Unit§Pink Horrors": {
+        "assets": {
+          "traits": [
+            "Ability§Pact of Sorcery"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Summoned"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Scintillating Legions"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Source": [
+              "10th Edition Index"
+            ],
+            "Faction": [
+              "Legiones Daemonica"
+            ]
+          },
+          "assets": {
+            "traits": [
+              "Ability§The Shadow of Chaos"
+            ]
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 115
           }
         }
       },
@@ -9312,10 +10040,17 @@
               }
             },
             "Model§Aspiring Sorcerer",
-            "Ability§Cabal of Sorcerers 1*",
             {
               "item": "Model§Rubric Marine",
               "quantity": 4
+            },
+            {
+              "item": "Ability§Cabal of Sorcerers",
+              "stats": {
+                "x": {
+                  "value": "(Aspiring Sorcerer only)"
+                }
+              }
             }
           ]
         },
@@ -9324,14 +10059,15 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
             "Battleline",
             "Chaos",
-            "Tzeentch",
-            "Rubric Marines"
+            "Infantry",
+            "Rubric Marines",
+            "Rubricae",
+            "Tzeentch"
           ],
           "Category": [
             "Battleline"
@@ -9408,7 +10144,7 @@
             "value": 5
           },
           "model2ndCost": {
-            "value": 200
+            "value": 190
           },
           "model2ndTally": {
             "value": 10
@@ -9426,7 +10162,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 110
+            "value": 100
           },
           "Rubric Marine": {
             "max": 9,
@@ -9448,8 +10184,7 @@
         "assets": {
           "traits": [
             "Ability§Deep Strike",
-            "Ability§Cabal of Sorcerers 1*",
-            "Ability§Implacable Guardians",
+            "Ability§Rites of Coalescence",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -9462,6 +10197,14 @@
             {
               "item": "Model§Scarab Occult Terminator",
               "quantity": 4
+            },
+            {
+              "item": "Ability§Cabal of Sorcerers",
+              "stats": {
+                "x": {
+                  "value": "(Scarab Occult Sorcerer only)"
+                }
+              }
             }
           ]
         },
@@ -9470,14 +10213,15 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
-            "Terminator",
             "Chaos",
-            "Tzeentch",
-            "Scarab Occult Terminators"
+            "Infantry",
+            "Rubricae",
+            "Scarab Occult Terminators",
+            "Terminator",
+            "Tzeentch"
           ],
           "Category": [
             "Infantry"
@@ -9600,6 +10344,109 @@
           }
         }
       },
+      "Unit§Screamers": {
+        "assets": {
+          "traits": [
+            "Ability§Pact of Sorcery"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Summoned"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Scintillating Legions"
+          ]
+        },
+        "removed": {
+          "keywords": {
+            "Source": [
+              "10th Edition Index"
+            ],
+            "Faction": [
+              "Legiones Daemonica"
+            ]
+          },
+          "assets": {
+            "traits": [
+              "Ability§The Shadow of Chaos"
+            ]
+          }
+        }
+      },
+      "Unit§Sekhetar Robots": {
+        "allowed": {
+          "items": [
+            "Model§Sekhetar Robot"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Infiltrators",
+            "Ability§Stealth",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Ability§Prophetic Sentinels",
+            {
+              "item": "Model§Sekhetar Robot",
+              "quantity": 2
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Chaos",
+            "Sekhetar Robots",
+            "Tzeentch",
+            "Vehicle",
+            "Walker"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Vehicle—Walker"
+          ],
+          "Faction": [
+            "Thousand Sons"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 2
+          },
+          "model2ndCost": {
+            "value": 180
+          },
+          "model2ndTally": {
+            "value": 4
+          },
+          "modelKey": {
+            "value": "Model§Sekhetar Robot"
+          },
+          "Models": {
+            "increment": {
+              "value": 2
+            },
+            "max": 4,
+            "min": 2,
+            "value": 2,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 90
+          }
+        }
+      },
       "Unit§Soul Grinder": {
         "stats": {
           "Daemonic Allegiance": {
@@ -9612,6 +10459,9 @@
           "items": [
             "Model§Chaos Spawn"
           ]
+        },
+        "aspects": {
+          "Label": "Chaos Spawn"
         },
         "assets": {
           "traits": [
@@ -9643,13 +10493,14 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Beast",
             "Chaos",
-            "Tzeentch",
-            "Spawn"
+            "Mutant",
+            "Spawn",
+            "Tzeentch"
           ],
           "Category": [
             "Beast"
@@ -10492,6 +11343,7 @@
       },
       "Unit§Thousand Sons Heldrake": {
         "aspects": {
+          "Label": "Chaos Heldrake",
           "Type": "game piece"
         },
         "assets": {
@@ -10530,7 +11382,7 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Vehicle",
@@ -10557,7 +11409,7 @@
             "value": 0
           },
           "Points": {
-            "value": 195
+            "value": 215
           },
           "Ranged": {
             "dynamic": true,
@@ -10598,6 +11450,7 @@
       },
       "Unit§Thousand Sons Land Raider": {
         "aspects": {
+          "Label": "Chaos Land Raider",
           "Type": "game piece"
         },
         "assets": {
@@ -10622,7 +11475,7 @@
             },
             {
               "item": "Ability§Transport",
-              "text": "This model has a transport capacity of 12 Thousand Sons Infantry models (excluding Cultist and Tzaangor models). Each Terminator model takes up the space of 2 models."
+              "text": "This model has a transport capacity of 14 Thousand Sons Infantry models. Each Terminator model takes up the space of 2 models."
             },
             "Ranged Weapon§Thousand Sons Land Raider—Soulshatter lascannon",
             "Ranged Weapon§Thousand Sons Land Raider—Soulshatter lascannon",
@@ -10989,6 +11842,7 @@
       },
       "Unit§Thousand Sons Predator Destructor": {
         "aspects": {
+          "Label": "Chaos Predator Destructor",
           "Type": "game piece"
         },
         "assets": {
@@ -11001,7 +11855,7 @@
                 }
               }
             },
-            "Ability§Destructor",
+            "Ability§Ensorcelled Destruction",
             {
               "item": "Ability§Damaged:",
               "stats": {
@@ -11019,7 +11873,7 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Vehicle",
@@ -11092,7 +11946,7 @@
             "value": 10
           },
           "OC": {
-            "value": 4
+            "value": 3
           },
           "Points": {
             "value": 140
@@ -11145,6 +11999,7 @@
       },
       "Unit§Thousand Sons Rhino": {
         "aspects": {
+          "Label": "Chaos Rhino",
           "Type": "game piece"
         },
         "assets": {
@@ -11157,21 +12012,13 @@
                 }
               }
             },
-            "Ability§Self Repair",
             {
               "item": "Ability§Transport",
-              "text": "This model has a transport capacity of 12 Thousand Sons Infantry models (excluding Cultist, Tzaangor and Terminator models)."
+              "text": "This model has a transport capacity of 12 Thousand Sons Infantry models (excluding Terminator models)."
             },
             "Ranged Weapon§Thousand Sons Rhino—Inferno combi-bolter",
             "Melee Weapon§Thousand Sons Rhino—Armoured tracks",
-            {
-              "item": "Ability§Firing Deck",
-              "stats": {
-                "x": {
-                  "value": "2"
-                }
-              }
-            }
+            "Ability§Sorcerous Support"
           ]
         },
         "keywords": {
@@ -11179,7 +12026,7 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Chaos",
@@ -11255,7 +12102,7 @@
             "value": 2
           },
           "Points": {
-            "value": 75
+            "value": 90
           },
           "Sv": {
             "value": 3
@@ -11270,6 +12117,7 @@
       },
       "Unit§Thousand Sons Vindicator": {
         "aspects": {
+          "Label": "Chaos Vindicator",
           "Type": "game piece"
         },
         "assets": {
@@ -11300,7 +12148,7 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Vehicle",
@@ -11391,17 +12239,19 @@
         "allowed": {
           "items": [
             "Model§Enlightened",
-            "Character§Tzaangor Shaman"
+            "Character§Tzaangor Shaman",
+            "Character§Exalted Sorcerer on Disc of Tzeentch",
+            "Character§Ahriman"
           ]
         },
         "assets": {
           "traits": [
-            "Ability§Malign Trickery",
+            "Ability§Prophesied Doom",
             {
               "item": "Ability§Invulnerable",
               "stats": {
                 "x": {
-                  "value": "6+"
+                  "value": "5+"
                 }
               }
             },
@@ -11417,14 +12267,15 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
-            "Mounted",
-            "Fly",
             "Chaos",
-            "Tzeentch",
-            "Tzaangor Enlightened"
+            "Fly",
+            "Mounted",
+            "Mutant",
+            "Tzaangor Enlightened",
+            "Tzeentch"
           ],
           "Category": [
             "Mounted"
@@ -11465,6 +12316,87 @@
           }
         }
       },
+      "Unit§Tzaangor Enlightened with Fatecaster Greatbows": {
+        "allowed": {
+          "items": [
+            "Character§Tzaangor Shaman",
+            "Model§Enlightened (Greatbows)",
+            "Character§Exalted Sorcerer on Disc of Tzeentch",
+            "Character§Ahriman"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                }
+              }
+            },
+            "Model§Aviarch (Greatbows)",
+            {
+              "item": "Model§Enlightened (Greatbows)",
+              "quantity": 2
+            },
+            "Ability§Malign Trickery"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Thousand Sons"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Chaos",
+            "Fly",
+            "Mounted",
+            "Mutant",
+            "Tzaangor Enlightened",
+            "Tzeentch"
+          ],
+          "Category": [
+            "Mounted"
+          ]
+        },
+        "stats": {
+          "Enlightened": {
+            "max": 5,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 80
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "modelKey": {
+            "value": "Model§Enlightened (Greatbows)"
+          },
+          "Models": {
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 50
+          }
+        }
+      },
       "Unit§Tzaangors": {
         "allowed": {
           "items": [
@@ -11474,7 +12406,7 @@
         },
         "assets": {
           "traits": [
-            "Ability§Relic Hunters",
+            "Ability§Ambushing Hunters",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -11487,6 +12419,14 @@
             {
               "item": "Model§Tzaangor",
               "quantity": 9
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "6″"
+                }
+              }
             }
           ]
         },
@@ -11495,17 +12435,17 @@
             "Thousand Sons"
           ],
           "Source": [
-            "10th Edition Index"
+            "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
-            "Battleline",
             "Chaos",
-            "Tzeentch",
-            "Tzaangors"
+            "Infantry",
+            "Mutant",
+            "Tzaangors",
+            "Tzeentch"
           ],
           "Category": [
-            "Battleline"
+            "Infantry"
           ]
         },
         "rules": {
@@ -11579,7 +12519,7 @@
             "value": 10
           },
           "model2ndCost": {
-            "value": 120
+            "value": 160
           },
           "model2ndTally": {
             "value": 20
@@ -11597,7 +12537,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 65
+            "value": 70
           },
           "Tzaangor": {
             "max": 19,
@@ -11613,10 +12553,10 @@
         "text": "You can re-roll Advance and Charge rolls made for the bearer’s unit."
       },
       "Wargear§Herd Banner": {
-        "text": "You can re-roll Battle-shock tests taken for the bearer’s unit."
+        "text": "While the bearer's unit is within range of one or more objective markers you control, improve the Leadership characteristic of models in the bearer's unit by 1."
       },
       "Wargear§Icon of Flame": {
-        "text": "Each time a model in the bearer’s unit makes a ranged attack, if a Critical Wound is scored, improve the Armour Penetration characteristic of that attack by 1."
+        "text": "Ranged weapons equipped by models in the bearer's unit (excluding Characters) have the [IGNORES COVER] ability."
       }
     },
     "gameModes": {},
