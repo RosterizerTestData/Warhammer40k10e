@@ -1,6 +1,6 @@
 {
   "name": "Space Wolves",
-  "revision": "10.12.4",
+  "revision": "10.12.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -102,17 +102,6 @@
           ]
         },
         "text": "If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can instead be attached to this unit."
-      },
-      "Ability§Attached Unit - Grey Hunters": {
-        "aspects": {
-          "Label": "Attached Unit"
-        },
-        "keywords": {
-          "Keywords": [
-            "Special"
-          ]
-        },
-        "text": "If a Character unit from your army with the Leader ability can be attached to a Tactical Squad, it can instead be attached to this unit."
       },
       "Ability§Attached Unit - Hounds of Morkai": {
         "aspects": {
@@ -230,7 +219,7 @@
             "Other"
           ]
         },
-        "text": "This unit is eligible to shoot in a turn in which it Fell Back or Advanced."
+        "text": "Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target is within range of an objective marker, you can re-roll the Wound roll instead."
       },
       "Ability§Curse of the Wulfen": {
         "text": "While this unit is within 6\" of one or more friendly Space Wolves Character models (excluding Wulfen models) or within 12\" of one or more friendly Wolf Priest, if it is not Battle-shocked, add 1 to the Objective Control characteristic of Infantry models in it and add 3 to the Objective Control characteristic of Vehicle models in it."
@@ -297,6 +286,9 @@
         },
         "text": "Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that usage of that Stratagem by 1CP."
       },
+      "Ability§Headhunters": {
+        "text": "At the start of the battle, select one unit from your opponent's army to be this unit's quarry. Weapons equipped by Headtakers models in this unit have the [DEVASTATING WOUNDS] and [PRECISION] abilities while targeting its quarry. Each time this unit's quarry is destroyed, select one new enemy unit to be this unit's quarry."
+      },
       "Ability§Headstrong": {
         "keywords": {
           "Keywords": [
@@ -318,6 +310,9 @@
           ]
         },
         "text": "Once per battle round, in your Movement phase, you can select one friendly Space Wolves unit that is in Strategic Reserves. If you do, until the end of the phase, for the purpose of setting up that unit on the battlefield, treat the current battle round number as being one higher than it actually is."
+      },
+      "Ability§Hunting Hounds": {
+        "text": "While this unit is within 6\" of one or more friendly Space Wolves Character models (excluding Wulfen models), if this unit is not Battle-shocked, Hunting Wolves models in it have an Objective Control characteristic of 1."
       },
       "Ability§Huskarl To the Jarl": {
         "keywords": {
@@ -372,6 +367,9 @@
           ]
         },
         "text": "Each time an attack targets this model, if the Strength characteristic of that attack is greater than this model’s Toughness characteristic, subtract 1 from the Wound roll."
+      },
+      "Ability§Let Loose the Wolves": {
+        "text": "At the start of the Declare Battle Formations step, split this unit into two units, one containing all of its Headtakers models and one containing all of tis Hunting Wolves models, with new Starting Strengths accordingly."
       },
       "Ability§Logan Grimnar": {
         "keywords": {
@@ -6423,6 +6421,684 @@
           }
         }
       },
+      "Infantry/Mounted§Wolf Guard Headtakers": {
+        "allowed": {
+          "items": [
+            "Character§Wolf Guard Battle Leader",
+            "Character§Iron Priest",
+            "Character§Wolf Priest",
+            "Character§Ragnar Blackmane",
+            "Character§Ulrik the Slayer",
+            "Character§Njal Stormcaller",
+            "Model§Wolf Guard Headtaker",
+            "Model§Hunting Wolf"
+          ]
+        },
+        "assets": {
+          "included": [],
+          "traits": [
+            "Ability§Oath of Moment",
+            "Ability§Let Loose the Wolves",
+            "Ability§Headhunters",
+            "Ability§Hunting Hounds",
+            {
+              "item": "Model§Wolf Guard Headtaker",
+              "quantity": 3
+            }
+          ]
+        },
+        "constraints": {
+          "any": [
+            "Hunting Wolves",
+            "Headtakers"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes",
+            "Space Wolves"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Infantry"
+          ],
+          "Keywords": []
+        },
+        "removed": {
+          "stats": {},
+          "rules": {
+            "trueModelTally": {},
+            "applyMissingModels": {},
+            "appliedModelTally": {},
+            "applyMoreModels": {}
+          }
+        },
+        "rules": {
+          "appliedHeadtakerTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Wolf Guard Headtaker"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Wolf Guard Headtaker"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 34
+          },
+          "appliedWolfTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Hunting Wolf"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Hunting Wolf"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 34
+          },
+          "applyMissingHeadtakers": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Wolf Guard Headtaker"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Wolf Guard Headtaker",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueHeadtakerTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of torments remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Wolf Guard Headtaker",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 32
+          },
+          "applyMissingWolves": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Model§Hunting Wolf"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Hunting Wolf",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "trueWolfTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "note": "Number of torments remaining to be added",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolves count",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "note": "If there are no traits with the modelKey, we can proceed",
+                "operator": "SUM",
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Hunting Wolf",
+                    "quantity"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 33
+          },
+          "applyMoreHeadtakers": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Wolf Guard Headtaker",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedHeadtakerTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Wolf Guard Headtaker"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 35
+          },
+          "applyMoreWolves": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "item",
+                    "Model§Hunting Wolf",
+                    "quantity"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "rules",
+                    "appliedWolfTally",
+                    "evals",
+                    "0",
+                    "result",
+                    "integer"
+                  ]
+                },
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolves count",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Hunting Wolf"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 36
+          },
+          "MaxWolves": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Hunting Wolf",
+                    "max"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 6
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "trueHeadtakerTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Wolf Guard Headtaker"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Wolf Guard Headtaker"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
+          "trueWolfTally": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T-O",
+                  "value": [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "tally",
+                    "Hunting Wolf"
+                  ]
+                },
+                "not": false,
+                "note": "Count the total number of tallyable models for points threshold purposes",
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Hunting Wolf"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 31
+          },
+          "WolfCost1": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 20
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolves count",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 4,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "WolfCost2": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "value"
+                  ]
+                ],
+                "value": 40
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "max": 6,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolves count",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Models",
+                    "value"
+                  ]
+                ],
+                "value": 6
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Hunting Wolf": {
+            "max": 6,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 180
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "Models": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 3
+            },
+            "max": 6,
+            "min": 3,
+            "statOrder": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 90
+          },
+          "Wolf Guard Headtaker": {
+            "max": 6,
+            "min": 3,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Wolves count": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "increment": {
+              "value": 3
+            },
+            "label": "Hunting Wolves",
+            "max": 6,
+            "min": 0,
+            "statOrder": 2,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          }
+        }
+      },
       "Infantry/Mounted§Wolf Guard Terminators": {
         "allowed": {
           "items": [
@@ -8473,7 +9149,7 @@
         },
         "stats": {
           "A": {
-            "value": 5
+            "value": 7
           },
           "AP": {
             "value": -2
@@ -8486,7 +9162,7 @@
             "value": "Melee"
           },
           "S": {
-            "value": 8
+            "value": 5
           },
           "WS": {
             "value": 3
@@ -8521,6 +9197,93 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Wolf Guard Headtakers—Master-crafted power weapon": {
+        "aspects": {
+          "Label": "Master-crafted power weapon"
+        },
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Wolf Guard Headtakers—Paired master-crafted power weapons": {
+        "aspects": {
+          "Label": "Paired master-crafted power weapons"
+        },
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Wolf Guard Headtakers—Teeth and claws": {
+        "aspects": {
+          "Label": "Teeth and claws"
+        },
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 4
           }
         }
       },
@@ -9858,7 +10621,11 @@
       },
       "Model§Grey Hunter": {
         "assets": {
-          "traits": []
+          "traits": [
+            "Ranged Weapon§Grey Hunters—Bolt carbine",
+            "Ranged Weapon§Grey Hunters—Bolt pistol",
+            "Melee Weapon§Grey Hunters—Astartes chainsword"
+          ]
         },
         "stats": {
           "Ld": {
@@ -9884,48 +10651,26 @@
       "Model§Grey Hunter Pack Leader": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Grey Hunters—Bolt pistol",
-            "Ranged Weapon§Grey Hunters—Boltgun"
+            "Ranged Weapon§Grey Hunters—Bolt pistol"
           ]
         },
         "stats": {
-          "Astartes chainsword": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Melee Weapon§Grey Hunters—Astartes chainsword"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "normal"
-          },
           "Ld": {
             "value": 6
           },
           "M": {
-            "value": 6
+            "value": 7
           },
           "Melee Options": {
             "dynamic": true,
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Close combat weapon": {
+              "Astartes chainsword": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Grey Hunters—Close combat weapon"
+                    "trait": "Melee Weapon§Grey Hunters—Astartes chainsword"
                   }
                 ]
               },
@@ -9946,12 +10691,40 @@
                 ]
               }
             },
+            "statOrder": 2,
             "statType": "rank",
-            "value": "Close combat weapon",
+            "value": "Astartes chainsword",
             "visibility": "active"
           },
           "OC": {
-            "value": 2
+            "value": 3
+          },
+          "Ranged Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Bolt carbine": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Hunters—Bolt carbine"
+                  }
+                ]
+              },
+              "Plasma pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Grey Hunters—Plasma pistol"
+                  }
+                ]
+              }
+            },
+            "statOrder": 1,
+            "statType": "rank",
+            "value": "Bolt carbine",
+            "visibility": "normal"
           },
           "Sv": {
             "value": 3
@@ -10017,6 +10790,43 @@
           },
           "W": {
             "value": 2
+          }
+        }
+      },
+      "Model§Hunting Wolf": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Wolf Guard Headtakers—Teeth and claws"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Beasts",
+            "Hunting Wolves",
+            "Imperium"
+          ],
+          "Tags": [
+            "noTally"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 0
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 1
           }
         }
       },
@@ -10666,6 +11476,69 @@
           },
           "W": {
             "value": 2
+          }
+        }
+      },
+      "Model§Wolf Guard Headtaker": {
+        "aspects": {
+          "Label": ""
+        },
+        "keywords": {
+          "Keywords": [
+            "Headtakers",
+            "Imperium",
+            "Infantry",
+            "Tacticus",
+            "Wolf Guard"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Master-crafted power weapon & Storm shield": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Wolf Guard Headtakers—Master-crafted power weapon"
+                  },
+                  {
+                    "trait": "Wargear§Storm Shield - Headtakers"
+                  }
+                ]
+              },
+              "Paired master-crafted power weapons": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Wolf Guard Headtakers—Paired master-crafted power weapons"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Master-crafted power weapon & Storm shield",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
           }
         }
       },
@@ -12686,6 +13559,43 @@
           }
         }
       },
+      "Ranged Weapon§Grey Hunters—Bolt carbine": {
+        "aspects": {
+          "Label": "Bolt carbine"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Grey Hunters—Bolt pistol": {
         "aspects": {
           "Label": "Bolt pistol"
@@ -12713,122 +13623,6 @@
           },
           "S": {
             "value": 4
-          }
-        }
-      },
-      "Ranged Weapon§Grey Hunters—Boltgun": {
-        "aspects": {
-          "Label": "Boltgun"
-        },
-        "stats": {
-          "A": {
-            "value": 2
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 24
-          },
-          "S": {
-            "value": 4
-          }
-        }
-      },
-      "Ranged Weapon§Grey Hunters—Plasma gun": {
-        "aspects": {
-          "Label": "Plasma gun"
-        },
-        "assets": {
-          "traits": [
-            "Ranged Weapon§Grey Hunters—Plasma gun – standard",
-            "Ranged Weapon§Grey Hunters—Plasma gun – supercharge"
-          ]
-        },
-        "keywords": {
-          "Tags": [
-            "Multi-weapon"
-          ]
-        }
-      },
-      "Ranged Weapon§Grey Hunters—Plasma gun – standard": {
-        "aspects": {
-          "Label": "Standard"
-        },
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Rapid Fire",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": -2
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 24
-          },
-          "S": {
-            "value": 7
-          }
-        }
-      },
-      "Ranged Weapon§Grey Hunters—Plasma gun – supercharge": {
-        "aspects": {
-          "Label": "Supercharge"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Hazardous",
-            {
-              "item": "Ability§Rapid Fire",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": -3
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 2
-          },
-          "Range": {
-            "value": 24
-          },
-          "S": {
-            "value": 8
           }
         }
       },
@@ -16321,6 +17115,36 @@
           }
         }
       },
+      "Ranged Weapon§Wolf Guard Headtakers—Heavy bolt pistol": {
+        "aspects": {
+          "Label": "Heavy bolt pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Wolf Guard Pack Leader in Terminator Armour—Assault cannon": {
         "aspects": {
           "Label": "Assault cannon"
@@ -19113,6 +19937,17 @@
           }
         },
         "text": "The bearer has a Wounds characteristic of 6."
+      },
+      "Wargear§Storm Shield - Headtakers": {
+        "aspects": {
+          "Label": "Storm Shield"
+        },
+        "rules": {
+          "apply": {
+            "evals": []
+          }
+        },
+        "text": "The bearer has a 4+ invulnerable save."
       },
       "Wargear§Storm Shield - Terminator": {
         "aspects": {
