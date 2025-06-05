@@ -1,6 +1,6 @@
 {
   "name": "Dark Angels",
-  "revision": "10.12.4",
+  "revision": "10.12.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "YS5XZ8",
+      "slug": "QGB5A4",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -2110,6 +2110,181 @@
         },
         "text": "## GRIM RESOLVE\n\nWhile an Adeptus Astartes unit from your army is Battle-shocked, change the Objective Control characteristic of models in that unit to 1, instead of 0.\n\nIn your Command phase, select one Adeptus Astartes unit from your army: until the start of your next Command phase, add 1 to the Objective Control characteristic of models in that unit."
       },
+      "Detachment§Wrath of the Rock": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Inescapable Justice"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Lion’s Will"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Tactical Mastery"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Relics of the Dark Age"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Leonine Aggression"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## DUTIFUL TENACITY\n\nEach time an attack targets an Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army, if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+      },
+      "Enhancement§Ancient Weapons": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Adeptus Astartes model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, and improve the Armour Penetration and Damage characteristics of those weapons by 1."
+      },
       "Enhancement§Calibanite Armaments": {
         "keywords": {
           "Keywords": [
@@ -2286,6 +2461,60 @@
         },
         "text": "Deathwing model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third movement phase, regardless of any mission rules."
       },
+      "Enhancement§Deathwing Assault (Wrath)": {
+        "aspects": {
+          "Label": "Deathwing Assault"
+        },
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ]
+        },
+        "rules": {
+          "Deathwing model with the Deep Strike ability only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Deathwing"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Deep Strike",
+                    "quantity"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Deathwing model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third movement phase, regardless of any mission rules."
+      },
       "Enhancement§Eye of the Unseen": {
         "keywords": {
           "Keywords": [
@@ -2390,6 +2619,41 @@
           }
         },
         "text": "Ravenwing model only. The bearer’s unit is eligible to shoot and declare a charge in a turn in which it Fell Back and you can re‑roll Desperate Escape tests taken for models in the bearer’s unit."
+      },
+      "Enhancement§Lord of the Ravenwing": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ]
+        },
+        "rules": {
+          "Ravenwing model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ravenwing"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Ravenwing model only. You can re-roll Advance and Charge rolls made for the bearer’s unit."
       },
       "Enhancement§Master of Manoeuvre": {
         "keywords": {
@@ -2765,6 +3029,19 @@
           }
         },
         "text": "Adeptus Astartes model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if the bearer’s unit is below its Starting Strength, and add 1 to the Wound roll as well if the bearer’s unit is Battle-shocked."
+      },
+      "Enhancement§Tempered in Battle (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Adeptus Astartes model only. While a friendly Adeptus Astartes unit is within 6\" of this model, you can re-roll Battle-shock and Leadership tests taken for that unit."
       },
       "Enhancement§Weapons of the First Legion": {
         "keywords": {
@@ -7865,7 +8142,7 @@
           "Detachment": {
             "ranks": {
               "Unforgiven Task Force": {
-                "order": 8,
+                "order": 9,
                 "traits": [
                   {
                     "trait": "Detachment§Unforgiven Task Force"
@@ -7873,7 +8150,7 @@
                 ]
               },
               "Inner Circle Task Force": {
-                "order": 9,
+                "order": 10,
                 "traits": [
                   {
                     "trait": "Detachment§Inner Circle Task Force"
@@ -7881,7 +8158,7 @@
                 ]
               },
               "Company of Hunters": {
-                "order": 10,
+                "order": 11,
                 "traits": [
                   {
                     "trait": "Detachment§Company of Hunters"
@@ -7889,10 +8166,18 @@
                 ]
               },
               "Lion’s Blade Task Force": {
-                "order": 11,
+                "order": 12,
                 "traits": [
                   {
                     "trait": "Detachment§Lion’s Blade Task Force"
+                  }
+                ]
+              },
+              "Wrath of the Rock": {
+                "order": 13,
+                "traits": [
+                  {
+                    "trait": "Detachment§Wrath of the Rock"
                   }
                 ]
               }
@@ -7920,7 +8205,8 @@
             "Company of Hunters",
             "Inner Circle Task Force",
             "Lion’s Blade Task Force",
-            "Unforgiven Task Force"
+            "Unforgiven Task Force",
+            "Wrath of the Rock"
           ],
           "Phase": [],
           "Category": [],
@@ -8053,6 +8339,28 @@
         },
         "text": "**WHEN**: Your Shooting phase, just after a Ravenwing unit from your army has selected its targets.\n\n**TARGET**: That Ravenwing unit.\n\n**EFFECT**: Select one enemy unit within 12\" of your unit that was selected as the target of one or more of the attacking unit’s attacks. Until the end of the phase, each time a friendly Deathwing unit makes an attack that targets that enemy unit, add 1 to the Wound roll."
       },
+      "Stratagem§Inescapable Justice": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Turn": [
+            "Any"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase, just after your Oath of Moment target is destroyed.\n\n**TARGET**: One Adeptus Astartes Character unit that is on the battlefield.\n\n**EFFECT**: Select one enemy unit within 12\" and visible to your unit. That enemy unit becomes your Oath of Moment target until the start of your next Command phase."
+      },
       "Stratagem§Inescapable Wrath": {
         "keywords": {
           "Keywords": [
@@ -8104,6 +8412,50 @@
           ]
         },
         "text": "**WHEN**: Your Movement phase or your Charge phase.\n\n**TARGET**: One Ravenwing unit from your army.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a Normal, Advance or Charge move, it can move horizontally through terrain features."
+      },
+      "Stratagem§Leonine Aggression": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Charge"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: End of your opponent’s Charge phase.\n\n**TARGET**: One Adeptus Astartes unit from your army within 3\" of one or more enemy units, or one Deathwing unit from your army within 6\" of one or more enemy units.\n\n**EFFECT**: Your unit now declares a charge that only targets one or more of those enemy units, and you resolve that charge.\n\n**RESTRICTIONS**: Note that even if this charge is successful, your unit does not receive any Charge bonus this turn."
+      },
+      "Stratagem§Lion’s Will": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Command phase.\n\n**TARGET**: One Adeptus Astartes unit from your army that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Until the start of your next Command phase, add 1 to the Objective Control characteristic of models in your unit. In addition, until the end of the turn, if your unit does not have the Deathwing, Ravenwing or Vehicle keyword, each time a model in your unit makes an attack, add 1 to the Hit roll."
       },
       "Stratagem§Martial Mastery": {
         "keywords": {
@@ -8179,6 +8531,28 @@
         },
         "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Deathwing unit from your army that is arriving using the Deep Strike ability this phase.\n\n**EFFECT**: Your unit can be set up anywhere on the battlefield that is more than 3” horizontally away from all enemy models.\n\n**RESTRICTIONS**: Until the end of the turn, your unit is not eligible to declare a charge."
       },
+      "Stratagem§Relics of the Dark Age": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, add 2 to the Strength characteristic of ranged weapons equipped by models in your unit."
+      },
       "Stratagem§Strength in Unity": {
         "keywords": {
           "Keywords": [
@@ -8196,6 +8570,28 @@
           ]
         },
         "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: If that enemy unit is within Engagement Range of one or more Ravenwing units from your army, until the end of the phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll. If that enemy unit is within Engagement Range of one or more Deathwing units from your army, until the end of the phase, each time a model in that enemy unit makes an attack, if the Strength characteristic of that attack is greater than the Toughness characteristic of the target, subtract 1 from the Wound roll.\n\n**RESTRICTIONS**: A unit cannot be targeted by this and the Armour of Contempt Stratagem in the same phase."
+      },
+      "Stratagem§Tactical Mastery": {
+        "keywords": {
+          "Keywords": [
+            "Wrath of the Rock"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Adeptus Astartes unit from your army.\n\n**EFFECT**: Your unit is eligible to shoot and declare a charge in a turn in which it Advanced. If your unit has the Ravenwing keyword, it is also eligible to shoot and declare a charge in a turn in which it Fell Back."
       },
       "Stratagem§Talon Strike": {
         "keywords": {
