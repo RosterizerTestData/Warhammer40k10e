@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.12.5",
+  "revision": "10.12.6",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -558,6 +558,434 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "burrowerCharacter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 1
+                },
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "characterBurrower"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          },
+          "BurrowerStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Burrower Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Burrower"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Subterranean Assault"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "burrowerWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Burrower Character",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "hideBurrowerWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          },
+          "noBurrowerStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Burrower Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Burrower Character",
+                    "ranks"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Burrower"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Tyranids"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Subterranean Assault"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 220
+          },
+          "renameWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "prepend": "WL ",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "string"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Burrower Character": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "characterBurrower": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
+          },
+          "characterBurrower": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Warlord": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "statOrder": 100,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
           }
         }
       },
@@ -3143,6 +3571,128 @@
         },
         "text": "## HYPER-ADAPTATIONS\nAt the start of the first battle round, select one of the following Hyper-adaptations to be active for **Tyranids** units from your army until the end of the battle:\n\n### SWARMING INSTINCTS\nEach time a **Tyranids** model with this Hyper-adaptation makes an attack that targets an enemy **Infantry** or **Swarm** unit, that attack has the **[SUSTAINED HITS 1]** ability.\n\n### HYPER-AGGRESSION\nEach time a **Tyranids** model with this Hyper-adaptation makes an attack that targets an enemy **Monster** or **Vehicle** unit, that attack has the **[LETHAL HITS]** ability.\n\n### HIVE PREDATORS\nEach time a **Tyranids** model with this Hyper-adaptation makes an attack that targets an enemy **Character** unit, if a Critical Hit is scored, that attack has the **[PRECISION]** ability."
       },
+      "Detachment§Subterranean Assault": {
+        "rules": {
+          "applyKeywords": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    [
+                      "Unit§Mawloc",
+                      "Unit§Trygon"
+                    ],
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Burrower"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Retreat Below"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Swarming Assault"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Tunnel Network"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Enfilading Emergence"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Replenishing Swarms"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Adaptive Optimisation"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## SURPRISE ASSAULT\n\nEach time a Tyranids model from your\narmy makes an attack, re-roll a Hit roll\nof 1.\n\nEach time a Burrower unit from your\narmy is set up on the battlefield from\nReserves, place a circular 40mm Tunnel\nMarker anywhere on the battlefield\nwithin 1\" of that unit and more than 3\"\nhorizontally away from all enemy units.\n\nIn the Reinforcements step of your\nMovement phase, when you set up a unit\non the battlefield from Reserves, you can\nset that unit up wholly within 9\" of one of\nyour Tunnel Markers and more than 6\"\nhorizontally away from any enemy units.\n\nIf an enemy model (excluding Aircraft)\nends any kind of move within 3\" of one of\nyour Tunnel Markers, that Tunnel Marker\nis removed from the battlefield.\n\n## KEYWORDS\n\nMawloc and Trygon units from your army\nhave the Burrower keyword.\n\nIn the Muster Armies step, you can\nselect up to 2 Trygon models from\nyour army. The selected units gain the\nCharacter keyword."
+      },
       "Detachment§Synaptic Nexus": {
         "rules": {
           "assignStartagems": {
@@ -4527,6 +5077,19 @@
         },
         "text": "**Tyranids** model only. While a friendly **Tyranids** unit is within 9″ of the bearer, that unit is within Synapse Range of your army."
       },
+      "Enhancement§Synaptic Strategy": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Tyranids model only. Once per battle, you can target the bearer’s unit with the Rapid Ingress stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase."
+      },
       "Enhancement§Synaptic Tyrant": {
         "keywords": {
           "Keywords": [
@@ -4616,6 +5179,143 @@
           }
         },
         "text": "**Tyranids Synapse** model only. While an enemy unit is within 9″ of the bearer, worsen that unit’s Leadership characteristic by 1."
+      },
+      "Enhancement§Tremor Senses": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Tyranids model only. After both players have deployed their armies, select up to three friendly Tyranids units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+      },
+      "Enhancement§Trygon Prime": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Tyranids model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules."
+      },
+      "Enhancement§Vanguard Intellect": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "S",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Synapse"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
+          "Trygon model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Trygon"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Trygon model only. The bearer gains the Synapse keyword. Improve the Strength and Weapon Skill characteristics of melee weapons equipped by the bearer by 1."
       },
       "Melee Weapon§Barbed Hierodule—Hierodule scything talons": {
         "aspects": {
@@ -10051,6 +10751,27 @@
         "allowed": {
           "classifications": []
         },
+        "rules": {
+          "Max 2 Burrower characters": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "characterBurrower"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
         "stats": {
           "Detachment": {
             "ranks": {
@@ -10109,6 +10830,14 @@
                     "trait": "Detachment§Warrior Bioform Onslaught"
                   }
                 ]
+              },
+              "Subterranean Assault": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Detachment§Subterranean Assault"
+                  }
+                ]
               }
             }
           },
@@ -10150,6 +10879,28 @@
           }
         },
         "text": "**WHEN:** Your opponent’s Shooting phase or Fight phase, just after an enemy unit has selected its targets.\n\n---\n**TARGET:** One **Harvester** unit from your army that is selected as the target of one or more of the attacking units attacks.\n\n---\n**EFFECT:** Until the end of the phase, models in your unit have the Feel No Pain 5+ ability. If your unit is within range of an objective marker you control, until the end of the phase, models in your unit have the Feel No Pain 4+ ability instead."
+      },
+      "Stratagem§Adaptive Optimisation": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Command phase.\n\n**TARGET**: One Mawloc or Trygon unit from your army.\n\n**EFFECT**: Until the start of your next Command phase, your unit has the Synapse keyword."
       },
       "Stratagem§Adrenal Surge": {
         "keywords": {
@@ -10286,6 +11037,28 @@
           ]
         },
         "text": "**WHEN:** Your Command phase.\n\n---\n**TARGET:** Up to two **Endless Multitude** units from your army that are within Synapse Range of your army, or one other **Endless Multitude** unit from your army.\n\n---\n**EFFECT:** Up to D3+3 destroyed models are returned to each of the selected units."
+      },
+      "Stratagem§Enfilading Emergence": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your Movement phase.\n\n**TARGET**: One Tyranids unit from your army that was set up as Reinforcements this turn.\n\n**EFFECT**: Until the end of your next Fight phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities."
       },
       "Stratagem§Hypersensory Scillia": {
         "keywords": {
@@ -10568,6 +11341,28 @@
         },
         "text": "**WHEN:** Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n---\n**TARGET:** One **Synapse** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n---\n**EFFECT:** Until the attacking unit has finished making its attacks, each \ntime an attack targets your unit, worsen the Armour \nPenetration characteristic of that attack by 1."
       },
+      "Stratagem§Replenishing Swarms": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One Tyranids unit from your army, wholly within 9\" of one or more Tunnel Markers you placed.\n\n**EFFECT**: One model in your unit regains up to D3+1 lost wounds, or you can return up to D3+1 destroyed models with a Wounds characteristic of 1 to your unit, with their full wounds remaining, instead."
+      },
       "Stratagem§Restorative Impulse": {
         "keywords": {
           "Category": [
@@ -10585,6 +11380,28 @@
           ]
         },
         "text": "**WHEN**: Your Command phase.\n\n---\n**TARGET**: One **Tyranid Warriors** unit from your army that is below its Starting Strength.\n\n---\n**EFFECT**: Return 1 destroyed model (excluding **Character** models) to your unit."
+      },
+      "Stratagem§Retreat Below": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your opponent’s Fight phase.\n\n**TARGET**: One Tyranids unit or up to two Burrower units from your army that are not within Engagement Range of one or more enemy units.\n\n**EFFECT**: Remove your unit from the battlefield and place it into Strategic Reserves."
       },
       "Stratagem§Savage Roar": {
         "keywords": {
@@ -10697,6 +11514,28 @@
           ]
         },
         "text": "**WHEN:** Your Shooting phase.\n\n---\n**TARGET:** One **Tyranids Monster** unit from your army that has not been selected to shoot this phase.\n\n---\n**EFFECT:** Until the end of the phase, ranged weapons equipped by models in your unit have the **[IGNORES COVER]** ability, and until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that model’s Ballistic Skill characteristic and any or all modifiers to the Hit roll."
+      },
+      "Stratagem§Swarming Assault": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Charge"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Charge phase.\n\n**TARGET**: One Tyranids Monster unit from your army that was set up as Reinforcements this turn.\n\n**EFFECT**: Until the end of the phase, friendly Tyranids units within 6\" of your unit can re-roll Charge rolls."
       },
       "Stratagem§Swarming Masses": {
         "keywords": {
@@ -10848,6 +11687,28 @@
           ]
         },
         "text": "**WHEN:** Any phase, just after an enemy unit fails a Battle-shock test.\n\n---\n**TARGET:** One **Synapse** unit from your army within 12″ of the enemy unit.\n\n---\n**EFFECT:** Roll six D6, for each 3+, that enemy unit suffers 1 mortal wound."
+      },
+      "Stratagem§Tunnel Network": {
+        "keywords": {
+          "Keywords": [
+            "Subterranean Assault"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your Movement phase.\n\n**TARGET**: One Tyranids unit from your army that is wholly within 9\" of one or more of your Tunnel Markers.\n\n**EFFECT**: Remove your unit from the battlefield and set it up again, wholly within 9\" of another Tunnel Marker you placed, and more than 6\" horizontally away from all enemy units."
       },
       "Stratagem§Tyrannoformed": {
         "keywords": {
@@ -13320,7 +14181,7 @@
         },
         "stats": {
           "model1stTally": {
-            "value": 3
+            "value": 5
           },
           "model2ndCost": {},
           "model2ndTally": {},
