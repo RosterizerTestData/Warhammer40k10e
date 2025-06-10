@@ -1,6 +1,6 @@
 {
   "name": "Tyranids",
-  "revision": "10.12.8",
+  "revision": "10.12.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2579,6 +2579,69 @@
             "Infantry",
             "Vanguard Invader"
           ]
+        },
+        "rules": {
+          "removeParentTallies": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Ravener"
+                  ],
+                  [
+                    "{parent}",
+                    "tracked",
+                    "Ravener"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T*O",
+                  "value": -1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Ravener"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "lineage"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          }
         },
         "stats": {
           "modelKey": {
