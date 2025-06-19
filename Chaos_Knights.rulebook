@@ -1,6 +1,6 @@
 {
   "name": "Chaos Knights",
-  "revision": "10.12.3",
+  "revision": "10.12.4",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,15 +9,579 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "WY4CVX",
+      "slug": "45Q2XD",
       "name": "Chaos",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos.rulebook"
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Unit": {
+        "rules": {
+          "characterWarDog": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 1
+                },
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "characterWarDog"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          },
+          "hideWarDogWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          },
+          "noWarDogStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "War Dog Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "War Dog Character",
+                    "ranks"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "War Dog"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Chaos Knights"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Houndpack Lance"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 220
+          },
+          "renameWarlord": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ],
+                "prepend": "WL ",
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "string"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "WarDogStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "War Dog Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "War Dog"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Chaos Knights"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Houndpack Lance"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "WarDogWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "War Dog Character",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "characterWarDog": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "War Dog Character": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "characterWarDog": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
+          },
+          "Warlord": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "statOrder": 100,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          }
+        }
+      }
+    },
     "assetCatalog": {
+      "Detachment§Houndpack Lance": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    [
+                      "Unit§War Dog Brigand",
+                      "Unit§War Dog Executioner",
+                      "Unit§War Dog Huntsman",
+                      "Unit§War Dog Karnivore",
+                      "Unit§War Dog Moirax",
+                      "Unit§War Dog Stalker"
+                    ],
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Encircling Pack"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Harrying Hounds"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Animalistic Rage"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Cunning Hunter"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Hungry for Combat"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Vox-Howl"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## MARKED PREY \n\nAt the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a War Dog model from your army makes an attack that targets that enemy unit, if that unit is visible to the attacking model, that attack has the [SUSTAINED HITS] 1 ability.\n\n**KEYWORDS**\n\nWhile using the Houndspack Lance Detachment, the following rules apply:\n\n- Your army must include three or more War Dog units.\n\n- War Dog units from your army have the BATTLELINE keyword.\n\n- When mustering your army, select three War Dog units from your army. Until the end of the battle, those units have the CHARACTER keyword."
+      },
       "Detachment§Iconoclast Fiefdom": {
         "keywords": {
           "Keywords": [
@@ -119,10 +683,10 @@
         },
         "text": "**DREADED MASTERS**\n\nTitanic Chaos Knights units from your\narmy have the following abilities:\n\nDread Tyrants (Aura): While a friendly\nDamned unit is within 9\" of this unit,\neach time a model in that unit makes an\nattack, re‑roll a Hit roll of 1 and re‑roll a\nWound roll of 1.\n\nChaos Knights units from your army have\nthe following abilities:\n\nDark Sacrifice: Each time a Chaos\nKnights unit with this ability is selected\nto shoot or fight, it can make a Dark\nSacrifice. If it does, select one friendly Damned\nunit within 6\". That Damned unit must\ntake a Leadership test: if passed, destroy\nD3 models in that Damned unit; if failed,\ndestroy D3+3 models in that Damned\nunit. In either case, then select one of the\nfollowing abilities for your Chaos Knights\nunit’s weapons to have until the end of\nthe phase: [LETHAL HITS]; [SUSTAINED HITS 1].\n\nWRETCHED THRALLS\nYou can include Damned units in your\narmy (see Codex: Chaos Space Marines).\nThe combined points cost of such units\ndepends on your battle size:\n\n■ Incursion: Up to 250 pts\n■ Strike Force: Up to 500 pts\n■ Onslaught: Up to 750 pts\n\nNo Damned models from your army can\nbe your Warlord."
       },
-      "Detachment§Traitoris Lance": {
+      "Detachment§Infernal Lance": {
         "keywords": {
           "Keywords": [
-            "Traitoris Lance"
+            "Infernal Lance"
           ]
         },
         "rules": {
@@ -140,7 +704,7 @@
                     "traits"
                   ]
                 ],
-                "value": "Stratagem§Dread Hounds"
+                "value": "Stratagem§Diabolic Bulwark"
               },
               {
                 "actionType": "add",
@@ -154,8 +718,219 @@
                     "traits"
                   ]
                 ],
-                "value": "Stratagem§Disdain For the Weak"
+                "value": "Stratagem§Warp Vision"
               },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unleash Balefire"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Corrupting Taint"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Hellforged Construction"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Profane Symbiosis"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## MALEFIC SURGE\n\nIn your Command phase, one or more CHAOS KNIGHTS units from your army can make a Malefic Surge. Each unit that does so must first take a Leadership test; if that test is failed, that unit suffers D3 mortal wounds. Then, until the start of your next Command phase, that unit is Empowered. While a unit is Empowered it can use one of the Malefic Surge abilities below. Once that unit has used a Malefic Surge ability, it is no longer Empowered.\n\n- Unholy Hunger: When a model in this unit makes a Normal, Advance or Fall Back move, until the end of the phase, add 3\" to its Move characteristic.\n\n- Diabolic Power: When this unit is selected to shoot or fight, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, melee weapons equipped by models in this unit have the selected ability.\n\n- Unnatural Fortitude: When this unit is targeted by a ranged or an attack, until the end of the phase, models in this unit have a 5+ invulnerable save and the Feel No Pain 6+ ability."
+      },
+      "Detachment§Lords of Dread": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    [
+                      "Character§Chaos Cerastus Knight Acheron",
+                      "Character§Chaos Cerastus Knight Atrapos",
+                      "Character§Chaos Cerastus Knight Castigator",
+                      "Character§Chaos Cerastus Knight Lancer",
+                      "Character§Chaos Questoris Knight Magaera",
+                      "Character§Chaos Questoris Knight Styrix",
+                      "Character§Knight Desecrator",
+                      "Character§Knight Despoiler",
+                      "Character§Knight Ruinator",
+                      "Character§Knight Abominant",
+                      "Character§Knight Tyrant",
+                      "Character§Knight Rampager"
+                    ],
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "assignStratagem": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Crushed Like Vermin"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Trophy Hunter"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Titanic Duel"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Runes of Disdain"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Spiteful Demise"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Claimed for the Dark Gods"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## TYRANNICAL COURT\n\nImprove the Objective Control characteristic of Chaos Knights Character models from your army by 2. In addition, once per battle round, if your Warlord is on the battlefield, you can use the Claimed for the Dark Gods Stratagem for 0CP."
+      },
+      "Detachment§Traitoris Lance": {
+        "keywords": {
+          "Keywords": [
+            "Traitoris Lance"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
               {
                 "actionType": "add",
                 "iterations": 1,
@@ -196,7 +971,7 @@
                     "traits"
                   ]
                 ],
-                "value": "Stratagem§Diabolic Bulwark"
+                "value": "Stratagem§Conquerors Without Mercy"
               },
               {
                 "actionType": "add",
@@ -210,7 +985,35 @@
                     "traits"
                   ]
                 ],
-                "value": "Stratagem§Knights of Shade"
+                "value": "Stratagem§Imperious Advance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Storm of Darkness"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Disdain For the Weak"
               }
             ],
             "evals": [],
@@ -218,20 +1021,171 @@
             "failState": "pass"
           }
         },
-        "text": "In the Battle-shock step of your opponent’s Command phase, if an enemy unit that is below its Starting Strength is within 12″ of a Chaos Knights model from your army, that enemy unit must take a Battleshock test. For the purposes of this ability, if a unit has a Starting Strength of 1, it is considered to be below its Starting Strength while it has lost one or more wounds. \n\nDesigner’s Note: This means that all enemy units within range of this Aura ability that have lost one or more models must take a Battle-shock test in your opponent’s Command phase, not just those that are Below Half-strength."
+        "text": "## PARAGONS OF TERROR\n\nAt the start if the first battle round, after selecting one or more Dread abilities to be active for your army, you can select one additional Dread ability to be active for your army (this additional Dread ability cannot be randomly selected)."
       },
-      "Enhancement§Aura of Terror": {
+      "Enhancement§Bestial Aspect": {
         "keywords": {
           "Keywords": [
-            "Traitoris Lance"
+            "Infernal Lance"
           ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Assault"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
         },
         "stats": {
           "Points": {
-            "value": 25
+            "value": 20
           }
         },
-        "text": "Chaos Knights model only. If you control an objective marker at the end of your Command phase, and the bearer is within range of that objective marker, that objective marker is said to be Tainted and remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase. In addition, while an objective marker is Tainted and under your control, that objective marker has the Despair Dread ability as if it was a Chaos Knights model from your army (so subtract 1 from Battleshock and Leadership tests taken for enemy units within 12\" of it)."
+        "text": "CHAOS KNIGHTS model only. The bearer's ranged weapons have the [ASSAULT] ability. While the bearer is using the Unholy Hunger ability, it can ignore any or all modifiers to its Move characteristic and/or to Advance rolls made for its unit."
+      },
+      "Enhancement§Blade of Celerity": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Assault"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "Chaos Knights model only. The bearer's ranged weapons have the [ASSAULT] ability. In addition, once per battle, in the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer's unit have the Fights First ability."
+      },
+      "Enhancement§Blasphemous Engine": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "CHAOS KNIGHTS model only. Add 2 to the bearer's Wounds characteristic. Each time the bearer's unit makes a Malefic Surge, you can re-roll the Leadership test taken to see if it suffers any mortal wounds."
+      },
+      "Enhancement§Blessing of the Dark Master": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Chaos Knights model only. The bearer has the Stealth ability. In addition, once per battle, after you make a saving throw for the bearer, you can change the Damage characteristic of that attack to 0."
       },
       "Enhancement§Diabolocal Resilience": {
         "keywords": {
@@ -294,31 +1248,268 @@
         },
         "text": "Chaos Knights model only. The bearer has the\nFeel No Pain 6+ ability and you can ignore any or\nall modifiers to its Move characteristic and/or to any\n1 Advance or Charge rolls made for it."
       },
-      "Enhancement§Lord of Dread": {
+      "Enhancement§Final Howl (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ]
+        },
+        "rules": {
+          "War Dog model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "War Dog"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "War Dog model only. While a friendly War Dog model is within 6\" of the bearer, each time that models makes an attack, re-roll a Wound roll of 1."
+      },
+      "Enhancement§Fleshmetal Fusion": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "T",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "CHAOS KNIGHTS model only. Add 1 to the bearer's Toughness characteristic. While the bearer is using the Unnatural Fortitude ability, each time an attack with a Damage characteristic of 1 is allocated to the bearer, add 1 to any armour saving throw made against that attack."
+      },
+      "Enhancement§Knight Diabolus": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "WS",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "CHAOS KNIGHTS model only. Improve the Weapon Skill characteristic of the bearer's melee weapons by 1. While the bearer is using the Diabolic Power ability, its melee weapons have the [LANCE] ability."
+      },
+      "Enhancement§Loping Predator": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Assault"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "War Dog models only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "War Dog"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "War Dog model only. The bearer's ranged weapons have the [ASSAULT] ability."
+      },
+      "Enhancement§Malevolent Heraldry": {
         "keywords": {
           "Keywords": [
             "Traitoris Lance"
           ]
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "Chaos Knight's model only. Each time you roll dice to randomly select which Dread abilities are active for your army, if the bearer is on the battlefield, you can re-roll one or both results rolled."
+      },
+      "Enhancement§Mirror of Fates": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "Chaos Knights model only. Once per battle round, you can target the bearer's unit with the Command Re-roll Stratagem for 0CP, and can do so even if another unit from your army has already been targeted by that Stratagem this phase. In addition, once per battle, just after your opponent uses a stratagem, if the bearer is on the battlefield, it can use this Enhancement. If it does, until the end of the battle, the CP cost your opponent must pay to use that Stratagem again is increased by 1CP."
+      },
+      "Enhancement§Nightmare's Master": {
+        "keywords": {
+          "Keywords": [
+            "Traitoris Lance"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Chaos Knight's model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer must take a Battle-shock test."
+      },
+      "Enhancement§Panoply of the Cursed Knights": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ]
+        },
+        "rules": {
+          "War Dog model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "War Dog"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
         },
         "stats": {
           "Points": {
             "value": 15
           }
         },
-        "text": "Chaos Knights model only. At the start of the Fight phase, you can select one enemy unit within Engagement Range of the bearer; that enemy unit must take a Battle-shock test."
-      },
-      "Enhancement§Panoply of the Cursed Knight": {
-        "keywords": {
-          "Keywords": [
-            "Traitoris Lance"
-          ]
-        },
-        "stats": {
-          "Points": {
-            "value": 40
-          }
-        },
-        "text": "Chaos Knights model only. Each time an attack is made against the bearer, subtract 1 from the Armour Penetration characteristic of that attack."
+        "text": "War Dog model only. Each time an attack targets the bearer, worsen the Armour Penetration characteristic of that attack by 1."
       },
       "Enhancement§Pave the Way": {
         "keywords": {
@@ -355,6 +1546,60 @@
         },
         "text": "Chaos Knights model only. At the start of the Declare\nBattle Formations step, you can select up to three\nDamned units from your army. The selected units have\nthe Scouts 6\" ability."
       },
+      "Enhancement§Preyslayer's Mantle": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Super-heavy Walker"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Wardog model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "War Dog"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "War Dog model only. The bearer has the Super-heavy Walker ability."
+      },
       "Enhancement§Profane Altar": {
         "keywords": {
           "Keywords": [
@@ -390,18 +1635,54 @@
         },
         "text": "Chaos Knights model only. Each time the bearer\nmakes a Dark Sacrifice, the maximum number of\nmodels are destroyed in the selected Damned unit\n(i.e. 3 if the unit’s Leadership test is passed, or 6 if it\nis failed) but, until the end of the phase, the bearer’s\nweapons have both [LETHAL HITS] and [SUSTAINED HITS 1]."
       },
-      "Enhancement§The Traitor’s Mark": {
+      "Enhancement§Putric Carapace": {
         "keywords": {
           "Keywords": [
-            "Traitoris Lance"
+            "Lords of Dread"
           ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
+          }
         },
         "stats": {
           "Points": {
             "value": 30
           }
         },
-        "text": "Chaos Knights model only. . In your Movement\nphase, select one enemy unit within 12\" of the bearer. That enemy unit must take a Battleshock test."
+        "text": "Chaos Knights model only. The bearer has a Save characteristic of 2+. In addition, once per battle, at the start of either player's Command phase, the bearer can use this Enhancement. If it does, the bearer regains up to D6 lost wounds."
+      },
+      "Enhancement§Throne Mechanicum of Skulls": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Chaos Knights model only. You can re-roll Charge rolls made for the bearer's unit. In addition, once per battle, in your Charge phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer's unit is eligible to declare a charge in a turn in which it Advanced."
       },
       "Enhancement§Tyrant's Banner": {
         "keywords": {
@@ -437,6 +1718,66 @@
           }
         },
         "text": "Chaos Knights model only. Each time the bearer\nmakes a Dark Sacrifice, select one visible friendly Damned unit\nto take a Leadership test instead of a friendly Damned unit\nwithin 6\"."
+      },
+      "Enhancement§Tyrant's Shadow": {
+        "keywords": {
+          "Keywords": [
+            "Traitoris Lance"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Chaos Knight's model only. At the end of your Command phase, select one objective marker the bearer is within range of and that you control. That objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase. In addition, until you lose control of that objective marker, it has the Deathly Terror ability as if it were a Chaos Knight's model from your army."
+      },
+      "Enhancement§Veil of Medrengard": {
+        "keywords": {
+          "Keywords": [
+            "Traitoris Lance"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "Chaos Knight's model only. The bearer has a 4+ invulnerable save against ranged attacks, and a 5+ invulnerable save against melee attacks."
+      },
+      "Enhancement§Warp-borne Stalker": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Chaos Knights model only. The bearer has the Deep Strike ability. In addition, once per battle, at the end of your opponent's turn, if the bearer is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
       },
       "Roster§Roster": {
         "constraints": {
@@ -532,6 +1873,25 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 50
+          },
+          "Max 3 War Dogs Characters": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "characterWarDog"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
           }
         },
         "stats": {
@@ -564,6 +1924,30 @@
                 "traits": [
                   {
                     "trait": "Detachment§Iconoclast Fiefdom"
+                  }
+                ]
+              },
+              "Infernal Lance": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Detachment§Infernal Lance"
+                  }
+                ]
+              },
+              "Lords of Dread": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Detachment§Lords of Dread"
+                  }
+                ]
+              },
+              "Houndpack Lance": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Detachment§Houndpack Lance"
                   }
                 ]
               }
@@ -601,7 +1985,31 @@
             "Traitoris Lance"
           ]
         },
-        "text": "**WHEN**: Your Command phase. \n\n**TARGET**: One Abhorrent model from your army and up to three War Dog models from your army. \n\n**EFFECT**: Until the start of your next Command phase, those War Dog models count as being within range of any Aura abilities that Abhorrent model has."
+        "text": "**WHEN**: Your Command phase. \n\n**TARGET**: One Abhorrent unit from your army and up to two friendly War Dog units.\n\n**EFFECT**: Until the start of your next Command phase, those War Dog units are treated as being within range of any Aura abilities your Abhorrent unit has."
+      },
+      "Stratagem§Animalistic Rage": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase, just after a War Dog unit from your army is destroyed.\n\n**TARGET**: That War Dog unit. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT**: Before resolving your unit's Deadly Demise ability, it can either shoot or fight. When doing so, it must target only the enemy unit that just destroyed it, and can only do so if that enemy unit is an eligible target. After it has done so and after any Consolidation moves have been made, resolve your unit's Deadly Demise ability as normal."
       },
       "Stratagem§Avenge the Master!": {
         "keywords": {
@@ -620,25 +2028,30 @@
         },
         "text": "**WHEN**: Any phase.\n\n**TARGET**: One **Chaos Knights** unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT**: Until the end of the battle, the enemy unit that destroyed your unit is Marked. Each time a **Damned** model from your army makes an attack that targets a Marked unit, that attack has the [LETHAL HITS] ability."
       },
-      "Stratagem§Diabolic Bulwark": {
+      "Stratagem§Claimed for the Dark Gods": {
         "keywords": {
           "Keywords": [
-            "Chaos Knights",
-            "Traitoris Lance"
-          ],
-          "Phase": [
-            "Shooting"
-          ],
-          "Turn": [
-            "Opponent’s"
+            "Lords of Dread"
           ],
           "Category": [
-            "Wargear"
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
           ]
         },
-        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks. \n\n**EFFECT**: Until the end of the phase, that Chaos Knights model has a 4+ invulnerable save against ranged attacks."
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**:Start of any phase.\n\n**TARGET**: One Chaos Knights Character unit from your army that is within range of one or more objective markers you control.\n\n**EFFECT**: Select one of those objective markers. That objective marker remains under your control, with a Level of Control of 5 (unless it would otherwise be higher), until your opponent's Level of Control over that objective is greater than yours at the end of the phase."
       },
-      "Stratagem§Disdain For the Weak": {
+      "Stratagem§Conquerors Without Mercy": {
         "keywords": {
           "Turn": [
             "Opponent’s",
@@ -655,29 +2068,204 @@
             "Traitoris Lance"
           ]
         },
-        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks. \n\n**EFFECT**: Until the end of the phase, your model has the Feel No Pain 6+ ability, and the Feel No Pain 5+ ability against attacks made by Battle-shocked models."
+        "text": "**WHEN**: Fight phase. \n\n**TARGET**: One Chaos Knights model from your army that made a Charge move this turn and has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, improve Armour Penetration characteristic of melee weapons equipped by your model by 1. After your model has finished making its attacks this phase, if it destroyed one or more enemy units this phase, each enemy unit within 6\" of your model must take a Battle-shock test."
       },
-      "Stratagem§Dread Hounds": {
+      "Stratagem§Corrupting Taint": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Command phase, just after a Chaos Knights Character unit from your army makes a Malefic Surge.\n\n**TARGET**: That Chaos Knights Character unit.\n\n**EFFECT**: Select one objective marker your unit is within range of that you control. That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase."
+      },
+      "Stratagem§Crushed Like Vermin": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase, just after a Chaos Knights Character unit from your army ends a normal move.\n\n**TARGET**: That Chaos Knights Character unit.\n\n**EFFECT**: Select one enemy unit (excluding Monsters and Vehicles) that your unit moved over during that move and roll six D6 for each 4+, that enemy unit suffers 1 mortal wound. If one or more models are destroyed as a result of this Stratagem, that enemy unit must take a Battle-shock test."
+      },
+      "Stratagem§Cunning Hunter": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase, just after a War Dog unit from your army Falls Back.\n\n**TARGET**: That War Dog unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+      },
+      "Stratagem§Diabolic Bulwark": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, models in your unit have a 4+ invulnerable save."
+      },
+      "Stratagem§Disdain For the Weak": {
         "keywords": {
           "Turn": [
             "Opponent’s",
             "Yours"
           ],
           "Category": [
-            "Battle Tactic"
+            "Strategic Ploy"
           ],
           "Phase": [
-            "Fight",
-            "Shooting"
+            "Fight"
           ],
           "Keywords": [
             "Chaos Knights",
             "Traitoris Lance"
           ]
         },
-        "text": "**WHEN**: The start of your Shooting phase or the start of the Fight phase. \n\n**TARGET**: Two or more War Dog units from your army and one enemy unit that is an eligible target for each of those selected War Dog units. \n\n**EFFECT**: Until the end of the phase, the selected War Dog units can only target that enemy unit, but all weapons equipped by those War Dog models gain the [SUSTAINED HITS 1] ability. In addition, if that enemy unit is Battle-shocked, until the end of the phase, each time a selected War Dog model makes an attack against that enemy unit, an unmodified Hit roll of 5+ scores a Critical Hit."
+        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks. \n\n**EFFECT**: Until the end of the phase, models in your unit have the Feel No Pain 6+ ability, and the Feel No Pain 5+ ability against attacks made by Battle-shocked models."
       },
-      "Stratagem§Knights of Shade": {
+      "Stratagem§Encircling Pack": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your opponent’s Fight phase.\n\n**TARGET**: One War Dog unit from your army that is more than 6\" from the enemy.\n\n**EFFECT**: Remove your unit from the battlefield and place it into Strategic Reserves."
+      },
+      "Stratagem§Harrying Hounds": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance, or Fall Back move.\n\n**TARGET**: One War Dog unit from your army that is within 9\" of that enemy unit.\n\n**EFFECT**: Your unit can make a Normal move of up to 6\"."
+      },
+      "Stratagem§Hellforged Construction": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
+      "Stratagem§Hungry for Combat": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Start of the Fight phase.\n\n**TARGET**: Two or more War Dog units from your army within Engagement Range of the same enemy unit.\n\n**EFFECT**: Select one enemy unit within Engagement Range of those War Dog units. Until the end of the phase, models in those War Dog units can only target that enemy unit, but each time a model in one of those War Dog units makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
+      "Stratagem§Imperious Advance": {
         "keywords": {
           "Keywords": [
             "Chaos Knights",
@@ -694,7 +2282,7 @@
             "Yours"
           ]
         },
-        "text": "**WHEN**: Your Movement phase or your Charge phase. \n\n**TARGET**: Up to two War Dog models from your army or one Titanic Chaos Knights model from your army. \n\n**EFFECT**: Until the end of the phase, the selected models can move horizontally through models and terrain features as if they were not there."
+        "text": "**WHEN**: Your Movement phase or your Charge phase. \n\n**TARGET**: Up to two War Dog models from your army or one Titanic Chaos Knights model from your army. \n\n**EFFECT**: Until the end of the phase, each time a model in one of your units makes a move. It can move through models and terrain features. When doing so, it can move within Engagement Range of such models but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed (the Super-heavy Walker ability does not apply while using this Stratagem)."
       },
       "Stratagem§Preserve the Idols": {
         "keywords": {
@@ -713,24 +2301,74 @@
         },
         "text": "**WHEN**: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n**TARGET**: One **Chaos Knights** unit from your army that is within 9\" of that enemy unit.\n\n**EFFECT**: Select one **Damned** unit from your army that is not Battle‑shocked, not within Engagement Range of one or more enemy units and is within 6\" of your unit. That Damned unit can make a Normal move of up to 6\", but it must end this move closer to that enemy unit than when it started the move."
       },
+      "Stratagem§Profane Symbiosis": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "End"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of any phase.\n\n**TARGET**: One Chaos Knights unit from your army that is not Empowered.\n\n**EFFECT**: Your unit makes a Malefic Surge.\n\n**RESTRICTIONS**: You cannot select the same unit as the target of this Stratagem more than once per battle round."
+      },
       "Stratagem§Pterrorshades": {
         "keywords": {
           "Keywords": [
-            "Chaos Knights",
             "Traitoris Lance"
-          ],
-          "Phase": [
-            "Any"
           ],
           "Category": [
             "Wargear"
+          ],
+          "Phase": [
+            "Any"
           ],
           "Turn": [
             "Opponent’s",
             "Yours"
           ]
         },
-        "text": "**WHEN**: Any phase, just after an enemy unit fails a Battle-shock test. \n\n**TARGET**: One Chaos Knights unit from your army that is within 12″ of that enemy unit. \n\n**EFFECT**: Roll six D6. For each 4+, that enemy unit suffers 1 mortal wound and this model regains up to 1 lost wound."
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase, just after an enemy unit fails a Battle-shock test.\n\n**TARGET**: One Chaos Knights unit from your army that is within 12\" of that enemy unit.\n\n**EFFECT**: Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound and one model in your unit regains up to 1 lost wound.\n\n**RESTRICTIONS**: You can only use this Stratagem once per battle round."
+      },
+      "Stratagem§Runes of Disdain": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Chaos Knights Character unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Damage characteristic of that attack."
       },
       "Stratagem§Soul Hunger": {
         "keywords": {
@@ -750,6 +2388,116 @@
         },
         "text": "**WHEN**: Fight phase, just after a **Chaos Knights** unit from your army has fought.\n\n**TARGET**: That **Chaos Knights** unit.\n\n**EFFECT**: If one or more models were destroyed as a result of those attacks, your unit regains up to D3 lost wounds. If one or more models from Battle‑shocked units were destroyed as a result of those attacks, your unit regains up to D3+2 lost wounds instead."
       },
+      "Stratagem§Spiteful Demise": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase, just after a Chaos Knights Character unit from your army is destroyed.\n\n**TARGET**: That Chaos Knights Character unit. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT**: When rolling to determine whether mortal wounds are inflicted by your unit's Deadly Demise ability, that model Deadly Demise ability inflicts mortal wounds on a D6 roll of 4+ instead of 6."
+      },
+      "Stratagem§Storm of Darkness": {
+        "keywords": {
+          "Keywords": [
+            "Chaos Knights",
+            "Traitoris Lance"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ]
+        },
+        "text": "**WHEN**: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One Chaos Knights unit from your army that was selected as the target of one or more of the attacking unit’s attacks. \n\n**EFFECT**: Until the end of the phase, models in your unit have the Stealth ability, and each time an attack targets your unit, models in it have the Benefit of Cover against that attack."
+      },
+      "Stratagem§Titanic Duel": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One Chaos Knights Character unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Select one Monster or Vehicle unit. Until the end of the phase, each time a model in your unit makes an attack that targets that enemy unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. Each time a model in your unit makes an attack that targets that enemy unit, if that enemy unit is Titanic, you can re-roll the Hit roll and you can re-roll the Wound roll instead,"
+      },
+      "Stratagem§Trophy Hunter": {
+        "keywords": {
+          "Keywords": [
+            "Lords of Dread"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase, after a Chaos Knights Character unit from your army consolidates.\n\n**TARGET**: That Chaos Knights Character unit.\n\n**EFFECT**: Until the end of the battle, each time your unit Consolidates, models in it can move an additional 3\" as long as your unit can end that move within Engagement Range of one or more enemy units."
+      },
+      "Stratagem§Unleash Balefire": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Chaos Knights unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: After your unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test; if the test is failed, until the end of your opponent’s next turn, it is Aflame. While it is aflame, subtract 2\" from its Move characteristic and subtract 2 from Charge rolls made for it."
+      },
       "Stratagem§Unrestrained Rage": {
         "keywords": {
           "Keywords": [
@@ -766,6 +2514,52 @@
           ]
         },
         "text": "**WHEN**: Your Movement phase, just after a Chaos Knights unit from your army Advances or Falls Back.\n\n**TARGET**: That unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
+      },
+      "Stratagem§Vox-Howl": {
+        "keywords": {
+          "Keywords": [
+            "Houndpack Lance"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Start of the Shooting phase or the start of the Fight phase.\n\n**TARGET**: One War Dog Character unit from your army.\n\n**EFFECT**: Each enemy unit within 6\" of your unit must take a Battle-shock test. Each friendly War Dog unit that is within 6\" of your unit and is Battle-shocked must take a Leadership test, if that test is passed that unit is no longer Battle-shocked.\n\n**RESTRICTIONS**: You can only use this Stratagem once per turn."
+      },
+      "Stratagem§Warp Vision": {
+        "keywords": {
+          "Keywords": [
+            "Infernal Lance"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One Chaos Knights unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability."
       },
       "Stratagem§Worthless Chattel": {
         "keywords": {
