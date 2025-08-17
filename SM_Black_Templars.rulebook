@@ -1,6 +1,6 @@
 {
   "name": "Black Templars",
-  "revision": "10.12.4",
+  "revision": "10.12.5",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -635,6 +635,81 @@
             "Black Templars"
           ]
         },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Captain"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Chapter Master"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Lieutenant"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Execrator"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -725,9 +800,12 @@
                   }
                 ]
               },
-              "Master-crafted power weapon": {
+              "Absolver bolt pistol & Master-crafted power weapon": {
                 "order": 2,
                 "traits": [
+                  {
+                    "trait": "Ranged Weapon§Execrator—Absolver bolt pistol"
+                  },
                   {
                     "trait": "Melee Weapon§Execrator—Master-crafted power weapon"
                   }
@@ -2540,7 +2618,9 @@
             "Character§Techmarine",
             "Character§Judiciar",
             "Character§Ancient",
-            "Character§Apothecary"
+            "Character§Apothecary",
+            "Character§Execrator",
+            "Character§Crusade Ancient"
           ]
         },
         "aspects": {
