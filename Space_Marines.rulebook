@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.12.19",
+  "revision": "10.12.20",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1849,6 +1849,9 @@
         },
         "text": "Each time this model makes a ranged attack that targets a unit that is not Below Half-strength, you can re-roll the Hit roll."
       },
+      "Ability§Blackwing Mantle": {
+        "text": "You can target this model’s unit with the Rapid Ingress and Heroic Intervention Stratagems for 0CP, even if you have already used that Stratagem on a different unit this phase."
+      },
       "Ability§Bladeguard": {
         "keywords": {
           "Keywords": [
@@ -1912,6 +1915,79 @@
           ]
         },
         "text": "Each time this unit is selected to fight, select one of the following abilities to apply to all Astartes chainswords equipped by models in this unit until the end of the phase: \n\n* [SUSTAINED HITS 1] \n\n* [LETHAL HITS] \n\n* [LANCE]"
+      },
+      "Ability§Chapter Master of the Raven Guard": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Kayvaan Shrike",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lone Operative"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Kayvaan Shrike",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chapter Master"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Kayvaan Shrike",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Captain"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Character§Kayvaan Shrike",
+                    "quantity"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          }
+        },
+        "text": "At the start of the Declare Battle Formations step, if your army includes Aethon Shaan and Kayvaan Shrike, until the end of the battle, your Kayvaan Shrike unit loses its Lone Operative ability and it replaces its Chapter Master keyword with Captain."
       },
       "Ability§Chronus": {
         "keywords": {
@@ -2390,7 +2466,7 @@
             "Other"
           ]
         },
-        "text": "While this model is leading a unit, each time an attack targets that unit, if the Strength characteristic of that attack is greater than or equal to the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+        "text": "Each time an attack targets this model’s unit, if the Strength characteristic of that attack is greater than or equal to the Toughness characteristic of that unit, subtract 1 from the Wound roll."
       },
       "Ability§Incendiary Terror": {
         "keywords": {
@@ -2589,6 +2665,9 @@
           ]
         },
         "text": "While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll. In addition, once per battle round, you can target that unit with one of the following Stratagems for 0CP: Counter-offensive; Fire Overwatch; Go to Ground; Heroic Intervention."
+      },
+      "Ability§Master of Shadows": {
+        "text": "In your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time an Adeptus Astartes unit from your army declares a charge while it is within 12\" of that enemy unit, you can re-roll the Charge roll, but it must declare that enemy unit as a target of that charge (if possible)."
       },
       "Ability§Master of the Fleet": {
         "keywords": {
@@ -2793,7 +2872,7 @@
             "Other"
           ]
         },
-        "text": "Once per battle, at the start of any phase, this model can use this ability. If it does, until the end of the phase, this model has a 2+ invulnerable save."
+        "text": "Once per battle, at the start of any phase, this\nmodel can use this ability. If it does, until the end of the phase, this model has a 2+ invulnerable save."
       },
       "Ability§Recitation of Faith": {
         "keywords": {
@@ -3774,6 +3853,75 @@
           },
           "Sv": {
             "value": 2
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 5
+          }
+        }
+      },
+      "Character§Aethon Shaan": {
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            "Ability§Lone Operative",
+            "Ability§Stealth",
+            "Ability§Oath of Moment",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ability§Master of Shadows",
+            "Ability§Blackwing Mantle",
+            "Ability§Chapter Master of the Raven Guard",
+            "Ranged Weapon§Aethon Shaan—Heavy Bolt Pistol",
+            "Melee Weapon§Aethon Shaan—Claws of Severax"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes",
+            "Raven Guard"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Epic Hero"
+          ],
+          "Keywords": [
+            "Aethon Shaan",
+            "Chapter Master",
+            "Character",
+            "Epic Hero",
+            "Fly",
+            "Imperium",
+            "Infantry",
+            "Jump Pack",
+            "Tacticus"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 85
+          },
+          "Sv": {
+            "value": 3
           },
           "T": {
             "value": 4
@@ -7055,7 +7203,7 @@
             "value": 5
           },
           "W": {
-            "value": 6
+            "value": 7
           }
         }
       },
@@ -10136,6 +10284,107 @@
         },
         "text": "## Shield of The Imperium\n\nRanged weapons equipped by Adeptus Astartes models from your army have the [HEAVY] ability. If such a weapon already has this ability, each time an attack is made with that weapon, if the attacking model’s unit Remained Stationary this turn, add 1 to the Wound roll."
       },
+      "Detachment§Emperor's Shield": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Fury of the First"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Obdurate Vengeance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Wrathful Conquerors"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Disciplined Extermination"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Dropship Extraction"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## WRATH OF DORN\n\nEach time a model from your army with\nthe Oath of Moment ability makes an\nattack that targets your Oath of Moment\ntarget, you can re‑roll a Wound roll of 1.\nEach time a model in a Darnath Lysander\nunit from your army makes an attack that\ntargets your Oath of Moment target, you\ncan re‑roll the Wound roll.\n\n## RESTRICTIONS\nYour army can include Imperial\nFists units, but it cannot include any\nAdeptus Astartes units drawn from any\nother Chapter."
+      },
       "Detachment§Firestorm Assault Force": {
         "rules": {
           "apply": {
@@ -10814,6 +11063,107 @@
         },
         "text": "**PSYCHIC DISCIPLINES**\n\nAt the start of the battle round, select one of the following Psychic Disciplines. Until the end of the battle round, that Psychic Discipline is active and its effects apply to all Adeptus Astartes Psyker units from your army.\n\n**Biomancy Discipline**\n\nAdd 2\" to the Move characteristic of models in this unit. \n\n**Divination Discipline**\n\nEach time a model in this unit makes an\nattack, re‑roll a Hit roll of 1 and re‑roll a\nWound roll of 1.\n\n**Pyromancy Discipline**\n\nEach time a ranged attack made by a model in this unit targets an enemy unit within 12\", improve the Armour Penetration characteristic of that attack by 1.\n\n**Telekinesis Discipline**\n\nEach time a ranged attack targets this unit, subtract 1 from the Strength characteristic of that attack.\n\n**Telepathy Discipline**\n\nEach time a model in this unit makes an attack, you can ignore any or all modifiers to that attack’s Weapon Skill or Ballistic Skill characteristics and/or any or all modifiers to the Hit roll."
       },
+      "Detachment§Shadowmark Talon": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ]
+        },
+        "rules": {
+          "assignStratagem": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Into Darkness"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Raptorial Vigilance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Stunning Fusillade"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Feint and Thrust"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Lay Low the Tyrants"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## MASTERS OF SHADOW\n\nEach time a ranged attack targets an\nAdeptus Astartes unit from your army,\nunless the attacking model is within\n12\", subtract 1 from the Hit roll and the\ntarget has the Benefit of Cover against\nthat attack.\n\n## UNPARALLELED TACTICIAN\n\nOnce per battle round, if an Aethon\nShaan model from your army is on the\nbattlefield, you can use the Into Darkness\nStratagem for 0CP."
+      },
       "Detachment§Stormlance Task Force": {
         "rules": {
           "assignStratagems": {
@@ -11269,6 +11619,76 @@
         },
         "text": "Adeptus Astartes model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability."
       },
+      "Enhancement§Blackwing Shroud": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Infiltrators"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Infantry model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "ADEPTUS ASTARTES INFANTRY model only. While the bearer is leading a unit, models in that unit have the Infiltrators ability."
+      },
       "Enhancement§Celerity": {
         "keywords": {
           "Keywords": [
@@ -11338,6 +11758,165 @@
           }
         },
         "text": "Tacticus model only. While the bearer is leading a unit, models in that unit can ignore any or all modifiers to their characteristics and/or to a roll or test made for them (excluding modifiers to saving throws)."
+      },
+      "Enhancement§Champion of the Feast": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Adeptus Astartes model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by all other models in the bearer’s unit as well."
+      },
+      "Enhancement§Coronal Susurrant": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lord of Deceit (Aura)"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Phobos model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Phobos"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "PHOBOS model only. The bearer has the following ability:\n\nLord of Deceit (Aura):\n\nEach time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that usage of that Stratagem by 1CP."
+      },
+      "Enhancement§Disciple of Rhetoricus": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "OC",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Terminator model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "ADEPTUS ASTARTES TERMINATOR model only. Improve the Objective Control characteristic of the bearer by 1. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, until the end of the phase, add 1 to the Objective Control characteristic of other models in the bearer's unit as well."
       },
       "Enhancement§Execute And Redeploy": {
         "keywords": {
@@ -11753,6 +12332,19 @@
         },
         "text": "Adeptus Astartes model only. The bearer has the Stealth and Lone Operative abilities."
       },
+      "Enhancement§Hunter's Instincts": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "ADEPTUS ASTARTES model only. If the bearer's unit is in Strategic Reserves, for the purposes of setting up that unit on the battlefield, treat the current battle round number as being one higher than it actually is."
+      },
       "Enhancement§Hunter’s Instincts": {
         "keywords": {
           "Keywords": [
@@ -11884,6 +12476,41 @@
         },
         "text": "Adeptus Astartes model only. Add 1 to the Attacks characteristics of Torrent weapons equipped by models in the bearer’s unit."
       },
+      "Enhancement§Indomitable Champion": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ]
+        },
+        "rules": {
+          "Terminator model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "ADEPTUS ASTARTES TERMINATOR model only. The first time the bearer is destroyed, roll one D6 at the end of the phase. On a 2+, set the bearer back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining."
+      },
       "Enhancement§Indomitable Fury": {
         "keywords": {
           "Keywords": [
@@ -11978,6 +12605,41 @@
           }
         },
         "text": "Adeptus Astartes Terminator model only. The bearer has the Feel No Pain 5+ ability. Once per battle, after the bearer’s unit is selected as the target of one or more attacks, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer’s unit have the Feel No Pain 5+ ability."
+      },
+      "Enhancement§Malodraxian Standard": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ]
+        },
+        "rules": {
+          "Ancient model only.": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ancient"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Adeptus Astartes Ancient model only. Each time an attack targets the bearer’s unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of the bearer’s unit, subtract 1 from the Wound roll."
       },
       "Enhancement§Master of Machine War": {
         "keywords": {
@@ -12444,6 +13106,50 @@
           }
         },
         "text": "Adeptus Astartes model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by all other models in the bearer’s unit as well."
+      },
+      "Enhancement§Umbral Raptor": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Stealth"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lone Operative"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Adeptus Astartes model only. The bearer has the Stealth and Lone Operative abilities."
       },
       "Enhancement§War-Tempered Artifice": {
         "keywords": {
@@ -17380,6 +18086,45 @@
           },
           "S": {
             "value": 10
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Aethon Shaan—Claws of Severax": {
+        "aspects": {
+          "Label": "Claws of Severax"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            },
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 7
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
           },
           "WS": {
             "value": 2
@@ -35992,6 +36737,36 @@
           },
           "Range": {
             "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Aethon Shaan—Heavy Bolt Pistol": {
+        "aspects": {
+          "Label": "Heavy Bolt Pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
           },
           "S": {
             "value": 4
@@ -67392,6 +68167,22 @@
                     "trait": "Detachment§Forgefather's Seekers"
                   }
                 ]
+              },
+              "Emperor's Shield": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Detachment§Emperor's Shield"
+                  }
+                ]
+              },
+              "Shadowmark Talon": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Detachment§Shadowmark Talon"
+                  }
+                ]
               }
             }
           },
@@ -67501,10 +68292,12 @@
             "1st Company Task Force",
             "Adeptus Astartes",
             "Anvil Siege Force",
+            "Emperor's Shield",
             "Firestorm Assault Force",
             "Forgefather's Seekers",
             "Gladius Task Force",
             "Ironstorm Spearhead",
+            "Shadowmark Talon",
             "Stormlance Task Force",
             "Vanguard Spearhead"
           ],
@@ -67654,6 +68447,50 @@
         },
         "text": "**WHEN:** Your Shooting phase or the Fight phase.\n\n**TARGET:** One Adeptus Astartes Infantry unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit makes an attack that targets the closest eligible target within 6″, add 1 to the Wound roll."
       },
+      "Stratagem§Disciplined Extermination": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability and improve the Armour Penetration characteristic of such weapons by 1."
+      },
+      "Stratagem§Dropship Extraction": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your opponent's Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES TERMINATOR unit from your army. You cannot target a unit that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Remove your unit from the battlefield and place it into Strategic Reserves."
+      },
       "Stratagem§Duty And Honour": {
         "keywords": {
           "Keywords": [
@@ -67671,6 +68508,28 @@
           ]
         },
         "text": "**WHEN:** Your Movement phase.\n\n**TARGET:** One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad, or Vanguard Veteran Squad unit from your army within range of an objective marker you control.\n\n**EFFECT:** That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+      },
+      "Stratagem§Feint and Thrust": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back. If it is a PHOBOS or SCOUT SQUAD unit, it is also eligible to shoot and declare a charge in a turn in which it Advanced."
       },
       "Stratagem§Fiery Shield": {
         "keywords": {
@@ -67712,6 +68571,29 @@
           }
         },
         "text": "**WHEN:** Your Movement phase.\n\n**TARGET:** One Adeptus Astartes Mounted or Adeptus Astartes Vehicle unit (excluding Walkers) from your army.\n\n**EFFECT:** Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6″ to the Move characteristic of models in your unit, or 9″ instead if your unit is Mounted."
+      },
+      "Stratagem§Fury of the First": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is below its Starting Strength, add 1 to the Wound roll as well.."
       },
       "Stratagem§Guerrilla Tactics": {
         "keywords": {
@@ -67816,6 +68698,28 @@
         },
         "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One Adeptus Astartes unit from your army that has not been selected to shoot this phase.\n\n**EFFECT:** Until the end of the phase, Torrent weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability."
       },
+      "Stratagem§Into Darkness": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your opponent's Fight phase.\n\n**TARGET**: Up to two PHOBOS and/or SCOUT SQUAD units from your army, or one other ADEPTUS ASTARTES INFANTRY unit from your army. You cannot target a unit that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Remove those units from the battlefield and place them into Strategic Reserves."
+      },
       "Stratagem§Iron Arm": {
         "keywords": {
           "Keywords": [
@@ -67833,6 +68737,28 @@
           ]
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One **Adeptus Astartes Infantry** unit from your army that is within 18\" of one or more **Adeptus Astartes Psyker** models from your army and has not been selected to Fight this phase.\n\n**EFFECT**: Until the end of the phase, add 1 to the **Strength** characteristic of melee weapons equipped by models in your unit, or add 2 if the Biomancy Discipline is active for your army."
+      },
+      "Stratagem§Lay Low the Tyrants": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY unit from your army that has not been selected to fight this phase. \n\n**EFFECT**: Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability."
       },
       "Stratagem§Legendary Fortitude": {
         "keywords": {
@@ -67916,6 +68842,28 @@
           ]
         },
         "text": "**WHEN:** Your Command phase.\n\n**TARGET:** One Adeptus Astartes Infantry unit from your army within range of an objective marker. \n\n**EFFECT:** Until the end of the turn, double the Objective Control characteristic of models in your unit, but it must Remain Stationary this turn."
+      },
+      "Stratagem§Obdurate Vengeance": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6: on a 3+, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
       },
       "Stratagem§Only in Death Does Duty End": {
         "keywords": {
@@ -68029,6 +68977,28 @@
           ]
         },
         "text": "**WHEN:** End of the Fight phase.\n\n**TARGET:** One Adeptus Astartes Transport unit from your army that has no models embarked within it, and one Adeptus Astartes Infantry unit from your army wholly within 6″ of that Transport.\n\n**EFFECT:** Your Infantry unit can embark within that Transport.\n\n**RESTRICTIONS:** You cannot target an Infantry unit that is within Engagement Range of one or more enemy units, that cannot normally embark within that Transport, or that disembarked from a Transport this turn."
+      },
+      "Stratagem§Raptorial Vigilance": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that is within 9\" of the enemy unit that just ended that move. You cannot target a unit that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\", or up to 6\" instead if it is a PHOBOS or SCOUT SQUAD unit."
       },
       "Stratagem§Ride Hard, Ride Fast": {
         "keywords": {
@@ -68156,6 +69126,28 @@
         },
         "text": "**WHEN:** Your Shooting phase.\n\n**TARGET:** One Adeptus Astartes Infantry unit from your army that has not been selected to shoot this phase.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit that is more than 12″ away, improve the Ballistic Skill and Armour Penetration characteristics of that attack by 1. If one or more enemy models are destroyed as a result of those attacks, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test."
       },
+      "Stratagem§Stunning Fusillade": {
+        "keywords": {
+          "Keywords": [
+            "Shadowmark Talon"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit that is more than 12\" away, improve the Ballistic Skill and Armour Penetration characteristics of that attack by 1. If one or more enemy models are destroyed as a result of those attacks, select one of those destroyed models; that destroyed model's unit must take a Battle-shock test."
+      },
       "Stratagem§Surgical Strikes": {
         "keywords": {
           "Keywords": [
@@ -68250,6 +69242,28 @@
           ]
         },
         "text": "**WHEN:** Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance, or Fall Back move.\n\n**TARGET:** One Adeptus Astartes Infantry or Adeptus Astartes Mounted  unit from your army that is within 9″ of that enemy unit.\n\n**EFFECT:** Your unit can make a Normal move of up to 6″.\n\n**RESTRICTIONS:** You cannot select a unit that is within Engagement Range of one or more enemy units."
+      },
+      "Stratagem§Wrathful Conquerors": {
+        "keywords": {
+          "Keywords": [
+            "Emperor's Shield"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army within range of an objective marker you control.\n\n**EFFECT**: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any phase."
       },
       "Stratagem§Wrathful Inferno": {
         "keywords": {
