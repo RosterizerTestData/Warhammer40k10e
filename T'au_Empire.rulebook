@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.12.15",
+  "revision": "10.12.16",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -21385,6 +21385,41 @@
             "Vehicle—Walker"
           ]
         },
+        "rules": {
+          "noSmoke": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Smoke"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "nosmoke1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
         "stats": {
           "1st Wargear": {
             "dynamic": true,
@@ -21456,9 +21491,12 @@
               },
               "✓": {
                 "order": 1,
+                "tracking": {
+                  "nosmoke1": 1
+                },
                 "traits": [
                   {
-                    "trait": "Wargear§Battlesuit Support System"
+                    "trait": "Wargear§Battlesuit Support System (Ghostkeel)"
                   }
                 ]
               }
@@ -25754,6 +25792,17 @@
       },
       "Wargear§Battlesuit Support System": {
         "text": "The bearer’s unit is eligible to shoot in a turn in which it Fell Back, but when doing so only models equipped with this wargear can make ranged attacks."
+      },
+      "Wargear§Battlesuit Support System (Ghostkeel)": {
+        "aspects": {
+          "Label": "Battlesuit Support System"
+        },
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "The bearer is eligible to shoot in a turn in which it Fell Back but it loses the SMOKE keyword."
       },
       "Wargear§Blacklight Marker Drones": {
         "text": "Twice per battle, when this unit is an Observer unit, until the end of the phase, each time a ranged attack is made by a model in their Guided unit that targets their Spotted unit, re-roll a Wound roll of 1."
