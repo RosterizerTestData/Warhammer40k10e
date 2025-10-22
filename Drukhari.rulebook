@@ -1,6 +1,6 @@
 {
   "name": "Drukhari",
-  "revision": "10.12.13",
+  "revision": "10.12.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -169,7 +169,7 @@
         "text": "At the start of your Charge phase, you can spend 1 Pain token to Empower this unit. While Empowered, this unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
       },
       "Ability§Aerialists": {
-        "text": "At the end of the Fight phase, you can select one unit wholly within 6&quot; of this model. If that unit could embark within this model if it were your Movement phase, it does so now."
+        "text": "At the end of the Fight phase, if there are no models currently embarked within this Transport, you can select one friendly Drukhari Infantry unit that has 6 or fewer models that is wholly within 6\" of this Transport (you cannot select a unit that can Fly). Unless that unit is within Engagement Range of one or more enemy units, it can embark within this Transport"
       },
       "Ability§Aethersails": {
         "keywords": {
@@ -460,7 +460,7 @@
             "Faction"
           ]
         },
-        "text": "## Pain Abilities\nAll DRUKHARI units have a Pain ability, tagged with the word ‘Pain’. Pain abilities only apply to a unit while it is Empowered. If your army Faction is DRUKHARI, you can Empower units from your army with Pain abilities by spending Pain tokens (see below).\n\nDesigner’s Note: You can also spend Pain tokens to activate additional effects in certain other rules such as Enhancements and Stratagems.\n\n## Gaining Pain Tokens\nIf your Army Faction is DRUKHARI, you gain Pain tokens as follows:\n\n* 1 Pain token at the start of your Command phase.\n\n* 1 Pain token each time an enemy unit is destroyed.\n\n* 1 Pain token each time an enemy unit fails a Battle-shock test.\n\nEach time you gain a Pain token, keep it to one side – this is your Pain token pool. Each time you spend a Pain token, reduce your Pain token pool by the same amount.\n\n## Empowered Through Pain\nEach Pain ability will state when you can spend Pain tokens to Empower that unit. When you do, until the end of the phase, that unit is Empowered and all Pain abilities it has take effect. While an attached unit is Empowered, the Pain abilities of all Leader and Bodyguard units in that unit take effect – you do not need to spend additional Pain tokens to activate each of their Pain abilities.\n\nExample: At the start of your Charge phase, you spend 1 Pain token to Empower a unit of Wyches. The unit becomes Empowered, and so its Acrobatic Gladiators ability takes effect until the end of the phase. A Succubus is leading the unit, and so its Lithe Agility ability also takes effect until the end of the phase (no additional Pain token is required to activate that ability as well)."
+        "text": "## Pain Abilities\nAll DRUKHARI units have a Pain ability, tagged with the word ‘Pain’. Pain abilities only apply to a unit while it is Empowered. If your army Faction is DRUKHARI, you can Empower units from your army with Pain abilities by spending Pain tokens (see below).\n\nDesigner’s Note: You can also spend Pain tokens to activate additional effects in certain other rules such as Enhancements and Stratagems.\n\n## Gaining Pain Tokens\nIf your Army Faction is DRUKHARI, you gain Pain tokens as follows:\n\n* 1 Pain token at the start of your Command phase.\n\n* 1 Pain token each time an enemy unit is destroyed.\n\n* 1 Pain token each time an enemy unit fails a Battle-shock test.\n\nEach time you gain a Pain token, keep it to one side – this is your Pain token pool. Each time you spend a Pain token, reduce your Pain token pool by the same amount.\n\n## Empowered Through Pain\nEach Pain ability will state when you can spend Pain tokens to Empower that unit. When you do, until the end of the phase, that unit is Empowered and all Pain abilities it has take effect. While an attached unit is Empowered, the Pain abilities of all Leader and Bodyguard units in that unit take effect – you do not need to spend additional Pain tokens to activate each of their Pain abilities.\n\nExample: At the start of your Charge phase, you spend 1 Pain token to Empower a unit of Wyches. The unit becomes Empowered, and so its Acrobatic Gladiators ability takes effect until the end of the phase. A Succubus is leading the unit, and so its Lithe Agility ability also takes effect until the end of the phase (no additional Pain token is required to activate that ability as well).\n\n\n## CORSAIRS AND TRAVELLING PLAYERS\n\nIf your Army Faction is Drukhari, you can include Harlequins and\nAnhrathe units in your army, even though they do not have the\nDrukhari Faction keyword. The combined points value of Harlequins\nand/or Anhrathe units you can include in your army depends on the\nbattle size, as follows:\n\n■ Incursion: Up to 250 pts\n\n■ Strike Force: Up to 500 pts\n\n■ Onslaught: Up to 750 pts\n\nNo Harlequins or Anhrathe models included in your army in this way can be your Warlord, and they cannot be given Enhancements.’"
       },
       "Ability§Precognisant": {
         "text": "If your army includes this model, after both players have deployed their armies, select up to three DRUKHARI units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
@@ -10189,6 +10189,45 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 49
+          },
+          "setMaxHarlequinPoints": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Ally 1 Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "tracked",
+                  "MaxHarlequinPoints"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Reaper's Wager"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
           },
           "setMaxReaperHarlequinPoints": {
             "actions": [
