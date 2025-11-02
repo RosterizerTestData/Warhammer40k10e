@@ -1,6 +1,6 @@
 {
   "name": "Chaos Knights",
-  "revision": "10.12.9",
+  "revision": "10.12.10",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -19,6 +19,58 @@
     "assetTaxonomy": {
       "Unit": {
         "rules": {
+          "Allied Damned units can't be your Warlord": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    [
+                      "Allied faction 1",
+                      "Allied faction 2"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": "Heretic Astartes"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error",
+            "order": 26
+          },
           "characterWarDog": {
             "actions": [
               {
