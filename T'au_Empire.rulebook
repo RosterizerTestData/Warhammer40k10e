@@ -1,6 +1,6 @@
 {
   "name": "T'au Empire",
-  "revision": "10.12.17",
+  "revision": "10.12.18",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -12161,7 +12161,7 @@
           "stats": {}
         },
         "stats": {
-          "Battlesuit Support System": {
+          "Homing Beacon": {
             "dynamic": true,
             "ranks": {
               "-": {
@@ -12170,11 +12170,11 @@
               "✓": {
                 "order": 1,
                 "tracking": {
-                  "1 in 3 battlesuit": 1
+                  "homing": 1
                 },
                 "traits": [
                   {
-                    "trait": "Wargear§Battlesuit Support System"
+                    "trait": "Wargear§Homing Beacon"
                   }
                 ]
               }
@@ -12236,8 +12236,7 @@
       "Model§Stealth Shas’vre": {
         "assets": {
           "traits": [
-            "Melee Weapon§Stealth Battlesuits—Battlesuit fists",
-            "Wargear§Homing Beacon"
+            "Melee Weapon§Stealth Battlesuits—Battlesuit fists"
           ]
         },
         "stats": {
@@ -12257,16 +12256,8 @@
                   }
                 ]
               },
-              "Shield Drone": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Wargear§Shield Drone"
-                  }
-                ]
-              },
               "Marker Drone": {
-                "order": 3,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Wargear§Marker Drone"
@@ -12295,44 +12286,11 @@
                   }
                 ]
               },
-              "Shield Drone": {
+              "Marker Drone": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Wargear§Shield Drone"
-                  }
-                ]
-              },
-              "Marker Drone": {
-                "order": 3,
-                "traits": [
-                  {
                     "trait": "Wargear§Marker Drone"
-                  }
-                ]
-              }
-            },
-            "statType": "rank",
-            "tracked": true,
-            "value": "-",
-            "visibility": "normal"
-          },
-          "Battlesuit Support System": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 7,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "✓": {
-                "order": 1,
-                "tracking": {
-                  "1 in 3 battlesuit": 1
-                },
-                "traits": [
-                  {
-                    "trait": "Wargear§Battlesuit Support System"
                   }
                 ]
               }
@@ -12350,6 +12308,29 @@
           },
           "OC": {
             "value": 1
+          },
+          "Pulse pistol": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 7,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Stealth Battlesuits—Pulse pistol"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
           },
           "Ranged Weapon": {
             "dynamic": true,
@@ -17848,6 +17829,36 @@
           },
           "S": {
             "value": 9
+          }
+        }
+      },
+      "Ranged Weapon§Stealth Battlesuits—Pulse pistol": {
+        "aspects": {
+          "Label": "Pulse pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
           }
         }
       },
@@ -23898,7 +23909,7 @@
             "Model§Stealth Shas’vre",
             {
               "item": "Model§Stealth Shas’ui",
-              "quantity": 2
+              "quantity": 4
             }
           ]
         },
@@ -23910,9 +23921,11 @@
             "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
-            "Fly",
             "Battlesuit",
+            "Fly",
+            "Grenades",
+            "Infantry",
+            "Markerlight",
             "Stealth"
           ],
           "Category": [
@@ -23920,27 +23933,18 @@
           ]
         },
         "rules": {
-          "For every 3 models in the unit, 1 battlesuit support system.": {
+          "1 Stealth Shas’ui can be equipped with 1 homing beacon.": {
             "evals": [
               {
                 "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in3",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
-                "min": 0,
+                "max": 1,
                 "not": false,
                 "operator": "AND",
                 "paths": [
                   [
                     "{self}",
                     "tracked",
-                    "Battlesuit Support System"
+                    "homing"
                   ]
                 ]
               }
@@ -23948,19 +23952,11 @@
             "evaluate": "AND",
             "failState": "error"
           },
-          "For every 3 models in the unit, 1 fusion blaster.": {
+          "2 models can each have their burst cannon replaced with 1 fusion blaster.": {
             "evals": [
               {
                 "actionable": true,
-                "max": [
-                  "{self}",
-                  "rules",
-                  "count1in3",
-                  "evals",
-                  "0",
-                  "result",
-                  "integer"
-                ],
+                "max": 2,
                 "not": false,
                 "operator": "AND",
                 "paths": [
@@ -23977,37 +23973,21 @@
           }
         },
         "stats": {
-          "Battlesuit Support System": {
-            "max": 2,
-            "min": 0,
-            "statType": "numeric",
-            "tracked": true,
-            "value": 0,
-            "visibility": "hidden"
-          },
           "model1stTally": {
-            "value": 3
+            "value": 5
           },
-          "model2ndCost": {
-            "value": 120
-          },
-          "model2ndTally": {
-            "value": 6
-          },
+          "model2ndCost": {},
+          "model2ndTally": {},
           "modelKey": {
             "value": "Model§Stealth Shas’ui"
           },
           "Models": {
-            "increment": {
-              "value": 3
-            },
-            "max": 6,
-            "min": 3,
-            "value": 3,
-            "visibility": "normal"
+            "max": 5,
+            "min": 5,
+            "value": 5
           },
           "Points": {
-            "value": 80
+            "value": 110
           },
           "Stealth Battlesuits—Fusion blaster": {
             "max": 2,
@@ -24018,8 +23998,8 @@
             "visibility": "hidden"
           },
           "Stealth Shas’ui": {
-            "max": 5,
-            "min": 2,
+            "max": 4,
+            "min": 4,
             "statType": "numeric",
             "tracked": true,
             "value": 0,
