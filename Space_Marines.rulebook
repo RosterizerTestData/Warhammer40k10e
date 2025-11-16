@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.12.28",
+  "revision": "10.12.29",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1807,6 +1807,9 @@
         },
         "text": "Each time this unit shoots its Cerberus neutron pulse array in your Shooting phase, provided it Remained Stationary this turn, that weapon has the [LETHAL HITS] ability."
       },
+      "Ability§Attached Unit (Victrix)": {
+        "text": "If a CAPTAIN or CHAPTER MASTER unit from your army can be attached to a COMPANY HEROES unit, it can be attached to this unit instead."
+      },
       "Ability§Attached Units (Bike Squad)": {
         "aspects": {
           "Label": "Attached Units"
@@ -2292,6 +2295,9 @@
         },
         "text": "When this model’s Bodyguard unit is destroyed, roll one D6: on a 2+, you gain 1CP."
       },
+      "Ability§Glory of Ultramar": {
+        "text": "In your opponent’s Shooting phase, each time an enemy unit has shot, if any models from this unit were destroyed as a result of those attacks, this unit can make a Surge move. To do so, roll one D6: models in this unit move a number of inches up to the result, but this unit must end that move as close as possible to the closest enemy unit (excluding AIRCRAFT). When doing so, those models can be moved within Engagement Range of that enemy unit. This unit cannot make a Surge move while it is Battle-shocked or within Engagement Range of one or more enemy units, and can only make one Surge move per phase."
+      },
       "Ability§Guerrilla Tactics": {
         "keywords": {
           "Keywords": [
@@ -2358,6 +2364,17 @@
           ]
         },
         "text": "While this model is leading a unit, add 1 to Advance and Charge rolls made for that unit and you can target that unit with the Heroic Intervention Stratagem for 0CP, even if you have already used that Stratagem on a different unit this phase."
+      },
+      "Ability§Honour or Death (Cato)": {
+        "aspects": {
+          "Label": "Honour or Death"
+        },
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "You can target this unit with the Heroic Intervention Stratagem for 0CP, even if you have already used that Stratagem on a different unit this phase."
       },
       "Ability§Honour or Death (Command Squad)": {
         "aspects": {
@@ -3367,6 +3384,9 @@
           ]
         },
         "text": "While this model is within 3″ of one or more friendly Adeptus Astartes Infantry units, this model has the Lone Operative ability."
+      },
+      "Ability§Ultramarines Honour Guard": {
+        "text": "While a CAPTAIN or CHAPTER MASTER model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll."
       },
       "Ability§Unbreakable Duty": {
         "keywords": {
@@ -6575,6 +6595,113 @@
           }
         }
       },
+      "Character§Cato Sicarius": {
+        "aspects": {
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "\n\nThis model can be attached to the following units:\n\n- Victrix Honour Guard\n\nYou can attach this model to the above unit even if a MARNEUS CALGAR unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+            },
+            "Ability§Oath of Moment",
+            "Ability§Knight Champion of Macragge",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Ranged Weapon§Captain Sicarius—Artisan plasma pistol",
+            "Ability§Honour or Death (Cato)",
+            "Melee Weapon§Cato Sicarius—Talassarian tempest blade"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes",
+            "Ultramarines"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Captain",
+            "Cato",
+            "Character",
+            "Epic Hero",
+            "Imperium",
+            "Infantry",
+            "Sicarius",
+            "Tacticus"
+          ],
+          "Category": [
+            "Epic Hero"
+          ]
+        },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Marneus Calgar"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 120
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 5
+          }
+        }
+      },
       "Character§Chaplain": {
         "assets": {
           "traits": [
@@ -8991,6 +9118,79 @@
           }
         }
       },
+      "Character§Marneus Calgar in Armour of Antilochus": {
+        "allowed": {
+          "items": []
+        },
+        "aspects": {
+          "Unique": true
+        },
+        "assets": {
+          "included": [],
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "\n\nThis unit can be attached to the following units:\n\n- Aggressor Squad, \n- Assault Intercessor Squad,\n- Bladeguard Veteran Squad, \n- Company Heroes, \n- Eradicator Squad, \n- Heavy Intercessor Squad,\n- Infernus Squad, \n- Intercessor Squad, \n- Sternguard Veteran Squad, \n- Tactical Squad, \n- Terminator Assault Squad, \n- Terminator Squad, \n- Victrix Honour Guard"
+            },
+            "Ability§Oath of Moment",
+            "Ability§Inspiring Leader",
+            "Ability§Master Tactician",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            "Weapon§Marneus Calgar in Armour of Antilochus—Gauntlets of Ultramar"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Adeptus Astartes",
+            "Ultramarines"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Chapter Master",
+            "Character",
+            "Epic Hero",
+            "Imperium",
+            "Infantry",
+            "Terminator"
+          ],
+          "Category": [
+            "Epic Hero"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "model1stTally": {},
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 140
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
       "Character§Pedro Kantor": {
         "aspects": {
           "Unique": true
@@ -10442,6 +10642,107 @@
         },
         "text": "## Shield of The Imperium\n\nRanged weapons equipped by Adeptus Astartes models from your army have the [HEAVY] ability. If such a weapon already has this ability, each time an attack is made with that weapon, if the attacking model’s unit Remained Stationary this turn, add 1 to the Wound roll."
       },
+      "Detachment§Blade of Ultramar": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Tactical Foresight"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Courage and Honour!"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Ultramarian Adaptivity"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Exemplary Vigilance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Practical Tactics"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## MASTERED DOCTRINES\n\nAt the start of up to three of your Command phases, you can select one of the Combat Doctrines listed below, Until the start of your next Command phase, that Combat Doctrine is active and its effects apply to all ADEPTUS ASTARTES units from your army. You cannot select a Combat Doctrine you have already selected this battle, unless a friendly MARNEUS CALGAR model is on the battlefield.\n\n- Devastator Doctrine This unit is eligible to shoot in a turn in which it Advanced.\n\n- Tactical Doctrine This unit is eligible to shoot and declare a charge in a turn in which it Fell Back.\n\n- Assault Doctrine This unit is eligible to declare a charge in a turn in which it Advanced.\n\nRESTRICTIONS \n\nYour army can include ULTRAMARINES units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter."
+      },
       "Detachment§Emperor's Shield": {
         "keywords": {
           "Keywords": [
@@ -11875,6 +12176,100 @@
         },
         "text": "Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [IGNORES COVER] ability."
       },
+      "Enhancement§Armour of Antoninus": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Feel No Pain"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "PermanentBonus": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Sv",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Feel No Pain"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "item",
+                    "Ability§Feel No Pain",
+                    "stats",
+                    "x",
+                    "value"
+                  ]
+                ],
+                "value": "5+"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 2
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "Adeptus Astartes model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability."
+      },
       "Enhancement§Artificer Armour": {
         "keywords": {
           "Keywords": [
@@ -13283,6 +13678,63 @@
         },
         "text": "Adeptus Astartes model only. Each time an enemy unit (excluding MONSTERS and VEHICLES) within 6\" of the bearer each time that unit fails a Battle-shock test, one model in that unit is destroyed (chosen by its controlling player). Once per battle, when such an enemy unit fails a Battle-shock test, you can choose for D3 models in that unit to be destroyed in this way instead."
       },
+      "Enhancement§Oath of Macragge": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "Adeptus Astartes model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead."
+      },
       "Enhancement§Obfuscation": {
         "keywords": {
           "Keywords": [
@@ -13721,6 +14173,19 @@
         },
         "text": "Adeptus Astartes model only. While the bearer is leading a unit, you can re-roll Advance Rolls made for that unit."
       },
+      "Enhancement§Student of the Codex": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "Adeptus Astartes model only. At the start of your Command phase, if the bearer is on the battlefield, it can use this Enhancement. If it does, until the start of your next Command phase, the Tactical Doctrine is active for this unit (instead of any other Combat Doctrine you select to be active for your army, and even if there is no Combat Doctrine active for your army)."
+      },
       "Enhancement§Target Augury Web": {
         "keywords": {
           "Keywords": [
@@ -14017,6 +14482,19 @@
           }
         },
         "text": "Adeptus Astartes model only. The bearer has the Stealth and Lone Operative abilities."
+      },
+      "Enhancement§Veteran of Behemoth": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, you can reroll Advance rolls made for that unit."
       },
       "Enhancement§War-Tempered Artifice": {
         "keywords": {
@@ -18936,6 +19414,109 @@
           }
         }
       },
+      "Infantry/Mounted§Victrix Honour Guard": {
+        "allowed": {
+          "items": [
+            "Model§Victrix Honour Guard (New)"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Oath of Moment",
+            "Ability§Ultramarines Honour Guard",
+            "Ability§Glory of Ultramar",
+            "Ability§Attached Unit (Victrix)",
+            "Model§Victrix Honour Guard (New)"
+          ]
+        },
+        "keywords": {
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Adeptus Astartes",
+            "Ultramarines"
+          ],
+          "Category": [
+            "Infantry"
+          ],
+          "Keywords": [
+            "Imperium",
+            "Infantry",
+            "Tacticus",
+            "Victrix Honour Guard"
+          ]
+        },
+        "stats": {
+          "Chapter Ancient": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Model§Chapter Ancient (Victrix)"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Chapter Champion": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Model§Chapter Champion (Victrix)"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "model1stTally": {
+            "value": 3
+          },
+          "model2ndCost": {
+            "value": 210
+          },
+          "model2ndTally": {
+            "value": 6
+          },
+          "modelKey": {
+            "value": "Model§Victrix Honour Guard (New)"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 6,
+            "min": 3,
+            "tracked": true,
+            "value": 3,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 130
+          }
+        }
+      },
       "Melee Weapon§Adrax Agatone—Malleus Noctum": {
         "aspects": {
           "Label": "Malleus Noctum"
@@ -21448,6 +22029,123 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Cato Sicarius—Talassarian tempest blade": {
+        "aspects": {
+          "Label": "Talassarian tempest blade"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Cato Sicarius—Talassarian tempest blade – strike",
+            "Melee Weapon§Cato Sicarius—Talassarian tempest blade – sweep",
+            "Melee Weapon§Cato Sicarius—Talassarian tempest blade – coup de grace"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Melee Weapon§Cato Sicarius—Talassarian tempest blade – coup de grace": {
+        "aspects": {
+          "Label": "Coup de grace"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Cato Sicarius—Talassarian tempest blade – strike": {
+        "aspects": {
+          "Label": "Strike"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Cato Sicarius—Talassarian tempest blade – sweep": {
+        "aspects": {
+          "Label": "Sweep"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 9
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
           }
         }
       },
@@ -27801,6 +28499,64 @@
           }
         }
       },
+      "Melee Weapon§Victrix Honour Guard—Blades of honour": {
+        "aspects": {
+          "Label": "Blades of honour"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Precision",
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Victrix Honour Guard—Master-crafted power weapon": {
+        "aspects": {
+          "Label": "Master-crafted power weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
       "Melee Weapon§Vindicator Laser Destroyer—Armoured tracks": {
         "aspects": {
           "Label": "Armoured tracks"
@@ -30088,6 +30844,43 @@
           }
         }
       },
+      "Model§Chapter Ancient (Victrix)": {
+        "aspects": {
+          "Label": "Chapter Ancient"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Victrix Honour Guard—Master-crafted power weapon",
+            "Wargear§Banner of Macragge"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Ancient",
+            "Epic Hero"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
       "Model§Chapter Champion": {
         "assets": {
           "traits": [
@@ -30114,6 +30907,42 @@
           },
           "W": {
             "value": 2
+          }
+        }
+      },
+      "Model§Chapter Champion (Victrix)": {
+        "aspects": {
+          "Label": "Chapter Champion"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Victrix Honour Guard—Blades of honour"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Champion",
+            "Epic Hero"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
           }
         }
       },
@@ -36048,6 +36877,37 @@
         "assets": {
           "traits": [
             "Melee Weapon§Marneus Calgar—Victrix power sword"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
+      "Model§Victrix Honour Guard (New)": {
+        "aspects": {
+          "Label": "Victrix Honour Guard"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Victrix Honour Guard—Master-crafted bolt carbine",
+            "Melee Weapon§Victrix Honour Guard—Master-crafted power weapon"
           ]
         },
         "stats": {
@@ -65356,6 +66216,31 @@
           }
         }
       },
+      "Ranged Weapon§Victrix Honour Guard—Master-crafted bolt carbine": {
+        "aspects": {
+          "Label": "Master-crafted bolt carbine"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
       "Ranged Weapon§Vindicator Laser Destroyer—Hunter-killer missile": {
         "aspects": {
           "Label": "Hunter-killer missile"
@@ -69069,6 +69954,106 @@
             "evaluate": "AND",
             "failState": "pass"
           },
+          "No more than one Calgar": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Marneus Calgar"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Marneus Calgar in Armour of Antilochus"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "No more than one Sicarius": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Captain Sicarius"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Cato Sicarius"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "removeBoU": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Blade of Ultramar"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Chapter",
+                    "value"
+                  ]
+                ],
+                "value": "Ultramarines"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 12
+          },
           "removeES": {
             "actions": [
               {
@@ -69464,6 +70449,14 @@
                     "trait": "Detachment§Spearpoint Task Force"
                   }
                 ]
+              },
+              "Blade of Ultramar": {
+                "order": 14,
+                "traits": [
+                  {
+                    "trait": "Detachment§Blade of Ultramar"
+                  }
+                ]
               }
             }
           },
@@ -69573,6 +70566,7 @@
             "1st Company Task Force",
             "Adeptus Astartes",
             "Anvil Siege Force",
+            "Blade of Ultramar",
             "Emperor's Shield",
             "Firestorm Assault Force",
             "Forgefather's Seekers",
@@ -69754,6 +70748,28 @@
         },
         "text": "**WHEN**: Your Fight phase.\n\n**TARGET**: One Adeptus Astartes DREADNOUGHT, TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Select either the [SUSTAINED HITS 1] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability."
       },
+      "Stratagem§Courage and Honour!": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army.\n\n**EFFECT**: Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well."
+      },
       "Stratagem§Crucible of Battle": {
         "keywords": {
           "Keywords": [
@@ -69880,6 +70896,28 @@
           }
         },
         "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One Adeptus Astartes MOUNTED or Adeptus Astartes FLY VEHICLE unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll and subtract 1 from the Wound roll."
+      },
+      "Stratagem§Exemplary Vigilance": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ],
+          "Phase": [
+            "Shooting"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase,\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well."
       },
       "Stratagem§Feint and Thrust": {
         "keywords": {
@@ -70359,6 +71397,28 @@
         },
         "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks.\n\n**TARGET:** One Adeptus Astartes Vehicle unit from your army that was reduced to Below Half-strength as a result of the attacking unit’s attacks.\n\n**EFFECT:** Your unit can shoot as if it were your Shooting phase, but must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target."
       },
+      "Stratagem§Practical Tactics": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ],
+          "Phase": [
+            "Movement"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent's"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that is not within Engagement Range of one or more enemy units and is within 9\" of the enemy unit that just ended that move.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\", or a Normal move of up to 6\" instead if it is under the effects of the Tactical Doctrine."
+      },
       "Stratagem§Prescient Precision": {
         "keywords": {
           "Keywords": [
@@ -70632,6 +71692,29 @@
         },
         "text": "**WHEN:** Fight phase.\n\n**TARGET:** One Adeptus Astartes Infantry unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability."
       },
+      "Stratagem§Tactical Foresight": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent's"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than or equal to the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+      },
       "Stratagem§Terrifying Proficiency": {
         "keywords": {
           "Keywords": [
@@ -70649,6 +71732,28 @@
           ]
         },
         "text": "**WHEN:** Your Fight phase.\n\n**TARGET:** One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Veteran Squad, or Vanguard Veteran Squad unit from your army that made a Charge move this turn and destroyed one or more enemy units this phase.\n\n**EFFECT:** In your opponent’s next Command phase, each enemy unit within 6″ of your unit must take a Battle-shock test. If the unit taking that test is Below Half-strength, subtract 1 from that test. Enemy units affected by this Stratagem do not need to take any other Battle-shock tests in the same phase."
+      },
+      "Stratagem§Ultramarian Adaptivity": {
+        "keywords": {
+          "Keywords": [
+            "Blade of Ultramar"
+          ],
+          "Phase": [
+            "Command"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army.\n\n**EFFECT**: Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for your unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that Combat Doctrine this battle."
       },
       "Stratagem§Unbowed Conviction": {
         "keywords": {
@@ -81972,6 +83077,9 @@
       "Wargear§Auxiliary Grenade Launcher": {
         "text": "The bearer has the Grenades keyword."
       },
+      "Wargear§Banner of Macragge": {
+        "text": "Once per battle, at the start of the Fight phase, the bearer can use this ability. If it does, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in the bearer’s unit."
+      },
       "Wargear§Centurion Assault Launcher": {
         "stats": {
           "keyword?": {
@@ -82287,6 +83395,22 @@
           "traits": [
             "Ranged Weapon§Assault Squad—Plasma pistol – standard",
             "Ranged Weapon§Assault Squad—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Weapon§Marneus Calgar in Armour of Antilochus—Gauntlets of Ultramar": {
+        "aspects": {
+          "Label": "Gauntlets of Ultramar"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Marneus Calgar—Gauntlets of Ultramar",
+            "Ranged Weapon§Marneus Calgar—Gauntlets of Ultramar"
           ]
         },
         "keywords": {
