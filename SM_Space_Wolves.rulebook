@@ -1,6 +1,6 @@
 {
   "name": "Space Wolves",
-  "revision": "10.12.10",
+  "revision": "10.12.11",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -223,6 +223,9 @@
       },
       "Ability§Curse of the Wulfen": {
         "text": "While this unit is within 6\" of one or more friendly Space Wolves Character models (excluding Wulfen models) or within 12\" of one or more friendly Wolf Priest, if it is not Battle-shocked, add 1 to the Objective Control characteristic of Infantry models in it and add 3 to the Objective Control characteristic of Vehicle models in it."
+      },
+      "Ability§Deadly Stalkers": {
+        "text": "Each time a model in this unit makes an attack that targets an enemy unit, if there are no other units from your opponent’s army within 6\" of that target, add 1 to the Wound roll."
       },
       "Ability§Embarking within Transports": {
         "text": "This model can embark within friendly Adeptus Astartes Transport models that can transport Terminator models. When doing so, it takes up the space of 4 Infantry models."
@@ -7831,15 +7834,432 @@
               "item": "Ability§Scouts",
               "stats": {
                 "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Oath of Moment",
+            "Ability§Deadly Stalkers",
+            "Ability§Hunting Hounds"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Grenades",
+            "Imperium",
+            "Infantry",
+            "Phobos",
+            "Smoke",
+            "Wolf Scouts"
+          ],
+          "Category": [
+            "Infantry"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Adeptus Astartes",
+            "Space Wolves"
+          ]
+        },
+        "rules": {
+          "1 in 12 can have an Instigator Bolt Carbine": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in12",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "4"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "count1in12": {
+            "evals": [
+              {
+                "actionable": false,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 12
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 100
+          },
+          "Only one model can have a Haywire mine": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "2"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only one model can have a plasma gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only one model can have a Runic Stave": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "3"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "setLimit1PL4WS1HW": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout Pack Leader",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout Pack Leader",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout",
+                    "max"
+                  ]
+                ],
+                "value": 4
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Hunting Wolf",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Hunting Wolf",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Unit Composition",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "1PL4WS1HW"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          },
+          "setLimit1PL9WS2HW": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout Pack Leader",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout Pack Leader",
+                    "max"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Wolf Scout",
+                    "max"
+                  ]
+                ],
+                "value": 9
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Hunting Wolf",
+                    "min"
+                  ],
+                  [
+                    "{self}",
+                    "stats",
+                    "Hunting Wolf",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Unit Composition",
+                    "processed",
+                    "term",
+                    "current"
+                  ]
+                ],
+                "value": "1PL9WS2HW"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          }
+        },
+        "stats": {
+          "Hunting Wolf": {
+            "max": 0,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 6
+          },
+          "model2ndCost": {
+            "value": 210
+          },
+          "model2ndTally": {
+            "value": 12
+          },
+          "modelKey": {
+            "value": "Model§Wolf Scout"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 12,
+            "min": 6,
+            "tracked": true,
+            "value": 6
+          },
+          "Points": {
+            "value": 105
+          },
+          "Unit Composition": {
+            "dynamic": true,
+            "group": "Loadout",
+            "ranks": {
+              "1 Pack Leader, 4 Scouts and 1 Wolf": {
+                "order": 0,
+                "term": "1PL4WS1HW",
+                "traits": [
+                  {
+                    "trait": "Model§Wolf Scout Pack Leader"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Wolf Scout",
+                      "quantity": 4
+                    }
+                  },
+                  {
+                    "trait": "Model§Hunting Wolf (Scouts)"
+                  }
+                ]
+              },
+              "1 Pack Leader, 9 Scouts and 2 Wolf": {
+                "order": 1,
+                "term": "1PL9WS2HW",
+                "tracking": {
+                  "Models": 6
+                },
+                "traits": [
+                  {
+                    "trait": "Model§Wolf Scout Pack Leader"
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Wolf Scout",
+                      "quantity": 9
+                    }
+                  },
+                  {
+                    "trait": {
+                      "item": "Model§Hunting Wolf (Scouts)",
+                      "quantity": 2
+                    }
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "1 Pack Leader, 4 Scouts and 1 Wolf",
+            "visibility": "normal"
+          },
+          "Wolf Scout": {
+            "max": 0,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Wolf Scout Pack Leader": {
+            "max": 0,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
+      "Infantry/Mounted§Wolf Scouts (Legends)": {
+        "allowed": {
+          "items": [
+            "Model§Wolf Scout (Legends)"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Infiltrators",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
                   "value": "6″"
                 }
               }
             },
             "Ability§Oath of Moment",
             "Ability§Guerrilla Tactics",
-            "Model§Wolf Scout Pack Leader",
+            "Model§Wolf Scout Pack Leader (Legends)",
             {
-              "item": "Model§Wolf Scout",
+              "item": "Model§Wolf Scout (Legends)",
               "quantity": 4
             }
           ]
@@ -7915,7 +8335,7 @@
             "value": 10
           },
           "modelKey": {
-            "value": "Model§Wolf Scout"
+            "value": "Model§Wolf Scout (Legends)"
           },
           "Models": {
             "increment": {
@@ -7929,7 +8349,7 @@
           "Points": {
             "value": 80
           },
-          "Wolf Scout": {
+          "Wolf Scout (Legends)": {
             "max": 9,
             "min": 4,
             "statType": "numeric",
@@ -10764,6 +11184,116 @@
           }
         }
       },
+      "Melee Weapon§Wolf Scouts (Codex)—Combat blade": {
+        "aspects": {
+          "Label": "Combat blade"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Wolf Scouts (Codex)—Power weapon": {
+        "aspects": {
+          "Label": "Power weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Wolf Scouts (Codex)—Runic Stave": {
+        "aspects": {
+          "Label": "Runic Stave"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Psychic"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "format": "D3",
+            "value": 0
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Wolf Scouts (Codex)—Teeth and claws": {
+        "aspects": {
+          "Label": "Teeth and claws"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
       "Melee Weapon§Wolf Scouts—Astartes chainsword": {
         "aspects": {
           "Label": "Astartes chainsword"
@@ -11459,6 +11989,44 @@
           "Tags": [
             "noTally"
           ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 0
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Hunting Wolf (Scouts)": {
+        "aspects": {
+          "Label": "Hunting Wolf"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Wolf Scouts (Codex)—Teeth and claws"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Beasts",
+            "Hunting Wolves",
+            "Imperium"
+          ],
+          "Tags": []
         },
         "stats": {
           "Ld": {
@@ -12594,6 +13162,114 @@
       },
       "Model§Wolf Scout": {
         "assets": {
+          "traits": []
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Plasma pistol & Combat blade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Wolf Scouts (Codex)—Combat blade"
+                  }
+                ]
+              },
+              "Plasma gun & Combat blade": {
+                "order": 1,
+                "tracking": {
+                  "1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts (Codex)—Plasma gun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Wolf Scouts (Codex)—Combat blade"
+                  }
+                ]
+              },
+              "Plasma pistol, Combat blade & Haywire Mine": {
+                "order": 2,
+                "tracking": {
+                  "2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Wolf Scouts (Codex)—Combat blade"
+                  },
+                  {
+                    "trait": "Wargear§Haywire Mine"
+                  }
+                ]
+              },
+              "Runic Stave and Thunderclap": {
+                "order": 3,
+                "tracking": {
+                  "3": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts (Codex)—Bolt pistol"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts (Codex)—Thunderclap"
+                  },
+                  {
+                    "trait": "Melee Weapon§Wolf Scouts (Codex)—Runic Stave"
+                  }
+                ]
+              },
+              "Instigator bolt carbine & Combat blade": {
+                "order": 4,
+                "tracking": {
+                  "4": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Wolf Scouts (Codex)—Instigator Bolt Carbine"
+                  },
+                  {
+                    "trait": "Melee Weapon§Wolf Scouts (Codex)—Combat blade"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Plasma pistol & Combat blade",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Wolf Scout (Legends)": {
+        "assets": {
           "traits": [
             "Melee Weapon§Wolf Scouts—Close combat weapon"
           ]
@@ -12760,6 +13436,34 @@
         }
       },
       "Model§Wolf Scout Pack Leader": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol",
+            "Melee Weapon§Wolf Scouts (Codex)—Power weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Wolf Scout Pack Leader (Legends)": {
         "rules": {
           "Maximum 1 gun": {
             "evals": [
@@ -18402,6 +19106,266 @@
           }
         }
       },
+      "Ranged Weapon§Wolf Scouts (Codex)—Bolt pistol": {
+        "aspects": {
+          "Label": "Bolt pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Instigator Bolt Carbine": {
+        "aspects": {
+          "Label": "Instigator Bolt Carbine"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Plasma gun": {
+        "aspects": {
+          "Label": "Plasma gun"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Wolf Scouts (Codex)—Plasma gun – standard",
+            "Ranged Weapon§Wolf Scouts (Codex)—Plasma gun – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Plasma gun – standard": {
+        "aspects": {
+          "Label": "Standard"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 7
+          }
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Plasma gun – supercharge": {
+        "aspects": {
+          "Label": "Supercharge"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Hazardous",
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol": {
+        "aspects": {
+          "Label": "Plasma pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol – standard",
+            "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol – supercharge"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol – standard": {
+        "aspects": {
+          "Label": "Standard"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 7
+          }
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Plasma pistol – supercharge": {
+        "aspects": {
+          "Label": "Supercharge"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Hazardous",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Wolf Scouts (Codex)—Thunderclap": {
+        "aspects": {
+          "Label": "Thunderclap"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Blast",
+            "Ability§Psychic"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D3",
+            "value": 0
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
       "Ranged Weapon§Wolf Scouts—Astartes shotgun": {
         "aspects": {
           "Label": "Astartes shotgun"
@@ -18426,36 +19390,6 @@
           },
           "Range": {
             "value": 18
-          },
-          "S": {
-            "value": 4
-          }
-        }
-      },
-      "Ranged Weapon§Wolf Scouts—Bolt pistol": {
-        "aspects": {
-          "Label": "Bolt pistol"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Pistol"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": 0
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 12
           },
           "S": {
             "value": 4
