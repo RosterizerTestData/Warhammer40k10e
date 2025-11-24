@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.12.10",
+  "revision": "10.12.11",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -661,7 +661,7 @@
             "Other"
           ]
         },
-        "text": "This model’s unit is eligible to shoot or declare a charge in a turn in which it Fell Back."
+        "text": "This model’s unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
       },
       "Ability§Advanced Quantum Shielding": {
         "keywords": {
@@ -730,6 +730,9 @@
           ]
         },
         "text": "While this unit is in the same unit as a Cryptek model, that Cryptek model has the Feel No Pain 4+ ability."
+      },
+      "Ability§Canoptek Retinue": {
+        "text": "At the start of the Declare Battle Formations step, this unit can join one other unit from your army that is being led by a Cryptek model (a unit cannot have more than one Tomb Crawlers unit joined to it and cannot have both a Tomb Crawlers and a Cryptothralls unit joined to it). If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly."
       },
       "Ability§Canoptek Swarm": {
         "keywords": {
@@ -933,6 +936,9 @@
         },
         "text": "While a NOBLE model is leading this unit, each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll."
       },
+      "Ability§Harassment Swarm (Aura)": {
+        "text": "While an enemy unit (excluding Monsters and Vehicles) is within 3\" of this unit, each time a model in that unit makes an attack, subtract 1 from the Hit roll."
+      },
       "Ability§Harbinger of Despair": {
         "keywords": {
           "Keywords": [
@@ -1114,6 +1120,9 @@
           ]
         },
         "text": "In the Battle-Shock step of your opponent’s Command phase, if an enemy unit that is below its Starting Strength is within 6″ of this model, that enemy unit must take a Battle-Shock test, subtracting 1 from the test when it does so."
+      },
+      "Ability§Obelisk Node Control": {
+        "text": "While this model is within range of an objective marker you control, enemy units that are set up on the battlefield from Reserves cannot be set up within 12\" of this model."
       },
       "Ability§One Shot": {
         "text": "The bearer can only shoot with this weapon once per battle."
@@ -1355,6 +1364,9 @@
         },
         "text": "At the end of your Movement phase, you can select one friendly Necrons model within 6″ of the bearer. That model regains up to D3 lost wounds. Each model can only be selected for this ability once per turn."
       },
+      "Ability§Tectonic Reverberations": {
+        "text": "In your Movement phase, you can select one enemy unit within 18\" of and visible to this model. Until the start of your next Movement phase that enemy unit is pinned. While a unit is pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Charge rolls made for it."
+      },
       "Ability§Teleportation Matrix": {
         "keywords": {
           "Keywords": [
@@ -1484,6 +1496,9 @@
         },
         "text": "While this model is leading a unit, melee weapons equipped by models in that unit have the [LETHAL HITS] ability."
       },
+      "Ability§Vanguard Protocols": {
+        "text": "If this model is attached to a Canoptek Macrocytes unit during the Declare Battle Formations step, this model has the Scouts 8\" ability."
+      },
       "Ability§Voice of the Triarch": {
         "assets": {
           "traits": [
@@ -1499,6 +1514,9 @@
           ]
         },
         "text": "At the start of the battle round, select one Triarch ability (see left). Until the start of the next battle round, this unit has that ability."
+      },
+      "Ability§Weapon Sentinels": {
+        "text": "Each time a model in this unit makes a ranged attack that targets a unit within 12\", you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll; the Wound roll"
       },
       "Ability§While an enemy unit is only within Engagement Range of one or more Fortifications from your army": {
         "keywords": {
@@ -2887,6 +2905,110 @@
           },
           "Points": {
             "value": 65
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
+      "Character§Geomancer": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "\n\nThis model can be attached to the following units: \n\n- Canoptek Macrocytes, \n\n- Immortals,\n\n- Necron Warriors.\n\nYou can attach this model to one of the above units even if one Royal Warden or Noble model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+            },
+            "Ability§Reanimation Protocols",
+            "Ability§Tectonic Reverberations",
+            "Ability§Obelisk Node Control",
+            "Ability§Vanguard Protocols",
+            "Weapon§Geomancer—Tremorglaive"
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Character"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Necrons"
+          ],
+          "Keywords": [
+            "Character",
+            "Cryptek",
+            "Geomancer",
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "allowTwoLeaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Royal Warden"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Noble"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 75
           },
           "Sv": {
             "value": 4
@@ -6301,6 +6423,32 @@
           }
         }
       },
+      "Melee Weapon§Canoptek Macrocytes—Claws": {
+        "aspects": {
+          "Label": "Claws"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
       "Melee Weapon§Canoptek Reanimator—Reanimator’s claws": {
         "aspects": {
           "Label": "Reanimator’s claws"
@@ -6378,6 +6526,32 @@
           },
           "S": {
             "value": 8
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Canoptek Tomb Crawlers—Claws": {
+        "aspects": {
+          "Label": "Claws"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
           },
           "WS": {
             "value": 4
@@ -6723,6 +6897,32 @@
           },
           "WS": {
             "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Geomancer—Tremorglaive": {
+        "aspects": {
+          "Label": "Melee"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "WS": {
+            "value": 4
           }
         }
       },
@@ -7387,32 +7587,6 @@
           }
         }
       },
-      "Melee Weapon§Overlord—Staff of light": {
-        "aspects": {
-          "Label": "Melee"
-        },
-        "stats": {
-          "A": {
-            "value": 4
-          },
-          "AP": {
-            "value": -2
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
-          "S": {
-            "value": 5
-          },
-          "WS": {
-            "value": 2
-          }
-        }
-      },
       "Melee Weapon§Overlord—Voidscythe": {
         "aspects": {
           "Label": "Voidscythe"
@@ -8045,6 +8219,127 @@
           }
         }
       },
+      "Model§Canoptek Macrocyte": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Canoptek Macrocytes—Claws"
+          ]
+        },
+        "rules": {
+          "add": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": [
+                  "{parent}",
+                  "stats",
+                  "Ranged Weapon",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Special",
+                    "value"
+                  ]
+                ],
+                "value": "Atomiser beam and Nanoscarab projector"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Special",
+                    "value"
+                  ]
+                ],
+                "value": "Accelerator Mandible"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "M": {
+            "value": 8
+          },
+          "OC": {
+            "value": 1
+          },
+          "Special": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Atomiser beam and Nanoscarab projector": {
+                "order": 1,
+                "tracking": {
+                  "NP": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Canoptek Macrocytes—Atomiser beam"
+                  },
+                  {
+                    "trait": "Wargear§Nanoscarab Projector"
+                  }
+                ]
+              },
+              "Accelerator Mandible": {
+                "order": 2,
+                "tracking": {
+                  "AM": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Wargear§Accelerator Mandible"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
       "Model§Canoptek Scarab Swarm": {
         "assets": {
           "traits": [
@@ -8162,6 +8457,61 @@
           },
           "W": {
             "value": 6
+          }
+        }
+      },
+      "Model§Canoptek Tomb Crawler": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Canoptek Tomb Crawlers—Claws"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 8
+          },
+          "Loadout Options": {
+            "dynamic": true,
+            "ranks": {
+              "Twin gauss reaper": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Canoptek Tomb Crawlers—Twin gauss reaper"
+                  }
+                ]
+              },
+              "Transdimensional isolator": {
+                "order": 1,
+                "tracking": {
+                  "iso": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Canoptek Tomb Crawlers—Transdimensional isolator"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Twin gauss reaper",
+            "visibility": "normal"
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 4
+          },
+          "W": {
+            "value": 3
           }
         }
       },
@@ -9421,6 +9771,99 @@
           }
         }
       },
+      "Ranged Weapon§Canoptek Macrocytes—Atomiser beam": {
+        "aspects": {
+          "Label": "Atomiser beam"
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Canoptek Macrocytes—Gauss scalpel": {
+        "aspects": {
+          "Label": "Gauss scalpel"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Canoptek Macrocytes—Tesla Caster": {
+        "aspects": {
+          "Label": "Tesla Caster"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
       "Ranged Weapon§Canoptek Reanimator—Atomiser beam": {
         "aspects": {
           "Label": "Atomiser beam"
@@ -9475,6 +9918,62 @@
           },
           "S": {
             "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Canoptek Tomb Crawlers—Transdimensional isolator": {
+        "aspects": {
+          "Label": "Transdimensional isolator"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Canoptek Tomb Crawlers—Twin gauss reaper": {
+        "aspects": {
+          "Label": "Twin gauss reaper"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits",
+            "Ability§Twin-linked"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
           }
         }
       },
@@ -10018,6 +10517,99 @@
           },
           "Range": {
             "value": 6
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Geomancer—Tremorglaive": {
+        "aspects": {
+          "Label": "Ranged"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Geomancer—Tremorglaive - reverberating beam",
+            "Ranged Weapon§Geomancer—Tremorglaive - shock wave pulse"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Ranged Weapon§Geomancer—Tremorglaive - reverberating beam": {
+        "aspects": {
+          "Label": "Reverberating beam"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Geomancer—Tremorglaive - shock wave pulse": {
+        "aspects": {
+          "Label": "Shock wave pulse"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "keywords": {
+          "Tags": []
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "format": "{v}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
           },
           "S": {
             "value": 4
@@ -13166,6 +13758,105 @@
           }
         }
       },
+      "Unit§Canoptek Macrocytes": {
+        "allowed": {
+          "items": [
+            "Model§Canoptek Macrocyte",
+            "Character§Geomancer"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "8″"
+                }
+              }
+            },
+            {
+              "item": "Model§Canoptek Macrocyte",
+              "quantity": 5
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Beasts",
+            "Canoptek",
+            "Fly",
+            "Macrocytes"
+          ],
+          "Category": [
+            "Beasts"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Necrons"
+          ]
+        },
+        "stats": {
+          "AM": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Canoptek Macrocyte": {
+            "max": 5,
+            "min": 5,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "modelKey": {
+            "value": "Model§Canoptek Macrocyte"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 5,
+            "min": 5,
+            "value": 5
+          },
+          "NP": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Points": {
+            "value": 85
+          },
+          "Ranged Weapon": {
+            "dynamic": true,
+            "ranks": {
+              "Gauss scalpel": {
+                "order": 0
+              },
+              "Tesla caster": {
+                "order": 1
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "Gauss scalpel",
+            "visibility": "normal"
+          }
+        }
+      },
       "Unit§Canoptek Reanimator": {
         "aspects": {
           "Type": "game piece"
@@ -13370,6 +14061,85 @@
           },
           "Points": {
             "value": 75
+          }
+        }
+      },
+      "Unit§Canoptek Tomb Crawlers": {
+        "allowed": {
+          "items": [
+            "Model§Canoptek Tomb Crawler"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Reanimation Protocols",
+            "Ability§Weapon Sentinels",
+            "Ability§Canoptek Retinue",
+            {
+              "item": "Model§Canoptek Tomb Crawler",
+              "quantity": 2
+            }
+          ]
+        },
+        "keywords": {
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Necrons"
+          ],
+          "Keywords": [
+            "Beasts",
+            "Canoptek",
+            "Tomb Crawlers"
+          ],
+          "Category": [
+            "Beasts"
+          ]
+        },
+        "rules": {
+          "1 model can be equipped with 1 transdimensional isolator.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "iso"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Canoptek Tomb Crawler": {
+            "max": 2,
+            "min": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "modelKey": {
+            "value": "Model§Canoptek Tomb Crawler"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 2,
+            "min": 2,
+            "value": 2
+          },
+          "Points": {
+            "value": 50
           }
         }
       },
@@ -14170,7 +14940,8 @@
             "Character§Technomancer",
             "Character§Trazyn the Infinite",
             "Character§Vargard Obyron",
-            "Character§Overlord with Translocation Shroud"
+            "Character§Overlord with Translocation Shroud",
+            "Character§Geomancer"
           ]
         },
         "assets": {
@@ -14725,7 +15496,8 @@
             "Character§Technomancer",
             "Character§Trazyn the Infinite",
             "Character§Vargard Obyron",
-            "Character§Overlord with Translocation Shroud"
+            "Character§Overlord with Translocation Shroud",
+            "Character§Geomancer"
           ]
         },
         "assets": {
@@ -16111,6 +16883,9 @@
           }
         }
       },
+      "Wargear§Accelerator Mandible": {
+        "text": "At the start of the Fight phase, select one friendly Canoptek unit within 3\" of the bearer’s unit. Until the end of the phase, improve the Weapon Skill characteristic of weapons equipped by models in that unit by 1."
+      },
       "Wargear§Canoptek Cloak": {
         "rules": {
           "AddFlyLoneOperativeandM10″": {
@@ -16205,6 +16980,9 @@
       },
       "Wargear§Nanoscarab Amulet": {
         "text": "The bearer has the Feel No Pain 5+ ability."
+      },
+      "Wargear§Nanoscarab Projector": {
+        "text": "Once per battle round, when a friendly Necrons unit within 3\" of the bearer activates its Reanimation Protocols, the bearer can use this ability. If it does, that unit reanimates 1 additional wound."
       },
       "Wargear§Nebuloscope": {
         "text": "Ranged weapons equipped by the bearer have the [IGNORES COVER] ability."
@@ -16328,6 +17106,22 @@
           ]
         }
       },
+      "Weapon§Geomancer—Tremorglaive": {
+        "aspects": {
+          "Label": "Tremorglaive"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Geomancer—Tremorglaive",
+            "Melee Weapon§Geomancer—Tremorglaive"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
       "Weapon§Illuminor Szeras—Eldritch lance": {
         "aspects": {
           "Label": "Eldritch lance"
@@ -16414,7 +17208,7 @@
         },
         "assets": {
           "traits": [
-            "Melee Weapon§Overlord—Staff of light",
+            "Melee Weapon§Geomancer—Tremorglaive",
             "Ranged Weapon§Overlord—Staff of light"
           ]
         },
