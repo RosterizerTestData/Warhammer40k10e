@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.12.12",
+  "revision": "10.12.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -321,6 +321,25 @@
       },
       "Unit": {
         "rules": {
+          "A unit cannot have both a TOMB CRAWLERS and a CRYPTOTHRALLS unit joined to it": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "attach"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "addSlowDecay": {
             "actions": [
               {
@@ -646,6 +665,58 @@
                   ]
                 ],
                 "value": "Noble"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "allowTombCrawlers": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Unit§Canoptek Tomb Crawlers"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Unit§Canoptek Tomb Crawlers",
+                    "aspects",
+                    "Unique"
+                  ]
+                ],
+                "value": true
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Character",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Cryptek"
               }
             ],
             "evaluate": "AND",
@@ -14096,6 +14167,9 @@
           ],
           "Category": [
             "Beasts"
+          ],
+          "Tags": [
+            "attach"
           ]
         },
         "rules": {
@@ -14452,6 +14526,9 @@
           ],
           "Category": [
             "Infantry"
+          ],
+          "Tags": [
+            "attach"
           ]
         },
         "stats": {
