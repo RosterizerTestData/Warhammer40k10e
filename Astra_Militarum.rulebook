@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.12.27",
+  "revision": "10.12.28",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -4723,6 +4723,102 @@
         },
         "text": "## BORN SOLDIERS\n\nEach time a model in a **Regiment** unit from your army makes a ranged attack that targets a visible unit (excluding **Monsters** and **Vehicles**), that attack has the **[LETHAL HITS]** ability.\n\nEach time a model in a **Squadron** unit from your army makes a ranged attack that targets a visible **Monster** or **Vehicle** unit, that attack has the **[LETHAL HITS]** ability."
       },
+      "Detachment§Grizzled Company": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Additional Armour"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Mordian Minute"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Purging Fire"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Veteran Sharpshooters"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§No Retreat!"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Snap To It"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## RUTHLESS DISCIPLINE\n\nAdd 1 to the number of Orders each Astra Militarum Officer model from your army can issue, as stated on their datasheet.\n\nWhile an Astra Militarum unit from your army is affected by an Order, each time a model in that unit makes an attack, re‑roll a Hit roll of 1. If the target of that attack is within range of an objective marker, re‑roll a Wound roll of 1 as well."
+      },
       "Detachment§Hammer of the Emperor": {
         "keywords": {
           "Keywords": [
@@ -5127,6 +5223,36 @@
         },
         "text": "## Artillery Support\n\nAt the start of the battle round, select one of the following types of artillery support.\n\n-  **Creeping Barrage:** Roll one D6 for each enemy unit that is more than 12\" from every model from your army that is on the battlefield: On a 5+, until the end of the battle round, that unit is shaken. While a unit is shaken, subtract 2\" from its move characteristic and subtract 2 *Charge rolls* made for it. *The maximum number of units that can be shaken by this rule in each battle round depends on the battle size, as shown below.*\n\n-  **Incendiary Bombardment:** Select a number of enemy units that is more than 12\" from every model from your army that is on the battlefield: On a 5+, until the end of the battle round, those enemy units are scattered. While a unit is scattered, it cannot have the Benefit of Cover. The maximum number of units that you can select in this way depends on the battle size, as shown below.\n\n-  **Smoke Shells:** Select a number units from your army. Until the end of the battle round, those units have the Stealth ability. The maximum number of units that you can select in this way depends on the battle size, as shown below.\n\n| Battle Size | Maximum Number of  Units |\n| ----------- | ----------- |\n| Incursion | 2 |\n| Strike Force | 3 |\n| Onslaught | 4 |"
       },
+      "Enhancement§Abhuman Detail": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ]
+        },
+        "rules": {
+          "Comissar model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Commissar"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "**COMMISSAR** model only. Add the **OGRYN** keyword to the list of units this model can issue Orders too (as stated on its datasheet). In the Declare Battle Formations step, the bearer can be attached to an **OGRYN SQUAD** or **BULLGRYN SQUAD** unit."
+      },
       "Enhancement§Advance Augury": {
         "keywords": {
           "Keywords": [
@@ -5203,6 +5329,83 @@
           }
         },
         "text": "**Infantry Officer** model only. After both players have deployed their armies, select up to three **Regiment** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+      },
+      "Enhancement§Aquilan Eye": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ]
+        },
+        "rules": {
+          "Officer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Officer"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Cadian Command Squad"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Catachan Command Squad"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Krieg Command Squad"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 0
+          }
+        },
+        "text": "**ASTRA MILITARUM OFFICER** model only. Each time you select an Order for the bearer to issue, you can select the Order below:\n\n**Target Weak Spot (Order):** Each time a model in this unit makes a ranged attack that targets an enemy unit within 12\", improve the Armour Penetration characteristic of that attack by 1."
       },
       "Enhancement§Bold Leadership": {
         "keywords": {
@@ -5958,6 +6161,83 @@
         },
         "text": "**Vehicle Officer** model only. The bearer has the Feel No Pain 6+ ability."
       },
+      "Enhancement§Laud Hailer": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ]
+        },
+        "rules": {
+          "Officer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Officer"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Cadian Command Squad"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Catachan Command Squad"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Krieg Command Squad"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 0
+          }
+        },
+        "text": "**ASTRA MILITARUM OFFICER** model only. Each time you select a unit for this **OFFICER** model to issue an Order to, that unit can be within 12\" instead of within 6\"."
+      },
       "Enhancement§Legacy Sidearm": {
         "keywords": {
           "Keywords": [
@@ -6398,6 +6678,83 @@
           }
         },
         "text": "**Infantry Officer** model only. The bearer's unit has the Benefit of Cover and the Stealth ability while the bearer's unit is wholly within 3\" of one or more friendly **Transport** models."
+      },
+      "Enhancement§Spec Ops Veteran": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ]
+        },
+        "rules": {
+          "Infantry Officer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ministorum Priest"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Primaris Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tech-Priest Enginseer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 0
+          }
+        },
+        "text": "**ASTRA MILITARUM INFANTRY OFFICER** model only. Each time you select an Order for the bearer to issue, you can select the Order below:\n\n**Move to the Shadows (Order):** Each time a ranged attack targets this unit, until those attacks are resolved, models in this unit have the Stealth ability."
       },
       "Enhancement§Stalwart's Honours": {
         "keywords": {
@@ -45027,6 +45384,14 @@
                     "trait": "Detachment§Recon Element"
                   }
                 ]
+              },
+              "Grizzled Company": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Detachment§Grizzled Company"
+                  }
+                ]
               }
             }
           },
@@ -45066,6 +45431,28 @@
           }
         },
         "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n---\n**TARGET:** One **ASTRA MILITARUM VEHICLE** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n---\n**EFFECT:** Until the end of the phase, each time an attack is allocated to your unit, subtract 1 from the Damage characteristic of that attack."
+      },
+      "Stratagem§Additional Armour": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One ASTRA MILITARUM unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
       },
       "Stratagem§Aerial Extraction": {
         "keywords": {
@@ -45443,6 +45830,28 @@
         },
         "text": "**WHEN:** Start of your opponent’s Charge phase..\n\n---\n**TARGET:** One **PLATOON** unit from your army.\n\n---\n**EFFECT:** Until the end of the phase, each time an enemy unit ends a Charge move within Engagement Range of your unit, roll one D6 for each model in that enemy unit: for each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
       },
+      "Stratagem§Mordian Minute": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ASTRA MILITARUM INFANTRY unit from your army affected by the First Rank, Fire! Second Rank, Fire! Order.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, improve the Strength characteristic of that attack by 1."
+      },
       "Stratagem§Move Out": {
         "keywords": {
           "Category": [
@@ -45459,6 +45868,28 @@
           ]
         },
         "text": "**WHEN:** End of your opponent’s turn.\n\n---\n**TARGET:** One **ASTRA MILITARUM** unit from your army.\n\n---\n**EFFECT:** Provided your unit is not within Engagement Range of one or more enemy units and every model in your unit is within 3\" of an **ASTRA MILITARUM TRANSPORT** from your army, it can embark within that **TRANSPORT**."
+      },
+      "Stratagem§No Retreat!": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One ASTRA MILITARUM unit from your army affected by the Duty and Honour! Order.\n\n**EFFECT**: If your unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of a phase."
       },
       "Stratagem§On My Position": {
         "keywords": {
@@ -45498,6 +45929,28 @@
           }
         },
         "text": "**WHEN:** Start of your Command phase.\n\n---\n**TARGET:** One **INFANTRY OFFICER** model from your army.\n\n\n---\n**EFFECT:** Until the end of the phase, when your model issues the Move! Move! Move! Order, it can issue that Order to any number of eligible friendly **INFANTRY REGIMENT** units, regardless of range to your model."
+      },
+      "Stratagem§Purging Fire": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ASTRA MILITARUM unit from your army affected by an Order that has not been selected to shoot this phase.\n\n**EFFECT**: If your unit is within range of an objective marker, until the end of the phase, ranged weapons equipped by models in your unit have the [LETHAL HITS] ability."
       },
       "Stratagem§Rapid Dispersal": {
         "keywords": {
@@ -45591,6 +46044,29 @@
         },
         "text": "**WHEN:** Your Shooting phase, just after an **Astra Militarum Infantry** unit from your army has shot.\n\n---\n**TARGET:** That **Astra Militarum Infantry** unit.\n\n---\n**EFFECT:** Select one enemy unit hit by one or more of those attacks that is visible to your unit. Until the end of the phase, that enemy unit cannot have the Benefit of Cover."
       },
+      "Stratagem§Snap To It": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Start of any phase .\n\n**TARGET**: One ASTRA MILITARUM OFFICER unit from your army .\n\n**EFFECT**: Your unit's OFFICER model can issue 1 Order as if it were your Command phase."
+      },
       "Stratagem§Stalwart Protector": {
         "keywords": {
           "Phase": [
@@ -45680,6 +46156,28 @@
           ]
         },
         "text": "**WHEN:** Fight phase, just after an enemy unit has selected its targets.\n\n---\n**TARGET:** One **ASTRA MILITARUM INFANTRY** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n\n---\n**EFFECT:** Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 2 to the result if it is a **REGIMENT** model. On a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play."
+      },
+      "Stratagem§Veteran Sharpshooters": {
+        "keywords": {
+          "Keywords": [
+            "Grizzled Company"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ASTRA MILITARUM unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability."
       },
       "Stratagem§Vox-Relay": {
         "keywords": {
