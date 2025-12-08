@@ -1,6 +1,6 @@
 {
   "name": "Blood Angels",
-  "revision": "10.12.8",
+  "revision": "10.12.9",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "6TNHSC",
+      "slug": "HTRPJK",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -2201,6 +2201,102 @@
         },
         "text": "**Red Thirst**\n\nEach time an ADEPTUS ASTARTES unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.\n\n**RESTRICTIONS**\n\nYour army can include Blood Angels units, but it cannot include any Adeptus Astartes units drawn from any other Chapter."
       },
+      "Detachment§Rage-cursed Onslaught": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Red Wrath"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Deathless Duty"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Limb From Limb"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Insensate Rampage"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§A Grim Warning"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## MADDENED FEROCITY\n\nEach time an Adeptus Astartes model from your army makes a melee attack, re‑roll a Wound roll of 1.\n\nEach time an Adeptus Astartes unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. If your unit is Battle‑shocked, add 2 to the Attacks characteristic of melee weapons equipped by models in that unit instead.\n\n## RESTRICTIONS\n\nYour army can include Blood Angels units, but it cannot include Adeptus Astartes units drawn from any other Chapter."
+      },
       "Detachment§The Angelic Host": {
         "rules": {
           "assignstratagems": {
@@ -2392,6 +2488,41 @@
           }
         },
         "text": "**A Noble Death in Combat**\n\nEach time a DEATH COMPANY model from your army makes a melee attack, re-roll a Wound roll of 1 if that model’s unit is below its Starting Strength; if that model’s unit is Below Half-strength, you can re-roll the Wound roll instead.\n\n**KEYWORDS**\n\n\nIf you select this Detachment, DEATH COMPANY MARINES and DEATH COMPANY MARINES WITH BOLT RIFLES units from your army have the BATTLELINE keyword.\n\n**RESTRICTIONS**\n\nYour army can include Blood Angels units, but it cannot include any Adeptus Astartes units drawn from any other Chapter."
+      },
+      "Enhancement§Angel's Fang": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. Each time the bearer makes a melee attack that targets a **CHARACTER**, **MONSTER** or **VEHICLE** unit, that attack has the **[SUSTAINED HITS 2]** ability."
       },
       "Enhancement§Archangel’s Shard": {
         "keywords": {
@@ -2647,6 +2778,72 @@
         },
         "text": "DEATH COMPANY model only. The first time the bearer is destroyed, at the end of the phase, roll one D6: on a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining."
       },
+      "Enhancement§Carmine Reliquary": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Scouts",
+                  "stats": {
+                    "x": {
+                      "value": "6″"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Chaplain model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Chaplain"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**CHAPLAIN** model only. Models in the bearer's unit have the Scouts 6\" ability. Each time you take a Battle-shock test for an **ADEPTUS ASTARTES** unit within 6\" of the bearer, you can re-roll the result."
+      },
       "Enhancement§Gift of Foresight": {
         "keywords": {
           "Keywords": [
@@ -2691,6 +2888,41 @@
           }
         },
         "text": "ADEPTUS ASTARTES model only. Each time an enemy unit (excluding MONSTERS and VEHICLES) within Engagement Range of the bearer’s unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle-shocked. When doing so, if that enemy unit is also Battle-shocked by other means, subtract 1 from each of those Desperate Escape tests."
+      },
+      "Enhancement§Master of the Red Thirst": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer's unit have the Fights First ability."
       },
       "Enhancement§Ordained Sacrifice": {
         "keywords": {
@@ -2764,6 +2996,41 @@
           }
         },
         "text": "ADEPTUS ASTARTES model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearers melee weapons have the [sustained hits 3] ability."
+      },
+      "Enhancement§Sanguinary Tear (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. While a friendly **DEATH COMPANY** unit is within 6\" of the bearer, add 1 to the Strength characteristic of weapons equipped by models in that unit."
       },
       "Enhancement§Sanguinius’ Grace": {
         "keywords": {
@@ -10362,8 +10629,16 @@
           },
           "Detachment": {
             "ranks": {
+              "19": {
+                "order": 19,
+                "traits": [
+                  {
+                    "trait": "Detachment§Angelic Inheritors"
+                  }
+                ]
+              },
               "Liberator Assault Group": {
-                "order": 9,
+                "order": 15,
                 "traits": [
                   {
                     "trait": "Detachment§Liberator Assault Group"
@@ -10371,7 +10646,7 @@
                 ]
               },
               "The Lost Brethren": {
-                "order": 10,
+                "order": 16,
                 "traits": [
                   {
                     "trait": "Detachment§The Lost Brethren"
@@ -10379,7 +10654,7 @@
                 ]
               },
               "The Angelic Host": {
-                "order": 11,
+                "order": 17,
                 "traits": [
                   {
                     "trait": "Detachment§The Angelic Host"
@@ -10387,7 +10662,7 @@
                 ]
               },
               "Angelic Inheritors": {
-                "order": 12,
+                "order": 18,
                 "traits": [
                   {
                     "trait": "Detachment§Angelic Inheritors"
@@ -10410,6 +10685,29 @@
             "value": "Imperium"
           }
         }
+      },
+      "Stratagem§A Grim Warning": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase.\n\n**TARGET**: One BLOOD ANGELS unit from your army that was just destroyed while it was within range of one or more objective markers you controlled at the end of the previous phase. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT**: Select one of those objective markers. That objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase."
       },
       "Stratagem§Aggressive Onslaught": {
         "keywords": {
@@ -10470,6 +10768,7 @@
           "Keywords": [
             "Angelic Inheritors",
             "Liberator Assault Group",
+            "Rage-cursed Onslaught",
             "The Angelic Host",
             "The Lost Brethren"
           ],
@@ -10496,6 +10795,29 @@
           ]
         },
         "text": "**WHEN**: Your Movement phase, just after an Adeptus Astartes Jump Pack unit from your army Advances or Falls Back.\n\n**TARGET**: That Adeptus Astartes Jump Pack unit\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
+      },
+      "Stratagem§Deathless Duty": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One DEATH COMPANY unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
       },
       "Stratagem§Descent of Angels": {
         "keywords": {
@@ -10603,6 +10925,29 @@
         },
         "text": "**WHEN:** Your opponent’s Shooting phase, just after an\nenemy unit has selected its targets.\n\n**TARGET:** One **Adeptus Astartes Character** unit\nfrom your army that was selected as the target of\none or more of the attacking unit’s attacks.\n\n**EFFECT:** Until the end of the phase, your unit can\nonly be selected as the target of a ranged attack if\nthe attacking model is within 18\"."
       },
+      "Stratagem§Insensate Rampage": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One DEATH COMPANY unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability."
+      },
       "Stratagem§Instant of Grace": {
         "keywords": {
           "Keywords": [
@@ -10619,6 +10964,28 @@
           ]
         },
         "text": "**WHEN:** Your Command phase.\n\n**TARGET:** One **Adeptus Astartes Infantry** unit from\nyour army.\n\nEFFECT: Select one **non‑Character** model in your\nunit. Until the start of your next Command phase,\nyour model has the **Character** keyword.\n\n*Designer’s Note:* While in effect, your model’s unit\nis therefore a Character unit, meaning it can\ninteract with the Legacy of the Angel Detachment\nrule, in addition to other rules that interact with\nCharacter units."
+      },
+      "Stratagem§Limb From Limb": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that made a Charge move this turn.\n\n**EFFECT**: Select either the Strength or Armour Penetration characteristic of melee weapons equipped by models in your unit. Until the end of the phase, add 1 to the selected characteristic. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it), and until the end of the phase, add 1 to the Strength and Armour Penetration characteristics of melee weapons equipped by models in your unit."
       },
       "Stratagem§Lost to Rage": {
         "keywords": {
@@ -10674,6 +11041,28 @@
           ]
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Select either the [LANCE] or [LETHAL HITS] abilities. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. You can instead choose for your unit to give in to the Red Thirst; if it does, then it becomes Battle-shocked (but the effects of this Stratagem still apply to it) and until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities."
+      },
+      "Stratagem§Red Wrath": {
+        "keywords": {
+          "Keywords": [
+            "Rage-cursed Onslaught"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase, just after an ADEPTUS ASTARTES unit from your army Advances.\n\n**TARGET**: That ADEPTUS ASTARTES unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to either shoot or declare a charge in a turn in which it Advanced. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it), and until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced."
       },
       "Stratagem§Relentless Assault": {
         "keywords": {
