@@ -1,6 +1,6 @@
 {
   "name": "Necrons",
-  "revision": "10.12.16",
+  "revision": "10.12.17",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -4773,7 +4773,7 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Immortals\n\n* Lychguard\n\n* Necron Warriors This model can be attached to a unit even if Nemesor Zahndrekh has already been attached to it. If it is, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+              "text": "This model can be attached to the following units:\n\n* Immortals\n\n* Lychguard\n\n* Necron Warriors \n\nThis model can be attached to a unit even if Nemesor Zahndrekh has already been attached to it. If it is, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
             },
             "Ability§Reanimation Protocols",
             "Ability§Ghostwalk Mantle",
@@ -4797,6 +4797,42 @@
           "Category": [
             "Epic Hero"
           ]
+        },
+        "rules": {
+          "allowtwoleaders": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "Leader",
+                    "max"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "tally",
+                    "Nemesor Zahndrekh"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass"
+          }
         },
         "stats": {
           "Ld": {
