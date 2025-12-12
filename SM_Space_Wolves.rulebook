@@ -1,6 +1,6 @@
 {
   "name": "Space Wolves",
-  "revision": "10.12.13",
+  "revision": "10.12.14",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "HTRPJK",
+      "slug": "CYXUJY",
       "name": "Space Marines",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook"
@@ -5553,6 +5553,107 @@
         },
         "text": "## HEROES ALL\n\nEach time an ADEPTUS ASTARTES unit from your army is selected to shoot or fight, apply one of the following when resolving those attacks:\n\n- If your Saga is completed (see below), you can re-roll one Hit roll, one Wound roll and one Damage roll.\n\n- Otherwise, if that unit is a SPACE WOLVES CHARACTER unit, you can re-roll one Hit roll, one Wound roll or one Damage roll.\n\n## Saga of the Bold\n\nEach time a SPACE WOLVES CHARACTER unit from your army does one of the following, that unit achieves that Boast. Once three or more different Boasts have been achieved by units from your army, your Saga is completed.\n\n- **Take a Trophy**: That unit destroys your Oath of Moment target.\n\n- **Slay Them All**: That unit destroys your Oath of Moment target, and that is the second Oath of Moment target destroyed by that unit in this battle.\n\n- **Overrun Their Position**: At the end of either player’s turn, that unit is wholly within your opponent’s deployment zone.\n\n- **Hold the Line**: From the second battle round onwards, at the end of your Command phase, that unit is within range of an objective marker you control that is not within your deployment zone."
       },
+      "Detachment§Saga of the Great Wolf": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Fenrisian Ferocity"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Battle Instincts"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Eye of the Pack"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unrelenting Hunters"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Grimnar's Command"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§The Foe Foreseen"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## MASTER OF WOLVES\n\nAt the start of your Command phase, you can select one of the Hunting Packs listed below. Until the start of your next Command phase, that Hunting Pack is active and its effects apply to all Adeptus Astartes units from your army. You can only select each Hunting Pack once per battle.\n\n■ Encircling Jaws: This unit can re‑roll Advance rolls and Charge rolls.\n\n■ Hunter’s Eye: Each time a model in this unit makes a ranged attack, add 1 to the Hit roll.\n\n■ Ferocious Strike: Each time this unit is selected to fight, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in this unit have the selected ability.\n\n## HOWLING ONSLAUGHT\n\n\nWhen the Great Wolf gives the command, his packs descend upon the foe in a coordinated and utterly devastating strike. Once per battle, when selecting a Hunting Pack for the Master of Wolves Detachment rule (see above), if a Logan Grimnar model from your army is on the battlefield, you can select a Hunting Pack you have already selected this battle.\n\n**RESTRICTIONS**\nYour army can include Space Wolves\nunits, but it cannot include any\nAdeptus Astartes units drawn from any\nother Chapter."
+      },
       "Detachment§Saga of the Hunter": {
         "keywords": {
           "Keywords": [
@@ -5832,6 +5933,41 @@
         },
         "text": "Space Wolves model only. Add 2 to the Strength characteristic of melee weapons equipped by the bearer. If the bearer’s unit has achieved one or more Boasts, add 1 to the Damage characteristic of those weapons as well."
       },
+      "Enhancement§Chariots of the Storm": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. After both players have deployed their armies, select up to three **ADEPTUS ASTARTES** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+      },
       "Enhancement§Elder’s Guidance": {
         "keywords": {
           "Keywords": [
@@ -6013,6 +6149,69 @@
         },
         "text": "**Adeptus Astartes Terminator** model only. Each time an enemy unit (excluding **Monsters** and **Vehicles**) within Engagement Range of the bearer’s unit Falls Back, all models in that enemy unit must take Desperate Escape tests. When doing so, if that enemy unit is Battle‑shocked, subtract 1 from each of those tests."
       },
+      "Enhancement§Grimnar's Mark": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes Terminator Captain model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Adeptus Astartes"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Captain"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**ADEPTUS ASTARTES TERMINATOR CAPTAIN** model only. Once per battle round, from the second battle round onwards, you can target the bearer's unit with the Rapid Ingress or Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this turn. In the Declare Battle Formations step, the bearer can be attached to a **WOLF GUARD TERMINATORS** unit."
+      },
       "Enhancement§Helm of the Beastslayer": {
         "keywords": {
           "Keywords": [
@@ -6038,6 +6237,41 @@
           }
         },
         "text": "Space Wolves model only. At the start of the Fight phase, if there are more enemy models than friendly models wholly within 6\" of the bearer, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer. If the bearer’s unit has achieved one or more Boasts, add 3 to the Attacks characteristic instead."
+      },
+      "Enhancement§Howlmaw": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ]
+        },
+        "rules": {
+          "Wolf Priest model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Wolf Priest"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**WOLF PRIEST** model only. At the start of the Fight phase, you can select one enemy unit within 6\" of the bearer. That unit must take a Battle-shock test, subtracting 1 from the result."
       },
       "Enhancement§Hunter’s Guile": {
         "keywords": {
@@ -6080,6 +6314,90 @@
           }
         },
         "text": "Adeptus Astartes model only. Each time a Space Wolves Character unit from your army achieves a Boast, if the bearer is on the battlefield, you gain 1CP."
+      },
+      "Enhancement§Skjald's Foretelling": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lance"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Wolf Guard Battle Leader model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "designation"
+                  ]
+                ],
+                "value": "Wolf Guard Battle Leader"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**WOLF GUARD BATTLE LEADER** model only. While the bearer is leading a unit, weapons equipped by models in that unit have the **[LANCE]** ability."
       },
       "Enhancement§Swift Hunter": {
         "keywords": {
@@ -19874,7 +20192,7 @@
           "Detachment": {
             "ranks": {
               "Champions of Fenris": {
-                "order": 10,
+                "order": 15,
                 "traits": [
                   {
                     "trait": "Detachment§Champions of Fenris"
@@ -19882,7 +20200,7 @@
                 ]
               },
               "Saga of the Hunter": {
-                "order": 11,
+                "order": 16,
                 "traits": [
                   {
                     "trait": "Detachment§Saga of the Hunter"
@@ -19890,7 +20208,7 @@
                 ]
               },
               "Saga of the Bold": {
-                "order": 12,
+                "order": 17,
                 "traits": [
                   {
                     "trait": "Detachment§Saga of the Bold"
@@ -19898,10 +20216,18 @@
                 ]
               },
               "Saga of the Beastslayer": {
-                "order": 13,
+                "order": 18,
                 "traits": [
                   {
                     "trait": "Detachment§Saga of the Beastslayer"
+                  }
+                ]
+              },
+              "Saga of the Great Wolf": {
+                "order": 19,
+                "traits": [
+                  {
+                    "trait": "Detachment§Saga of the Great Wolf"
                   }
                 ]
               }
@@ -19962,6 +20288,28 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time an attack targets a model in your unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
+      "Stratagem§Battle Instincts": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has shot. \n\n**TARGET**: One SPACE WOLVES unit from your army that was selected as the target of one or more of the attacking unit's attacks. \n\n**EFFECT**: Your unit can make a Normal move of up to D6\"."
       },
       "Stratagem§Birth of a Saga": {
         "keywords": {
@@ -20135,6 +20483,73 @@
           }
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One Space Wolves unit (excluding Monsters and Vehicles) from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6\" instead of up to 3\". When doing so, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit."
+      },
+      "Stratagem§Eye of the Pack": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Command phase. \n\n**TARGET**: One ADEPTUS ASTARTES unit from your army. \n\n**EFFECT**: Select one Hunting Pack from the Master of Wolves Detachment rule. Until the start of your next Command phase, that Hunting Pack is active for your unit instead of any other Hunting Pack that is active, even if you have already selected that Hunting Pack this battle."
+      },
+      "Stratagem§Fenrisian Ferocity": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement",
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase or your Charge phase. \n\n**TARGET**: One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES WALKER unit from your army that has not been selected to move or charge this phase. \n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a Normal, Advance, Fall Back or Charge move, it can move horizontally through models (excluding TITANIC models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end a Normal, Advance or Fall Back move within Engagement Range of them."
+      },
+      "Stratagem§Grimnar's Command": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase. \n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that has not been selected to move this phase. \n\n**EFFECT**: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Fell Back. If your unit is a SPACE WOLVES unit, until the end of the turn, it is eligible to declare a charge in a turn in which it Advanced or Fell Back."
       },
       "Stratagem§Heroic Resolve": {
         "keywords": {
@@ -20386,6 +20801,29 @@
         },
         "text": "**WHEN**: Fight phase, just after an enemy unit is destroyed by an Adeptus Astartes unit from your army.\n\n**TARGET**: That Adeptus Astartes unit.\n\n**EFFECT**: Select one objective marker you control that your unit is within range of. That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase."
       },
+      "Stratagem§The Foe Foreseen": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit's attacks. \n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1."
+      },
       "Stratagem§Thunderous Pursuit": {
         "keywords": {
           "Keywords": [
@@ -20429,6 +20867,28 @@
           }
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One SPACE WOLVES unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Wound roll."
+      },
+      "Stratagem§Unrelenting Hunters": {
+        "keywords": {
+          "Keywords": [
+            "Saga of the Great Wolf"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase. \n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase. \n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, you can add 1 to the Wound roll."
       },
       "Vehicle§Space Wolves Venerable Dreadnought": {
         "aspects": {

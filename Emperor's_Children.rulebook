@@ -1,6 +1,6 @@
 {
   "name": "Emperor's Children",
-  "revision": "10.12.12",
+  "revision": "10.12.13",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1163,6 +1163,107 @@
         },
         "text": "At the start of the battle round, if your **Warlord** is on the battlefield, you must pledge a number to Slaanesh representing how many enemy units will be destroyed this battle round, if the number of enemy units destroyed this battle round is greater than or equal to your pledge, you gain a number of Pact points equal to your pledge. Otherwise, you do not gain any Pact points this battle round and your **Warlord** model suffers D3 mortal wounds.\n\n**Emperor's Children** units from your army gain a bonus depending on how many Pacts points you have gained during the battle, as shown below (these are all cumulative).\n\n|||\n|---|---|\n|Pact points|Bonus|\n|1+|Each time a model in this makes an attack, re-roll a Hit-roll of 1|\n|3+|Each time a model in this makes an attack, re-roll a Wound roll of 1|\n|5+|Melee weapons equipped by models in this unit have the [LETHAL HITS] and [SUSTAINED HITS 1] abilities.|\n|7+|Each time a model in this unit makes an attack, a Critical Hit is scored on an unmodified Hit roll of 5+"
       },
+      "Detachment§Court of the Phoenician": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Catalytic Stimulus"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Euphoric Inspiration"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Close-Quarters Excruciation"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Sinuous Breach"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Prideful Superiority"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Contemptuous Disregard"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## SENSATIONAL PERFORMANCE\n\nEmperor’s Children units from your army have the following ability: Sensational Performance: Each time this unit is selected to fight, if this unit made a Charge move this turn, it can use this ability. If it does, until the end of the phase:\n\n■ This unit cannot target a unit it was within Engagement Range of at the start of the turn.\n\n■ This unit cannot target a unit that was the target of another unit’s charge or attack this phase.\n\n■ Improve the Strength and Armour Penetration characteristics of this unit’s melee weapons by 1.\n\n## MASTER OF THE PAGEANT\n\nOnce per battle round, when you target a Fulgrim unit from your army with the Sinuous Breach or Prideful Superiority Stratagem, you can reduce the CP cost of that use of that Stratagem by 1CP"
+      },
       "Detachment§Mercurial Host": {
         "rules": {
           "assignStratagems": {
@@ -1749,6 +1850,62 @@
         },
         "text": "**Emperor's Children** model only. Once per battle round, you can target one friendly **Slaanesh** unit within 6\" of the bearer with the Heroic Intervention Stratagem for 0CP."
       },
+      "Enhancement§Exalted Patron": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
+          "Lord Exultant model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Lord Exultant"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**LORD EXULTANT** model only. Add 1\" to the Move characteristic of the bearer. In the Declare Battle Formations step, the bearer can be attached to a **FLAWLESS BLADES** unit."
+      },
       "Enhancement§Faultless Opportunist": {
         "keywords": {
           "Keywords": [
@@ -2069,6 +2226,41 @@
         },
         "text": "**Emperor's Children** model only. The bearer's melee weapons have the [PRECISION] ability, and each time the bearer makes a melee attack that targets a CHARACTER unit, improve the Strength and Armour Penetration characteristics of that attack by 1."
       },
+      "Enhancement§Soulstain Made Manifest": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ]
+        },
+        "rules": {
+          "Emperor's Children model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Emperor's Children"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**EMPEROR'S CHILDREN** model only. At the start of the Fight phase, you can select one enemy unit within Engagement Range of the bearer; that unit must take a Battle-shock test, subtracting 1 from the result."
+      },
       "Enhancement§Spearhead Striker": {
         "keywords": {
           "Keywords": [
@@ -2103,6 +2295,97 @@
           }
         },
         "text": "**Emperor's Children Infantry** model only. Each time the bearer disembarks from a **Transport**, until the end of the turn, you can re-roll Charge rolls made for the bearer's unit and enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer's unit."
+      },
+      "Enhancement§Spiritsliver": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          },
+          "Emperor's Children Daemon Prince model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Emperor's Children"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Daemon Prince"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**EMPEROR'S CHILDREN DAEMON PRINCE** model only. Add 1 to the Strength and Attacks characteristics of the bearer's melee weapons."
       },
       "Enhancement§Steeped in Suffering": {
         "keywords": {
@@ -2164,6 +2447,41 @@
           }
         },
         "text": "**Emperor's Children** model only. After both players have deployed their armies, select up to two **Emperor's Children** units from your army redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
+      },
+      "Enhancement§Tears of the Phoenix": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ]
+        },
+        "rules": {
+          "Emperor's Children model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Emperor's Children"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**EMPEROR'S CHILDREN** model only. Each time a model in the bearer's unit makes a melee attack, you can ignore any or all modifiers to that attack's Weapon Skill characteristic and any or all modifiers to the Hit roll and Wound roll."
       },
       "Enhancement§Warp Walker": {
         "keywords": {
@@ -5087,6 +5405,14 @@
                     "trait": "Detachment§Peerless Bladesmen"
                   }
                 ]
+              },
+              "Court of the Phoenician": {
+                "order": 7,
+                "traits": [
+                  {
+                    "trait": "Detachment§Court of the Phoenician"
+                  }
+                ]
               }
             }
           },
@@ -5175,6 +5501,28 @@
         },
         "text": "**WHEN:**  Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One **Emperor's Children** unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT:** Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll."
       },
+      "Stratagem§Catalytic Stimulus": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has shot.\n\n**TARGET**: One EMPEROR'S CHILDREN unit from your army that lost one or more wounds as a result of those attacks.\n\n**EFFECT**: Your unit can make a Stimulus move. To do so, roll one D6: models in your unit move a number of inches up to the result, but your unit must end that move as close as possible to the closest enemy unit (excluding AIRCRAFT). When doing so, those models can be moved within Engagement Range of that enemy unit."
+      },
       "Stratagem§Ceaseless Onslaught": {
         "keywords": {
           "Category": [
@@ -5191,6 +5539,28 @@
           ]
         },
         "text": "**WHEN:**  Your Charge phase.\n\n**TARGET:** : One **Emperor's Children** unit from your army that disembarked from a **Transport** that made a Normal move this turn.\n\n**EFFECT:** Until the end of the phase, your **Emperor's Children** unit is eligible to declare a charge."
+      },
+      "Stratagem§Close-Quarters Excruciation": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One EMPEROR'S CHILDREN unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time an EMPEROR'S CHILDREN model in your unit makes an attack that targets an eligible unit within 12\", improve the Strength and Armour Penetration characteristics of that attack by 1."
       },
       "Stratagem§Combat Stimms": {
         "keywords": {
@@ -5214,6 +5584,29 @@
           }
         },
         "text": "**WHEN:**  Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One **Emperor's Children Infantry** unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT:** Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll."
+      },
+      "Stratagem§Contemptuous Disregard": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase.\n\n**TARGET**: One EMPEROR'S CHILDREN unit from your army.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of your unit, subtract 1 from the Wound roll."
       },
       "Stratagem§Cruel Bladesman": {
         "keywords": {
@@ -5457,6 +5850,28 @@
         },
         "text": "**WHEN:**  Start of the Fight phase.\n\n**TARGET:** That **Emperor's Children Infantry** unit\nfrom your army.\n\n**EFFECT:** Until the end of the phase, each time an enemy model within Engagement Range of your unit selects targets, it must select your unit as the target of its attacks."
       },
+      "Stratagem§Euphoric Inspiration": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Charge phase.\n\n**TARGET**: One EMPEROR'S CHILDREN DAEMON unit from your army.\n\n**EFFECT**: Until the end of the phase, you can re-roll Charge rolls for friendly EMPEROR'S CHILDREN units within 6\" of your unit."
+      },
       "Stratagem§Heightened Jealousy": {
         "keywords": {
           "Keywords": [
@@ -5570,6 +5985,28 @@
         },
         "text": "**WHEN:**  End of your opponent's Fight phase.\n\n**TARGET:** : One **Emperor's Children Transport** from your army, or up to two **Emperor's Children Dedicated Transports** from your army.\n\n**EFFECT:** For each of those **Transport** wholly within 9\" of one or more battlefield edges, remove it from the battlefield and place it into Strategic Reserves."
       },
+      "Stratagem§Prideful Superiority": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One EMPEROR'S CHILDREN unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets a CHARACTER unit, you can re-roll the Hit roll and you can re-roll the Wound roll."
+      },
       "Stratagem§Protection Of The Dark Prince": {
         "keywords": {
           "Keywords": [
@@ -5624,6 +6061,29 @@
           "Command Cost": {}
         },
         "text": "**WHEN:**  Your Charge phase.\n\n**TARGET:** One **Emperor's Children Character** unit from your army.\n\n**EFFECT:** Select one enemy unit within Engagement Range of one or more units from your army. Until the end of the phase, each time your unit declares a charge, if that enemy unit is one of the targets of that charge, add 2 to the Charge roll."
+      },
+      "Stratagem§Sinuous Breach": {
+        "keywords": {
+          "Keywords": [
+            "Court of the Phoenician"
+          ],
+          "Category": [
+            "Stratagem"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement",
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase or your Charge phase.\n\n**TARGET**: One EMPEROR'S CHILDREN DAEMON unit from your army that has not been selected to move or charge this phase.\n\n**EFFECT**: Until the end of the phase, each time your unit makes a Normal, Advance or Charge move, it can move horizontally through terrain features."
       },
       "Stratagem§Sustained By Agony": {
         "keywords": {
