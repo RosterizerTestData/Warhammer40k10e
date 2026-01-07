@@ -1,6 +1,6 @@
 {
   "name": "Chaos",
-  "revision": "10.12.38",
+  "revision": "10.12.39",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -14165,9 +14165,9 @@
           }
         }
       },
-      "Melee Weapon§Raptors—Power fist": {
+      "Melee Weapon§Raptors—Heavy melee weapon": {
         "aspects": {
-          "Label": "Power fist"
+          "Label": "Heavy melee weapon"
         },
         "stats": {
           "A": {
@@ -14185,6 +14185,32 @@
           },
           "S": {
             "value": 8
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Raptors—Mutations": {
+        "aspects": {
+          "Label": "Mutations"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
           },
           "WS": {
             "value": 3
@@ -19281,7 +19307,7 @@
               "Plasma pistol & Astartes Chainsword": {
                 "order": 1,
                 "tracking": {
-                  "special": 1
+                  "pp": 1
                 },
                 "traits": [
                   {
@@ -19292,9 +19318,38 @@
                   }
                 ]
               },
-              "Flamer": {
+              "Heavy melee weapon": {
                 "order": 2,
                 "tracking": {
+                  "heavy1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Raptors—Bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Raptors—Heavy melee weapon"
+                  }
+                ]
+              },
+              "Mutations": {
+                "order": 3,
+                "tracking": {
+                  "muta1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Raptors—Bolt pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Raptors—Mutations"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 4,
+                "tracking": {
+                  "flamer1": 1,
                   "special": 1
                 },
                 "traits": [
@@ -19307,8 +19362,9 @@
                 ]
               },
               "Meltagun": {
-                "order": 3,
+                "order": 5,
                 "tracking": {
+                  "melta1": 1,
                   "special": 1
                 },
                 "traits": [
@@ -19321,8 +19377,9 @@
                 ]
               },
               "Plasma gun": {
-                "order": 4,
+                "order": 6,
                 "tracking": {
+                  "plasma1": 1,
                   "special": 1
                 },
                 "traits": [
@@ -19385,11 +19442,11 @@
                   }
                 ]
               },
-              "Power fist": {
+              "Heavy melee weapon": {
                 "order": 2,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Raptors—Power fist"
+                    "trait": "Melee Weapon§Raptors—Heavy melee weapon"
                   }
                 ]
               }
@@ -41871,10 +41928,11 @@
             "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
-            "Fly",
-            "Jump Pack",
             "Chaos",
+            "Fly",
+            "Grenades",
+            "Infantry",
+            "Jump Pack",
             "Raptors"
           ],
           "Category": [
@@ -41885,6 +41943,168 @@
           ]
         },
         "rules": {
+          "1 in 5 can have a flamer": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "flamer1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a meltagun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "melta1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can have a plasma gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "plasma1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have a heavy melee weapon": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count2in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "heavy1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have a plasma pistol": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count2in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "pp"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have mutations": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count2in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "muta1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
           "2 in 5 models can have a special weapon": {
             "evals": [
               {
@@ -41918,7 +42138,7 @@
             "value": 5
           },
           "model2ndCost": {
-            "value": 170
+            "value": 210
           },
           "model2ndTally": {
             "value": 10
@@ -41936,7 +42156,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 90
+            "value": 110
           },
           "Raptor": {
             "max": 9,
@@ -43817,6 +44037,7 @@
             "Jump Pack",
             "Chaos",
             "Daemon",
+            "Grenades",
             "Warp Talons"
           ],
           "Category": [
