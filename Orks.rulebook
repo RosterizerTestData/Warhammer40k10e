@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.12.17",
+  "revision": "10.12.18",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -3862,6 +3862,107 @@
         },
         "text": "**TRY DAT BUTTON!**\n\nEach time a MEK, ORKS WALKER or GROTS VEHICLE unit from your army is selected to shoot or fight, roll one D6. Until the end of the phase, weapons equipped by models in that unit have the corresponding ability shown in the table below.\n\n|||\n|---|---|\n|1 - 2| [SUSTAINED HITS 1] ability. |\n|3 - 4| [LETHAL HITS 1] |\n|5 - 6| Each time an attack is made with this weapon, ona Critical Wound, improve the Armour Penetration characteristic of that attack by 2.\n\n\nAlternatively, when such a unit is selected to shoot or fight, you can select one of the abilities above instead of rolling the D6. If you do, until the end of the phase, weapons equipped by models in that unit have the [HAZARDOUS] ability as well. If a weapon equipped by a model from you army has the [HAZARDOUS] ability from multiple sources, each time you take a Hazardous test for that weapon, it is failed on a roll ofa 1 or a 2.\n\n**KEYWORDS**\n\nGRETCHIN units from your army gain the BATTLELINE keyword."
       },
+      "Detachment§Freebooter Krew": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ]
+        },
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Krump and Run"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Rolling Loot-Heap"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Deck Fraggers"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Boardin' Rush"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Grab and Bash"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Bash and Grab"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## HERE BE LOOT\n\nAt the start of the battle round, select one objective marker. Until the start of the next battle round, that objective marker is your loot objective.\n\nEach time a model in an Orks Infantry, Orks Mounted or Orks Walker unit from your army makes an attack, that attack has the [SUSTAINED HITS 1] ability if either or both of the following are true:\n\n■ That model’s unit is within range of\nyour loot objective.\n\n■ That attack targets a unit within range\nof your loot objective."
+      },
       "Detachment§Green Tide": {
         "rules": {
           "assignStratagems": {
@@ -4446,6 +4547,55 @@
         },
         "text": "INFANTRY WARBOSS model only. At the start of the Fight phase, select one enemy unit within Engagement range of the bearer. That unit must take a Battle-shock test, and when doing so, subtract 1 from the result."
       },
+      "Enhancement§Bionik Workshop": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ]
+        },
+        "rules": {
+          "Big Mek or Painboy model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Big Mek"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Painboy"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**BIG MEK** or **PAINBOY** model only. At the start of the battle, roll one D3 and compare the result to the list below. Until the end of the battle, models in the bearer's unit have that bioniks ability.\n1. **Bionik Legs**: Add 2\" to the Move characteristic of this model.\n2. **Bionik Arms**: Add 1 to the Strength characteristic of melee weapons equipped by this model.\n3. **Bionik Bonce**: Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1."
+      },
       "Enhancement§Bloodthirsty Belligerence": {
         "keywords": {
           "Keywords": [
@@ -4633,6 +4783,41 @@
           }
         },
         "text": "Orks model only. Ranged weapons equipped\nby the bearer have the **[DEVASTATING WOUNDS]** and\n**[HAZARDOUS]** abilities."
+      },
+      "Enhancement§Da Kaptin": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ]
+        },
+        "rules": {
+          "Warboss model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Warboss"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**WARBOSS** model only. Once per battle round, at the start of any phase, you can select one friendly **ORKS** unit that is Battle-shocked and within 12\" of the bearer. That unit suffers D3 mortal wounds and it is no longer Battle-shocked."
       },
       "Enhancement§Dead Shiny Shootas": {
         "keywords": {
@@ -4834,6 +5019,72 @@
           }
         },
         "text": "Orks model only. While the bearer is leading a unit, add 2″ to the Move characteristic of models in that unit."
+      },
+      "Enhancement§Git-spotter Squig": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Ignores Cover"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**ORKS** model only. Ranged weapons equipped by models in the bearer's unit have the **[IGNORES COVER]** ability."
       },
       "Enhancement§Gitfinder Googlez": {
         "keywords": {
@@ -5244,6 +5495,19 @@
           }
         },
         "text": "ORKS INFANTRY model only. While the bearer is leading a unit, that unit always counts as containing 10 or more models for the purposes of your Detachment rule and any Stratagems you use."
+      },
+      "Enhancement§Razgit's Magik Map": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ORKS** model only. After both players have deployed their armies, select up to three **ORKS INFANTRY** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
       },
       "Enhancement§Skrag Every Stash!": {
         "keywords": {
@@ -20253,6 +20517,14 @@
                     "trait": "Detachment§More Dakka!"
                   }
                 ]
+              },
+              "Freebooter Krew": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Detachment§Freebooter Krew"
+                  }
+                ]
               }
             }
           },
@@ -20348,6 +20620,29 @@
         },
         "text": "WHEN: Your Shooting phase or the Fight phase.\n\nTARGET: One NoBz or MEGANOBZ unit from your army that has not been selected to shoot or fight this phase.\n\nEFFECT: Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1. If a Waaagh! is active for your unit, you can re-roll the Hit roll instead."
       },
+      "Stratagem§Bash and Grab": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: The Fight phase.\n\n**TARGET**: One ORKS unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of the loot objective, you can re-roll the Wound roll."
+      },
       "Stratagem§Bigger Shells For Bigger Gitz": {
         "keywords": {
           "Category": [
@@ -20383,6 +20678,28 @@
           ]
         },
         "text": "WHEN: Your Shooting phase.\n\nTARGET: One SPEED FREEKS unit from your army that has not been selected to shoot this phase.\n\nEFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [LETHAL HITS] ability and, each time a model in your unit makes an attack that targets a unit within 9″, a Critical Hit is scored on an unmodified Hit roll of 5+, instead of only a 6.\n\nRESTRICTIONS: A unit cannot be targeted by this and the Dakkastorm Stratagem in the same phase."
+      },
+      "Stratagem§Boardin' Rush": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One ORKS unit from your army that has not been selected to move this phase.\n\n**EFFECT**: Until the end of the phase, each time your unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in your unit."
       },
       "Stratagem§Braggin’ Rights": {
         "keywords": {
@@ -20619,6 +20936,28 @@
         },
         "text": "**WHEN:** Command phase.\n\n**TARGET:** One **Orks** unit from your army that is within\nEngagement Range of one or more enemy units.\n\n**EFFECT:** Until the start of the next Command phase,\nadd 1 to the Objective Control characteristic of\nmodels in your unit."
       },
+      "Stratagem§Deck Fraggers": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ORKS unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit targets an INFANTRY unit with a ranged weapon, that weapon has the [BLAST] ability."
+      },
       "Stratagem§Ded Sneaky": {
         "keywords": {
           "Keywords": [
@@ -20748,6 +21087,28 @@
         },
         "text": "WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\nTARGET: One Boyz unit from your army that was selected as the target of one or more of the attacking unit’s attacks. \n\nEFFECT: After the attacking unit has shot, your unit can make a Go Get’Em! move. To do so, roll one D6: each model in your unit can move a distance in inches up to the result, but your unit must end that move as close as possible to the closest enemy unit. When doing so, those models can be moved within Engagement Range of that enemy unit. If your unit contains 10 or more models, you can re-roll the D6 to determine how far your unit can move."
       },
+      "Stratagem§Grab and Bash": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One ORKS unit from your army (excluding GRETCHIN units) that is within range of the loot objective.\n\n**EFFECT**: Until the start of your next Command phase, the Waaagh! is active for your unit, even if you have already called a Waaagh! this battle.\n\n**Designer's Note**: This means that any abilities that are in effect while the Waaagh! is active for your army will be in effect for your unit."
+      },
       "Stratagem§Huge Show-Offs": {
         "keywords": {
           "Category": [
@@ -20819,6 +21180,28 @@
           ]
         },
         "text": "WHEN: Fight phase.\n\nTARGET: One ORKS WALKER unit from your army that has not been selected to fight this phase.\n\nEFFECT: Each time you use this Stratagem, you can choose to push it. Until the end of the phase, add 2 to the Strength characteristic of melee weapons equipped by models in your unit and, if you chose to push it, until the end of the phase, add 1 to the Damage characteristic of those weapons and they have the [HAZARDOUS] ability as well."
+      },
+      "Stratagem§Krump and Run": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Movement phase, just after an enemy unit falls back.\n\n**TARGET**: One ORKS unit from your army that was within engagement range of that enemy unit at the start of the phase and is not within range of one or more enemy units.\n\n**EFFECT**: Your unit can make a Normal move of up to 6\"."
       },
       "Stratagem§Krunchin' Descent": {
         "keywords": {
@@ -20948,6 +21331,28 @@
           ]
         },
         "text": "**WHEN:** Fight phase.\n\n**TARGET:** One Orks unit from your army that has not been selected to fight this phase.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit, re‑roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re‑roll the Wound roll instead."
+      },
+      "Stratagem§Rolling Loot-Heap": {
+        "keywords": {
+          "Keywords": [
+            "Freebooter Krew"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One FLASH GITZ unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI-VEHICLE 4+] ability."
       },
       "Stratagem§Speediest Freeks": {
         "keywords": {
