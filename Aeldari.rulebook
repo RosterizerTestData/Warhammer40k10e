@@ -1,6 +1,6 @@
 {
   "name": "Aeldari",
-  "revision": "10.12.20",
+  "revision": "10.12.21",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -9,7 +9,7 @@
   "wip": false,
   "dependencies": [
     {
-      "slug": "RKBZ84",
+      "slug": "S3SWPV",
       "name": "Harlequins",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Harlequins.rulebook"
@@ -565,6 +565,190 @@
             "failState": "pass",
             "order": 72
           },
+          "Only 1 Corsair Enhancement per unit": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "CEmax",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "CEmax",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "removeCEcoterie": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Archraider"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Infamy"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Voidstone"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Webway Pathstone"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Corsair Coterie"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
+          "removeCEraiders": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Adrenal Infusions"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Alacritous Assault"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Exotic Munitions"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "ranks"
+                  ]
+                ],
+                "value": "Pirate Prince"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Eldritch Raiders"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
           "secondAspectShrineToken": {
             "actions": [
               {
@@ -747,6 +931,91 @@
             "failState": "pass",
             "order": 70
           },
+          "showCE": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Corsair Enhancement",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Eldritch Raiders"
+              },
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Corsair Coterie"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "OR",
+                "paths": [
+                  [
+                    "{this}",
+                    "evals",
+                    [
+                      "0",
+                      "1"
+                    ],
+                    "result",
+                    "truthy"
+                  ]
+                ],
+                "value": true
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anhrathe"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 70
+          },
+          "Too many of the same Corsair Enhancement": {
+            "evals": []
+          },
           "You may only have Ynnari EPIC HERO units.": {
             "evals": [
               {
@@ -806,6 +1075,128 @@
             "statOrder": 10,
             "statType": "numeric",
             "value": 0,
+            "visibility": "hidden"
+          },
+          "CEmax": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Corsair Enhancement": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Adrenal Infusions": {
+                "order": 1,
+                "tracking": {
+                  "CEAI": 1,
+                  "CEmax": 1,
+                  "Points": 20
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Adrenal Infusions"
+                  }
+                ]
+              },
+              "Alacritous Assault": {
+                "order": 2,
+                "tracking": {
+                  "CEAA": 1,
+                  "CEmax": 1,
+                  "Points": 20
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Alacritous Assault"
+                  }
+                ]
+              },
+              "Exotic Munitions": {
+                "order": 3,
+                "tracking": {
+                  "CEEM": 1,
+                  "CEmax": 1,
+                  "Points": 15
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Exotic Munitions"
+                  }
+                ]
+              },
+              "Pirate Prince": {
+                "order": 4,
+                "tracking": {
+                  "CEmax": 1,
+                  "CEPP": 1,
+                  "Points": 15
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Pirate Prince"
+                  }
+                ]
+              },
+              "Archraider": {
+                "order": 5,
+                "tracking": {
+                  "CEAR": 1,
+                  "CEmax": 1,
+                  "Points": 35
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Archraider"
+                  }
+                ]
+              },
+              "Infamy": {
+                "order": 6,
+                "tracking": {
+                  "CEI": 1,
+                  "CEmax": 1,
+                  "Points": 25
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Infamy (Aura)"
+                  }
+                ]
+              },
+              "Voidstone": {
+                "order": 7,
+                "tracking": {
+                  "CEmax": 1,
+                  "CEVS": 1,
+                  "Points": 15
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Voidstone"
+                  }
+                ]
+              },
+              "Webway Pathstone": {
+                "order": 8,
+                "tracking": {
+                  "CEmax": 1,
+                  "CEWP": 1,
+                  "Points": 25
+                },
+                "traits": [
+                  {
+                    "trait": "Ability§Webway Pathstone"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
             "visibility": "hidden"
           }
         }
@@ -1041,6 +1432,31 @@
         },
         "text": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
       },
+      "Ability§Adrenal Infusions": {
+        "rules": {
+          "Anhrathe Infantry unit only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "**ANHRATHE INFANTRY** unit only. This unit can perform the Fade Back Agile Manoeuvre without spending a Battle Focus token to do so. It can do so even if other units have done so in the same phase, and doing so does not prevent other units from performing the same Agile Manoeuvre in the same phase."
+      },
       "Ability§Aethersails": {
         "keywords": {
           "Keywords": [
@@ -1048,6 +1464,9 @@
           ]
         },
         "text": "Each time this model Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6\" to the Move characteristic of this model."
+      },
+      "Ability§Aethersense (Psychic)": {
+        "text": "Enemy units that are set up on the battlefield from Reserves cannot be set up within 12\" of this model."
       },
       "Ability§Agile": {
         "keywords": {
@@ -1057,6 +1476,43 @@
         },
         "text": "Each time this model makes a Normal, Advance or Fall Back move, it can move over other models (excluding Titanic models) and terrain features that are 4″ or less in height as if they were not there."
       },
+      "Ability§Alacritous Assault": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Melee Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lance"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "text": "**ANHRATHE** unit only. Melee weapons equipped by models in this unit have the **[LANCE]** ability."
+      },
       "Ability§Arcane Cover": {
         "keywords": {
           "Keywords": [
@@ -1064,6 +1520,34 @@
           ]
         },
         "text": "Each time a ranged attack is allocated to a model, if that model is not fully visible to every model in the attacking unit because of this Fortification, that model has the Benefit of Cover against that attack."
+      },
+      "Ability§Archraider": {
+        "rules": {
+          "apply": {
+            "evals": []
+          },
+          "Character unit only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "**Anhrathe Character** unit only. At the start of the battle, select one Character model in this unit. That model has the following ability:\n\n\n**Lord of Deceit (Aura)**: Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12” of this model, increase the cost of that use of that Stratagem by 1CP"
       },
       "Ability§Aspect Training": {
         "keywords": {
@@ -1281,6 +1765,89 @@
         },
         "text": "Each time this unit ends a Normal move, you can select one enemy unit (excluding MONSTERS and VEHICLES) that it moved over during that move. If you do, roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound."
       },
+      "Ability§Exotic Munitions": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "keyword": {
+                      "value": "vehicle"
+                    },
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ],
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits",
+                    "classIdentity",
+                    "Weapon",
+                    "traits",
+                    "classification",
+                    "Ranged Weapon",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Anti-",
+                  "stats": {
+                    "keyword": {
+                      "value": "monster"
+                    },
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          }
+        },
+        "text": "**ANHRATHE** unit only. Ranged weapons equipped by models in this unit have the **[ANTI-MONSTER 5+]** and **[ANTI-VEHICLE 5+]** abilities."
+      },
       "Ability§Extreme Mobility": {
         "keywords": {
           "Keywords": [
@@ -1338,6 +1905,9 @@
         },
         "text": "In your Movement phase, each time this unit is selected to make a Normal move, it can use this ability. If it does, until the end of the turn, this unit is not eligible to declare a charge and models in it have a Move characteristic of 24″. Each time this unit uses this ability, at the end of the phase, roll one D6 for each model in this unit: for each 1, this unit suffers 1 mortal wound."
       },
+      "Ability§Fury of the Void (Psychic)": {
+        "text": "In your Shooting phase, after this model’s unit has shot, select one enemy unit hit by one or more attacks made with this model’s Dread of the Deep Void. Until the end of the turn, that unit is riven. Each time an Aeldari model from your army makes an attack that targets a riven unit, add 1 to the Strength characteristic of that attack."
+      },
       "Ability§Grenade Pack Flyover": {
         "keywords": {
           "Keywords": [
@@ -1353,6 +1923,9 @@
           ]
         },
         "text": "At the end of your Movement phase, select one enemy unit within 18\" of and visible to this model. Until the start of your next Command phase, each time a friendly AELDARI model makes an attack that targets that enemy unit, add 1 to the Hit roll. Each unit can only be selected for this ability once per turn."
+      },
+      "Ability§Hallucinogen Grenades": {
+        "text": "At the start of your opponent’s Shooting phase, this unit can use this ability. If it does, select one Aeldari Infantry unit from your army visible to and within 36\" of this unit: until the end of the phase, that unit has the Stealth ability."
       },
       "Ability§Hand of Asuryan": {
         "keywords": {
@@ -1385,14 +1958,6 @@
           ]
         },
         "text": "At the start of the Fight phase, select one enemy unit within Engagement Range of this model. Until the end of the phase, each time a friendly AELDARI model makes an attack that targets that unit, you can re-roll a Wound roll of 1."
-      },
-      "Ability§Hero of Iyanden": {
-        "keywords": {
-          "Keywords": [
-            "Other"
-          ]
-        },
-        "text": "While this model is leading a unit, add 1 to the Objective Control characteristic of models in that unit."
       },
       "Ability§Horrify (Psychic)": {
         "keywords": {
@@ -1441,6 +2006,9 @@
           ]
         },
         "text": "Once in each of your opponent's turns, if this model is on the battlefield when another friendly AELDARI unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units."
+      },
+      "Ability§Infamy (Aura)": {
+        "text": "Anhrathe unit only. While an enemy unit is within 3” of this unit, subtract 1 from the Objective Control characteristic of models in that unit (to a minimum of 1)."
       },
       "Ability§Interceptor": {
         "keywords": {
@@ -1585,6 +2153,42 @@
         },
         "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9″ of this model, if this model is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6″."
       },
+      "Ability§Pirate Prince": {
+        "aspects": {
+          "Unique": true
+        },
+        "rules": {
+          "Prince Yriel unit only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Prince Yriel"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "**Prince Yriel** unit only. Each time you spend a Battle Focus token to enable this unit to perform an Agile Manoeuvre, roll one D6: on a 3+, you gain 1 Battle Focus token."
+      },
+      "Ability§Piratical Hero": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "While this model is leading a unit, each time a model in that unit makes an attack, that attack has the [SUSTAINED HITS 1] ability and add 1 to the Hit roll."
+      },
       "Ability§Piratical Raiders": {
         "keywords": {
           "Keywords": [
@@ -1607,7 +2211,7 @@
             "Other"
           ]
         },
-        "text": "If your army includes this model, after both players have deployed their armies, select up to three Aeldari units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
+        "text": "After both players have deployed their armies, if this unit is on the battlefield (or any Transport it is embarked within is on the battlefield), select up to three Aeldari units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
       },
       "Ability§Protect (Psychic)": {
         "keywords": {
@@ -1651,6 +2255,9 @@
           ]
         },
         "text": "In your Command phase, you can select one friendly Wraith Construct or Aeldari Vehicle model within 3″ of this model. That Wraith Construct or Aeldari Vehicle model regains up to D3 lost wounds."
+      },
+      "Ability§Raid and Run": {
+        "text": "At the end of the Fight phase, if this unit was eligible to fight this phase, and is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D3+3\". Otherwise, if this unit was eligible to fight this phase, this unit can make a Fall Back move of up to D3+3\""
       },
       "Ability§Reaper of Souls": {
         "keywords": {
@@ -1996,6 +2603,31 @@
         },
         "text": "The first time this model is destroyed, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with its full wounds remaining."
       },
+      "Ability§Voidstone": {
+        "rules": {
+          "Infantry unit only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "text": "**Anhrathe Infantry** unit only. Models in this unit have a 5+ invulnerable save"
+      },
       "Ability§War Construct": {
         "keywords": {
           "Keywords": [
@@ -2027,6 +2659,42 @@
           ]
         },
         "text": "While this model is leading a unit, Wraith Construct models in that unit have the Feel No Pain 6+ ability."
+      },
+      "Ability§Webway Pathstone": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 70
+          }
+        },
+        "text": "Anhrathe unit only. Models in this unit have the Deep Strike ability. In addition, once per battle, at the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, it can use this ability. If it does, remove this unit from the battlefield and place it into Strategic Reserves."
       },
       "Ability§Webway Shunt Generator": {
         "keywords": {
@@ -3557,6 +4225,72 @@
           }
         }
       },
+      "Character§Kharseth": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Leader",
+              "text": "\n\nThis model can be attached to the following units: \n- Corsair Voidreavers \n- Corsair Voidscarred"
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Battle Focus",
+            "Ability§Aethersense (Psychic)",
+            "Ability§Fury of the Void (Psychic)",
+            "Ranged Weapon§Kharseth—Dread of the Deep Void",
+            "Melee Weapon§Kharseth—Waystave"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Asuryani"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Aeldari",
+            "Anhrathe",
+            "Character",
+            "Epic Hero",
+            "Infantry",
+            "Kharseth",
+            "Psyker"
+          ],
+          "Category": [
+            "Epic Hero"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 7
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 95
+          },
+          "Sv": {
+            "value": 6
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
       "Character§Lhykhis": {
         "assets": {
           "traits": [
@@ -3695,10 +4429,10 @@
           "traits": [
             {
               "item": "Ability§Leader",
-              "text": "This model can be attached to the following units:\n\n* Corsair Voidreavers\n\n* Corsair Voidscarred\n\n* Guardian Defenders\n\n* Storm Guardians"
+              "text": "\n\nThis model can be attached to the following units:\n\n* Corsair Voidreavers\n\n* Corsair Voidscarred"
             },
             "Ability§Battle Focus",
-            "Ability§Hero of Iyanden",
+            "Ability§Piratical Hero",
             "Ability§Prince of Corsairs",
             {
               "item": "Ability§Invulnerable",
@@ -3709,7 +4443,16 @@
               }
             },
             "Ranged Weapon§Prince Yriel—The Eye of Wrath",
-            "Melee Weapon§Prince Yriel—The Spear of Twilight"
+            "Ranged Weapon§Prince Yriel—Shuriken pistol",
+            "Melee Weapon§Prince Yriel—The Spear of Twilight",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7\""
+                }
+              }
+            }
           ]
         },
         "keywords": {
@@ -3717,12 +4460,14 @@
             "Asuryani"
           ],
           "Source": [
-            "Legends"
+            "10th Edition Codex"
           ],
           "Keywords": [
-            "Infantry",
+            "Aeldari",
+            "Anhrathe",
             "Character",
             "Epic Hero",
+            "Infantry",
             "Prince Yriel"
           ],
           "Category": [
@@ -3740,7 +4485,7 @@
             "value": 1
           },
           "Points": {
-            "value": 100
+            "value": 95
           },
           "Sv": {
             "value": 3
@@ -3749,7 +4494,7 @@
             "value": 3
           },
           "W": {
-            "value": 4
+            "value": 5
           }
         }
       },
@@ -4561,6 +5306,102 @@
         },
         "text": "**PATH OF THE WARRIOR**\n\nEach time an ASPECT WARRIORS or AVATAR OF KHAINE unit from your army is selected to shoot or fight, select one of the following abilities for it to gain until the end of the phase:\n- Each time a model in this unit makes an attack, re-roll a Hit roll of 1.\n- Each time a model in this unit makes an attack, re-roll a Wound roll of 1."
       },
+      "Detachment§Corsair Coterie": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Vengeful Sorrow"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Cloak and Shadow"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Into the Breach"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Outcast Ambush"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Lethal Ruse"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Pirates' Due"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## RELENTLESS RAIDERS\n\nWhile an objective marker is under your control, each time an enemy unit ends a Normal, Advance, Fall Back or Charge move within range of that objective marker, roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds. Anhrathe units from your army have the following ability:\n\n\n**Void Thieves**: At the end of a phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.\n\n## VETERANS OF THE VOID\n\nEach time you add an Anhrathe unit to your army, it can be given up to one Corsair Enhancement (see right). Each Corsair Enhancement included in your army must be unique. If a unit is given a Corsair Enhancement, you must increase the points cost of that unit by the amount shown (see Munitorum Field Manual). If this causes your army to exceed the points limit for the battle you are playing, you cannot include that unit in your army."
+      },
       "Detachment§Devoted of Ynnead": {
         "keywords": {
           "Keywords": [
@@ -4756,6 +5597,102 @@
           }
         },
         "text": "**STRENGTH FROM DEATH**\n\nYou can use the following rules:\n\n**Lethal Intent**\n\n\nAt the end of your opponent’s Shooting phase, if one or more Ynnari units from your army were destroyed this phase, select one Ynnari Infantry or Ynnari Mounted unit from your army that was within 6\" of your destroyed unit. That unit can make a Normal move of up to D6+1\"\n\n**Lethal Surge**\n\n\nOnce per turn, when a YNNARI unit from your army performs the Fade Back Agile Manoeuvre (pg 101), it can make a Lethal Surge move instead of a Normal move. If it does, roll one D6 and add 1 to the result: that unit can be moved a number of inches up to the total. When doing so, those models can be moved within Engagement Range of the enemy unit that just triggered that Agile Manoeuvre.\n\n**Lethal Reprisal**\n\n\nAt the start of the Fight phase, select one YNNARI unit from your army (excluding TITANIC units) that is below its Starting Strength. Until the end of the phase, that unit has the Fights First ability.\n\n**SERVANTS OF THE WHISPERING GOD**\n\n- You can include YNNARI units in your army (pg 164-171), even though they do not have the ASURYANI Faction keyword.\n- ASURYANI units (excluding EPIC HEROES) from your army gain the YNNARI keyword.\n- You must include YVRAINE and/or THE YNCARNE in your army, and one of those models must be your WARLORD."
+      },
+      "Detachment§Eldritch Raiders": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Raiders' Spoils"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Ruthless Killers"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Yriel's Example"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§No Prey Too Big"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Impeding Fire"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Withdraw and Reinforce"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## YRIEL’S OWN\n\nAeldari units in your army are eligible to declare a charge in a turn in which they Advanced. In addition, each time an Anhrathe, Rangers or Shroud Runners unit from your army Advances, you can re‑roll the Advance roll.\n\n## VETERANS OF THE VOID\n\nEach time you add an Anhrathe unit to your army, it can be given up to one Corsair Enhancement (see right). Each Corsair Enhancement included in your army must be unique. If a unit is given a Corsair Enhancement, you must increase the points cost of that unit by the amount shown (see Munitorum Field Manual). If this causes your army to exceed the points limit for the battle you are playing, you cannot include that unit in your army."
       },
       "Detachment§Ghosts of the Webway": {
         "keywords": {
@@ -8247,6 +9184,58 @@
           }
         }
       },
+      "Melee Weapon§Corsair Skyreavers—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Corsair Skyreavers—Corsair blade": {
+        "aspects": {
+          "Label": "Corsair blade"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 4
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
       "Melee Weapon§Corsair Voidreavers—Close combat weapon": {
         "aspects": {
           "Label": "Close combat weapon"
@@ -9497,6 +10486,32 @@
           }
         }
       },
+      "Melee Weapon§Kharseth—Waystave": {
+        "aspects": {
+          "Label": "Waystave"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
       "Melee Weapon§Lhykhis—Spider's Fangs": {
         "aspects": {
           "Label": "Spider's Fangs"
@@ -9795,7 +10810,7 @@
             "value": "Melee"
           },
           "S": {
-            "value": 6
+            "value": 7
           },
           "WS": {
             "value": 2
@@ -10223,6 +11238,32 @@
           },
           "WS": {
             "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Starfang—Wraithbone hull": {
+        "aspects": {
+          "Label": "Wraithbone hull"
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 4
           }
         }
       },
@@ -14952,6 +15993,164 @@
           }
         }
       },
+      "Model§Skyreaver": {
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "ranks": {
+              "Shuriken pistol and Corsair blade": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Shuriken pistol"
+                  },
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreavers—Corsair blade"
+                  }
+                ]
+              },
+              "Blaster": {
+                "order": 1,
+                "tracking": {
+                  "blast": 1,
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Blaster"
+                  },
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreavers—Close combat weapon"
+                  }
+                ]
+              },
+              "Flamer": {
+                "order": 2,
+                "tracking": {
+                  "flame": 1,
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Flamer"
+                  },
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreavers—Close combat weapon"
+                  }
+                ]
+              },
+              "Fusion gun": {
+                "order": 3,
+                "tracking": {
+                  "fusion": 1,
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Fusion gun"
+                  },
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreavers—Close combat weapon"
+                  }
+                ]
+              },
+              "Shredder": {
+                "order": 4,
+                "tracking": {
+                  "shred": 1,
+                  "special weapon": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Shredder"
+                  },
+                  {
+                    "trait": "Melee Weapon§Corsair Skyreavers—Close combat weapon"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Shuriken pistol and Corsair blade",
+            "visibility": "normal"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Skyreaver Felarch": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Corsair Skyreavers—Corsair blade"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 1
+          },
+          "Ranged Options": {
+            "ranks": {
+              "Shuriken pistol": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Shuriken pistol"
+                  }
+                ]
+              },
+              "Blast pistol": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Blast pistol"
+                  }
+                ]
+              },
+              "Neuro disruptor": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Corsair Skyreavers—Neuro disruptor"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Shuriken pistol",
+            "visibility": "normal"
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
       "Model§Soul Weaver": {
         "aspects": {
           "Unique": true
@@ -14985,6 +16184,35 @@
           },
           "W": {
             "value": 1
+          }
+        }
+      },
+      "Model§Starfang": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Starfang—Disintegrator cannon",
+            "Ranged Weapon§Starfang—Starfang grenade launcher",
+            "Melee Weapon§Starfang—Wraithbone hull"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 2
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 6
+          },
+          "W": {
+            "value": 6
           }
         }
       },
@@ -15736,7 +16964,6 @@
       "Model§Vyper": {
         "assets": {
           "traits": [
-            "Ranged Weapon§Vypers—Twin shuriken catapult",
             "Melee Weapon§Vypers—Wraithbone hull"
           ]
         },
@@ -15770,9 +16997,19 @@
                     "trait": "Ranged Weapon§Vypers—Missile launcher"
                   }
                 ]
-              },
+              }
+            },
+            "statType": "rank",
+            "value": "Shuriken cannon",
+            "visibility": "active"
+          },
+          "Secondary": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
               "Bright lance": {
-                "order": 2,
+                "order": 0,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Vypers—Bright lance"
@@ -15780,7 +17017,7 @@
                 ]
               },
               "Scatter laser": {
-                "order": 3,
+                "order": 1,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Vypers—Scatter laser"
@@ -15788,7 +17025,7 @@
                 ]
               },
               "Starcannon": {
-                "order": 4,
+                "order": 2,
                 "traits": [
                   {
                     "trait": "Ranged Weapon§Vypers—Starcannon"
@@ -15797,7 +17034,7 @@
               }
             },
             "statType": "rank",
-            "value": "Shuriken cannon",
+            "value": "Bright lance",
             "visibility": "active"
           },
           "Sv": {
@@ -18194,6 +19431,249 @@
           },
           "S": {
             "value": 3
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Blast pistol": {
+        "aspects": {
+          "Label": "Blast pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "format": "D3",
+            "value": 0
+          },
+          "Range": {
+            "value": 6
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Blaster": {
+        "aspects": {
+          "Label": "Blaster"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Flamer": {
+        "aspects": {
+          "Label": "Flamer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 0
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Fusion gun": {
+        "aspects": {
+          "Label": "Fusion gun"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Neuro disruptor": {
+        "aspects": {
+          "Label": "Neuro disruptor"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "2+"
+                }
+              }
+            },
+            "Ability§Assault",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Shredder": {
+        "aspects": {
+          "Label": "Shredder"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 0
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Corsair Skyreavers—Shuriken pistol": {
+        "aspects": {
+          "Label": "Shuriken pistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
           }
         }
       },
@@ -21164,6 +22644,51 @@
           }
         }
       },
+      "Ranged Weapon§Kharseth—Dread of the Deep Void": {
+        "aspects": {
+          "Label": "Dread of the Deep Void"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "infantry"
+                },
+                "x": {
+                  "value": "2+"
+                }
+              }
+            },
+            "Ability§Blast",
+            "Ability§Hazardous",
+            "Ability§Ignores Cover",
+            "Ability§Psychic"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 3
+          }
+        }
+      },
       "Ranged Weapon§Lhykhis—Brood Twain": {
         "aspects": {
           "Label": "Brood Twain"
@@ -21654,13 +23179,14 @@
           }
         }
       },
-      "Ranged Weapon§Prince Yriel—The Eye of Wrath": {
+      "Ranged Weapon§Prince Yriel—Shuriken pistol": {
         "aspects": {
-          "Label": "The Eye of Wrath"
+          "Label": "Shuriken pistol"
         },
         "assets": {
           "traits": [
-            "Ability§Assault"
+            "Ability§Assault",
+            "Ability§Pistol"
           ]
         },
         "stats": {
@@ -21668,7 +23194,38 @@
             "value": 1
           },
           "AP": {
-            "value": -3
+            "value": -1
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Prince Yriel—The Eye of Wrath": {
+        "aspects": {
+          "Label": "The Eye of Wrath"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
           },
           "BS": {
             "value": 2
@@ -22722,6 +24279,68 @@
           }
         }
       },
+      "Ranged Weapon§Starfang—Disintegrator cannon": {
+        "aspects": {
+          "Label": "Disintegrator cannon"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Starfang—Starfang grenade launcher": {
+        "aspects": {
+          "Label": "Starfang grenade launcher"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Blast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D3",
+            "value": 0
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
       "Ranged Weapon§Storm Guardians—Flamer": {
         "aspects": {
           "Label": "Flamer"
@@ -23636,7 +25255,7 @@
               "item": "Ability§Sustained Hits",
               "stats": {
                 "x": {
-                  "value": "1"
+                  "value": "2"
                 }
               }
             }
@@ -25679,6 +27298,116 @@
             "evaluate": "AND",
             "failState": "pass",
             "order": 51
+          },
+          "No more than 1 copy of each Corsair Enhancement": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEAA"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEAI"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEEM"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEPP"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEAR"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEI"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEVS"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "CEWP"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
           }
         },
         "stats": {
@@ -25689,6 +27418,62 @@
               }
             },
             "value": "Harlequins"
+          },
+          "CEAA": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEAI": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEAR": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEEM": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEI": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEPP": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEVS": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "CEWP": {
+            "max": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
           },
           "Detachment": {
             "ranks": {
@@ -25769,6 +27554,22 @@
                 "traits": [
                   {
                     "trait": "Detachment§Serpent's Brood"
+                  }
+                ]
+              },
+              "Eldritch Raiders": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Detachment§Eldritch Raiders"
+                  }
+                ]
+              },
+              "Corsair Coterie": {
+                "order": 12,
+                "traits": [
+                  {
+                    "trait": "Detachment§Corsair Coterie"
                   }
                 ]
               }
@@ -25875,6 +27676,28 @@
           ]
         },
         "text": "**WHEN:** End of your opponent's Charge phase.\n\n**TARGET:** One HARLEQUINS INFANTRY or HARLEQUINS MOUNTED unit from your army that is within 6\" of one or more enemy units and would be eligible to declare a charge against one or more of those enemy units if it were your Charge phase.\n\n**EFFECT:** Your unit now declares a charge that only targets one or more of those enemy units, and you resolve that charge.\n\n**RESTRICTIONS:** Note that even if this charge is successful, your unit does not receive any Charge bonus this turn."
+      },
+      "Stratagem§Cloak and Shadow": {
+        "keywords": {
+          "Keywords": [
+            "Corsair Coterie"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One AELDARI INFANTRY unit from your army that is within range of an objective marker that you control and that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, models in your unit have the Stealth ability and your unit can only be selected as the target of a ranged attack if the attacking model is within 18\"."
       },
       "Stratagem§Cloudstrike": {
         "keywords": {
@@ -26159,6 +27982,50 @@
         },
         "text": "**WHEN:** Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One HARLEQUINS unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6. On a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play."
       },
+      "Stratagem§Impeding Fire": {
+        "keywords": {
+          "Keywords": [
+            "Eldritch Raiders"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Start of your opponent's Charge phase.\n\n**TARGET**: One RANGERS, SHROUD RUNNERS or STARFANG unit from your army.\n\n**EFFECT**: Select one enemy unit (excluding TITANIC units) visible to and within 36\" of your unit. Until the end of the phase, each time that enemy unit declares a charge, subtract 2 from the Charge roll (this is not cumulative with any other negative modifiers to that Charge roll)."
+      },
+      "Stratagem§Into the Breach": {
+        "keywords": {
+          "Keywords": [
+            "Corsair Coterie"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase, just after an ANHRATHE unit from your army destroyed one or more enemy units.\n\n**TARGET**: That ANHRATHE unit.\n\n**EFFECT**: After your unit has resolved all of its shooting attacks, it can make a Normal move of up to D6+1\"."
+      },
       "Stratagem§Isha's Fury": {
         "keywords": {
           "Keywords": [
@@ -26215,6 +28082,28 @@
         },
         "text": "**WHEN:** Any phase, just after a mortal wound\nis allocated to an **Aeldari Vehicle** unit from\nyour army.\n\n**TARGET:** That **Aeldari Vehicle** unit.\n\n**EFFECT:** Until the end of the phase, models in\nyour unit have the Feel No Pain 5+ ability against\nmortal wounds."
       },
+      "Stratagem§Lethal Ruse": {
+        "keywords": {
+          "Keywords": [
+            "Corsair Coterie"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase, just after an AELDARI unit from your army Falls Back.\n\n**TARGET**: That AELDARI unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Fell Back. If it is an ANHRATHE unit, also select one enemy unit your unit was within Engagement Range of at the start of the phase, and roll six D6: for each 4+, that enemy unit suffers 1 mortal wound."
+      },
       "Stratagem§Lightning-fast Reactions": {
         "keywords": {
           "Keywords": [
@@ -26269,6 +28158,50 @@
           ]
         },
         "text": "**WHEN:** Your Movement phase, just after a HARLEQUINS unit from your army Falls Back.\n\n**TARGET:** That HARLEQUINS unit.\n\n**EFFECT:** Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+      },
+      "Stratagem§No Prey Too Big": {
+        "keywords": {
+          "Keywords": [
+            "Eldritch Raiders"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ANHRATHE, RANGERS or SHROUD RUNNERS unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, if the Strength characteristic of that attack is less than the highest Toughness characteristic of models in the target unit, add 1 to the Wound roll."
+      },
+      "Stratagem§Outcast Ambush": {
+        "keywords": {
+          "Keywords": [
+            "Corsair Coterie"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One RANGERS or SHROUD RUNNERS unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] and [RAPID FIRE 1] abilities, and until the end of the phase, improve the Armour Penetration characteristic of those weapons by 1."
       },
       "Stratagem§Overflight": {
         "keywords": {
@@ -26334,6 +28267,29 @@
         },
         "text": "**WHEN:** Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One YNNARI unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT:** Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
       },
+      "Stratagem§Pirates' Due": {
+        "keywords": {
+          "Keywords": [
+            "Corsair Coterie"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: The Fight phase.\n\n**TARGET**: One AELDARI unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If your unit has the ANHRATHE keyword, then until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of an objective marker, you can re-roll the Wound roll instead."
+      },
       "Stratagem§Presentiment of Dread": {
         "keywords": {
           "Keywords": [
@@ -26385,6 +28341,52 @@
           ]
         },
         "text": "**WHEN:** Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One ASURYANI INFANTRY unit from your army (excluding WRAITH CONSTRUCT units) that was selected as the target of one or more of the attacking unit's attacks and is within 9\" of one or more friendly ASURYANI PSYKER models.\n\n**EFFECT:** Until the end of the phase, your unit can only be selected as the target of a ranged attack if the attacking model is within 18\"."
+      },
+      "Stratagem§Raiders' Spoils": {
+        "keywords": {
+          "Keywords": [
+            "Eldritch Raiders"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Command phase.\n\n**TARGET**: One ANHRATHE unit from your army that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Until the start of the next Command phase, add 1 to the Objective Control characteristic of models in your unit."
+      },
+      "Stratagem§Ruthless Killers": {
+        "keywords": {
+          "Keywords": [
+            "Eldritch Raiders"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One CORSAIR VOIDSCARRED unit from your army that has not been selected to shoot or Fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Damage characteristic of that attack."
       },
       "Stratagem§Seer's Eye": {
         "keywords": {
@@ -26718,6 +28720,28 @@
         },
         "text": "**WHEN:** Your Movement phase, just after an **Aeldari\nVehicle** unit from your army that can Fly Falls Back.\n\n**TARGET:** That **Aeldari Vehicle** unit.\n\n**EFFECT:** Until the end of the phase, your unit is\neligible to shoot in a turn in which it Fell Back."
       },
+      "Stratagem§Vengeful Sorrow": {
+        "keywords": {
+          "Keywords": [
+            "Corsair Coterie"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has shot.\n\n**TARGET**: One AELDARI INFANTRY unit from your army, if one or more models in that unit were destroyed as a result of those attacks, and if that AELDARI unit is neither Battle-shocked nor within Engagement Range of one or more enemy units.\n\n**EFFECT**: Your unit can make a Surge move. To do so, roll one D6 and add 1 to the roll: models in your unit move a number of inches up to this result, but your unit must end that move as close as possible to the closest enemy unit (excluding AIRCRAFT). When doing so, those models can be moved within Engagement Range of that enemy unit."
+      },
       "Stratagem§Venomous Wrath": {
         "keywords": {
           "Keywords": [
@@ -26856,6 +28880,28 @@
         },
         "text": "**WHEN:** Your Movement phase.\n\n**TARGET:** One ASURYANI MOUNTED or VYPER unit from your army that has not been selected to move this phase.\n\n**EFFECT:** Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
       },
+      "Stratagem§Withdraw and Reinforce": {
+        "keywords": {
+          "Keywords": [
+            "Eldritch Raiders"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your opponent's Fight phase.\n\n**TARGET**: One ANHRATHE unit from your army that is not within Engagement Range of one or more enemy units.\n\n**EFFECT**: Remove your unit from the battlefield and place it into Strategic Reserves. If that unit is below Starting Strength, return all destroyed models (excluding CHARACTER models) to that unit."
+      },
       "Stratagem§Wraithbone Armour": {
         "keywords": {
           "Keywords": [
@@ -26874,6 +28920,29 @@
           ]
         },
         "text": "**WHEN:** Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET:** One WRAITH CONSTRUCT unit from your army (excluding TITANIC units) that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT:** Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack."
+      },
+      "Stratagem§Yriel's Example": {
+        "keywords": {
+          "Keywords": [
+            "Eldritch Raiders"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One AELDARI INFANTRY unit from your army (excluding WRAITH CONSTRUCT units) that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability."
       },
       "Unit§Cobra": {
         "aspects": {
@@ -27367,12 +29436,237 @@
           }
         }
       },
+      "Unit§Corsair Skyreavers": {
+        "allowed": {
+          "items": [
+            "Model§Skyreaver"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Battle Focus",
+            "Ability§Raid and Run",
+            "Model§Skyreaver Felarch",
+            {
+              "item": "Model§Skyreaver",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Infantry"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Asuryani"
+          ],
+          "Keywords": [
+            "Aeldari",
+            "Anhrathe",
+            "Corsair Skyreavers",
+            "Fly",
+            "Grenades",
+            "Infantry",
+            "Jump Pack"
+          ]
+        },
+        "rules": {
+          "1 in 5 can equip a Blaster": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "blast"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can equip a Flamer": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "flame"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can equip a Fusion gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "fusion"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "1 in 5 can equip a Shredder": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count1in5",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "shred"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "2 in 5 can have special weapons": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "rules",
+                  "count2in5",
+                  "evals",
+                  "1",
+                  "result",
+                  "integer"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special weapon"
+                  ]
+                ]
+              },
+              {
+                "actionable": false,
+                "min": 1,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special weapon"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 150
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Skyreaver"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 10,
+            "min": 5,
+            "value": 5,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 75
+          }
+        }
+      },
       "Unit§Corsair Voidreavers": {
         "allowed": {
           "items": [
             "Model§Corsair Voidreaver",
             "Character§The Visarch",
-            "Character§Yvraine"
+            "Character§Yvraine",
+            "Character§Prince Yriel",
+            "Character§Kharseth"
           ]
         },
         "assets": {
@@ -27512,7 +29806,9 @@
             "Model§Soul Weaver",
             "Model§Way Seeker",
             "Character§The Visarch",
-            "Character§Yvraine"
+            "Character§Yvraine",
+            "Character§Prince Yriel",
+            "Character§Kharseth"
           ]
         },
         "assets": {
@@ -30772,6 +33068,89 @@
           }
         }
       },
+      "Unit§Starfangs": {
+        "allowed": {
+          "items": [
+            "Model§Starfang"
+          ]
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            {
+              "item": "Ability§Scouts",
+              "stats": {
+                "x": {
+                  "value": "7″"
+                }
+              }
+            },
+            "Ability§Battle Focus",
+            "Ability§Hallucinogen Grenades",
+            "Model§Starfang"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Aeldari",
+            "Anhrathe",
+            "Fly",
+            "Grenades",
+            "Smoke",
+            "Starfangs",
+            "Vehicle"
+          ],
+          "Category": [
+            "Vehicle"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Asuryani"
+          ]
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 1
+          },
+          "model2ndCost": {
+            "value": 150
+          },
+          "model2ndTally": {
+            "value": 2
+          },
+          "modelKey": {
+            "value": "Model§Starfang"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 2,
+            "value": 1,
+            "visibility": "normal"
+          },
+          "Points": {
+            "value": 75
+          },
+          "Starfang": {
+            "max": 2,
+            "min": 1,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
       "Unit§Storm Guardians": {
         "allowed": {
           "items": [
@@ -31504,7 +33883,7 @@
             "value": 1
           },
           "model2ndCost": {
-            "value": 130
+            "value": 150
           },
           "model2ndTally": {
             "value": 2
@@ -31521,7 +33900,7 @@
             "visibility": "normal"
           },
           "Points": {
-            "value": 65
+            "value": 75
           },
           "Vyper": {
             "max": 2,
