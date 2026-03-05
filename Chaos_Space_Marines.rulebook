@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.12.38",
+  "revision": "10.12.39",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -7145,7 +7145,7 @@
             "failState": "pass"
           }
         },
-        "text": "## SLAVES TO NONE\n\n**Heretic Astartes** models from your army lose the Dark Pacts ability.\n\nRanged weapons equipped by Heretic Astartes models from your army have the [ASSAULT] ability.\n\n## VENDETTA\n\nAt the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Vendetta target. Each time a Heretic Astartes model from your army (excluding Damned models) makes an attack that targets your Vendetta target, you can re‑roll the Hit roll.\n\n## TWISTED DOCTRINE\n\nIn your Movement phase, each time you set up or select a Heretic Astartes unit (excluding Battle‑shocked units) from your army to move, it can choose to Default to Doctrine. If it does, it must first take a Battle‑shock test. Then, select one of the following:\n\n■ Until the end of the turn, this unit is eligible to shoot and declare a charge in a turn in which it Fell Back.\n\n■ Until the end of the turn, this unit is eligible to declare a charge in a turn in which it Advanced."
+        "text": "## SLAVES TO NONE\n\n**Heretic Astartes** models from your army lose the Dark Pacts ability.\n\nRanged weapons equipped by Heretic Astartes models from your army have the [ASSAULT] ability.\n\nWhen mustering your army, you cannot use the Cults of the Dark Gods rule.\n\n## VENDETTA\n\nAt the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Vendetta target. Each time a Heretic Astartes model from your army (excluding Damned models) makes an attack that targets your Vendetta target, you can re‑roll the Hit roll.\n\n## TWISTED DOCTRINE\n\nIn your Movement phase, each time you set up or select a Heretic Astartes unit (excluding Battle‑shocked units) from your army to move, it can choose to Default to Doctrine. If it does, it must first take a Battle‑shock test. Then, select one of the following:\n\n■ Until the end of the turn, this unit is eligible to shoot and declare a charge in a turn in which it Fell Back.\n\n■ Until the end of the turn, this unit is eligible to declare a charge in a turn in which it Advanced."
       },
       "Detachment§Soulforged Warpack": {
         "rules": {
@@ -9709,10 +9709,10 @@
         },
         "stats": {
           "Points": {
-            "value": 60
+            "value": 35
           }
         },
-        "text": "**HERETIC ASTARTES** model only. At the start of your Command phase, after you have selected your Vendetta target, select a second enemy unit. Until the start of your next Command phase, if your Vendetta target is destroyed, that second enemy unit becomes your Vendetta target until you select a new one."
+        "text": "**HERETIC ASTARTES** model only. Once per battle round, after your Vendetta target is destroyed, if the bearer is on the battlefield, you can select one enemy unit visible to the bearer. That enemy unit becomes your Vendetta target until you select a new one."
       },
       "Enhancement§Willbreaker": {
         "keywords": {
@@ -29859,6 +29859,109 @@
           ]
         },
         "rules": {
+          "nonCultRenegageWarband": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Berzerkers"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Noise Marines"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Rubric Marines"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "none"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "constraints",
+                    "none"
+                  ]
+                ],
+                "value": "Plague Marines"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Renegade Warband"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 12
+          },
           "setMaxLostAndDamned": {
             "actions": [
               {
