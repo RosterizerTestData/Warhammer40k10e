@@ -1,6 +1,6 @@
 {
   "name": "Chaos Space Marines",
-  "revision": "10.12.39",
+  "revision": "10.12.40",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -497,6 +497,111 @@
             "failState": "pass",
             "order": 3
           },
+          "applyCultArkfaneKeywords": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Soul Forge"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Daemon"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Cult of the Arkifane"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
+          "applySFInvuln": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Soul Forge"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
           "PsykersCannotBeKhorne": {
             "actions": [
               {
@@ -913,6 +1018,9 @@
         },
         "text": "Each time a ranged attack made by this model is allocated to a Monster or Vehicle model, you can re‑roll the Damage roll."
       },
+      "Ability§Architect of Ruin": {
+        "text": "At the start of the battle, select one unit in your opponent’s army to be this model’s hated foe. Each time this model makes an attack that targets its hated foe, you can re-roll the Wound roll. Each time this model’s hated foe is destroyed, you can select a new unit from your opponent’s army to be its hated foe."
+      },
       "Ability§Armoured Spearhead": {
         "keywords": {
           "Keywords": [
@@ -1127,13 +1235,13 @@
       "Ability§Cruel Hunter": {
         "text": "While this model is leading a unit, each time that unit Piles In or Consolidates, each model in that unit can move up to 6″ instead of 3″."
       },
-      "Ability§Cult of Destruction": {
+      "Ability§Crushing Charge": {
         "keywords": {
           "Keywords": [
             "Special"
           ]
         },
-        "text": "For the purposes of embarking within Transports, each Mutilator model counts as one Obliterator model."
+        "text": "You can re-roll charge rolls made for this unit, and each time this unit makes a Charge move, select one enemy unit and roll one D6 for each model in this unit that is within Engagement Range of that unit: for each 4+, that enemy unit suffers D3 mortal wounds."
       },
       "Ability§Cults of the Dark Gods": {
         "text": "If your Army Faction is HERETIC ASTARTES, you can include any of the following units in your army, and when you do so their Faction keywords are replaced with HERETIC ASTARTES:\n\n■KHORNE BERZERKERS (see World Eaters)\n\n■RUBRIC MARINES (see Thousand Sons)\n\n■PLAGUE MARINES (see Death Guard)\n\n■NOISE MARINES (see Emperor’s Children)\n\nThe combined points value of such units you can include in your army depends on the battle size, as follows:\n\n■Incursion: Up to 250 pts\n\n■Strike Force: Up to 500 pts\n\n■Onslaught: Up to 750 pts"
@@ -1194,7 +1302,7 @@
         "text": "If this model has the Tzeentch keyword, add 3 to the Attacks characteristic of its infernal cannon."
       },
       "Ability§Daemonforge": {
-        "text": "Once per Fight phase, one unit from your army with this ability can be target with the Counter-offensive Stratagem for 0CP, even if you have already targeted a different unit with that Stratagem this phase."
+        "text": "Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1. In addition, once per battle, when this unit makes a Dark Pact, before making the resulting Leadership test, you can declare it will overcharge its daemonforge. If it does:\n\n■ If the resulting Leadership test is failed, this model suffers 3 mortal wounds instead of D3 mortal wounds.\n\n■ Until the end of the phase, each time this model makes an attack, you can re-roll the Wound roll."
       },
       "Ability§Daemonic Destruction": {
         "keywords": {
@@ -1501,6 +1609,9 @@
           ]
         },
         "text": "While this model is leading a unit, each time this model’s unit ends a Charge move, select one enemy unit within Engagement Range of this model’s unit and roll one D6 for each model in this model’s unit that is within Engagement range of that enemy unit for each 4+, that enemy unit suffers 1 mortal wound."
+      },
+      "Ability§Headlong Destruction": {
+        "text": "Each time a model in this unit makes an attack that targets the closest eligible enemy unit, improve the Armour Penetration characteristic of that attack by 1."
       },
       "Ability§Heavy Weapons Team": {
         "keywords": {
@@ -1811,6 +1922,12 @@
           ]
         },
         "text": "Each time this unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6″ to the Move characteristic of models in this unit."
+      },
+      "Ability§Scuttling Walker (Defiler)": {
+        "aspects": {
+          "Label": "Scuttling Walker"
+        },
+        "text": "Each time this unit makes a Normal, Advance or Fall Back move, it can move through models (excluding Titanic models) and terrain features. When doing so, it can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed."
       },
       "Ability§Self Repair": {
         "keywords": {
@@ -4548,6 +4665,75 @@
           }
         }
       },
+      "Character§Kravek Morne": {
+        "assets": {
+          "traits": [
+            "Ability§Deep Strike",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4+"
+                }
+              }
+            },
+            {
+              "item": "Ability§Leader",
+              "text": "\n\nThis model can be attached to the following units:\n- Chaos Terminator Squad\n- Mutilators\n- Obliterators"
+            },
+            "Ability§Dark Pacts",
+            "Ability§Headlong Destruction",
+            "Ability§Architect of Ruin",
+            "Ranged Weapon§Kravek Morne—Baleflamer",
+            "Ranged Weapon§Kravek Morne—Combi-bolter",
+            "Melee Weapon§Kravek Morne—Last Argument and power fist",
+            "Melee Weapon§Kravek Morne—Servo-harness"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Chaos",
+            "Chaos Undivided",
+            "Character",
+            "Epic Hero",
+            "Infantry",
+            "Kravek Morne",
+            "Terminator"
+          ],
+          "Category": [
+            "Epic Hero"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Faction": [
+            "Heretic Astartes"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 5
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 120
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
       "Character§Lord Discordant on Helstalker": {
         "assets": {
           "traits": [
@@ -6261,6 +6447,172 @@
         },
         "text": "**EXPERIMENTAL AUGMENTATIONS**\n\nAt the start of the battle, select which augmentations are active for **Heretic Astartes Infantry** models (excluding **Damned** models) from your army until the end of the battle. To do so, either select one from the list below, or randomly determine two by rolling two D6. If **Fabius Bile** is your Warlord, when randomly determining your augmentations, you can re‑roll one or both of the dice. Duplicated augmentations have no additional effect.\n\n**[Roll of 1] Cholinergic Accelerants**: Add 1 to the Attacks characteristic of melee weapons equipped by this model.\n\n**[Roll of 2] Hyperadrenal Infusion**: Add 2\" to the Move characteristic of this model.\n\n**[Roll of 3] Paraneural Reactions**: Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1.\n\n**[Roll of 4] Supracutaneous Chitination**: Improve the Toughness characteristic of this model by 1.\n\n**[Roll of 5] Macrotensile Sinews**: Add 1 to the Strength characteristic of melee weapons equipped by this model.\n\n**[Roll of 6] Ophthalmic Enhancement**: Improve the Ballistic Skill characteristic of ranged weapons equipped by this model by 1."
       },
+      "Detachment§Cult of the Arkifane": {
+        "rules": {
+          "applyInvuln": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classIdentity",
+                    "Unit",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Soul Forge"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "applykeywords": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    [
+                      "Character§Vashtorr the Arkifane",
+                      "Character§Lord Discordant on Helstalker"
+                    ],
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Soul Forge"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Unholy Fortitude"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Forge-Fire Surge"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Soul-Tally Offering"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Biomechanoid Regeneration"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Balefire Boon"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Touch of the Arkifane"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## SOUL FORGE BOONS\n\n**Heretic Astartes Vehicle** units from your army gain the **Daemon** keyword.\n\n**Heretic Astartes Vehicle**, **Lord Discordant** and **Vashtorr the Arkifane** units from your army gain the **Soul Forge** keyword.\n\n**Soul Forge** units from your army have a 5+ invulnerable save."
+      },
       "Detachment§Deceptors": {
         "rules": {
           "assignStratagems": {
@@ -7339,6 +7691,135 @@
         },
         "text": "**FOCUS OF HATRED**\n\nAt the start of your Command phase, select one unit from your opponent’s army to be your focus of hatred. Until the start of your next Command Phase, each time a Heretic Astartes model from your army (excluding Damned models) makes an attack that targets your focus of hatred, you can re-roll the Hit roll."
       },
+      "Detachment§Warpstrike Champions": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Portal of Spite"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Siegebreaker Strike"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Warp-Tainted"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Warp Flicker"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Corruption"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Empyric Dislocation"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## WARP PORTALS\n\nAt the end of your opponent’s turn, you can select a number of Heretic Astartes Terminator, Obliterators and Mutilators units from your army (excluding units that are within Engagement Range of one or more enemy units). The maximum number of units you can select depends on the battle size, as follows:\n\n|||\n|---|---|\n|INCURSION|UP TO 1 UNITS|\n|STRIKE FORCE|UP TO 2 UNITS|\n|ONSLAUGHT|UP TO 3 UNITS|\n \nOnce you have made your selections, remove those units from the battlefieldand place them into Strategic Reserves"
+      },
+      "Enhancement§Akshur's Binding Runes": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ]
+        },
+        "rules": {
+          "Heretic Astartes model with the Deep Strike ability only": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**HERETIC ASTARTES** model with the Deep Strike ability only. The bearer's unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules."
+      },
       "Enhancement§Amulet of Tainted Vigour": {
         "keywords": {
           "Keywords": [
@@ -7428,6 +7909,41 @@
           }
         },
         "text": "CHAOS LORD model only (excluding JUMP PACK models). Once per battle round, when a saving throw is failed for the bearer’s unit, you can change the Damage characteristic of that attack to 0."
+      },
+      "Enhancement§Crown of Worms": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ]
+        },
+        "rules": {
+          "Warpsmith model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Warpsmith"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**WARPSMITH** model only. Add 3\" to the range of the bearer's Warpsmith, Master of Mechanisms and Enrage Machine Spirits abilities."
       },
       "Enhancement§Cultist’s Brand": {
         "keywords": {
@@ -7572,6 +8088,74 @@
           }
         },
         "text": "HERETIC ASTARTES INFANTRY model only. Improve the Armour Penetration characteristic of the bearer’s melee weapons by 1, and the bearer’s melee weapons have the [PRECISION] ability."
+      },
+      "Enhancement§Cybinfernal Font": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Soul Forge"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Soul Forge"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
+          "Heretic Astartes model only (excluding Damned models)": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**HERETIC ASTARTES** model only (excluding **DAMNED** models). Models in the bearer's unit have the **SOUL FORGE** keyword."
       },
       "Enhancement§Despot’s Claim": {
         "keywords": {
@@ -7719,6 +8303,39 @@
           }
         },
         "text": "Heretic Astartes model only (excluding Damned models). While the bearer is on the battlefield, each time your focus of hatred is destroyed, roll one D6: on a 4+, you gain 1CP."
+      },
+      "Enhancement§Eye of the Warp": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ]
+        },
+        "rules": {
+          "Heretic Astartes model with the Deep Strike ability only": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**HERETIC ASTARTES** model with the Deep Strike ability only. Each time the bearer's unit is set up on the battlefield, until the end of the turn, you can re-roll Charge rolls made for that unit."
       },
       "Enhancement§Eye of Tzeentch": {
         "keywords": {
@@ -8223,6 +8840,41 @@
         },
         "text": "Heretic Astartes Daemon Prince or Heretic Astartes Daemon Prince with Wings model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, and improve the Armour Penetration characteristic of those weapons by 1."
       },
+      "Enhancement§Infernal Fulgurite": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ]
+        },
+        "rules": {
+          "Heretic Astartes model only (excluding Damned models)": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**HERETIC ASTARTES** model only (excluding **DAMNED** models). Once per battle, you can target the bearer's unit with the Rapid Ingress Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase."
+      },
       "Enhancement§Intoxicating Elixir": {
         "keywords": {
           "Keywords": [
@@ -8641,6 +9293,41 @@
           }
         },
         "text": "HERETIC ASTARTES model only. Models in the bearer’s unit have the Scouts 6″ ability."
+      },
+      "Enhancement§Mark of the Soul Forges": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ]
+        },
+        "rules": {
+          "Heretic Astartes model only (excluding Damned models)": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**HERETIC ASTARTES** model only (excluding **DAMNED** models). Each time the bearer makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
       },
       "Enhancement§Mind Blade": {
         "keywords": {
@@ -9449,6 +10136,158 @@
         },
         "text": "HERETIC ASTARTES model only. You can re-roll Advance roll made for the bearer’s unit, and the bearer’s unit is eligible to shoot in a turn in which it Fell Back."
       },
+      "Enhancement§Tzagulla": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ]
+        },
+        "rules": {
+          "grantBonus": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    [
+                      "A",
+                      "S"
+                    ],
+                    "value"
+                  ]
+                ],
+                "value": 1
+              },
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "AP",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          },
+          "Heretic Astartes model with the Deep Strike ability only": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Deep Strike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25,
+            "visibility": "always"
+          }
+        },
+        "text": "**HERETIC ASTARTES** model with the Deep Strike ability only. Improve the Attacks, Strength and Armour Penetration characteristics of the bearer's weapons by 1. In addition, each time the bearer's unit is set up on the battlefield from Reserves, until the end of the turn, improve the Damage characteristic of the bearer's weapons by 1."
+      },
       "Enhancement§Voice of the Tyrant": {
         "keywords": {
           "Keywords": [
@@ -9726,6 +10565,41 @@
           }
         },
         "text": "HERETIC ASTARTES model only. In the Fight phase, after the bearer has made its attacks, select one enemy unit hit by one or more of those attacks. That unit must take a Battle-shock test."
+      },
+      "Enhancement§Wyredjinn": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ]
+        },
+        "rules": {
+          "Heretic Astartes model only (excluding Damned models)": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Damned"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**HERETIC ASTARTES** model only (excluding **DAMNED** models). At the start of your Command phase, if the bearer is on the battlefield, roll one D6, adding 1 to the result if the bearer is within range of an objective marker you control: on a 4+, you gain 1CP."
       },
       "Melee Weapon§Abaddon the Despoiler—Drach’nyen": {
         "aspects": {
@@ -11453,9 +12327,87 @@
           }
         }
       },
-      "Melee Weapon§Defiler—Defiler claws": {
+      "Melee Weapon§Defiler—Electroscourge": {
         "aspects": {
-          "Label": "Defiler claws"
+          "Label": "Electroscourge"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks",
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 12
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Defiler—Shearing claws": {
+        "aspects": {
+          "Label": "Shearing claws"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Defiler—Shearing claws – strike",
+            "Melee Weapon§Defiler—Shearing claws – sweep"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "removed": {
+          "stats": {}
+        },
+        "stats": {
+          "A": {},
+          "AP": {},
+          "D": {
+            "format": "D6"
+          },
+          "Range": {
+            "value": null
+          },
+          "S": {},
+          "WS": {}
+        }
+      },
+      "Melee Weapon§Defiler—Shearing claws – strike": {
+        "aspects": {
+          "Label": "Strike"
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        },
+        "removed": {
+          "stats": {}
         },
         "stats": {
           "A": {
@@ -11469,7 +12421,6 @@
             "value": 1
           },
           "Range": {
-            "statType": "term",
             "value": "Melee"
           },
           "S": {
@@ -11480,31 +12431,33 @@
           }
         }
       },
-      "Melee Weapon§Defiler—Defiler scourge": {
+      "Melee Weapon§Defiler—Shearing claws – sweep": {
         "aspects": {
-          "Label": "Defiler scourge"
+          "Label": "Sweep"
         },
-        "assets": {
-          "traits": [
-            "Ability§Extra Attacks"
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
           ]
+        },
+        "removed": {
+          "stats": {}
         },
         "stats": {
           "A": {
-            "value": 3
+            "value": 10
           },
           "AP": {
-            "value": -1
+            "value": -2
           },
           "D": {
-            "value": 2
+            "value": 1
           },
           "Range": {
-            "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 12
+            "value": 6
           },
           "WS": {
             "value": 3
@@ -12522,6 +13475,79 @@
           }
         }
       },
+      "Melee Weapon§Kravek Morne—Last Argument and power fist": {
+        "aspects": {
+          "Label": "Last Argument and power fist"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Devastating Wounds"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 7
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 10
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Kravek Morne—Servo-harness": {
+        "aspects": {
+          "Label": "Servo-harness"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "keyword": {
+                  "value": "vehicle"
+                },
+                "x": {
+                  "value": "2+"
+                }
+              }
+            },
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
       "Melee Weapon§Legionaries—Accursed weapon": {
         "aspects": {
           "Label": "Accursed weapon"
@@ -13029,8 +14055,9 @@
         },
         "assets": {
           "traits": [
-            "Melee Weapon§Mutilators—Fleshmetal weapons – strike",
-            "Melee Weapon§Mutilators—Fleshmetal weapons – sweep"
+            "Melee Weapon§Mutilators—Fleshmetal weapons – clawed sweeps",
+            "Melee Weapon§Mutilators—Fleshmetal weapons – rending strikes",
+            "Melee Weapon§Mutilators—Fleshmetal weapons – thunderous blows"
           ]
         },
         "keywords": {
@@ -13039,19 +14066,19 @@
           ]
         }
       },
-      "Melee Weapon§Mutilators—Fleshmetal weapons – strike": {
+      "Melee Weapon§Mutilators—Fleshmetal weapons – clawed sweeps": {
         "aspects": {
-          "Label": "Strike"
+          "Label": "Clawed sweeps"
         },
         "stats": {
           "A": {
-            "value": 4
+            "value": 6
           },
           "AP": {
             "value": -2
           },
           "D": {
-            "value": 2
+            "value": 1
           },
           "Range": {
             "statType": "term",
@@ -13065,26 +14092,53 @@
           }
         }
       },
-      "Melee Weapon§Mutilators—Fleshmetal weapons – sweep": {
+      "Melee Weapon§Mutilators—Fleshmetal weapons – rending strikes": {
         "aspects": {
-          "Label": "Sweep"
+          "Label": "Rending strikes"
         },
         "stats": {
           "A": {
-            "value": 8
+            "value": 4
           },
           "AP": {
-            "value": -1
+            "value": -3
           },
           "D": {
-            "value": 1
+            "value": 3
           },
           "Range": {
             "statType": "term",
             "value": "Melee"
           },
           "S": {
-            "value": 5
+            "value": 9
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Mutilators—Fleshmetal weapons – thunderous blows": {
+        "aspects": {
+          "Label": "Thunderous blows"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -4
+          },
+          "D": {
+            "format": "D6",
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 12
           },
           "WS": {
             "value": 3
@@ -17601,7 +18655,7 @@
             "value": 6
           },
           "M": {
-            "value": 4
+            "value": 5
           },
           "OC": {
             "value": 2
@@ -17613,7 +18667,7 @@
             "value": 7
           },
           "W": {
-            "value": 4
+            "value": 5
           }
         }
       },
@@ -22882,95 +23936,65 @@
           }
         }
       },
-      "Ranged Weapon§Defiler—Combi-bolter": {
+      "Ranged Weapon§Defiler—Ectoplasma destructor": {
         "aspects": {
-          "Label": "Combi-bolter"
+          "Label": "Ectoplasma destructor"
         },
         "assets": {
           "traits": [
-            {
-              "item": "Ability§Rapid Fire",
-              "stats": {
-                "x": {
-                  "value": "2"
-                }
-              }
-            }
+            "Ability§Blast"
           ]
         },
         "stats": {
           "A": {
-            "value": 2
+            "format": "D6",
+            "value": 0
           },
           "AP": {
-            "value": 0
+            "value": -3
           },
           "BS": {
             "value": 3
           },
           "D": {
-            "value": 1
+            "value": 3
           },
           "Range": {
-            "value": 24
+            "value": 36
           },
           "S": {
-            "value": 4
+            "value": 12
           }
         }
       },
-      "Ranged Weapon§Defiler—Combi-weapon": {
+      "Ranged Weapon§Defiler—Excruciator cannon": {
         "aspects": {
-          "Label": "Combi-weapon"
-        },
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Anti-",
-              "stats": {
-                "keyword": {
-                  "value": "infantry"
-                },
-                "x": {
-                  "value": "4+"
-                }
-              }
-            },
-            "Ability§Devastating Wounds",
-            {
-              "item": "Ability§Rapid Fire",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            }
-          ]
+          "Label": "Excruciator cannon"
         },
         "stats": {
           "A": {
-            "value": 1
+            "value": 6
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
-            "value": 4
+            "value": 3
           },
           "D": {
-            "value": 1
+            "value": 2
           },
           "Range": {
-            "value": 24
+            "value": 36
           },
           "S": {
-            "value": 4
+            "value": 6
           }
         }
       },
-      "Ranged Weapon§Defiler—Defiler cannon": {
+      "Ranged Weapon§Defiler—Hades battle cannon": {
         "aspects": {
-          "Label": "Defiler cannon"
+          "Label": "Hades battle cannon"
         },
         "assets": {
           "traits": [
@@ -22999,9 +24023,85 @@
           }
         }
       },
-      "Ranged Weapon§Defiler—Havoc launcher": {
+      "Ranged Weapon§Defiler—Hades lascannon": {
         "aspects": {
-          "Label": "Havoc launcher"
+          "Label": "Hades lascannon"
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -3
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 1
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 12
+          }
+        }
+      },
+      "Ranged Weapon§Defiler—Heavy baleflamer": {
+        "aspects": {
+          "Label": "Heavy baleflamer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 7
+          }
+        }
+      },
+      "Ranged Weapon§Defiler—Heavy missile launcher": {
+        "aspects": {
+          "Label": "Heavy missile launcher"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Defiler—Heavy missile launcher – krak",
+            "Ranged Weapon§Defiler—Heavy missile launcher – frag"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Ranged Weapon§Defiler—Heavy missile launcher – frag": {
+        "aspects": {
+          "Label": "Frag"
         },
         "assets": {
           "traits": [
@@ -23010,11 +24110,11 @@
         },
         "stats": {
           "A": {
-            "format": "D6",
+            "format": "2D6",
             "value": 0
           },
           "AP": {
-            "value": 0
+            "value": -1
           },
           "BS": {
             "value": 3
@@ -23030,9 +24130,38 @@
           }
         }
       },
-      "Ranged Weapon§Defiler—Reaper autocannon": {
+      "Ranged Weapon§Defiler—Heavy missile launcher – krak": {
         "aspects": {
-          "Label": "Reaper autocannon"
+          "Label": "Krak"
+        },
+        "assets": {
+          "traits": []
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 1
+          },
+          "Range": {
+            "value": 48
+          },
+          "S": {
+            "value": 10
+          }
+        }
+      },
+      "Ranged Weapon§Defiler—Heavy reaper autocannon": {
+        "aspects": {
+          "Label": "Heavy reaper autocannon"
         },
         "assets": {
           "traits": [
@@ -23058,117 +24187,51 @@
             "value": 3
           },
           "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 36
-          },
-          "S": {
-            "value": 7
-          }
-        }
-      },
-      "Ranged Weapon§Defiler—Twin heavy bolter": {
-        "aspects": {
-          "Label": "Twin heavy bolter"
-        },
-        "assets": {
-          "traits": [
-            {
-              "item": "Ability§Sustained Hits",
-              "stats": {
-                "x": {
-                  "value": "1"
-                }
-              }
-            },
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
             "value": 3
-          },
-          "AP": {
-            "value": -1
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "value": 2
-          },
-          "Range": {
-            "value": 36
-          },
-          "S": {
-            "value": 5
-          }
-        }
-      },
-      "Ranged Weapon§Defiler—Twin heavy flamer": {
-        "aspects": {
-          "Label": "Twin heavy flamer"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Ignores Cover",
-            "Ability§Torrent",
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
-            "format": "D6",
-            "value": 0
-          },
-          "AP": {
-            "value": -1
-          },
-          "BS": {
-            "format": "{t}",
-            "statType": "term",
-            "value": "N/A"
-          },
-          "D": {
-            "value": 1
-          },
-          "Range": {
-            "value": 12
-          },
-          "S": {
-            "value": 5
-          }
-        }
-      },
-      "Ranged Weapon§Defiler—Twin lascannon": {
-        "aspects": {
-          "Label": "Twin lascannon"
-        },
-        "assets": {
-          "traits": [
-            "Ability§Twin-linked"
-          ]
-        },
-        "stats": {
-          "A": {
-            "value": 1
-          },
-          "AP": {
-            "value": -3
-          },
-          "BS": {
-            "value": 3
-          },
-          "D": {
-            "format": "D6",
-            "value": 1
           },
           "Range": {
             "value": 48
           },
           "S": {
+            "value": 9
+          }
+        }
+      },
+      "Ranged Weapon§Defiler—Magma cutters": {
+        "aspects": {
+          "Label": "Magma cutters"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "format": "D6",
+            "value": 0
+          },
+          "Range": {
             "value": 12
+          },
+          "S": {
+            "value": 9
           }
         }
       },
@@ -24944,6 +26007,77 @@
           },
           "S": {
             "value": 14
+          }
+        }
+      },
+      "Ranged Weapon§Kravek Morne—Baleflamer": {
+        "aspects": {
+          "Label": "Baleflamer"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ignores Cover",
+            "Ability§Torrent"
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 3
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "format": "{t}",
+            "statType": "term",
+            "value": "N/A"
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Kravek Morne—Combi-bolter": {
+        "aspects": {
+          "Label": "Combi-bolter"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
           }
         }
       },
@@ -30139,6 +31273,22 @@
                     "trait": "Detachment§Renegade Warband"
                   }
                 ]
+              },
+              "Warpstrike Champions": {
+                "order": 14,
+                "traits": [
+                  {
+                    "trait": "Detachment§Warpstrike Champions"
+                  }
+                ]
+              },
+              "Cult of the Arkifane": {
+                "order": 15,
+                "traits": [
+                  {
+                    "trait": "Detachment§Cult of the Arkifane"
+                  }
+                ]
               }
             }
           },
@@ -30164,6 +31314,29 @@
             "visibility": "hidden"
           }
         }
+      },
+      "Stratagem§Armour of Corruption": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One HERETIC ASTARTES TERMINATOR, OBLITERATORS or MUTILATORS unit from your army that was selected as the target of one or more of the attacking unit's attacks. \n**EFFECT**: Until the end of the turn, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack. \n\n**RESTRICTIONS**: You cannot target the same unit with the Armour of Corruption and Empyric Dislocation Stratagems in the same phase."
       },
       "Stratagem§At the Tyrant's Command": {
         "keywords": {
@@ -30204,6 +31377,30 @@
         },
         "text": "**WHEN**: Start of your Charge phase.\n\n**TARGET**: One **Heretic Astartes Infantry** unit from your army.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Advanced."
       },
+      "Stratagem§Balefire Boon": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One SOUL FORGE unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, improve the Armour Penetration characteristic of that attack by 1."
+      },
       "Stratagem§Baleful Blessing": {
         "keywords": {
           "Keywords": [
@@ -30225,6 +31422,28 @@
           }
         },
         "text": "**WHEN**: Any phase, just after a Heretic Astartes unit from your army has a mortal wound allocated to it.\n\n**TARGET**: That Heretic Astartes unit.\n\n**EFFECT**: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds."
+      },
+      "Stratagem§Biomechanoid Regeneration": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Command"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One HERETIC ASTARTES unit from your army (excluding DAMNED units).\n\n**EFFECT**: One model in your unit regains up to D3 lost wounds. If your unit has the SOUL FORGE keyword, one model in your unit regains up to 3 lost wounds instead."
       },
       "Stratagem§Black Crusade": {
         "keywords": {
@@ -30507,6 +31726,30 @@
         },
         "text": "**WHEN**: Your Command phase.\n\n**TARGET**: One **Heretic Astartes Infantry** unit (excluding **Damned** units) from your army.\n\n**EFFECT**: One destroyed model (excluding **Character** models) is returned to your unit. If your unit is a **Battleline** unit, D3 destroyed models (excluding **Character** models) are returned to your unit instead."
       },
+      "Stratagem§Empyric Dislocation": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s",
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets. \n\n**TARGET**: One HERETIC ASTARTES unit from your army (excluding DAMNED units) that was selected as the target of one or more of the attacking unit's attacks. \n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1. \n\n**RESTRICTIONS**: You cannot target the same unit with the Empyric Dislocation and Armour of Corruption Stratagems in the same phase."
+      },
       "Stratagem§Encircling Surge": {
         "keywords": {
           "Keywords": [
@@ -30625,6 +31868,28 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. \n\nTARGET: One Heretic Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks. \n\nEFFECT: Until the end of the phase, your unit has the Stealth ability. In addition, if your unit is a Nurgle unit, until the end of the phase, your unit can only be selected as the target of a ranged attack if the attacking model is within 18″."
+      },
+      "Stratagem§Forge-Fire Surge": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase, just after a HERETIC ASTARTES unit from your army Advances.\n\n**TARGET**: That HERETIC ASTARTES unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot in a turn in which it Advanced. If your unit has the SOUL FORGE keyword, until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced instead."
       },
       "Stratagem§From All Sides": {
         "keywords": {
@@ -31021,6 +32286,28 @@
         },
         "text": "WHEN: Your Shooting phase\n\nTARGET: One HERETIC ASTARTES unit from your army that is within Engagement Range of one or more enemy units and has not been selected to shoot this phase.\n\nEFFECT: Until the end of the phase, your unit’s ranged weapons (excluding Blast weapons] have the [PISTOL] ability."
       },
+      "Stratagem§Portal of Spite": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Charge phase. \n\n**TARGET**: One HERETIC ASTARTES unit from your army that was set up using the Deep Strike ability this turn and has not declared a charge this phase. \n\n**EFFECT**: Until the end of the phase, each time your unit declares a charge, if the closest eligible enemy unit is selected as one of the targets of that charge, add 2 to the Charge roll."
+      },
       "Stratagem§Predatory Pursuit": {
         "keywords": {
           "Keywords": [
@@ -31371,6 +32658,28 @@
         },
         "text": "**WHEN**: Start of your opponent’s Shooting phase.\n\n**TARGET**: One Heretic Astartes Psyker, Heretic Astartes Daemon Prince, or Heretic Astartes Daemon Prince with Wings unit from your army.\n\n**EFFECT**: Until the end of the phase, your unit has the following ability:\n\nShroud of Chaos (Aura): Models in friendly Heretic Astartes units within 6\" of this unit have the Stealth ability."
       },
+      "Stratagem§Siegebreaker Strike": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase. \n\n**TARGET**: Up to two HERETIC ASTARTES units from your army that were set up using the Deep Strike ability this turn and have not been selected to shoot this phase. \n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your units have the [IGNORES COVER] ability."
+      },
       "Stratagem§Siegecraft": {
         "keywords": {
           "Keywords": [
@@ -31404,6 +32713,30 @@
           ]
         },
         "text": "WHEN: Your Command phase. \n\nTARGET: One Heretic Astartes unit from your army. \n\nEFFECT: One model in your unit regains up to 3 lost wounds. In addition, if your unit is a Tzeentch unit below its Starting Strength, one destroyed model (excluding Character models) is returned to your unit with its full wounds remaining."
+      },
+      "Stratagem§Soul-Tally Offering": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting",
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One SOUL FORGE unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets a CHARACTER, MONSTER or VEHICLE unit, you can re-roll the Wound roll."
       },
       "Stratagem§Soulseekers": {
         "keywords": {
@@ -31529,6 +32862,29 @@
         },
         "text": "WHEN: Your Movement phase. \n\nTARGET: One Heretic Astartes unit from your army. \n\nEFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back. In addition, if your unit is a Slaanesh unit, until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced."
       },
+      "Stratagem§Touch of the Arkifane": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase.\n\n**TARGET**: One HERETIC ASTARTES unit from your army (excluding DAMNED units) that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, if your unit is selected to make a Dark Pact, you can select both abilities for that unit's weapons to gain."
+      },
       "Stratagem§Undying Hatred": {
         "keywords": {
           "Keywords": [
@@ -31570,6 +32926,28 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase or the\nFight phase, just after an enemy unit has selected\nits targets.\n\nTARGET: One HERETIC ASTARTES unit from your army\n{excluding DAMNED units} that was selected as the\ntarget of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time\nan attack targets your unit, worsen the Armour\nPenetration characteristic of that attack by 1."
+      },
+      "Stratagem§Unholy Fortitude": {
+        "keywords": {
+          "Keywords": [
+            "Cult of the Arkifane"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One SOUL FORGE unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, add 1 to the Toughness characteristic of models in your unit."
       },
       "Stratagem§Unholy Haste": {
         "keywords": {
@@ -31634,6 +33012,50 @@
           }
         },
         "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One HERETIC ASTARTES INFANTRY (excluding DAMNED units) or HERETIC ASTARTES MOUNTED unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time your unit makes an attack that targets your Vendetta target, add 1 to the Wound roll."
+      },
+      "Stratagem§Warp Flicker": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase. \n\n**TARGET**: One HERETIC ASTARTES TERMINATOR, OBLITERATORS or MUTILATORS unit from your army. \n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced."
+      },
+      "Stratagem§Warp-Tainted": {
+        "keywords": {
+          "Keywords": [
+            "Warpstrike Champions"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase. \n\n**TARGET**: One HERETIC ASTARTES TERMINATOR OBLITERATORS or MUTILATORS unit from your army, within range of an objective marker you control. \n\n**EFFECT**: That objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase. "
       },
       "Stratagem§Warpcharged Engines": {
         "keywords": {
@@ -33172,7 +34594,8 @@
             "Character§Abaddon the Despoiler",
             "Character§Chaos Lord in Terminator Armour",
             "Character§Sorcerer in Terminator Armour",
-            "Character§Huron Blackheart"
+            "Character§Huron Blackheart",
+            "Character§Kravek Morne"
           ]
         },
         "assets": {
@@ -34233,12 +35656,12 @@
               }
             },
             "Ability§Dark Pacts",
-            "Ability§Scuttling Walker",
+            "Ability§Scuttling Walker (Defiler)",
             {
               "item": "Ability§Damaged:",
               "stats": {
                 "x": {
-                  "value": "1-5 wounds remaining"
+                  "value": "1-6 wounds remaining"
                 }
               }
             },
@@ -34250,8 +35673,7 @@
                 }
               }
             },
-            "Ranged Weapon§Defiler—Defiler cannon",
-            "Melee Weapon§Defiler—Defiler claws",
+            "Melee Weapon§Defiler—Shearing claws",
             "Ability§Daemonforge"
           ]
         },
@@ -34265,7 +35687,6 @@
           "Keywords": [
             "Vehicle",
             "Walker",
-            "Smoke",
             "Chaos",
             "Daemon",
             "Defiler"
@@ -34274,36 +35695,28 @@
             "Vehicle—Walker"
           ]
         },
-        "stats": {
-          "Combi Option": {
-            "dynamic": true,
-            "group": "Loadout",
-            "groupOrder": 2,
-            "ranks": {
-              "-": {
-                "order": 0
-              },
-              "Combi-bolter": {
-                "order": 1,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Defiler—Combi-bolter"
-                  }
-                ]
-              },
-              "Combi-weapon": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Defiler—Combi-weapon"
-                  }
+        "rules": {
+          "A model cannot be equipped with more than one electroscourge": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "ecmax"
+                  ]
                 ]
               }
-            },
-            "statType": "rank",
-            "value": "-",
-            "visibility": "active"
-          },
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
           "Ld": {
             "value": 6
           },
@@ -34312,33 +35725,25 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Twin heavy flamer": {
+              "Hades battle cannon": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Defiler—Twin heavy flamer"
+                    "trait": "Ranged Weapon§Defiler—Hades battle cannon"
                   }
                 ]
               },
-              "Defiler scourge": {
+              "Ectoplasma destructor": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Melee Weapon§Defiler—Defiler scourge"
-                  }
-                ]
-              },
-              "Havoc launcher": {
-                "order": 2,
-                "traits": [
-                  {
-                    "trait": "Ranged Weapon§Defiler—Havoc launcher"
+                    "trait": "Ranged Weapon§Defiler—Ectoplasma destructor"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Twin heavy flamer",
+            "value": "Hades battle cannon",
             "visibility": "active"
           },
           "Loadout 2": {
@@ -34346,52 +35751,140 @@
             "group": "Loadout",
             "groupOrder": 2,
             "ranks": {
-              "Reaper autocannon": {
+              "2 Excruciator cannons": {
                 "order": 0,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Defiler—Reaper autocannon"
+                    "trait": "Ranged Weapon§Defiler—Excruciator cannon"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Defiler—Excruciator cannon"
                   }
                 ]
               },
-              "Twin heavy bolter": {
+              "2 Magma cutters": {
                 "order": 1,
                 "traits": [
                   {
-                    "trait": "Ranged Weapon§Defiler—Twin heavy bolter"
-                  }
-                ]
-              },
-              "Twin lascannon": {
-                "order": 2,
-                "traits": [
+                    "trait": "Ranged Weapon§Defiler—Magma cutters"
+                  },
                   {
-                    "trait": "Ranged Weapon§Defiler—Twin lascannon"
+                    "trait": "Ranged Weapon§Defiler—Magma cutters"
                   }
                 ]
               }
             },
             "statType": "rank",
-            "value": "Reaper autocannon",
+            "value": "2 Excruciator cannons",
+            "visibility": "normal"
+          },
+          "Loadout 3": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy baleflamer": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Defiler—Heavy baleflamer"
+                  }
+                ]
+              },
+              "Hades lascannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Defiler—Hades lascannon"
+                  }
+                ]
+              },
+              "Heavy reaper autocannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Defiler—Heavy reaper autocannon"
+                  }
+                ]
+              },
+              "Electroscourge": {
+                "order": 3,
+                "tracking": {
+                  "ecmax": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Defiler—Electroscourge"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy baleflamer",
+            "visibility": "normal"
+          },
+          "Loadout 4": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Heavy missile launcher": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Defiler—Heavy missile launcher"
+                  }
+                ]
+              },
+              "Hades lascannon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Defiler—Hades lascannon"
+                  }
+                ]
+              },
+              "Heavy reaper autocannon": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Defiler—Heavy reaper autocannon"
+                  }
+                ]
+              },
+              "Electroscourge": {
+                "order": 3,
+                "tracking": {
+                  "ecmax": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Defiler—Electroscourge"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Heavy missile launcher",
             "visibility": "normal"
           },
           "M": {
-            "value": 8
+            "value": 12
           },
           "OC": {
             "value": 5
           },
           "Points": {
-            "value": 190
+            "value": 250
           },
           "Sv": {
             "value": 3
           },
           "T": {
-            "value": 10
+            "value": 11
           },
           "W": {
-            "value": 14
+            "value": 18
           }
         }
       },
@@ -36037,15 +37530,15 @@
       "Unit§Mutilators": {
         "allowed": {
           "items": [
-            "Model§Mutilator"
+            "Model§Mutilator",
+            "Character§Kravek Morne"
           ]
         },
         "assets": {
           "traits": [
             "Ability§Deep Strike",
             "Ability§Dark Pacts",
-            "Ability§Death Frenzy",
-            "Ability§Cult of Destruction",
+            "Ability§Crushing Charge",
             {
               "item": "Ability§Invulnerable",
               "stats": {
@@ -36065,7 +37558,7 @@
             "Heretic Astartes"
           ],
           "Source": [
-            "Legends"
+            "10th Edition Codex"
           ],
           "Keywords": [
             "Infantry",
@@ -36098,7 +37591,7 @@
             "visibility": "hidden"
           },
           "Points": {
-            "value": 185
+            "value": 200
           }
         }
       },
@@ -36553,7 +38046,8 @@
       "Unit§Obliterators": {
         "allowed": {
           "items": [
-            "Model§Obliterator"
+            "Model§Obliterator",
+            "Character§Kravek Morne"
           ]
         },
         "assets": {
