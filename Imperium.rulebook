@@ -1,6 +1,6 @@
 {
   "name": "Imperium",
-  "revision": "10.12.25",
+  "revision": "10.12.26",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1329,6 +1329,9 @@
         },
         "text": "While an enemy unit (excluding Vehicle units) is within 3″ of this unit, subtract 1 from the Objective Control characteristic of models in that unit."
       },
+      "Ability§Ram Jets": {
+        "text": "Each time this unit is selected to make a Normal or Advance move, until the end of the phase, add D3\" to the Move characteristic of this model."
+      },
       "Ability§Rapid Deployment": {
         "text": "Units can disembark from this Transport after it has Advanced. Units that do so count as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally."
       },
@@ -1345,6 +1348,9 @@
       },
       "Ability§Rites of Teleportation": {
         "text": "If one or more Inquisitor units are attached to this unit during the Declare Battle formations step, models in those units have the Deep Strike ability."
+      },
+      "Ability§Saturation Fire": {
+        "text": "Each time this model makes a ranged attack that targets a unit within range of one or more objective markers, that attack has the [IGNORES  COVER] ability."
       },
       "Ability§Searing Flames": {
         "keywords": {
@@ -1538,6 +1544,9 @@
           ]
         },
         "text": "While a friendly unit is within 6″ of this model, add 1 to Battle-shock and Leadership tests taken for that unit. While an enemy unit is within 6″ of this model, subtract 1 from Battle-shock and Leadership tests taken for that enemy unit."
+      },
+      "Ability§Thundercharge": {
+        "text": "If this model is equipped with a thundershock spear and a bellatus reaper chainsword, add 2 to the Attacks characteristic of melee weapons equipped by this model."
       },
       "Ability§Thundershock": {
         "keywords": {
@@ -3918,6 +3927,211 @@
           },
           "W": {
             "value": 26
+          }
+        }
+      },
+      "Character§Knight Destrier": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D6"
+                }
+              }
+            },
+            "Ability§Code Chivalric",
+            "Ability§Super-heavy Walker",
+            "Ability§Ram Jets",
+            "Ability§Thundercharge",
+            "Ability§Saturation Fire",
+            {
+              "item": "Ability§Damaged:",
+              "stats": {
+                "x": {
+                  "value": "1-6 wounds remaining",
+                  "text": "While this model has {t}, subtract 4 from this model’s Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll."
+                }
+              }
+            },
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "5+"
+                },
+                "keyword": {
+                  "value": "Ranged"
+                }
+              }
+            },
+            "Ranged Weapon§Knight Destrier—Questoris heavy stubber",
+            "Melee Weapon§Knight Destrier—Titanic feet"
+          ]
+        },
+        "keywords": {
+          "Faction": [
+            "Imperial Knights"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Keywords": [
+            "Bellatus",
+            "Character",
+            "Imperium",
+            "Knight Destrier",
+            "Titanic",
+            "Towering",
+            "Vehicle",
+            "Walker"
+          ],
+          "Category": [
+            "Character"
+          ]
+        },
+        "rules": {
+          "A model cannot be equipped with more than one bellatus reaper chainsword": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "brcmax"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "A model cannot be equipped with more than one thundershock spear.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "tsmax"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "Loadout 1": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Chastiser gatling cannon": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Knight Destrier—Chastiser gatling cannon"
+                  }
+                ]
+              },
+              "Bellatus reaper chainsword": {
+                "order": 1,
+                "tracking": {
+                  "brcmax": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Knight Destrier—Bellatus reaper chainsword"
+                  }
+                ]
+              },
+              "Thundershock spear": {
+                "order": 2,
+                "tracking": {
+                  "tsmax": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Knight Destrier—Thundershock spear"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Chastiser gatling cannon",
+            "visibility": "active"
+          },
+          "Loadout 2": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Frag bombard": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Knight Destrier—Frag bombard"
+                  }
+                ]
+              },
+              "Bellatus reaper chainsword": {
+                "order": 1,
+                "tracking": {
+                  "brcmax": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Knight Destrier—Bellatus reaper chainsword"
+                  }
+                ]
+              },
+              "Thundershock spear": {
+                "order": 2,
+                "tracking": {
+                  "tsmax": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Knight Destrier—Thundershock spear"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Frag bombard",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 12
+          },
+          "OC": {
+            "value": 8
+          },
+          "Points": {
+            "value": 250
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 10
+          },
+          "W": {
+            "value": 18
           }
         }
       },
@@ -6777,10 +6991,6 @@
           "D": {
             "value": 3
           },
-          "Range": {
-            "statType": "term",
-            "value": "Melee"
-          },
           "S": {
             "value": 10
           },
@@ -8616,6 +8826,175 @@
           },
           "S": {
             "value": 8
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Knight Destrier—Bellatus reaper chainsword": {
+        "aspects": {
+          "Label": "Bellatus reaper chainsword"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Knight Destrier—Bellatus reaper chainsword – strike",
+            "Melee Weapon§Knight Destrier—Bellatus reaper chainsword – sweep"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Melee Weapon§Knight Destrier—Bellatus reaper chainsword – strike": {
+        "aspects": {
+          "Label": "Strike"
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "format": "D3",
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 12
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Knight Destrier—Bellatus reaper chainsword – sweep": {
+        "aspects": {
+          "Label": "Sweep"
+        },
+        "stats": {
+          "A": {
+            "value": 10
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 8
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Knight Destrier—Thundershock spear": {
+        "aspects": {
+          "Label": "Thundershock spear"
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Knight Destrier—Thundershock spear – strike",
+            "Melee Weapon§Knight Destrier—Thundershock spear – sweep"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Melee Weapon§Knight Destrier—Thundershock spear – strike": {
+        "aspects": {
+          "Label": "Strike"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lance"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 5
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "format": "D3",
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 12
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Knight Destrier—Thundershock spear – sweep": {
+        "aspects": {
+          "Label": "Sweep"
+        },
+        "stats": {
+          "A": {
+            "value": 8
+          },
+          "AP": {
+            "value": -3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 6
+          },
+          "WS": {
+            "value": 3
+          }
+        }
+      },
+      "Melee Weapon§Knight Destrier—Titanic feet": {
+        "aspects": {
+          "Label": "Titanic feet"
+        },
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 7
           },
           "WS": {
             "value": 4
@@ -23898,6 +24277,114 @@
           },
           "S": {
             "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Knight Destrier—Chastiser gatling cannon": {
+        "aspects": {
+          "Label": "Chastiser gatling cannon"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 12
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Knight Destrier—Frag bombard": {
+        "aspects": {
+          "Label": "Frag bombard"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Blast",
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "D6+3"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "format": "D6",
+            "value": 3
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 7
+          }
+        }
+      },
+      "Ranged Weapon§Knight Destrier—Questoris heavy stubber": {
+        "aspects": {
+          "Label": "Questoris heavy stubber"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "3"
+                }
+              }
+            },
+            "Ability§Assault"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -1
+          },
+          "BS": {
+            "value": 3
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 4
           }
         }
       },
