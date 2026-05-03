@@ -1,6 +1,6 @@
 {
   "name": "Orks",
-  "revision": "10.12.19",
+  "revision": "10.12.20",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -483,6 +483,9 @@
         },
         "text": "While this model is leading a unit, in your Command phase, you can return 1 destroyed Bodyguard model to that unit."
       },
+      "Ability§Fixit da Grot": {
+        "text": "At the start of your Command phase, this model regains up to D3 lost wounds."
+      },
       "Ability§Flashiest Gitz": {
         "keywords": {
           "Keywords": [
@@ -756,6 +759,9 @@
         },
         "text": "While this unit is leading a unit, each time a model in that unit makes a melee attack, add 1 to the Hit roll and add 1 to the Wound roll and if the Waaagh! is active for your army, a Critical Hit is scored on a successful unmodified Hit \nroll of 5+."
       },
+      "Ability§Pulse Jet": {
+        "text": "Each time this unit Advances, do not make an Advance roll for it. Instead, until the end of the phase:\n\n■ Add 6\" to the Move characteristic of models in this unit.\n\n■ Models in this unit can move through models and terrain features"
+      },
       "Ability§Pyromaniaks": {
         "keywords": {
           "Keywords": [
@@ -836,6 +842,9 @@
           ]
         },
         "text": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9″ of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6″."
+      },
+      "Ability§Shokk Attack Engine": {
+        "text": "In your Command phase, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
       },
       "Ability§Shokk Tunnel": {
         "keywords": {
@@ -1063,6 +1072,16 @@
         },
         "text": "At the start of your Movement phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it (excluding Battle-shocked units). If one or more of those rolls is a 4+, you gain 1CP."
       },
+      "Ability§Throttlerokkit Shokka Engine": {
+        "assets": {
+          "traits": [
+            "Ability§Turbo Engine",
+            "Ability§Shokk Attack Engine",
+            "Ability§Pulse Jet"
+          ]
+        },
+        "text": "In your Command phase, select one of the abilities in the Throttlerokkit Shokka Engine section. Until the start of your next Command phase, this model has that ability"
+      },
       "Ability§Thundering Stampede": {
         "text": "While this model is leading a unit, add 1 to Charge rolls made for that unit."
       },
@@ -1081,6 +1100,9 @@
           ]
         },
         "text": "Each time this unit declares a charge, you can re-roll the Charge roll."
+      },
+      "Ability§Turbo Engine": {
+        "text": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
       },
       "Ability§Twin -linked": {},
       "Ability§Unstable Oracle": {
@@ -1109,6 +1131,9 @@
           ]
         },
         "text": "While this model is leading a unit, add 1 to the Strength and Damage characteristics of this model’s ’Eadbanger weapon for every 5 models in that unit (rounding down), but while that unit contains 10 or more models, that weapon has the [HAZARDOUS] ability."
+      },
+      "Ability§Waagh! Wazdakka": {
+        "text": "If this model is your Warlord, Warbiker units from your army have the Battleline keyword."
       },
       "Ability§Walking Bastion": {
         "keywords": {
@@ -3370,6 +3395,113 @@
           }
         }
       },
+      "Character§Wazdakka Gutsmek": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Deadly Demise",
+              "stats": {
+                "x": {
+                  "value": "D3"
+                }
+              }
+            },
+            "Ability§Deep Strike",
+            "Ability§Lone Operative",
+            "Ability§Waaagh!",
+            "Ability§Fixit da Grot",
+            "Ability§Throttlerokkit Shokka Engine",
+            "Weapon§Wazdakka Gutsmek—Grabba dragga",
+            "Ranged Weapon§Wazdakka Gutsmek—Psyko‑gatler",
+            "Melee Weapon§Wazdakka Gutsmek—Fixit’s wrench",
+            "Melee Weapon§Wazdakka Gutsmek—Speeding bulk and flaming exhaust",
+            "Ability§Waagh! Wazdakka"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Character",
+            "Epic Hero",
+            "Mounted",
+            "Smoke",
+            "Speed Freeks",
+            "Vehicle",
+            "Wazdakka Gutsmek"
+          ],
+          "Faction": [
+            "Orks"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Epic Hero"
+          ]
+        },
+        "rules": {
+          "waaghWazdakkaAbility": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Unit§Warbikers",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Battleline"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 3
+          }
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 14
+          },
+          "OC": {
+            "value": 3
+          },
+          "Points": {
+            "value": 175
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 8
+          },
+          "W": {
+            "value": 10
+          }
+        }
+      },
       "Character§Weirdboy": {
         "assets": {
           "traits": [
@@ -3574,6 +3706,102 @@
       "Crusade Badge§Ambitious Boss": {},
       "Crusade Badge§Grand Warlord": {},
       "Crusade Badge§Rampaging Bigboss": {},
+      "Detachment§Blitz Brigade": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Mount Up, Ladz"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armoured Duellists"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Mekanised Brutality"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Run 'Em Down"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Impervious"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Yooz In Trouble Now"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## EAGER FOR THE FIGHT\n\nEach time an Orks unit from your army disembarks from a Transport, until the end of the turn, you can re‑roll Advance and Charge rolls made for that Orks unit."
+      },
       "Detachment§Bully Boyz": {
         "rules": {
           "assignStratagems": {
@@ -4254,6 +4482,102 @@
         },
         "text": "**DAKKA! DAKKA! DAKKA!**\n\nDuring your Shooting phase, ranged weapons equipped by **Orks Infantry** and **Orks Walker** models from your army have the **[ASSAULT]** ability. While the Waaagh! is active for your army, ranged weapons equipped by **Orks Infantry** and **Orks Walker** models from your army have the **[SUSTAINED HITS 1]** ability."
       },
+      "Detachment§Speedwaaagh!": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Evasive Manoova"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Dust Trails"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Ded Killy Construction"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Speshul Ammo"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Mobile Dakkastorm"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§On Da Move"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## TURBO BOOSTAS\n\nEach time a Speed Freeks or Trukk unit (excluding Aircraft) from your army Advances, it can use its turbo. If it does, do not make an Advance roll for it; instead, until the end of the phase, models in that unit have a Move characteristic of 24\" but can only move in one straight line, and until the end of the turn, ranged weapons equipped by those models have the [ASSAULT] ability and that unit cannot declare a charge.\n\nDesigner’s Note: When a unit uses its turbo, the models in that unit cannot pivot, and they cannot make a move of two or more straight lines (e.g. to navigate around obstacles). That unit also cannot declare a charge, even if another rule would let it declare a charge in a turn in which it Advanced."
+      },
       "Detachment§Taktikal Brigade": {
         "keywords": {
           "Keywords": []
@@ -4596,6 +4920,19 @@
         },
         "text": "**BIG MEK** or **PAINBOY** model only. At the start of the battle, roll one D3 and compare the result to the list below. Until the end of the battle, models in the bearer's unit have that bioniks ability.\n1. **Bionik Legs**: Add 2\" to the Move characteristic of this model.\n2. **Bionik Arms**: Add 1 to the Strength characteristic of melee weapons equipped by this model.\n3. **Bionik Bonce**: Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1."
       },
+      "Enhancement§Blitzkaptin": {
+        "keywords": {
+          "Keywords": [
+            "Blitz Brigade"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ORKS CHARACTER** model only. After both players have deployed their armies, if the bearer's unit (or any **TRANSPORT** it is embarked within) is on the battlefield, select up to three **ORKS VEHICLE** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+      },
       "Enhancement§Bloodthirsty Belligerence": {
         "keywords": {
           "Keywords": [
@@ -4818,6 +5155,41 @@
           }
         },
         "text": "**WARBOSS** model only. Once per battle round, at the start of any phase, you can select one friendly **ORKS** unit that is Battle-shocked and within 12\" of the bearer. That unit suffers D3 mortal wounds and it is no longer Battle-shocked."
+      },
+      "Enhancement§Dakkamek": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ]
+        },
+        "rules": {
+          "Mek model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mek"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**MEK** model only. Each time the bearer uses its Mekaniak ability, until the start of your next Command phase, ranged weapons equipped by the selected **VEHICLE** model have the **[RAPID FIRE 1]** ability."
       },
       "Enhancement§Dead Shiny Shootas": {
         "keywords": {
@@ -5279,6 +5651,112 @@
         },
         "text": "Orks model only. While the bearer is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
       },
+      "Enhancement§Kustom Shokk Box": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ]
+        },
+        "rules": {
+          "Deffkilla Wartrike model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Deffkilla Wartrike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**DEFFKILLA WARTRIKE** model only. Each time the bearer uses its turbo, its unit can move horizontally through terrain features."
+      },
+      "Enhancement§Master Meknologist": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ],
+                  [
+                    "{parent}",
+                    "assets",
+                    "classIdentity",
+                    "Weapon",
+                    "assets",
+                    "classification",
+                    "Ranged Weapon",
+                    "stats",
+                    "BS",
+                    "value"
+                  ]
+                ],
+                "value": -1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 999
+          },
+          "Big Mek model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Big Mek"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**BIG MEK** model only. Improve the Ballistic Skill characteristic of the bearer's ranged weapons by 1."
+      },
       "Enhancement§Mek Kaptin": {
         "keywords": {
           "Keywords": [
@@ -5509,6 +5987,41 @@
         },
         "text": "**ORKS** model only. After both players have deployed their armies, select up to three **ORKS INFANTRY** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
       },
+      "Enhancement§Runnin' Boots": {
+        "keywords": {
+          "Keywords": [
+            "Blitz Brigade"
+          ]
+        },
+        "rules": {
+          "Orks Infantry Character model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**ORKS INFANTRY CHARACTER** model only. Each time you make a Charge roll for the bearer's unit, if that unit disembarked from a **TRANSPORT** this turn, add 1 to the result."
+      },
       "Enhancement§Skrag Every Stash!": {
         "keywords": {
           "Keywords": [
@@ -5698,6 +6211,41 @@
         },
         "text": "DEFFKILLA WARTRIKE model only. Each time a model in the bearer’s unit makes a Consolidation move, it can move up to 6″ instead of up to 3″."
       },
+      "Enhancement§Supa-Burny Fuel": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ]
+        },
+        "rules": {
+          "Deffkilla Wartrike model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Deffkilla Wartrike"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**DEFFKILLA WARTRIKE** model only. Change the Attacks characteristic of the bearer's killa jet - burna weapon to 3D6, and change the Attacks characteristic of the bearer's killa jet cutta weapon to 3."
+      },
       "Enhancement§Supa-Cybork Body": {
         "keywords": {
           "Keywords": [
@@ -5775,6 +6323,41 @@
           }
         },
         "text": "MEK model only. In your Command phase, select one enemy unit within 18″ of and visible to the bearer, then roll one D6: on a 1-2, that enemy unit must take a Battle-shock test; on a 3-4, that enemy unit suffers D3 mortal wounds; on a 5-6, until the start of your next Command phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll."
+      },
+      "Enhancement§Supercharged Squig Oil": {
+        "keywords": {
+          "Keywords": [
+            "Blitz Brigade"
+          ]
+        },
+        "rules": {
+          "Mek model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Mek"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "**MEK** model only. Each time the bearer uses its Mekaniak ability, until the end of the turn, you can re-roll Charge rolls for the selected **VEHICLE** model's unit."
       },
       "Enhancement§Surly as a Squiggoth": {
         "keywords": {
@@ -5871,6 +6454,41 @@
           }
         },
         "text": "WARRBOSS IN MEGA ARMOUR model only. Models in the bearer’s unit have the Deep Strike ability."
+      },
+      "Enhancement§Tuff Git": {
+        "keywords": {
+          "Keywords": [
+            "Blitz Brigade"
+          ]
+        },
+        "rules": {
+          "Orks Infantry Character model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 5
+          }
+        },
+        "text": "**ORKS INFANTRY CHARACTER** model only. At the end of a phase in which the bearer's unit disembarked from a **TRANSPORT**, if that unit is Battle-shocked, it is no longer Battle-shocked."
       },
       "Enhancement§Wazblasta": {
         "keywords": {
@@ -10534,6 +11152,99 @@
           },
           "WS": {
             "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Wazdakka Gutsmek—Fixit’s wrench": {
+        "aspects": {
+          "Label": "Fixit’s wrench"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Wazdakka Gutsmek—Grabba dragga": {
+        "aspects": {
+          "Label": "Melee"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Lance"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -2
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 10
+          },
+          "WS": {
+            "value": 2
+          }
+        }
+      },
+      "Melee Weapon§Wazdakka Gutsmek—Speeding bulk and flaming exhaust": {
+        "aspects": {
+          "Label": "Speeding bulk and flaming exhaust"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Extra Attacks"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": -1
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 5
+          },
+          "WS": {
+            "value": 2
           }
         }
       },
@@ -20347,6 +21058,75 @@
           }
         }
       },
+      "Ranged Weapon§Wazdakka Gutsmek—Grabba dragga": {
+        "aspects": {
+          "Label": "Ranged"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 2
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 10
+          }
+        }
+      },
+      "Ranged Weapon§Wazdakka Gutsmek—Psyko‑gatler": {
+        "aspects": {
+          "Label": "Psyko‑gatler"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Assault",
+            {
+              "item": "Ability§Sustained Hits",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 12
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 6
+          }
+        }
+      },
       "Ranged Weapon§Weirdboy—’Eadbanger": {
         "aspects": {
           "Label": "’Eadbanger"
@@ -20523,6 +21303,22 @@
                 "traits": [
                   {
                     "trait": "Detachment§Freebooter Krew"
+                  }
+                ]
+              },
+              "Speedwaaagh!": {
+                "order": 10,
+                "traits": [
+                  {
+                    "trait": "Detachment§Speedwaaagh!"
+                  }
+                ]
+              },
+              "Blitz Brigade": {
+                "order": 11,
+                "traits": [
+                  {
+                    "trait": "Detachment§Blitz Brigade"
                   }
                 ]
               }
@@ -20958,6 +21754,28 @@
         },
         "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ORKS unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit targets an INFANTRY unit with a ranged weapon, that weapon has the [BLAST] ability."
       },
+      "Stratagem§Ded Killy Construction": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Fight phase.\n\n**TARGET**: One SPEED FREEKS or TRUKK unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability and, if your unit made a Charge move this turn, until the end of the phase, add 1 to the Damage characteristic of those weapons."
+      },
       "Stratagem§Ded Sneaky": {
         "keywords": {
           "Keywords": [
@@ -20993,6 +21811,50 @@
           ]
         },
         "text": "WHEN: Fight phase.\n\nTARGET: One BEAST SNAGGA unit from your army that has not been selected to fight this phase.\n\nEFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. In addition, each time a model in your unit makes a melee attack that targets your Prey, a Critical Hit is scored on an unmodified Hit roll of 5+, instead of only a 6."
+      },
+      "Stratagem§Dust Trails": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One ORKS unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, your unit has the Benefit of Cover."
+      },
+      "Stratagem§Evasive Manoova": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your opponent's Fight phase.\n\n**TARGET**: One SPEED FREEKS or TRUKK unit from your army that is not within Engagement Range of one or more enemy units.\n\n**EFFECT**: Remove your unit from the battlefield and place it into Strategic Reserves."
       },
       "Stratagem§Extra Gubbinz": {
         "keywords": {
@@ -21255,6 +22117,28 @@
         },
         "text": "WHEN: End of your Command phase.\n\nTARGET: One Mob unit from your army that contains 10 or more models and is not Below Half-strength.\n\nEFFECT: Select one friendly Battle-shocked ORKS INFANTRY unit within 6″ of that MOB unit. That ORKS INFANTRY unit is no longer Battle-shocked."
       },
+      "Stratagem§Mobile Dakkastorm": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase, just after a SPEED FREEKS or TRUKK unit from your army has shot.\n\n**TARGET**: That SPEED FREEKS or TRUKK unit.\n\n**EFFECT**: Select one enemy unit hit by one or more of those attacks (excluding attacks made with Indirect Fire weapons). Until the end of the phase, each time a model in a SPEED FREEKS or TRUKK unit from your army makes an attack that targets that unit, improve the Strength characteristic of that attack by 2."
+      },
       "Stratagem§More Gitz Over ’Ere!": {
         "keywords": {
           "Category": [
@@ -21272,6 +22156,28 @@
           ]
         },
         "text": "WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back.\n\nTARGET: One SPEED FREEKS unit from your army that is within 9″ of that enemy unit and is not within Engagement Range of one or more enemy units.\n\nEFFECT: Your unit can make a Normal move of up to 6″"
+      },
+      "Stratagem§On Da Move": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One ORKS unit from your army that has not been selected to move this phase.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back or Advanced (unless it used its turbo this turn)."
       },
       "Stratagem§On to da Next": {
         "keywords": {
@@ -21371,6 +22277,28 @@
           ]
         },
         "text": "WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One SPEED FREEKS or TRUKK unit from your army that was selected as the target of one or more of the attacking unit’s attacks,\n\nEFFECT: Until the end of the phase, models in your unit have a 5+ invulnerable save. If your unit is a VEHICLE unit with an unmodified Toughness characteristic of 8 or less, until the end of the phase, models in your unit have a 4+ invulnerable Save instead."
+      },
+      "Stratagem§Speshul Ammo": {
+        "keywords": {
+          "Keywords": [
+            "Speedwaaagh!"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ORKS unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, ranged weapons equipped by models in your unit (excluding Torrent weapons) have the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities."
       },
       "Stratagem§Speshul Shells": {
         "keywords": {
@@ -30517,6 +31445,22 @@
           "traits": [
             "Melee Weapon§Squighog Boyz—Stikka",
             "Ranged Weapon§Squighog Boyz—Stikka"
+          ]
+        },
+        "keywords": {
+          "Tags": [
+            "Multi-weapon"
+          ]
+        }
+      },
+      "Weapon§Wazdakka Gutsmek—Grabba dragga": {
+        "aspects": {
+          "Label": "Grabba dragga"
+        },
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Wazdakka Gutsmek—Grabba dragga",
+            "Melee Weapon§Wazdakka Gutsmek—Grabba dragga"
           ]
         },
         "keywords": {
