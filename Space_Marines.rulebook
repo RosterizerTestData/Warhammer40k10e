@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.12.44",
+  "revision": "10.12.45",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -1624,6 +1624,476 @@
             ],
             "evaluate": "AND",
             "failState": "pass"
+          },
+          "ASKeywordAttempt": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Heavy Transport"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Armoured Speartip"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Aircraft"
+              },
+              {
+                "actionable": true,
+                "min": 14,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 80
+          },
+          "hideTankAceWarlordoption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          },
+          "noTankAcestat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tank Ace Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tank Ace Character",
+                    "ranks"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tank Ace"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 220
+          },
+          "TankAceBuff": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tank Ace"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Fortification"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Drop Pod"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Walker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Fly"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "tankaceCharacter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 1
+                },
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "charactertank"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          },
+          "tankaceStat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tank Ace Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tank Ace"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "TankAceWarlordOption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tank Ace Character",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          }
+        },
+        "stats": {
+          "Tank Ace Character": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "charactertank": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
+          },
+          "Warlord": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "statOrder": 100,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
           }
         }
       }
@@ -10740,6 +11210,102 @@
         },
         "text": "## Shield of The Imperium\n\nRanged weapons equipped by Adeptus Astartes models from your army have the [HEAVY] ability. If such a weapon already has this ability, each time an attack is made with that weapon, if the attacking model’s unit Remained Stationary this turn, add 1 to the Wound roll."
       },
+      "Detachment§Armoured Speartip": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Purgation Doctrine"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Advanced Deployment"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Ceramite Sledgehammer"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Rapid Embarkation (AS)"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Machine Wrath"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## RAPID DEPLOYMENT\n\n Each time an Adeptus Astartes unit from your army disembarks from a Transport (excluding Aircraft) that made a Normal or Advance move this phase, that disembarked unit can make a Normal move of up to D6\", or a Normal move of up to D3+3\" instead if that Transport is a Heavy Transport (see below).\n\n\n## KEYWORDS\nAdeptus Astartes Transport units from your army (excluding Aircraft) that have a Wounds characteristic of 14+ have the Heavy Transport keyword"
+      },
       "Detachment§Bastion Task Force": {
         "keywords": {
           "Keywords": [
@@ -11717,6 +12283,102 @@
           }
         },
         "text": "## CALCULATED ANNIHILATION\n\nEach time a model from your army with the Oath of Moment ability makes an attack that targets your Oath of Moment target, you can re‑roll a Wound roll of 1.\n\n## RECALCULATING\n\nOnce per battle round, after your Oath of Moment target is destroyed, if a Caanok Var model from your army is on the battlefield, select one enemy unit visible to that model. That enemy unit becomes your Oath of Moment target until you select a new one.\n\n**RESTRICTIONS**\n\nYour army can include Iron Hands units, but it cannot include any Adeptus Astartes units drawn from any other Chapter."
+      },
+      "Detachment§Headhunter Task Force": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Armour of Contempt"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Machine Vengeance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Reactive Repositioning"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Rapid Gunnery"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Kill Shot"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Target Weak Point"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## TARGET SIGHTED\n\n- Each time a Tank Ace unit from your army (see below) Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6\" to the Move characteristic of models in that unit.\n\n- Each time a Tank Ace unit from your army shoots in your Shooting phase, if that unit did not Advance this turn, you can re‑roll the Damage roll.\n---\n## KEYWORDS\nAdeptus Astartes Vehicle units from your army (excluding Fortifications, Drop Pods, Walkers and units that can Fly) have the Tank Ace keyword. In the Muster Armies step, you can select up to three Tank Ace units from your army to gain the Character keyword.\n\nDesigner’s Note: This means that the\nselected units can be given Enhancements,\nand one of them can be selected as\nyour Warlord."
       },
       "Detachment§Ironstorm Spearhead": {
         "rules": {
@@ -12767,6 +13429,19 @@
         },
         "text": "Adeptus Astartes model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability."
       },
+      "Enhancement§Armoured Commander": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. Once per turn, in your Movement phase, the bearer can use this Enhancement. If it does, select one friendly **ADEPTUS ASTARTES TRANSPORT** that is in Strategic Reserves. Until the end of the phase, for the purposes of setting up that **TRANSPORT** on the battlefield, treat the current battle round number as being one higher than it actually is."
+      },
       "Enhancement§Artificer Armour": {
         "keywords": {
           "Keywords": [
@@ -12860,6 +13535,41 @@
           }
         },
         "text": "Adeptus Astartes model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability."
+      },
+      "Enhancement§Astartes Tank Ace": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes Vehicle model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 40
+          }
+        },
+        "text": "**ADEPTUS ASTARTES VEHICLE** model only. In your Shooting phase, while a friendly **ADEPTUS ASTARTES VEHICLE** unit is within 6\" of the bearer, ranged weapons equipped by models in that unit have the **[ASSAULT]** ability."
       },
       "Enhancement§Avenging Avatar (Aura)": {
         "keywords": {
@@ -13484,6 +14194,66 @@
         },
         "text": "Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, you can reroll Advance rolls made for that unit."
       },
+      "Enhancement§Firestorm Coordinators": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes Vehicle model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Sustained Hits",
+                  "stats": {
+                    "x": {
+                      "value": "1"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**ADEPTUS ASTARTES VEHICLE** model only. Ranged weapons equipped by the bearer have the **[SUSTAINED HITS 1]** ability."
+      },
       "Enhancement§Fleet Commander": {
         "keywords": {
           "Keywords": [
@@ -13823,6 +14593,41 @@
           }
         },
         "text": "Adeptus Astartes model only. The bearer has the Stealth and Lone Operative abilities."
+      },
+      "Enhancement§Gunnery Honours": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ]
+        },
+        "rules": {
+          "Adeptus Astartes Vehicle model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**ADEPTUS ASTARTES VEHICLE** model only. Once per phase, you can re-roll one Hit roll, one Wound roll and one Damage roll for the bearer."
       },
       "Enhancement§Hero of the Chapter": {
         "keywords": {
@@ -14418,6 +15223,19 @@
         },
         "text": "**ADEPTUS ASTARTES** model only. You can re-roll Charge rolls made for the bearer's unit in a turn in which it was set up on the battlefield."
       },
+      "Enhancement§Liberator": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. If you control an objective marker at the end of your Command phase, and the bearer's unit (or any **HEAVY TRANSPORT** it is embarked within) is within range of that objective marker, that objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase."
+      },
       "Enhancement§Liberatum": {
         "keywords": {
           "Keywords": [
@@ -14703,6 +15521,70 @@
         },
         "text": "**Adeptus Astartes Psyker** model only (excluding **Terminator** models). Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of the bearer’s unit, the bearer’s unit can make a Normal move of up to D6\", or up to 6\" instead if the Divination Discipline is active for your army."
       },
+      "Enhancement§Redoubtable Machine Spirit": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ]
+        },
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Ability§Invulnerable",
+                  "stats": {
+                    "keyword": {
+                      "value": ""
+                    },
+                    "x": {
+                      "value": "5+"
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 90
+          },
+          "Vehicle model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Vehicle"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ADEPTUS ASTARTES VEHICLE** model only. The bearer has a 5+ invulnerable save and, at the end of your Command phase, the bearer regains 1 lost wound."
+      },
       "Enhancement§Rites of War": {
         "keywords": {
           "Keywords": [
@@ -14893,6 +15775,55 @@
           }
         },
         "text": "Phobos model only. : Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that use of that Stratagem by 1CP."
+      },
+      "Enhancement§Shock Deployment": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ]
+        },
+        "rules": {
+          "Terminator or Gravis model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Gravis"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Terminator"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**ADEPTUS ASTARTES TERMINATOR** or **GRAVIS** model only. In your Shooting phase, each time the bearer's unit is selected to shoot, if it disembarked from a **TRANSPORT** this turn, until the end of the phase, ranged weapons equipped by models in that unit have the **[SUSTAINED HITS 1]** ability."
       },
       "Enhancement§Spearpoint Paragon": {
         "keywords": {
@@ -15496,6 +16427,19 @@
           }
         },
         "text": "Adeptus Astartes model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any phase, the bearer can use this Enhancement. If it does, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by all other models in the bearer’s unit as well."
+      },
+      "Enhancement§Tip of the Spear": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 40
+          }
+        },
+        "text": "**ADEPTUS ASTARTES** model only. If the bearer starts the battle embarked within a **TRANSPORT**, that **TRANSPORT** has the Scouts 9\" ability."
       },
       "Enhancement§Umbral Raptor": {
         "keywords": {
@@ -72143,6 +73087,22 @@
                     "trait": "Detachment§Ceramite Sentinels"
                   }
                 ]
+              },
+              "Armoured Speartip": {
+                "order": 19,
+                "traits": [
+                  {
+                    "trait": "Detachment§Armoured Speartip"
+                  }
+                ]
+              },
+              "Headhunter Task Force": {
+                "order": 20,
+                "traits": [
+                  {
+                    "trait": "Detachment§Headhunter Task Force"
+                  }
+                ]
               }
             }
           },
@@ -72228,6 +73188,28 @@
         },
         "text": "**WHEN:** Your Command phase.\n\n**TARGET:** One Adeptus Astartes unit from your army.\n\n**EFFECT:** Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for that unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that doctrine this battle."
       },
+      "Stratagem§Advanced Deployment": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One ADEPTUS ASTARTES TRANSPORT unit from your army that has not been selected to move this phase.\n\n**EFFECT**: Until the end of the phase, units can disembark from your TRANSPORT after it has Advanced. Units that do so count as having made a Normal move this phase, and cannot declare a charge in the same turn (unless your TRANSPORT has the Assault Ramp ability), but can otherwise act normally."
+      },
       "Stratagem§Ancient Fury": {
         "keywords": {
           "Keywords": [
@@ -72275,6 +73257,7 @@
             "1st Company Task Force",
             "Adeptus Astartes",
             "Anvil Siege Force",
+            "Armoured Speartip",
             "Blade of Ultramar",
             "Ceramite Sentinels",
             "Emperor's Shield",
@@ -72282,6 +73265,7 @@
             "Forgefather's Seekers",
             "Gladius Task Force",
             "Hammer of Avernii",
+            "Headhunter Task Force",
             "Ironstorm Spearhead",
             "Shadowmark Talon",
             "Spearpoint Task Force",
@@ -72502,6 +73486,28 @@
           ]
         },
         "text": "**WHEN:** Your opponent’s Charge phase, just after an enemy unit declares a charge.\n\n**TARGET:** One Adeptus Astartes Infantry unit from your army that was selected as a target of that charge.\n\n**EFFECT:** Your unit can make a Normal move of up to D6″, or up to 6″ instead if it is a PHOBOS or SCOUT SQUAD unit.\n\n**RESTRICTIONS:** You cannot select a unit that is within Engagement Range of one or more enemy units."
+      },
+      "Stratagem§Ceramite Sledgehammer": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase.\n\n**TARGET**: One ADEPTUS ASTARTES TRANSPORT unit from your army that has not been selected to move this phase.\n\n**EFFECT**: Until the end of the phase, each time your unit makes a Normal or Advance move, it can move horizontally through terrain features. In addition, if your unit is a HEAVY TRANSPORT, when making this move, your unit can move through enemy models (excluding MONSTERS and VEHICLES) and can move within Engagement Range of such models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed."
       },
       "Stratagem§Codex Discipline": {
         "keywords": {
@@ -73106,6 +74112,28 @@
         },
         "text": "**WHEN**: Fight phase.\n\n**TARGET**: One **Adeptus Astartes Infantry** unit from your army that is within 18\" of one or more **Adeptus Astartes Psyker** models from your army and has not been selected to Fight this phase.\n\n**EFFECT**: Until the end of the phase, add 1 to the **Strength** characteristic of melee weapons equipped by models in your unit, or add 2 if the Biomancy Discipline is active for your army."
       },
+      "Stratagem§Kill Shot": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One TANK ACE unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets a MONSTER or VEHICLE unit, re-roll a Wound roll of 1. If the target unit is below its Starting Strength, you can re-roll the Wound roll instead.\n\n**RESTRICTIONS**: A unit cannot be targeted with this and the Target Weak Point Stratagem in the same phase."
+      },
       "Stratagem§Lay Low the Tyrants": {
         "keywords": {
           "Keywords": [
@@ -73168,6 +74196,51 @@
           }
         },
         "text": "**WHEN**: Your Shooting phase or your Charge phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit (excluding BATTLELINE units) from your army.\n\n**EFFECT**: Until the end of the phase, your unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back. If it does, every target of that charge and every target of those attacks must be an auspex scanned unit."
+      },
+      "Stratagem§Machine Vengeance": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Shooting phase, just after an enemy unit has shot.\n\n**TARGET**: One TANK ACE unit from your army (excluding units containing one or more models with a Wounds characteristic of 16+) that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Your unit can shoot as if it were your Shooting phase, but must target only that enemy unit when doing so, and can only do so if that enemy unit is visible and an eligible target."
+      },
+      "Stratagem§Machine Wrath": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Any"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Any phase, just after a HEAVY TRANSPORT unit from your army is destroyed.\n\n**TARGET**: That HEAVY TRANSPORT unit. You can use this Stratagem on that unit even though it was just destroyed.\n\n**EFFECT**: Your unit can make a Normal or Fall Back move before you roll for its Deadly Demise ability, and before any embarked units perform an Emergency Disembarkation. When making this move, your unit can move through enemy models (excluding MONSTERS and VEHICLES) and can move within Engagement Range of such models, but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed."
       },
       "Stratagem§Marching Ever On": {
         "keywords": {
@@ -73463,6 +74536,28 @@
         },
         "text": "**WHEN**: Your Shooting phase or the Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that has not been selected to shoot or fight this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets a CHARACTER, MONSTER or VEHICLE unit, you can re-roll the Wound roll."
       },
+      "Stratagem§Purgation Doctrine": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll (if your unit disembarked from a HEAVY TRANSPORT this turn, add 1 to the Wound roll as well)."
+      },
       "Stratagem§Rapid Embarkation": {
         "keywords": {
           "Keywords": [
@@ -73480,6 +74575,54 @@
           ]
         },
         "text": "**WHEN:** End of the Fight phase.\n\n**TARGET:** One Adeptus Astartes Transport unit from your army that has no models embarked within it, and one Adeptus Astartes Infantry unit from your army wholly within 6″ of that Transport.\n\n**EFFECT:** Your Infantry unit can embark within that Transport.\n\n**RESTRICTIONS:** You cannot target an Infantry unit that is within Engagement Range of one or more enemy units, that cannot normally embark within that Transport, or that disembarked from a Transport this turn."
+      },
+      "Stratagem§Rapid Embarkation (AS)": {
+        "aspects": {
+          "Label": "Rapid Embarkation"
+        },
+        "keywords": {
+          "Keywords": [
+            "Armoured Speartip"
+          ],
+          "Category": [
+            "Wargear"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of the Fight phase.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY unit from your army that is not within Engagement Range of one or more enemy units, and one friendly HEAVY TRANSPORT it is able to embark within.\n\n**EFFECT**: If your ADEPTUS ASTARTES INFANTRY unit is wholly within 6\" of that HEAVY TRANSPORT, it can embark within it."
+      },
+      "Stratagem§Rapid Gunnery": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, your unit is eligible to shoot in a turn in which it Fell Back."
       },
       "Stratagem§Raptorial Vigilance": {
         "keywords": {
@@ -73502,6 +74645,28 @@
           }
         },
         "text": "**WHEN**: Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n**TARGET**: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that is within 9\" of the enemy unit that just ended that move. You cannot target a unit that is within Engagement Range of one or more enemy units.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\", or up to 6\" instead if it is a PHOBOS or SCOUT SQUAD unit."
+      },
+      "Stratagem§Reactive Repositioning": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n**TARGET**: One TANK ACE unit from your army (excluding units containing one or more models with a Wounds characteristic of 16+) that is within 9\" of that enemy unit.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\"."
       },
       "Stratagem§Ride Hard, Ride Fast": {
         "keywords": {
@@ -73876,6 +75041,28 @@
           }
         },
         "text": "**WHEN**: Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.\n\n**TARGET**: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit's attacks.\n\n**EFFECT**: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than or equal to the Toughness characteristic of that unit, subtract 1 from the Wound roll."
+      },
+      "Stratagem§Target Weak Point": {
+        "keywords": {
+          "Keywords": [
+            "Headhunter Task Force"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One TANK ACE unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes a ranged attack that targets a MONSTER or VEHICLE unit, improve the Armour Penetration characteristic of that attack by 1.\n\n**RESTRICTIONS**: A unit cannot be targeted with this and the Kill Shot Stratagem in the same phase."
       },
       "Stratagem§Terrifying Proficiency": {
         "keywords": {
