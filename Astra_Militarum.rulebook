@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.12.32",
+  "revision": "10.12.33",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -16,7 +16,342 @@
     }
   ],
   "rulebook": {
-    "assetTaxonomy": {},
+    "assetTaxonomy": {
+      "Unit": {
+        "rules": {
+          "hideSteelHammerWarlordoption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "Warlord"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          },
+          "noSteelHammerstat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Steel Hammer Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Steel Hammer Character",
+                    "ranks"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Titanic"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Steel Hammer"
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "pass",
+            "order": 220
+          },
+          "steelhammerCharacter": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{roster}",
+                  "stats",
+                  "Detachment",
+                  "value"
+                ]
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Enhancement"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T*O",
+                  "value": 1
+                },
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "charactersteel"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          },
+          "SteelHammerstat": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Steel Hammer Character",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Titanic"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Steel Hammer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 220
+          },
+          "SteelHammerWarlordoption": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Tank Ace Character",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 25
+          }
+        },
+        "stats": {
+          "Steel Hammer Character": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "charactersteel": 1
+                }
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "hidden"
+          },
+          "Warlord": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "✓": {
+                "order": 1,
+                "tracking": {
+                  "Warlord": 1
+                }
+              }
+            },
+            "statOrder": 100,
+            "statType": "rank",
+            "tracked": true,
+            "value": "-",
+            "visibility": "normal"
+          }
+        }
+      }
+    },
     "assetCatalog": {
       "Ability§A Hearty 'Pick Me Up\"": {
         "text": "While this model is leading a unit, in your Command phase, you can return up to D3 destroyed models to that unit."
@@ -4521,6 +4856,9 @@
           }
         }
       },
+      "Detachment§Armoured Infantry": {
+        "text": "## SQUADRON COMMAND\n\nAdd Squadron to the list of units each\nOfficer unit from your army can issue\nOrders to. Add the Order below to those\nlisted in the Voice of Command ability.\n\n---\n## ORDER\n\n**ON MY SIGNAL**\n\nThis Order can only be issued to Armoured Skirmisher units (see below). Each time an enemy unit ends a Normal or Advance move within 9\" of this unit, this unit can make a Normal move of up to D6\". Each unit can only move in this way once per turn.\n\n---\n\n**KEYWORDS** \n\nAstra Militarum Squadron units from your army have the Armoured Skirmisher keyword (excluding Artillery units and units containing one or more models with a Wounds characteristic of 13 or higher)."
+      },
       "Detachment§Bridgehead Strike": {
         "keywords": {
           "Keywords": [
@@ -5223,6 +5561,102 @@
         },
         "text": "## Artillery Support\n\nAt the start of the battle round, select one of the following types of artillery support.\n\n-  **Creeping Barrage:** Roll one D6 for each enemy unit that is more than 12\" from every model from your army that is on the battlefield: On a 5+, until the end of the battle round, that unit is shaken. While a unit is shaken, subtract 2\" from its move characteristic and subtract 2 *Charge rolls* made for it. *The maximum number of units that can be shaken by this rule in each battle round depends on the battle size, as shown below.*\n\n-  **Incendiary Bombardment:** Select a number of enemy units that is more than 12\" from every model from your army that is on the battlefield: On a 5+, until the end of the battle round, those enemy units are scattered. While a unit is scattered, it cannot have the Benefit of Cover. The maximum number of units that you can select in this way depends on the battle size, as shown below.\n\n-  **Smoke Shells:** Select a number units from your army. Until the end of the battle round, those units have the Stealth ability. The maximum number of units that you can select in this way depends on the battle size, as shown below.\n\n| Battle Size | Maximum Number of  Units |\n| ----------- | ----------- |\n| Incursion | 2 |\n| Strike Force | 3 |\n| Onslaught | 4 |"
       },
+      "Detachment§Steel Hammer": {
+        "rules": {
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Accuracy Under Pressure"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Withering Firepower"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Shattering Salvo"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Adamantine Behemoth"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Imposing Arrival"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Engine of Wrath"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## CEASELESS CANNONADE\n\nEach time an Astra Militarum Titanic or Astra Militarum Squadron unit from your army is selected to shoot, models in that unit can target enemy units within Engagement Range of that unit (including with Blast weapons), provided no other friendly units are also within Engagement Range of that enemy unit. When doing so, such models do not suffer the penalty to their Hit rolls for being within Engagement Range of one or more enemy units (excluding attacks made with Indirect Fire weapons).\n\n---\n\n**KEYWORDS**\n\nIn the Muster Armies step, you can select one or more Astra Militarum Titanic units from your army to gain the Character keyword.\n\nDesigner’s Note: This means that the selected units can be given Enhancements, and one of them can be selected as your Warlord."
+      },
       "Enhancement§Abhuman Detail": {
         "keywords": {
           "Keywords": [
@@ -5411,6 +5845,90 @@
           }
         },
         "text": "**ASTRA MILITARUM OFFICER** model only. Each time you select an Order for the bearer to issue, you can select the Order below:\n\n**Target Weak Spot (Order):** Each time a model in this unit makes a ranged attack that targets an enemy unit within 12\", improve the Armour Penetration characteristic of that attack by 1."
+      },
+      "Enhancement§Assault Hatches": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ]
+        },
+        "rules": {
+          "Astra Militarum Titanic Character Transport model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Titanic"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Transport"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**ASTRA MILITARUM TITANIC CHARACTER TRANSPORT** model only. Each time a unit disembarks from the bearer after it has made a Normal move, that unit is still eligible to declare a charge this turn."
+      },
+      "Enhancement§Battalion Commander": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ]
+        },
+        "rules": {
+          "Astra Militarum Titanic Character model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Titanic"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "**ASTRA MILITARUM TITANIC CHARACTER** model only. The bearer has the Voice of Command ability and the **OFFICER** keyword, and can issue up to 2 Orders to **ASTRA MILITARUM TITANIC** and **SQUADRON** units."
       },
       "Enhancement§Bold Leadership": {
         "keywords": {
@@ -5846,6 +6364,118 @@
         },
         "text": "**Infantry Officer** model only. While the bearer is leading a **Regiment** unit, that unit has the Scouts 6\" ability."
       },
+      "Enhancement§Engine Speaker": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ]
+        },
+        "rules": {
+          "Astra Militarum Tech-Priest Enginseer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tech-Priest Enginseer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**ASTRA MILITARUM TECH-PRIEST ENGINSEER** model only. Each time the bearer uses its Omnissiah's Blessing ability, until the start of your next Command phase, add 3\" to the Move characteristic of the selected **VEHICLE** model."
+      },
+      "Enhancement§Exemplary Officer": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ]
+        },
+        "rules": {
+          "Infantry Officer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ministorum Priest"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Primaris Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tech-Priest Enginseer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**INFANTRY OFFICER** model only. Each time the bearer issues an Order to its own unit, you can select up to two other **PLATOON** units within 3\" of the bearer's unit. That Order is also issued to each of those units."
+      },
       "Enhancement§Flash Grenades": {
         "keywords": {
           "Keywords": [
@@ -6013,6 +6643,44 @@
           }
         },
         "text": "**Officer** model only. In your Command phase, the bearer can issue one additional Order."
+      },
+      "Enhancement§Grand Strategist (AI)": {
+        "aspects": {
+          "Label": "Grand Strategist"
+        },
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ]
+        },
+        "rules": {
+          "Officer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Officer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 25
+          }
+        },
+        "text": "**OFFICER** model only. After both players have deployed their armies, if the bearer's unit (or any **TRANSPORT** it is embarked within) is on the battlefield, select up to two units with the **REGIMENT** or **SQUADRON** keywords from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
       },
       "Enhancement§Guerilla Honours": {
         "keywords": {
@@ -6319,6 +6987,118 @@
           }
         },
         "text": "**Infantry Officer** model only. Add 2 to the Attacks characteristics of the bearer's Pistols."
+      },
+      "Enhancement§Master Manoeuvrist": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ]
+        },
+        "rules": {
+          "Infantry Officer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Ministorum Priest"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Primaris Psyker"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tech-Priest Enginseer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 15
+          }
+        },
+        "text": "**INFANTRY OFFICER** model only. At the end of your opponent's Fight phase, if the bearer's unit is not within Engagement Range of one or more enemy units and every model in that unit is within 3\" of an **ASTRA MILITARUM TRANSPORT** from your army, it can embark within that **TRANSPORT**."
+      },
+      "Enhancement§Omnissian Unguents": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ]
+        },
+        "rules": {
+          "Astra Militarum Tech-Priest Enginseer model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Tech-Priest Enginseer"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 35
+          }
+        },
+        "text": "**ASTRA MILITARUM TECH-PRIEST ENGINSEER** model only. While a friendly **ARMOURED SKIRMISHER** unit is within 3\" of the bearer, that unit has the Feel No Pain 5+ ability."
       },
       "Enhancement§Priority-drop Beacon": {
         "keywords": {
@@ -6898,6 +7678,69 @@
           }
         },
         "text": "**Astra Militarum Infantry** model only. The bearer has the Scouts 6\" ability."
+      },
+      "Enhancement§Titan Killer": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ]
+        },
+        "rules": {
+          "Astra Militarum Titanic Character model only": {
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Astra Militarum"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Titanic"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Character"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "**ASTRA MILITARUM TITANIC CHARACTER** model only. Each time the bearer makes a ranged attack, you can re-roll the Damage roll."
       },
       "Enhancement§Tripwires": {
         "keywords": {
@@ -45397,6 +46240,22 @@
                     "trait": "Detachment§Grizzled Company"
                   }
                 ]
+              },
+              "Steel Hammer": {
+                "order": 8,
+                "traits": [
+                  {
+                    "trait": "Detachment§Steel Hammer"
+                  }
+                ]
+              },
+              "Armoured Infantry": {
+                "order": 9,
+                "traits": [
+                  {
+                    "trait": "Detachment§Armoured Infantry"
+                  }
+                ]
               }
             }
           },
@@ -45436,6 +46295,51 @@
           }
         },
         "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n---\n**TARGET:** One **ASTRA MILITARUM VEHICLE** unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\n---\n**EFFECT:** Until the end of the phase, each time an attack is allocated to your unit, subtract 1 from the Damage characteristic of that attack."
+      },
+      "Stratagem§Accuracy Under Pressure": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ASTRA MILITARUM unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Hit roll."
+      },
+      "Stratagem§Adamantine Behemoth": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement",
+            "Charge"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase or your Charge phase.\n\n**TARGET**: One ASTRA MILITARUM VEHICLE unit from your army that has not been selected to move or charge this phase.\n\n**EFFECT**: Until the end of the phase, each time your unit makes a Normal, Advance or Charge move, it can move horizontally through terrain features."
       },
       "Stratagem§Additional Armour": {
         "keywords": {
@@ -45510,6 +46414,28 @@
         },
         "text": "**WHEN:** Your Movement phase, just after a **SQUADRON** unit from your army Advances.\n\n---\n**TARGET:** That **SQUADRON** unit.\n\n---\n**EFFECT:** Until the end of the turn, your unit is eligible to shoot in a turn in which it Advanced."
       },
+      "Stratagem§Burst of Speed": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: End of your Movement phase.\n\n**TARGET**: One ASTRA MILITARUM unit from your army that did not Remain Stationary or arrive from Reserves this phase.\n\n**EFFECT**: Your unit can make a Normal move of up to D6\"."
+      },
       "Stratagem§Callous Sacrifice": {
         "keywords": {
           "Keywords": [
@@ -45543,6 +46469,28 @@
           ]
         },
         "text": "**WHEN:** Your Shooting phase.\n\n---\n**TARGET:** One ASTRA MILITARUM unit from your army that disembarked from a TRANSPORT this turn and has not been selected to shoot this phase.\n\n---\n**EFFECT:** Until the end of the phase, each time a model in your unit makes an attack that targets a unit within range of an objective marker, you can re-roll the Hit roll and you can re-roll the Wound roll."
+      },
+      "Stratagem§Combined Fire": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase, just after an ARMOURED SKIRMISHER unit from your army has shot.\n\n**TARGET**: That ARMOURED SKIRMISHER unit.\n\n**EFFECT**: Select one enemy unit hit by one or more of those attacks. Until the end of the phase, that enemy unit cannot have the Benefit of Cover, and each time an ARMOURED SKIRMISHER unit from your army makes an attack that targets that unit, improve the Strength characteristic of that attack by 2."
       },
       "Stratagem§Coordinated Action": {
         "keywords": {
@@ -45631,6 +46579,29 @@
           ]
         },
         "text": "**WHEN:** Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.\n\n---\n**TARGET:** One **PLATOON** unit from your army that is within 9\" of that enemy unit, and is not within Engagement Range of one or more enemy units.\n\n---\n**EFFECT:** Your unit can make a Normal move of up to 6\"."
+      },
+      "Stratagem§Engine of Wrath": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ],
+          "Category": [
+            "Epic Deed"
+          ],
+          "Turn": [
+            "Yours",
+            "Opponent’s"
+          ],
+          "Phase": [
+            "Fight"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Fight phase.\n\n**TARGET**: One ASTRA MILITARUM TITANIC unit from your army that has not been selected to fight this phase.\n\n**EFFECT**: Select one enemy unit within Engagement Range of your unit. Until the end of the phase, add 6 to the Attacks characteristic of melee weapons equipped by models in your unit, improve the Armour Penetration characteristic of those weapons by 2, and each time a model in your unit fights, it can only target that enemy unit."
       },
       "Stratagem§Fields of Fire": {
         "keywords": {
@@ -45800,6 +46771,28 @@
         },
         "text": "**WHEN:** Your opponent’s Charge phase, after an enemy unit has selected targets for its charge but before it makes a Charge move.\n\n---\n**TARGET:** One **ASTRA MILITARUM INFANTRY** unit from your army that was selected as a target of that charge.\n\n---\n**EFFECT:** Provided your unit is not within Engagement Range of one or more enemy units and every model in your unit is within 3\" of an **ASTRA MILITARUM TRANSPORT** from your army, it can embark within that **TRANSPORT**."
       },
+      "Stratagem§Imposing Arrival": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Reinforcements step of your Movement phase, from the second battle round onwards.\n\n**TARGET**: One ASTRA MILITARUM TITANIC unit from your army that is in Reserves.\n\n**EFFECT**: Set up your unit on the battlefield, wholly within 8\" of the battlefield edge and more than 6\" horizontally away from all enemy units."
+      },
       "Stratagem§Inspired Command": {
         "keywords": {
           "Phase": [
@@ -45834,6 +46827,28 @@
           ]
         },
         "text": "**WHEN:** Start of your opponent’s Charge phase..\n\n---\n**TARGET:** One **PLATOON** unit from your army.\n\n---\n**EFFECT:** Until the end of the phase, each time an enemy unit ends a Charge move within Engagement Range of your unit, roll one D6 for each model in that enemy unit: for each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
+      },
+      "Stratagem§Mobile Firebase": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Movement phase, just after an ARMOURED SKIRMISHER unit from your army Advances or Falls Back.\n\n**TARGET**: That ARMOURED SKIRMISHER unit.\n\n**EFFECT**: Until the end of the turn, your unit is eligible to shoot in a turn in which it Advanced or Fell Back."
       },
       "Stratagem§Mordian Minute": {
         "keywords": {
@@ -45912,6 +46927,50 @@
           ]
         },
         "text": "**WHEN:** End of your opponent’s Fight phase.\n\n---\n**TARGET:** One **Regiment Infantry** unit from your army that is within Engagement Range of one or more enemy units.\n\n---\n**EFFECT:** Roll one D6 for each enemy unit within Engagement Range of your unit: on a 2+, that enemy unit suffers D6 mortal wounds. Then, your unit suffers 3D3 mortal wounds."
+      },
+      "Stratagem§Opening Salvo": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ASTRA MILITARUM unit from your army that disembarked from a TRANSPORT this turn and has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Wound roll."
+      },
+      "Stratagem§Order the Advance": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Movement"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Start of your Movement phase.\n\n**TARGET**: One ASTRA MILITARUM OFFICER unit from your army.\n\n**EFFECT**: Select one or more friendly ASTRA MILITARUM units within 6\" of your unit, until the end of the phase, you can re-roll Advance rolls made for those units."
       },
       "Stratagem§Over The Top": {
         "keywords": {
@@ -46049,6 +47108,28 @@
         },
         "text": "**WHEN:** Your Shooting phase, just after an **Astra Militarum Infantry** unit from your army has shot.\n\n---\n**TARGET:** That **Astra Militarum Infantry** unit.\n\n---\n**EFFECT:** Select one enemy unit hit by one or more of those attacks that is visible to your unit. Until the end of the phase, that enemy unit cannot have the Benefit of Cover."
       },
+      "Stratagem§Shattering Salvo": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase, just after an ASTRA MILITARUM TITANIC unit from your army has shot.\n\n**TARGET**: That ASTRA MILITARUM TITANIC unit.\n\n**EFFECT**: Select one enemy unit hit by one or more of those attacks. Until the end of the phase, that enemy unit cannot have the Benefit of Cover."
+      },
       "Stratagem§Snap To It": {
         "keywords": {
           "Keywords": [
@@ -46092,6 +47173,28 @@
           "Command Cost": {}
         },
         "text": "**WHEN:** Your opponent’s Shooting phase, just after an enemy unit has selected its targets.\n\n---\n**TARGET:** One **ASTRA MILITARUM VEHICLE** unit from your army.\n\n---\n**EFFECT:** Until the end of the phase, each time a ranged attack is allocated to an **INFANTRY** model from your army, if that model is not fully visible to every model in the attacking unit because of your **VEHICLE**, that model has the Benefit of Cover against that attack."
+      },
+      "Stratagem§Supporting Ordnance": {
+        "keywords": {
+          "Keywords": [
+            "Armoured Infantry"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase.\n\n**TARGET**: One ARMOURED SKIRMISHER unit from your army that has not been selected to shoot this phase.\n\n**EFFECT**: Until the end of the phase, each time a model in your unit makes an attack that targets a visible MONSTER or VEHICLE unit, you can re-roll the Hit roll."
       },
       "Stratagem§Swift Interception": {
         "keywords": {
@@ -46200,6 +47303,28 @@
           ]
         },
         "text": "**WHEN:** Your Command phase..\n\n---\n**TARGET:** One **INFANTRY OFFICER** unit from your army embarked within a **TRANSPORT**. You can use this Stratagem on that unit even though it is embarked within a **TRANSPORT**.\n\n---\n**EFFECT:** Until the end of the phase, your unit can issue Orders even though it is not on the battlefield, and it can issue Orders to **ASTRA MILITARUM TRANSPORT** units from your army [excluding **TITANIC** units) regardless of the distance to and from your unit’s **TRANSPORT**."
+      },
+      "Stratagem§Withering Firepower": {
+        "keywords": {
+          "Keywords": [
+            "Steel Hammer"
+          ],
+          "Category": [
+            "Strategic Ploy"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 1
+          }
+        },
+        "text": "**WHEN**: Your Shooting phase, just after an ASTRA MILITARUM VEHICLE unit from your army has shot.\n\n**TARGET**: That ASTRA MILITARUM VEHICLE unit.\n\n**EFFECT**: Select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test, subtracting 1 from that test."
       },
       "Unit§Earthshaker Platform": {
         "aspects": {
