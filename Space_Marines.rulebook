@@ -1,6 +1,6 @@
 {
   "name": "Space Marines",
-  "revision": "10.12.45",
+  "revision": "10.12.46",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -2059,6 +2059,12 @@
           }
         },
         "stats": {
+          "charactertank": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
           "Tank Ace Character": {
             "dynamic": true,
             "ranks": {
@@ -72596,6 +72602,25 @@
                     "{roster}",
                     "tally",
                     "Cato Sicarius"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only 3 Tank Ace Characters": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "charactertank"
                   ]
                 ]
               }
