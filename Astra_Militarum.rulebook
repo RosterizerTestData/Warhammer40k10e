@@ -1,6 +1,6 @@
 {
   "name": "Astra Militarum",
-  "revision": "10.12.37",
+  "revision": "10.12.38",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -911,6 +911,9 @@
       },
       "Ability§Icon of Discipline": {
         "text": "This model’s unit is eligible to shoot and declare a Charge in a turn in which it Fell Back."
+      },
+      "Ability§Independent Operatives": {
+        "text": "Each time an Order is issued to this unit, that Order affects this unit until a new Order is issued to this unit, or until this unit becomes Battle‑shocked, or until the battle ends (whichever happens first)."
       },
       "Ability§Inspiring Hero (Aura)": {
         "text": "While a friendly Astra Militarum unit is within 6\" of this model, you can re‑roll Battle‑shock and Leadership tests taken for that unit."
@@ -8511,6 +8514,185 @@
           }
         }
       },
+      "Infantry/Mounted§Cadian Recon Squad": {
+        "allowed": {
+          "items": [
+            "Model§Recon Trooper"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Infiltrators",
+            "Ability§Stealth",
+            "Ability§Independent Operatives",
+            "Model§Recon Sergeant",
+            {
+              "item": "Model§Recon Trooper",
+              "quantity": 9
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Cadian Recon Squad",
+            "Grenades",
+            "Imperium",
+            "Infantry",
+            "Regiment",
+            "Smoke"
+          ],
+          "Faction": [
+            "Astra Militarum"
+          ],
+          "Source": [
+            "10th Edition Codex"
+          ],
+          "Category": [
+            "Infantry"
+          ]
+        },
+        "rules": {
+          "Either a Weapon Team or a second Long-las": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 2,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "uniqueoption"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Either one plasma gun or one melta gun": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special1"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "OR",
+            "failState": "error"
+          },
+          "No more than two weapon team members": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 3,
+                "min": 0,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "wt"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only 1 autostubber.": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "stubb"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Only one long-las if using weapon team": {
+            "evals": [
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tracked",
+                    "special2"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        },
+        "stats": {
+          "model1stTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Recon Trooper"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 10,
+            "min": 10,
+            "value": 10
+          },
+          "Points": {
+            "value": 80
+          },
+          "Recon Trooper": {
+            "max": 9,
+            "min": 9,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "WeaponTeamLas": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "WeaponTeamMissile": {
+            "max": 1,
+            "min": 0,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      },
       "Infantry/Mounted§Cadian Shock Troops": {
         "allowed": {
           "items": [
@@ -13260,6 +13442,32 @@
           },
           "S": {
             "value": 4
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Melee Weapon§Cadian Recon Squad—Close combat weapon": {
+        "aspects": {
+          "Label": "Close combat weapon"
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "statType": "term",
+            "value": "Melee"
+          },
+          "S": {
+            "value": 3
           },
           "WS": {
             "value": 4
@@ -21548,6 +21756,179 @@
           }
         }
       },
+      "Model§Recon Sergeant": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Cadian Recon Squad—Lasgun",
+            "Melee Weapon§Cadian Recon Squad—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Recon Trooper": {
+        "assets": {
+          "traits": [
+            "Melee Weapon§Cadian Recon Squad—Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 7
+          },
+          "Loadout": {
+            "dynamic": true,
+            "group": "Loadout",
+            "groupOrder": 2,
+            "ranks": {
+              "Lasgun": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Lasgun"
+                  }
+                ]
+              },
+              "Autostubber": {
+                "order": 1,
+                "tracking": {
+                  "stubb": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Autostubber"
+                  }
+                ]
+              },
+              "Plasma gun": {
+                "order": 2,
+                "tracking": {
+                  "special1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Shock Troops—Plasma gun"
+                  }
+                ]
+              },
+              "Meltagun": {
+                "order": 3,
+                "tracking": {
+                  "special1": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Meltagun"
+                  }
+                ]
+              },
+              "Long-las": {
+                "order": 4,
+                "tracking": {
+                  "special2": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Long-las"
+                  }
+                ]
+              },
+              "Lasgun + Vox-caster": {
+                "order": 5,
+                "tracking": {
+                  "vox": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Lasgun"
+                  },
+                  {
+                    "trait": "Wargear§Vox‑caster"
+                  }
+                ]
+              },
+              "Missile launcher (Weapon Team)": {
+                "order": 6,
+                "tracking": {
+                  "uniqueoption": 1,
+                  "WeaponTeamMissile": 1,
+                  "wt": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Astra Militarum Infantry Armoury—Missile launcher"
+                  },
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Laspistol"
+                  }
+                ]
+              },
+              "Laspistol (Weapon Team)": {
+                "order": 7,
+                "tracking": {
+                  "uniqueoption": 1,
+                  "WeaponTeamLas": 1,
+                  "wt": 1
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Laspistol"
+                  }
+                ]
+              },
+              "Long-las*": {
+                "order": 8,
+                "tracking": {
+                  "uniqueoption": 2
+                },
+                "traits": [
+                  {
+                    "trait": "Ranged Weapon§Cadian Recon Squad—Long-las"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "tracked": true,
+            "value": "Lasgun",
+            "visibility": "active"
+          },
+          "M": {
+            "value": 6
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 5
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
       "Model§Rein – Epic Hero": {
         "assets": {
           "traits": [
@@ -26898,6 +27279,180 @@
           },
           "S": {
             "value": 8
+          }
+        }
+      },
+      "Ranged Weapon§Cadian Recon Squad—Autostubber": {
+        "aspects": {
+          "Label": "Autostubber"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "3"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Cadian Recon Squad—Lasgun": {
+        "aspects": {
+          "Label": "Lasgun"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Rapid Fire",
+              "stats": {
+                "x": {
+                  "value": "1"
+                }
+              }
+            },
+            "Ability§Assault"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 24
+          },
+          "S": {
+            "value": 3
+          }
+        }
+      },
+      "Ranged Weapon§Cadian Recon Squad—Laspistol": {
+        "aspects": {
+          "Label": "Laspistol"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pistol"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": 0
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 1
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 3
+          }
+        }
+      },
+      "Ranged Weapon§Cadian Recon Squad—Long-las": {
+        "aspects": {
+          "Label": "Long-las"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Heavy",
+            "Ability§Precision"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -2
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 2
+          },
+          "Range": {
+            "value": 36
+          },
+          "S": {
+            "value": 4
+          }
+        }
+      },
+      "Ranged Weapon§Cadian Recon Squad—Meltagun": {
+        "aspects": {
+          "Label": "Meltagun"
+        },
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Melta",
+              "stats": {
+                "x": {
+                  "value": "2"
+                }
+              }
+            }
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "AP": {
+            "value": -4
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "format": "D6",
+            "value": 0
+          },
+          "Range": {
+            "value": 12
+          },
+          "S": {
+            "value": 9
           }
         }
       },
@@ -47209,7 +47764,7 @@
       },
       "Roster§Roster": {
         "rules": {
-          "Only one Commisar Graves": {
+          "Only one Commissar Graves": {
             "evals": [
               {
                 "actionable": true,
@@ -58560,6 +59115,12 @@
       },
       "Wargear§Vox-caster": {
         "text": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6″: on a 5+, you gain 1CP."
+      },
+      "Wargear§Vox‑caster": {
+        "text": "Each time you target the bearer’s unit with a Stratagem, roll one D6, adding 1 to the result if there are one or more friendly Officer models within 6\": on a 5+, you gain 1CP"
+      },
+      "Wargear§Vox‑relay Beacon": {
+        "text": "At the start of the battle, you can set up one Vox‑relay Beacon token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. While a friendly Astra Militarum Regiment unit is within 6\" of that token, Officer units from your army can issue orders to that Regiment unit as if the Officer unit was within 6\" of it. At the end of every phase, If an enemy unit is within 1\" of a Vox‑relay Beacon token you set up, that token is removed from the battlefield."
       },
       "Weapon§Ogryn Bodyguard—Ripper gun": {
         "aspects": {
