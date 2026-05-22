@@ -1,6 +1,6 @@
 {
   "name": "Adeptus Mechanicus",
-  "revision": "10.12.17",
+  "revision": "10.12.18",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "Games Workshop",
@@ -17,6 +17,58 @@
   ],
   "rulebook": {
     "assetTaxonomy": {
+      "Character": {
+        "rules": {
+          "hideNonSupremeCommander": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tracked",
+                    "SCommander"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 26
+          }
+        }
+      },
       "Mission Record": {
         "stats": {
           "Agenda 1": {
@@ -648,29 +700,6 @@
             "Special"
           ]
         },
-        "rules": {
-          "setWarlord": {
-            "actions": [
-              {
-                "actionType": "set",
-                "iterations": 1,
-                "paths": [
-                  [
-                    "{parent}",
-                    "stats",
-                    "Warlord",
-                    "value"
-                  ]
-                ],
-                "value": "✓"
-              }
-            ],
-            "evals": [],
-            "evaluate": "AND",
-            "failState": "pass",
-            "order": 20
-          }
-        },
         "text": "If this model is in your army, it must be your Warlord."
       },
       "Ability§Sydonian Sentinel": {
@@ -1166,6 +1195,11 @@
             "Epic Hero"
           ]
         },
+        "removed": {
+          "rules": {
+            "hideNonSupremeCommander": {}
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1178,6 +1212,12 @@
           },
           "Points": {
             "value": 210
+          },
+          "SCommander": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "Sv": {
             "value": 2
@@ -1827,6 +1867,11 @@
             "Adeptus Mechanicus"
           ]
         },
+        "removed": {
+          "rules": {
+            "hideNonSupremeCommander": {}
+          }
+        },
         "stats": {
           "Ld": {
             "value": 6
@@ -1839,6 +1884,12 @@
           },
           "Points": {
             "value": 210
+          },
+          "SCommander": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 1,
+            "visibility": "hidden"
           },
           "Sv": {
             "value": 2
