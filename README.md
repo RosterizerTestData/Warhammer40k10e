@@ -2,7 +2,6 @@
 
 If you’re going to author stuff for 40k, it’s wise to make it similar in structure to other elements of the 40k rulebook.
 
-## 40k10Core
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e
 
 ## Combat_Patrol
@@ -11,49 +10,46 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Combat
 ## Imperium
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperium
 
-## Chaos
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos
-
-### Space_Marines
+### Adeptus Astartes / Space Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Space_Marines.rulebook
 
-### SM_Black_Templars
+#### Astartes: Black Templars
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Black_Templars.rulebook
 
-### SM_Blood_Angels
+#### Astartes: Blood Angels
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Blood_Angels.rulebook
 
-### SM_Dark_Angels
+#### Astartes: Dark Angels
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Dark_Angels.rulebook
 
-### SM_Deathwatch
+#### Astartes: Deathwatch
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Deathwatch.rulebook
 
-### SM_Space_Wolves
+#### Astartes: Space Wolves
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/SM_Space_Wolves.rulebook
 
-### Adepta_Sororitas
+### Adepta Sororitas
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.rulebook
 
-### Adeptus_Custodes
+### Adeptus Custodes
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Custodes.rulebook
 
-### Adeptus_Mechanicus
+### Adeptus Mechanicus
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Mechanicus.rulebook
 
-### Adeptus_Titanicus
+### Adeptus Titanicus
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adeptus_Titanicus.rulebook
 
-### Astra_Militarum
+### Astra Militarum / Imperial Guard
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Astra_Militarum.rulebook
 
-### Grey_Knights
+### Grey Knights
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Grey_Knights.rulebook
 
-### Imperial_Agents
+### Imperial Agents
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Agents.rulebook
 
-### Imperial_Knights
+### Imperial Knights
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.rulebook
 
 ### Chaos_Space_Marines
@@ -68,25 +64,30 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_
 ### Death_Guard
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.rulebook
 
-### Thousand_Sons
+## Chaos
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos
+
+### Thousand Sons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.rulebook
 
-### World_Eaters
+### World Eaters
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/World_Eaters.rulebook
 
 ### Emperor’s Children
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Emperor's_Children.rulebook
 
-### Titanicus_Traitoris
+### Titanicus Traitoris
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titanicus_Traitoris.rulebook
 
-### Aeldari/Drukhari common
+## Xenos
+
+### Aeldari / Drukhari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common
 
-### Aeldari
+#### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook
 
-### Drukhari
+#### Drukhari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Drukhari.rulebook
 
 ### Leagues_of_Votann
