@@ -84,7 +84,7 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titani
 ### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common
 
-#### CraftworldAeldari
+#### Craftworld Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook
 
 #### Drukhari
