@@ -81,10 +81,10 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Titani
 
 ## Xenos
 
-### Aeldari / Drukhari
+### Aeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common
 
-#### Aeldari
+#### CraftworldAeldari
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook
 
 #### Drukhari
