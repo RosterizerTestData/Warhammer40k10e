@@ -52,6 +52,9 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperi
 ### Imperial Knights
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.rulebook
 
+## Chaos
+https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos
+
 ### Chaos_Space_Marines
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_Space_Marines.rulebook
 
@@ -63,9 +66,6 @@ https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos_
 
 ### Death_Guard
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Death_Guard.rulebook
-
-## Chaos
-https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Chaos
 
 ### Thousand Sons
 https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Thousand_Sons.rulebook
